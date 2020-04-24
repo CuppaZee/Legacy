@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Text, View, Image, Platform } from 'react-native';
+import { Text, View, Image, Platform, Linking } from 'react-native';
 import {
   DrawerContentScrollView,
   DrawerItemList,
@@ -43,9 +43,12 @@ export default function CustomDrawerContent(props) {
   var more = [
     {title:t(`common:the_quest`),icon:"run",page:"LaQuest",disabled:true},
     {title:t(`common:settings`),icon:"settings",page:"Settings"},
+  ].filter(i=>!i.hide)
+  var about = [
     {title:t(`common:credits`),icon:"heart",page:"Credits",disabled:true},
     {title:t(`common:app_info`),icon:"information",page:"App Info",disabled:true},
-    {title:t(`common:donate`),icon:"coin",page:"Donate",disabled:true}
+    {title:t(`common:donate`),icon:"coin",page:"Donate",disabled:true},
+    {title:`GitHub`,icon:"github-circle",page:"https://github.com/CuppaZee/CuppaZee",link:true}
   ].filter(i=>!i.hide)
   return (
     <DrawerContentScrollView style={{backgroundColor: theme.navigation.bg}} {...props}>
@@ -140,12 +143,32 @@ export default function CustomDrawerContent(props) {
         focused={route.name==i.page}
         icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{marginRight: -24, marginLeft: 4, marginVertical: 4}} />}
         label={i.title}
-        onPress={i.disabled?null:() => nav.reset({
+        onPress={i.disabled?null:(i.link?()=>Linking.openURL(i.page):() => nav.reset({
             index: 1,
             routes: [
               { name: '__primary', params: {screen: i.page} },
             ],
-          })
+          }))
+        }
+      />)}
+      <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 18}}>
+        <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>About</Text>
+      </View>
+      {about.map?.(i=><DrawerItem
+        key={i.title}
+        activeBackgroundColor={theme.navigation.fg}
+        activeTintColor={theme.navigation.bg}
+        inactiveTintColor={theme.navigation.fg}
+        style={{marginVertical:0,opacity: i.disabled?0.6:1}}
+        focused={route.name==i.page}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{marginRight: -24, marginLeft: 4, marginVertical: 4}} />}
+        label={i.title}
+        onPress={i.disabled?null:(i.link?()=>Linking.openURL(i.page):() => nav.reset({
+            index: 1,
+            routes: [
+              { name: '__primary', params: {screen: i.page} },
+            ],
+          }))
         }
       />)}
       <View style={{paddingTop: 8, paddingLeft: 18, paddingBottom: 8}}>
