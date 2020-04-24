@@ -1,0 +1,57 @@
+{
+    "common": {
+        "dashboard": "kojelauta",
+        "search": "Etsi",
+        "map": "Kartta",
+        "tools": "Työkalut",
+        "settings": "Asetukset",
+        "authenticate": "Autentikoidu",
+        "auth_success": "Autentikointi onnistui",
+        "scanner": "",
+        "the_quest": "",
+        "maps": "",
+        "credits": "",
+        "app_info": "",
+        "donate": "",
+        "build_info": "",
+        "user": {
+            "one": "",
+            "other": ""
+        },
+        "clan": {
+            "one": "",
+            "other": ""
+        },
+        "more": ""
+    },
+    "activity": {
+        "user_captured": "{user} cappasi",
+        "user_deployed": "{user} deppasi",
+        "you_captured": "Cappasit",
+        "you_deployed": "Deppasit",
+        "by_user": "{user}",
+        "by_you": "sinä",
+        "total_point": {
+            "one": "{count} piste yht.",
+            "other": "{count} pistettä yht."
+        },
+        "capture": {
+            "one": "{count} cappaus",
+            "other": "{count} cappausta"
+        },
+        "deploy": {
+            "one": "{count} deppaus",
+            "other": "{count} deppausta"
+        },
+        "capon": {
+            "one": "{count} capon",
+            "other": "{count} caponia"
+        },
+        "point": {
+            "one": "{count} piste",
+            "other": "{count} pistettä"
+        },
+        "none": "Ei yhtään",
+        "user_today": "{user} tänään"
+    }
+}

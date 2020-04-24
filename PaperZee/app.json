@@ -1,0 +1,59 @@
+{
+  "expo": {
+    "name": "CuppaZee",
+    "owner": "sohcah",
+    "slug": "PaperZee",
+    "privacy": "public",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "githubUrl": "https://github.com/CuppaZee/PaperZee",
+    "scheme": "cuppazee",
+    "version": "1.0.6",
+    "orientation": "default",
+    "icon": "./assets/CuppaZeeIcon.png",
+    "splash": {
+      "image": "./assets/CuppaZeeSplash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#00C35B"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 30000
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAOiVpM8NwPruxhr-Dtx1_QyrPP6ecr9s8"
+        }
+      },
+      "package": "uk.cuppazee.paper",
+      "versionCode": 7,
+      "icon": "./assets/CuppaZeeIcon.png",
+      "adaptiveIcon": {
+        "backgroundColor": "#00C35B",
+        "foregroundImage": "./assets/CuppaZeeAndroid.png"
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "CAMERA",
+        "VIBRATE"
+      ]
+    },
+    "notification": {
+      "icon": "./assets/CuppaZeeNotification.png",
+      "color": "#00C35B",
+      "iosDisplayInForeground": true,
+      "androidMode": "default",
+      "androidCollapsedTitle": "#{unread_notifications} Alerts"
+    }
+  }
+}

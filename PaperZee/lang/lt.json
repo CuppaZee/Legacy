@@ -1,0 +1,64 @@
+{
+    "common": {
+        "dashboard": "Valdymas",
+        "search": "Paieška",
+        "map": "Žemėlapis",
+        "tools": "Įrankiai",
+        "settings": "Nustatymai",
+        "authenticate": "Užsiloginkite",
+        "auth_success": "Įsiloginta sėkmingai",
+        "scanner": "",
+        "the_quest": "",
+        "maps": "",
+        "credits": "",
+        "app_info": "",
+        "donate": "",
+        "build_info": "",
+        "user": {
+            "one": "",
+            "few": "",
+            "other": ""
+        },
+        "clan": {
+            "one": "",
+            "few": "",
+            "other": ""
+        },
+        "more": ""
+    },
+    "activity": {
+        "user_captured": "{user} sugavo",
+        "user_deployed": "{user} deployino",
+        "you_captured": "Jūs sugavote",
+        "you_deployed": "Jūs deployinote",
+        "by_user": "{user}",
+        "by_you": "jūsų",
+        "total_point": {
+            "one": "{count} taškas",
+            "few": "",
+            "other": "{count} taškų"
+        },
+        "capture": {
+            "one": "{count} sugauta",
+            "few": "",
+            "other": "{count} sugauta"
+        },
+        "deploy": {
+            "one": "{count} deployintas",
+            "few": "",
+            "other": "{count} deployinta"
+        },
+        "capon": {
+            "one": "{count} caponas",
+            "few": "",
+            "other": "{count} caponų"
+        },
+        "point": {
+            "one": "{count} taškas",
+            "few": "",
+            "other": "{count} taškų"
+        },
+        "none": "Nėra",
+        "user_today": "{user} Šiandien"
+    }
+}

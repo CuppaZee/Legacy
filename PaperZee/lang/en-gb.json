@@ -1,0 +1,57 @@
+{
+    "common": {
+        "dashboard": "Dashboard",
+        "search": "Search",
+        "map": "Map",
+        "tools": "Tools",
+        "settings": "Settings",
+        "authenticate": "Authenticate",
+        "auth_success": "Authentication Successful",
+        "scanner": "Scanner",
+        "the_quest": "The Quest",
+        "maps": "Maps",
+        "credits": "Credits",
+        "app_info": "App Info",
+        "donate": "Donate",
+        "build_info": "CuppaZee App Build {count}",
+        "user": {
+            "one": "User",
+            "other": "Users"
+        },
+        "clan": {
+            "one": "Clan",
+            "other": "Clans"
+        },
+        "more": "more"
+    },
+    "activity": {
+        "user_captured": "{user} captured",
+        "user_deployed": "{user} deployed",
+        "you_captured": "You captured",
+        "you_deployed": "You deployed",
+        "by_user": "by {user}",
+        "by_you": "by you",
+        "total_point": {
+            "one": "{count} Total Point",
+            "other": "{count} Total Points"
+        },
+        "capture": {
+            "one": "{count} Capture",
+            "other": "{count} Captures"
+        },
+        "deploy": {
+            "one": "{count} Deploy",
+            "other": "{count} Deploys"
+        },
+        "capon": {
+            "one": "{count} Capon",
+            "other": "{count} Capons"
+        },
+        "point": {
+            "one": "{count} Point",
+            "other": "{count} Points"
+        },
+        "none": "None",
+        "user_today": "{user} Today"
+    }
+}

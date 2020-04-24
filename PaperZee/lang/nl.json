@@ -1,0 +1,57 @@
+{
+    "common": {
+        "dashboard": "Dashboard\n",
+        "search": "Zoeken",
+        "map": "Kaart",
+        "tools": "Tools",
+        "settings": "Opties",
+        "authenticate": "Autorisatie",
+        "auth_success": "Autorisatie is succesvol",
+        "scanner": "",
+        "the_quest": "",
+        "maps": "",
+        "credits": "",
+        "app_info": "",
+        "donate": "",
+        "build_info": "",
+        "user": {
+            "one": "",
+            "other": ""
+        },
+        "clan": {
+            "one": "",
+            "other": ""
+        },
+        "more": ""
+    },
+    "activity": {
+        "user_captured": "{user} captured",
+        "user_deployed": "{user} deployed",
+        "you_captured": "captured",
+        "you_deployed": "deployed",
+        "by_user": "door {user}",
+        "by_you": "door jou",
+        "total_point": {
+            "one": "{count} Totaal aantal punten",
+            "other": "{count} Totaal aantal punten"
+        },
+        "capture": {
+            "one": "{count} Capture",
+            "other": "{count} Captures"
+        },
+        "deploy": {
+            "one": "{count} Deploy",
+            "other": "{count} Deploys"
+        },
+        "capon": {
+            "one": "{count} Capon",
+            "other": "{count} Capons"
+        },
+        "point": {
+            "one": "{count} Punt",
+            "other": "{count} Punten"
+        },
+        "none": "Geen",
+        "user_today": "{user} Vandaag"
+    }
+}

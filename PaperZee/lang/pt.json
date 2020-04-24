@@ -1,0 +1,57 @@
+{
+    "common": {
+        "dashboard": "Painel de Controle",
+        "search": "Procurar",
+        "map": "Mapa",
+        "tools": "Ferramentas",
+        "settings": "Configurações",
+        "authenticate": "",
+        "auth_success": "",
+        "scanner": "",
+        "the_quest": "",
+        "maps": "",
+        "credits": "",
+        "app_info": "",
+        "donate": "",
+        "build_info": "",
+        "user": {
+            "one": "",
+            "other": ""
+        },
+        "clan": {
+            "one": "",
+            "other": ""
+        },
+        "more": ""
+    },
+    "activity": {
+        "user_captured": "{user} Capturado",
+        "user_deployed": "{user} Implantado",
+        "you_captured": "Voce capturou",
+        "you_deployed": "Voce implantou",
+        "by_user": "por {user}",
+        "by_you": "por voce",
+        "total_point": {
+            "one": "{count} Ponto Total",
+            "other": "{count} Pontos Totais"
+        },
+        "capture": {
+            "one": "{count} Captura",
+            "other": "{count} Capturas"
+        },
+        "deploy": {
+            "one": "{count} Implantação",
+            "other": "{count} Implantações"
+        },
+        "capon": {
+            "one": "{count} Capon\n",
+            "other": "{count} Capons"
+        },
+        "point": {
+            "one": "{count} Ponto",
+            "other": "{count} Pontos"
+        },
+        "none": "Nenhum",
+        "user_today": ""
+    }
+}

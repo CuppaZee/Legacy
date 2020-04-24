@@ -1,0 +1,57 @@
+{
+    "common": {
+        "dashboard": "",
+        "search": "",
+        "map": "",
+        "tools": "",
+        "settings": "",
+        "authenticate": "",
+        "auth_success": "",
+        "scanner": "",
+        "the_quest": "",
+        "maps": "",
+        "credits": "",
+        "app_info": "",
+        "donate": "",
+        "build_info": "",
+        "user": {
+            "one": "",
+            "other": ""
+        },
+        "clan": {
+            "one": "",
+            "other": ""
+        },
+        "more": ""
+    },
+    "activity": {
+        "user_captured": "",
+        "user_deployed": "",
+        "you_captured": "",
+        "you_deployed": "",
+        "by_user": "",
+        "by_you": "",
+        "total_point": {
+            "one": "",
+            "other": ""
+        },
+        "capture": {
+            "one": "",
+            "other": ""
+        },
+        "deploy": {
+            "one": "",
+            "other": ""
+        },
+        "capon": {
+            "one": "",
+            "other": ""
+        },
+        "point": {
+            "one": "",
+            "other": ""
+        },
+        "none": "",
+        "user_today": ""
+    }
+}

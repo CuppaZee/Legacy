@@ -1,0 +1,104 @@
+- name: Destination
+  icon: destination
+  id: 170
+  destination: rooms
+  points:
+    capture: 40
+    deploy: 150
+    capon:
+      function: destination
+      base: 10
+      per_room: 10
+      if_full: 150
+  completion: complete
+  category: destination
+
+- name: Destination Room
+  icon: destinationroom
+  id: 171
+  destination: room
+  points:
+    capture: 16
+    deploy: 100
+    capon:
+      function: destination_room
+      points: 10
+      max_rooms: 10
+  completion: complete
+  category: destination
+
+
+- name: Topaz
+  icon: topaz
+  id: 242
+  jewel: true
+  state: physical
+  points:
+    capture:
+      function: split
+      points: 60
+      min: 15
+    deploy: 40
+    capon:
+      function: sub_capture
+      total: 60
+  completion: complete
+  category: jewel
+
+- icon*: string
+  redirect*: number
+
+- name*: string
+  icon*: string
+  id*: number
+
+  # Type Information
+  elemental: bool
+  trail: bool
+  event: bool
+  jewel: bool
+  weapon: string [clan/zeecret]
+  evolution:
+    stage: number
+    set: string [farm/education/nature/reseller]
+  destination:
+    type: string [rooms/room/bouncers]
+    max_rooms: number / array<number>
+  bouncer:
+    type: string [myth/pouch/flat/temp/retired/nomad/seasonal/alterna]
+    duration: number (hours)
+    lands_on: array<munzeeIdentifier>
+  zodiac:
+    type: string [western/chinese]
+    weekday: number [0-6]
+  scatters:
+    types: array<munzeeIdentifier>
+    radius: number (ft)
+    amount:
+      min: number
+      max: number
+  scatter:
+    type: string [standalone/land]
+    duration: number (hours)
+    lands_on: array<munzeeIdentifier>
+
+  # Extra Information
+  qrewzee: bool
+  blast: bool
+  swap: bool
+  magnet: string [physical/virtual]
+
+  # Generic Information
+  capture_radius: number (ft)
+  deploy_radius: number (ft)
+  state: string [physical/virtual/personal/locationless]
+  points:
+    modifier: points_modifier
+    capture: points_value
+    deploy: points_value
+    capture_on: points_value
+
+  # DB Completion Status
+  completion: string [nothing/missing_info/partial/complete]
+
+

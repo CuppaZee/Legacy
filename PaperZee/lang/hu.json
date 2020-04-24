@@ -1,0 +1,57 @@
+{
+    "common": {
+        "dashboard": "Műszerfal",
+        "search": "Keresés",
+        "map": "Térkép",
+        "tools": "Eszközök",
+        "settings": "Beállítások",
+        "authenticate": "Hitelesítés",
+        "auth_success": "Sikeres hitelesítés",
+        "scanner": "",
+        "the_quest": "",
+        "maps": "Térképek",
+        "credits": "Kreditek",
+        "app_info": "",
+        "donate": "",
+        "build_info": "",
+        "user": {
+            "one": "",
+            "other": ""
+        },
+        "clan": {
+            "one": "",
+            "other": ""
+        },
+        "more": ""
+    },
+    "activity": {
+        "user_captured": "{user} megtalálta",
+        "user_deployed": "{user} telepítette",
+        "you_captured": "Megtaláltad",
+        "you_deployed": "Telepítetted",
+        "by_user": ":",
+        "by_you": "Saját",
+        "total_point": {
+            "one": "{count} Össz pont\n",
+            "other": "{count} Össz pont"
+        },
+        "capture": {
+            "one": "{count} Megtalálás",
+            "other": "{count} Megtalálás"
+        },
+        "deploy": {
+            "one": "{count} Telepítés",
+            "other": "{count} Telepítés"
+        },
+        "capon": {
+            "one": "{count} Capon",
+            "other": "{count} Capon"
+        },
+        "point": {
+            "one": "{count} Pont",
+            "other": "{count} Pont"
+        },
+        "none": "Nincs",
+        "user_today": "Ma"
+    }
+}

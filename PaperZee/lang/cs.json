@@ -1,0 +1,64 @@
+{
+    "common": {
+        "dashboard": "Domů",
+        "search": "Hledat",
+        "map": "Mapa",
+        "tools": "Nástroje",
+        "settings": "Nastavení",
+        "authenticate": "Přihlásit se",
+        "auth_success": "Přihlášení úspěšné",
+        "scanner": "",
+        "the_quest": "",
+        "maps": "",
+        "credits": "",
+        "app_info": "",
+        "donate": "",
+        "build_info": "",
+        "user": {
+            "one": "",
+            "few": "",
+            "other": ""
+        },
+        "clan": {
+            "one": "",
+            "few": "",
+            "other": ""
+        },
+        "more": ""
+    },
+    "activity": {
+        "user_captured": "{user} zachytil",
+        "user_deployed": "{user} umístil",
+        "you_captured": "Zachytil jste",
+        "you_deployed": "Umístil jste",
+        "by_user": "uživatelem {user}",
+        "by_you": "vámi",
+        "total_point": {
+            "one": "{count} bod dohromady",
+            "few": "{count} body dohromady",
+            "other": "{count} bodů dohromady"
+        },
+        "capture": {
+            "one": "{count} zachycení",
+            "few": "{count} zachycení",
+            "other": "{count} zachycení"
+        },
+        "deploy": {
+            "one": "{count} umístění",
+            "few": "{count} umístění",
+            "other": "{count} umístění"
+        },
+        "capon": {
+            "one": "{count} zachycení vlastní",
+            "few": "{count} zachycení vlastních",
+            "other": "{count} zachycení vlastních"
+        },
+        "point": {
+            "one": "{count} bod",
+            "few": "{count} body",
+            "other": "{count} bodů"
+        },
+        "none": "Nic",
+        "user_today": "{user} dnes"
+    }
+}

@@ -1,0 +1,57 @@
+{
+    "common": {
+        "dashboard": "Tableau de bord",
+        "search": "Rechercher",
+        "map": "Carte",
+        "tools": "Outils",
+        "settings": "Paramètres",
+        "authenticate": "s'authentifier",
+        "auth_success": "",
+        "scanner": "",
+        "the_quest": "",
+        "maps": "",
+        "credits": "",
+        "app_info": "",
+        "donate": "",
+        "build_info": "",
+        "user": {
+            "one": "",
+            "other": ""
+        },
+        "clan": {
+            "one": "",
+            "other": ""
+        },
+        "more": ""
+    },
+    "activity": {
+        "user_captured": "Captures {user}",
+        "user_deployed": "Déploiements {user}",
+        "you_captured": "Vous avez capturé",
+        "you_deployed": "Vous avez déployé",
+        "by_user": "par {user}",
+        "by_you": "par vous",
+        "total_point": {
+            "one": "{count} Point total",
+            "other": "{count} Points totaux"
+        },
+        "capture": {
+            "one": "{count} Capture",
+            "other": "{count} Captures"
+        },
+        "deploy": {
+            "one": "{count} Déploiement",
+            "other": "{count} Déploiements"
+        },
+        "capon": {
+            "one": "{count} Capon",
+            "other": "{count} Capons"
+        },
+        "point": {
+            "one": "{count} Point",
+            "other": "{count} Points"
+        },
+        "none": "Aucun",
+        "user_today": ""
+    }
+}
