@@ -2,12 +2,10 @@ import * as React from 'react'
 import { Text, View, Image, Platform, Linking } from 'react-native';
 import {
   DrawerContentScrollView,
-  DrawerItemList,
   DrawerItem
 } from '@react-navigation/drawer';
 import { useSelector } from 'react-redux';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
 export default function CustomDrawerContent(props) {
@@ -52,9 +50,6 @@ export default function CustomDrawerContent(props) {
   ].filter(i=>!i.hide)
   return (
     <DrawerContentScrollView style={{backgroundColor: theme.navigation.bg}} {...props}>
-      {/* <View style={{paddingTop: 8, paddingLeft: 18}}>
-        <Text style={{fontSize:16,fontWeight:"bold",color:theme.navigation.fg}}>The menu design is likely to change. Feel free to send feedback.</Text>
-      </View> */}
       {pages.map?.(i=><DrawerItem
         key={i.title}
         activeBackgroundColor={theme.navigation.fg}
@@ -174,7 +169,6 @@ export default function CustomDrawerContent(props) {
       <View style={{paddingTop: 8, paddingLeft: 18, paddingBottom: 8}}>
         <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:4})}</Text>
       </View>
-      {/* <DrawerItemList activeBackgroundColor="#016930" activeTintColor="#ffffff" itemStyle={{marginVertical:0}} {...props} /> */}
     </DrawerContentScrollView>
   );
 }

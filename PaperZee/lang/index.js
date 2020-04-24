@@ -9,11 +9,17 @@ import nl from './nl.json'
 import pt from './pt.json'
 import sv from './sv.json'
 
+var plural_list = ["","_plural"]
+
 function x(obj, key){
     var a = {};
     if(obj.other) {
         for(var i = 0;i < Object.keys(obj).length;i++) {
-            a[`${key}_${i}`] = Object.values(obj)[i];
+            if(Object.keys(obj).length==2) {
+                if(Object.values(obj)[i]) a[`${key}${plural_list[i]}`] = Object.values(obj)[i].replace(/{([a-z0-9_]+)}/g,'{{$1}}');
+            } else {
+                if(Object.values(obj)[i]) a[`${key}_${i}`] = Object.values(obj)[i].replace(/{([a-z0-9_]+)}/g,'{{$1}}');
+            }
         }
     } else {
         a[key] = {};
@@ -30,10 +36,12 @@ function x(obj, key){
 }
 // Converts to i18next plural format
 
+console.log(x(en_gb,"a").a)
+
 export default {
     cs:x(cs,"a").a,
     de:x(de,"a").a,
-    en_gb:x(en_gb,"a").a,
+    "en-GB":x(en_gb,"a").a,
     fi:x(fi,"a").a,
     fr:x(fr,"a").a,
     hu:x(hu,"a").a,

@@ -26,6 +26,7 @@
     "react-google-maps": "^9.4.5",
     "react-i18next": "^11.3.5",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.0.tar.gz",
+    "react-native-flags": "^1.0.0",
     "react-native-gesture-handler": "~1.6.0",
     "react-native-maps": "0.26.1",
     "react-native-paper": "^3.6.0",

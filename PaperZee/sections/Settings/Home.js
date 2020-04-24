@@ -1,9 +1,12 @@
 import * as React from 'react';
-import { Button, Text, View, Platform, Image } from 'react-native';
+import { Button, Text, View, Platform, Image, AsyncStorage } from 'react-native';
+import { Button as MaterialButton } from 'react-native-paper';
 import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from "react-redux";
 import Card from '../Shared/Card';
 import s from "~store";
+import { useTranslation } from 'react-i18next';
+import Flag from 'react-native-flags';
 var { setTheme } = s;
 
 function forceReload() {
@@ -21,11 +24,31 @@ function forceReload() {
 }
 
 export default function SettingsScreen({ navigation }) {
+  var {t,i18n} = useTranslation();
   var logins = useSelector(i=>i.logins);
   var themes = useSelector(i=>i.themes);
   var theme = useSelector(i=>i.themes[i.theme]);
   var dispatch = useDispatch();
   var {width,height} = useDimensions().window;
+
+  function setLang(lang) {
+    i18n.changeLanguage(lang);
+    AsyncStorage.setItem('LANG',lang);
+  }
+
+  var languages = [
+    {code:'cs',name:'Čeština',flag:"CZ"},
+    // {code:'de',name:'Deutsch'},
+    {code:'en-GB',name:'English (UK)'},
+    {code:'fi',name:'Suomen Kieli'},
+    {code:'fr',name:'Français'},
+    {code:'hu',name:'Magyar Nyelv'},
+    {code:'lt',name:'Lietuvių Kalba'},
+    {code:'nl',name:'Nederlands'},
+    {code:'pt',name:'Português'},
+    // {code:'sv',name:'Svenska'}
+  ]
+
   return (
     <View style={{ flex: 1, backgroundColor: theme.page.bg, justifyContent: 'center', alignItems: 'center' }}>
       <View style={{flex: 1, width:width>800?"50%":"100%",padding:4}}>
@@ -72,6 +95,19 @@ export default function SettingsScreen({ navigation }) {
               title="AMOLED Dark Mode"
               onPress={() => dispatch(setTheme("xdark"))}
             />
+          </View>
+
+          <View style={{flexDirection:"row",flexWrap:"wrap",paddingTop:4}}>
+            {languages.map(i=><View style={{padding:4}}>
+              <MaterialButton
+                mode="contained"
+                backgroundColor={theme.navigation.fg}
+                style={theme.page_content.border?{borderColor:"white",borderWidth:1}:{}}
+                color={theme.navigation.bg}
+                onPress={() => setLang(i.code)}
+                icon={()=><Flag size={24} code={i.flag||i.code.slice(-2).toUpperCase()} type="flat"/>}
+              >{i.name}</MaterialButton>
+            </View>)}
           </View>
         </Card>
       </View>
