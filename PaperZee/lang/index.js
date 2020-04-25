@@ -36,8 +36,6 @@ function x(obj, key){
 }
 // Converts to i18next plural format
 
-console.log(x(en_gb,"a").a)
-
 export default {
     cs:x(cs,"a").a,
     de:x(de,"a").a,

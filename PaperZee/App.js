@@ -5,29 +5,44 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Provider as ReduxProvider, useSelector, useDispatch } from 'react-redux';
 import s from '~store/index';
 import './lang/i18n';
+import loadable from '@loadable/component';
 var { store, login, setCurrentRoute } = s;
 
+import LoadingPage from './sections/Shared/LoadingPage';
+
 // Clan Screens
-import AllClansScreen from './sections/Clan/All';
-import ClanDetailsScreen from './sections/Clan/Details';
-import ClanSearchScreen from './sections/Clan/Search';
+// import AllClansScreen from './sections/Clan/All';
+const AllClansScreen = loadable(() => import('./sections/Clan/All'),{fallback: <LoadingPage/>})
+// import ClanDetailsScreen from './sections/Clan/Details';
+const ClanDetailsScreen = loadable(() => import('./sections/Clan/Details'),{fallback: <LoadingPage/>})
+// import ClanSearchScreen from './sections/Clan/Search';
+const ClanSearchScreen = loadable(() => import('./sections/Clan/Search'),{fallback: <LoadingPage/>})
 
 // Scanner Screens
-import ScannerScreen from './sections/Scanner/Home';
+// import ScannerScreen from './sections/Scanner/Home';
+const ScannerScreen = loadable(() => import('./sections/Scanner/Home'),{fallback: <LoadingPage/>})
 
 // Settings Screens
-import SettingsScreen from './sections/Settings/Home';
+// import SettingsScreen from './sections/Settings/Home';
+const SettingsScreen = loadable(() => import('./sections/Settings/Home'),{fallback: <LoadingPage/>})
 
 // Tools Screens
-import ToolsScreen from './sections/Tools/Home';
+// import ToolsScreen from './sections/Tools/Home';
+const ToolsScreen = loadable(() => import('./sections/Tools/Home'),{fallback: <LoadingPage/>})
 
 // Maps Screens
-import MapScreen from './sections/Maps/Home';
+// import MapScreen from './sections/Maps/Home';
+const MapScreen = loadable(() => import('./sections/Maps/Home'),{fallback: <LoadingPage/>})
 
 // User Screens
-import UserDetailsScreen from './sections/User/Details';
-import UserActivityScreen from './sections/User/Activity';
-import UserSearchScreen from './sections/User/Search';
+// import UserDetailsScreen from './sections/User/Details';
+const UserDetailsScreen = loadable(() => import('./sections/User/Details'),{fallback: <LoadingPage/>})
+// import UserActivityScreen from './sections/User/Activity';
+const UserActivityScreen = loadable(() => import('./sections/User/Activity'),{fallback: <LoadingPage x="page_content"/>})
+// import UserSearchScreen from './sections/User/Search';
+const UserSearchScreen = loadable(() => import('./sections/User/Search'),{fallback: <LoadingPage/>})
+// import UserInventoryScreen from './sections/User/Inventory';
+const UserInventoryScreen = loadable(() => import('./sections/User/Inventory'),{fallback: <LoadingPage x="page_content"/>})
 
 // Navigation Sections
 import DrawerContent from './sections/Navigation/Drawer';
@@ -39,7 +54,6 @@ import WebView from 'react-native-webview';
 import { Linking } from 'expo';
 
 import { useDimensions } from '@react-native-community/hooks';
-import UserInventoryScreen from './sections/User/Inventory';
 
 const Drawer = createDrawerNavigator();
 
@@ -313,7 +327,6 @@ function App() {
       })
       .then(state => {
         if (state !== undefined) {
-          console.log('Initial Route',state?.routes?.[0]?.state?.routes?.slice?.()?.reverse?.()?.[0]);
           setTimeout(()=>dispatch(setCurrentRoute(state?.routes?.[0]?.state?.routes?.slice?.()?.reverse?.()?.[0]??{})),100);
           setInitialState(state);
         }
