@@ -7,22 +7,22 @@
         "settings": "Opties",
         "authenticate": "Autorisatie",
         "auth_success": "Autorisatie is succesvol",
-        "scanner": "",
-        "the_quest": "",
-        "maps": "",
-        "credits": "",
-        "app_info": "",
-        "donate": "",
-        "build_info": "",
+        "scanner": "Scanner",
+        "the_quest": "De uitdaging",
+        "maps": "Maps",
+        "credits": "Credits",
+        "app_info": "App Info",
+        "donate": "Doneren",
+        "build_info": "CuppaZee App Versie {count}",
         "user": {
-            "one": "",
-            "other": ""
+            "one": "Gebruiker",
+            "other": "Gebruikers"
         },
         "clan": {
-            "one": "",
-            "other": ""
+            "one": "Clan",
+            "other": "Clans"
         },
-        "more": ""
+        "more": "meer"
     },
     "activity": {
         "user_captured": "{user} captured",
