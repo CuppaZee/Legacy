@@ -38,6 +38,7 @@ import WebView from 'react-native-webview';
 import { Linking } from 'expo';
 
 import { useDimensions } from '@react-native-community/hooks';
+import UserInventoryScreen from './sections/User/Inventory';
 
 const Drawer = createDrawerNavigator();
 
@@ -47,7 +48,7 @@ function RedirectScreen() {
   var nav = useNavigation();
   var users = useSelector(i=>Object.keys(i.logins??{}));
   if(users && users[0]) {
-    nav.replace('UserActivity',{userid:Number(users[0])});
+    nav.replace('UserDetails',{userid:Number(users[0])});
   }
   return <Text>_redirect</Text>;
 }
@@ -199,6 +200,13 @@ function StackNav () {
         }}
         component={UserActivityScreen}
       />
+      <Stack.Screen
+        name="UserInventory"
+        options={{
+          title: 'User Inventory',
+        }}
+        component={UserInventoryScreen}
+      />
     </>}
     <Stack.Screen
       name="Auth"
@@ -255,12 +263,6 @@ function App() {
               clanid: Number
             }
           },
-          UserDetails: {
-            path: 'user/:userid',
-            parse: {
-              userid: Number
-            }
-          },
           UserActivity: {
             path: 'user/:userid/activity',
             parse: {
@@ -269,6 +271,12 @@ function App() {
           },
           UserInventory: {
             path: 'user/:userid/inventory',
+            parse: {
+              userid: Number
+            }
+          },
+          UserDetails: {
+            path: 'user/:userid',
             parse: {
               userid: Number
             }

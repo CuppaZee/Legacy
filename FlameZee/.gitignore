@@ -16,7 +16,7 @@ firebase-debug.log*
 # it commented so all members can deploy to the same project(s) in .firebaserc.
 .firebaserc
 
-public
+# public
 paper
 /clan
 down

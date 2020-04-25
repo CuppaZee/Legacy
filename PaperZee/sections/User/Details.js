@@ -14,6 +14,7 @@ export default function DetailsScreen({route}) {
   var {t} = useTranslation();
   var nav = useNavigation();
   var theme = useSelector(i=>i.themes[i.theme]);
+  var logins = useSelector(i=>i.logins);
   var user_id = Number(route.params.userid)
   var { data } = useSelector(i => i.request_data[`user/details?user_id=${user_id}`] ?? {})
   useFocusEffect(
@@ -59,6 +60,14 @@ export default function DetailsScreen({route}) {
               <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/clan_logos/${data?.data?.clan?.id?.toString?.(36)}.png` }} style={{ width: 24, height: 24, borderRadius: 12 }} />
               <Text style={{paddingLeft: 4, fontWeight:"bold",fontSize:16,flex:1,color: theme.page_content.fg}}>{data?.data?.clan?.name}</Text>
               <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
+            </View>
+          </TouchableRipple>
+          <TouchableRipple disabled={!logins[user_id]} onPress={()=>nav.navigate('UserInventory',{userid:user_id})}>
+            <View style={{padding:8, flexDirection: "row",alignItems:"center"}}>
+              <MaterialCommunityIcons name="package" size={24} color={theme.page_content.fg} />
+              {/* <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/clan_logos/${data?.data?.clan?.id?.toString?.(36)}.png` }} style={{ width: 24, height: 24, borderRadius: 12 }} /> */}
+              <Text style={{paddingLeft: 4, fontWeight:"bold",fontSize:16,flex:1,color: theme.page_content.fg}}>Inventory</Text>
+              <MaterialCommunityIcons name={logins[user_id]?'chevron-right':'lock'} size={24} color={theme.page_content.fg} />
             </View>
           </TouchableRipple>
         </Card>

@@ -47,7 +47,7 @@ export default function UserActivityDash({user_id}) {
   var date = new Date(Date.now() - (5 * 60 * 60000));
   var dateString = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${(date.getUTCDate()).toString().padStart(2, '0')}`
   var dispatch = useDispatch();
-  var {username} = useSelector(i => i.logins[user_id]);
+  // var {username} = useSelector(i => i.logins[user_id]);
   var { data } = useSelector(i => i.request_data[`user/activity?user_id=${user_id}&day=${dateString}`]) ?? {}
   // var { data: userdata } = useSelector(i => i.request_data[`user/details?user_id=${user_id}`] ?? {})
   useFocusEffect(
