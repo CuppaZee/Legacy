@@ -166,7 +166,7 @@ export default function CustomDrawerContent(props) {
         }
       />)}
       <View style={{paddingTop: 8, paddingLeft: 18, paddingBottom: 8}}>
-        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:6})}</Text>
+        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:7})}</Text>
       </View>
     </DrawerContentScrollView>
   );
