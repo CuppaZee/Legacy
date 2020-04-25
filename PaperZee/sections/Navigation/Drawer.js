@@ -106,7 +106,7 @@ export default function CustomDrawerContent(props) {
           })
         }
       />
-      {/* <DrawerItem
+      <DrawerItem
         activeBackgroundColor={theme.navigation.fg}
         activeTintColor={theme.navigation.bg}
         inactiveTintColor={theme.navigation.fg}
@@ -124,7 +124,7 @@ export default function CustomDrawerContent(props) {
             ],
           })
         }
-      /> */}
+      />
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 18}}>
         <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>{t('common:more')}</Text>
       </View>
@@ -166,7 +166,7 @@ export default function CustomDrawerContent(props) {
         }
       />)}
       <View style={{paddingTop: 8, paddingLeft: 18, paddingBottom: 8}}>
-        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:7})}</Text>
+        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:8})}</Text>
       </View>
     </DrawerContentScrollView>
   );

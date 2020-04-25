@@ -63,29 +63,24 @@ export default function SearchScreen({ navigation }) {
             value={value}
             returnKeyType="search"
           />
-          <IconButton onPress={()=>setSearch(value)} style={{backgroundColor: "#016930"}} icon="magnify" color="#fff" />
+          <IconButton onPress={()=>setSearch(value)} style={{backgroundColor: theme.navigation.bg}} icon="magnify" color={theme.navigation.fg} />
         </Card>
       </View>
       <View style={{padding:4}}>
         <Card noPad>
           <View>
-            {/* <View style={{padding: 4}}>
-              <Text style={{fontWeight:"bold",fontSize:20}}>Clans</Text>
-            </View> */}
-            {/* <ScrollView style={{maxHeight:400}}> */}
-            {!search&&<Text style={{textAlign:"center",fontWeight:"bold",fontSize:16}}>Search for a Clan</Text>}
-            {!!search&&!clans?.data&&<Text style={{textAlign:"center",fontWeight:"bold",fontSize:16}}>Loading...</Text>}
+            {!search&&<Text style={{textAlign:"center",fontWeight:"bold",fontSize:16,color:theme.page_content.fg}}>Search for a Clan</Text>}
+            {!!search&&!clans?.data&&<Text style={{textAlign:"center",fontWeight:"bold",fontSize:16,color:theme.page_content.fg}}>Loading...</Text>}
             {clans?.data?.slice?.(0,20)?.map?.(i=><View key={i.clan_id} style={{padding: 4, flexDirection: "row", alignItems: "center"}}>
-              {!clanBookmarks.find(x=>x.clan_id==i.clan_id)&&<IconButton size={32} onPress={()=>addClan(i)} icon="bookmark-plus" color="#016930" />}
-              {!!clanBookmarks.find(x=>x.clan_id==i.clan_id)&&<IconButton size={32} onPress={()=>removeClan(i)} icon="bookmark-minus" color="#ff2222" />}
+              {!clanBookmarks.find(x=>x.clan_id==i.clan_id)&&<IconButton size={24} onPress={()=>addClan(i)} icon="bookmark-plus" color="#016930" />}
+              {!!clanBookmarks.find(x=>x.clan_id==i.clan_id)&&<IconButton size={24} onPress={()=>removeClan(i)} icon="bookmark-minus" color="#ff2222" />}
               <Image style={{height:24,width:24,marginRight:8,marginLeft:-8,borderRadius:8}} source={{uri:i.logo??`https://munzee.global.ssl.fastly.net/images/clan_logos/${Number(i.clan_id).toString(36)}.png`}} />
               <View style={{flex:1}}>
-                <Text style={{fontWeight:"bold",fontSize:16}}>{i.name}</Text>
-                <Text style={{fontWeight:"bold",fontSize:12}}>{i.tagline}</Text>
+                <Text style={{fontWeight:"bold",fontSize:16,color:theme.page_content.fg}}>{i.name}</Text>
+                <Text style={{fontWeight:"bold",fontSize:12,color:theme.page_content.fg}}>{i.tagline}</Text>
               </View>
-              <IconButton size={24} onPress={()=>navigation.navigate('Clan',{clanid:i.clan_id})} icon="chevron-right" color="#016930" />
+              <IconButton size={24} onPress={()=>navigation.navigate('Clan',{clanid:i.clan_id})} icon="chevron-right" color={theme.page_content.fg} />
             </View>)}
-            {/* </ScrollView> */}
           </View>
         </Card>
       </View>
