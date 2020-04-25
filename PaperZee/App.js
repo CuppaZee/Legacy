@@ -25,6 +25,7 @@ import ToolsScreen from './sections/Tools/Home';
 import MapScreen from './sections/Maps/Home';
 
 // User Screens
+import UserDetailsScreen from './sections/User/Details';
 import UserActivityScreen from './sections/User/Activity';
 
 // Navigation Sections
@@ -182,6 +183,13 @@ function StackNav () {
         component={ClanDetailsScreen}
       />
       <Stack.Screen
+        name="UserDetails"
+        options={{
+          title: 'User Details',
+        }}
+        component={UserDetailsScreen}
+      />
+      <Stack.Screen
         name="UserActivity"
         options={{
           title: 'User Activity',
@@ -242,6 +250,12 @@ function App() {
             path: 'clan/:clanid',
             parse: {
               clanid: Number
+            }
+          },
+          UserDetails: {
+            path: 'user/:userid',
+            parse: {
+              userid: Number
             }
           },
           UserActivity: {

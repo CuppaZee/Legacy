@@ -78,11 +78,11 @@ export default function CustomDrawerContent(props) {
         style={{marginVertical:0}}
         icon={({ focused, color, size }) => <Image style={{height: 32, width: 32, marginRight: -28, borderRadius: 16}} source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i[0]||0).toString(36)}.png`}} />}
         label={i[1].username||""}
-        focused={route.name=="UserActivity"&&route.params?.userid==Number(i[0])}
+        focused={route.name?.startsWith?.('User')&&route.params?.userid==Number(i[0])}
         onPress={() => nav.reset({
             index: 1,
             routes: [
-              { name: '__primary', params: {screen: "UserActivity", params: {userid: Number(i[0])}} },
+              { name: '__primary', params: {screen: "UserDetails", params: {userid: Number(i[0])}} },
             ],
           })
         }
@@ -167,7 +167,7 @@ export default function CustomDrawerContent(props) {
         }
       />)}
       <View style={{paddingTop: 8, paddingLeft: 18, paddingBottom: 8}}>
-        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:4})}</Text>
+        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:5})}</Text>
       </View>
     </DrawerContentScrollView>
   );

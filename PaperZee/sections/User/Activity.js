@@ -7,6 +7,7 @@ import { useNavigation, useFocusEffect, useRoute } from '@react-navigation/nativ
 import { useDispatch, useSelector } from 'react-redux';
 import { useCardAnimation } from '@react-navigation/stack';
 import { useTranslation } from 'react-i18next';
+import ActivityOverview from './ActivityOverview'
 
 var countup = (t) => (a, b) => {
   a[b[t]] = (a[b[t]] || 0) + 1;
@@ -76,50 +77,7 @@ export default function UserActivityScreen() {
       contentContainerStyle={{ width: 500, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center" }}
       style={{ flex: 1, backgroundColor: theme.page_content.bg }}
       data={[
-        <View key="total" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-          <View><Text style={{ fontSize: 24, fontWeight: "bold", color: theme.page_content.fg }}>
-            {t('activity:point',{count:[...data.data.captures, ...data.data.deploys, ...data.data.captures_on].reduce((a, b) => a + Number(b.points_for_creator ?? b.points), 0)})}
-          </Text></View>
-        </View>,
-        <View key="captures" style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
-          <View><Text style={{ color: theme.page_content.fg, fontSize: 20, fontWeight: "bold" }}>
-            {t('activity:capture',{count:data.data.captures.filter(i=>!isRenovation(i)).length})} - {t('activity:point',{count:data.data.captures.filter(i=>!isRenovation(i)).reduce((a, b) => a + Number(b.points), 0)})}
-          </Text></View>
-          <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-            {
-              count(data.data.captures.filter(i=>!isRenovation(i)), "pin").map(cap => <View key={cap[0]} style={{ padding: 2, alignItems: "center" }}>
-                <Image style={{ height: 32, width: 32 }} source={{ uri: cap[0] }} />
-                <Text style={{ color: theme.page_content.fg }}>{cap[1]}</Text>
-              </View>)
-            }
-          </View>
-        </View>,
-        <View key="deploys" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-          <View style={{ paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#a5fffc', borderRadius: 0 }}><Text style={{ color: theme.page_content.fg, fontSize: 20, fontWeight: "bold" }}>
-            {t('activity:deploy',{count:data.data.deploys.length})} - {t('activity:point',{count:data.data.deploys.reduce((a, b) => a + Number(b.points), 0)})}
-          </Text></View>
-          <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-            {
-              count(data.data.deploys, "pin").map(dep => <View key={dep[0]} style={{ padding: 2, alignItems: "center" }}>
-                <Image style={{ height: 32, width: 32 }} source={{ uri: dep[0] }} />
-                <Text style={{ color: theme.page_content.fg }}>{dep[1]}</Text>
-              </View>)
-            }
-          </View>
-        </View>,
-        <View key="capons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-          <View style={{ paddingLeft: 8, paddingRight: 8, borderRadius: 8 }}><Text style={{ color: theme.page_content.fg, fontSize: 20, fontWeight: "bold" }}>
-          {t('activity:capon',{count:data.data.captures_on.filter(i=>!isRenovation(i)).length})} - {t('activity:point',{count:data.data.captures_on.filter(i=>!isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0)})}
-          </Text></View>
-          <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-            {
-              count(data.data.captures_on.filter(i=>!isRenovation(i)), "pin").map(cap => <View key={cap[0]} style={{ padding: 2, alignItems: "center" }}>
-                <Image style={{ height: 32, width: 32 }} source={{ uri: cap[0] }} />
-                <Text style={{ color: theme.page_content.fg }}>{cap[1]}</Text>
-              </View>)
-            }
-          </View>
-        </View>,
+        <ActivityOverview user_id={user_id}/>,
         data.data.captures.filter(i=>isRenovation(i)).length?<View key="renovations" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
           <View style={{ paddingLeft: 8, paddingRight: 8, borderRadius: 8 }}><Text style={{ color: theme.page_content.fg, fontSize: 20, fontWeight: "bold" }}>{data.data.captures.filter(i=>isRenovation(i)).length} Renovation{data.data.captures.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.data.captures.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points), 0)} Points</Text></View>
         </View>:1234,
