@@ -11,29 +11,12 @@ import { useTranslation } from 'react-i18next';
 export default function CustomDrawerContent(props) {
   var {t} = useTranslation();
   var theme = useSelector(i=>i.themes[i.theme]);
-  var dash = useSelector(i=>i.dash);
+  var clanBookmarks = useSelector(i=>i.clanBookmarks);
   var users = useSelector(i=>Object.entries(i.logins));
   var route = useSelector(i=>i.route);
   var nav = props.navigation;
-  
-  var allclans = [
-    [1349, "The Cup of Coffee Clan"],
-    [457, "The Cup of Tea Clan"],
-    [1441, "The Cup of Cocoa Clan"],
-    [1902, "The Cup of Hot Chocolate Clan"],
-    [1870, "The Cup of Horlicks Clan"],
-    [-1, "CuppaClans Shadow Crew"],
-    [1493, "Bushrangers Pistol"],
-    [1605, "Bushrangers Gin"],
-    [-2, "Bushrangers Shadow"],
-    [251, "ALLSTARS"],
-    [1695, "ALLSTARS II"],
-    [1793, "Hjælp, jeg er en fisk!"],
-    [1551, "Cockers"],
-    [19, "Maryland Munzee Militia (HC)"]
-  ];
   var pages = [
-    {title:t(`common:search`),icon:"magnify",page:"Search"},
+    {title:t(`common:search`),icon:"magnify",page:"Search",hide:true},
     {title:t(`common:maps`),icon:"map",page:"Map"},
     {title:t(`common:tools`),icon:"wrench",page:"Tools"},
     {title:t(`common:scanner`),icon:"qrcode",page:"Scanner",hide:Platform.OS==="web"}
@@ -90,15 +73,15 @@ export default function CustomDrawerContent(props) {
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 18}}>
         <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>Clans</Text>
       </View>
-      {dash?.map?.(i=><DrawerItem
+      {clanBookmarks?.map?.(i=><DrawerItem
         key={`clan_${i.clan_id}`}
         activeBackgroundColor={theme.navigation.fg}
         activeTintColor={theme.navigation.bg}
         inactiveTintColor={theme.navigation.fg}
         style={{marginVertical:0}}
         focused={route.name=="Clan"&&route.params?.clanid==Number(i.clan_id)}
-        icon={({ focused, color, size }) => <Image style={{height: 32, width: 32, marginRight: -28, borderRadius: 16}} source={{uri:`https://munzee.global.ssl.fastly.net/images/clan_logos/${(i.clan_id||0).toString(36)}.png`}} />}
-        label={(allclans.find(x=>x[0]==i.clan_id)||[0,i.clan_id||"?"])[1].toString()}
+        icon={({ focused, color, size }) => <Image style={{height: 32, width: 32, marginRight: -28, borderRadius: 16}} source={{uri:i.logo??`https://munzee.global.ssl.fastly.net/images/clan_logos/${(i.clan_id||0).toString(36)}.png`}} />}
+        label={i.name}
         onPress={() => nav.reset({
             index: 1,
             routes: [
@@ -108,6 +91,22 @@ export default function CustomDrawerContent(props) {
         }
       />)}
       <DrawerItem
+        activeBackgroundColor={theme.navigation.fg}
+        activeTintColor={theme.navigation.bg}
+        inactiveTintColor={theme.navigation.fg}
+        style={{marginVertical:0}}
+        focused={route.name=="ClanSearch"}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name="magnify" color={color} size={24} style={{marginRight: -24, marginLeft: 4, marginVertical: 4}} />}
+        label="Search"
+        onPress={() => nav.reset({
+            index: 1,
+            routes: [
+              { name: '__primary', params: {screen: "ClanSearch"} },
+            ],
+          })
+        }
+      />
+      {/* <DrawerItem
         activeBackgroundColor={theme.navigation.fg}
         activeTintColor={theme.navigation.bg}
         inactiveTintColor={theme.navigation.fg}
@@ -125,7 +124,7 @@ export default function CustomDrawerContent(props) {
             ],
           })
         }
-      />
+      /> */}
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 18}}>
         <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>{t('common:more')}</Text>
       </View>
@@ -167,7 +166,7 @@ export default function CustomDrawerContent(props) {
         }
       />)}
       <View style={{paddingTop: 8, paddingLeft: 18, paddingBottom: 8}}>
-        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:5})}</Text>
+        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:6})}</Text>
       </View>
     </DrawerContentScrollView>
   );

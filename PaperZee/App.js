@@ -152,10 +152,6 @@ function StackNav () {
         component={RedirectScreen}
       />
       <Stack.Screen
-        name="Search"
-        component={ClanSearchScreen}
-      />
-      <Stack.Screen
         name="Map"
         component={MapScreen}
       />
@@ -181,6 +177,13 @@ function StackNav () {
       <Stack.Screen
         name="Clan"
         component={ClanDetailsScreen}
+      />
+      <Stack.Screen
+        name="ClanSearch"
+        options={{
+          title: 'Clan Search',
+        }}
+        component={ClanSearchScreen}
       />
       <Stack.Screen
         name="UserDetails"
@@ -241,11 +244,11 @@ function App() {
         path: '__you_should_never_see_this_please_report_it_on_facebook_at_cuppazee_or_via_email_at_mail_at_cuppazee_dot_uk',
         screens: {
           Tools: 'tools',
-          Search: 'search',
           Map: 'maps',
           Scanner: 'scanner',
           Settings: 'settings',
-          AllClans: 'clans/list',
+          ClanSearch: 'clan/search',
+          AllClans: 'clan/all',
           Clan: {
             path: 'clan/:clanid',
             parse: {
@@ -260,6 +263,12 @@ function App() {
           },
           UserActivity: {
             path: 'user/:userid/activity',
+            parse: {
+              userid: Number
+            }
+          },
+          UserInventory: {
+            path: 'user/:userid/inventory',
             parse: {
               userid: Number
             }

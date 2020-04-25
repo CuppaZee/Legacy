@@ -6,7 +6,7 @@ import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '~sections/Shared/Card';
 import s from '~store';
-var { dash: dashR } = s;
+var { clanBookmarks: dashR } = s;
 
 export default function AllClansScreen() {
   var theme = useSelector(i=>i.themes[i.theme]);
@@ -27,7 +27,7 @@ export default function AllClansScreen() {
     [19, "Maryland Munzee Militia (HC)"]
   ];
   var { width } = useDimensions().window;
-  var dash = useSelector(i => i.dash);
+  var dash = useSelector(i => i.clanBookmarks);
   var dispatch = useDispatch();
   var [edit, setEdit] = React.useState(false);
   function remove(clan) {

@@ -13,7 +13,7 @@ const defaultState = {
   logins: true,
   tick: 0,
   code: '',
-  dash: [],
+  clanBookmarks: [],
   clanLevelSelect: {},
   route: {},
   themes,
@@ -33,7 +33,7 @@ var refresh = () => async (dispatch, getState) => {
 
 var setCurrentRoute = (data) => ({ type: "CURRENT_ROUTE", data: data })
 var login_ = (data) => ({ type: "LOGIN", data: data })
-var dash_ = (data) => ({ type: "DASH", data: data })
+var clanBookmarks_ = (data) => ({ type: "CLAN_BOOKMARKS", data: data })
 var setCode_ = (data) => ({ type: "SET_CODE", data: data })
 var setTheme_ = (data) => ({ type: "SET_THEME", data: data })
 var levelSelect_ = (data) => ({ type: "LEVEL_SELECT", data: data })
@@ -42,9 +42,9 @@ var login = (data,noUpdate) => async (dispatch, getState) => {
   if(!noUpdate) await AsyncStorage.setItem('LOGINS',JSON.stringify({...getState().logins,...data}));
   dispatch(login_(data));
 }
-var dash = (data,noUpdate) => async (dispatch, getState) => {
-  if(!noUpdate) await AsyncStorage.setItem('DASH',JSON.stringify(data));
-  dispatch(dash_(data));
+var clanBookmarks = (data,noUpdate) => async (dispatch, getState) => {
+  if(!noUpdate) await AsyncStorage.setItem('CLAN_BOOKMARKS',JSON.stringify(data));
+  dispatch(clanBookmarks_(data));
 }
 var setCode = (data,noUpdate) => async (dispatch, getState) => {
   if(!noUpdate) await AsyncStorage.setItem('CODE',data);
@@ -123,10 +123,10 @@ var rootReducer = (state = defaultState, action) => {
         ...state,
         theme: action.data
       }
-    case 'DASH':
+    case 'CLAN_BOOKMARKS':
       return {
         ...state,
-        dash: action.data
+        clanBookmarks: action.data
       }
     case 'CURRENT_ROUTE':
       return {
@@ -158,9 +158,9 @@ AsyncStorage.getItem('LOGINS').then((data)=>{
   if(!data) return store.dispatch(login({},true));
   store.dispatch(login(JSON.parse(data),true));
 })
-AsyncStorage.getItem('DASH').then((data)=>{
-  if(!data) return store.dispatch(dash([],true));
-  store.dispatch(dash(JSON.parse(data),true));
+AsyncStorage.getItem('CLAN_BOOKMARKS').then((data)=>{
+  if(!data) return store.dispatch(clanBookmarks([],true));
+  store.dispatch(clanBookmarks(JSON.parse(data),true));
 })
 AsyncStorage.getItem('CODE').then((data)=>{
   if(!data) return;
@@ -175,4 +175,4 @@ AsyncStorage.getItem('LEVEL_SELECT').then((data)=>{
   store.dispatch(levelSelect(JSON.parse(data),true));
 })
 
-export default {store,refresh,login,setCode,dash,levelSelect,setCurrentRoute,setTheme};
+export default {store,refresh,login,setCode,clanBookmarks,levelSelect,setCurrentRoute,setTheme};
