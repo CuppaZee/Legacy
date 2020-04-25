@@ -27,6 +27,7 @@ import MapScreen from './sections/Maps/Home';
 // User Screens
 import UserDetailsScreen from './sections/User/Details';
 import UserActivityScreen from './sections/User/Activity';
+import UserSearchScreen from './sections/User/Search';
 
 // Navigation Sections
 import DrawerContent from './sections/Navigation/Drawer';
@@ -207,6 +208,13 @@ function StackNav () {
         }}
         component={UserInventoryScreen}
       />
+      <Stack.Screen
+        name="UserSearch"
+        options={{
+          title: 'User Search',
+        }}
+        component={UserSearchScreen}
+      />
     </>}
     <Stack.Screen
       name="Auth"
@@ -275,6 +283,7 @@ function App() {
               userid: Number
             }
           },
+          UserSearch: 'user/search',
           UserDetails: {
             path: 'user/:userid',
             parse: {

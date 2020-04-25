@@ -70,6 +70,22 @@ export default function CustomDrawerContent(props) {
           })
         }
       />)}
+      <DrawerItem
+        activeBackgroundColor={theme.navigation.fg}
+        activeTintColor={theme.navigation.bg}
+        inactiveTintColor={theme.navigation.fg}
+        style={{marginVertical:0}}
+        focused={route.name=="UserSearch"}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name="magnify" color={color} size={24} style={{marginRight: -24, marginLeft: 4, marginVertical: 4}} />}
+        label="Search"
+        onPress={() => nav.reset({
+            index: 1,
+            routes: [
+              { name: '__primary', params: {screen: "UserSearch"} },
+            ],
+          })
+        }
+      />
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 18}}>
         <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>Clans</Text>
       </View>
@@ -166,7 +182,7 @@ export default function CustomDrawerContent(props) {
         }
       />)}
       <View style={{paddingTop: 8, paddingLeft: 18, paddingBottom: 8}}>
-        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:8})}</Text>
+        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:9})}</Text>
       </View>
     </DrawerContentScrollView>
   );
