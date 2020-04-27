@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { Text, View, Image, ScrollView, FlatList, TouchableHighlight } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { List, ActivityIndicator } from 'react-native-paper';
+import { List, ActivityIndicator, FAB, Portal } from 'react-native-paper';
 import request from '~store/request'
 import { useNavigation, useFocusEffect, useRoute } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
-import { useCardAnimation } from '@react-navigation/stack';
 import { useTranslation } from 'react-i18next';
 import ActivityOverview from './ActivityOverview'
 
@@ -42,7 +41,14 @@ var hostIcon = (icon) => {
   return `https://munzee.global.ssl.fastly.net/images/pins/${creatures[host] ?? host}.png`;
 }
 
+function UserIcon({user_id,size}) { 
+  return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size-24)/2, marginTop: -(size-24)/2, height: size, width: size }} />
+}
+
 export default function UserActivityScreen() {
+  var [FABOpen,setFABOpen] = React.useState(false);
+  var logins = useSelector(i=>i.logins)
+  var nav = useNavigation();
   var {t} = useTranslation();
   var theme = useSelector(i=>i.themes[i.theme]);
   var date = new Date(Date.now() - (5 * 60 * 60000));
@@ -72,9 +78,9 @@ export default function UserActivityScreen() {
   function isRenovation(act) {
     return !!(act.pin.includes('/renovation.') && act.captured_at);
   }
-  return (
+  return <View style={{flex:1}}>
     <FlatList
-      contentContainerStyle={{ width: 500, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center" }}
+      contentContainerStyle={{ width: 500, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", paddingBottom: 88 }}
       style={{ flex: 1, backgroundColor: theme.page_content.bg }}
       data={[
         <ActivityOverview user_id={user_id}/>,
@@ -115,5 +121,13 @@ export default function UserActivityScreen() {
       </View>}
       keyExtractor={(item,index) => index.toString() ?? item.id ?? item.capture_id ?? item.captured_at ?? item.deployed_at}
     />
-  );
+    {/* <Portal> */}
+      <FAB.Group
+        open={FABOpen}
+        icon={()=><UserIcon size={56} user_id={user_id}/>}
+        actions={Object.entries(logins).filter(i=>i[0]!=user_id).slice(0,5).map(i=>({ icon: ()=><UserIcon size={40} user_id={Number(i[0])}/>, label: i[1].username, onPress: () => {nav.popToTop();nav.replace('UserDetails',{userid:Number(i[0])})} }))}
+        onStateChange={({open})=>setFABOpen(open)}
+      />
+    {/* </Portal> */}
+  </View>
 }

@@ -45,7 +45,7 @@ const UserSearchScreen = loadable(() => import('./sections/User/Search'),{fallba
 const UserInventoryScreen = loadable(() => import('./sections/User/Inventory'),{fallback: <LoadingPage x="page_content"/>})
 
 // Navigation Sections
-import DrawerContent from './sections/Navigation/Drawer';
+import DrawerContent from './sections/Navigation/DrawerBeta';
 
 import { Platform, View, Text, StatusBar } from 'react-native';
 import { IconButton, ActivityIndicator, Provider as PaperProvider } from 'react-native-paper'

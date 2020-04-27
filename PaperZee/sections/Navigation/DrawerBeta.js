@@ -2,11 +2,40 @@ import * as React from 'react'
 import { Text, View, Image, Platform, Linking } from 'react-native';
 import {
   DrawerContentScrollView,
-  DrawerItem
+  // DrawerItem
 } from '@react-navigation/drawer';
 import { useSelector } from 'react-redux';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
+import { TouchableRipple } from 'react-native-paper'
+
+function DrawerItem(props) {
+
+  return <TouchableRipple onPress={props.onPress} style={{marginRight:8,borderTopRightRadius:8,borderBottomRightRadius:8,opacity:props.style?.opacity??1}}>
+    <View style={{borderTopRightRadius:8,borderBottomRightRadius:8,backgroundColor:props.focused?props.activeBackgroundColor:"transparent",padding:4,paddingLeft:16,flexDirection:"row",alignItems:"center"}}>
+      <props.icon color={props.focused?props.activeTintColor:props.inactiveTintColor}/>
+      <View style={{width:4}}></View>
+      {typeof props.label=="string"?<Text style={{color:props.focused?props.activeTintColor:props.inactiveTintColor,fontSize:14,fontWeight:"500"}}>{props.label}</Text>:<props.label color={props.focused?props.activeTintColor:props.inactiveTintColor}/>}
+    </View>
+  </TouchableRipple>
+  /*<DrawerItem
+        key={i.title}
+        activeBackgroundColor={theme.navigation.fg}
+        activeTintColor={theme.navigation.bg}
+        inactiveTintColor={theme.navigation.fg}
+        style={{marginVertical:0}}
+        focused={route.name==i.page}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{margin: 4}} />}
+        label={i.title}
+        onPress={() => nav.reset({
+            index: 1,
+            routes: [
+              { name: '__primary', params: {screen: i.page} },
+            ],
+          })
+        }
+      /> */
+}
 
 export default function CustomDrawerContent(props) {
   var {t} = useTranslation();
@@ -41,7 +70,7 @@ export default function CustomDrawerContent(props) {
         inactiveTintColor={theme.navigation.fg}
         style={{marginVertical:0}}
         focused={route.name==i.page}
-        icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{marginRight: -24, marginLeft: 4, marginVertical: 4}} />}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{margin: 4}} />}
         label={i.title}
         onPress={() => nav.reset({
             index: 1,
@@ -51,7 +80,7 @@ export default function CustomDrawerContent(props) {
           })
         }
       />)}
-      <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 18}}>
+      <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
         <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>Users</Text>
       </View>
       {users?.map?.(i=><DrawerItem
@@ -60,7 +89,7 @@ export default function CustomDrawerContent(props) {
         activeTintColor={theme.navigation.bg}
         inactiveTintColor={theme.navigation.fg}
         style={{marginVertical:0}}
-        icon={({ focused, color, size }) => <Image style={{height: 32, width: 32, marginRight: -28, borderRadius: 16}} source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i[0]||0).toString(36)}.png`}} />}
+        icon={({ focused, color, size }) => <Image style={{height: 32, width: 32, borderRadius: 16}} source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i[0]||0).toString(36)}.png`}} />}
         label={i[1].username||""}
         focused={route.name?.startsWith?.('User')&&route.params?.userid==Number(i[0])}
         onPress={() => nav.reset({
@@ -77,7 +106,7 @@ export default function CustomDrawerContent(props) {
         inactiveTintColor={theme.navigation.fg}
         style={{marginVertical:0}}
         focused={route.name=="UserSearch"}
-        icon={({ focused, color, size }) => <MaterialCommunityIcons name="magnify" color={color} size={24} style={{marginRight: -24, marginLeft: 4, marginVertical: 4}} />}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name="magnify" color={color} size={24} style={{margin: 4}} />}
         label="Search"
         onPress={() => nav.reset({
             index: 1,
@@ -87,7 +116,7 @@ export default function CustomDrawerContent(props) {
           })
         }
       />
-      <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 18}}>
+      <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
         <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>Clans</Text>
       </View>
       {clanBookmarks?.slice?.(0,showMoreClan?Infinity:5)?.map?.(i=><DrawerItem
@@ -97,7 +126,7 @@ export default function CustomDrawerContent(props) {
         inactiveTintColor={theme.navigation.fg}
         style={{marginVertical:0}}
         focused={route.name=="Clan"&&route.params?.clanid==Number(i.clan_id)}
-        icon={({ focused, color, size }) => <Image style={{height: 32, width: 32, marginRight: -28, borderRadius: 16}} source={{uri:i.logo??`https://munzee.global.ssl.fastly.net/images/clan_logos/${(i.clan_id||0).toString(36)}.png`}} />}
+        icon={({ focused, color, size }) => <Image style={{height: 32, width: 32, borderRadius: 16}} source={{uri:i.logo??`https://munzee.global.ssl.fastly.net/images/clan_logos/${(i.clan_id||0).toString(36)}.png`}} />}
         label={i.name}
         onPress={() => nav.reset({
             index: 1,
@@ -113,7 +142,7 @@ export default function CustomDrawerContent(props) {
         inactiveTintColor={theme.navigation.fg}
         style={{marginVertical:0}}
         focused={false}
-        icon={({ focused, color, size }) => <MaterialCommunityIcons name={showMoreClan?"chevron-up":"chevron-down"} color={color} size={24} style={{marginRight: -24, marginLeft: 4, marginVertical: 4}} />}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name={showMoreClan?"chevron-up":"chevron-down"} color={color} size={24} style={{margin: 4}} />}
         label={showMoreClan?"Show Less":"Show More"}
         onPress={()=>setShowMoreClan(!showMoreClan)}
       />}
@@ -123,7 +152,7 @@ export default function CustomDrawerContent(props) {
         inactiveTintColor={theme.navigation.fg}
         style={{marginVertical:0}}
         focused={route.name=="ClanSearch"}
-        icon={({ focused, color, size }) => <MaterialCommunityIcons name="magnify" color={color} size={24} style={{marginRight: -24, marginLeft: 4, marginVertical: 4}} />}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name="magnify" color={color} size={24} style={{margin: 4}} />}
         label="Search"
         onPress={() => nav.reset({
             index: 1,
@@ -139,7 +168,7 @@ export default function CustomDrawerContent(props) {
         inactiveTintColor={theme.navigation.fg}
         style={{marginVertical:0}}
         focused={route.name=="AllClans"}
-        icon={({ focused, color, size }) => <MaterialCommunityIcons name="shield-half-full" color={color} size={24} style={{marginRight: -24, marginLeft: 4, marginVertical: 4}} />}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name="shield-half-full" color={color} size={24} style={{margin: 4}} />}
         label={({ focused, color }) => <View style={{justifyContent:"center"}}>
           <Text style={{ color, fontWeight: "500", lineHeight: 14 }}>All Clans</Text>
           <Text style={{ color, fontWeight: "400", lineHeight: 10, fontSize: 10 }}>Experimental</Text>
@@ -152,7 +181,7 @@ export default function CustomDrawerContent(props) {
           })
         }
       />
-      <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 18}}>
+      <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
         <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>{t('common:more')}</Text>
       </View>
       {more.map?.(i=><DrawerItem
@@ -162,7 +191,7 @@ export default function CustomDrawerContent(props) {
         inactiveTintColor={theme.navigation.fg}
         style={{marginVertical:0,opacity: i.disabled?0.6:1}}
         focused={route.name==i.page}
-        icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{marginRight: -24, marginLeft: 4, marginVertical: 4}} />}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{margin: 4}} />}
         label={i.title}
         onPress={i.disabled?null:(i.link?()=>Linking.openURL(i.page):() => nav.reset({
             index: 1,
@@ -172,7 +201,7 @@ export default function CustomDrawerContent(props) {
           }))
         }
       />)}
-      <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 18}}>
+      <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
         <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>About</Text>
       </View>
       {about.map?.(i=><DrawerItem
@@ -182,7 +211,7 @@ export default function CustomDrawerContent(props) {
         inactiveTintColor={theme.navigation.fg}
         style={{marginVertical:0,opacity: i.disabled?0.6:1}}
         focused={route.name==i.page}
-        icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{marginRight: -24, marginLeft: 4, marginVertical: 4}} />}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{margin: 4}} />}
         label={i.title}
         onPress={i.disabled?null:(i.link?()=>Linking.openURL(i.page):() => nav.reset({
             index: 1,
@@ -192,8 +221,8 @@ export default function CustomDrawerContent(props) {
           }))
         }
       />)}
-      <View style={{paddingTop: 8, paddingLeft: 18, paddingBottom: 8}}>
-        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:11})}</Text>
+      <View style={{paddingTop: 8, paddingLeft: 16, paddingBottom: 8}}>
+        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:12})}</Text>
       </View>
     </DrawerContentScrollView>
   );
