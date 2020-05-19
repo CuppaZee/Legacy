@@ -26,7 +26,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "uk.cuppazee.paper",
+      "buildNumber": "1.0.0b1",
+      "icon": "./assets/CuppaZeeIcon.png",
+      "requireFullScreen": false,
+      "supportsTablet": true,
+      "infoPlist": {
+        
+      }
     },
     "android": {
       "config": {

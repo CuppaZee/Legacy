@@ -1,24 +1,11 @@
 import * as React from 'react';
-import { Text, View, Image, ScrollView, FlatList, TouchableHighlight } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { List, ActivityIndicator, FAB, Portal } from 'react-native-paper';
-import request from '~store/request'
-import { useNavigation, useFocusEffect, useRoute } from '@react-navigation/native';
-import { useDispatch, useSelector } from 'react-redux';
+import { Text, View, Image, FlatList, TouchableHighlight } from 'react-native';
+import { ActivityIndicator, FAB } from 'react-native-paper';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import ActivityOverview from './ActivityOverview'
-
-var countup = (t) => (a, b) => {
-  a[b[t]] = (a[b[t]] || 0) + 1;
-  return a;
-}
-
-var count = (array, t) => {
-  return Object.entries(array.reduce((a, b) => {
-    a[b[t]] = (a[b[t]] || 0) + 1;
-    return a;
-  }, {})).sort((a, b) => b[1] - a[1])
-}
+import useAPIRequest from '~sections/Shared/useAPIRequest';
 
 var creatures = {
   'firepouchcreature': 'tuli',
@@ -55,22 +42,20 @@ export default function UserActivityScreen() {
   var dateString = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${(date.getUTCDate()).toString().padStart(2, '0')}`
   var navigation = useNavigation();
   var route = useRoute();
+  if(route.params.date) {
+    dateString = route.params.date;
+  }
   var user_id = Number(route.params.userid);
-  var dispatch = useDispatch();
-  var users = useSelector(i => Object.keys(i.logins));
-  var { data } = useSelector(i => i.request_data[`user/activity?user_id=${user_id}&day=${dateString}`] ?? {})
-  var { data: userdata } = useSelector(i => i.request_data[`user/details?user_id=${user_id}`] ?? {})
-  useFocusEffect(
-    React.useCallback(() => {
-      dispatch(request.add(`user/activity?user_id=${user_id}&day=${dateString}`))
-      dispatch(request.add(`user/details?user_id=${user_id}`))
-      return () => {
-        dispatch(request.remove(`user/activity?user_id=${user_id}&day=${dateString}`))
-        dispatch(request.remove(`user/details?user_id=${user_id}`))
-      };
-    }, [])
-  );
-  if (!data) return (
+  const data = useAPIRequest({
+    endpoint: 'statzee/player/day',
+    data: {day:dateString},
+    user: user_id
+  })
+  const userdata = useAPIRequest({
+    endpoint: 'user',
+    data: {user_id}
+  })
+  if (!data || !data.captures) return (
     <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page_content.bg }}>
       <ActivityIndicator size="large" color={theme.page_content.fg} />
     </View>
@@ -83,16 +68,16 @@ export default function UserActivityScreen() {
       contentContainerStyle={{ width: 500, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", paddingBottom: 88 }}
       style={{ flex: 1, backgroundColor: theme.page_content.bg }}
       data={[
-        <ActivityOverview user_id={user_id}/>,
-        data.data.captures.filter(i=>isRenovation(i)).length?<View key="renovations" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-          <View style={{ paddingLeft: 8, paddingRight: 8, borderRadius: 8 }}><Text style={{ color: theme.page_content.fg, fontSize: 20, fontWeight: "bold" }}>{data.data.captures.filter(i=>isRenovation(i)).length} Renovation{data.data.captures.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.data.captures.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points), 0)} Points</Text></View>
-        </View>:1234,
-        data.data.captures_on.filter(i=>isRenovation(i)).length?<View key="renons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-          <View style={{ paddingLeft: 8, paddingRight: 8, borderRadius: 8 }}><Text style={{ color: theme.page_content.fg, fontSize: 20, fontWeight: "bold" }}>{data.data.captures_on.filter(i=>isRenovation(i)).length} Renov-on{data.data.captures_on.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.data.captures_on.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0)} Points</Text></View>
-        </View>:1234,
-        ...data.data.captures,
-        ...data.data.deploys,
-        ...data.data.captures_on
+        <ActivityOverview date={dateString} user_id={user_id}/>,
+        // data.captures.filter(i=>isRenovation(i)).length?<View key="renovations" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
+        //   <View style={{ paddingLeft: 8, paddingRight: 8, borderRadius: 8 }}><Text style={{ color: theme.page_content.fg, fontSize: 20, fontWeight: "bold" }}>{data.captures.filter(i=>isRenovation(i)).length} Renovation{data.captures.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points), 0)} Points</Text></View>
+        // </View>:1234,
+        // data.captures_on.filter(i=>isRenovation(i)).length?<View key="renons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
+        //   <View style={{ paddingLeft: 8, paddingRight: 8, borderRadius: 8 }}><Text style={{ color: theme.page_content.fg, fontSize: 20, fontWeight: "bold" }}>{data.captures_on.filter(i=>isRenovation(i)).length} Renov-on{data.captures_on.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures_on.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0)} Points</Text></View>
+        // </View>:1234,
+        ...data.captures,
+        ...data.deploys,
+        ...data.captures_on
       ].filter(i=>i!==1234).sort((a, b) => new Date(b.captured_at ?? b.deployed_at) - new Date(a.captured_at ?? a.deployed_at))}
       renderItem={({ item: act }) => !act.pin ? act : <View style={{ flexDirection: "row", paddingTop: 8, alignItems: "center" }}>
         <View style={{ padding: 4, paddingLeft: 8, position: "relative", alignContent: 'center', alignItems: "center", flexGrow: 0 }}>
@@ -106,7 +91,7 @@ export default function UserActivityScreen() {
             {hostIcon(act.pin) && <Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: -5 }} source={{ uri: hostIcon(act.pin) }} />}
           </View>
         </View>
-        <TouchableHighlight style={{ paddingLeft: 8, paddingRight: 8, flexGrow: 1, flexShrink: 1 }} onPress={() => { navigation.navigate('MunzeeDetails', { url: `/m/${!act.points_for_creator && act.captured_at ? act.username : userdata?.data?.username}/${act.code}` }) }} underlayColor="white">
+        <TouchableHighlight style={{ paddingLeft: 8, paddingRight: 8, flexGrow: 1, flexShrink: 1 }} onPress={() => { navigation.navigate('MunzeeDetails', { url: `/m/${!act.points_for_creator && act.captured_at ? act.username : userdata?.username}/${act.code}` }) }} underlayColor="white">
           <View>
             <Text style={{color: theme.page_content.fg}}>{act.points_for_creator ? (isRenovation(act) ? `${act.username} Renovated your Motel` : t('activity:user_captured',{user:act.username})) : (act.captured_at ? (isRenovation(act) ? `You Renovated a Motel` : t('activity:you_captured')) : t('activity:you_deployed'))}</Text>
             {!isRenovation(act)&&<Text style={{ color: theme.page_content.fg, fontWeight: "bold" }}>{act.friendly_name}</Text>}
@@ -121,13 +106,11 @@ export default function UserActivityScreen() {
       </View>}
       keyExtractor={(item,index) => index.toString() ?? item.id ?? item.capture_id ?? item.captured_at ?? item.deployed_at}
     />
-    {/* <Portal> */}
-      <FAB.Group
-        open={FABOpen}
-        icon={()=><UserIcon size={56} user_id={user_id}/>}
-        actions={Object.entries(logins).filter(i=>i[0]!=user_id).slice(0,5).map(i=>({ icon: ()=><UserIcon size={40} user_id={Number(i[0])}/>, label: i[1].username, onPress: () => {nav.popToTop();nav.replace('UserDetails',{userid:Number(i[0])})} }))}
-        onStateChange={({open})=>setFABOpen(open)}
-      />
-    {/* </Portal> */}
+    <FAB.Group
+      open={FABOpen}
+      icon={()=><UserIcon size={56} user_id={user_id}/>}
+      actions={Object.entries(logins).filter(i=>i[0]!=user_id).slice(0,5).map(i=>({ icon: ()=><UserIcon size={40} user_id={Number(i[0])}/>, label: i[1].username, onPress: () => {nav.popToTop();nav.replace('UserDetails',{userid:Number(i[0])})} }))}
+      onStateChange={({open})=>setFABOpen(open)}
+    />
   </View>
 }

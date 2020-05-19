@@ -6,9 +6,10 @@ var Map = function Map(props) {
     <MapView
       customMapStyle={props.mapStyle}
       style={{flex:1}}>
-      {props.markers.map((i,index) => <Marker key={index} coordinate={{latitude: i.lat, longitude: i.lng}}>
-        <Image source={{uri:i.icon}} style={{ width: 48, height: 48 }} />
-      </Marker>)}
+      {props.markers.map((i,index) => <Marker key={index} coordinate={{latitude: i.lat, longitude: i.lng}} pinColor={i.color} />
+      //   <Image source={{uri:i.icon}} style={{ width: 48, height: 48 }} />
+      // </Marker>
+      )}
     </MapView>
   )
 }

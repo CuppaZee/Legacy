@@ -1,23 +1,28 @@
 import * as React from 'react';
-import { Text, View, Image, ScrollView, FlatList, TouchableHighlight } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { List, ActivityIndicator } from 'react-native-paper';
-import request from '~store/request'
-import { useNavigation, useFocusEffect, useRoute } from '@react-navigation/native';
+import { Text, View, Image } from 'react-native';
+import { Menu, TouchableRipple } from 'react-native-paper';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
-import { useCardAnimation } from '@react-navigation/stack';
 import { useTranslation } from 'react-i18next';
-
-var countup = (t) => (a, b) => {
-  a[b[t]] = (a[b[t]] || 0) + 1;
-  return a;
-}
+import useAPIRequest from '~sections/Shared/useAPIRequest';
+import MunzeeTypes from '~sections/DB/alltypes.min.json';
 
 var count = (array, t) => {
   return Object.entries(array.reduce((a, b) => {
     a[b[t]] = (a[b[t]] || 0) + 1;
     return a;
   }, {})).sort((a, b) => b[1] - a[1])
+}
+var countS = (array, t) => {
+  return Object.entries(array.reduce((a, b) => {
+    if(!a[b[t]]) a[b[t]] = {
+      points: 0,
+      total: 0
+    };
+    a[b[t]].points+=Number(b.points_for_creator??b.points);
+    a[b[t]].total++;
+    return a;
+  }, {})).sort((a, b) => b[1].total - a[1].total)
 }
 
 var creatures = {
@@ -41,7 +46,32 @@ var hostIcon = (icon) => {
   return `https://munzee.global.ssl.fastly.net/images/pins/${creatures[host] ?? host}.png`;
 }
 
-export default function ({user_id}) {
+function OverviewItem({i}) {
+  var theme = useSelector(i=>i.themes[i.theme]);
+  var [open,setOpen] = React.useState(false);
+  return <Menu
+    visible={open}
+    onDismiss={() => setOpen(false)}
+    anchor={
+      <TouchableRipple onPress={() => setOpen(true)}>
+        <View key={i.icon} style={{ padding: 2, alignItems: "center" }}>
+          <Image style={{ height: 32, width: 32 }} source={{ uri: i[0] }} />
+          <Text style={{ color: theme.page_content.fg }}>{i[1].total}</Text>
+        </View>
+      </TouchableRipple>
+    }
+    style={{ marginTop: 61 }}
+    contentStyle={{ backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border?1:0, borderColor: theme.page_content.border }}
+  >
+    <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
+      <Image style={{ height: 48, width: 48 }} source={{ uri: i[0] }} />
+      <Text style={{ color: theme.page_content.fg, fontSize: 16, fontWeight: "bold" }}>{i[1].total}x {(MunzeeTypes.find(x=>x.icon==i[0].slice(49,-4))||{name:i[0].slice(49,-4)}).name}</Text>
+      <Text style={{ color: theme.page_content.fg, fontSize: 16, fontWeight: "bold" }}>{i[1].points} Points</Text>
+    </View>
+  </Menu>
+}
+
+export default function ({user_id,date:dateInput}) {
   var {t} = useTranslation();
   var theme = useSelector(i=>i.themes[i.theme]);
   var date = new Date(Date.now() - (5 * 60 * 60000));
@@ -51,65 +81,71 @@ export default function ({user_id}) {
   // var user_id = Number(route.params.userid);
   var dispatch = useDispatch();
   var users = useSelector(i => Object.keys(i.logins));
-  var { data } = useSelector(i => i.request_data[`user/activity?user_id=${user_id}&day=${dateString}`] ?? {})
-  var { data: userdata } = useSelector(i => i.request_data[`user/details?user_id=${user_id}`] ?? {})
-  useFocusEffect(
-    React.useCallback(() => {
-      dispatch(request.add(`user/activity?user_id=${user_id}&day=${dateString}`))
-      dispatch(request.add(`user/details?user_id=${user_id}`))
-      return () => {
-        dispatch(request.remove(`user/activity?user_id=${user_id}&day=${dateString}`))
-        dispatch(request.remove(`user/details?user_id=${user_id}`))
-      };
-    }, [])
-  );
+  
+  const data = useAPIRequest({
+    endpoint: 'statzee/player/day',
+    data: {day:dateInput||dateString},
+    user: user_id
+  })
+  // var { data } = useSelector(i => i.request_data[`user/activity?user_id=${user_id}&day=${dateString}`] ?? {})
+  // var { data: userdata } = useSelector(i => i.request_data[`user/details?user_id=${user_id}`] ?? {})
+  // useFocusEffect(
+  //   React.useCallback(() => {
+  //     dispatch(request.add(`user/activity?user_id=${user_id}&day=${dateString}`))
+  //     dispatch(request.add(`user/details?user_id=${user_id}`))
+  //     return () => {
+  //       dispatch(request.remove(`user/activity?user_id=${user_id}&day=${dateString}`))
+  //       dispatch(request.remove(`user/details?user_id=${user_id}`))
+  //     };
+  //   }, [])
+  // );
   function isRenovation(act) {
     return !!(act.pin.includes('/renovation.') && act.captured_at);
   }
+  if(!data||!data.captures) return null;
   return <View>
     <View key="total" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
       <View><Text style={{ fontSize: 24, fontWeight: "bold", color: theme.page_content.fg }}>
-        {t('activity:point', { count: [...data.data.captures, ...data.data.deploys, ...data.data.captures_on].reduce((a, b) => a + Number(b.points_for_creator ?? b.points), 0) })}
+        {t('activity:point', { count: [...data.captures, ...data.deploys, ...data.captures_on].reduce((a, b) => a + Number(b.points_for_creator ?? b.points), 0) })}
       </Text></View>
     </View>
     <View key="captures" style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
       <View><Text style={{ color: theme.page_content.fg, fontSize: 20, fontWeight: "bold" }}>
-        {t('activity:capture', { count: data.data.captures.filter(i => !isRenovation(i)).length })} - {t('activity:point', { count: data.data.captures.filter(i => !isRenovation(i)).reduce((a, b) => a + Number(b.points), 0) })}
+        {t('activity:capture', { count: data.captures.filter(i => !isRenovation(i)).length })} - {t('activity:point', { count: data.captures.filter(i => !isRenovation(i)).reduce((a, b) => a + Number(b.points), 0) })}
       </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-        {
-          count(data.data.captures.filter(i => !isRenovation(i)), "pin").map(cap => <View key={cap[0]} style={{ padding: 2, alignItems: "center" }}>
-            <Image style={{ height: 32, width: 32 }} source={{ uri: cap[0] }} />
-            <Text style={{ color: theme.page_content.fg }}>{cap[1]}</Text>
-          </View>)
-        }
+        {countS(data.captures.filter(i => !isRenovation(i)), "pin").map(i=><OverviewItem i={i}/>)}
       </View>
     </View>
     <View key="deploys" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
       <View style={{ paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#a5fffc', borderRadius: 0 }}><Text style={{ color: theme.page_content.fg, fontSize: 20, fontWeight: "bold" }}>
-        {t('activity:deploy', { count: data.data.deploys.length })} - {t('activity:point', { count: data.data.deploys.reduce((a, b) => a + Number(b.points), 0) })}
+        {t('activity:deploy', { count: data.deploys.length })} - {t('activity:point', { count: data.deploys.reduce((a, b) => a + Number(b.points), 0) })}
       </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-        {
-          count(data.data.deploys, "pin").map(dep => <View key={dep[0]} style={{ padding: 2, alignItems: "center" }}>
-            <Image style={{ height: 32, width: 32 }} source={{ uri: dep[0] }} />
-            <Text style={{ color: theme.page_content.fg }}>{dep[1]}</Text>
-          </View>)
-        }
+        {countS(data.deploys, "pin").map(i=><OverviewItem i={i}/>)}
       </View>
     </View>
     <View key="capons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
       <View style={{ paddingLeft: 8, paddingRight: 8, borderRadius: 8 }}><Text style={{ color: theme.page_content.fg, fontSize: 20, fontWeight: "bold" }}>
-        {t('activity:capon', { count: data.data.captures_on.filter(i => !isRenovation(i)).length })} - {t('activity:point', { count: data.data.captures_on.filter(i => !isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0) })}
+        {t('activity:capon', { count: data.captures_on.filter(i => !isRenovation(i)).length })} - {t('activity:point', { count: data.captures_on.filter(i => !isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0) })}
       </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-        {
-          count(data.data.captures_on.filter(i => !isRenovation(i)), "pin").map(cap => <View key={cap[0]} style={{ padding: 2, alignItems: "center" }}>
-            <Image style={{ height: 32, width: 32 }} source={{ uri: cap[0] }} />
-            <Text style={{ color: theme.page_content.fg }}>{cap[1]}</Text>
-          </View>)
-        }
+        {countS(data.captures_on.filter(i => !isRenovation(i)), "pin").map(i=><OverviewItem i={i}/>)}
       </View>
     </View>
+    {data.captures.filter(i=>isRenovation(i)).length>0&&<View key="renovations" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
+      <View style={{ paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#ffbcad', borderRadius: 8 }}>
+        <Text style={{ color: 'black' ?? `#401700`, fontSize: 20, fontWeight: "bold" }}>
+          {data.captures.filter(i=>isRenovation(i)).length} Renovation{data.captures.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points), 0)} Points
+        </Text>
+      </View>
+    </View>}
+    {data.captures_on.filter(i=>isRenovation(i)).length>0&&<View key="renons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
+      <View style={{ paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#ffbcad', borderRadius: 8 }}>
+        <Text style={{ color: 'black' ?? `#401700`, fontSize: 20, fontWeight: "bold" }}>
+          {data.captures_on.filter(i=>isRenovation(i)).length} Renov-on{data.captures_on.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures_on.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0)} Points
+        </Text>
+      </View>
+    </View>}
   </View>
 }

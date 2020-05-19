@@ -3,10 +3,10 @@ The Next-Generation CuppaZee Client, written in JavaScript with React Native and
 
 ## Setup
 - Make sure you've got Node.JS and Yarn installed
-- Run `git clone https://github.com/CuppaZee/PaperZee.git`
-- Run `cd PaperZee`
+- Run `git clone https://github.com/CuppaZee/CuppaZeeZee.git`
+- Run `cd CuppaZee/PaperZee`
 - Run `yarn install`
 - Run `yarn global add expo-cli`
 
 ## Development Server
-- Run `yarn start`
+- Run `expo start`
