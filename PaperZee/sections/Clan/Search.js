@@ -1,5 +1,3 @@
-// TODO: Rewrite page using /sections/User/Search system
-// NOTE: Requires upgraded Request system so can't be done yet
 import * as React from 'react';
 import { Text, View, TextInput, Image, ScrollView } from 'react-native';
 import Card from '~sections/Shared/Card';
@@ -9,55 +7,57 @@ import { useSelector, useDispatch } from 'react-redux';
 import request from '~store/request';
 import s from '~store';
 var { clanBookmarks: clanBookmarksR } = s;
+import stringify from 'fast-json-stable-stringify';
 
 export default function SearchScreen({ navigation }) {
   var theme = useSelector(i=>i.themes[i.theme])
   var input = React.useRef();
   var [value,setValue] = React.useState('');
   var [search,setSearch] = React.useState('');
-  var { data: clans } = useSelector(i => i.request_data[`clan/list/v1?format=list&query=${encodeURIComponent(search)}`] ?? {});
-  var clanBookmarks = useSelector(i => i.clanBookmarks);
+  var [timeoutC,setTimeoutC] = React.useState(null);
+  function onValue(val) {
+    if(timeoutC) clearTimeout(timeoutC)
+    setValue(val);
+    setTimeoutC(setTimeout(() => {
+      return setSearch(val);
+    }, 500))
+  }
   var dispatch = useDispatch();
+  var clanBookmarks = useSelector(i => i.clanBookmarks);
   function addClan(clan) {
     dispatch(clanBookmarksR(clanBookmarks.concat([clan])));
   }
   function removeClan(clan) {
     dispatch(clanBookmarksR(clanBookmarks.filter(i=>i.clan_id!=clan.clan_id)));
   }
+  
+  var reqData = {
+    endpoint: `clan/list/v1?format=list&query=${encodeURIComponent(search)}`,
+    flameZee: true
+  }
+  var clans = useSelector(i => i.request_data[stringify(reqData)] ?? {})
   useFocusEffect(
     React.useCallback(() => {
-      if(search) {
-        dispatch(request.add(`clan/list/v1?format=list&query=${encodeURIComponent(search)}`))
-        return () => {
-          dispatch(request.remove(`clan/list/v1?format=list&query=${encodeURIComponent(search)}`))
-        };
-      } else {
-        return ()=>{};
-      }
+      if(search.length>=3) dispatch(request.add(reqData))
+      return () => {
+        if(search.length>=3) dispatch(request.remove(reqData))
+      };
     }, [search])
   );
   return (
     <ScrollView
       contentContainerStyle={{ width: 600, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4 }}
       style={{ flex: 1, backgroundColor: theme.page.bg }}>
-    {/* <ScrollView style={{flex: 1, backgroundColor: '#b3dc9c'??'#c6e3b6'??'#e6fcd9'}} contentContainerStyle={{ flexDirection: "row", flexWrap: "wrap", padding: 4 }}> */}
-    {/* <View style={{ flex: 1, flexDirection: "row", flexWrap: "wrap", alignItems: "flex-start", backgroundColor: '#b3dc9c'??'#c6e3b6', padding: 4 }}> */}
-      {/* <View style={{position:"absolute",top:0,left:0,bottom:0,right:0,alignItems:"center",justifyContent:"center"}}>
-        <View style={{borderRadius:8,backgroundColor:'#ff3322',padding:8}}>
-          <Text style={{fontWeight:"bold",fontSize:20,color:"white"}}>Coming Soon</Text>
-        </View>
-      </View> */}
       <View style={{padding:4,width:"100%"}}>
         <Card noPad cardStyle={{flexDirection: "row", backgroundColor: "#fff", alignItems:"stretch"}}>
           <TextInput
             onSubmitEditing={()=>setSearch(value)}
             ref={input}
-            style={{ paddingLeft: 8, flex: 1, borderRadius: 8, borderBottomLeftRadius: 8 }}
-            onChangeText={text => setValue(text)}
+            style={{ paddingHorizontal: 8, flex: 1, borderRadius: 8, borderBottomLeftRadius: 8, height: 40 }}
+            onChangeText={onValue}
             value={value}
             returnKeyType="search"
           />
-          <IconButton onPress={()=>setSearch(value)} style={{backgroundColor: theme.navigation.bg}} icon="magnify" color={theme.navigation.fg} />
         </Card>
       </View>
       <View style={{padding:4}}>
