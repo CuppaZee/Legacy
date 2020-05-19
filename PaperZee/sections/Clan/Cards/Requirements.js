@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableRipple } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import Card from '~sections/Shared/Card';
-import ClanRequirementsData from '../Data';
+import {ClanRequirementsConverter} from '../Data';
 import useAPIRequest from '~sections/Shared/useAPIRequest';
 
 export default function UserActivityDash({ game_id, scale: s = 1 }) {
@@ -33,7 +33,7 @@ export default function UserActivityDash({ game_id, scale: s = 1 }) {
     endpoint: 'clan/v2/requirements',
     data: {clan_id:1349,game_id}
   })
-  var data = ClanRequirementsData(unformatted_requirements);
+  var data = ClanRequirementsConverter(unformatted_requirements);
   var tick = useSelector(i => i.tick)
   if (!unformatted_requirements?.battle) {
     if (!unformatted_requirements) {

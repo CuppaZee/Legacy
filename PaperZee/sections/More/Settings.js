@@ -71,6 +71,7 @@ export default function SettingsScreen({ navigation }) {
               onPress={() => forceReload()}
             />}
             
+            {/* TODO: Theme Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
             <View style={{flexDirection:"row",flexWrap:"wrap"}}>
               <Button
                 style={{flex:1}}
@@ -98,6 +99,7 @@ export default function SettingsScreen({ navigation }) {
               />
             </View>
 
+            {/* TODO: Language Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
             <View style={{flexDirection:"row",flexWrap:"wrap",paddingTop:4}}>
               {languages.map(i=><View style={{padding:4}}>
                 <MaterialButton
@@ -113,11 +115,6 @@ export default function SettingsScreen({ navigation }) {
           </ScrollView>
         </Card>
       </View>
-      {/* <Text>{data.loading}</Text>
-      <Text>{JSON.stringify(data.requests)}</Text>
-      <Text>{JSON.stringify(data.logins)}</Text>
-      <Text>{JSON.stringify(data.loadingLogin)}</Text>
-      <Text>{JSON.stringify(Object.keys(data))}</Text> */}
     </View>
   );
 }

@@ -1,10 +1,11 @@
+// TODO: Rewrite page using /sections/User/Search system
+// NOTE: Requires upgraded Request system so can't be done yet
 import * as React from 'react';
-import { Button, Text, View, TextInput, Image, ScrollView } from 'react-native';
+import { Text, View, TextInput, Image, ScrollView } from 'react-native';
 import Card from '~sections/Shared/Card';
 import { useFocusEffect } from '@react-navigation/native';
 import { IconButton } from 'react-native-paper';
 import { useSelector, useDispatch } from 'react-redux';
-import { useDimensions } from '@react-native-community/hooks'
 import request from '~store/request';
 import s from '~store';
 var { clanBookmarks: clanBookmarksR } = s;
@@ -12,18 +13,11 @@ var { clanBookmarks: clanBookmarksR } = s;
 export default function SearchScreen({ navigation }) {
   var theme = useSelector(i=>i.themes[i.theme])
   var input = React.useRef();
-  var {width} = useDimensions().window;
   var [value,setValue] = React.useState('');
   var [search,setSearch] = React.useState('');
   var { data: clans } = useSelector(i => i.request_data[`clan/list/v1?format=list&query=${encodeURIComponent(search)}`] ?? {});
   var clanBookmarks = useSelector(i => i.clanBookmarks);
   var dispatch = useDispatch();
-  useFocusEffect(
-    React.useCallback(() => {
-      // console.log(input);
-      // setTimeout(()=>input.current.focus(),100)
-    }, [])
-  );
   function addClan(clan) {
     dispatch(clanBookmarksR(clanBookmarks.concat([clan])));
   }
@@ -84,10 +78,6 @@ export default function SearchScreen({ navigation }) {
           </View>
         </Card>
       </View>
-      {/* <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      /> */}
     </ScrollView>
   );
 }

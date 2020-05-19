@@ -1,4 +1,5 @@
-export default function ClanRequirements(req) {
+// TODO: Add Rewards input - Needs new Request system first
+export function ClanRequirementsConverter(req) {
   var output = {};
   var individual = {};
   var group = {};
@@ -23,6 +24,7 @@ export default function ClanRequirements(req) {
     }
     for (let requirement of [...level_d.individual.map(i => { i.individual = true; return i; }), ...level_d.group]) {
       if (!output.requirements[requirement.task_id]) {
+        // TODO: Add Requirement Database with Icons and proper Top/Bottom texts
         output.requirements[requirement.task_id] = {
           task_id: requirement.task_id,
           top: requirement.name.split(' ')[0],
@@ -49,3 +51,8 @@ export default function ClanRequirements(req) {
   }
   return output;
 }
+
+/* TODO: ClanStatsConverter function, similar to ClanRequirementsConverter function
+Takes in /clan/v2/requirements API data (eg. https://hastebin.com/gevugaleku.json)
+Responds with data similar to https://flame.cuppazee.uk/clan/details/v1?game_id=86&clan_id=1349
+*/
