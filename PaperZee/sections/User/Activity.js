@@ -46,15 +46,17 @@ export default function UserActivityScreen() {
     dateString = route.params.date;
   }
   var user_id = Number(route.params.userid);
-  const data = useAPIRequest({
-    endpoint: 'statzee/player/day',
-    data: {day:dateString},
-    user: user_id
-  })
-  const userdata = useAPIRequest({
-    endpoint: 'user',
-    data: {user_id}
-  })
+  const [data,userdata] = useAPIRequest([
+    {
+      endpoint: 'statzee/player/day',
+      data: {day:dateString},
+      user: user_id
+    },
+    {
+      endpoint: 'user',
+      data: {user_id}
+    }
+  ])
   if (!data || !data.captures) return (
     <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page_content.bg }}>
       <ActivityIndicator size="large" color={theme.page_content.fg} />

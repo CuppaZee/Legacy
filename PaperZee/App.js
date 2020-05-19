@@ -31,7 +31,7 @@ const MapScreen = loadable(() => import('./sections/Maps/Home'),{fallback: <Load
 const UserDetailsScreen = loadable(() => import('./sections/User/Details'),{fallback: <LoadingPage/>})
 const UserActivityScreen = loadable(() => import('./sections/User/Activity'),{fallback: <LoadingPage x="page_content"/>})
 const UserSearchScreen = loadable(() => import('./sections/User/Search'),{fallback: <LoadingPage/>})
-const UserInventoryScreen = loadable(() => import('./sections/User/Inventory'),{fallback: <LoadingPage x="page_content"/>})
+const UserInventoryScreen = loadable(() => import('./sections/User/Inventory/Page'),{fallback: <LoadingPage x="page_content"/>})
 const UserClanScreen = loadable(() => import('./sections/User/Clan'),{fallback: <LoadingPage/>})
 const UserQuestScreen = loadable(() => import('./sections/User/Quest'),{fallback: <LoadingPage/>})
 
