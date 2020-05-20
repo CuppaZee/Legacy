@@ -27,6 +27,7 @@ export default function SettingsScreen({ navigation }) {
   var {t,i18n} = useTranslation();
   var logins = useSelector(i=>i.logins);
   var themes = useSelector(i=>i.themes);
+  var selected_theme = useSelector(i=>i.theme);
   var theme = useSelector(i=>i.themes[i.theme]);
   var dispatch = useDispatch();
   var {width,height} = useDimensions().window;
@@ -72,6 +73,7 @@ export default function SettingsScreen({ navigation }) {
             />}
             
             {/* TODO: Theme Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
+            <Text>Current Theme: {selected_theme}</Text>
             <View style={{flexDirection:"row",flexWrap:"wrap"}}>
               <Button
                 style={{flex:1}}
@@ -100,6 +102,7 @@ export default function SettingsScreen({ navigation }) {
             </View>
 
             {/* TODO: Language Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
+            <Text>Current Language: {i18n.language}</Text>
             <View style={{flexDirection:"row",flexWrap:"wrap",paddingTop:4}}>
               {languages.map(i=><View style={{padding:4}}>
                 <MaterialButton
