@@ -33,7 +33,11 @@ export default function UserActivityDash({ game_id, scale: s = 1 }) {
     endpoint: 'clan/v2/requirements',
     data: {clan_id:1349,game_id}
   })
-  var data = ClanRequirementsConverter(unformatted_requirements);
+  var unformatted_rewards = useAPIRequest({
+    endpoint: `clan/rewards/v1?game_id=${game_id}`,
+    flameZee: true
+  })
+  var data = ClanRequirementsConverter(unformatted_requirements,unformatted_rewards);
   var tick = useSelector(i => i.tick)
   if (!unformatted_requirements?.battle) {
     if (!unformatted_requirements) {

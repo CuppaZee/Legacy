@@ -1,6 +1,6 @@
 // TODO: Add Rewards input - Needs new Request system first
 import Clan from '~sections/DB/clan';
-export function ClanRequirementsConverter(req) {
+export function ClanRequirementsConverter(req,rewards) {
   var output = {};
   var individual = {};
   var group = {};
@@ -10,7 +10,7 @@ export function ClanRequirementsConverter(req) {
     end: new Date(req?.battle?.end * 1000),
     reveal_at: new Date(req?.battle?.reveal_at * 1000),
     lb_total_task_id: Number(req?.battle?.lb_total_task_id),
-    title: ""
+    title: rewards?.battle?.title?.slice?.(10)??""
   }
   output.levels = [];
   output.requirements = {};
@@ -19,13 +19,12 @@ export function ClanRequirementsConverter(req) {
     let level_data = {
       individual: {},
       group: {},
-      rewards: {},
+      rewards: rewards?.levels?.[Number(level)-1]??{},
       name: `Level ${level}`,
       id: Number(level)
     }
     for (let requirement of [...level_d.individual.map(i => { i.individual = true; return i; }), ...level_d.group]) {
       if (!output.requirements[requirement.task_id]) {
-        // TODO: Add Requirement Database with Icons and proper Top/Bottom texts
         var rd = Clan[requirement.task_id]||{};
         output.requirements[requirement.task_id] = {
           task_id: rd.task_id??requirement.task_id,
@@ -52,8 +51,9 @@ export function ClanRequirementsConverter(req) {
       ...reqls.filter(i => individual[i]).sort((a, b) => group[a] ? (group[b] ? 0 : 1) : -1),
       ...reqls.filter(i => group[i] && !individual[i])
     ],
-    rewards: []
+    rewards: rewards?.order
   }
+  output.rewards = rewards?.rewards??{};
   return output;
 }
 

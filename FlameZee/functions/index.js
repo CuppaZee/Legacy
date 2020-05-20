@@ -56,6 +56,9 @@ exports.user_specials_v1 = _user_specials[0];
 var _clan_requirements = require('./Modules/clan/requirements');
 exports.clan_requirements_v1 = _clan_requirements[0];
 
+var _clan_rewards = require('./Modules/clan/rewards');
+exports.clan_rewards_v1 = _clan_rewards[0];
+
 var _clan_details = require('./Modules/clan/details');
 exports.clan_details_v1 = _clan_details[0];
 
@@ -112,7 +115,7 @@ exports["munzee_deploytime"] = functions.https.onRequest(async (req, res) => {
             return res.send('Missing URL')
         }
         var url = req.query.url;
-        url = url.match(/m\/([^/]+)\/([0-9]+)/);
+        url = url.match(/\/m\/([^/]+)\/([0-9]+)/)||url.match(/\bm\/([^/]+)\/([0-9]+)/);
         if(!url) return res.send('Invalid URL');
         url = `/m/${url[1]}/${url[2]}`;
         // url = url.replace(/https?:\/\/(?:www.)munzee.com/,'');

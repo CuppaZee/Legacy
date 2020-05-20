@@ -139,6 +139,14 @@
           "function": "clan_requirements"
         },
         {
+          "source": "/clan/rewards/v1",
+          "function": "clan_rewards_v1"
+        },
+        {
+          "source": "/clan/rewards",
+          "function": "clan_rewards_v1"
+        },
+        {
           "source": "/clan/list",
           "function": "clan_list_v1"
         },

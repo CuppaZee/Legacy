@@ -39,8 +39,7 @@ const UserQuestScreen = loadable(() => import('./sections/User/Quest'),{fallback
 import DrawerContent from './sections/Main/Drawer';
 
 import { Platform, View, Text, StatusBar } from 'react-native';
-import { IconButton, Provider as PaperProvider } from 'react-native-paper'
-import LoadingButton from './sections/Main/LoadingButton';
+import { Provider as PaperProvider } from 'react-native-paper'
 
 import { useDimensions } from '@react-native-community/hooks';
 import * as WebBrowser from 'expo-web-browser';
@@ -64,9 +63,7 @@ function RedirectScreen() {
 const AuthScreen = loadable(() => import('./sections/Main/Auth'),{fallback: <LoadingPage/>})
 
 function StackNav () {
-  var { width } = useDimensions().window;
   const loggedIn = useSelector(i=>i.loggedIn);
-  const theme = useSelector(i=>i.themes[i.theme]);
   return <Stack.Navigator
     screenOptions={({ navigation, route }) => ({
       gestureEnabled: Platform.OS == 'ios',

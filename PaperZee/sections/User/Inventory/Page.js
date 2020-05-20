@@ -80,7 +80,6 @@ export default function UserInventoryScreen() {
             data?.history?.length==0&&<ActivityIndicator size="large" color={theme.page_content.fg} />
           }
         </View>
-        {/* TODO: Switch to FlatList for performance */}
         <View style={{ flexWrap: "wrap", flexDirection: "column", alignItems: "stretch" }}>
           <FlatList
             data={data?.history??[]}

@@ -32,7 +32,7 @@
       "requireFullScreen": false,
       "supportsTablet": true,
       "infoPlist": {
-        
+        "NSCameraUsageDescription": "CuppaZee uses the camera to scan Munzees."
       }
     },
     "android": {
