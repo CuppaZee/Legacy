@@ -5,7 +5,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import useAPIRequest from '~sections/Shared/useAPIRequest';
-import MunzeeTypes from '~sections/DB/alltypes.min.json';
+import MunzeeTypes from '~sections/DB/types.json';
 
 var count = (array, t) => {
   return Object.entries(array.reduce((a, b) => {

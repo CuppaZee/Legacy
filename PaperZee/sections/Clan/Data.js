@@ -1,4 +1,5 @@
 // TODO: Add Rewards input - Needs new Request system first
+import Clan from '~sections/DB/clan';
 export function ClanRequirementsConverter(req) {
   var output = {};
   var individual = {};
@@ -25,12 +26,13 @@ export function ClanRequirementsConverter(req) {
     for (let requirement of [...level_d.individual.map(i => { i.individual = true; return i; }), ...level_d.group]) {
       if (!output.requirements[requirement.task_id]) {
         // TODO: Add Requirement Database with Icons and proper Top/Bottom texts
+        var rd = Clan[requirement.task_id]||{};
         output.requirements[requirement.task_id] = {
-          task_id: requirement.task_id,
-          top: requirement.name.split(' ')[0],
-          bottom: requirement.name.split(' ').slice(1).join(' ').replace('Cap/Deploys', 'Activity'),
+          task_id: rd.task_id??requirement.task_id,
+          top: rd.top??requirement.name.split(' ')[0],
+          bottom: rd.bottom??requirement.name.split(' ').slice(1).join(' ').replace('Cap/Deploys', 'Activity'),
           description: requirement.description,
-          icon: requirement.logo
+          icon: rd.icon??requirement.logo
         }
       }
       if (requirement.individual) {
@@ -46,7 +48,10 @@ export function ClanRequirementsConverter(req) {
   output.order = {
     individual: reqls.filter(i => individual[i]).sort((a, b) => group[a] ? (group[b] ? 0 : 1) : -1),
     group: reqls.filter(i => group[i]).sort((a, b) => individual[a] ? (individual[b] ? 0 : -1) : 1),
-    all: reqls,
+    requirements: [
+      ...reqls.filter(i => individual[i]).sort((a, b) => group[a] ? (group[b] ? 0 : 1) : -1),
+      ...reqls.filter(i => group[i] && !individual[i])
+    ],
     rewards: []
   }
   return output;
@@ -54,5 +59,5 @@ export function ClanRequirementsConverter(req) {
 
 /* TODO: ClanStatsConverter function, similar to ClanRequirementsConverter function
 Takes in /clan/v2/requirements API data (eg. https://hastebin.com/gevugaleku.json)
-Responds with data similar to https://flame.cuppazee.uk/clan/details/v1?game_id=86&clan_id=1349
+Responds with data similar to https://server.cuppazee.app/clan/details/v1?game_id=86&clan_id=1349
 */

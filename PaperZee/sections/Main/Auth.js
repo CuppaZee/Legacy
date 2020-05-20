@@ -14,7 +14,7 @@ const config = Platform.OS=="web"?(
     client_id: '9cd8e4f29c2c9a7292289aed8fcf7df4'
   }:{
     useProxy: false,
-    redirect_uri: "https://paper.cuppazee.uk/auth",
+    redirect_uri: "https://cuppazee.app/auth",
     client_id: '355009b7588039f6d66fc13dfb7c008a'
   }
 ):{

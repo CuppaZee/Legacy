@@ -34,7 +34,7 @@ const colors = {
 
 var munzees = [];
 
-console.log(`${colors.bg.Green}${colors.fg.Black} Generating Database... ${colors.Reset}`)
+console.log(`${colors.bg.Green}${colors.fg.Black} Generating Types... ${colors.Reset}`)
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Destinations${colors.Reset} from ${colors.fg.Green}./types/destination.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/destination.json').map(i => ({
@@ -179,8 +179,6 @@ munzees = munzees.concat(require('./types/virtual.json').map(i => ({
   icon: i.icon,
   id: i.id,
 
-  jewel: true,
-
   virtual_colors: i.virtual_colors,
   ...(i.extra || {}),
   state: i.state,
@@ -195,8 +193,6 @@ munzees = munzees.concat(require('./types/misc.json').map(i => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
-  jewel: true,
 
   ...(i.extra || {}),
   state: i.state,
@@ -491,7 +487,7 @@ munzees = munzees.concat(require('./types/scatter.json').map(i => ({
   from_file: "./types/scatter.json"
 })))
 
-console.log(`${colors.bg.Green}${colors.fg.Black} Database Generation Complete - Adding lands_on Data... ${colors.Reset}`)
+console.log(`${colors.bg.Green}${colors.fg.Black} Types Generated - Checking... ${colors.Reset}`)
 
 for (var munzee of munzees) {
   if (munzee.bouncer && munzee.bouncer.lands_on) {
@@ -569,10 +565,10 @@ for (var munzee of munzees) {
 
 munzees.sort((a, b) => (a.id||0) - (b.id||0));
 
-console.log(`${colors.bg.Green}${colors.fg.Black} Full Generation Complete - Writing to Files... ${colors.Reset}`)
+console.log(`${colors.bg.Green}${colors.fg.Black} Types Checked - Writing to Files... ${colors.Reset}`)
 
-fs.writeFileSync('alltypes.json', JSON.stringify(munzees, null, 2))
-fs.writeFileSync('alltypes.min.json', JSON.stringify(munzees))
-fs.writeFileSync('../PaperZee/sections/DB/alltypes.min.json', JSON.stringify(munzees))
+fs.writeFileSync('types.json', JSON.stringify(munzees, null, 2))
+fs.writeFileSync('types.min.json', JSON.stringify(munzees))
+fs.writeFileSync('../PaperZee/sections/DB/types.json', JSON.stringify(munzees))
 
-console.log(`${colors.bg.Green}${colors.fg.Black} Database Written to Files ${colors.Reset}`)
+console.log(`${colors.bg.Green}${colors.fg.Black} Types Written to Files${colors.Reset}`)

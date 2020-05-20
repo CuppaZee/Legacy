@@ -86,7 +86,7 @@ export default function UserInventoryScreen() {
             data={data?.history??[]}
             renderItem={({item:i}) => <TouchableRipple key={`history/${i.icon}/${i.time}`}>
               <View key={i.icon} style={{ padding: 2, alignItems: "center", flexDirection: "row" }}>
-                <Image style={{ height: 36, width: 36 }} source={{ uri: i.icon?.includes?.('NA.png') ? 'https://flame.cuppazee.uk/missing.png' : i.icon }} />
+                <Image style={{ height: 36, width: 36 }} source={{ uri: i.icon?.includes?.('NA.png') ? 'https://server.cuppazee.app/missing.png' : i.icon }} />
                 <View>
                   <Text style={{ color: theme.page_content.fg, fontSize: 16, fontWeight: "bold" }}>{i.name}</Text>
                   <Text style={{ color: theme.page_content.fg, fontSize: 16 }}>{i.reason}</Text>

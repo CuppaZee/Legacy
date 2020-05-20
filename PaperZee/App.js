@@ -32,7 +32,7 @@ const UserDetailsScreen = loadable(() => import('./sections/User/Details'),{fall
 const UserActivityScreen = loadable(() => import('./sections/User/Activity'),{fallback: <LoadingPage x="page_content"/>})
 const UserSearchScreen = loadable(() => import('./sections/User/Search'),{fallback: <LoadingPage/>})
 const UserInventoryScreen = loadable(() => import('./sections/User/Inventory/Page'),{fallback: <LoadingPage x="page_content"/>})
-const UserClanScreen = loadable(() => import('./sections/User/Clan'),{fallback: <LoadingPage/>})
+const UserClanScreen = loadable(() => import('./sections/User/Clan/Page'),{fallback: <LoadingPage/>})
 const UserQuestScreen = loadable(() => import('./sections/User/Quest'),{fallback: <LoadingPage/>})
 
 // Navigation Sections
@@ -227,7 +227,7 @@ function App() {
   const dispatch = useDispatch();
 
   const { getInitialState } = useLinking(ref, {
-    prefixes: ['https://paper.cuppazee.uk', 'cuppazee://'],
+    prefixes: ['https://cuppazee.app', 'cuppazee://'],
     config: {
       __primary: {
         path: '__you_should_never_see_this_please_report_it_on_facebook_at_cuppazee_or_via_email_at_mail_at_cuppazee_dot_uk',

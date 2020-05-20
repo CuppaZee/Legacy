@@ -3,7 +3,6 @@
     "name": "Greenie",
     "icon": "munzee",
     "id": 0,
-    "jewel": true,
     "state": "physical",
     "category": "misc",
     "completion": "complete",
@@ -116,19 +115,9 @@
     ]
   },
   {
-    "name": "Howdy Card",
-    "icon": "howdycard",
-    "card": true,
-    "temporary": 7,
-    "state": "virtual",
-    "category": "card",
-    "completion": "complete"
-  },
-  {
     "name": "Premium",
     "icon": "premium",
     "id": 13,
-    "jewel": true,
     "state": "physical",
     "category": "misc",
     "completion": "complete",
@@ -241,7 +230,6 @@
     "name": "Social",
     "icon": "social",
     "id": 32,
-    "jewel": true,
     "social": true,
     "state": "locationless",
     "category": "misc",
@@ -418,7 +406,6 @@
     "name": "Event Pin",
     "icon": "eventpin",
     "id": 60,
-    "jewel": true,
     "state": "physical",
     "category": "misc",
     "completion": "complete"
@@ -1021,7 +1008,6 @@
     "name": "Trail Munzee",
     "icon": "trail",
     "id": 190,
-    "jewel": true,
     "state": "physical",
     "category": "misc",
     "completion": "complete",
@@ -1085,7 +1071,6 @@
     "name": "Personal Munzee",
     "icon": "personalmunzee",
     "id": 200,
-    "jewel": true,
     "personal": true,
     "state": "personal",
     "category": "misc",
@@ -1866,7 +1851,6 @@
     "name": "Event Indicator",
     "icon": "eventindicator",
     "id": 294,
-    "jewel": true,
     "event": "indicator",
     "state": "physical",
     "category": "misc",
@@ -2807,7 +2791,6 @@
     "name": "Virtual Trail",
     "icon": "virtual_trail",
     "id": 390,
-    "jewel": true,
     "trail": true,
     "state": "virtual",
     "category": "misc",
@@ -3249,7 +3232,6 @@
     "name": "Shamrock",
     "icon": "shamrock",
     "id": 441,
-    "jewel": true,
     "state": "physical",
     "category": "misc",
     "completion": "complete",
@@ -3750,7 +3732,6 @@
     "name": "Scatter",
     "icon": "scatter",
     "id": 500,
-    "jewel": true,
     "state": "physical",
     "category": "misc",
     "completion": "complete",
@@ -4523,7 +4504,6 @@
     "name": "Event Trail",
     "icon": "eventtrail",
     "id": 600,
-    "jewel": true,
     "state": "virtual",
     "category": "misc",
     "completion": "complete"
@@ -8838,7 +8818,6 @@
     "name": "Premium Personal",
     "icon": "premiumpersonal",
     "id": 1107,
-    "jewel": true,
     "personal": true,
     "state": "personal",
     "category": "misc",
@@ -9089,7 +9068,6 @@
     "name": "Spring Seasonal Munzee",
     "icon": "springseasonalmunzee",
     "id": 1135,
-    "jewel": true,
     "seasonal": true,
     "state": "physical",
     "category": "misc",
@@ -9106,7 +9084,6 @@
     "name": "Summer Seasonal Munzee",
     "icon": "summerseasonalmunzee",
     "id": 1136,
-    "jewel": true,
     "seasonal": true,
     "state": "physical",
     "category": "misc",
@@ -9123,7 +9100,6 @@
     "name": "Fall Seasonal Munzee",
     "icon": "fallseasonalmunzee",
     "id": 1137,
-    "jewel": true,
     "seasonal": true,
     "state": "physical",
     "category": "misc",
@@ -9140,7 +9116,6 @@
     "name": "Winter Seasonal Munzee",
     "icon": "winterseasonalmunzee",
     "id": 1138,
-    "jewel": true,
     "seasonal": true,
     "state": "physical",
     "category": "misc",
@@ -9157,7 +9132,6 @@
     "name": "Seasonal Munzee",
     "icon": "seasonalmunzee",
     "id": 1139,
-    "jewel": true,
     "seasonal": true,
     "state": "physical",
     "category": "misc",
@@ -10227,7 +10201,6 @@
     "name": "Temporary Virtual",
     "icon": "temporaryvirtual",
     "id": 1245,
-    "jewel": true,
     "temporary": 30,
     "state": "virtual",
     "category": "misc",
@@ -11732,7 +11705,6 @@
     "name": "Virtual",
     "icon": "virtual",
     "id": 1409,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -11759,7 +11731,6 @@
     "name": "Virtual Rainbow",
     "icon": "virtual_rainbow",
     "id": 1410,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -11790,7 +11761,6 @@
     "name": "Virtual Timberwolf",
     "icon": "virtual_timberwolf",
     "id": 1411,
-    "jewel": true,
     "virtual_colors": [
       "black"
     ],
@@ -11822,7 +11792,6 @@
     "name": "Virtual Silver",
     "icon": "virtual_silver",
     "id": 1412,
-    "jewel": true,
     "virtual_colors": [
       "black"
     ],
@@ -11854,7 +11823,6 @@
     "name": "Virtual Gray",
     "icon": "virtual_gray",
     "id": 1413,
-    "jewel": true,
     "virtual_colors": [
       "black"
     ],
@@ -11886,7 +11854,6 @@
     "name": "Virtual Black",
     "icon": "virtual_black",
     "id": 1414,
-    "jewel": true,
     "virtual_colors": [
       "black"
     ],
@@ -11918,7 +11885,6 @@
     "name": "Virtual Orchid",
     "icon": "virtual_orchid",
     "id": 1415,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -11945,7 +11911,6 @@
     "name": "Virtual Wisteria",
     "icon": "virtual_wisteria",
     "id": 1416,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -11972,7 +11937,6 @@
     "name": "Virtual Purple Mountains Majesty",
     "icon": "virtual_purple_mountains_majesty",
     "id": 1417,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -11999,7 +11963,6 @@
     "name": "Virtual Violet",
     "icon": "virtual_violet",
     "id": 1418,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -12026,7 +11989,6 @@
     "name": "Virtual Plum",
     "icon": "virtual_plum",
     "id": 1419,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -12053,7 +12015,6 @@
     "name": "Virtual Blue Violet",
     "icon": "virtual_blue_violet",
     "id": 1420,
-    "jewel": true,
     "virtual_colors": [
       "blue"
     ],
@@ -12084,7 +12045,6 @@
     "name": "Virtual Blue",
     "icon": "virtual_blue",
     "id": 1421,
-    "jewel": true,
     "virtual_colors": [
       "blue"
     ],
@@ -12115,7 +12075,6 @@
     "name": "Virtual Cadet Blue",
     "icon": "virtual_cadet_blue",
     "id": 1423,
-    "jewel": true,
     "virtual_colors": [
       "blue"
     ],
@@ -12146,7 +12105,6 @@
     "name": "Virtual Periwinkle",
     "icon": "virtual_periwinkle",
     "id": 1424,
-    "jewel": true,
     "virtual_colors": [
       "blue"
     ],
@@ -12177,7 +12135,6 @@
     "name": "Virtual Cornflower",
     "icon": "virtual_cornflower",
     "id": 1425,
-    "jewel": true,
     "virtual_colors": [
       "blue"
     ],
@@ -12208,7 +12165,6 @@
     "name": "Virtual Blue Green",
     "icon": "virtual_blue_green",
     "id": 1426,
-    "jewel": true,
     "virtual_colors": [
       "blue"
     ],
@@ -12239,7 +12195,6 @@
     "name": "Virtual Pacific Blue",
     "icon": "virtual_pacific_blue",
     "id": 1427,
-    "jewel": true,
     "virtual_colors": [
       "blue"
     ],
@@ -12270,7 +12225,6 @@
     "name": "Virtual Cerulean",
     "icon": "virtual_cerulean",
     "id": 1428,
-    "jewel": true,
     "virtual_colors": [
       "blue"
     ],
@@ -12301,7 +12255,6 @@
     "name": "Virtual Robin Egg Blue",
     "icon": "virtual_robin_egg_blue",
     "id": 1429,
-    "jewel": true,
     "virtual_colors": [
       "blue"
     ],
@@ -12332,7 +12285,6 @@
     "name": "Virtual Indigo",
     "icon": "virtual_indigo",
     "id": 1430,
-    "jewel": true,
     "virtual_colors": [
       "blue"
     ],
@@ -12363,7 +12315,6 @@
     "name": "Virtual Turquoise Blue",
     "icon": "virtual_turquoise_blue",
     "id": 1431,
-    "jewel": true,
     "virtual_colors": [
       "blue"
     ],
@@ -12394,7 +12345,6 @@
     "name": "Virtual Sea Green",
     "icon": "virtual_sea_green",
     "id": 1432,
-    "jewel": true,
     "virtual_colors": [
       "green"
     ],
@@ -12435,7 +12385,6 @@
     "name": "Virtual Granny Smith Apple",
     "icon": "virtual_granny_smith_apple",
     "id": 1433,
-    "jewel": true,
     "virtual_colors": [
       "green"
     ],
@@ -12476,7 +12425,6 @@
     "name": "Virtual Green",
     "icon": "virtual_green",
     "id": 1434,
-    "jewel": true,
     "virtual_colors": [
       "green"
     ],
@@ -12517,7 +12465,6 @@
     "name": "Virtual Forest Green",
     "icon": "virtual_forest_green",
     "id": 1435,
-    "jewel": true,
     "virtual_colors": [
       "green"
     ],
@@ -12558,7 +12505,6 @@
     "name": "Virtual Asparagus",
     "icon": "virtual_asparagus",
     "id": 1436,
-    "jewel": true,
     "virtual_colors": [
       "green"
     ],
@@ -12599,7 +12545,6 @@
     "name": "Virtual Olive Green",
     "icon": "virtual_olive_green",
     "id": 1437,
-    "jewel": true,
     "virtual_colors": [
       "green"
     ],
@@ -12640,7 +12585,6 @@
     "name": "Virtual Yellow Green",
     "icon": "virtual_yellow_green",
     "id": 1438,
-    "jewel": true,
     "virtual_colors": [
       "green"
     ],
@@ -12681,7 +12625,6 @@
     "name": "Virtual Green Yellow",
     "icon": "virtual_green_yellow",
     "id": 1439,
-    "jewel": true,
     "virtual_colors": [
       "green"
     ],
@@ -12722,7 +12665,6 @@
     "name": "Virtual Spring Green",
     "icon": "virtual_spring_green",
     "id": 1440,
-    "jewel": true,
     "virtual_colors": [
       "green"
     ],
@@ -12763,7 +12705,6 @@
     "name": "Virtual Gold",
     "icon": "virtual_gold",
     "id": 1441,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -12791,7 +12732,6 @@
     "name": "Virtual Yellow",
     "icon": "virtual_yellow",
     "id": 1442,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -12820,7 +12760,6 @@
     "name": "Virtual Goldenrod",
     "icon": "virtual_goldenrod",
     "id": 1443,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -12849,7 +12788,6 @@
     "name": "Virtual Dandelion",
     "icon": "virtual_dandelion",
     "id": 1444,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -12878,7 +12816,6 @@
     "name": "Virtual Orange",
     "icon": "virtual_orange",
     "id": 1445,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -12905,7 +12842,6 @@
     "name": "Virtual Burnt Orange",
     "icon": "virtual_burnt_orange",
     "id": 1446,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -12932,7 +12868,6 @@
     "name": "Virtual Melon",
     "icon": "virtual_melon",
     "id": 1448,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -12959,7 +12894,6 @@
     "name": "Virtual Pink",
     "icon": "virtual_pink",
     "id": 1449,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -12986,7 +12920,6 @@
     "name": "Virtual Carnation Pink",
     "icon": "virtual_carnation_pink",
     "id": 1450,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -13013,7 +12946,6 @@
     "name": "Virtual Mauvelous",
     "icon": "virtual_mauvelous",
     "id": 1451,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -13040,7 +12972,6 @@
     "name": "Virtual Salmon",
     "icon": "virtual_salmon",
     "id": 1452,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -13067,7 +12998,6 @@
     "name": "Virtual Tickle Me Pink",
     "icon": "virtual_tickle_me_pink",
     "id": 1453,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -13094,7 +13024,6 @@
     "name": "Virtual Magenta",
     "icon": "virtual_magenta",
     "id": 1454,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -13121,7 +13050,6 @@
     "name": "Virtual Wild Strawberry",
     "icon": "virtual_wild_strawberry",
     "id": 1455,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -13148,7 +13076,6 @@
     "name": "Virtual Violet Red",
     "icon": "virtual_violet_red",
     "id": 1456,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -13175,7 +13102,6 @@
     "name": "Virtual Red Violet",
     "icon": "virtual_red_violet",
     "id": 1457,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -13202,7 +13128,6 @@
     "name": "Virtual Apricot",
     "icon": "virtual_apricot",
     "id": 1458,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -13229,7 +13154,6 @@
     "name": "Virtual Peach",
     "icon": "virtual_peach",
     "id": 1459,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -13256,7 +13180,6 @@
     "name": "Virtual Macaroni and Cheese",
     "icon": "virtual_macaroni_and_cheese",
     "id": 1460,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -13283,7 +13206,6 @@
     "name": "Virtual Tan",
     "icon": "virtual_tan",
     "id": 1461,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -13310,7 +13232,6 @@
     "name": "Virtual Burnt Sienna",
     "icon": "virtual_burnt_sienna",
     "id": 1462,
-    "jewel": true,
     "state": "virtual",
     "category": "virtual",
     "completion": "complete",
@@ -13337,7 +13258,6 @@
     "name": "Virtual Bittersweet",
     "icon": "virtual_bittersweet",
     "id": 1463,
-    "jewel": true,
     "virtual_colors": [
       "red"
     ],
@@ -13371,7 +13291,6 @@
     "name": "Virtual Red Orange",
     "icon": "virtual_red_orange",
     "id": 1464,
-    "jewel": true,
     "virtual_colors": [
       "red"
     ],
@@ -13405,7 +13324,6 @@
     "name": "Virtual Scarlet",
     "icon": "virtual_scarlet",
     "id": 1465,
-    "jewel": true,
     "virtual_colors": [
       "red"
     ],
@@ -13439,7 +13357,6 @@
     "name": "Virtual Red",
     "icon": "virtual_red",
     "id": 1466,
-    "jewel": true,
     "virtual_colors": [
       "red"
     ],
@@ -13473,7 +13390,6 @@
     "name": "Virtual Brick Red",
     "icon": "virtual_brick_red",
     "id": 1467,
-    "jewel": true,
     "virtual_colors": [
       "red"
     ],
@@ -13507,7 +13423,6 @@
     "name": "Virtual Mahogany",
     "icon": "virtual_mahogany",
     "id": 1468,
-    "jewel": true,
     "virtual_colors": [
       "red",
       "brown"
@@ -13544,7 +13459,6 @@
     "name": "Virtual Chestnut",
     "icon": "virtual_chestnut",
     "id": 1469,
-    "jewel": true,
     "virtual_colors": [
       "brown"
     ],
@@ -13576,7 +13490,6 @@
     "name": "Virtual Tumbleweed",
     "icon": "virtual_tumbleweed",
     "id": 1470,
-    "jewel": true,
     "virtual_colors": [
       "brown"
     ],
@@ -13608,7 +13521,6 @@
     "name": "Virtual Raw Sienna",
     "icon": "virtual_raw_sienna",
     "id": 1471,
-    "jewel": true,
     "virtual_colors": [
       "brown"
     ],
@@ -13640,7 +13552,6 @@
     "name": "Virtual Brown",
     "icon": "virtual_brown",
     "id": 1473,
-    "jewel": true,
     "virtual_colors": [
       "brown"
     ],
@@ -18236,7 +18147,6 @@
     "name": "QRewzee",
     "icon": "qrewzee",
     "id": 1880,
-    "jewel": true,
     "state": "physical",
     "category": "misc",
     "completion": "complete"
@@ -19556,7 +19466,6 @@
     "name": "InternationElles",
     "icon": "internationelles",
     "id": 2046,
-    "jewel": true,
     "unique": true,
     "state": "physical",
     "category": "misc",
@@ -19566,7 +19475,6 @@
     "name": "InternationElles Virtual",
     "icon": "internationellesvirtual",
     "id": 2047,
-    "jewel": true,
     "unique": true,
     "state": "virtual",
     "category": "misc",
@@ -22168,7 +22076,6 @@
     "name": "Renovation",
     "icon": "renovation",
     "id": 2390,
-    "jewel": true,
     "state": "other",
     "category": "misc",
     "completion": "complete"
@@ -22585,6 +22492,16 @@
     "completion": "complete"
   },
   {
+    "name": "Clan War Card",
+    "icon": "clanwarcard",
+    "id": 2431,
+    "card": true,
+    "temporary": 7,
+    "state": "virtual",
+    "category": "card",
+    "completion": "complete"
+  },
+  {
     "name": "Thank You Card",
     "icon": "thankyoucard",
     "id": 2432,
@@ -22651,6 +22568,16 @@
     "can_host": [
       1580
     ]
+  },
+  {
+    "name": "Howdy Card",
+    "icon": "howdycard",
+    "id": 2450,
+    "card": true,
+    "temporary": 7,
+    "state": "virtual",
+    "category": "card",
+    "completion": "complete"
   },
   {
     "name": "Safe Travels Card",

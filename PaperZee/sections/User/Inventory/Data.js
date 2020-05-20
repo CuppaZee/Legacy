@@ -1,4 +1,4 @@
-import MunzeeTypes from '~sections/DB/alltypes.min.json';
+import MunzeeTypes from '~sections/DB/types.json';
 import moment from 'moment';
 import 'moment-timezone';
 export default function InventoryConverter(credits={}, boosters=[], history={}, undeployed=[]) {
@@ -91,7 +91,7 @@ export default function InventoryConverter(credits={}, boosters=[], history={}, 
     var booster = boosters[b];
     data.credits.push({
       name: booster.name,
-      icon: `https://flame.cuppazee.uk/boosters/${booster.type_id}.png`,
+      icon: `https://server.cuppazee.app/boosters/${booster.type_id}.png`,
       amount: Number(booster.credits)
     })
   }

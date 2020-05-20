@@ -24,6 +24,10 @@ var pagination = {
     }
   }
 }
+import ClanProgressConverter from '~sections/User/Clan/Data';
+var converter = {
+  ClanProgress: ClanProgressConverter
+}
 
 async function makeRequest(getState, dispatch, pageInput, force) {
   var page;
@@ -32,12 +36,12 @@ async function makeRequest(getState, dispatch, pageInput, force) {
   } else {
     page = pageInput;
   }
-  if(!force&&getState().requests.find(i=>i.page==stringify(page))?.expires > Date.now()+(10*60000)) return;
+  if(!force&&getState().requests.find(i=>i.page==stringify(page))?.expires > Date.now()) return;
   dispatch(loading(1))
   try {
     var data;
     if(page.flameZee) {
-      var d = await fetch(`https://flame.cuppazee.uk/${page.endpoint}`)
+      var d = await fetch(`https://server.cuppazee.app/${page.endpoint}`)
       data = await d.json();
     } else {
       // Get User
@@ -91,6 +95,9 @@ async function makeRequest(getState, dispatch, pageInput, force) {
           body: reqformData
         })
         data = await d.json();
+      }
+      if(page.converter) {
+        data = {data:converter[page.converter](data?.data)};
       }
     }
 
