@@ -3,6 +3,6 @@
 
 ### This repo contains 3 Projects
 
-- The Munzee Types Database (MunzeeTypes)
+- The Munzee Database (MunzeeDatabase)
 - The CuppaZee App (PaperZee)
 - The CuppaZee Backend (FlameZee)
