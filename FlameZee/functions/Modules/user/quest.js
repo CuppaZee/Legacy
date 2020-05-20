@@ -24,11 +24,6 @@ module.exports = [
         {id:3,function:({cap,dep})=>[...cap,...dep].filter(i=>c(i)&&new activity(i).munzee.is_weapon).length},
         {id:4,function:({cap,dep})=>[...cap,...dep].filter(i=>c(i)&&new activity(i).munzee.is_jewel).length},
         {id:5,function:({cap})=>cap.filter(i=>(i.url||"").includes("XeresDan/1707")).length}
-        /*At least 5 Mystery deploys and/or captures
-At least 5 Evo deploys and/or captures
-At least 5 Weapon deploys and/or captures
-At least 3 Jewels deploys and/or captures*/
-//XeresDan/1707
       ]
       var params = {
         user_id: {
