@@ -15,7 +15,7 @@ module.exports = [
       }
       var [requirements, rewards] = (await Promise.all([
         Flame.Request('clan/v2/requirements', { game_id: req.query.game_id, clan_id: 1349 }),
-        Flame.Request(`clan/v2/challenges/${req.query.game_id}`, {}, 234392)
+        Flame.Request(`clan/v2/challenges/${req.query.game_id}`, {}, 125914)
       ])).map(i => i.data);
       var reqs = {
         battle: rewards.battle,

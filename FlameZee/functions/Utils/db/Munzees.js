@@ -30,5 +30,5 @@ _events.forEach((m)=>{
 
 
 
-console.log(munzees);
+console.log(munzees.length);
 module.exports = munzees.sort((a,b)=>a.id-b.id);

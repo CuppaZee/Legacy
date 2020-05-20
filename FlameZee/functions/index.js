@@ -9,7 +9,7 @@ const MunzeeAPI = require('./Utils/API');
 const config = require('./Utils/Config');
 const __clan = require('./Utils/Clan');
 const API1 = new MunzeeAPI(config.Auth1);
-const {db,currentGameID,moment,time,utils} = require('./Utils')
+const {db,getGameID,moment,time,utils} = require('./Utils')
 // admin.initializeApp(functions.config().firebase);
 // const db = admin.firestore();
 const cors = require('cors')({
@@ -20,6 +20,8 @@ const crypto = require("crypto");
 
 // Polyfills
 const POLYfromEntries = require('object.fromentries');
+
+exports.api = require('./API');
 
 exports.generateCryptokens = functions.https.onRequest(async (req, res) => {
     return cors(req, res, async () => {
@@ -33,11 +35,17 @@ exports.auth_v1 = _auth[0];
 var _user_activity = require('./Modules/user/activity');
 exports.user_activity_v1 = _user_activity[0];
 
+var _user_clan = require('./Modules/user/clan');
+exports.user_clan_v1 = _user_clan[0];
+
 var _user_details = require('./Modules/user/details');
 exports.user_details_v1 = _user_details[0];
 
 var _user_inventory = require('./Modules/user/inventory');
 exports.user_inventory_v1 = _user_inventory[0];
+
+var _user_quest = require('./Modules/user/quest');
+exports.user_quest_v1 = _user_quest[0];
 
 var _user_search = require('./Modules/user/search');
 exports.user_search_v1 = _user_search[0];
@@ -95,6 +103,21 @@ exports["user_badges"] = functions.https.onRequest(async (req, res) => {
             return res.status(502).send('Missing User ID')
         }
         return res.send(await request('user/badges', { user_id: req.query.user_id }))
+    })
+})
+
+exports["munzee_deploytime"] = functions.https.onRequest(async (req, res) => {
+    return cors(req, res, async () => {
+        if (!req.query.url) {
+            return res.send('Missing URL')
+        }
+        var url = req.query.url;
+        url = url.match(/m\/([^/]+)\/([0-9]+)/);
+        if(!url) return res.send('Invalid URL');
+        url = `/m/${url[1]}/${url[2]}`;
+        // url = url.replace(/https?:\/\/(?:www.)munzee.com/,'');
+        // if(!url.startsWith('/')) url = `/` + url;
+        return res.send((await request('munzee', { url: url })).data.deployed_at.replace('T',' ').replace(/-0[56]:00/,''))
     })
 })
 
@@ -168,7 +191,7 @@ exports["clan_requirements"] = functions.https.onRequest(async (req, res) => {
     return cors(req, res, async () => {
         return res.send({
             requirements: await request('clan/v2/requirements', { game_id: req.query.game_id, clan_id: 1349 }),
-            rewards: await request(`clan/v2/challenges/${req.query.game_id}`, {}, 234392)
+            rewards: await request(`clan/v2/challenges/${req.query.game_id}`, {}, 125914)
         })
     })
 })
@@ -499,13 +522,14 @@ exports.clan_list_minute = functions.runWith({memory:"512MB"}).pubsub.topic('sha
 
 
 exports.minute = functions.runWith({memory:"512MB",timeoutSeconds:540}).pubsub.topic('shadow').onPublish(async (message) => {
-    var shadowDoc = (await db.collection('shadow').orderBy('updated_at').limit(1).get()).docs[0]
+    if(time.now().date() < 3) return;
+    var shadowDoc = (await db.collection(`shadow_${getGameID()}`).orderBy('updated_at').limit(1).get()).docs[0]
     var shadowData = (shadowDoc||{data:function(){}}).data();
     if(!shadowData) return;
     if(shadowData.usernames) shadowData.members = Object.keys(shadowData.usernames);
     var [ clan, requirements ] = (await Promise.all([
         request('clan/v2',{clan_id:shadowData.clan_id<0?1349:shadowData.clan_id}),
-        request('clan/v2/requirements',{clan_id:shadowData.clan_id<0?1349:shadowData.clan_id,game_id:currentGameID()}),
+        request('clan/v2/requirements',{clan_id:shadowData.clan_id<0?1349:shadowData.clan_id,game_id:getGameID()}),
     ])).map(i=>i.data);
     var tasks = [];
     for(var ind of requirements.data.levels["5"].individual) {
@@ -522,7 +546,7 @@ exports.minute = functions.runWith({memory:"512MB",timeoutSeconds:540}).pubsub.t
     // }
     var memberData = (await Promise.all([
         ...shadowData.members.filter(i=>!clan.users.find(x=>x.user_id===i)).map(i=>request('statzee/player/day',{day:time.day()},i)),
-        ...shadowData.members.filter(i=>!clan.users.find(x=>x.user_id===i)).map(i=>request('statzee/player/day',{day:time.day(moment().subtract(1,"day"))},i))
+        ...(time.now().date()===3?[]:shadowData.members.filter(i=>!clan.users.find(x=>x.user_id===i)).map(i=>request('statzee/player/day',{day:time.day(moment().subtract(1,"day"))},i)))
     ])).map(i=>Object.assign({user_id:i.authenticated_entity},(i||{}).data));
     // var memberToday = memberData.slice(0,memberData.length/2);
     // var memberYesterday = memberData.slice(memberData.length/2,memberData.length);

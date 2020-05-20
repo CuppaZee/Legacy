@@ -140,6 +140,13 @@ module.exports = {
                 "https://munzee.global.ssl.fastly.net/images/pins/2starmotel.png"
             ],
             function: ({cap}) => cap.filter(i=>new activity(i).munzee.is_renovation).length
+        },
+        34: {
+            task_id: 34,
+            top: "Mystery",
+            bottom: "Points",
+            icon: "https://i.ibb.co/YdRQ3Sf/Split-Mystery.png",
+            function: ({cap,dep,con}) => [...cap,...dep,...con].filter(i=>new activity(i).munzee.is_mystery).reduce((a,b)=>a+Number(b.points_for_creator||b.points),0)
         }
     }
 };

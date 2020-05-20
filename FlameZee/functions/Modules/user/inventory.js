@@ -105,7 +105,7 @@ module.exports = [
                 var booster = boosters[b];
                 data.credits.push({
                     name: booster.name,
-                    icon: `https://flame.cuppazee.uk/boosters/${booster.type_id}.png`,
+                    icon: `https://server.cuppazee.app/boosters/${booster.type_id}.png`,
                     amount: Number(booster.credits)
                 })
             }
