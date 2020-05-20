@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Diamond",
+    "icon": "diamond",
+    "id": 40,
+    "state": "physical"
+  },
+  {
+    "name": "Ruby",
+    "icon": "ruby",
+    "id": 131,
+    "state": "physical"
+  },
+  {
+    "name": "Virtual Emerald",
+    "icon": "virtual_emerald",
+    "id": 148,
+    "state": "virtual"
+  },
+  {
+    "name": "Aquamarine",
+    "icon": "aquamarine",
+    "id": 218,
+    "state": "physical"
+  },
+  {
+    "name": "Topaz",
+    "icon": "topaz",
+    "id": 242,
+    "state": "physical"
+  },
+  {
+    "name": "Virtual Amethyst",
+    "icon": "virtual_amethyst",
+    "id": 290,
+    "state": "virtual"
+  },
+  {
+    "name": "Pink Diamond",
+    "icon": "pinkdiamond",
+    "id": 584,
+    "state": "physical"
+  },
+  {
+    "name": "Virtual Sapphire",
+    "icon": "virtual_sapphire",
+    "id": 681,
+    "state": "virtual"
+  },
+  {
+    "name": "Virtual Citrine",
+    "icon": "virtual_citrine",
+    "id": 2361,
+    "state": "virtual"
+  },
+  {
+    "name": "Virtual Onyx",
+    "icon": "virtual_onyx",
+    "id": 2362,
+    "state": "virtual"
+  }
+]

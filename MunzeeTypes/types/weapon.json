@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Mace",
+    "icon": "mace",
+    "id": 52,
+    "state": "physical",
+    "weapon": "clan"
+  },
+  {
+    "name": "Longsword",
+    "icon": "longsword",
+    "id": 53,
+    "state": "physical",
+    "weapon": "clan"
+  },
+  {
+    "name": "Battle Axe",
+    "icon": "battleaxe",
+    "id": 140,
+    "state": "physical",
+    "weapon": "clan"
+  },
+  {
+    "name": "The Hammer",
+    "icon": "thehammer",
+    "id": 306,
+    "state": "physical",
+    "weapon": "clan"
+  },
+  {
+    "name": "Crossbow",
+    "icon": "crossbow",
+    "id": 998,
+    "state": "virtual",
+    "weapon": "clan"
+  },
+  {
+    "name": "Briefcase",
+    "icon": "briefcase",
+    "id": 1246,
+    "state": "physical",
+    "weapon": "zeecret"
+  },
+  {
+    "name": "Catapult",
+    "icon": "catapult",
+    "id": 1248,
+    "state": "virtual",
+    "weapon": "clan"
+  },
+  {
+    "name": "Night Vision Goggles",
+    "icon": "nightvisiongoggles",
+    "id": 1359,
+    "state": "virtual",
+    "weapon": "zeecret"
+  }
+]

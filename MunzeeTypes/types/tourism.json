@@ -1,0 +1,62 @@
+[
+  {
+    "name": "TX Historical Location",
+    "icon": "txhistoricallocation",
+    "id": 682,
+    "state": "virtual"
+  },
+  {
+    "name": "FL Historical Location",
+    "icon": "flhistoricallocation",
+    "id": 1474,
+    "state": "virtual"
+  },
+  {
+    "name": "CA Historical Location",
+    "icon": "cahistoricallocation",
+    "id": 1475,
+    "state": "virtual"
+  },
+  {
+    "name": "World Heritage Historical Location",
+    "icon": "worldheritagehistoricallocation",
+    "id": 1489,
+    "state": "virtual"
+  },
+  {
+    "name": "Great Britain Iconic Location",
+    "icon": "greatbritainiconiclocation",
+    "id": 1552,
+    "state": "virtual"
+  },
+  {
+    "name": "Czech Republic Iconic Location",
+    "icon": "czechrepubliciconiclocation",
+    "id": 1767,
+    "state": "virtual"
+  },
+  {
+    "name": "Slovakia Iconic Location",
+    "icon": "slovakiaiconiclocation",
+    "id": 1768,
+    "state": "virtual"
+  },
+  {
+    "name": "Washington Iconic Location",
+    "icon": "washingtoniconiclocation",
+    "id": 1831,
+    "state": "virtual"
+  },
+  {
+    "name": "New Hampshire Iconic Location",
+    "icon": "newhampshireiconiclocation",
+    "id": 2196,
+    "state": "virtual"
+  },
+  {
+    "name": "New Mexico Iconic Location",
+    "icon": "newmexicoiconiclocation",
+    "id": 2197,
+    "state": "virtual"
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Flat Rob",
+    "icon": "flatrob",
+    "id": 353,
+    "state": "virtual"
+  },
+  {
+    "name": "MHQ Flat Matt",
+    "icon": "mhqflatmatt",
+    "id": 1006,
+    "state": "virtual",
+    "unique": true
+  },
+  {
+    "name": "MHQ Flat Rob",
+    "icon": "mhqflatrob",
+    "id": 1007,
+    "state": "virtual",
+    "unique": true
+  },
+  {
+    "name": "Flat Matt",
+    "icon": "flatmatt",
+    "id": 1015,
+    "state": "virtual"
+  },
+  {
+    "name": "Flat Lou",
+    "icon": "flatlou",
+    "id": 1338,
+    "state": "virtual"
+  },
+  {
+    "name": "Tower Bridge Flat Lou",
+    "icon": "towerbridgeflatlou",
+    "id": 1343,
+    "state": "virtual",
+    "unique": true
+  },
+  {
+    "name": "Flat Hammock",
+    "icon": "flathammock",
+    "id": 1581,
+    "state": "virtual"
+  },
+  {
+    "name": "Gettysburg Flat Hammock",
+    "icon": "gettysburgflathammock",
+    "id": 1582,
+    "state": "virtual",
+    "unique": true
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Munzee Madness Reseller",
+    "icon": "munzeemadnessreseller",
+    "id": 510,
+    "state": "physical"
+  },
+  {
+    "name": "GeoStuff Reseller",
+    "icon": "geostuffreseller",
+    "id": 511,
+    "state": "physical"
+  },
+  {
+    "name": "GeoHobbies Reseller",
+    "icon": "geohobbiesreseller",
+    "id": 512,
+    "state": "physical"
+  },
+  {
+    "name": "DDCards Reseller",
+    "icon": "ddcardsreseller",
+    "id": 513,
+    "state": "physical"
+  },
+  {
+    "name": "NEGS Reseller",
+    "icon": "negsreseller",
+    "id": 514,
+    "state": "physical"
+  },
+  {
+    "name": "GeoLoggers Reseller",
+    "icon": "geologgersreseller",
+    "id": 515,
+    "state": "physical"
+  },
+  {
+    "name": "MM Cocoa Beach Reseller",
+    "icon": "mmcocoabeachreseller",
+    "id": 516,
+    "state": "physical"
+  },
+  {
+    "name": "Ruja Reseller",
+    "icon": "rujareseller",
+    "id": 550,
+    "state": "physical"
+  },
+  {
+    "name": "Laupe Reseller",
+    "icon": "laupereseller",
+    "id": 601,
+    "state": "physical"
+  },
+  {
+    "name": "SCGS Reseller",
+    "icon": "scgsreseller",
+    "id": 696,
+    "state": "physical"
+  }
+]

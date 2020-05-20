@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Get Well Card",
+    "icon": "getwellcard",
+    "id": 2421
+  },
+  {
+    "name": "Birthday Card",
+    "icon": "birthdaycard",
+    "id": 2420
+  },
+  {
+    "name": "Earth Day Card 1",
+    "icon": "earthdaycard1",
+    "id": 2422
+  },
+  {
+    "name": "Earth Day Card 2",
+    "icon": "earthdaycard2",
+    "id": 2423
+  },
+  {
+    "name": "Earth Day Card 3",
+    "icon": "earthdaycard3",
+    "id": 2424
+  },
+  {
+    "name": "Stay Home Card",
+    "icon": "stayhomecard",
+    "id": 2425
+  },
+  {
+    "name": "Hammercorn Card",
+    "icon": "hammercorncard",
+    "id": 2430
+  },
+  {
+    "name": "Thank You Card",
+    "icon": "thankyoucard",
+    "id": 2432
+  },
+  {
+    "name": "World Laughter Day Card",
+    "icon": "worldlaughterdaycard",
+    "id": 2433
+  },
+  {
+    "name": "Safe Travels Card",
+    "icon": "safetravelscard",
+    "id": 2451
+  },
+  {
+    "name": "Howdy Card",
+    "icon": "howdycard"
+  }
+]

@@ -1,0 +1,170 @@
+[
+  {
+    "name": "Scorpio",
+    "icon": "scorpio",
+    "id": 308,
+    "state": "physical",
+    "zodiac": "western"
+  },
+  {
+    "name": "Sagittarius",
+    "icon": "sagittarius",
+    "id": 312,
+    "state": "physical",
+    "zodiac": "western"
+  },
+  {
+    "name": "Capricorn",
+    "icon": "capricorn",
+    "id": 313,
+    "state": "physical",
+    "zodiac": "western"
+  },
+  {
+    "name": "Aquarius",
+    "icon": "aquarius",
+    "id": 314,
+    "state": "physical",
+    "zodiac": "western"
+  },
+  {
+    "name": "Pisces",
+    "icon": "pisces",
+    "id": 315,
+    "state": "physical",
+    "zodiac": "western"
+  },
+  {
+    "name": "Aries",
+    "icon": "aries",
+    "id": 316,
+    "state": "physical",
+    "zodiac": "western"
+  },
+  {
+    "name": "Taurus",
+    "icon": "taurus",
+    "id": 317,
+    "state": "physical",
+    "zodiac": "western"
+  },
+  {
+    "name": "Gemini",
+    "icon": "gemini",
+    "id": 318,
+    "state": "physical",
+    "zodiac": "western"
+  },
+  {
+    "name": "Cancer",
+    "icon": "cancer",
+    "id": 319,
+    "state": "physical",
+    "zodiac": "western"
+  },
+  {
+    "name": "Leo",
+    "icon": "leo",
+    "id": 320,
+    "state": "physical",
+    "zodiac": "western"
+  },
+  {
+    "name": "Virgo",
+    "icon": "virgo",
+    "id": 321,
+    "state": "physical",
+    "zodiac": "western"
+  },
+  {
+    "name": "Libra",
+    "icon": "libra",
+    "id": 322,
+    "state": "physical",
+    "zodiac": "western"
+  },
+  {
+    "name": "Dog Chinese Zodiac",
+    "icon": "dogchinesezodiac",
+    "id": 1271,
+    "state": "physical",
+    "zodiac": "chinese"
+  },
+  {
+    "name": "Pig Chinese Zodiac",
+    "icon": "pigchinesezodiac",
+    "id": 1272,
+    "state": "physical",
+    "zodiac": "chinese"
+  },
+  {
+    "name": "Rat Chinese Zodiac",
+    "icon": "ratchinesezodiac",
+    "id": 1273,
+    "state": "physical",
+    "zodiac": "chinese"
+  },
+  {
+    "name": "Ox Chinese Zodiac",
+    "icon": "oxchinesezodiac",
+    "id": 1274,
+    "state": "physical",
+    "zodiac": "chinese"
+  },
+  {
+    "name": "Tiger Chinese Zodiac",
+    "icon": "tigerchinesezodiac",
+    "id": 1275,
+    "state": "physical",
+    "zodiac": "chinese"
+  },
+  {
+    "name": "Rabbit Chinese Zodiac",
+    "icon": "rabbitchinesezodiac",
+    "id": 1276,
+    "state": "physical",
+    "zodiac": "chinese"
+  },
+  {
+    "name": "Dragon Chinese Zodiac",
+    "icon": "dragonchinesezodiac",
+    "id": 1277,
+    "state": "physical",
+    "zodiac": "chinese"
+  },
+  {
+    "name": "Snake Chinese Zodiac",
+    "icon": "snakechinesezodiac",
+    "id": 1278,
+    "state": "physical",
+    "zodiac": "chinese"
+  },
+  {
+    "name": "Horse Chinese Zodiac",
+    "icon": "horsechinesezodiac",
+    "id": 1279,
+    "state": "physical",
+    "zodiac": "chinese"
+  },
+  {
+    "name": "Goat Chinese Zodiac",
+    "icon": "goatchinesezodiac",
+    "id": 1280,
+    "state": "physical",
+    "zodiac": "chinese"
+  },
+  {
+    "name": "Monkey Chinese Zodiac",
+    "icon": "monkeychinesezodiac",
+    "id": 1281,
+    "state": "physical",
+    "zodiac": "chinese"
+  },
+  {
+    "name": "Rooster Chinese Zodiac",
+    "icon": "roosterchinesezodiac",
+    "id": 1282,
+    "state": "physical",
+    "zodiac": "chinese"
+  }
+]
