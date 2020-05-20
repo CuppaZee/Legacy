@@ -171,6 +171,14 @@
           "function": "clan_details_v1"
         },
         {
+          "source": "/clan/shadow",
+          "function": "clan_shadow_v1"
+        },
+        {
+          "source": "/clan/shadow/v1",
+          "function": "clan_shadow_v1"
+        },
+        {
           "source": "/munzee/deploytime",
           "function": "munzee_deploytime"
         },

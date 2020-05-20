@@ -13,15 +13,15 @@ export default function useAPIRequest (reqData) {
   const dispatch = useDispatch();
   useFocusEffect(
     useCallback(() => {
-      for(let req of reqData) dispatch(request.add(req));
+      for(let req of reqData.filter(i=>i)) dispatch(request.add(req));
       return () => {
-        for(let req of reqData) dispatch(request.remove(req));
+        for(let req of reqData.filter(i=>i)) dispatch(request.remove(req));
       };
     },[stringify(reqData)])
   )
   
   // Get Request Responses
-  const data = useSelector(i => reqData.map(req=>(i.request_data[stringify(req)] ?? {}).data));
+  const data = useSelector(i => reqData.map(req=>req?(i.request_data[stringify(req)] ?? {}).data:undefined));
 
   // If Input is not array, return first element of Array
   if(!isArray) return data[0];
