@@ -74,7 +74,7 @@ export default function AuthScreen () {
           username,
           token
         }
-        await fetch(`https://flame.cuppazee.uk/logAuth?platform=${Platform.OS}&user=${username}`)
+        fetch(`https://server.cuppazee.app/authlog?platform=${Platform.OS}&user=${username}`)
         dispatch(login(x));
         setLoading(false);
         setRedirect(user_id);

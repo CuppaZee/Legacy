@@ -9,7 +9,7 @@ const MunzeeAPI = require('./Utils/API');
 const config = require('./Utils/Config');
 const __clan = require('./Utils/Clan');
 const API1 = new MunzeeAPI(config.Auth1);
-const {db,getGameID,moment,time,utils} = require('./Utils')
+const {db,getGameID,moment,time,utils,firebase} = require('./Utils')
 // admin.initializeApp(functions.config().firebase);
 // const db = admin.firestore();
 const cors = require('cors')({
@@ -628,6 +628,35 @@ exports["mhq_time"] = functions.https.onRequest(async (req, res) => {
 exports["usercount"] = functions.https.onRequest(async (req, res) => {
     return cors(req, res, async () => {
         return res.send(`Users: ${(await db.collection('users').listDocuments()).length.toString()}`)
+    })
+})
+
+exports["authlog"] = functions.https.onRequest(async (req, res) => {
+    return cors(req, res, async () => {
+        var user = req.query.user;
+        var discordmessage = '????';
+        var platform = {
+            android: "🤖",
+            ios: "🍎",
+            web: "🌐"
+        }[req.query.platform]||`[${req.query.platform}] `;
+        var {list} = (await db.collection('data').doc('user_list').get()).data();
+        if(list.includes(user)){
+            discordmessage = `${platform}:repeat: ${user} | ${list.length} Users`
+        } else {
+            discordmessage = `${platform}:new: ${user} | User #${list.length+1}`;
+            db.collection('data').doc('user_list').update({
+                list: firebase.firestore.FieldValue.arrayUnion(user)
+            })
+        }
+        needle(
+            'post',
+            config.discord.authV2,
+            {
+                content:discordmessage
+            }
+        )
+        return res.send(`👍`)
     })
 })
 
