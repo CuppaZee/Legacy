@@ -14,7 +14,7 @@ export default function InventoryItem({i}) {
       <TouchableRipple onPress={() => setOpen(true)}>
         <View key={i.icon} style={{ padding: 2, alignItems: "center", opacity: i.amount ? 1 : 0.2 }}>
           <Image style={{ height: 36, width: 36 }} source={{ uri: i.icon }} />
-          <Text style={{ fontFamily: font(), color: theme.page_content.fg, fontSize: 16 }}>{i.amount}</Text>
+          <Text style={{ ...font(), color: theme.page_content.fg, fontSize: 16 }}>{i.amount}</Text>
         </View>
       </TouchableRipple>
     }
@@ -22,7 +22,7 @@ export default function InventoryItem({i}) {
   >
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
       <Image style={{ height: 48, width: 48 }} source={{ uri: i.icon }} />
-      <Text style={{ fontSize: 16, fontFamily: font("bold") }}>{i.amount}x {i.name || "Unknown Name"}</Text>
+      <Text style={{ fontSize: 16, ...font("bold") }}>{i.amount}x {i.name || "Unknown Name"}</Text>
     </View>
   </Menu>;
 }

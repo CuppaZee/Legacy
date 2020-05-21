@@ -59,7 +59,7 @@ export default function SettingsScreen({ navigation }) {
             {Object.entries(logins).map(user=><View key={user[0]} style={{padding:8,flexDirection:"row"}}>
               <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(user[0]).toString(36)}.png`}} style={{borderRadius:24,width:48,height:48}} />
               <View style={{paddingLeft:8,flexGrow:1,alignSelf:"center"}}>
-                <Text style={{fontFamily:font("bold"),fontSize:16,color:theme.page_content.fg}}>{user[1].username}</Text>
+                <Text style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{user[1].username}</Text>
               </View>
             </View>)}
             <MaterialButton
@@ -80,7 +80,7 @@ export default function SettingsScreen({ navigation }) {
             </MaterialButton>}
             
             {/* TODO: Theme Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
-            <Text style={{color:theme.page_content.fg,fontFamily:font()}}>Current Theme: {selected_theme}</Text>
+            <Text style={{color:theme.page_content.fg,...font()}}>Current Theme: {selected_theme}</Text>
             <View style={{flexDirection:"row",flexWrap:"wrap"}}>
               <Button
                 style={{flex:1}}
@@ -109,7 +109,7 @@ export default function SettingsScreen({ navigation }) {
             </View>
 
             {/* TODO: Language Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
-            <Text style={{color:theme.page_content.fg,fontFamily:font()}}>Current Language: {i18n.language}</Text>
+            <Text style={{color:theme.page_content.fg,...font()}}>Current Language: {i18n.language}</Text>
             <View style={{flexDirection:"row",flexWrap:"wrap",paddingTop:4}}>
               {languages.map(i=><View style={{padding:4}}>
                 <MaterialButton

@@ -13,20 +13,20 @@ export default function SettingsScreen() {
   return (
     <ScrollView style={{ backgroundColor: theme.page_content.bg }} contentContainerStyle={{padding:8}}>
       <View style={{alignItems:"center"}}>
-        <Text style={{color: theme.page_content.fg,fontSize:24,fontFamily:font("bold")}}>CuppaZee App</Text>
+        <Text style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>CuppaZee App</Text>
         {/* TODO: Replace "CuppaZee App" with Logo */}
-        <Text style={{color: theme.page_content.fg,fontSize:20,fontFamily:font("bold")}}>Build 27</Text>
+        <Text style={{color: theme.page_content.fg,fontSize:20,...font("bold")}}>Build 28</Text>
       </View>
       <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
       <View style={{alignItems:"center"}}>
-        <Text style={{color: theme.page_content.fg,fontSize:24,fontFamily:font("bold")}}>Credits</Text>
+        <Text style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Credits</Text>
       </View>
       <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
         {credits.filter(i=>i.type=="dev").map(i=><TouchableRipple onPress={()=>nav.navigate('UserDetails',{userid:i.user_id})}>
           <View style={{alignItems:"center",padding:4,width:160}}>
             <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png`}} style={{backgroundColor:"white",height:48,width:48,borderRadius:24}} />
-            <Text style={{color: theme.page_content.fg,fontSize:20,fontFamily:font("bold")}}>{i.username}</Text>
-            <Text style={{color: theme.page_content.fg,fontSize:16,fontFamily:font()}}>{i.title}</Text>
+            <Text style={{color: theme.page_content.fg,fontSize:20,...font("bold")}}>{i.username}</Text>
+            <Text style={{color: theme.page_content.fg,fontSize:16,...font()}}>{i.title}</Text>
           </View>
         </TouchableRipple>)}
       </View>
@@ -35,18 +35,18 @@ export default function SettingsScreen() {
         {credits.filter(i=>i.type=="translator").map(i=><TouchableRipple onPress={()=>nav.navigate('UserDetails',{userid:i.user_id})}>
           <View style={{alignItems:"center",padding:4,width:120}}>
             <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png`}} style={{backgroundColor:"white",height:48,width:48,borderRadius:24}} />
-            <Text style={{color: theme.page_content.fg,fontSize:16,fontFamily:font("bold")}}>{i.username}</Text>
-            <Text style={{color: theme.page_content.fg,fontSize:12,fontFamily:font()}}>{i.title}</Text>
+            <Text style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.username}</Text>
+            <Text style={{color: theme.page_content.fg,fontSize:12,...font()}}>{i.title}</Text>
           </View>
         </TouchableRipple>)}
       </View>
       <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
-      <Text style={{color: theme.page_content.fg,fontSize:20,fontFamily:font("bold"),textAlign:"center"}}>Patrons and Supporters</Text>
+      <Text style={{color: theme.page_content.fg,fontSize:20,...font("bold"),textAlign:"center"}}>Patrons and Supporters</Text>
       <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
         {credits.filter(i=>i.type=="supporter").map(i=><TouchableRipple onPress={()=>nav.navigate('UserDetails',{userid:i.user_id})}>
           <View style={{alignItems:"center",padding:4,width:100}}>
             <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png`}} style={{backgroundColor:"white",height:36,width:36,borderRadius:18}} />
-            <Text numberOfLines={1} ellipsizeMode='head' style={{color: theme.page_content.fg,fontSize:12,fontFamily:font("bold")}}>{i.username}</Text>
+            <Text numberOfLines={1} ellipsizeMode='head' style={{color: theme.page_content.fg,fontSize:12,...font("bold")}}>{i.username}</Text>
           </View>
         </TouchableRipple>)}
       </View>

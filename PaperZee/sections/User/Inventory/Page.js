@@ -47,7 +47,7 @@ export default function UserInventoryScreen() {
       contentContainerStyle={{ width: 800, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4 }}
       style={{ flex: 1, backgroundColor: theme.page_content.bg }}>
       <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
-        <View><Text style={{ color: theme.page_content.fg, fontSize: 20, fontFamily: font("bold") }}>
+        <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
           Undeployed
         </Text></View>
         <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
@@ -60,7 +60,7 @@ export default function UserInventoryScreen() {
         </View>
       </View>
       <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
-        <View><Text style={{ color: theme.page_content.fg, fontSize: 20, fontFamily: font("bold") }}>
+        <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
           Credits
         </Text></View>
         <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
@@ -73,7 +73,7 @@ export default function UserInventoryScreen() {
         </View>
       </View>
       <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
-        <View><Text style={{ color: theme.page_content.fg, fontSize: 20, fontFamily: font("bold") }}>
+        <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
           History
         </Text></View>
         <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
@@ -88,9 +88,9 @@ export default function UserInventoryScreen() {
               <View key={i.icon} style={{ padding: 2, alignItems: "center", flexDirection: "row" }}>
                 <Image style={{ height: 36, width: 36 }} source={{ uri: i.icon?.includes?.('NA.png') ? 'https://server.cuppazee.app/missing.png' : i.icon }} />
                 <View>
-                  <Text style={{ color: theme.page_content.fg, fontSize: 16, fontFamily: font("bold") }}>{i.name}</Text>
-                  <Text style={{ color: theme.page_content.fg, fontSize: 16, fontFamily: font() }}>{i.reason}</Text>
-                  <Text style={{ color: theme.page_content.fg, fontSize: 12, fontFamily: font() }}>{new Date(i.time).toLocaleString()}</Text>
+                  <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i.name}</Text>
+                  <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font() }}>{i.reason}</Text>
+                  <Text style={{ color: theme.page_content.fg, fontSize: 12, ...font() }}>{new Date(i.time).toLocaleString()}</Text>
                 </View>
               </View>
             </TouchableRipple>}

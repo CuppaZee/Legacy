@@ -35,7 +35,7 @@ export default function App() {
               WebBrowser.openBrowserAsync(i)
             }
           }}>
-          <Text style={{color:i?.startsWith?.('http')?'blue':'black',textAlign:"center",fontSize:16,fontFamily:font("bold"),padding:4,paddingVertical:16}}>{i}</Text>
+          <Text style={{color:i?.startsWith?.('http')?'blue':'black',textAlign:"center",fontSize:16,...font("bold"),padding:4,paddingVertical:16}}>{i}</Text>
         </TouchableOpacity>)}
       </View>}
       {!scanned&&<Camera

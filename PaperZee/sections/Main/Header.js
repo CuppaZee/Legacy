@@ -22,7 +22,7 @@ export default function Header(props) {
       onPress={()=>props.navigation.pop()}
     />}
     <Appbar.Content
-      titleStyle={{fontFamily: font()}}
+      titleStyle={{...font()}}
       title={props?.scene?.descriptor?.options?.title??props.scene?.route?.name}
     />
     <LoadingButton />

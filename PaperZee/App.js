@@ -230,7 +230,9 @@ function DrawerNav() {
 }
 
 function App() {
-  let [fontsLoaded] = useFonts({
+  let [fontsLoaded] = useFonts(Platform.OS=="web"?{
+    Coiny_400Regular,
+  }:{
     Coiny_400Regular,
     Roboto_100Thin,
     Roboto_300Light,

@@ -53,7 +53,7 @@ export default function ClanScreen({ route }) {
       <ScrollView
         contentContainerStyle={{ width: 600, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4, paddingBottom: 92 }}
         style={{ flex: 1, backgroundColor: theme.page.bg }}>
-        {!data?.output&&<Text style={{color:theme.page.fg,fontFamily:font()}}>Loading...</Text>}
+        {!data?.output&&<Text style={{color:theme.page.fg,...font()}}>Loading...</Text>}
         {tasks?.map?.(i=><View style={{ padding: 4 }}>
           <Card noPad>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -61,13 +61,13 @@ export default function ClanScreen({ route }) {
                 <Image source={{ uri: i?.icon }} style={{ width: 48, height: 48 }} />
               </View>
               <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
-                <Text style={{ fontSize: 20, fontFamily: font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{i?.name}</Text>
+                <Text style={{ fontSize: 20, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{i?.name}</Text>
                 {/* <Text style={{fontSize:16,opacity:0.8}}><MaterialCommunityIcons name="sword-cross" size={16}/> The Cup of Coffee Clan</Text> */}
-                <Text style={{ fontSize: 16,fontFamily:font(500), color: theme.page_content.fg, opacity: 0.8 }}>{data?.output?.[i.id]?.toLocaleString?.()}/{i.req}</Text>
+                <Text style={{ fontSize: 16,...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{data?.output?.[i.id]?.toLocaleString?.()}/{i.req}</Text>
               </View>
               <View style={{alignSelf:"stretch",borderTopRightRadius:8,borderBottomRightRadius:8,borderLeftWidth:dark?2:0,borderLeftColor:dark?level_colors[data?.output?.[i.id]>=i.req?5:0]:undefined,backgroundColor:dark?undefined:level_colors[data?.output?.[i.id]>=i.req?5:0],width:60,alignItems:"center",justifyContent:"center"}}>
                 {/* <Text style={{color:theme.page_content.fg}}>Level</Text> */}
-                <Text style={{color:theme.page_content.fg,fontSize:24,fontFamily:font("bold")}}>{data?.output?.[i.id]>=i.req?'✔':''}</Text>
+                <Text style={{color:theme.page_content.fg,fontSize:24,...font("bold")}}>{data?.output?.[i.id]>=i.req?'✔':''}</Text>
               </View>
             </View>
           </Card>
