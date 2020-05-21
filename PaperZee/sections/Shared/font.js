@@ -1,5 +1,5 @@
 export default function font(weight) {
-  var f = 'Sarabun'
+  var f = 'Roboto'
   return {
     100: `${f}_100Thin`,
     200: `${f}_200ExtraLight`,

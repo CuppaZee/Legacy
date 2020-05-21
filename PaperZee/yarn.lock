@@ -966,15 +966,10 @@
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/coiny/-/coiny-0.1.0.tgz#f20e12cb400f5a01003ef0451224a675e54f7f11"
   integrity sha512-J3nyEh/Tpq3yyxHMI4h5Kud/ikPgqEwjB/6X1hwwfYIR7W+7bDh+EQLZkuBimU/LucQPXgUjWnY4Ddi5ArGXgA==
 
-"@expo-google-fonts/muli@^0.1.0":
+"@expo-google-fonts/roboto@^0.1.0":
   version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@expo-google-fonts/muli/-/muli-0.1.0.tgz#e703c684e1ebbe1c1dddf5949701702d571232c7"
-  integrity sha512-wLsUpVs19LNx+TqqjFCe7Jxe96wrK8+OdW+E510QDK4j1hKHWjj9/k1BsQeVX6sF6wfDQdGGHZxAWeD7umRP7A==
-
-"@expo-google-fonts/sarabun@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@expo-google-fonts/sarabun/-/sarabun-0.1.0.tgz#b79170adeae574008eef18ce6aa896399d60ef41"
-  integrity sha512-K+jYUMu5fgkZnrytDMGXOMj+XtQn7/eUb6plMItYia9VesCOcQmoO0/usnrAXGwhKWs25VnZXMotaPhKPH+dfA==
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/roboto/-/roboto-0.1.0.tgz#2897dc09db4ceb9f5ba337103090e1d70236e811"
+  integrity sha512-q+68xWZpLIS/iPC5jwoakEskyTVgIC1jfpNzWFMnUnBoZsWRq1rlpnleR3MjKDeN1Vt0NcvUI/aaZoCyIXhisw==
 
 "@expo/babel-preset-cli@0.2.8":
   version "0.2.8"

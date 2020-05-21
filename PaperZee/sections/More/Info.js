@@ -15,7 +15,7 @@ export default function SettingsScreen() {
       <View style={{alignItems:"center"}}>
         <Text style={{color: theme.page_content.fg,fontSize:24,fontFamily:font("bold")}}>CuppaZee App</Text>
         {/* TODO: Replace "CuppaZee App" with Logo */}
-        <Text style={{color: theme.page_content.fg,fontSize:20,fontFamily:font("bold")}}>Build 26</Text>
+        <Text style={{color: theme.page_content.fg,fontSize:20,fontFamily:font("bold")}}>Build 27</Text>
       </View>
       <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
       <View style={{alignItems:"center"}}>

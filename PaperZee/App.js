@@ -10,15 +10,13 @@ var { store, setCurrentRoute } = s;
 
 import {
   useFonts,
-  Sarabun_100Thin,
-  Sarabun_200ExtraLight,
-  Sarabun_300Light,
-  Sarabun_400Regular,
-  Sarabun_500Medium,
-  Sarabun_600SemiBold,
-  Sarabun_700Bold,
-  Sarabun_800ExtraBold,
-} from '@expo-google-fonts/sarabun';
+  Roboto_100Thin,
+  Roboto_300Light,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  Roboto_900Black,
+} from '@expo-google-fonts/roboto';
 import { Coiny_400Regular } from '@expo-google-fonts/coiny';
 
 import LoadingPage from './sections/Shared/LoadingPage';
@@ -234,14 +232,12 @@ function DrawerNav() {
 function App() {
   let [fontsLoaded] = useFonts({
     Coiny_400Regular,
-    Sarabun_100Thin,
-    Sarabun_200ExtraLight,
-    Sarabun_300Light,
-    Sarabun_400Regular,
-    Sarabun_500Medium,
-    Sarabun_600SemiBold,
-    Sarabun_700Bold,
-    Sarabun_800ExtraBold,
+    Roboto_100Thin,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
   });
   const loadingLogin = useSelector(i=>i.loadingLogin);
   const ref = React.useRef();
