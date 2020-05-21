@@ -25,7 +25,7 @@ export default function SearchScreen({ navigation }) {
   
   var reqData = {
     endpoint: 'user/find',
-    data: {text:search}
+    data: {text:'%'+search}
   }
   var users = useSelector(i => i.request_data[stringify(reqData)] ?? {})
   useFocusEffect(
