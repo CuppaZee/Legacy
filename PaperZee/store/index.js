@@ -39,7 +39,7 @@ var setTheme_ = (data) => ({ type: "SET_THEME", data: data })
 var levelSelect_ = (data) => ({ type: "LEVEL_SELECT", data: data })
 var tick = () => ({ type: "TICK" })
 var login = (data,noUpdate) => async (dispatch, getState) => {
-  if(!noUpdate) await AsyncStorage.setItem('LOGINS',JSON.stringify({...getState().logins,...data}));
+  if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_STORE_API_TOKENS',JSON.stringify({...getState().logins,...data}));
   dispatch(login_(data));
 }
 var clanBookmarks = (data,noUpdate) => async (dispatch, getState) => {
@@ -62,27 +62,27 @@ var levelSelect = (data,noUpdate) => async (dispatch, getState) => {
 var rootReducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_REQUEST':
-      if(state.requests.find(i=>i.page==action.page)) {
+      if(state.requests.find(i=>i.page==JSON.stringify(action.page))) {
         return {
           ...state,
-          requests: state.requests.map(i=>i.page==action.page?{...i,count:i.count+1}:i)
+          requests: state.requests.map(i=>i.page==JSON.stringify(action.page)?{...i,count:i.count+1}:i)
         }
       } else {
         return {
           ...state,
-          requests: [...state.requests, {page:action.page,count:1,expires:Date.now()+(15*60000)}]
+          requests: [...state.requests, {page:JSON.stringify(action.page),count:1,expires:Date.now()+(15*60000)}]
         }
       }
     case 'REMOVE_REQUEST':
-      if(state.requests.find(i=>i.page==action.page).count>0) {
+      if(state.requests.find(i=>i.page==JSON.stringify(action.page)).count>0) {
         return {
           ...state,
-          requests: state.requests.map(i=>i.page==action.page?{...i,count:i.count-1}:i)
+          requests: state.requests.map(i=>i.page==JSON.stringify(action.page)?{...i,count:i.count-1}:i)
         }
       } else {
         return {
           ...state,
-          requests: state.requests.filter(i=>i.page!=action.page)
+          requests: state.requests.filter(i=>i.page!=JSON.stringify(action.page))
         }
       }
     case 'LOADING':
@@ -154,7 +154,7 @@ setInterval(refreshRequests,60000,store);
 //   store.dispatch(tick());
 // },1000)
 
-AsyncStorage.getItem('LOGINS').then((data)=>{
+AsyncStorage.getItem('CUPPAZEE_STORE_API_TOKENS').then((data)=>{
   if(!data) return store.dispatch(login({},true));
   store.dispatch(login(JSON.parse(data),true));
 })

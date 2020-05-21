@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Surprise",
+    "icon": "surprise",
+    "id": 400,
+    "state": "virtual"
+  },
+  {
+    "name": "Prize Wheel",
+    "icon": "prizewheel",
+    "id": 444,
+    "state": "physical"
+  },
+  {
+    "name": "Rock Paper Scissors",
+    "icon": "rockpaperscissors",
+    "id": 522,
+    "state": "physical"
+  },
+  {
+    "name": "Bowling Ball",
+    "icon": "bowlingball",
+    "id": 1643,
+    "state": "physical"
+  },
+  {
+    "name": "Urban Fit",
+    "icon": "urbanfit",
+    "id": 1824,
+    "state": "physical"
+  },
+  {
+    "name": "Joystick Physical",
+    "icon": "joystickphysical",
+    "id": 1976,
+    "state": "physical"
+  },
+  {
+    "name": "Joystick Virtual",
+    "icon": "joystickvirtual",
+    "id": 2002,
+    "state": "virtual"
+  },
+  {
+    "name": "Sir Prize Wheel",
+    "icon": "sirprizewheel",
+    "id": 2412,
+    "state": "virtual"
+  }
+]

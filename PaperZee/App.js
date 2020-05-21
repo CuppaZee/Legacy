@@ -6,54 +6,46 @@ import { Provider as ReduxProvider, useSelector, useDispatch } from 'react-redux
 import s from '~store/index';
 import './lang/i18n';
 import loadable from '@loadable/component';
-var { store, login, setCurrentRoute } = s;
+var { store, setCurrentRoute } = s;
 
 import LoadingPage from './sections/Shared/LoadingPage';
 
 // Clan Screens
-// import AllClansScreen from './sections/Clan/All';
 const AllClansScreen = loadable(() => import('./sections/Clan/All'),{fallback: <LoadingPage/>})
-// import ClanDetailsScreen from './sections/Clan/Details';
 const ClanDetailsScreen = loadable(() => import('./sections/Clan/Details'),{fallback: <LoadingPage/>})
-// import ClanSearchScreen from './sections/Clan/Search';
+const ClanRequirementsScreen = loadable(() => import('./sections/Clan/Requirements'),{fallback: <LoadingPage/>})
 const ClanSearchScreen = loadable(() => import('./sections/Clan/Search'),{fallback: <LoadingPage/>})
 
-// Scanner Screens
-// import ScannerScreen from './sections/Scanner/Home';
-const ScannerScreen = loadable(() => import('./sections/Scanner/Home'),{fallback: <LoadingPage/>})
-
-// Settings Screens
-// import SettingsScreen from './sections/Settings/Home';
-const SettingsScreen = loadable(() => import('./sections/Settings/Home'),{fallback: <LoadingPage/>})
+// More Screens
+const SettingsScreen = loadable(() => import('./sections/More/Settings'),{fallback: <LoadingPage/>})
+const InfoScreen = loadable(() => import('./sections/More/Info'),{fallback: <LoadingPage x="page_content"/>})
 
 // Tools Screens
-// import ToolsScreen from './sections/Tools/Home';
 const ToolsScreen = loadable(() => import('./sections/Tools/Home'),{fallback: <LoadingPage/>})
+const ScannerScreen = loadable(() => import('./sections/Tools/Scanner'),{fallback: <LoadingPage/>})
 
 // Maps Screens
-// import MapScreen from './sections/Maps/Home';
 const MapScreen = loadable(() => import('./sections/Maps/Home'),{fallback: <LoadingPage/>})
 
 // User Screens
-// import UserDetailsScreen from './sections/User/Details';
 const UserDetailsScreen = loadable(() => import('./sections/User/Details'),{fallback: <LoadingPage/>})
-// import UserActivityScreen from './sections/User/Activity';
 const UserActivityScreen = loadable(() => import('./sections/User/Activity'),{fallback: <LoadingPage x="page_content"/>})
-// import UserSearchScreen from './sections/User/Search';
 const UserSearchScreen = loadable(() => import('./sections/User/Search'),{fallback: <LoadingPage/>})
-// import UserInventoryScreen from './sections/User/Inventory';
-const UserInventoryScreen = loadable(() => import('./sections/User/Inventory'),{fallback: <LoadingPage x="page_content"/>})
+const UserInventoryScreen = loadable(() => import('./sections/User/Inventory/Page'),{fallback: <LoadingPage x="page_content"/>})
+const UserClanScreen = loadable(() => import('./sections/User/Clan/Page'),{fallback: <LoadingPage/>})
+const UserQuestScreen = loadable(() => import('./sections/User/Quest'),{fallback: <LoadingPage/>})
 
 // Navigation Sections
-import DrawerContent from './sections/Navigation/DrawerBeta';
+import DrawerContent from './sections/Main/Drawer';
 
 import { Platform, View, Text, StatusBar } from 'react-native';
-import { IconButton, ActivityIndicator, Provider as PaperProvider } from 'react-native-paper'
-import LoadingButton from './sections/Navigation/LoadingButton';
-import WebView from 'react-native-webview';
-import { Linking } from 'expo';
+import { Provider as PaperProvider } from 'react-native-paper'
 
 import { useDimensions } from '@react-native-community/hooks';
+import * as WebBrowser from 'expo-web-browser';
+import Header from './sections/Main/Header';
+
+WebBrowser?.maybeCompleteAuthSession?.();
 
 const Drawer = createDrawerNavigator();
 
@@ -68,99 +60,39 @@ function RedirectScreen() {
   return <Text>_redirect</Text>;
 }
 
-function AuthScreen() {
-  var [auth,setAuth] = React.useState(false);
-  var loggedIn = useSelector(i=>i.loggedIn);
-  var dispatch = useDispatch();
-  var nav = useNavigation();
-  if(auth&&loggedIn) nav.replace('Home');
-  function handleNavChange({url}) {
-    if(url.includes('authsuccess')) {
-      var x = {};
-      var auth = url.match(/authsuccess\/([a-z0-9]+)\/([0-9]+)\/([^]+)/).slice(1,4);
-      x[auth[1]] = {
-        username: auth[2],
-        code: auth[0]
-      }
-      setAuth(true);
-      dispatch(login(x));
-    }
-  }
-  if(Platform.OS=="web") {
-    Linking.openURL('https://flame.cuppazee.uk/auth');
-    return null;
-  }
-  if(auth) return <View style={{flex:1,alignContent:"center"}}><ActivityIndicator size="large" color="#000" /></View>
-  return <WebView
-    source={{ uri: 'https://flame.cuppazee.uk/auth' }}
-    textZoom={200}
-    style={{flex:1}}
-    onNavigationStateChange={handleNavChange}
-  />
-}
-function AuthSuccessScreen(props) {
-  var [auth,setAuth] = React.useState(false);
-  var loggedIn = useSelector(i=>i.loggedIn);
-  var dispatch = useDispatch();
-  var nav = useNavigation();
-  if(auth&&loggedIn) nav.replace('_redirect');
-  React.useEffect(()=>{
-    if(!props.route?.params?.code) {
-      nav.replace('_redirect');
-    } else {
-      var authx = props.route?.params
-      var x = {};
-      x[authx.id] = {
-        username: authx.name,
-        code: authx.code
-      }
-      console.log('AUTHED',authx)
-      setAuth(true);
-      dispatch(login(x));
-      console.log('AUTHED')
-    }
-  },[])
-  if(auth) return <View style={{flex:1,alignContent:"center"}}><ActivityIndicator size="large" color="#000" /></View>
-  return <Text>...</Text>
-}
+const AuthScreen = loadable(() => import('./sections/Main/Auth'),{fallback: <LoadingPage/>})
 
 function StackNav () {
-  var { width } = useDimensions().window;
   const loggedIn = useSelector(i=>i.loggedIn);
-  const theme = useSelector(i=>i.themes[i.theme]);
   return <Stack.Navigator
     screenOptions={({ navigation, route }) => ({
       gestureEnabled: Platform.OS == 'ios',
-      headerStyle: {
-        backgroundColor: theme.navigation.bg
-      },
-      headerLeft: () => (
-        width<=1000?<View style={{flexDirection:"row"}}>
-          {width<=1000&&<IconButton
-            onPress={() => navigation.toggleDrawer()}
-            color="#fff"
-            icon="home"
-          />}
-          {/* {(route.name == "Home" || !loggedIn || !navigation.canGoBack()) ? null : <IconButton
-            onPress={() => navigation.goBack()}
-            color="#fff"
-            icon="arrow-left"
-          />} */}
-        </View>:null
-      ),
-      headerRight: () => {
-        return loggedIn && (
-          <View style={{ flexDirection: "row" }}>
-            {(route.name == "Home" || !loggedIn || navigation.dangerouslyGetState().index<1) ? null : <IconButton
-              onPress={() => navigation.pop()}
-              color="#fff"
-              icon="arrow-left"
-            />}
-            <LoadingButton />
-          </View>
-        )
-      },
-      headerTintColor: '#fff',
+      header: (props) => <Header {...(props||{})}/>
+      // headerStyle: {
+      //   backgroundColor: theme.navigation.bg
+      // },
+      // headerLeft: () => (
+      //   width<=1000?<View style={{flexDirection:"row"}}>
+      //     {width<=1000&&<IconButton
+      //       onPress={() => navigation.toggleDrawer()}
+      //       color="#fff"
+      //       icon="menu"
+      //     />}
+      //   </View>:null
+      // ),
+      // headerRight: () => {
+      //   return loggedIn && (
+      //     <View style={{ flexDirection: "row" }}>
+      //       {(route.name == "Home" || !loggedIn || navigation.dangerouslyGetState().index<1) ? null : <IconButton
+      //         onPress={() => navigation.pop()}
+      //         color="#fff"
+      //         icon="arrow-left"
+      //       />}
+      //       <LoadingButton />
+      //     </View>
+      //   )
+      // },
+      // headerTintColor: '#fff',
     })}>
     {loggedIn && <>
       <Stack.Screen
@@ -180,6 +112,10 @@ function StackNav () {
         component={SettingsScreen}
       />
       <Stack.Screen
+        name="Info"
+        component={InfoScreen}
+      />
+      <Stack.Screen
         name="Scanner"
         component={ScannerScreen}
       />
@@ -191,8 +127,8 @@ function StackNav () {
         component={AllClansScreen}
       />
       <Stack.Screen
-        name="Clan"
-        component={ClanDetailsScreen}
+        name="ClanRequirements"
+        component={ClanRequirementsScreen}
       />
       <Stack.Screen
         name="ClanSearch"
@@ -200,6 +136,17 @@ function StackNav () {
           title: 'Clan Search',
         }}
         component={ClanSearchScreen}
+      />
+      <Stack.Screen
+        name="Clan"
+        component={ClanDetailsScreen}
+      />
+      <Stack.Screen
+        name="UserSearch"
+        options={{
+          title: 'User Search',
+        }}
+        component={UserSearchScreen}
       />
       <Stack.Screen
         name="UserDetails"
@@ -216,6 +163,13 @@ function StackNav () {
         component={UserActivityScreen}
       />
       <Stack.Screen
+        name="UserActivityDate"
+        options={{
+          title: 'User Activity',
+        }}
+        component={UserActivityScreen}
+      />
+      <Stack.Screen
         name="UserInventory"
         options={{
           title: 'User Inventory',
@@ -223,11 +177,18 @@ function StackNav () {
         component={UserInventoryScreen}
       />
       <Stack.Screen
-        name="UserSearch"
+        name="UserClan"
         options={{
-          title: 'User Search',
+          title: 'User Clan Progress',
         }}
-        component={UserSearchScreen}
+        component={UserClanScreen}
+      />
+      <Stack.Screen
+        name="UserQuest"
+        options={{
+          title: 'User Quest Progress',
+        }}
+        component={UserQuestScreen}
       />
     </>}
     <Stack.Screen
@@ -237,22 +198,17 @@ function StackNav () {
       }}
       component={AuthScreen}
     />
-    <Stack.Screen
-      name="AuthSuccess"
-      label="Auth Success"
-      component={AuthSuccessScreen}
-    />
   </Stack.Navigator>
 }
 
 function DrawerNav() {
   var { width } = useDimensions().window;
   return <Drawer.Navigator
-    drawerStyle={{width:width>500?240:width}}
-    drawerContent={props => <DrawerContent {...props} />}
-    drawerType={width>1000?"permanent":"back"}
+    drawerPosition="left"
+    drawerStyle={{width:width>1000?260:Math.min(320,width)}}
+    drawerContent={props => <DrawerContent side="left" {...props} />}
+    drawerType={width>1000?"permanent":"front"}
     edgeWidth={100}
-    openByDefault={true}
   >
     <Drawer.Screen
       name="__primary"
@@ -268,7 +224,7 @@ function App() {
   const dispatch = useDispatch();
 
   const { getInitialState } = useLinking(ref, {
-    prefixes: ['https://paper.cuppazee.uk', 'cuppazee://'],
+    prefixes: ['https://cuppazee.app', 'cuppazee://'],
     config: {
       __primary: {
         path: '__you_should_never_see_this_please_report_it_on_facebook_at_cuppazee_or_via_email_at_mail_at_cuppazee_dot_uk',
@@ -277,12 +233,31 @@ function App() {
           Map: 'maps',
           Scanner: 'scanner',
           Settings: 'settings',
+          Info: 'info',
           ClanSearch: 'clan/search',
+
+          // Clan
           AllClans: 'clan/all',
+          ClanRequirements: {
+            path: 'clan/requirements/:gameid',
+            parse: {
+              gameid: Number
+            }
+          },
           Clan: {
             path: 'clan/:clanid',
             parse: {
               clanid: Number
+            }
+          },
+
+          // User
+          UserSearch: 'user/search',
+          UserActivityDate: {
+            path: 'user/:userid/activity/:date',
+            parse: {
+              userid: Number,
+              date: String
             }
           },
           UserActivity: {
@@ -297,14 +272,24 @@ function App() {
               userid: Number
             }
           },
-          UserSearch: 'user/search',
+          UserClan: {
+            path: 'user/:userid/clan',
+            parse: {
+              userid: Number
+            }
+          },
+          UserQuest: {
+            path: 'user/:userid/quest',
+            parse: {
+              userid: Number
+            }
+          },
           UserDetails: {
             path: 'user/:userid',
             parse: {
               userid: Number
             }
           },
-          AuthSuccess: 'authsuccess/:code/:id/:name',
           Auth: 'auth',
           MunzeeDetails: 'munzee/:url',
         },
@@ -345,14 +330,17 @@ function App() {
   if (!isReady) {
     return null;
   }
+  var navWidth = 400;
   return (
     <NavigationContainer independent={true} onStateChange={handleStateChange} initialState={initialState} ref={ref}>
       <StatusBar translucent={true} backgroundColor={theme.navigation.bg + 'cc'} barStyle="light-content" />
-      <DrawerNav/>
+      <View style={{flex:1}}>
+        <DrawerNav/>
+        {/* <View style={{position:"absolute",bottom:-0.5*navWidth,right:-0.5*navWidth,width:navWidth,height:navWidth,borderRadius:navWidth/2,paddingBottom:navWidth/2,paddingRight:navWidth/2,backgroundColor:"white"}}><Text>Hello</Text></View> */}
+      </View>
     </NavigationContainer>
   );
 }
-
 export default function () { // Setup Providers
   return <ReduxProvider store={store}>
     <PaperProvider>

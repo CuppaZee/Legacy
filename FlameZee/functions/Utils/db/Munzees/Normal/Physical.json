@@ -1,0 +1,742 @@
+[
+  {
+    "name": "Greenie",
+    "icon": "munzee",
+    "id": 0
+  },
+  {
+    "name": "Premium",
+    "icon": "premium",
+    "id": 13
+  },
+  {
+    "name": "Diamond",
+    "icon": "diamond",
+    "id": 40
+  },
+  {
+    "name": "Mace",
+    "icon": "mace",
+    "id": 52
+  },
+  {
+    "name": "Longsword",
+    "icon": "longsword",
+    "id": 53
+  },
+  {
+    "name": "Event Pin",
+    "icon": "eventpin",
+    "id": 60
+  },
+  {
+    "name": "1 Star Motel",
+    "icon": "1starmotel",
+    "id": 70
+  },
+  {
+    "name": "1 Star Motel Room",
+    "icon": "1starmotelroom",
+    "id": 71
+  },
+  {
+    "name": "Ruby",
+    "icon": "ruby",
+    "id": 131
+  },
+  {
+    "name": "Battle Axe",
+    "icon": "battleaxe",
+    "id": 140
+  },
+  {
+    "name": "Hotel Munzee",
+    "icon": "hotel",
+    "id": 170
+  },
+  {
+    "name": "Hotel Room",
+    "icon": "hotelroom",
+    "id": 171
+  },
+  {
+    "name": "Trail Munzee",
+    "icon": "trail",
+    "id": 190
+  },
+  {
+    "name": "Aquamarine",
+    "icon": "aquamarine",
+    "id": 218
+  },
+  {
+    "name": "Topaz",
+    "icon": "topaz",
+    "id": 242
+  },
+  {
+    "name": "Mystery",
+    "icon": "mystery",
+    "id": 280
+  },
+  {
+    "name": "Event Indicator",
+    "icon": "eventindicator",
+    "id": 294
+  },
+  {
+    "name": "The Hammer",
+    "icon": "thehammer",
+    "id": 306
+  },
+  {
+    "name": "Scorpio",
+    "icon": "scorpio",
+    "id": 308
+  },
+  {
+    "name": "Sagittarius",
+    "icon": "sagittarius",
+    "id": 312
+  },
+  {
+    "name": "Capricorn",
+    "icon": "capricorn",
+    "id": 313
+  },
+  {
+    "name": "Aquarius",
+    "icon": "aquarius",
+    "id": 314
+  },
+  {
+    "name": "Pisces",
+    "icon": "pisces",
+    "id": 315
+  },
+  {
+    "name": "Aries",
+    "icon": "aries",
+    "id": 316
+  },
+  {
+    "name": "Taurus",
+    "icon": "taurus",
+    "id": 317
+  },
+  {
+    "name": "Gemini",
+    "icon": "gemini",
+    "id": 318
+  },
+  {
+    "name": "Cancer",
+    "icon": "cancer",
+    "id": 319
+  },
+  {
+    "name": "Leo",
+    "icon": "leo",
+    "id": 320
+  },
+  {
+    "name": "Virgo",
+    "icon": "virgo",
+    "id": 321
+  },
+  {
+    "name": "Libra",
+    "icon": "libra",
+    "id": 322
+  },
+  {
+    "name": "Shamrock",
+    "icon": "shamrock",
+    "id": 441
+  },
+  {
+    "name": "Prize Wheel",
+    "icon": "prizewheel",
+    "id": 444
+  },
+  {
+    "name": "Scatter",
+    "icon": "scatter",
+    "id": 500
+  },
+  {
+    "name": "Munzee Madness Reseller",
+    "icon": "munzeemadnessreseller",
+    "id": 510
+  },
+  {
+    "name": "GeoStuff Reseller",
+    "icon": "geostuffreseller",
+    "id": 511
+  },
+  {
+    "name": "GeoHobbies Reseller",
+    "icon": "geohobbiesreseller",
+    "id": 512
+  },
+  {
+    "name": "DDCards Reseller",
+    "icon": "ddcardsreseller",
+    "id": 513
+  },
+  {
+    "name": "NEGS Reseller",
+    "icon": "negsreseller",
+    "id": 514
+  },
+  {
+    "name": "GeoLoggers Reseller",
+    "icon": "geologgersreseller",
+    "id": 515
+  },
+  {
+    "name": "MM Cocoa Beach Reseller",
+    "icon": "mmcocoabeachreseller",
+    "id": 516
+  },
+  {
+    "name": "Rock Paper Scissors",
+    "icon": "rockpaperscissors",
+    "id": 522
+  },
+  {
+    "name": "Fire Mystery",
+    "icon": "firemystery",
+    "id": 532
+  },
+  {
+    "name": "Ruja Reseller",
+    "icon": "rujareseller",
+    "id": 550
+  },
+  {
+    "name": "Pink Diamond",
+    "icon": "pinkdiamond",
+    "id": 584
+  },
+  {
+    "name": "Laupe Reseller",
+    "icon": "laupereseller",
+    "id": 601
+  },
+  {
+    "name": "Ice Mystery",
+    "icon": "icemystery",
+    "id": 651
+  },
+  {
+    "name": "Tomato",
+    "icon": "tomato",
+    "id": 658
+  },
+  {
+    "name": "Ear of Corn",
+    "icon": "earofcorn",
+    "id": 659
+  },
+  {
+    "name": "Tomato Seed",
+    "icon": "tomatoseed",
+    "id": 662
+  },
+  {
+    "name": "Corn Seed",
+    "icon": "cornseed",
+    "id": 663
+  },
+  {
+    "name": "Tomato Plant",
+    "icon": "tomatoplant",
+    "id": 666
+  },
+  {
+    "name": "Corn Stalk",
+    "icon": "cornstalk",
+    "id": 667
+  },
+  {
+    "name": "Golden Carrot",
+    "icon": "goldencarrot",
+    "id": 678
+  },
+  {
+    "name": "Golden Carrot Seed",
+    "icon": "goldencarrotseed",
+    "id": 679
+  },
+  {
+    "name": "Golden Carrot Plant",
+    "icon": "goldencarrotplant",
+    "id": 680
+  },
+  {
+    "name": "Milk",
+    "icon": "milk",
+    "id": 684
+  },
+  {
+    "name": "Bacon",
+    "icon": "bacon",
+    "id": 685
+  },
+  {
+    "name": "SCGS Reseller",
+    "icon": "scgsreseller",
+    "id": 696
+  },
+  {
+    "name": "Calf",
+    "icon": "calf",
+    "id": 698
+  },
+  {
+    "name": "Piglet",
+    "icon": "piglet",
+    "id": 699
+  },
+  {
+    "name": "Cow",
+    "icon": "cow",
+    "id": 700
+  },
+  {
+    "name": "Pig",
+    "icon": "pig",
+    "id": 701
+  },
+  {
+    "name": "Barn",
+    "icon": "barn",
+    "id": 708
+  },
+  {
+    "name": "Tractor",
+    "icon": "tractor",
+    "id": 709
+  },
+  {
+    "name": "Lean-To Shed",
+    "icon": "lean-toshed",
+    "id": 729
+  },
+  {
+    "name": "Garden Shed",
+    "icon": "gardenshed",
+    "id": 730
+  },
+  {
+    "name": "Hoe",
+    "icon": "hoe",
+    "id": 731
+  },
+  {
+    "name": "Plow",
+    "icon": "plow",
+    "id": 732
+  },
+  {
+    "name": "Shark",
+    "icon": "shark",
+    "id": 741
+  },
+  {
+    "name": "Seaweed",
+    "icon": "seaweed",
+    "id": 742
+  },
+  {
+    "name": "Fish",
+    "icon": "fish",
+    "id": 743
+  },
+  {
+    "name": "Egg",
+    "icon": "egg",
+    "id": 800
+  },
+  {
+    "name": "Dinosaur",
+    "icon": "dinosaur",
+    "id": 801
+  },
+  {
+    "name": "Bones",
+    "icon": "bones",
+    "id": 802
+  },
+  {
+    "name": "Jewel Thief Nomad",
+    "icon": "jewelthiefnomad",
+    "id": 822
+  },
+  {
+    "name": "Bellhop Nomad",
+    "icon": "bellhopnomad",
+    "id": 823
+  },
+  {
+    "name": "Pirate Nomad",
+    "icon": "piratenomad",
+    "id": 824
+  },
+  {
+    "name": "King of the Jungle",
+    "icon": "kingofthejungle",
+    "id": 835
+  },
+  {
+    "name": "Lion Cub",
+    "icon": "lioncub",
+    "id": 837
+  },
+  {
+    "name": "Lion",
+    "icon": "lion",
+    "id": 838
+  },
+  {
+    "name": "Earth Mystery",
+    "icon": "earthmystery",
+    "id": 851
+  },
+  {
+    "name": "Time Share Munzee",
+    "icon": "timesharemunzee",
+    "id": 970
+  },
+  {
+    "name": "Time Share Room",
+    "icon": "timeshareroom",
+    "id": 971
+  },
+  {
+    "name": "Water Mystery",
+    "icon": "watermystery",
+    "id": 1020
+  },
+  {
+    "name": "Coin",
+    "icon": "coin",
+    "id": 1055
+  },
+  {
+    "name": "Bag of Coins",
+    "icon": "bagofcoins",
+    "id": 1056
+  },
+  {
+    "name": "Treasure Chest",
+    "icon": "treasurechest",
+    "id": 1057
+  },
+  {
+    "name": "Spring Seasonal Munzee",
+    "icon": "springseasonalmunzee",
+    "id": 1135
+  },
+  {
+    "name": "Summer Seasonal Munzee",
+    "icon": "summerseasonalmunzee",
+    "id": 1136
+  },
+  {
+    "name": "Fall Seasonal Munzee",
+    "icon": "fallseasonalmunzee",
+    "id": 1137
+  },
+  {
+    "name": "Winter Seasonal Munzee",
+    "icon": "winterseasonalmunzee",
+    "id": 1138
+  },
+  {
+    "name": "Seasonal Munzee",
+    "icon": "seasonalmunzee",
+    "id": 1139
+  },
+  {
+    "name": "Briefcase",
+    "icon": "briefcase",
+    "id": 1246
+  },
+  {
+    "name": "Dog Chinese Zodiac",
+    "icon": "dogchinesezodiac",
+    "id": 1271
+  },
+  {
+    "name": "Pig Chinese Zodiac",
+    "icon": "pigchinesezodiac",
+    "id": 1272
+  },
+  {
+    "name": "Rat Chinese Zodiac",
+    "icon": "ratchinesezodiac",
+    "id": 1273
+  },
+  {
+    "name": "Ox Chinese Zodiac",
+    "icon": "oxchinesezodiac",
+    "id": 1274
+  },
+  {
+    "name": "Tiger Chinese Zodiac",
+    "icon": "tigerchinesezodiac",
+    "id": 1275
+  },
+  {
+    "name": "Rabbit Chinese Zodiac",
+    "icon": "rabbitchinesezodiac",
+    "id": 1276
+  },
+  {
+    "name": "Dragon Chinese Zodiac",
+    "icon": "dragonchinesezodiac",
+    "id": 1277
+  },
+  {
+    "name": "Snake Chinese Zodiac",
+    "icon": "snakechinesezodiac",
+    "id": 1278
+  },
+  {
+    "name": "Horse Chinese Zodiac",
+    "icon": "horsechinesezodiac",
+    "id": 1279
+  },
+  {
+    "name": "Goat Chinese Zodiac",
+    "icon": "goatchinesezodiac",
+    "id": 1280
+  },
+  {
+    "name": "Monkey Chinese Zodiac",
+    "icon": "monkeychinesezodiac",
+    "id": 1281
+  },
+  {
+    "name": "Rooster Chinese Zodiac",
+    "icon": "roosterchinesezodiac",
+    "id": 1282
+  },
+  {
+    "name": "Bowling Ball",
+    "icon": "bowlingball",
+    "id": 1643
+  },
+  {
+    "name": "Rose",
+    "icon": "rose",
+    "id": 1760
+  },
+  {
+    "name": "Tulip",
+    "icon": "tulip",
+    "id": 1761
+  },
+  {
+    "name": "Lily",
+    "icon": "lily",
+    "id": 1774
+  },
+  {
+    "name": "Tulip Seed",
+    "icon": "tulipseed",
+    "id": 1775
+  },
+  {
+    "name": "Tulip Germination",
+    "icon": "tulipgermination",
+    "id": 1776
+  },
+  {
+    "name": "Tulip Growth",
+    "icon": "tulipgrowth",
+    "id": 1777
+  },
+  {
+    "name": "Tulip Bud",
+    "icon": "tulipbud",
+    "id": 1778
+  },
+  {
+    "name": "Blue Tulip Blossom",
+    "icon": "bluetulipblossom",
+    "id": 1779
+  },
+  {
+    "name": "Pink Tulip Blossom",
+    "icon": "pinktulipblossom",
+    "id": 1780
+  },
+  {
+    "name": "White Tulip Blossom",
+    "icon": "whitetulipblossom",
+    "id": 1781
+  },
+  {
+    "name": "Rose Seed",
+    "icon": "roseseed",
+    "id": 1782
+  },
+  {
+    "name": "Rose Germination",
+    "icon": "rosegermination",
+    "id": 1783
+  },
+  {
+    "name": "Rose Growth",
+    "icon": "rosegrowth",
+    "id": 1784
+  },
+  {
+    "name": "Rose Bud",
+    "icon": "rosebud",
+    "id": 1785
+  },
+  {
+    "name": "Red Rose Blossom",
+    "icon": "redroseblossom",
+    "id": 1786
+  },
+  {
+    "name": "Violet Rose Blossom",
+    "icon": "violetroseblossom",
+    "id": 1787
+  },
+  {
+    "name": "White Rose Blossom",
+    "icon": "whiteroseblossom",
+    "id": 1788
+  },
+  {
+    "name": "Yellow Rose Blossom",
+    "icon": "yellowroseblossom",
+    "id": 1789
+  },
+  {
+    "name": "Lily Seed",
+    "icon": "lilyseed",
+    "id": 1790
+  },
+  {
+    "name": "Lily Germination",
+    "icon": "lilygermination",
+    "id": 1791
+  },
+  {
+    "name": "Lily Growth",
+    "icon": "lilygrowth",
+    "id": 1792
+  },
+  {
+    "name": "Lily Bud",
+    "icon": "lilybud",
+    "id": 1793
+  },
+  {
+    "name": "Pink Lily Blossom",
+    "icon": "pinklilyblossom",
+    "id": 1794
+  },
+  {
+    "name": "Violet Lily Blossom",
+    "icon": "violetlilyblossom",
+    "id": 1795
+  },
+  {
+    "name": "White Lily Blossom",
+    "icon": "whitelilyblossom",
+    "id": 1796
+  },
+  {
+    "name": "Urban Fit",
+    "icon": "urbanfit",
+    "id": 1824
+  },
+  {
+    "name": "Butterfly Egg",
+    "icon": "butterflyegg",
+    "id": 1836
+  },
+  {
+    "name": "Caterpillar",
+    "icon": "caterpillar",
+    "id": 1837
+  },
+  {
+    "name": "Chrysalis",
+    "icon": "chrysalis",
+    "id": 1838
+  },
+  {
+    "name": "Hatched Chrysalis",
+    "icon": "hatchedchrysalis",
+    "id": 1839
+  },
+  {
+    "name": "QRewzee",
+    "icon": "qrewzee",
+    "id": 1880
+  },
+  {
+    "name": "Joystick Physical",
+    "icon": "joystickphysical",
+    "id": 1976
+  },
+  {
+    "name": "InternationElles",
+    "icon": "internationelles",
+    "id": 2046
+  },
+  {
+    "name": "Frog Egg",
+    "icon": "frogegg",
+    "id": 2106
+  },
+  {
+    "name": "Tadpole",
+    "icon": "tadpole",
+    "id": 2107
+  },
+  {
+    "name": "Pollywog",
+    "icon": "pollywog",
+    "id": 2108
+  },
+  {
+    "name": "Froglet",
+    "icon": "froglet",
+    "id": 2109
+  },
+  {
+    "name": "Treehouse",
+    "icon": "treehouse",
+    "id": 2145
+  },
+  {
+    "name": "2 Star Motel",
+    "icon": "2starmotel",
+    "id": 2356
+  },
+  {
+    "name": "2 Star Motel Room",
+    "icon": "2starmotelroom",
+    "id": 2357
+  },
+  {
+    "name": "3 Star Motel",
+    "icon": "3starmotel",
+    "id": 2358
+  },
+  {
+    "name": "3 Star Motel Room",
+    "icon": "3starmotelroom",
+    "id": 2359
+  }
+]

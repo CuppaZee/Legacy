@@ -1,0 +1,3523 @@
+[
+  {
+    "id": 0,
+    "icon": "munzee",
+    "": "",
+    "name": "Greenie",
+    "types": "Physical"
+  },
+  {
+    "id": 13,
+    "icon": "premium",
+    "": "",
+    "name": "Premium",
+    "types": "Physical"
+  },
+  {
+    "id": 32,
+    "icon": "social",
+    "": "",
+    "name": "Social",
+    "types": "Other"
+  },
+  {
+    "id": 40,
+    "icon": "diamond",
+    "": "",
+    "name": "Diamond",
+    "types": "Physical"
+  },
+  {
+    "id": 52,
+    "icon": "mace",
+    "": "",
+    "name": "Mace",
+    "types": "Physical"
+  },
+  {
+    "id": 53,
+    "icon": "longsword",
+    "": "",
+    "name": "Longsword",
+    "types": "Physical"
+  },
+  {
+    "id": 60,
+    "icon": "eventpin",
+    "": "",
+    "name": "Event Pin",
+    "types": "Physical"
+  },
+  {
+    "id": 70,
+    "icon": "1starmotel",
+    "": "",
+    "name": "1 Star Motel",
+    "types": "Physical"
+  },
+  {
+    "id": 71,
+    "icon": "1starmotelroom",
+    "": "",
+    "name": "1 Star Motel Room",
+    "types": "Physical"
+  },
+  {
+    "id": 131,
+    "icon": "ruby",
+    "": "",
+    "name": "Ruby",
+    "types": "Physical"
+  },
+  {
+    "id": 140,
+    "icon": "battleaxe",
+    "": "",
+    "name": "Battle Axe",
+    "types": "Physical"
+  },
+  {
+    "id": 148,
+    "icon": "virtual_emerald",
+    "": "",
+    "name": "Virtual Emerald",
+    "types": "Virtual"
+  },
+  {
+    "id": 170,
+    "icon": "hotel",
+    "": "",
+    "name": "Hotel Munzee",
+    "types": "Physical"
+  },
+  {
+    "id": 171,
+    "icon": "hotelroom",
+    "": "",
+    "name": "Hotel Room",
+    "types": "Physical"
+  },
+  {
+    "id": 190,
+    "icon": "trail",
+    "": "",
+    "name": "Trail Munzee",
+    "types": "Physical"
+  },
+  {
+    "id": 200,
+    "icon": "personalmunzee",
+    "": "",
+    "name": "Personal Munzee",
+    "types": "Other"
+  },
+  {
+    "id": 218,
+    "icon": "aquamarine",
+    "": "",
+    "name": "Aquamarine",
+    "types": "Physical"
+  },
+  {
+    "id": 242,
+    "icon": "topaz",
+    "": "",
+    "name": "Topaz",
+    "types": "Physical"
+  },
+  {
+    "id": 280,
+    "icon": "mystery",
+    "": "",
+    "name": "Mystery",
+    "types": "Physical"
+  },
+  {
+    "id": 290,
+    "icon": "virtual_amethyst",
+    "": "",
+    "name": "Virtual Amethyst",
+    "types": "Virtual"
+  },
+  {
+    "id": 294,
+    "icon": "eventindicator",
+    "": "",
+    "name": "Event Indicator",
+    "types": "Physical"
+  },
+  {
+    "id": 296,
+    "icon": "nomad",
+    "": "",
+    "name": "Nomad",
+    "types": "Bouncer"
+  },
+  {
+    "id": 297,
+    "icon": "nomadvirtual",
+    "": "",
+    "name": "Nomad Virtual",
+    "types": "Bouncer"
+  },
+  {
+    "id": 306,
+    "icon": "thehammer",
+    "": "",
+    "name": "The Hammer",
+    "types": "Physical"
+  },
+  {
+    "id": 308,
+    "icon": "scorpio",
+    "": "",
+    "name": "Scorpio",
+    "types": "Physical"
+  },
+  {
+    "id": 312,
+    "icon": "sagittarius",
+    "": "",
+    "name": "Sagittarius",
+    "types": "Physical"
+  },
+  {
+    "id": 313,
+    "icon": "capricorn",
+    "": "",
+    "name": "Capricorn",
+    "types": "Physical"
+  },
+  {
+    "id": 314,
+    "icon": "aquarius",
+    "": "",
+    "name": "Aquarius",
+    "types": "Physical"
+  },
+  {
+    "id": 315,
+    "icon": "pisces",
+    "": "",
+    "name": "Pisces",
+    "types": "Physical"
+  },
+  {
+    "id": 316,
+    "icon": "aries",
+    "": "",
+    "name": "Aries",
+    "types": "Physical"
+  },
+  {
+    "id": 317,
+    "icon": "taurus",
+    "": "",
+    "name": "Taurus",
+    "types": "Physical"
+  },
+  {
+    "id": 318,
+    "icon": "gemini",
+    "": "",
+    "name": "Gemini",
+    "types": "Physical"
+  },
+  {
+    "id": 319,
+    "icon": "cancer",
+    "": "",
+    "name": "Cancer",
+    "types": "Physical"
+  },
+  {
+    "id": 320,
+    "icon": "leo",
+    "": "",
+    "name": "Leo",
+    "types": "Physical"
+  },
+  {
+    "id": 321,
+    "icon": "virgo",
+    "": "",
+    "name": "Virgo",
+    "types": "Physical"
+  },
+  {
+    "id": 322,
+    "icon": "libra",
+    "": "",
+    "name": "Libra",
+    "types": "Physical"
+  },
+  {
+    "id": 353,
+    "icon": "flatrob",
+    "": "",
+    "name": "Flat Rob",
+    "types": "Virtual"
+  },
+  {
+    "id": 390,
+    "icon": "virtual_trail",
+    "": "",
+    "name": "Virtual Trail",
+    "types": "Virtual"
+  },
+  {
+    "id": 400,
+    "icon": "surprise",
+    "": "",
+    "name": "Surprise",
+    "types": "Virtual"
+  },
+  {
+    "id": 441,
+    "icon": "shamrock",
+    "": "",
+    "name": "Shamrock",
+    "types": "Physical"
+  },
+  {
+    "id": 444,
+    "icon": "prizewheel",
+    "": "",
+    "name": "Prize Wheel",
+    "types": "Physical"
+  },
+  {
+    "id": 470,
+    "icon": "virtual_resort",
+    "": "",
+    "name": "Virtual Resort",
+    "types": "Virtual"
+  },
+  {
+    "id": 471,
+    "icon": "virtual_resort_room",
+    "": "",
+    "name": "Virtual Resort Room",
+    "types": "Virtual"
+  },
+  {
+    "id": 500,
+    "icon": "scatter",
+    "": "",
+    "name": "Scatter",
+    "types": "Physical"
+  },
+  {
+    "id": 501,
+    "icon": "scattered",
+    "": "",
+    "name": "Scattered",
+    "types": "Bouncer"
+  },
+  {
+    "id": 505,
+    "icon": "theunicorn",
+    "": "",
+    "name": "The Unicorn",
+    "types": "Bouncer"
+  },
+  {
+    "id": 506,
+    "icon": "unicornhost",
+    "": "",
+    "name": "Unicorn Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 508,
+    "icon": "leprechaun",
+    "": "",
+    "name": "Leprechaun",
+    "types": "Bouncer"
+  },
+  {
+    "id": 509,
+    "icon": "leprechaunhost",
+    "": "",
+    "name": "Leprechaun Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 510,
+    "icon": "munzeemadnessreseller",
+    "": "",
+    "name": "Munzee Madness Reseller",
+    "types": "Physical"
+  },
+  {
+    "id": 511,
+    "icon": "geostuffreseller",
+    "": "",
+    "name": "GeoStuff Reseller",
+    "types": "Physical"
+  },
+  {
+    "id": 512,
+    "icon": "geohobbiesreseller",
+    "": "",
+    "name": "GeoHobbies Reseller",
+    "types": "Physical"
+  },
+  {
+    "id": 513,
+    "icon": "ddcardsreseller",
+    "": "",
+    "name": "DDCards Reseller",
+    "types": "Physical"
+  },
+  {
+    "id": 514,
+    "icon": "negsreseller",
+    "": "",
+    "name": "NEGS Reseller",
+    "types": "Physical"
+  },
+  {
+    "id": 515,
+    "icon": "geologgersreseller",
+    "": "",
+    "name": "GeoLoggers Reseller",
+    "types": "Physical"
+  },
+  {
+    "id": 516,
+    "icon": "mmcocoabeachreseller",
+    "": "",
+    "name": "MM Cocoa Beach Reseller",
+    "types": "Physical"
+  },
+  {
+    "id": 521,
+    "icon": "nomadmystery",
+    "": "",
+    "name": "Nomad Mystery",
+    "types": "Bouncer"
+  },
+  {
+    "id": 522,
+    "icon": "rockpaperscissors",
+    "": "",
+    "name": "Rock Paper Scissors",
+    "types": "Physical"
+  },
+  {
+    "id": 532,
+    "icon": "firemystery",
+    "": "",
+    "name": "Fire Mystery",
+    "types": "Physical"
+  },
+  {
+    "id": 550,
+    "icon": "rujareseller",
+    "": "",
+    "name": "Ruja Reseller",
+    "types": "Physical"
+  },
+  {
+    "id": 560,
+    "icon": "fire",
+    "": "",
+    "name": "Fire",
+    "types": "Bouncer"
+  },
+  {
+    "id": 573,
+    "icon": "dragon",
+    "": "",
+    "name": "Dragon",
+    "types": "Bouncer"
+  },
+  {
+    "id": 574,
+    "icon": "dragonhost",
+    "": "",
+    "name": "Dragon Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 584,
+    "icon": "pinkdiamond",
+    "": "",
+    "name": "Pink Diamond",
+    "types": "Physical"
+  },
+  {
+    "id": 600,
+    "icon": "eventtrail",
+    "": "",
+    "name": "Event Trail",
+    "types": "Virtual"
+  },
+  {
+    "id": 601,
+    "icon": "laupereseller",
+    "": "",
+    "name": "Laupe Reseller",
+    "types": "Physical"
+  },
+  {
+    "id": 651,
+    "icon": "icemystery",
+    "": "",
+    "name": "Ice Mystery",
+    "types": "Physical"
+  },
+  {
+    "id": 658,
+    "icon": "tomato",
+    "": "",
+    "name": "Tomato",
+    "types": "Physical"
+  },
+  {
+    "id": 659,
+    "icon": "earofcorn",
+    "": "",
+    "name": "Ear of Corn",
+    "types": "Physical"
+  },
+  {
+    "id": 660,
+    "icon": "carrot",
+    "": "",
+    "name": "Carrot",
+    "types": "Virtual"
+  },
+  {
+    "id": 661,
+    "icon": "peas",
+    "": "",
+    "name": "Peas",
+    "types": "Virtual"
+  },
+  {
+    "id": 662,
+    "icon": "tomatoseed",
+    "": "",
+    "name": "Tomato Seed",
+    "types": "Physical"
+  },
+  {
+    "id": 663,
+    "icon": "cornseed",
+    "": "",
+    "name": "Corn Seed",
+    "types": "Physical"
+  },
+  {
+    "id": 664,
+    "icon": "carrotseed",
+    "": "",
+    "name": "Carrot Seed",
+    "types": "Virtual"
+  },
+  {
+    "id": 665,
+    "icon": "peasseed",
+    "": "",
+    "name": "Peas Seed",
+    "types": "Virtual"
+  },
+  {
+    "id": 666,
+    "icon": "tomatoplant",
+    "": "",
+    "name": "Tomato Plant",
+    "types": "Physical"
+  },
+  {
+    "id": 667,
+    "icon": "cornstalk",
+    "": "",
+    "name": "Corn Stalk",
+    "types": "Physical"
+  },
+  {
+    "id": 668,
+    "icon": "carrotplant",
+    "": "",
+    "name": "Carrot Plant",
+    "types": "Virtual"
+  },
+  {
+    "id": 669,
+    "icon": "peasplant",
+    "": "",
+    "name": "Peas Plant",
+    "types": "Virtual"
+  },
+  {
+    "id": 678,
+    "icon": "goldencarrot",
+    "": "",
+    "name": "Golden Carrot",
+    "types": "Physical"
+  },
+  {
+    "id": 679,
+    "icon": "goldencarrotseed",
+    "": "",
+    "name": "Golden Carrot Seed",
+    "types": "Physical"
+  },
+  {
+    "id": 680,
+    "icon": "goldencarrotplant",
+    "": "",
+    "name": "Golden Carrot Plant",
+    "types": "Physical"
+  },
+  {
+    "id": 681,
+    "icon": "virtual_sapphire",
+    "": "",
+    "name": "Virtual Sapphire",
+    "types": "Virtual"
+  },
+  {
+    "id": 682,
+    "icon": "txhistoricallocation",
+    "": "",
+    "name": "TX Historical Location",
+    "types": "Virtual"
+  },
+  {
+    "id": 684,
+    "icon": "milk",
+    "": "",
+    "name": "Milk",
+    "types": "Physical"
+  },
+  {
+    "id": 685,
+    "icon": "bacon",
+    "": "",
+    "name": "Bacon",
+    "types": "Physical"
+  },
+  {
+    "id": 696,
+    "icon": "scgsreseller",
+    "": "",
+    "name": "SCGS Reseller",
+    "types": "Physical"
+  },
+  {
+    "id": 697,
+    "icon": "frozengreenie",
+    "": "",
+    "name": "Frozen Greenie",
+    "types": "Bouncer"
+  },
+  {
+    "id": 698,
+    "icon": "calf",
+    "": "",
+    "name": "Calf",
+    "types": "Physical"
+  },
+  {
+    "id": 699,
+    "icon": "piglet",
+    "": "",
+    "name": "Piglet",
+    "types": "Physical"
+  },
+  {
+    "id": 700,
+    "icon": "cow",
+    "": "",
+    "name": "Cow",
+    "types": "Physical"
+  },
+  {
+    "id": 701,
+    "icon": "pig",
+    "": "",
+    "name": "Pig",
+    "types": "Physical"
+  },
+  {
+    "id": 702,
+    "icon": "championshiphorse",
+    "": "",
+    "name": "Championship Horse",
+    "types": "Virtual"
+  },
+  {
+    "id": 703,
+    "icon": "eggs",
+    "": "",
+    "name": "Eggs",
+    "types": "Virtual"
+  },
+  {
+    "id": 704,
+    "icon": "colt",
+    "": "",
+    "name": "Colt",
+    "types": "Virtual"
+  },
+  {
+    "id": 705,
+    "icon": "chick",
+    "": "",
+    "name": "Chick",
+    "types": "Virtual"
+  },
+  {
+    "id": 706,
+    "icon": "racehorse",
+    "": "",
+    "name": "Racehorse",
+    "types": "Virtual"
+  },
+  {
+    "id": 707,
+    "icon": "chicken",
+    "": "",
+    "name": "Chicken",
+    "types": "Virtual"
+  },
+  {
+    "id": 708,
+    "icon": "barn",
+    "": "",
+    "name": "Barn",
+    "types": "Physical"
+  },
+  {
+    "id": 709,
+    "icon": "tractor",
+    "": "",
+    "name": "Tractor",
+    "types": "Physical"
+  },
+  {
+    "id": 725,
+    "icon": "yeti",
+    "": "",
+    "name": "Yeti",
+    "types": "Bouncer"
+  },
+  {
+    "id": 726,
+    "icon": "yetihost",
+    "": "",
+    "name": "Yeti Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 729,
+    "icon": "lean-toshed",
+    "": "",
+    "name": "Lean-To Shed",
+    "types": "Physical"
+  },
+  {
+    "id": 730,
+    "icon": "gardenshed",
+    "": "",
+    "name": "Garden Shed",
+    "types": "Physical"
+  },
+  {
+    "id": 731,
+    "icon": "hoe",
+    "": "",
+    "name": "Hoe",
+    "types": "Physical"
+  },
+  {
+    "id": 732,
+    "icon": "plow",
+    "": "",
+    "name": "Plow",
+    "types": "Physical"
+  },
+  {
+    "id": 735,
+    "icon": "family",
+    "": "",
+    "name": "Family",
+    "types": "Virtual"
+  },
+  {
+    "id": 736,
+    "icon": "field",
+    "": "",
+    "name": "Field",
+    "types": "Virtual"
+  },
+  {
+    "id": 737,
+    "icon": "farmer",
+    "": "",
+    "name": "Farmer",
+    "types": "Virtual"
+  },
+  {
+    "id": 738,
+    "icon": "farmerandwife",
+    "": "",
+    "name": "Farmer and Wife",
+    "types": "Virtual"
+  },
+  {
+    "id": 739,
+    "icon": "pottedplant",
+    "": "",
+    "name": "Potted Plant",
+    "types": "Virtual"
+  },
+  {
+    "id": 740,
+    "icon": "garden",
+    "": "",
+    "name": "Garden",
+    "types": "Virtual"
+  },
+  {
+    "id": 741,
+    "icon": "shark",
+    "": "",
+    "name": "Shark",
+    "types": "Physical"
+  },
+  {
+    "id": 742,
+    "icon": "seaweed",
+    "": "",
+    "name": "Seaweed",
+    "types": "Physical"
+  },
+  {
+    "id": 743,
+    "icon": "fish",
+    "": "",
+    "name": "Fish",
+    "types": "Physical"
+  },
+  {
+    "id": 744,
+    "icon": "submarine",
+    "": "",
+    "name": "Submarine",
+    "types": "Virtual"
+  },
+  {
+    "id": 745,
+    "icon": "canoe",
+    "": "",
+    "name": "Canoe",
+    "types": "Virtual"
+  },
+  {
+    "id": 746,
+    "icon": "motorboat",
+    "": "",
+    "name": "Motorboat",
+    "types": "Virtual"
+  },
+  {
+    "id": 782,
+    "icon": "poiairport",
+    "": "",
+    "name": "POI Airport",
+    "types": "Virtual"
+  },
+  {
+    "id": 783,
+    "icon": "poisports",
+    "": "",
+    "name": "POI Sports",
+    "types": "Virtual"
+  },
+  {
+    "id": 784,
+    "icon": "poiuniversity",
+    "": "",
+    "name": "POI University",
+    "types": "Virtual"
+  },
+  {
+    "id": 786,
+    "icon": "poimuseum",
+    "": "",
+    "name": "POI Museum",
+    "types": "Virtual"
+  },
+  {
+    "id": 787,
+    "icon": "poiwildlife",
+    "": "",
+    "name": "POI Wildlife",
+    "types": "Virtual"
+  },
+  {
+    "id": 800,
+    "icon": "egg",
+    "": "",
+    "name": "Egg",
+    "types": "Physical"
+  },
+  {
+    "id": 801,
+    "icon": "dinosaur",
+    "": "",
+    "name": "Dinosaur",
+    "types": "Physical"
+  },
+  {
+    "id": 802,
+    "icon": "bones",
+    "": "",
+    "name": "Bones",
+    "types": "Physical"
+  },
+  {
+    "id": 807,
+    "icon": "musclecar",
+    "": "",
+    "name": "Muscle Car",
+    "types": "Virtual"
+  },
+  {
+    "id": 808,
+    "icon": "firstwheel",
+    "": "",
+    "name": "First Wheel",
+    "types": "Virtual"
+  },
+  {
+    "id": 809,
+    "icon": "penny-farthingbike",
+    "": "",
+    "name": "Penny-Farthing Bike",
+    "types": "Virtual"
+  },
+  {
+    "id": 822,
+    "icon": "jewelthiefnomad",
+    "": "",
+    "name": "Jewel Thief Nomad",
+    "types": "Physical"
+  },
+  {
+    "id": 823,
+    "icon": "bellhopnomad",
+    "": "",
+    "name": "Bellhop Nomad",
+    "types": "Physical"
+  },
+  {
+    "id": 824,
+    "icon": "piratenomad",
+    "": "",
+    "name": "Pirate Nomad",
+    "types": "Physical"
+  },
+  {
+    "id": 835,
+    "icon": "kingofthejungle",
+    "": "",
+    "name": "King of the Jungle",
+    "types": "Physical"
+  },
+  {
+    "id": 837,
+    "icon": "lioncub",
+    "": "",
+    "name": "Lion Cub",
+    "types": "Physical"
+  },
+  {
+    "id": 838,
+    "icon": "lion",
+    "": "",
+    "name": "Lion",
+    "types": "Physical"
+  },
+  {
+    "id": 839,
+    "icon": "safaribus",
+    "": "",
+    "name": "Safari Bus",
+    "types": "Virtual"
+  },
+  {
+    "id": 840,
+    "icon": "safaritruck",
+    "": "",
+    "name": "Safari Truck",
+    "types": "Virtual"
+  },
+  {
+    "id": 841,
+    "icon": "safarivan",
+    "": "",
+    "name": "Safari Van",
+    "types": "Virtual"
+  },
+  {
+    "id": 851,
+    "icon": "earthmystery",
+    "": "",
+    "name": "Earth Mystery",
+    "types": "Physical"
+  },
+  {
+    "id": 853,
+    "icon": "faun",
+    "": "",
+    "name": "Faun",
+    "types": "Bouncer"
+  },
+  {
+    "id": 854,
+    "icon": "faunhost",
+    "": "",
+    "name": "Faun Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 953,
+    "icon": "hydra",
+    "": "",
+    "name": "Hydra",
+    "types": "Bouncer"
+  },
+  {
+    "id": 954,
+    "icon": "hydrahost",
+    "": "",
+    "name": "Hydra Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 970,
+    "icon": "timesharemunzee",
+    "": "",
+    "name": "Time Share Munzee",
+    "types": "Physical"
+  },
+  {
+    "id": 971,
+    "icon": "timeshareroom",
+    "": "",
+    "name": "Time Share Room",
+    "types": "Physical"
+  },
+  {
+    "id": 998,
+    "icon": "crossbow",
+    "": "",
+    "name": "Crossbow",
+    "types": "Virtual"
+  },
+  {
+    "id": 999,
+    "icon": "warriornomad",
+    "": "",
+    "name": "Warrior Nomad",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1006,
+    "icon": "mhqflatmatt",
+    "": "",
+    "name": "MHQ Flat Matt",
+    "types": "Virtual"
+  },
+  {
+    "id": 1007,
+    "icon": "mhqflatrob",
+    "": "",
+    "name": "MHQ Flat Rob",
+    "types": "Virtual"
+  },
+  {
+    "id": 1015,
+    "icon": "flatmatt",
+    "": "",
+    "name": "Flat Matt",
+    "types": "Virtual"
+  },
+  {
+    "id": 1020,
+    "icon": "watermystery",
+    "": "",
+    "name": "Water Mystery",
+    "types": "Physical"
+  },
+  {
+    "id": 1021,
+    "icon": "waterdroplet",
+    "": "",
+    "name": "Water Droplet",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1055,
+    "icon": "coin",
+    "": "",
+    "name": "Coin",
+    "types": "Physical"
+  },
+  {
+    "id": 1056,
+    "icon": "bagofcoins",
+    "": "",
+    "name": "Bag of Coins",
+    "types": "Physical"
+  },
+  {
+    "id": 1057,
+    "icon": "treasurechest",
+    "": "",
+    "name": "Treasure Chest",
+    "types": "Physical"
+  },
+  {
+    "id": 1086,
+    "icon": "airmystery",
+    "": "",
+    "name": "Air Mystery",
+    "types": "Virtual"
+  },
+  {
+    "id": 1087,
+    "icon": "feather",
+    "": "",
+    "name": "Feather",
+    "types": "Virtual"
+  },
+  {
+    "id": 1088,
+    "icon": "goldenfeather",
+    "": "",
+    "name": "Golden Feather",
+    "types": "Virtual"
+  },
+  {
+    "id": 1100,
+    "icon": "pegasus",
+    "": "",
+    "name": "Pegasus",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1101,
+    "icon": "pegasushost",
+    "": "",
+    "name": "Pegasus Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1107,
+    "icon": "premiumpersonal",
+    "": "",
+    "name": "Premium Personal",
+    "types": "Other"
+  },
+  {
+    "id": 1118,
+    "icon": "rainbowunicorn",
+    "": "",
+    "name": "Rainbow Unicorn",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1135,
+    "icon": "springseasonalmunzee",
+    "": "",
+    "name": "Spring Seasonal Munzee",
+    "types": "Physical"
+  },
+  {
+    "id": 1136,
+    "icon": "summerseasonalmunzee",
+    "": "",
+    "name": "Summer Seasonal Munzee",
+    "types": "Physical"
+  },
+  {
+    "id": 1137,
+    "icon": "fallseasonalmunzee",
+    "": "",
+    "name": "Fall Seasonal Munzee",
+    "types": "Physical"
+  },
+  {
+    "id": 1138,
+    "icon": "winterseasonalmunzee",
+    "": "",
+    "name": "Winter Seasonal Munzee",
+    "types": "Physical"
+  },
+  {
+    "id": 1139,
+    "icon": "seasonalmunzee",
+    "": "",
+    "name": "Seasonal Munzee",
+    "types": "Physical"
+  },
+  {
+    "id": 1151,
+    "icon": "gnomeleprechaun",
+    "": "",
+    "name": "Gnome Leprechaun",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1164,
+    "icon": "icedragon",
+    "": "",
+    "name": "Ice Dragon",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1168,
+    "icon": "cyclops",
+    "": "",
+    "name": "Cyclops",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1169,
+    "icon": "cyclopshost",
+    "": "",
+    "name": "Cyclops Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1170,
+    "icon": "cyclops_virtual_host",
+    "": "",
+    "name": "Cyclops Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1210,
+    "icon": "sasquatchyeti",
+    "": "",
+    "name": "Sasquatch Yeti",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1229,
+    "icon": "firepegasus",
+    "": "",
+    "name": "Fire Pegasus",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1232,
+    "icon": "firepegasusphysicalhost",
+    "": "",
+    "name": "Fire Pegasus Physical Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1237,
+    "icon": "cherub",
+    "": "",
+    "name": "Cherub",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1238,
+    "icon": "cherub_virtual_host",
+    "": "",
+    "name": "Cherub Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1240,
+    "icon": "tuli",
+    "": "",
+    "name": "Tuli",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1241,
+    "icon": "tulimber",
+    "": "",
+    "name": "Tulimber",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1242,
+    "icon": "tuliferno",
+    "": "",
+    "name": "Tuliferno",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1245,
+    "icon": "temporaryvirtual",
+    "": "",
+    "name": "Temporary Virtual",
+    "types": "Virtual"
+  },
+  {
+    "id": 1246,
+    "icon": "briefcase",
+    "": "",
+    "name": "Briefcase",
+    "types": "Physical"
+  },
+  {
+    "id": 1247,
+    "icon": "dossier",
+    "": "",
+    "name": "Dossier",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1248,
+    "icon": "catapult",
+    "": "",
+    "name": "Catapult",
+    "types": "Virtual"
+  },
+  {
+    "id": 1255,
+    "icon": "boulder",
+    "": "",
+    "name": "Boulder",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1268,
+    "icon": "ogre",
+    "": "",
+    "name": "Ogre",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1269,
+    "icon": "ogrehost",
+    "": "",
+    "name": "Ogre Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1270,
+    "icon": "ogre_virtual_host",
+    "": "",
+    "name": "Ogre Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1271,
+    "icon": "dogchinesezodiac",
+    "": "",
+    "name": "Dog Chinese Zodiac",
+    "types": "Physical"
+  },
+  {
+    "id": 1272,
+    "icon": "pigchinesezodiac",
+    "": "",
+    "name": "Pig Chinese Zodiac",
+    "types": "Physical"
+  },
+  {
+    "id": 1273,
+    "icon": "ratchinesezodiac",
+    "": "",
+    "name": "Rat Chinese Zodiac",
+    "types": "Physical"
+  },
+  {
+    "id": 1274,
+    "icon": "oxchinesezodiac",
+    "": "",
+    "name": "Ox Chinese Zodiac",
+    "types": "Physical"
+  },
+  {
+    "id": 1275,
+    "icon": "tigerchinesezodiac",
+    "": "",
+    "name": "Tiger Chinese Zodiac",
+    "types": "Physical"
+  },
+  {
+    "id": 1276,
+    "icon": "rabbitchinesezodiac",
+    "": "",
+    "name": "Rabbit Chinese Zodiac",
+    "types": "Physical"
+  },
+  {
+    "id": 1277,
+    "icon": "dragonchinesezodiac",
+    "": "",
+    "name": "Dragon Chinese Zodiac",
+    "types": "Physical"
+  },
+  {
+    "id": 1278,
+    "icon": "snakechinesezodiac",
+    "": "",
+    "name": "Snake Chinese Zodiac",
+    "types": "Physical"
+  },
+  {
+    "id": 1279,
+    "icon": "horsechinesezodiac",
+    "": "",
+    "name": "Horse Chinese Zodiac",
+    "types": "Physical"
+  },
+  {
+    "id": 1280,
+    "icon": "goatchinesezodiac",
+    "": "",
+    "name": "Goat Chinese Zodiac",
+    "types": "Physical"
+  },
+  {
+    "id": 1281,
+    "icon": "monkeychinesezodiac",
+    "": "",
+    "name": "Monkey Chinese Zodiac",
+    "types": "Physical"
+  },
+  {
+    "id": 1282,
+    "icon": "roosterchinesezodiac",
+    "": "",
+    "name": "Rooster Chinese Zodiac",
+    "types": "Physical"
+  },
+  {
+    "id": 1329,
+    "icon": "chimera",
+    "": "",
+    "name": "Chimera",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1330,
+    "icon": "chimera_virtual_host",
+    "": "",
+    "name": "Chimera Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1338,
+    "icon": "flatlou",
+    "": "",
+    "name": "Flat Lou",
+    "types": "Virtual"
+  },
+  {
+    "id": 1339,
+    "icon": "poihistoricalplace",
+    "": "",
+    "name": "POI Historical Place",
+    "types": "Virtual"
+  },
+  {
+    "id": 1340,
+    "icon": "poilibrary",
+    "": "",
+    "name": "POI Library",
+    "types": "Virtual"
+  },
+  {
+    "id": 1341,
+    "icon": "poifirstresponders",
+    "": "",
+    "name": "POI First Responders",
+    "types": "Virtual"
+  },
+  {
+    "id": 1342,
+    "icon": "poifaithplace",
+    "": "",
+    "name": "POI Faith Place",
+    "types": "Virtual"
+  },
+  {
+    "id": 1343,
+    "icon": "towerbridgeflatlou",
+    "": "",
+    "name": "Tower Bridge Flat Lou",
+    "types": "Virtual"
+  },
+  {
+    "id": 1359,
+    "icon": "nightvisiongoggles",
+    "": "",
+    "name": "Night Vision Goggles",
+    "types": "Virtual"
+  },
+  {
+    "id": 1360,
+    "icon": "infraredvirtual",
+    "": "",
+    "name": "Infrared Virtual",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1370,
+    "icon": "vesi",
+    "": "",
+    "name": "Vesi",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1371,
+    "icon": "vesial",
+    "": "",
+    "name": "Vesial",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1372,
+    "icon": "vesisaur",
+    "": "",
+    "name": "Vesisaur",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1373,
+    "icon": "waterpouchcreaturehost",
+    "": "",
+    "name": "Water Pouch Creature Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1378,
+    "icon": "mermaid",
+    "": "",
+    "name": "Mermaid",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1379,
+    "icon": "mermaidhost",
+    "": "",
+    "name": "Mermaid Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1409,
+    "icon": "virtual",
+    "": "",
+    "name": "Virtual",
+    "types": "Virtual"
+  },
+  {
+    "id": 1410,
+    "icon": "virtual_rainbow",
+    "": "",
+    "name": "Virtual Rainbow",
+    "types": "Virtual"
+  },
+  {
+    "id": 1411,
+    "icon": "virtual_timberwolf",
+    "": "",
+    "name": "Virtual Timberwolf",
+    "types": "Virtual"
+  },
+  {
+    "id": 1412,
+    "icon": "virtual_silver",
+    "": "",
+    "name": "Virtual Silver",
+    "types": "Virtual"
+  },
+  {
+    "id": 1413,
+    "icon": "virtual_gray",
+    "": "",
+    "name": "Virtual Gray",
+    "types": "Virtual"
+  },
+  {
+    "id": 1414,
+    "icon": "virtual_black",
+    "": "",
+    "name": "Virtual Black",
+    "types": "Virtual"
+  },
+  {
+    "id": 1415,
+    "icon": "virtual_orchid",
+    "": "",
+    "name": "Virtual Orchid",
+    "types": "Virtual"
+  },
+  {
+    "id": 1416,
+    "icon": "virtual_wisteria",
+    "": "",
+    "name": "Virtual Wisteria",
+    "types": "Virtual"
+  },
+  {
+    "id": 1417,
+    "icon": "virtual_purple_mountains_majesty",
+    "": "",
+    "name": "Virtual Purple Mountains Majesty",
+    "types": "Virtual"
+  },
+  {
+    "id": 1418,
+    "icon": "virtual_violet",
+    "": "",
+    "name": "Virtual Violet",
+    "types": "Virtual"
+  },
+  {
+    "id": 1419,
+    "icon": "virtual_plum",
+    "": "",
+    "name": "Virtual Plum",
+    "types": "Virtual"
+  },
+  {
+    "id": 1420,
+    "icon": "virtual_blue_violet",
+    "": "",
+    "name": "Virtual Blue Violet",
+    "types": "Virtual"
+  },
+  {
+    "id": 1421,
+    "icon": "virtual_blue",
+    "": "",
+    "name": "Virtual Blue",
+    "types": "Virtual"
+  },
+  {
+    "id": 1423,
+    "icon": "virtual_cadet_blue",
+    "": "",
+    "name": "Virtual Cadet Blue",
+    "types": "Virtual"
+  },
+  {
+    "id": 1424,
+    "icon": "virtual_periwinkle",
+    "": "",
+    "name": "Virtual Periwinkle",
+    "types": "Virtual"
+  },
+  {
+    "id": 1425,
+    "icon": "virtual_cornflower",
+    "": "",
+    "name": "Virtual Cornflower",
+    "types": "Virtual"
+  },
+  {
+    "id": 1426,
+    "icon": "virtual_blue_green",
+    "": "",
+    "name": "Virtual Blue Green",
+    "types": "Virtual"
+  },
+  {
+    "id": 1427,
+    "icon": "virtual_pacific_blue",
+    "": "",
+    "name": "Virtual Pacific Blue",
+    "types": "Virtual"
+  },
+  {
+    "id": 1428,
+    "icon": "virtual_cerulean",
+    "": "",
+    "name": "Virtual Cerulean",
+    "types": "Virtual"
+  },
+  {
+    "id": 1429,
+    "icon": "virtual_robin_egg_blue",
+    "": "",
+    "name": "Virtual Robin Egg Blue",
+    "types": "Virtual"
+  },
+  {
+    "id": 1430,
+    "icon": "virtual_indigo",
+    "": "",
+    "name": "Virtual Indigo",
+    "types": "Virtual"
+  },
+  {
+    "id": 1431,
+    "icon": "virtual_turquoise_blue",
+    "": "",
+    "name": "Virtual Turquoise Blue",
+    "types": "Virtual"
+  },
+  {
+    "id": 1432,
+    "icon": "virtual_sea_green",
+    "": "",
+    "name": "Virtual Sea Green",
+    "types": "Virtual"
+  },
+  {
+    "id": 1433,
+    "icon": "virtual_granny_smith_apple",
+    "": "",
+    "name": "Virtual Granny Smith Apple",
+    "types": "Virtual"
+  },
+  {
+    "id": 1434,
+    "icon": "virtual_green",
+    "": "",
+    "name": "Virtual Green",
+    "types": "Virtual"
+  },
+  {
+    "id": 1435,
+    "icon": "virtual_forest_green",
+    "": "",
+    "name": "Virtual Forest Green",
+    "types": "Virtual"
+  },
+  {
+    "id": 1436,
+    "icon": "virtual_asparagus",
+    "": "",
+    "name": "Virtual Asparagus",
+    "types": "Virtual"
+  },
+  {
+    "id": 1437,
+    "icon": "virtual_olive_green",
+    "": "",
+    "name": "Virtual Olive Green",
+    "types": "Virtual"
+  },
+  {
+    "id": 1438,
+    "icon": "virtual_yellow_green",
+    "": "",
+    "name": "Virtual Yellow Green",
+    "types": "Virtual"
+  },
+  {
+    "id": 1439,
+    "icon": "virtual_green_yellow",
+    "": "",
+    "name": "Virtual Green Yellow",
+    "types": "Virtual"
+  },
+  {
+    "id": 1440,
+    "icon": "virtual_spring_green",
+    "": "",
+    "name": "Virtual Spring Green",
+    "types": "Virtual"
+  },
+  {
+    "id": 1441,
+    "icon": "virtual_gold",
+    "": "",
+    "name": "Virtual Gold",
+    "types": "Virtual"
+  },
+  {
+    "id": 1442,
+    "icon": "virtual_yellow",
+    "": "",
+    "name": "Virtual Yellow",
+    "types": "Virtual"
+  },
+  {
+    "id": 1443,
+    "icon": "virtual_goldenrod",
+    "": "",
+    "name": "Virtual Goldenrod",
+    "types": "Virtual"
+  },
+  {
+    "id": 1444,
+    "icon": "virtual_dandelion",
+    "": "",
+    "name": "Virtual Dandelion",
+    "types": "Virtual"
+  },
+  {
+    "id": 1445,
+    "icon": "virtual_orange",
+    "": "",
+    "name": "Virtual Orange",
+    "types": "Virtual"
+  },
+  {
+    "id": 1446,
+    "icon": "virtual_burnt_orange",
+    "": "",
+    "name": "Virtual Burnt Orange",
+    "types": "Virtual"
+  },
+  {
+    "id": 1448,
+    "icon": "virtual_melon",
+    "": "",
+    "name": "Virtual Melon",
+    "types": "Virtual"
+  },
+  {
+    "id": 1449,
+    "icon": "virtual_pink",
+    "": "",
+    "name": "Virtual Pink",
+    "types": "Virtual"
+  },
+  {
+    "id": 1450,
+    "icon": "virtual_carnation_pink",
+    "": "",
+    "name": "Virtual Carnation Pink",
+    "types": "Virtual"
+  },
+  {
+    "id": 1451,
+    "icon": "virtual_mauvelous",
+    "": "",
+    "name": "Virtual Mauvelous",
+    "types": "Virtual"
+  },
+  {
+    "id": 1452,
+    "icon": "virtual_salmon",
+    "": "",
+    "name": "Virtual Salmon",
+    "types": "Virtual"
+  },
+  {
+    "id": 1453,
+    "icon": "virtual_tickle_me_pink",
+    "": "",
+    "name": "Virtual Tickle Me Pink",
+    "types": "Virtual"
+  },
+  {
+    "id": 1454,
+    "icon": "virtual_magenta",
+    "": "",
+    "name": "Virtual Magenta",
+    "types": "Virtual"
+  },
+  {
+    "id": 1455,
+    "icon": "virtual_wild_strawberry",
+    "": "",
+    "name": "Virtual Wild Strawberry",
+    "types": "Virtual"
+  },
+  {
+    "id": 1456,
+    "icon": "virtual_violet_red",
+    "": "",
+    "name": "Virtual Violet Red",
+    "types": "Virtual"
+  },
+  {
+    "id": 1457,
+    "icon": "virtual_red_violet",
+    "": "",
+    "name": "Virtual Red Violet",
+    "types": "Virtual"
+  },
+  {
+    "id": 1458,
+    "icon": "virtual_apricot",
+    "": "",
+    "name": "Virtual Apricot",
+    "types": "Virtual"
+  },
+  {
+    "id": 1459,
+    "icon": "virtual_peach",
+    "": "",
+    "name": "Virtual Peach",
+    "types": "Virtual"
+  },
+  {
+    "id": 1460,
+    "icon": "virtual_macaroni_and_cheese",
+    "": "",
+    "name": "Virtual Macaroni and Cheese",
+    "types": "Virtual"
+  },
+  {
+    "id": 1461,
+    "icon": "virtual_tan",
+    "": "",
+    "name": "Virtual Tan",
+    "types": "Virtual"
+  },
+  {
+    "id": 1462,
+    "icon": "virtual_burnt_sienna",
+    "": "",
+    "name": "Virtual Burnt Sienna",
+    "types": "Virtual"
+  },
+  {
+    "id": 1463,
+    "icon": "virtual_bittersweet",
+    "": "",
+    "name": "Virtual Bittersweet",
+    "types": "Virtual"
+  },
+  {
+    "id": 1464,
+    "icon": "virtual_red_orange",
+    "": "",
+    "name": "Virtual Red Orange",
+    "types": "Virtual"
+  },
+  {
+    "id": 1465,
+    "icon": "virtual_scarlet",
+    "": "",
+    "name": "Virtual Scarlet",
+    "types": "Virtual"
+  },
+  {
+    "id": 1466,
+    "icon": "virtual_red",
+    "": "",
+    "name": "Virtual Red",
+    "types": "Virtual"
+  },
+  {
+    "id": 1467,
+    "icon": "virtual_brick_red",
+    "": "",
+    "name": "Virtual Brick Red",
+    "types": "Virtual"
+  },
+  {
+    "id": 1468,
+    "icon": "virtual_mahogany",
+    "": "",
+    "name": "Virtual Mahogany",
+    "types": "Virtual"
+  },
+  {
+    "id": 1469,
+    "icon": "virtual_chestnut",
+    "": "",
+    "name": "Virtual Chestnut",
+    "types": "Virtual"
+  },
+  {
+    "id": 1470,
+    "icon": "virtual_tumbleweed",
+    "": "",
+    "name": "Virtual Tumbleweed",
+    "types": "Virtual"
+  },
+  {
+    "id": 1471,
+    "icon": "virtual_raw_sienna",
+    "": "",
+    "name": "Virtual Raw Sienna",
+    "types": "Virtual"
+  },
+  {
+    "id": 1473,
+    "icon": "virtual_brown",
+    "": "",
+    "name": "Virtual Brown",
+    "types": "Virtual"
+  },
+  {
+    "id": 1474,
+    "icon": "flhistoricallocation",
+    "": "",
+    "name": "FL Historical Location",
+    "types": "Virtual"
+  },
+  {
+    "id": 1475,
+    "icon": "cahistoricallocation",
+    "": "",
+    "name": "CA Historical Location",
+    "types": "Virtual"
+  },
+  {
+    "id": 1485,
+    "icon": "siren",
+    "": "",
+    "name": "Siren",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1486,
+    "icon": "poihospital",
+    "": "",
+    "name": "POI Hospital",
+    "types": "Virtual"
+  },
+  {
+    "id": 1487,
+    "icon": "poipostoffice",
+    "": "",
+    "name": "POI Post Office",
+    "types": "Virtual"
+  },
+  {
+    "id": 1488,
+    "icon": "poicemetery",
+    "": "",
+    "name": "POI Cemetery",
+    "types": "Virtual"
+  },
+  {
+    "id": 1489,
+    "icon": "worldheritagehistoricallocation",
+    "": "",
+    "name": "World Heritage Historical Location",
+    "types": "Virtual"
+  },
+  {
+    "id": 1535,
+    "icon": "retiredunicorn",
+    "": "",
+    "name": "Retired Unicorn",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1536,
+    "icon": "retiredleprechaun",
+    "": "",
+    "name": "Retired Leprechaun",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1537,
+    "icon": "retireddragon",
+    "": "",
+    "name": "Retired Dragon",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1538,
+    "icon": "retiredyeti",
+    "": "",
+    "name": "Retired Yeti",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1539,
+    "icon": "retiredfaun",
+    "": "",
+    "name": "Retired Faun",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1540,
+    "icon": "retiredhydra",
+    "": "",
+    "name": "Retired Hydra",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1541,
+    "icon": "retiredmermaid",
+    "": "",
+    "name": "Retired Mermaid",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1542,
+    "icon": "retiredpegasus",
+    "": "",
+    "name": "Retired Pegasus",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1543,
+    "icon": "retiredcyclops",
+    "": "",
+    "name": "Retired Cyclops",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1544,
+    "icon": "fairy",
+    "": "",
+    "name": "Fairy",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1545,
+    "icon": "fairyhost",
+    "": "",
+    "name": "Fairy Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1546,
+    "icon": "fairy_virtual_host",
+    "": "",
+    "name": "Fairy Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1551,
+    "icon": "poiuniqueattraction",
+    "": "",
+    "name": "POI Unique Attraction",
+    "types": "Virtual"
+  },
+  {
+    "id": 1552,
+    "icon": "greatbritainiconiclocation",
+    "": "",
+    "name": "Great Britain Iconic Location",
+    "types": "Virtual"
+  },
+  {
+    "id": 1580,
+    "icon": "travelernomad",
+    "": "",
+    "name": "Traveler Nomad",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1581,
+    "icon": "flathammock",
+    "": "",
+    "name": "Flat Hammock",
+    "types": "Virtual"
+  },
+  {
+    "id": 1582,
+    "icon": "gettysburgflathammock",
+    "": "",
+    "name": "Gettysburg Flat Hammock",
+    "types": "Virtual"
+  },
+  {
+    "id": 1602,
+    "icon": "dryadfairy",
+    "": "",
+    "name": "Dryad Fairy",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1603,
+    "icon": "wildfirefairy",
+    "": "",
+    "name": "Wildfire Fairy",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1604,
+    "icon": "battleunicorn",
+    "": "",
+    "name": "Battle Unicorn",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1605,
+    "icon": "hippocampunicorn",
+    "": "",
+    "name": "Hippocamp Unicorn",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1630,
+    "icon": "fairygodmother",
+    "": "",
+    "name": "Fairy Godmother",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1631,
+    "icon": "poi_virtual_garden",
+    "": "",
+    "name": "POI Virtual Garden",
+    "types": "Virtual"
+  },
+  {
+    "id": 1637,
+    "icon": "seasonalnomad",
+    "": "",
+    "name": "Seasonal Nomad",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1638,
+    "icon": "muru",
+    "": "",
+    "name": "Muru",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1639,
+    "icon": "muruchi",
+    "": "",
+    "name": "Muruchi",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1640,
+    "icon": "murutain",
+    "": "",
+    "name": "Murutain",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1641,
+    "icon": "earthpouchcreaturehost",
+    "": "",
+    "name": "Earth Pouch Creature Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1643,
+    "icon": "bowlingball",
+    "": "",
+    "name": "Bowling Ball",
+    "types": "Physical"
+  },
+  {
+    "id": 1644,
+    "icon": "1stroll",
+    "": "",
+    "name": "1st Roll",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1645,
+    "icon": "2ndroll",
+    "": "",
+    "name": "2nd Roll",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1646,
+    "icon": "dwarfleprechaun",
+    "": "",
+    "name": "Dwarf Leprechaun",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1647,
+    "icon": "goblinleprechaun",
+    "": "",
+    "name": "Goblin Leprechaun",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1648,
+    "icon": "hotspringmermaid",
+    "": "",
+    "name": "Hot Spring Mermaid",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1649,
+    "icon": "melusinemermaid",
+    "": "",
+    "name": "Melusine Mermaid",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1650,
+    "icon": "mermaid_virtual_host",
+    "": "",
+    "name": "Mermaid Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1651,
+    "icon": "leprechaun_virtual_host",
+    "": "",
+    "name": "Leprechaun Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1691,
+    "icon": "virtual_flat_nomad",
+    "": "",
+    "name": "Virtual Flat Nomad",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1705,
+    "icon": "beachflatrob",
+    "": "",
+    "name": "Beach Flat Rob",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1706,
+    "icon": "coldflatrob",
+    "": "",
+    "name": "Cold Flat Rob",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1707,
+    "icon": "tuxflatrob",
+    "": "",
+    "name": "Tux Flat Rob",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1708,
+    "icon": "fancyflatrobhost",
+    "": "",
+    "name": "Fancy Flat Rob Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1709,
+    "icon": "fancy_flat_rob_virtual_host",
+    "": "",
+    "name": "Fancy Flat Rob Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1745,
+    "icon": "hadavale",
+    "": "",
+    "name": "Hadavale",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1746,
+    "icon": "hadavalehost",
+    "": "",
+    "name": "Hadavale Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1747,
+    "icon": "hadavale_virtual_host",
+    "": "",
+    "name": "Hadavale Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1752,
+    "icon": "mitmegu",
+    "": "",
+    "name": "Mitmegu",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1753,
+    "icon": "jootmegu",
+    "": "",
+    "name": "Jootmegu",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1754,
+    "icon": "rohimegu",
+    "": "",
+    "name": "Rohimegu",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1755,
+    "icon": "lokemegu",
+    "": "",
+    "name": "Lokemegu",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1756,
+    "icon": "mitmegupouchcreaturehost",
+    "": "",
+    "name": "Mitmegu Pouch Creature Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1760,
+    "icon": "rose",
+    "": "",
+    "name": "Rose",
+    "types": "Physical"
+  },
+  {
+    "id": 1761,
+    "icon": "tulip",
+    "": "",
+    "name": "Tulip",
+    "types": "Physical"
+  },
+  {
+    "id": 1767,
+    "icon": "czechrepubliciconiclocation",
+    "": "",
+    "name": "Czech Republic Iconic Location",
+    "types": "Virtual"
+  },
+  {
+    "id": 1768,
+    "icon": "slovakiaiconiclocation",
+    "": "",
+    "name": "Slovakia Iconic Location",
+    "types": "Virtual"
+  },
+  {
+    "id": 1770,
+    "icon": "poicinema",
+    "": "",
+    "name": "POI Cinema",
+    "types": "Virtual"
+  },
+  {
+    "id": 1774,
+    "icon": "lily",
+    "": "",
+    "name": "Lily",
+    "types": "Physical"
+  },
+  {
+    "id": 1775,
+    "icon": "tulipseed",
+    "": "",
+    "name": "Tulip Seed",
+    "types": "Physical"
+  },
+  {
+    "id": 1776,
+    "icon": "tulipgermination",
+    "": "",
+    "name": "Tulip Germination",
+    "types": "Physical"
+  },
+  {
+    "id": 1777,
+    "icon": "tulipgrowth",
+    "": "",
+    "name": "Tulip Growth",
+    "types": "Physical"
+  },
+  {
+    "id": 1778,
+    "icon": "tulipbud",
+    "": "",
+    "name": "Tulip Bud",
+    "types": "Physical"
+  },
+  {
+    "id": 1779,
+    "icon": "bluetulipblossom",
+    "": "",
+    "name": "Blue Tulip Blossom",
+    "types": "Physical"
+  },
+  {
+    "id": 1780,
+    "icon": "pinktulipblossom",
+    "": "",
+    "name": "Pink Tulip Blossom",
+    "types": "Physical"
+  },
+  {
+    "id": 1781,
+    "icon": "whitetulipblossom",
+    "": "",
+    "name": "White Tulip Blossom",
+    "types": "Physical"
+  },
+  {
+    "id": 1782,
+    "icon": "roseseed",
+    "": "",
+    "name": "Rose Seed",
+    "types": "Physical"
+  },
+  {
+    "id": 1783,
+    "icon": "rosegermination",
+    "": "",
+    "name": "Rose Germination",
+    "types": "Physical"
+  },
+  {
+    "id": 1784,
+    "icon": "rosegrowth",
+    "": "",
+    "name": "Rose Growth",
+    "types": "Physical"
+  },
+  {
+    "id": 1785,
+    "icon": "rosebud",
+    "": "",
+    "name": "Rose Bud",
+    "types": "Physical"
+  },
+  {
+    "id": 1786,
+    "icon": "redroseblossom",
+    "": "",
+    "name": "Red Rose Blossom",
+    "types": "Physical"
+  },
+  {
+    "id": 1787,
+    "icon": "violetroseblossom",
+    "": "",
+    "name": "Violet Rose Blossom",
+    "types": "Physical"
+  },
+  {
+    "id": 1788,
+    "icon": "whiteroseblossom",
+    "": "",
+    "name": "White Rose Blossom",
+    "types": "Physical"
+  },
+  {
+    "id": 1789,
+    "icon": "yellowroseblossom",
+    "": "",
+    "name": "Yellow Rose Blossom",
+    "types": "Physical"
+  },
+  {
+    "id": 1790,
+    "icon": "lilyseed",
+    "": "",
+    "name": "Lily Seed",
+    "types": "Physical"
+  },
+  {
+    "id": 1791,
+    "icon": "lilygermination",
+    "": "",
+    "name": "Lily Germination",
+    "types": "Physical"
+  },
+  {
+    "id": 1792,
+    "icon": "lilygrowth",
+    "": "",
+    "name": "Lily Growth",
+    "types": "Physical"
+  },
+  {
+    "id": 1793,
+    "icon": "lilybud",
+    "": "",
+    "name": "Lily Bud",
+    "types": "Physical"
+  },
+  {
+    "id": 1794,
+    "icon": "pinklilyblossom",
+    "": "",
+    "name": "Pink Lily Blossom",
+    "types": "Physical"
+  },
+  {
+    "id": 1795,
+    "icon": "violetlilyblossom",
+    "": "",
+    "name": "Violet Lily Blossom",
+    "types": "Physical"
+  },
+  {
+    "id": 1796,
+    "icon": "whitelilyblossom",
+    "": "",
+    "name": "White Lily Blossom",
+    "types": "Physical"
+  },
+  {
+    "id": 1797,
+    "icon": "carnation",
+    "": "",
+    "name": "Carnation",
+    "types": "Virtual"
+  },
+  {
+    "id": 1798,
+    "icon": "carnationseed",
+    "": "",
+    "name": "Carnation Seed",
+    "types": "Virtual"
+  },
+  {
+    "id": 1799,
+    "icon": "carnationgermination",
+    "": "",
+    "name": "Carnation Germination",
+    "types": "Virtual"
+  },
+  {
+    "id": 1800,
+    "icon": "carnationgrowth",
+    "": "",
+    "name": "Carnation Growth",
+    "types": "Virtual"
+  },
+  {
+    "id": 1801,
+    "icon": "carnationbud",
+    "": "",
+    "name": "Carnation Bud",
+    "types": "Virtual"
+  },
+  {
+    "id": 1802,
+    "icon": "pinkcarnationblossom",
+    "": "",
+    "name": "Pink Carnation Blossom",
+    "types": "Virtual"
+  },
+  {
+    "id": 1803,
+    "icon": "redcarnationblossom",
+    "": "",
+    "name": "Red Carnation Blossom",
+    "types": "Virtual"
+  },
+  {
+    "id": 1804,
+    "icon": "violetcarnationblossom",
+    "": "",
+    "name": "Violet Carnation Blossom",
+    "types": "Virtual"
+  },
+  {
+    "id": 1805,
+    "icon": "whitecarnationblossom",
+    "": "",
+    "name": "White Carnation Blossom",
+    "types": "Virtual"
+  },
+  {
+    "id": 1806,
+    "icon": "yellowcarnationblossom",
+    "": "",
+    "name": "Yellow Carnation Blossom",
+    "types": "Virtual"
+  },
+  {
+    "id": 1824,
+    "icon": "urbanfit",
+    "": "",
+    "name": "Urban Fit",
+    "types": "Physical"
+  },
+  {
+    "id": 1827,
+    "icon": "banshee",
+    "": "",
+    "name": "Banshee",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1828,
+    "icon": "bansheehost",
+    "": "",
+    "name": "Banshee Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1829,
+    "icon": "banshee_virtual_host",
+    "": "",
+    "name": "Banshee Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1830,
+    "icon": "butterfly",
+    "": "",
+    "name": "Butterfly",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1831,
+    "icon": "washingtoniconiclocation",
+    "": "",
+    "name": "Washington Iconic Location",
+    "types": "Virtual"
+  },
+  {
+    "id": 1836,
+    "icon": "butterflyegg",
+    "": "",
+    "name": "Butterfly Egg",
+    "types": "Physical"
+  },
+  {
+    "id": 1837,
+    "icon": "caterpillar",
+    "": "",
+    "name": "Caterpillar",
+    "types": "Physical"
+  },
+  {
+    "id": 1838,
+    "icon": "chrysalis",
+    "": "",
+    "name": "Chrysalis",
+    "types": "Physical"
+  },
+  {
+    "id": 1839,
+    "icon": "hatchedchrysalis",
+    "": "",
+    "name": "Hatched Chrysalis",
+    "types": "Physical"
+  },
+  {
+    "id": 1840,
+    "icon": "morphobutterfly",
+    "": "",
+    "name": "Morpho Butterfly",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1841,
+    "icon": "monarchbutterfly",
+    "": "",
+    "name": "Monarch Butterfly",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1842,
+    "icon": "limebutterfly",
+    "": "",
+    "name": "Lime Butterfly",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1843,
+    "icon": "butterflyhost",
+    "": "",
+    "name": "Butterfly Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1844,
+    "icon": "butterfly_virtual_host",
+    "": "",
+    "name": "Butterfly Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1850,
+    "icon": "gleamingmuru",
+    "": "",
+    "name": "Gleaming Muru",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1851,
+    "icon": "gleamingmuruchi",
+    "": "",
+    "name": "Gleaming Muruchi",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1852,
+    "icon": "gleamingmurutain",
+    "": "",
+    "name": "Gleaming Murutain",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1853,
+    "icon": "gleamingtuli",
+    "": "",
+    "name": "Gleaming Tuli",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1854,
+    "icon": "gleamingtulimber",
+    "": "",
+    "name": "Gleaming Tulimber",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1855,
+    "icon": "gleamingtuliferno",
+    "": "",
+    "name": "Gleaming Tuliferno",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1856,
+    "icon": "gleamingvesi",
+    "": "",
+    "name": "Gleaming Vesi",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1857,
+    "icon": "gleamingvesial",
+    "": "",
+    "name": "Gleaming Vesial",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1858,
+    "icon": "gleamingvesisaur",
+    "": "",
+    "name": "Gleaming Vesisaur",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1874,
+    "icon": "chinesedragon",
+    "": "",
+    "name": "Chinese Dragon",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1875,
+    "icon": "wyverndragon",
+    "": "",
+    "name": "Wyvern Dragon",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1876,
+    "icon": "lycanthropeyeti",
+    "": "",
+    "name": "Lycanthrope Yeti",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1877,
+    "icon": "reptoidyeti",
+    "": "",
+    "name": "Reptoid Yeti",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1878,
+    "icon": "dragon_virtual_host",
+    "": "",
+    "name": "Dragon Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1880,
+    "icon": "qrewzee",
+    "": "",
+    "name": "QRewzee",
+    "types": "Physical"
+  },
+  {
+    "id": 1919,
+    "icon": "pimedus",
+    "": "",
+    "name": "Pimedus",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1920,
+    "icon": "pimedushost",
+    "": "",
+    "name": "Pimedus Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1921,
+    "icon": "pimedus_virtual_host",
+    "": "",
+    "name": "Pimedus Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1929,
+    "icon": "gorgon",
+    "": "",
+    "name": "Gorgon",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1976,
+    "icon": "joystickphysical",
+    "": "",
+    "name": "Joystick Physical",
+    "types": "Physical"
+  },
+  {
+    "id": 1977,
+    "icon": "poitransportation",
+    "": "",
+    "name": "POI Transportation",
+    "types": "Virtual"
+  },
+  {
+    "id": 1978,
+    "icon": "poiplaypark",
+    "": "",
+    "name": "POI Play Park",
+    "types": "Virtual"
+  },
+  {
+    "id": 1985,
+    "icon": "matt'erupflatmatt",
+    "": "",
+    "name": "Matt'er Up Flat Matt",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1986,
+    "icon": "face-offflatmatt",
+    "": "",
+    "name": "Face-Off Flat Matt",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1987,
+    "icon": "footyflatmatt",
+    "": "",
+    "name": "Footy Flat Matt",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1988,
+    "icon": "fancyflatmatthost",
+    "": "",
+    "name": "Fancy Flat Matt Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1989,
+    "icon": "fancy_flat_matt_virtual_host",
+    "": "",
+    "name": "Fancy Flat Matt Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1995,
+    "icon": "griffinpegasus",
+    "": "",
+    "name": "Griffin Pegasus",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1996,
+    "icon": "alicornpegasus",
+    "": "",
+    "name": "Alicorn Pegasus",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1997,
+    "icon": "centaurfaun",
+    "": "",
+    "name": "Centaur Faun",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1998,
+    "icon": "krampusfaun",
+    "": "",
+    "name": "Krampus Faun",
+    "types": "Bouncer"
+  },
+  {
+    "id": 1999,
+    "icon": "pegasusphysicalhost",
+    "": "",
+    "name": "Pegasus Physical Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2000,
+    "icon": "faun_virtual_host",
+    "": "",
+    "name": "Faun Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2002,
+    "icon": "joystickvirtual",
+    "": "",
+    "name": "Joystick Virtual",
+    "types": "Virtual"
+  },
+  {
+    "id": 2003,
+    "icon": "runzeerob",
+    "": "",
+    "name": "Runzee Rob",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2004,
+    "icon": "goldcoin",
+    "": "",
+    "name": "Gold Coin",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2005,
+    "icon": "leapfrog",
+    "": "",
+    "name": "Leap Frog",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2006,
+    "icon": "fly",
+    "": "",
+    "name": "Fly",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2007,
+    "icon": "munch-man",
+    "": "",
+    "name": "Munch-Man",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2008,
+    "icon": "ghostzee",
+    "": "",
+    "name": "Ghostzee",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2046,
+    "icon": "internationelles",
+    "": "",
+    "name": "InternationElles",
+    "types": "Physical"
+  },
+  {
+    "id": 2047,
+    "icon": "internationellesvirtual",
+    "": "",
+    "name": "InternationElles Virtual",
+    "types": "Virtual"
+  },
+  {
+    "id": 2051,
+    "icon": "retiredfairy",
+    "": "",
+    "name": "Retired Fairy",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2052,
+    "icon": "retiredbanshee",
+    "": "",
+    "name": "Retired Banshee",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2053,
+    "icon": "zombietuli",
+    "": "",
+    "name": "Zombie Tuli",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2054,
+    "icon": "zombievesi",
+    "": "",
+    "name": "Zombie Vesi",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2055,
+    "icon": "zombiemuru",
+    "": "",
+    "name": "Zombie Muru",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2067,
+    "icon": "frog",
+    "": "",
+    "name": "Frog",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2075,
+    "icon": "coupechampions#1",
+    "": "",
+    "name": "Coupe Champions #1",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2076,
+    "icon": "coupechampions#2",
+    "": "",
+    "name": "Coupe Champions #2",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2077,
+    "icon": "coupechampions#3",
+    "": "",
+    "name": "Coupe Champions #3",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2078,
+    "icon": "coupechampions#4",
+    "": "",
+    "name": "Coupe Champions #4",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2079,
+    "icon": "coupechampions#5",
+    "": "",
+    "name": "Coupe Champions #5",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2080,
+    "icon": "coupechampions#6",
+    "": "",
+    "name": "Coupe Champions #6",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2081,
+    "icon": "coupechampions#7",
+    "": "",
+    "name": "Coupe Champions #7",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2082,
+    "icon": "coupechampions#8",
+    "": "",
+    "name": "Coupe Champions #8",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2083,
+    "icon": "coupechampions#9",
+    "": "",
+    "name": "Coupe Champions #9",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2084,
+    "icon": "coupechampions#10",
+    "": "",
+    "name": "Coupe Champions #10",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2085,
+    "icon": "coupechampions#11",
+    "": "",
+    "name": "Coupe Champions #11",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2086,
+    "icon": "coupechampions#12",
+    "": "",
+    "name": "Coupe Champions #12",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2087,
+    "icon": "coupechampions#13",
+    "": "",
+    "name": "Coupe Champions #13",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2088,
+    "icon": "coupechampions#14",
+    "": "",
+    "name": "Coupe Champions #14",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2089,
+    "icon": "coupechampions#15",
+    "": "",
+    "name": "Coupe Champions #15",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2090,
+    "icon": "coupechampions#16",
+    "": "",
+    "name": "Coupe Champions #16",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2091,
+    "icon": "coupechampions#17",
+    "": "",
+    "name": "Coupe Champions #17",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2092,
+    "icon": "coupechampions#18",
+    "": "",
+    "name": "Coupe Champions #18",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2093,
+    "icon": "coupechampions#19",
+    "": "",
+    "name": "Coupe Champions #19",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2094,
+    "icon": "coupechampions#20",
+    "": "",
+    "name": "Coupe Champions #20",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2095,
+    "icon": "coupechampions#21",
+    "": "",
+    "name": "Coupe Champions #21",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2096,
+    "icon": "coupechampions#22",
+    "": "",
+    "name": "Coupe Champions #22",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2097,
+    "icon": "coupechampions#23",
+    "": "",
+    "name": "Coupe Champions #23",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2106,
+    "icon": "frogegg",
+    "": "",
+    "name": "Frog Egg",
+    "types": "Physical"
+  },
+  {
+    "id": 2107,
+    "icon": "tadpole",
+    "": "",
+    "name": "Tadpole",
+    "types": "Physical"
+  },
+  {
+    "id": 2108,
+    "icon": "pollywog",
+    "": "",
+    "name": "Pollywog",
+    "types": "Physical"
+  },
+  {
+    "id": 2109,
+    "icon": "froglet",
+    "": "",
+    "name": "Froglet",
+    "types": "Physical"
+  },
+  {
+    "id": 2110,
+    "icon": "treefrog",
+    "": "",
+    "name": "Tree Frog",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2111,
+    "icon": "poisondartfrog",
+    "": "",
+    "name": "Poison Dart Frog",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2112,
+    "icon": "tomatofrog",
+    "": "",
+    "name": "Tomato Frog",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2113,
+    "icon": "froghost",
+    "": "",
+    "name": "Frog Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2114,
+    "icon": "frog_virtual_host",
+    "": "",
+    "name": "Frog Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2118,
+    "icon": "nymph",
+    "": "",
+    "name": "Nymph",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2119,
+    "icon": "nymphhost",
+    "": "",
+    "name": "Nymph Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2120,
+    "icon": "nymph_virtual_host",
+    "": "",
+    "name": "Nymph Virtual Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2145,
+    "icon": "treehouse",
+    "": "",
+    "name": "Treehouse",
+    "types": "Physical"
+  },
+  {
+    "id": 2183,
+    "icon": "vacationcondo",
+    "": "",
+    "name": "Vacation Condo",
+    "types": "Virtual"
+  },
+  {
+    "id": 2184,
+    "icon": "vacationcondoroom",
+    "": "",
+    "name": "Vacation Condo Room",
+    "types": "Virtual"
+  },
+  {
+    "id": 2196,
+    "icon": "newhampshireiconiclocation",
+    "": "",
+    "name": "New Hampshire Iconic Location",
+    "types": "Virtual"
+  },
+  {
+    "id": 2197,
+    "icon": "newmexicoiconiclocation",
+    "": "",
+    "name": "New Mexico Iconic Location",
+    "types": "Virtual"
+  },
+  {
+    "id": 2240,
+    "icon": "puffle",
+    "": "",
+    "name": "Puffle",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2241,
+    "icon": "pufrain",
+    "": "",
+    "name": "Pufrain",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2242,
+    "icon": "puflawn",
+    "": "",
+    "name": "Puflawn",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2243,
+    "icon": "airpouchcreaturehost",
+    "": "",
+    "name": "Air Pouch Creature Host",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2244,
+    "icon": "bowling-1stroll",
+    "": "",
+    "name": "Bowling - 1st Roll",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2245,
+    "icon": "bowling-2ndroll",
+    "": "",
+    "name": "Bowling - 2nd Roll",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2252,
+    "icon": "cerberushydra",
+    "": "",
+    "name": "Cerberus Hydra",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2253,
+    "icon": "cthulhuhydra",
+    "": "",
+    "name": "Cthulhu Hydra",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2254,
+    "icon": "harpybanshee",
+    "": "",
+    "name": "Harpy Banshee",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2255,
+    "icon": "witchbanshee",
+    "": "",
+    "name": "Witch Banshee",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2306,
+    "icon": "magnetus",
+    "": "",
+    "name": "Magnetus",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2337,
+    "icon": "motherearth",
+    "": "",
+    "name": "Mother Earth",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2356,
+    "icon": "2starmotel",
+    "": "",
+    "name": "2 Star Motel",
+    "types": "Physical"
+  },
+  {
+    "id": 2357,
+    "icon": "2starmotelroom",
+    "": "",
+    "name": "2 Star Motel Room",
+    "types": "Physical"
+  },
+  {
+    "id": 2358,
+    "icon": "3starmotel",
+    "": "",
+    "name": "3 Star Motel",
+    "types": "Physical"
+  },
+  {
+    "id": 2359,
+    "icon": "3starmotelroom",
+    "": "",
+    "name": "3 Star Motel Room",
+    "types": "Physical"
+  },
+  {
+    "id": 2361,
+    "icon": "virtual_citrine",
+    "": "",
+    "name": "Virtual Citrine",
+    "types": "Virtual"
+  },
+  {
+    "id": 2362,
+    "icon": "virtual_onyx",
+    "": "",
+    "name": "Virtual Onyx",
+    "types": "Virtual"
+  },
+  {
+    "id": 2366,
+    "icon": "topaas",
+    "": "",
+    "name": "Topaas",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2367,
+    "icon": "ametust",
+    "": "",
+    "name": "Ametust",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2368,
+    "icon": "oniks",
+    "": "",
+    "name": "Oniks",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2390,
+    "icon": "renovation",
+    "": "",
+    "name": "Renovation",
+    "types": "Other"
+  },
+  {
+    "id": 2404,
+    "icon": "redapple",
+    "": "",
+    "name": "Red Apple",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2405,
+    "icon": "cherryblossom",
+    "": "",
+    "name": "Cherry Blossom",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2407,
+    "icon": "elekter",
+    "": "",
+    "name": "Elekter",
+    "types": "Bouncer"
+  },
+  {
+    "id": 2412,
+    "icon": "sirprizewheel",
+    "": "",
+    "name": "Sir Prize Wheel",
+    "types": "Virtual"
+  }
+]

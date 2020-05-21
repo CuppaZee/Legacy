@@ -63,6 +63,14 @@
           "function": "user_details_v1"
         },
         {
+          "source": "/user/clan",
+          "function": "user_clan_v1"
+        },
+        {
+          "source": "/user/clan/v1",
+          "function": "user_clan_v1"
+        },
+        {
           "source": "/user/activity",
           "function": "user_activity_v1"
         },
@@ -89,6 +97,14 @@
         {
           "source": "/user/specials/v1",
           "function": "user_specials_v1"
+        },
+        {
+          "source": "/user/quest",
+          "function": "user_quest_v1"
+        },
+        {
+          "source": "/user/quest/v1",
+          "function": "user_quest_v1"
         },
         {
           "source": "/user/search",
@@ -123,6 +139,14 @@
           "function": "clan_requirements"
         },
         {
+          "source": "/clan/rewards/v1",
+          "function": "clan_rewards_v1"
+        },
+        {
+          "source": "/clan/rewards",
+          "function": "clan_rewards_v1"
+        },
+        {
           "source": "/clan/list",
           "function": "clan_list_v1"
         },
@@ -147,12 +171,28 @@
           "function": "clan_details_v1"
         },
         {
+          "source": "/clan/shadow",
+          "function": "clan_shadow_v1"
+        },
+        {
+          "source": "/clan/shadow/v1",
+          "function": "clan_shadow_v1"
+        },
+        {
+          "source": "/munzee/deploytime",
+          "function": "munzee_deploytime"
+        },
+        {
           "source": "/bingo",
           "function": "bingo"
         },
         {
+          "source": "/authlog",
+          "function": "authlog"
+        },
+        {
           "source": "**",
-          "destination": "/index.html"
+          "function": "api"
         }
       ]
     },
@@ -183,6 +223,21 @@
             }
           ]
         }
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "oldpaper",
+      "public": "oldpaper",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
       ],
       "rewrites": [
         {

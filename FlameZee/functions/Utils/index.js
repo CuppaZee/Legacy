@@ -8,6 +8,7 @@ require('moment-timezone');
 const MunzeeAPI = require('./API');
 const config = require('./Config.json');
 const __clan = require('./Clan');
+const activity = require('./Activity');
 const FlameAPI = new MunzeeAPI(config.Auth1);
 admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
@@ -104,8 +105,11 @@ module.exports = {
     now: (a) => moment(a).tz('America/Chicago'),
     day: (a) => moment(a).tz('America/Chicago').format('YYYY-MM-DD'),
   },
-  currentGameID(){
-    return 85;
+  getGameID(year,month){
+    let now = moment().tz('America/Chicago');
+    let y = year!==undefined?year:now.year();
+    let m = month!==undefined?month:now.month();
+    return (y*12)+m-24158;
   },
   validateCode,
   moment,
@@ -125,6 +129,7 @@ module.exports = {
   },
   utils: {
     clan: __clan,
+    activity: activity
   },
   mdb: {
     Munzees: mdbmunzees

@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Beach Flat Rob",
+    "icon": "beachflatrob",
+    "id": 1705,
+    "color": "green",
+    "lands_on": ["icemystery"]
+  },
+  {
+    "name": "Cold Flat Rob",
+    "icon": "coldflatrob",
+    "id": 1706,
+    "color": "green",
+    "lands_on": ["watermystery"]
+  },
+  {
+    "name": "Tux Flat Rob",
+    "icon": "tuxflatrob",
+    "id": 1707,
+    "color": "green",
+    "lands_on": [":jewel"]
+  },
+  {
+    "name": "Fancy Flat Rob Host",
+    "icon": "fancyflatrobhost",
+    "id": 1708,
+    "state": "physical",
+    "hosts": [1705,1706,1707]
+  },
+  {
+    "name": "Fancy Flat Rob Virtual Host",
+    "icon": "fancy_flat_rob_virtual_host",
+    "id": 1709,
+    "state": "virtual",
+    "host": true,
+    "hosts": [1705,1706,1707]
+  },
+  {
+    "name": "Matt'er Up Flat Matt",
+    "icon": "matt'erupflatmatt",
+    "id": 1985,
+    "color": "red",
+    "lands_on": ["poisports","diamond"]
+  },
+  {
+    "name": "Face-Off Flat Matt",
+    "icon": "face-offflatmatt",
+    "id": 1986,
+    "color": "red",
+    "lands_on": ["poisports","icemystery"]
+  },
+  {
+    "name": "Footy Flat Matt",
+    "icon": "footyflatmatt",
+    "id": 1987,
+    "color": "red",
+    "lands_on": ["poisports","earthmystery"]
+  },
+  {
+    "name": "Fancy Flat Matt Host",
+    "icon": "fancyflatmatthost",
+    "id": 1988,
+    "state": "physical",
+    "host": true,
+    "hosts": [1985,1986,1987]
+  },
+  {
+    "name": "Fancy Flat Matt Virtual Host",
+    "icon": "fancy_flat_matt_virtual_host",
+    "id": 1989,
+    "state": "virtual",
+    "host": true,
+    "hosts": [1985,1986,1987]
+  }
+]

@@ -1,0 +1,173 @@
+[
+  {
+    "name": "Greenie",
+    "icon": "munzee",
+    "id": 0,
+    "state": "physical"
+  },
+  {
+    "name": "Premium",
+    "icon": "premium",
+    "id": 13,
+    "state": "physical"
+  },
+  {
+    "name": "Social",
+    "icon": "social",
+    "id": 32,
+    "state": "locationless",
+    "extra": {
+      "social": true
+    }
+  },
+  {
+    "name": "Event Pin",
+    "icon": "eventpin",
+    "id": 60,
+    "state": "physical"
+  },
+  {
+    "name": "Trail Munzee",
+    "icon": "trail",
+    "id": 190,
+    "state": "physical"
+  },
+  {
+    "name": "Personal Munzee",
+    "icon": "personalmunzee",
+    "id": 200,
+    "state": "personal",
+    "extra": {
+      "personal": true
+    }
+  },
+  {
+    "name": "Event Indicator",
+    "icon": "eventindicator",
+    "id": 294,
+    "state": "physical",
+    "extra": {
+      "event": "indicator"
+    }
+  },
+  {
+    "name": "Virtual Trail",
+    "icon": "virtual_trail",
+    "id": 390,
+    "state": "virtual",
+    "extra": {
+      "trail": true
+    }
+  },
+  {
+    "name": "Shamrock",
+    "icon": "shamrock",
+    "id": 441,
+    "state": "physical"
+  },
+  {
+    "name": "Scatter",
+    "icon": "scatter",
+    "id": 500,
+    "state": "physical"
+  },
+  {
+    "name": "Event Trail",
+    "icon": "eventtrail",
+    "id": 600,
+    "state": "virtual"
+  },
+  {
+    "name": "Premium Personal",
+    "icon": "premiumpersonal",
+    "id": 1107,
+    "state": "personal",
+    "extra": {
+      "personal": true
+    }
+  },
+  {
+    "name": "Spring Seasonal Munzee",
+    "icon": "springseasonalmunzee",
+    "id": 1135,
+    "state": "physical",
+    "extra": {
+      "seasonal": true
+    }
+  },
+  {
+    "name": "Summer Seasonal Munzee",
+    "icon": "summerseasonalmunzee",
+    "id": 1136,
+    "state": "physical",
+    "extra": {
+      "seasonal": true
+    }
+  },
+  {
+    "name": "Fall Seasonal Munzee",
+    "icon": "fallseasonalmunzee",
+    "id": 1137,
+    "state": "physical",
+    "extra": {
+      "seasonal": true
+    }
+  },
+  {
+    "name": "Winter Seasonal Munzee",
+    "icon": "winterseasonalmunzee",
+    "id": 1138,
+    "state": "physical",
+    "extra": {
+      "seasonal": true
+    }
+  },
+  {
+    "name": "Seasonal Munzee",
+    "icon": "seasonalmunzee",
+    "id": 1139,
+    "state": "physical",
+    "extra": {
+      "seasonal": true
+    }
+  },
+  {
+    "name": "Temporary Virtual",
+    "icon": "temporaryvirtual",
+    "id": 1245,
+    "state": "virtual",
+    "extra": {
+      "temporary": 30
+    }
+  },
+  {
+    "name": "QRewzee",
+    "icon": "qrewzee",
+    "id": 1880,
+    "state": "physical"
+  },
+  {
+    "name": "InternationElles",
+    "icon": "internationelles",
+    "id": 2046,
+    "state": "physical",
+    "extra": {
+      "unique": true
+    }
+  },
+  {
+    "name": "InternationElles Virtual",
+    "icon": "internationellesvirtual",
+    "id": 2047,
+    "state": "virtual",
+    "extra": {
+      "unique": true
+    }
+  },
+  {
+    "name": "Renovation",
+    "icon": "renovation",
+    "id": 2390,
+    "state": "other"
+  }
+]

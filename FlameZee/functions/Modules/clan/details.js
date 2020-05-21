@@ -28,27 +28,27 @@ module.exports = [
         457,
         1441,
         1870,
-        1493,
+        // 1493,
         -1,
         -2,
         -3,
         -4,
         -5,
-        251,
-        1793,
-        1551,
-        1605,
-        19,
-        1695,
-        1343,
-        1364,
-        1498,
-        1491
+        // 251,
+        // 1793,
+        // 1551,
+        // 1605,
+        // 19,
+        // 1695,
+        // 1343,
+        // 1364,
+        // 1498,
+        // 1491
       ];
       var [requirements, clan, shadow_data] = (await Promise.all([
         Flame.Request('clan/v2/requirements', { game_id: req.query.game_id || "85", clan_id: Number(req.query.clan_id || "1349") < 0 ? 1349 : Number(req.query.clan_id || "1349") }),
         Flame.Request('clan/v2', { clan_id: Number(req.query.clan_id || "1349") }),
-        shadow.includes(Number(req.query.clan_id || "1349")) ? db.collection('shadow').doc((req.query.clan_id || "1349").toString()).get() : null
+        shadow.includes(Number(req.query.clan_id || "1349")) ? db.collection(`shadow_${req.query.game_id}`).doc((req.query.clan_id || "1349").toString()).get() : null
       ].filter(i => i))).map(i => typeof (i || {}).data !== "function" ? (i || {}).data : i.data());
       if (!clan) return send(params, req, res, startTime, 2, 'Invalid clan_id');
       var details = {
@@ -94,8 +94,8 @@ module.exports = [
         for (var requirement of [...level_requirements.individual, ...level_requirements.group].sort((a, b) => a.id - b.id)) {
           if (!details.requirements[requirement.task_id]) {
             details.requirements[requirement.task_id] = {
-              users: Object.assign({}, shadow_data ? shadow_data.data[requirement.task_id] || {} : {}, shadow_data && shadow_data.details ? {} : requirement.data),
-              total: Object.values(Object.assign({}, shadow_data ? shadow_data.data[requirement.task_id] || {} : {}, shadow_data && shadow_data.details ? {} : requirement.data)).reduce(
+              users: Object.assign({}, (shadow_data&&shadow_data.data) ? shadow_data.data[requirement.task_id] || {} : {}, shadow_data && shadow_data.details ? {} : requirement.data),
+              total: Object.values(Object.assign({}, (shadow_data&&shadow_data.data) ? shadow_data.data[requirement.task_id] || {} : {}, shadow_data && shadow_data.details ? {} : requirement.data)).reduce(
                 (utils.clan.tasks[requirement.task_id] || {}).total === "min" ?
                   (a, b) => Math.min(a, b) :
                   (a, b) => a + b,

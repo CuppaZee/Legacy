@@ -34,6 +34,10 @@ module.exports = class Activity {
         )
     }
 
+    get is_mystery () {
+        return this.pinIsAny("mystery;firemystery;icemystery;watermystery;earthmystery;airmystery;electricmystery;")
+    }
+
     get is_personal () {
         return this.pinIsAny("personal;premiumpersonal;")
     }
@@ -54,10 +58,10 @@ module.exports = class Activity {
         return this.pinIsAny(
             "theunicorn;battleunicorn;hippocampunicorn;leprechaun;goblinleprechaun;dwarfleprechaun;dragon;chinesedragon;wyverndragon;yeti;lycanthropeyeti;reptoidyeti;pegasus;griffinpegasus;alicornpegasus;hydra;cerberushydra;cthulhuhydra;faun;centaurfaun;krampusfaun;cyclops;mermaid;hotspringmermaid;melusinemermaid;fairy;dryadfairy;wildfirefairy;banshee;harpybanshee;witchbanshee;nymph;"+
 
-            "tuli;tulimber;tuliferno;vesi;vesial;vesisaur;muru;muruchi;murutain;mitmegu;jootmegu;lokemegu;rohimegu;pimedus;puffle;pufrain;puflawn;magnetus;ametust;topaas;oniks;elekter;elekjoud;elektrivool;"+
+            "tuli;tulimber;tuliferno;vesi;vesial;vesisaur;muru;muruchi;murutain;mitmegu;jootmegu;lokemegu;rohimegu;pimedus;puffle;pufrain;puflawn;magnetus;ametust;topaas;oniks;elekter;elekjoud;elektrivool;teemant;smaragd;"+
 
             "tuxflatrob;beachflatrob;coldflatrob;footyflatmatt;matt'erupflatmatt;face-offflatmatt;"+
-            "morphobutterfly;monarchbutterly;limebutterfly;treefrog;poisondartfrog;tomatofrog;koalaaussieanimal;kangarooaussieanimal;redheartbreaker;pinkheartbreaker;yellowheartbreaker;greenheartbreaker;"+
+            "morphobutterfly;monarchbutterly;limebutterfly;treefrog;poisondartfrog;tomatofrog;koalaaussieanimal;kangarooaussieanimal;redheartbreaker;pinkheartbreaker;yellowheartbreaker;greenheartbreaker;polarbear;hedgehog;owlet;"+
 
             "retiredunicorn;retiredleprechaun;retireddragon;retiredyeti;retiredpegasus;retiredhydra;retiredfaun;retiredcyclops;retiredmermaid;retiredmermaid;retiredfairy;retiredbanshee;"+
 
@@ -72,6 +76,8 @@ module.exports = class Activity {
             "rainbowtrail;redzed;orangezed;yellowzed;greenzed;bluezed;indigozed;violetzed;louroll;"+
 
             "babyfawn;babylamb;babybunny;babytiger;babychick;"+
+
+            "bisonjoke;librarianjoke;dadjoke;unicornjoke;fishyjoke;chillyjoke;cyclistjoke;piratejoke;grapejoke;ninjajoke;"+
 
             "rainbowunicorn;gnomeleprechaun;icedragon;sasquatchyeti;firepegasus;chimera;cherub;ogre;siren;fairygodmother;gorgon;motherearth;"+
 

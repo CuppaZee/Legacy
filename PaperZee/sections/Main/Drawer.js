@@ -11,11 +11,21 @@ import { TouchableRipple } from 'react-native-paper'
 
 function DrawerItem(props) {
 
-  return <TouchableRipple onPress={props.onPress} style={{marginRight:8,borderTopRightRadius:8,borderBottomRightRadius:8,opacity:props.style?.opacity??1}}>
-    <View style={{borderTopRightRadius:8,borderBottomRightRadius:8,backgroundColor:props.focused?props.activeBackgroundColor:"transparent",padding:4,paddingLeft:16,flexDirection:"row",alignItems:"center"}}>
+  return <TouchableRipple onPress={props.onPress} style={props.side=="right"?{
+    marginLeft:8,borderTopLeftRadius:8,borderBottomLeftRadius:8,opacity:props.style?.opacity??1
+  }:{
+    marginRight:8,borderTopRightRadius:8,borderBottomRightRadius:8,opacity:props.style?.opacity??1
+  }}>
+    <View style={props.side=="right"?{
+      borderTopLeftRadius:8,borderBottomLeftRadius:8,backgroundColor:props.focused?props.activeBackgroundColor:"transparent",padding:4,paddingRight:16,flexDirection:"row",alignItems:"center"
+    }:{
+      borderTopRightRadius:8,borderBottomRightRadius:8,backgroundColor:props.focused?props.activeBackgroundColor:"transparent",padding:4,paddingLeft:16,flexDirection:"row",alignItems:"center"
+    }}>
       <props.icon color={props.focused?props.activeTintColor:props.inactiveTintColor}/>
-      <View style={{width:4}}></View>
-      {typeof props.label=="string"?<Text style={{color:props.focused?props.activeTintColor:props.inactiveTintColor,fontSize:14,fontWeight:"500"}}>{props.label}</Text>:<props.label color={props.focused?props.activeTintColor:props.inactiveTintColor}/>}
+      {!props.mini&&<>
+        <View style={{width:4}}></View>
+        {typeof props.label=="string"?<Text style={{color:props.focused?props.activeTintColor:props.inactiveTintColor,fontSize:14,fontWeight:"500"}}>{props.label}</Text>:<props.label color={props.focused?props.activeTintColor:props.inactiveTintColor}/>}
+      </>}
     </View>
   </TouchableRipple>
   /*<DrawerItem
@@ -38,6 +48,7 @@ function DrawerItem(props) {
 }
 
 export default function CustomDrawerContent(props) {
+  var mini = props.mini;
   var {t} = useTranslation();
   var theme = useSelector(i=>i.themes[i.theme]);
   var clanBookmarks = useSelector(i=>i.clanBookmarks);
@@ -46,44 +57,33 @@ export default function CustomDrawerContent(props) {
   var nav = props.navigation;
   var [showMoreClan,setShowMoreClan] = React.useState(false);
   var pages = [
-    {title:t(`common:search`),icon:"magnify",page:"Search",hide:true},
     {title:t(`common:maps`),icon:"map",page:"Map"},
-    {title:t(`common:tools`),icon:"wrench",page:"Tools"},
-    {title:t(`common:scanner`),icon:"qrcode",page:"Scanner",hide:Platform.OS==="web"}
+    {title:t(`common:scanner`),icon:"qrcode",page:"Scanner",hide:Platform.OS==="web"},
+    // {title:t(`common:tools`),icon:"wrench",page:"Tools"},
   ].filter(i=>!i.hide)
   var more = [
-    {title:t(`common:the_quest`),icon:"run",page:"LaQuest",disabled:true},
     {title:t(`common:settings`),icon:"settings",page:"Settings"},
-  ].filter(i=>!i.hide)
-  var about = [
-    {title:t(`common:credits`),icon:"heart",page:"Credits",disabled:true},
-    {title:t(`common:app_info`),icon:"information",page:"App Info",disabled:true},
-    {title:t(`common:donate`),icon:"coin",page:"Donate",disabled:true},
+    {title:t(`common:app_info`),icon:"information",page:"Info"},
+    // {title:t(`common:credits`),icon:"heart",page:"Credits",disabled:true},
+    // {title:t(`common:donate`),icon:"coin",page:"Donate",disabled:true},
     {title:`GitHub`,icon:"github-circle",page:"https://github.com/CuppaZee/CuppaZee",link:true}
   ].filter(i=>!i.hide)
   return (
-    <DrawerContentScrollView style={{backgroundColor: theme.navigation.bg}} {...props}>
-      {pages.map?.(i=><DrawerItem
-        key={i.title}
-        activeBackgroundColor={theme.navigation.fg}
-        activeTintColor={theme.navigation.bg}
-        inactiveTintColor={theme.navigation.fg}
-        style={{marginVertical:0}}
-        focused={route.name==i.page}
-        icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{margin: 4}} />}
-        label={i.title}
-        onPress={() => nav.reset({
-            index: 1,
-            routes: [
-              { name: '__primary', params: {screen: i.page} },
-            ],
-          })
-        }
-      />)}
+    <DrawerContentScrollView style={{backgroundColor: theme.navigation.bg,...(theme.page_content.border?{borderRightWidth:1,borderRightColor:"white"}:{})}} {...props}>
+    <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
+      <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>Remember this is a{Platform.OS=="android"?'n Early Access':' Beta'} build</Text>
+      <Text style={{fontSize:12,fontWeight:"bold",color:"#fffa"}}>Feedback is welcome via Messenger or Email</Text>
+    </View>
+    {Platform.OS=="web"&&globalThis?.navigator?.userAgent?.match?.(/Android/)&&<View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
+      <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>CuppaZee Beta is now on Google Play</Text>
+      <Text style={{fontSize:12,fontWeight:"bold",color:"#fffa"}}>Download it now!</Text>
+    </View>}
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
         <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>Users</Text>
       </View>
       {users?.map?.(i=><DrawerItem
+        side={props.side}
+        mini={mini}
         key={`user_${i[0]}`}
         activeBackgroundColor={theme.navigation.fg}
         activeTintColor={theme.navigation.bg}
@@ -101,6 +101,8 @@ export default function CustomDrawerContent(props) {
         }
       />)}
       <DrawerItem
+        side={props.side}
+        mini={mini}
         activeBackgroundColor={theme.navigation.fg}
         activeTintColor={theme.navigation.bg}
         inactiveTintColor={theme.navigation.fg}
@@ -119,7 +121,26 @@ export default function CustomDrawerContent(props) {
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
         <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>Clans</Text>
       </View>
-      {clanBookmarks?.slice?.(0,showMoreClan?Infinity:5)?.map?.(i=><DrawerItem
+      <DrawerItem
+        side={props.side}
+        activeBackgroundColor={theme.navigation.fg}
+        activeTintColor={theme.navigation.bg}
+        inactiveTintColor={theme.navigation.fg}
+        style={{marginVertical:0}}
+        focused={route.name=="ClanRequirements"&&route.params.gameid==87}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name="star" color={color} size={24} style={{margin: 4}} />}
+        label="June 2020 Requirements"
+        onPress={() => nav.reset({
+            index: 1,
+            routes: [
+              { name: '__primary', params: {screen: "ClanRequirements",params:{gameid:87}} },
+            ],
+          })
+        }
+      />
+      {clanBookmarks?.slice?.(0,showMoreClan?Infinity:clanBookmarks.length>6?5:6)?.map?.(i=><DrawerItem
+        side={props.side}
+        mini={mini}
         key={`clan_${i.clan_id}`}
         activeBackgroundColor={theme.navigation.fg}
         activeTintColor={theme.navigation.bg}
@@ -136,7 +157,9 @@ export default function CustomDrawerContent(props) {
           })
         }
       />)}
-      {clanBookmarks.length>5&&<DrawerItem
+      {clanBookmarks.length>6&&<DrawerItem
+        side={props.side}
+        mini={mini}
         activeBackgroundColor={theme.navigation.fg}
         activeTintColor={theme.navigation.bg}
         inactiveTintColor={theme.navigation.fg}
@@ -147,6 +170,8 @@ export default function CustomDrawerContent(props) {
         onPress={()=>setShowMoreClan(!showMoreClan)}
       />}
       <DrawerItem
+        side={props.side}
+        mini={mini}
         activeBackgroundColor={theme.navigation.fg}
         activeTintColor={theme.navigation.bg}
         inactiveTintColor={theme.navigation.fg}
@@ -162,13 +187,15 @@ export default function CustomDrawerContent(props) {
           })
         }
       />
-      <DrawerItem
+      {clanBookmarks.length>0&&<DrawerItem
+        side={props.side}
+        mini={mini}
         activeBackgroundColor={theme.navigation.fg}
         activeTintColor={theme.navigation.bg}
         inactiveTintColor={theme.navigation.fg}
         style={{marginVertical:0}}
         focused={route.name=="AllClans"}
-        icon={({ focused, color, size }) => <MaterialCommunityIcons name="shield-half-full" color={color} size={24} style={{margin: 4}} />}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name="format-list-bulleted" color={color} size={24} style={{margin: 4}} />}
         label={({ focused, color }) => <View style={{justifyContent:"center"}}>
           <Text style={{ color, fontWeight: "500", lineHeight: 14 }}>All Clans</Text>
           <Text style={{ color, fontWeight: "400", lineHeight: 10, fontSize: 10 }}>Experimental</Text>
@@ -180,11 +207,35 @@ export default function CustomDrawerContent(props) {
             ],
           })
         }
-      />
+      />}
+      <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
+        <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>{t('common:tools')}</Text>
+      </View>
+      {pages.map?.(i=><DrawerItem
+        side={props.side}
+        mini={mini}
+        key={i.title}
+        activeBackgroundColor={theme.navigation.fg}
+        activeTintColor={theme.navigation.bg}
+        inactiveTintColor={theme.navigation.fg}
+        style={{marginVertical:0}}
+        focused={route.name==i.page}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{margin: 4}} />}
+        label={i.title}
+        onPress={() => nav.reset({
+            index: 1,
+            routes: [
+              { name: '__primary', params: {screen: i.page} },
+            ],
+          })
+        }
+      />)}
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
         <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>{t('common:more')}</Text>
       </View>
       {more.map?.(i=><DrawerItem
+        side={props.side}
+        mini={mini}
         key={i.title}
         activeBackgroundColor={theme.navigation.fg}
         activeTintColor={theme.navigation.bg}
@@ -201,29 +252,9 @@ export default function CustomDrawerContent(props) {
           }))
         }
       />)}
-      <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
-        <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>About</Text>
-      </View>
-      {about.map?.(i=><DrawerItem
-        key={i.title}
-        activeBackgroundColor={theme.navigation.fg}
-        activeTintColor={theme.navigation.bg}
-        inactiveTintColor={theme.navigation.fg}
-        style={{marginVertical:0,opacity: i.disabled?0.6:1}}
-        focused={route.name==i.page}
-        icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{margin: 4}} />}
-        label={i.title}
-        onPress={i.disabled?null:(i.link?()=>Linking.openURL(i.page):() => nav.reset({
-            index: 1,
-            routes: [
-              { name: '__primary', params: {screen: i.page} },
-            ],
-          }))
-        }
-      />)}
-      <View style={{paddingTop: 8, paddingLeft: 16, paddingBottom: 8}}>
-        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:12})}</Text>
-      </View>
+      {/* <View style={{paddingTop: 8, paddingLeft: 16, paddingBottom: 8}}>
+        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:22})}</Text>
+      </View> */}
     </DrawerContentScrollView>
   );
 }

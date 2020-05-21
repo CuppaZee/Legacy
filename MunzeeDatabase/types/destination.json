@@ -1,0 +1,140 @@
+[
+  {
+    "name": "1 Star Motel",
+    "icon": "1starmotel",
+    "id": 70,
+    "star_level": 1,
+    "type": "destination",
+    "rooms": 5,
+    "state": "physical"
+  },
+  {
+    "name": "1 Star Motel Room",
+    "icon": "1starmotelroom",
+    "id": 71,
+    "star_level": 1,
+    "room_of": 70,
+    "type": "room",
+    "state": "physical"
+  },
+  {
+    "name": "Hotel Munzee",
+    "icon": "hotel",
+    "id": 170,
+    "type": "destination",
+    "rooms": 10,
+    "state": "physical"
+  },
+  {
+    "name": "Hotel Room",
+    "icon": "hotelroom",
+    "id": 171,
+    "room_of": 170,
+    "type": "room",
+    "state": "physical"
+  },
+  {
+    "name": "Virtual Resort",
+    "icon": "virtual_resort",
+    "id": 470,
+    "type": "destination",
+    "rooms": 15,
+    "state": "virtual"
+  },
+  {
+    "name": "Virtual Resort Room",
+    "icon": "virtual_resort_room",
+    "id": 471,
+    "room_of": 470,
+    "type": "room",
+    "state": "virtual"
+  },
+  {
+    "name": "Time Share Munzee",
+    "icon": "timesharemunzee",
+    "id": 970,
+    "temp": true,
+    "rooms": 5,
+    "type": "destination",
+    "state": "physical"
+  },
+  {
+    "name": "Time Share Room",
+    "icon": "timeshareroom",
+    "id": 971,
+    "room_of": 970,
+    "temp": true,
+    "type": "room",
+    "state": "physical"
+  },
+  {
+    "name": "Treehouse",
+    "icon": "treehouse",
+    "id": 2145,
+    "type": "bouncer",
+    "rooms": 6,
+    "state": "physical"
+  },
+  {
+    "name": "Vacation Condo",
+    "icon": "vacationcondo",
+    "id": 2183,
+    "temp": true,
+    "type": "destination",
+    "rooms": 5,
+    "state": "virtual"
+  },
+  {
+    "name": "Vacation Condo Room",
+    "icon": "vacationcondoroom",
+    "id": 2184,
+    "room_of": 2183,
+    "temp": true,
+    "type": "room",
+    "state": "virtual"
+  },
+  {
+    "name": "2 Star Motel",
+    "icon": "2starmotel",
+    "id": 2356,
+    "star_level": 2,
+    "type": "destination",
+    "rooms": 10,
+    "state": "physical"
+  },
+  {
+    "name": "2 Star Motel Room",
+    "icon": "2starmotelroom",
+    "id": 2357,
+    "room_of": 2356,
+    "star_level": 2,
+    "type": "room",
+    "state": "physical"
+  },
+  {
+    "name": "3 Star Motel",
+    "icon": "3starmotel",
+    "id": 2358,
+    "star_level": 3,
+    "type": "destination",
+    "rooms": 15,
+    "state": "physical"
+  },
+  {
+    "name": "3 Star Motel Room",
+    "icon": "3starmotelroom",
+    "id": 2359,
+    "room_of": 2358,
+    "star_level": 3,
+    "type": "room",
+    "state": "physical"
+  },
+  {
+    "name": "Skyland",
+    "icon": "skyland",
+    "id": 2426,
+    "type": "bouncer",
+    "rooms": 6,
+    "state": "virtual"
+  }
+]

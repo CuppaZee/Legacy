@@ -1,0 +1,220 @@
+[
+  {
+    "name": "Scattered",
+    "icon": "scattered",
+    "id": 501,
+    "state": "physical",
+    "scatter": {
+      "duration": 2,
+      "lands_on": [0]
+    }
+  },
+  {
+    "name": "Fire",
+    "icon": "fire",
+    "id": 560,
+    "state": "physical",
+    "scatter": {
+      "duration": 2,
+      "lands_on": [0]
+    }
+  },
+  {
+    "name": "Frozen Greenie",
+    "icon": "frozengreenie",
+    "id": 697,
+    "state": "physical",
+    "scatter": {
+      "duration": 2,
+      "lands_on": [0]
+    }
+  },
+  {
+    "name": "Water Droplet",
+    "icon": "waterdroplet",
+    "id": 1021,
+    "state": "physical",
+    "scatter": {
+      "duration": 2,
+      "lands_on": [0]
+    }
+  },
+  {
+    "name": "Feather",
+    "icon": "feather",
+    "id": 1087,
+    "state": "virtual",
+    "scatter": {
+      "standalone": true,
+      "duration": 2
+    },
+    "extra": {
+      "scatterer": {
+        "types": [1088],
+        "min": 0,
+        "max": 3,
+        "radius": null
+      }
+    }
+  },
+  {
+    "name": "Golden Feather",
+    "icon": "goldenfeather",
+    "id": 1088,
+    "state": "physical",
+    "scatter": {
+      "standalone": true,
+      "duration": 2
+    }
+  },
+  {
+    "name": "Dossier",
+    "icon": "dossier",
+    "id": 1247,
+    "state": "physical",
+    "scatter": {
+      "duration": 2,
+      "lands_on": [0]
+    }
+  },
+  {
+    "name": "Boulder",
+    "icon": "boulder",
+    "id": 1255,
+    "state": "physical",
+    "scatter": {
+      "duration": 2,
+      "lands_on": [0]
+    }
+  },
+  {
+    "name": "Infrared Virtual",
+    "icon": "infraredvirtual",
+    "id": 1360,
+    "state": "virtual",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    }
+  },
+  {
+    "name": "1st Roll",
+    "icon": "1stroll",
+    "id": 1644,
+    "state": "physical",
+    "scatter": {
+      "duration": 2,
+      "lands_on": [0]
+    }
+  },
+  {
+    "name": "2nd Roll",
+    "icon": "2ndroll",
+    "id": 1645,
+    "state": "physical",
+    "scatter": {
+      "duration": 2,
+      "lands_on": [0]
+    }
+  },
+  {
+    "name": "Runzee Rob",
+    "icon": "runzeerob",
+    "id": 2003,
+    "state": "physical",
+    "scatter": {
+      "duration": 2,
+      "lands_on": [0]
+    }
+  },
+  {
+    "name": "Gold Coin",
+    "icon": "goldcoin",
+    "id": 2004,
+    "state": "virtual",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    }
+  },
+  {
+    "name": "Leap Frog",
+    "icon": "leapfrog",
+    "id": 2005,
+    "state": "physical",
+    "scatter": {
+      "duration": 2,
+      "lands_on": [0]
+    }
+  },
+  {
+    "name": "Fly",
+    "icon": "fly",
+    "id": 2006,
+    "state": "virtual",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    }
+  },
+  {
+    "name": "Munch-Man",
+    "icon": "munch-man",
+    "id": 2007,
+    "state": "physical",
+    "scatter": {
+      "duration": 2,
+      "lands_on": [0]
+    }
+  },
+  {
+    "name": "Ghostzee",
+    "icon": "ghostzee",
+    "id": 2008,
+    "state": "virtual",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    }
+  },
+  {
+    "name": "Bowling - 1st Roll",
+    "icon": "bowling-1stroll",
+    "id": 2244,
+    "state": "virtual",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    }
+  },
+  {
+    "name": "Bowling - 2nd Roll",
+    "icon": "bowling-2ndroll",
+    "id": 2245,
+    "state": "virtual",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    }
+  },
+  {
+    "name": "Red Apple",
+    "icon": "redapple",
+    "id": 2404,
+    "state": "virtual",
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    }
+  },
+  {
+    "name": "Cherry Blossom",
+    "icon": "cherryblossom",
+    "id": 2405,
+    "state": "virtual",
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    }
+  }
+]

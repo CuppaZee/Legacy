@@ -1,0 +1,128 @@
+[
+  {
+    "name": "POI Airport",
+    "icon": "poiairport",
+    "id": 782,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Sports",
+    "icon": "poisports",
+    "id": 783,
+    "state": "virtual"
+  },
+  {
+    "name": "POI University",
+    "icon": "poiuniversity",
+    "id": 784,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Museum",
+    "icon": "poimuseum",
+    "id": 786,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Wildlife",
+    "icon": "poiwildlife",
+    "id": 787,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Historical Place",
+    "icon": "poihistoricalplace",
+    "id": 1339,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Library",
+    "icon": "poilibrary",
+    "id": 1340,
+    "state": "virtual"
+  },
+  {
+    "name": "POI First Responders",
+    "icon": "poifirstresponders",
+    "id": 1341,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Faith Place",
+    "icon": "poifaithplace",
+    "id": 1342,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Hospital",
+    "icon": "poihospital",
+    "id": 1486,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Post Office",
+    "icon": "poipostoffice",
+    "id": 1487,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Cemetery",
+    "icon": "poicemetery",
+    "id": 1488,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Unique Attraction",
+    "icon": "poiuniqueattraction",
+    "id": 1551,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Virtual Garden",
+    "icon": "poi_virtual_garden",
+    "id": 1631,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Cinema",
+    "icon": "poicinema",
+    "id": 1770,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Transportation",
+    "icon": "poitransportation",
+    "id": 1977,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Play Park",
+    "icon": "poiplaypark",
+    "id": 1978,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Bank",
+    "icon": "poibank",
+    "id": 2445,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Beach",
+    "icon": "poibeach",
+    "id": 2446,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Campground",
+    "icon": "poicampground",
+    "id": 2447,
+    "state": "virtual"
+  },
+  {
+    "name": "POI Golf",
+    "icon": "poigolf",
+    "id": 2448,
+    "state": "virtual"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Mystery",
+    "icon": "mystery",
+    "id": 280,
+    "state": "physical"
+  },
+  {
+    "name": "Fire Mystery",
+    "icon": "firemystery",
+    "id": 532,
+    "state": "physical",
+    "elemental": true
+  },
+  {
+    "name": "Ice Mystery",
+    "icon": "icemystery",
+    "id": 651,
+    "state": "physical",
+    "elemental": true
+  },
+  {
+    "name": "Earth Mystery",
+    "icon": "earthmystery",
+    "id": 851,
+    "state": "physical",
+    "elemental": true
+  },
+  {
+    "name": "Water Mystery",
+    "icon": "watermystery",
+    "id": 1020,
+    "state": "physical",
+    "elemental": true
+  },
+  {
+    "name": "Air Mystery",
+    "icon": "airmystery",
+    "id": 1086,
+    "state": "virtual",
+    "elemental": true
+  },
+  {
+    "name": "Electric Mystery",
+    "icon": "electricmystery",
+    "id": 2391,
+    "state": "virtual",
+    "elemental": true
+  }
+]
