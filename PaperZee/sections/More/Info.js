@@ -13,9 +13,8 @@ export default function SettingsScreen() {
   return (
     <ScrollView style={{ backgroundColor: theme.page_content.bg }} contentContainerStyle={{padding:8}}>
       <View style={{alignItems:"center"}}>
-        <Text style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>CuppaZee App</Text>
-        {/* TODO: Replace "CuppaZee App" with Logo */}
-        <Text style={{color: theme.page_content.fg,fontSize:20,...font("bold")}}>Build 29</Text>
+        <Image style={{width:300,height:90.78}} source={{uri:'https://server.cuppazee.app/logo.png'}}/>
+        <Text style={{color: theme.page_content.fg,fontSize:20,...font("bold")}}>Build 30</Text>
       </View>
       <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
       <View style={{alignItems:"center"}}>

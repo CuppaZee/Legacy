@@ -1,4 +1,3 @@
-// TODO: Add Rewards input - Needs new Request system first
 import Clan from '~sections/DB/clan';
 export function ClanRequirementsConverter(req, rewards) {
   var output = {};
@@ -107,8 +106,3 @@ export function ClanStatsConverter(clan, stats, shadow) {
   }
   return data;
 }
-
-/* TODO: ClanStatsConverter function, similar to ClanRequirementsConverter function
-Takes in /clan/v2/requirements API data (eg. https://hastebin.com/gevugaleku.json)
-Responds with data similar to https://server.cuppazee.app/clan/details/v1?game_id=86&clan_id=1349
-*/
