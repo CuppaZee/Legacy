@@ -9,12 +9,6 @@ import MunzeeTypes from '~sections/DB/types.json';
 
 var count = (array, t) => {
   return Object.entries(array.reduce((a, b) => {
-    a[b[t]] = (a[b[t]] || 0) + 1;
-    return a;
-  }, {})).sort((a, b) => b[1] - a[1])
-}
-var countS = (array, t) => {
-  return Object.entries(array.reduce((a, b) => {
     if(!a[b[t]]) a[b[t]] = {
       points: 0,
       total: 0
@@ -22,7 +16,7 @@ var countS = (array, t) => {
     a[b[t]].points+=Number(b.points_for_creator??b.points);
     a[b[t]].total++;
     return a;
-  }, {})).sort((a, b) => b[1].total - a[1].total)
+  }, {}))//.sort((a, b) => b[1].total - a[1].total)
 }
 
 var creatures = {
@@ -114,7 +108,7 @@ export default function ({user_id,date:dateInput}) {
         {t('activity:capture', { count: data.captures.filter(i => !isRenovation(i)).length })} - {t('activity:point', { count: data.captures.filter(i => !isRenovation(i)).reduce((a, b) => a + Number(b.points), 0) })}
       </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-        {countS(data.captures.filter(i => !isRenovation(i)), "pin").map(i=><OverviewItem i={i}/>)}
+        {count(data.captures.filter(i => !isRenovation(i)), "pin").map(i=><OverviewItem i={i}/>)}
       </View>
     </View>
     <View key="deploys" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
@@ -122,7 +116,7 @@ export default function ({user_id,date:dateInput}) {
         {t('activity:deploy', { count: data.deploys.length })} - {t('activity:point', { count: data.deploys.reduce((a, b) => a + Number(b.points), 0) })}
       </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-        {countS(data.deploys, "pin").map(i=><OverviewItem i={i}/>)}
+        {count(data.deploys, "pin").map(i=><OverviewItem i={i}/>)}
       </View>
     </View>
     <View key="capons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
@@ -130,7 +124,7 @@ export default function ({user_id,date:dateInput}) {
         {t('activity:capon', { count: data.captures_on.filter(i => !isRenovation(i)).length })} - {t('activity:point', { count: data.captures_on.filter(i => !isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0) })}
       </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-        {countS(data.captures_on.filter(i => !isRenovation(i)), "pin").map(i=><OverviewItem i={i}/>)}
+        {count(data.captures_on.filter(i => !isRenovation(i)), "pin").map(i=><OverviewItem i={i}/>)}
       </View>
     </View>
     {data.captures.filter(i=>isRenovation(i)).length>0&&<View key="renovations" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>

@@ -38,20 +38,29 @@ var hostIcon = (icon) => {
 
 export default function UserActivityDash({user_id}) {
   var theme = useSelector(i=>i.themes[i.theme])
+  var has_login = useSelector(i=>!!i.logins[user_id]);
   var nav = useNavigation();
   var date = new Date(Date.now() - (5 * 60 * 60000));
   var dateString = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${(date.getUTCDate()).toString().padStart(2, '0')}`
-  const data = useAPIRequest({
+  const data = useAPIRequest(has_login?{
     endpoint: 'statzee/player/day',
     data: {day:dateString},
     user: user_id
-  })
+  }:null)
   if (!data?.captures) {
-    if(!data) {
+    if(!has_login) {
       return (
         <Card>
           <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-            <ActivityIndicator size="large" color="#000" />
+            <MaterialCommunityIcons name="lock" size={48} color={theme.page_content.fg} />
+          </View>
+        </Card>
+      )
+    } else if(!data) {
+      return (
+        <Card>
+          <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+            <ActivityIndicator size="large" color={theme.page_content.fg} />
           </View>
         </Card>
       )

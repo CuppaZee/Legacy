@@ -27,7 +27,7 @@
     ],
     "ios": {
       "bundleIdentifier": "uk.cuppazee.paper",
-      "buildNumber": "1.0.0b1",
+      "buildNumber": "1.0.0",
       "icon": "./assets/CuppaZeeIcon.png",
       "requireFullScreen": false,
       "supportsTablet": true,
