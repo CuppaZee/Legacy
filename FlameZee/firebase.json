@@ -232,6 +232,21 @@
       ]
     },
     {
+      "target": "oldpaper",
+      "public": "oldpaper",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
       "target": "clan",
       "public": "clan",
       "ignore": [
