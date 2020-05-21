@@ -6,6 +6,7 @@ import { IconButton } from 'react-native-paper';
 import { useSelector, useDispatch } from 'react-redux';
 import request from '~store/request';
 import stringify from 'fast-json-stable-stringify';
+import font from '~sections/Shared/font';
 
 export default function SearchScreen({ navigation }) {
   var theme = useSelector(i=>i.themes[i.theme])
@@ -55,14 +56,14 @@ export default function SearchScreen({ navigation }) {
       <View style={{padding:4}}>
         <Card noPad>
           <View>
-            {search.length<3&&<Text style={{textAlign:"center",fontWeight:"bold",fontSize:16,color:theme.page_content.fg}}>Search for a User</Text>}
-            {search.length>=3&&!users?.data?.users&&<Text style={{textAlign:"center",fontWeight:"bold",fontSize:16,color:theme.page_content.fg}}>Loading...</Text>}
-            {users?.data?.users?.length===0&&<Text style={{textAlign:"center",fontWeight:"bold",fontSize:16,color:theme.page_content.fg}}>No Results :{"("}</Text>}
+            {search.length<3&&<Text style={{textAlign:"center",fontFamily:font("bold"),fontSize:16,color:theme.page_content.fg}}>Search for a User</Text>}
+            {search.length>=3&&!users?.data?.users&&<Text style={{textAlign:"center",fontFamily:font("bold"),fontSize:16,color:theme.page_content.fg}}>Loading...</Text>}
+            {users?.data?.users?.length===0&&<Text style={{textAlign:"center",fontFamily:font("bold"),fontSize:16,color:theme.page_content.fg}}>No Results :{"("}</Text>}
             {users?.data?.users?.slice?.(0,20)?.map?.(i=><View key={i.clan_id} style={{padding: 4, flexDirection: "row", alignItems: "center"}}>
               <Image style={{height:24,width:24,marginHorizontal:8,borderRadius:8}} source={{uri:i.avatar??`https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i.user_id).toString(36)}.png`}} />
               <View style={{flex:1}}>
-                <Text style={{fontWeight:"bold",fontSize:16,color:theme.page_content.fg}}>{i.username}</Text>
-                <Text style={{fontWeight:"bold",fontSize:12,color:theme.page_content.fg}}>#{i.user_id}</Text>
+                <Text style={{fontFamily:font("bold"),fontSize:16,color:theme.page_content.fg}}>{i.username}</Text>
+                <Text style={{fontFamily:font("bold"),fontSize:12,color:theme.page_content.fg}}>#{i.user_id}</Text>
               </View>
               <IconButton size={24} onPress={()=>navigation.navigate('UserDetails',{userid:i.user_id})} icon="chevron-right" color={theme.page_content.fg} />
             </View>)}

@@ -8,6 +8,19 @@ import './lang/i18n';
 import loadable from '@loadable/component';
 var { store, setCurrentRoute } = s;
 
+import {
+  useFonts,
+  Sarabun_100Thin,
+  Sarabun_200ExtraLight,
+  Sarabun_300Light,
+  Sarabun_400Regular,
+  Sarabun_500Medium,
+  Sarabun_600SemiBold,
+  Sarabun_700Bold,
+  Sarabun_800ExtraBold,
+} from '@expo-google-fonts/sarabun';
+import { Coiny_400Regular } from '@expo-google-fonts/coiny';
+
 import LoadingPage from './sections/Shared/LoadingPage';
 
 // Clan Screens
@@ -219,6 +232,17 @@ function DrawerNav() {
 }
 
 function App() {
+  let [fontsLoaded] = useFonts({
+    Coiny_400Regular,
+    Sarabun_100Thin,
+    Sarabun_200ExtraLight,
+    Sarabun_300Light,
+    Sarabun_400Regular,
+    Sarabun_500Medium,
+    Sarabun_600SemiBold,
+    Sarabun_700Bold,
+    Sarabun_800ExtraBold,
+  });
   const loadingLogin = useSelector(i=>i.loadingLogin);
   const ref = React.useRef();
   const dispatch = useDispatch();
@@ -324,8 +348,10 @@ function App() {
     dispatch(setCurrentRoute(a?.routes?.[0]?.state?.routes?.slice?.()?.reverse?.()?.[0]??{}))
   }
 
-  if (loadingLogin) {
-    return <Text>Loading...</Text>;
+  if (loadingLogin||!fontsLoaded) {
+    return <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
+      <Text>Loading...</Text>
+    </View>;
   }
   if (!isReady) {
     return null;

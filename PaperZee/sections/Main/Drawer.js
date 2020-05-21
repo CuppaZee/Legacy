@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { TouchableRipple } from 'react-native-paper'
+import font from '~sections/Shared/font';
 
 function DrawerItem(props) {
 
@@ -24,7 +25,7 @@ function DrawerItem(props) {
       <props.icon color={props.focused?props.activeTintColor:props.inactiveTintColor}/>
       {!props.mini&&<>
         <View style={{width:4}}></View>
-        {typeof props.label=="string"?<Text style={{color:props.focused?props.activeTintColor:props.inactiveTintColor,fontSize:14,fontWeight:"500"}}>{props.label}</Text>:<props.label color={props.focused?props.activeTintColor:props.inactiveTintColor}/>}
+        {typeof props.label=="string"?<Text style={{color:props.focused?props.activeTintColor:props.inactiveTintColor,fontSize:14,fontFamily: font("500")}}>{props.label}</Text>:<props.label color={props.focused?props.activeTintColor:props.inactiveTintColor}/>}
       </>}
     </View>
   </TouchableRipple>
@@ -71,15 +72,15 @@ export default function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView style={{backgroundColor: theme.navigation.bg,...(theme.page_content.border?{borderRightWidth:1,borderRightColor:"white"}:{})}} {...props}>
     <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
-      <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>Remember this is a{Platform.OS=="android"?'n Early Access':' Beta'} build</Text>
-      <Text style={{fontSize:12,fontWeight:"bold",color:"#fffa"}}>Feedback is welcome via Messenger or Email</Text>
+      <Text style={{fontSize:16,fontFamily:font("bold"),color:"#fffa"}}>Remember this is a{Platform.OS=="android"?'n Early Access':' Beta'} build</Text>
+      <Text style={{fontSize:12,fontFamily:font("bold"),color:"#fffa"}}>Feedback is welcome via Messenger or Email</Text>
     </View>
     {Platform.OS=="web"&&globalThis?.navigator?.userAgent?.match?.(/Android/)&&<View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
-      <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>CuppaZee Beta is now on Google Play</Text>
-      <Text style={{fontSize:12,fontWeight:"bold",color:"#fffa"}}>Download it now!</Text>
+      <Text style={{fontSize:16,fontFamily:font("bold"),color:"#fffa"}}>CuppaZee Beta is now on Google Play</Text>
+      <Text style={{fontSize:12,fontFamily:font("bold"),color:"#fffa"}}>Download it now!</Text>
     </View>}
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
-        <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>Users</Text>
+        <Text style={{fontSize:16,fontFamily:font("bold"),color:"#fffa"}}>Users</Text>
       </View>
       {users?.map?.(i=><DrawerItem
         side={props.side}
@@ -119,7 +120,7 @@ export default function CustomDrawerContent(props) {
         }
       />
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
-        <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>Clans</Text>
+        <Text style={{fontSize:16,fontFamily:font("bold"),color:"#fffa"}}>Clans</Text>
       </View>
       <DrawerItem
         side={props.side}
@@ -197,8 +198,8 @@ export default function CustomDrawerContent(props) {
         focused={route.name=="AllClans"}
         icon={({ focused, color, size }) => <MaterialCommunityIcons name="format-list-bulleted" color={color} size={24} style={{margin: 4}} />}
         label={({ focused, color }) => <View style={{justifyContent:"center"}}>
-          <Text style={{ color, fontWeight: "500", lineHeight: 14 }}>All Clans</Text>
-          <Text style={{ color, fontWeight: "400", lineHeight: 10, fontSize: 10 }}>Experimental</Text>
+          <Text style={{ color, fontFamily: font(500), lineHeight: 14 }}>All Clans</Text>
+          <Text style={{ color, fontFamily: font(400), lineHeight: 10, fontSize: 10 }}>Experimental</Text>
         </View>}
         onPress={() => nav.reset({
             index: 1,
@@ -209,7 +210,7 @@ export default function CustomDrawerContent(props) {
         }
       />}
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
-        <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>{t('common:tools')}</Text>
+        <Text style={{fontSize:16,fontFamily:font("bold"),color:"#fffa"}}>{t('common:tools')}</Text>
       </View>
       {pages.map?.(i=><DrawerItem
         side={props.side}
@@ -231,7 +232,7 @@ export default function CustomDrawerContent(props) {
         }
       />)}
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
-        <Text style={{fontSize:16,fontWeight:"bold",color:"#fffa"}}>{t('common:more')}</Text>
+        <Text style={{fontSize:16,fontFamily:font("bold"),color:"#fffa"}}>{t('common:more')}</Text>
       </View>
       {more.map?.(i=><DrawerItem
         side={props.side}
@@ -253,7 +254,7 @@ export default function CustomDrawerContent(props) {
         }
       />)}
       {/* <View style={{paddingTop: 8, paddingLeft: 16, paddingBottom: 8}}>
-        <Text style={{fontSize:12,fontWeight:"bold",opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:22})}</Text>
+        <Text style={{fontSize:12,fontFamily:font("bold"),opacity: 0.7,color:theme.navigation.fg}}>{t('common:build_info',{count:22})}</Text>
       </View> */}
     </DrawerContentScrollView>
   );

@@ -3,6 +3,7 @@ import { Appbar } from 'react-native-paper';
 import LoadingButton from './LoadingButton';
 import { useSelector } from 'react-redux';
 import { useDimensions } from '@react-native-community/hooks';
+import font from '~sections/Shared/font'
 
 export default function Header(props) {
   var theme = useSelector(i=>i.themes[i.theme]);
@@ -21,6 +22,7 @@ export default function Header(props) {
       onPress={()=>props.navigation.pop()}
     />}
     <Appbar.Content
+      titleStyle={{fontFamily: font()}}
       title={props?.scene?.descriptor?.options?.title??props.scene?.route?.name}
     />
     <LoadingButton />
