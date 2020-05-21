@@ -2,12 +2,14 @@
   {
     "name": "Get Well Card",
     "icon": "getwellcard",
-    "id": 2421
+    "id": 2421,
+    "open": true
   },
   {
     "name": "Birthday Card",
     "icon": "birthdaycard",
-    "id": 2420
+    "id": 2420,
+    "open": true
   },
   {
     "name": "Earth Day Card 1",
@@ -42,7 +44,8 @@
   {
     "name": "Thank You Card",
     "icon": "thankyoucard",
-    "id": 2432
+    "id": 2432,
+    "open": true
   },
   {
     "name": "World Laughter Day Card",
@@ -52,7 +55,8 @@
   {
     "name": "Howdy Card",
     "icon": "howdycard",
-    "id": 2450
+    "id": 2450,
+    "open": true
   },
   {
     "name": "Safe Travels Card",

@@ -2502,9 +2502,6 @@
       1705,
       1706,
       1707,
-      1985,
-      1986,
-      1987,
       1691
     ]
   },
@@ -7825,10 +7822,7 @@
     "unique": true,
     "state": "virtual",
     "category": "flat",
-    "completion": "complete",
-    "can_host": [
-      1691
-    ]
+    "completion": "complete"
   },
   {
     "name": "MHQ Flat Rob",
@@ -7838,10 +7832,7 @@
     "unique": true,
     "state": "virtual",
     "category": "flat",
-    "completion": "complete",
-    "can_host": [
-      1691
-    ]
+    "completion": "complete"
   },
   {
     "name": "2e Twente Event - The Netherlands",
@@ -7906,6 +7897,9 @@
     "category": "flat",
     "completion": "complete",
     "can_host": [
+      1985,
+      1986,
+      1987,
       1691
     ]
   },
@@ -10144,6 +10138,7 @@
       "stage": 1,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         532
       ]
@@ -10162,6 +10157,7 @@
       "stage": 2,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         532
       ]
@@ -10180,6 +10176,7 @@
       "stage": 3,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         532
       ]
@@ -11207,10 +11204,7 @@
     "unique": true,
     "state": "virtual",
     "category": "flat",
-    "completion": "complete",
-    "can_host": [
-      1691
-    ]
+    "completion": "complete"
   },
   {
     "name": "(LGAS) MAY the Fourth be with LOU!",
@@ -11414,6 +11408,7 @@
       "stage": 1,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         1020
       ]
@@ -11432,6 +11427,7 @@
       "stage": 2,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         1020
       ]
@@ -11450,6 +11446,7 @@
       "stage": 3,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         1020
       ]
@@ -14693,10 +14690,7 @@
     "unique": true,
     "state": "virtual",
     "category": "flat",
-    "completion": "complete",
-    "can_host": [
-      1691
-    ]
+    "completion": "complete"
   },
   {
     "name": "A Frighteningly Fun Time in Waconia",
@@ -15282,6 +15276,7 @@
       "stage": 1,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         851
       ]
@@ -15300,6 +15295,7 @@
       "stage": 2,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         851
       ]
@@ -15318,6 +15314,7 @@
       "stage": 3,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         851
       ]
@@ -15746,13 +15743,9 @@
       "duration": 12,
       "lands_on": [
         353,
-        1006,
-        1007,
         1015,
         1338,
-        1343,
-        1581,
-        1582
+        1581
       ]
     },
     "state": "bouncer",
@@ -16246,6 +16239,7 @@
       "base": "mitmegu",
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         441,
         500,
@@ -17723,6 +17717,7 @@
       "stage": 1,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         851
       ]
@@ -17742,6 +17737,7 @@
       "stage": 2,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         851
       ]
@@ -17761,6 +17757,7 @@
       "stage": 3,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         851
       ]
@@ -17780,6 +17777,7 @@
       "stage": 1,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         532
       ]
@@ -17799,6 +17797,7 @@
       "stage": 2,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         532
       ]
@@ -17818,6 +17817,7 @@
       "stage": 3,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         532
       ]
@@ -17837,6 +17837,7 @@
       "stage": 1,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         1020
       ]
@@ -17856,6 +17857,7 @@
       "stage": 2,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         1020
       ]
@@ -17875,6 +17877,7 @@
       "stage": 3,
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         1020
       ]
@@ -18376,6 +18379,7 @@
       "duration": 6,
       "lands_on": [
         2426,
+        2145,
         0,
         510,
         511,
@@ -18786,7 +18790,7 @@
       "type": "flat",
       "duration": 12,
       "lands_on": [
-        353,
+        1015,
         1463,
         1464,
         1465,
@@ -18809,7 +18813,7 @@
       "type": "flat",
       "duration": 12,
       "lands_on": [
-        353,
+        1015,
         1463,
         1464,
         1465,
@@ -18832,7 +18836,7 @@
       "type": "flat",
       "duration": 12,
       "lands_on": [
-        353,
+        1015,
         1463,
         1464,
         1465,
@@ -20582,6 +20586,27 @@
       2253,
       2254,
       2255,
+      1240,
+      1241,
+      1242,
+      1370,
+      1371,
+      1372,
+      1638,
+      1639,
+      1640,
+      1752,
+      1850,
+      1851,
+      1852,
+      1853,
+      1854,
+      1855,
+      1856,
+      1857,
+      1858,
+      1919,
+      2306,
       2366,
       2367,
       2368
@@ -21723,6 +21748,7 @@
       "duration": 6,
       "lands_on": [
         2426,
+        2145,
         0,
         1086,
         1420,
@@ -21900,6 +21926,7 @@
       "type": "pouch",
       "duration": 6,
       "lands_on": [
+        2145,
         0,
         851,
         242,
@@ -22375,7 +22402,7 @@
     "name": "Birthday Card",
     "icon": "birthdaycard",
     "id": 2420,
-    "card": true,
+    "card": "open",
     "temporary": 7,
     "state": "virtual",
     "category": "card",
@@ -22385,7 +22412,7 @@
     "name": "Get Well Card",
     "icon": "getwellcard",
     "id": 2421,
-    "card": true,
+    "card": "open",
     "temporary": 7,
     "state": "virtual",
     "category": "card",
@@ -22395,7 +22422,7 @@
     "name": "Earth Day Card 1",
     "icon": "earthdaycard1",
     "id": 2422,
-    "card": true,
+    "card": "limited",
     "temporary": 7,
     "state": "virtual",
     "category": "card",
@@ -22405,7 +22432,7 @@
     "name": "Earth Day Card 2",
     "icon": "earthdaycard2",
     "id": 2423,
-    "card": true,
+    "card": "limited",
     "temporary": 7,
     "state": "virtual",
     "category": "card",
@@ -22415,7 +22442,7 @@
     "name": "Earth Day Card 3",
     "icon": "earthdaycard3",
     "id": 2424,
-    "card": true,
+    "card": "limited",
     "temporary": 7,
     "state": "virtual",
     "category": "card",
@@ -22425,7 +22452,7 @@
     "name": "Stay Home Card",
     "icon": "stayhomecard",
     "id": 2425,
-    "card": true,
+    "card": "limited",
     "temporary": 7,
     "state": "virtual",
     "category": "card",
@@ -22485,7 +22512,7 @@
     "name": "Hammercorn Card",
     "icon": "hammercorncard",
     "id": 2430,
-    "card": true,
+    "card": "limited",
     "temporary": 7,
     "state": "virtual",
     "category": "card",
@@ -22495,7 +22522,7 @@
     "name": "Clan War Card",
     "icon": "clanwarcard",
     "id": 2431,
-    "card": true,
+    "card": "limited",
     "temporary": 7,
     "state": "virtual",
     "category": "card",
@@ -22505,7 +22532,7 @@
     "name": "Thank You Card",
     "icon": "thankyoucard",
     "id": 2432,
-    "card": true,
+    "card": "open",
     "temporary": 7,
     "state": "virtual",
     "category": "card",
@@ -22515,7 +22542,7 @@
     "name": "World Laughter Day Card",
     "icon": "worldlaughterdaycard",
     "id": 2433,
-    "card": true,
+    "card": "limited",
     "temporary": 7,
     "state": "virtual",
     "category": "card",
@@ -22573,7 +22600,7 @@
     "name": "Howdy Card",
     "icon": "howdycard",
     "id": 2450,
-    "card": true,
+    "card": "open",
     "temporary": 7,
     "state": "virtual",
     "category": "card",
@@ -22583,7 +22610,7 @@
     "name": "Safe Travels Card",
     "icon": "safetravelscard",
     "id": 2451,
-    "card": true,
+    "card": "limited",
     "temporary": 7,
     "state": "virtual",
     "category": "card",

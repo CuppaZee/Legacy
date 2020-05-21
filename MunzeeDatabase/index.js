@@ -113,7 +113,7 @@ munzees = munzees.concat(require('./types/fancyflat.json').map(i => ({
         type: "flat",
         duration: 12,
         lands_on: [
-          "flatrob",
+          i.flat_type,
           x => (x.virtual_colors || []).includes(i.color),
           ...(i.lands_on || [])
         ]
@@ -328,7 +328,7 @@ munzees = munzees.concat(require('./types/cards.json').map(i => ({
   icon: i.icon,
   id: i.id,
 
-  card: true,
+  card: i.open?"open":"limited",
   temporary: 7,
 
   state: "virtual",

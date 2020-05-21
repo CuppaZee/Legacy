@@ -67,7 +67,7 @@ module.exports = [
     "icon": "virtual_flat_nomad",
     "id": 1691,
     "state": "bouncer",
-    "lands_on": [":flat"]
+    "lands_on": [i=>i.category=="flat"&&!i.unique]
   },
   {
     "name": "Coupe Champions #1",

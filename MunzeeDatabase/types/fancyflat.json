@@ -4,6 +4,7 @@
     "icon": "beachflatrob",
     "id": 1705,
     "color": "green",
+    "flat_type": "flatrob",
     "lands_on": ["icemystery"]
   },
   {
@@ -11,6 +12,7 @@
     "icon": "coldflatrob",
     "id": 1706,
     "color": "green",
+    "flat_type": "flatrob",
     "lands_on": ["watermystery"]
   },
   {
@@ -18,6 +20,7 @@
     "icon": "tuxflatrob",
     "id": 1707,
     "color": "green",
+    "flat_type": "flatrob",
     "lands_on": [":jewel"]
   },
   {
@@ -40,6 +43,7 @@
     "icon": "matt'erupflatmatt",
     "id": 1985,
     "color": "red",
+    "flat_type": "flatmatt",
     "lands_on": ["poisports","diamond"]
   },
   {
@@ -47,6 +51,7 @@
     "icon": "face-offflatmatt",
     "id": 1986,
     "color": "red",
+    "flat_type": "flatmatt",
     "lands_on": ["poisports","icemystery"]
   },
   {
@@ -54,6 +59,7 @@
     "icon": "footyflatmatt",
     "id": 1987,
     "color": "red",
+    "flat_type": "flatmatt",
     "lands_on": ["poisports","earthmystery"]
   },
   {

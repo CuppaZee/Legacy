@@ -31,6 +31,10 @@ const ClanSearchScreen = loadable(() => import('./sections/Clan/Search'),{fallba
 const SettingsScreen = loadable(() => import('./sections/More/Settings'),{fallback: <LoadingPage/>})
 const InfoScreen = loadable(() => import('./sections/More/Info'),{fallback: <LoadingPage x="page_content"/>})
 
+// DB Screens
+const DBTypeScreen = loadable(() => import('./sections/DB/Type'),{fallback: <LoadingPage x="page_content"/>})
+const DBSearchScreen = loadable(() => import('./sections/DB/Search'),{fallback: <LoadingPage x="page_content"/>})
+
 // Tools Screens
 const ToolsScreen = loadable(() => import('./sections/Tools/Home'),{fallback: <LoadingPage/>})
 const ScannerScreen = loadable(() => import('./sections/Tools/Scanner'),{fallback: <LoadingPage/>})
@@ -201,6 +205,20 @@ function StackNav () {
         }}
         component={UserQuestScreen}
       />
+      <Stack.Screen
+        name="DBType"
+        options={{
+          title: 'Munzee Type',
+        }}
+        component={DBTypeScreen}
+      />
+      <Stack.Screen
+        name="DBSearch"
+        options={{
+          title: 'Database Search',
+        }}
+        component={DBSearchScreen}
+      />
     </>}
     <Stack.Screen
       name="Auth"
@@ -312,6 +330,15 @@ function App() {
               userid: Number
             }
           },
+
+          DBSearch: 'db/search',
+          DBType: {
+            path: 'db/type/:munzee',
+            parse: {
+              munzee: String
+            }
+          },
+
           Auth: 'auth',
           MunzeeDetails: 'munzee/:url',
         },

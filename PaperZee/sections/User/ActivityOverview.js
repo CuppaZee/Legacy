@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, Image } from 'react-native';
-import { Menu, TouchableRipple } from 'react-native-paper';
+import { Menu, TouchableRipple, Button } from 'react-native-paper';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -44,6 +44,7 @@ var hostIcon = (icon) => {
 function OverviewItem({i}) {
   var theme = useSelector(i=>i.themes[i.theme]);
   var [open,setOpen] = React.useState(false);
+  var nav = useNavigation();
   return <Menu
     visible={open}
     onDismiss={() => setOpen(false)}
@@ -62,6 +63,12 @@ function OverviewItem({i}) {
       <Image style={{ height: 48, width: 48 }} source={{ uri: i[0] }} />
       <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].total}x {(MunzeeTypes.find(x=>x.icon==i[0].slice(49,-4))||{name:i[0].slice(49,-4)}).name}</Text>
       <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].points} Points</Text>
+      <Button
+        mode="contained"
+        style={{backgroundColor: theme.navigation.bg}}
+        onPress={()=>{setOpen(false);nav.push('DBType',{munzee:i[0].slice(49,-4)})}}>
+        Type Info
+      </Button>
     </View>
   </Menu>
 }
