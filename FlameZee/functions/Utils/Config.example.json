@@ -7,7 +7,8 @@
     },
     "discord": {
         "auth": "https://discordapp.com/api/webhooks/xxxxxxxxxxxxxxxxxx/...",
-        "authV2": "https://discordapp.com/api/webhooks/xxxxxxxxxxxxxxxxxx/..."
+        "authV2": "https://discordapp.com/api/webhooks/xxxxxxxxxxxxxxxxxx/...",
+        "blog": "https://discordapp.com/api/webhooks/xxxxxxxxxxxxxxxxxx/..."
     },
     "codes": {
         "xxxxxxxxxxx1": [0,1586592619074],

@@ -445,6 +445,13 @@ exports.blogzee_checker_minute = functions.runWith({memory:"512MB"}).pubsub.topi
             update.munzee_blog = feed.items[0].link;
 
             console.log('New Munzee Blog',feed.items[0].link);
+            needle(
+                'post',
+                config.discord.blog,
+                {
+                    content:`[${feed.items[0].title}](${feed.items[0].link}#content)`
+                }
+            )
         } else {
             console.log('Same Munzee Blog',feed.items[0].link);
         }
