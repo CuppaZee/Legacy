@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import Card from '~sections/Shared/Card';
 import ActivityOverview from './ActivityOverview';
 import useAPIRequest from '~sections/Shared/useAPIRequest';
+import font from '~sections/Shared/font';
 
 var count = (array, t) => {
   return Object.entries(array.reduce((a, b) => {
@@ -82,16 +83,16 @@ export default function UserActivityDash({user_id}) {
       <TouchableRipple onPress={()=>nav.navigate('UserActivity',{userid:user_id})}>
         <View style={{...(theme.page_content.border?{borderBottomWidth:1,borderBottomColor:theme.page_content.border}:{}), backgroundColor:theme.navigation.bg,padding:8, borderTopLeftRadius: 8, borderTopRightRadius: 8, flexDirection:"row", alignItems: "center"}}>
           <MaterialCommunityIcons name="calendar" size={24} color={theme.navigation.fg} />
-          <Text style={{paddingLeft: 4, fontWeight:"bold",fontSize:16,flex:1,color:theme.navigation.fg}}>Activity</Text>
+          <Text style={{paddingLeft: 4, ...font("bold"),fontSize:16,flex:1,color:theme.navigation.fg}}>Activity</Text>
           <MaterialCommunityIcons name="chevron-right" size={24} color={theme.navigation.fg} />
         </View>
       </TouchableRipple>
       {data?.captures?<ActivityOverview user_id={user_id}/>??<>
         <View key="total" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-          <View><Text style={{ fontSize: 24, fontWeight: "bold" }}>{[...data?.captures??[], ...data?.deploys??[], ...data?.captures_on??[]].reduce((a, b) => a + Number(b.points_for_creator ?? b.points), 0)} Points</Text></View>
+          <View><Text style={{ fontSize: 24, ...font("bold") }}>{[...data?.captures??[], ...data?.deploys??[], ...data?.captures_on??[]].reduce((a, b) => a + Number(b.points_for_creator ?? b.points), 0)} Points</Text></View>
         </View>
         <View key="captures" style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#aaffaa', borderRadius: 0 }}>
-          <View><Text style={{ color: 'black' ?? '#004400', fontSize: 20, fontWeight: "bold" }}>{data.captures.filter(i=>!isRenovation(i)).length} Capture{data.captures.filter(i=>!isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures.filter(i=>!isRenovation(i)).reduce((a, b) => a + Number(b.points), 0)} Points</Text></View>
+          <View><Text style={{ color: 'black' ?? '#004400', fontSize: 20, ...font("bold") }}>{data.captures.filter(i=>!isRenovation(i)).length} Capture{data.captures.filter(i=>!isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures.filter(i=>!isRenovation(i)).reduce((a, b) => a + Number(b.points), 0)} Points</Text></View>
           <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
             {
               count(data.captures.filter(i=>!isRenovation(i)), "pin").map(cap => <View key={cap[0]} style={{ padding: 2, alignItems: "center" }}>
@@ -102,7 +103,7 @@ export default function UserActivityDash({user_id}) {
           </View>
         </View>
         <View key="deploys" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-          <View style={{ paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#a5fffc', borderRadius: 0 }}><Text style={{ color: 'black' ?? '#00403e', fontSize: 20, fontWeight: "bold" }}>{data.deploys.length} Deploy{data.deploys.length !== 1 ? 's' : ''} - {data.deploys.reduce((a, b) => a + Number(b.points), 0)} Points</Text></View>
+          <View style={{ paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#a5fffc', borderRadius: 0 }}><Text style={{ color: 'black' ?? '#00403e', fontSize: 20, ...font("bold") }}>{data.deploys.length} Deploy{data.deploys.length !== 1 ? 's' : ''} - {data.deploys.reduce((a, b) => a + Number(b.points), 0)} Points</Text></View>
           <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
             {
               count(data.deploys, "pin").map(dep => <View key={dep[0]} style={{ padding: 2, alignItems: "center" }}>
@@ -113,7 +114,7 @@ export default function UserActivityDash({user_id}) {
           </View>
         </View>
         <View key="capons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-          <View style={{ paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#ffbcad', borderRadius: 8 }}><Text style={{ color: 'black' ?? `#401700`, fontSize: 20, fontWeight: "bold" }}>{data.captures_on.filter(i=>!isRenovation(i)).length} Capon{data.captures_on.filter(i=>!isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures_on.filter(i=>!isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0)} Points</Text></View>
+          <View style={{ paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#ffbcad', borderRadius: 8 }}><Text style={{ color: 'black' ?? `#401700`, fontSize: 20, ...font("bold") }}>{data.captures_on.filter(i=>!isRenovation(i)).length} Capon{data.captures_on.filter(i=>!isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures_on.filter(i=>!isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0)} Points</Text></View>
           <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
             {
               count(data.captures_on.filter(i=>!isRenovation(i)), "pin").map(cap => <View key={cap[0]} style={{ padding: 2, alignItems: "center" }}>
@@ -125,14 +126,14 @@ export default function UserActivityDash({user_id}) {
         </View>
         {data.captures.filter(i=>isRenovation(i)).length>0&&<View key="renovations" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
           <View style={{ paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#ffbcad', borderRadius: 8 }}>
-            <Text style={{ color: 'black' ?? `#401700`, fontSize: 20, fontWeight: "bold" }}>
+            <Text style={{ color: 'black' ?? `#401700`, fontSize: 20, ...font("bold") }}>
               {data.captures.filter(i=>isRenovation(i)).length} Renovation{data.captures.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points), 0)} Points
             </Text>
           </View>
         </View>}
         {data.captures_on.filter(i=>isRenovation(i)).length>0&&<View key="renons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
           <View style={{ paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#ffbcad', borderRadius: 8 }}>
-            <Text style={{ color: 'black' ?? `#401700`, fontSize: 20, fontWeight: "bold" }}>
+            <Text style={{ color: 'black' ?? `#401700`, fontSize: 20, ...font("bold") }}>
               {data.captures_on.filter(i=>isRenovation(i)).length} Renov-on{data.captures_on.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures_on.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0)} Points
             </Text>
           </View>

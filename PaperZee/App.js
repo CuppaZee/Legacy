@@ -8,6 +8,17 @@ import './lang/i18n';
 import loadable from '@loadable/component';
 var { store, setCurrentRoute } = s;
 
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_300Light,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  Roboto_900Black,
+} from '@expo-google-fonts/roboto';
+import { Coiny_400Regular } from '@expo-google-fonts/coiny';
+
 import LoadingPage from './sections/Shared/LoadingPage';
 
 // Clan Screens
@@ -19,6 +30,10 @@ const ClanSearchScreen = loadable(() => import('./sections/Clan/Search'),{fallba
 // More Screens
 const SettingsScreen = loadable(() => import('./sections/More/Settings'),{fallback: <LoadingPage/>})
 const InfoScreen = loadable(() => import('./sections/More/Info'),{fallback: <LoadingPage x="page_content"/>})
+
+// DB Screens
+const DBTypeScreen = loadable(() => import('./sections/DB/Type'),{fallback: <LoadingPage x="page_content"/>})
+const DBSearchScreen = loadable(() => import('./sections/DB/Search'),{fallback: <LoadingPage x="page_content"/>})
 
 // Tools Screens
 const ToolsScreen = loadable(() => import('./sections/Tools/Home'),{fallback: <LoadingPage/>})
@@ -190,6 +205,20 @@ function StackNav () {
         }}
         component={UserQuestScreen}
       />
+      <Stack.Screen
+        name="DBType"
+        options={{
+          title: 'Munzee Type',
+        }}
+        component={DBTypeScreen}
+      />
+      <Stack.Screen
+        name="DBSearch"
+        options={{
+          title: 'Database Search',
+        }}
+        component={DBSearchScreen}
+      />
     </>}
     <Stack.Screen
       name="Auth"
@@ -219,6 +248,17 @@ function DrawerNav() {
 }
 
 function App() {
+  let [fontsLoaded] = useFonts(Platform.OS=="web"?{
+    Coiny_400Regular,
+  }:{
+    Coiny_400Regular,
+    Roboto_100Thin,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
+  });
   const loadingLogin = useSelector(i=>i.loadingLogin);
   const ref = React.useRef();
   const dispatch = useDispatch();
@@ -290,6 +330,15 @@ function App() {
               userid: Number
             }
           },
+
+          DBSearch: 'db/search',
+          DBType: {
+            path: 'db/type/:munzee',
+            parse: {
+              munzee: String
+            }
+          },
+
           Auth: 'auth',
           MunzeeDetails: 'munzee/:url',
         },
@@ -324,8 +373,10 @@ function App() {
     dispatch(setCurrentRoute(a?.routes?.[0]?.state?.routes?.slice?.()?.reverse?.()?.[0]??{}))
   }
 
-  if (loadingLogin) {
-    return <Text>Loading...</Text>;
+  if (loadingLogin||!fontsLoaded) {
+    return <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
+      <Text>Loading...</Text>
+    </View>;
   }
   if (!isReady) {
     return null;

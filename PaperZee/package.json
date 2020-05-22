@@ -8,6 +8,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo-google-fonts/coiny": "^0.1.0",
+    "@expo-google-fonts/roboto": "^0.1.0",
     "@expo/webpack-config": "^0.11.21",
     "@loadable/component": "^5.12.0",
     "@react-native-community/hooks": "^2.4.8",
@@ -22,8 +24,10 @@
     "expo-auth-session": "^1.2.1",
     "expo-barcode-scanner": "~8.1.0",
     "expo-camera": "~8.2.0",
+    "expo-font": "~8.1.0",
     "expo-web-browser": "8.2.1",
     "fast-json-stable-stringify": "^2.1.0",
+    "fuse.js": "^6.0.0",
     "i18next": "^19.4.3",
     "moment": "^2.25.3",
     "moment-timezone": "^0.5.31",

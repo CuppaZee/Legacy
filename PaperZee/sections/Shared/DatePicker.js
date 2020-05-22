@@ -4,6 +4,7 @@ import {TouchableRipple} from 'react-native-paper';
 import moment from 'moment';
 import {useSelector} from 'react-redux'
 import Card from '~sections/Shared/Card';
+import font from '~sections/Shared/font';
 
 const thList = [null,"st","nd","rd","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","st","nd","rd","th","th","th","th","th","th","th","st"]
 const yearList = [2011,2012,2013,2014,2015,2016,2017,2018,2019,2020]
@@ -35,34 +36,34 @@ export default function ({t}) {
   return (
     <Card cardStyle={{width:300,backgroundColor:theme.page_content.bg,alignItems:"stretch"}}>
       <TouchableRipple onPress={()=>setSelect(select=="year"?"date":"year")}>
-        <Text style={{fontWeight:"bold",lineHeight:12,opacity:0.8,color:theme.page_content.fg}}>{year}</Text>
+        <Text style={{...font("bold"),lineHeight:12,opacity:0.8,color:theme.page_content.fg}}>{year}</Text>
       </TouchableRipple>
       <TouchableRipple onPress={()=>setSelect(select=="month"?"date":"month")}>
-        <Text style={{fontSize:20,fontWeight:"bold",color:theme.page_content.fg}}>{date}{thList[date]} {months[month]||"lol"}</Text>
+        <Text style={{fontSize:20,...font("bold"),color:theme.page_content.fg}}>{date}{thList[date]} {months[month]||"lol"}</Text>
       </TouchableRipple>
       {select=="date"&&<View style={{flexDirection:"row",justifyContent:"space-evenly"}}>
         {["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map(i=><View style={{marginTop:8,width:36,justifyContent:"center",alignItems:"center"}}>
-          <Text style={{color:theme.page_content.fg,opacity:0.8,fontWeight:"bold",fontSize:12}}>{i}</Text>
+          <Text style={{color:theme.page_content.fg,opacity:0.8,...font("bold"),fontSize:12}}>{i}</Text>
         </View>)}
       </View>}
       {select=="date"&&grid.map(row=><View style={{flexDirection:"row",justifyContent:"space-evenly"}}>
         {row.map(i=><TouchableRipple style={{borderRadius:18}} onPress={i?()=>setDate(i):null}>
           <View style={{borderColor:theme.page_content.border,borderWidth:theme.page_content.border&&i==date?2:0,height:36,width:36,borderRadius:18,backgroundColor:i==date?theme.navigation.bg:null,justifyContent:"center",alignItems:"center"}}>
-            <Text style={{color:i==date?theme.navigation.fg:theme.page_content.fg,fontWeight:i==date?"bold":"normal",fontSize:i==date?16:14}}>{i}</Text>
+            <Text style={{color:i==date?theme.navigation.fg:theme.page_content.fg,...font(i==date?"bold":null),fontSize:i==date?16:14}}>{i}</Text>
           </View>
         </TouchableRipple>)}
       </View>)}
       {select=="year"&&<ScrollView style={{maxHeight:200}} contentContainerStyle={{flexDirection:"row",flexWrap:"wrap",justifyContent:"space-evenly"}}>
         {yearList.map(i=><TouchableRipple style={{borderRadius:8}} onPress={()=>{setYear(i);setSelect("date")}}>
           <View style={{borderColor:theme.page_content.border,borderWidth:theme.page_content.border&&i==year?2:0,height:36,minWidth:85,flexGrow:1,borderRadius:8,backgroundColor:i==year?theme.navigation.bg:null,justifyContent:"center",alignItems:"center"}}>
-            <Text style={{color:i==year?theme.navigation.fg:theme.page_content.fg,fontWeight:i==year?"bold":"normal",fontSize:i==year?16:14}}>{i}</Text>
+            <Text style={{color:i==year?theme.navigation.fg:theme.page_content.fg,...font(i==year?"bold":null),fontSize:i==year?16:14}}>{i}</Text>
           </View>
         </TouchableRipple>)}
       </ScrollView>}
       {select=="month"&&<ScrollView style={{maxHeight:200}} contentContainerStyle={{flexDirection:"row",flexWrap:"wrap",justifyContent:"space-evenly"}}>
         {monthList.map(i=><TouchableRipple style={{borderRadius:8}} onPress={()=>{setMonth(i);setSelect("date")}}>
           <View style={{borderColor:theme.page_content.border,borderWidth:theme.page_content.border&&i==month?2:0,height:36,minWidth:85,flexGrow:1,borderRadius:8,backgroundColor:i==month?theme.navigation.bg:null,justifyContent:"center",alignItems:"center"}}>
-            <Text style={{color:i==month?theme.navigation.fg:theme.page_content.fg,fontWeight:i==month?"bold":"normal",fontSize:i==month?16:14}}>{months[i]}</Text>
+            <Text style={{color:i==month?theme.navigation.fg:theme.page_content.fg,...font(i==month?"bold":null),fontSize:i==month?16:14}}>{months[i]}</Text>
           </View>
         </TouchableRipple>)}
       </ScrollView>}

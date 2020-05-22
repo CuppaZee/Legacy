@@ -8,6 +8,7 @@ import s from "~store";
 import { useTranslation } from 'react-i18next';
 import Flag from 'react-native-flags';
 var { setTheme } = s;
+import font from '~sections/Shared/font';
 
 function forceReload() {
   try {
@@ -58,22 +59,28 @@ export default function SettingsScreen({ navigation }) {
             {Object.entries(logins).map(user=><View key={user[0]} style={{padding:8,flexDirection:"row"}}>
               <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(user[0]).toString(36)}.png`}} style={{borderRadius:24,width:48,height:48}} />
               <View style={{paddingLeft:8,flexGrow:1,alignSelf:"center"}}>
-                <Text style={{fontWeight:"bold",fontSize:16,color:theme.page_content.fg}}>{user[1].username}</Text>
+                <Text style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{user[1].username}</Text>
               </View>
             </View>)}
-            <Button
-              title="Add User"
-              onPress={() => navigation.navigate('Auth')}
-            />
-            
-            <Text style={{color:theme.page_content.fg}}><Text style={{fontWeight:"bold"}}>Supporters: </Text>Code input is not yet necessary as I've decided to release User Activity to everyone. Code input will be added when I add another feature</Text>
-            {Platform.OS==="web"&&<Button
-              title="Force Update"
-              onPress={() => forceReload()}
-            />}
+            <MaterialButton
+              mode="contained"
+              backgroundColor={theme.navigation.fg}
+              style={theme.page_content.border?{borderColor:"white",borderWidth:1}:{}}
+              color={theme.navigation.bg}
+              onPress={() => navigation.navigate('Auth')}>
+              Add User
+            </MaterialButton>
+            {Platform.OS==="web"&&<MaterialButton
+              mode="contained"
+              backgroundColor={theme.navigation.fg}
+              style={theme.page_content.border?{borderColor:"white",borderWidth:1}:{}}
+              color={theme.navigation.bg}
+              onPress={() => forceReload()}>
+              Force Update
+            </MaterialButton>}
             
             {/* TODO: Theme Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
-            <Text>Current Theme: {selected_theme}</Text>
+            <Text style={{color:theme.page_content.fg,...font()}}>Current Theme: {selected_theme}</Text>
             <View style={{flexDirection:"row",flexWrap:"wrap"}}>
               <Button
                 style={{flex:1}}
@@ -102,7 +109,7 @@ export default function SettingsScreen({ navigation }) {
             </View>
 
             {/* TODO: Language Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
-            <Text>Current Language: {i18n.language}</Text>
+            <Text style={{color:theme.page_content.fg,...font()}}>Current Language: {i18n.language}</Text>
             <View style={{flexDirection:"row",flexWrap:"wrap",paddingTop:4}}>
               {languages.map(i=><View style={{padding:4}}>
                 <MaterialButton

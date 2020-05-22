@@ -33,8 +33,14 @@ const colors = {
 };
 
 var munzees = [];
+var categories = [];
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Generating Types... ${colors.Reset}`)
+
+categories.push({
+  name: "Bouncer Hosts",
+  id: "bouncerhost"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Destinations${colors.Reset} from ${colors.fg.Green}./types/destination.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/destination.json').map(i => ({
@@ -59,6 +65,10 @@ munzees = munzees.concat(require('./types/destination.json').map(i => ({
   completion: "complete",
   from_file: "./types/destination.json"
 })))
+categories.push({
+  name: "Destinations",
+  id: "destination"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Custom Events${colors.Reset} from ${colors.fg.Green}./types/event.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/event.json').map(i => ({
@@ -74,6 +84,10 @@ munzees = munzees.concat(require('./types/event.json').map(i => ({
   completion: "complete",
   from_file: "./types/event.json"
 })))
+categories.push({
+  name: "Events",
+  id: "event"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Evolutions${colors.Reset} from ${colors.fg.Green}./types/evolution.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/evolution.json').map(i => ({
@@ -93,6 +107,10 @@ munzees = munzees.concat(require('./types/evolution.json').map(i => ({
   completion: "complete",
   from_file: "./types/evolution.json"
 })))
+categories.push({
+  name: "Evolutions",
+  id: "evolution"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Fancy Flats${colors.Reset} from ${colors.fg.Green}./types/fancyflat.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/fancyflat.json').map(i => ({
@@ -113,7 +131,7 @@ munzees = munzees.concat(require('./types/fancyflat.json').map(i => ({
         type: "flat",
         duration: 12,
         lands_on: [
-          "flatrob",
+          i.flat_type,
           x => (x.virtual_colors || []).includes(i.color),
           ...(i.lands_on || [])
         ]
@@ -126,6 +144,10 @@ munzees = munzees.concat(require('./types/fancyflat.json').map(i => ({
   completion: "complete",
   from_file: "./types/fancyflat.json"
 })))
+categories.push({
+  name: "Fancy Flats",
+  id: "fancyflat"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Flats${colors.Reset} from ${colors.fg.Green}./types/flat.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/flat.json').map(i => ({
@@ -142,6 +164,10 @@ munzees = munzees.concat(require('./types/flat.json').map(i => ({
   completion: "complete",
   from_file: "./types/flat.json"
 })))
+categories.push({
+  name: "Flats",
+  id: "flat"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Gaming${colors.Reset} from ${colors.fg.Green}./types/gaming.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/gaming.json').map(i => ({
@@ -157,6 +183,10 @@ munzees = munzees.concat(require('./types/gaming.json').map(i => ({
   completion: "complete",
   from_file: "./types/gaming.json"
 })))
+categories.push({
+  name: "Gaming",
+  id: "gaming"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Jewels${colors.Reset} from ${colors.fg.Green}./types/jewel.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/jewel.json').map(i => ({
@@ -172,6 +202,10 @@ munzees = munzees.concat(require('./types/jewel.json').map(i => ({
   completion: "complete",
   from_file: "./types/jewel.json"
 })))
+categories.push({
+  name: "Jewels",
+  id: "jewel"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Virtuals${colors.Reset} from ${colors.fg.Green}./types/virtual.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/virtual.json').map(i => ({
@@ -187,6 +221,10 @@ munzees = munzees.concat(require('./types/virtual.json').map(i => ({
   completion: "complete",
   from_file: "./types/virtual.json"
 })))
+categories.push({
+  name: "Virtuals",
+  id: "virtual"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Misc${colors.Reset} from ${colors.fg.Green}./types/misc.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/misc.json').map(i => ({
@@ -201,6 +239,10 @@ munzees = munzees.concat(require('./types/misc.json').map(i => ({
   completion: "complete",
   from_file: "./types/misc.json"
 })))
+categories.push({
+  name: "Misc.",
+  id: "misc"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Mysteries${colors.Reset} from ${colors.fg.Green}./types/mystery.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/mystery.json').map(i => ({
@@ -216,6 +258,10 @@ munzees = munzees.concat(require('./types/mystery.json').map(i => ({
   completion: "complete",
   from_file: "./types/mystery.json"
 })))
+categories.push({
+  name: "Mysteries",
+  id: "mystery"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Mythologicals${colors.Reset} from ${colors.fg.Green}./types/myth.js${colors.Reset}`)
 munzees = munzees.concat(require('./types/myth').map(i => ({
@@ -246,6 +292,10 @@ munzees = munzees.concat(require('./types/myth').map(i => ({
   completion: "complete",
   from_file: "./types/myth.js"
 })))
+categories.push({
+  name: "Mythologicals",
+  id: "myth"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}POIs${colors.Reset} from ${colors.fg.Green}./types/poi.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/poi.json').map(i => ({
@@ -261,6 +311,10 @@ munzees = munzees.concat(require('./types/poi.json').map(i => ({
   completion: "complete",
   from_file: "./types/poi.json"
 })))
+categories.push({
+  name: "Places of Interest",
+  id: "poi"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Resellers${colors.Reset} from ${colors.fg.Green}./types/reseller.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/reseller.json').map(i => ({
@@ -276,6 +330,10 @@ munzees = munzees.concat(require('./types/reseller.json').map(i => ({
   completion: "complete",
   from_file: "./types/reseller.json"
 })))
+categories.push({
+  name: "Resellers",
+  id: "reseller"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Weapons${colors.Reset} from ${colors.fg.Green}./types/weapon.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/weapon.json').map(i => ({
@@ -291,6 +349,14 @@ munzees = munzees.concat(require('./types/weapon.json').map(i => ({
   completion: "complete",
   from_file: "./types/weapon.json"
 })))
+categories.push({
+  name: "Clan Weapons",
+  id: "clan"
+})
+categories.push({
+  name: "Zeecret Weapons",
+  id: "zeecret"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Zodiacs${colors.Reset} from ${colors.fg.Green}./types/zodiac.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/zodiac.json').map(i => ({
@@ -301,11 +367,19 @@ munzees = munzees.concat(require('./types/zodiac.json').map(i => ({
   zodiac: i.zodiac,
 
   state: "physical",
-  category: i.zodiac,
+  category: `${i.zodiac}_zodiac`,
 
   completion: "complete",
   from_file: "./types/zodiac.json"
 })))
+categories.push({
+  name: "Western Zodiacs",
+  id: "western_zodiac"
+})
+categories.push({
+  name: "Chinese Zodiacs",
+  id: "chinese_zodiac"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Tourisms${colors.Reset} from ${colors.fg.Green}./types/tourism.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/tourism.json').map(i => ({
@@ -321,6 +395,10 @@ munzees = munzees.concat(require('./types/tourism.json').map(i => ({
   completion: "complete",
   from_file: "./types/tourism.json"
 })))
+categories.push({
+  name: "Tourism",
+  id: "tourism"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Cards${colors.Reset} from ${colors.fg.Green}./types/cards.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/cards.json').map(i => ({
@@ -328,7 +406,7 @@ munzees = munzees.concat(require('./types/cards.json').map(i => ({
   icon: i.icon,
   id: i.id,
 
-  card: true,
+  card: i.open?"open":"limited",
   temporary: 7,
 
   state: "virtual",
@@ -337,6 +415,10 @@ munzees = munzees.concat(require('./types/cards.json').map(i => ({
   completion: "complete",
   from_file: "./types/cards.json"
 })))
+categories.push({
+  name: "Greetings Cards",
+  id: "card"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Nomads${colors.Reset} from ${colors.fg.Green}./types/nomad.js${colors.Reset}`)
 munzees = munzees.concat(require('./types/nomad').map(i => ({
@@ -356,6 +438,10 @@ munzees = munzees.concat(require('./types/nomad').map(i => ({
   completion: "complete",
   from_file: "./types/nomad.js"
 })))
+categories.push({
+  name: "Nomads",
+  id: "nomad"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Pouch Creatures${colors.Reset} from ${colors.fg.Green}./types/pouch.js${colors.Reset}`)
 munzees = munzees.concat(require('./types/pouch').map(i => ({
@@ -389,6 +475,10 @@ munzees = munzees.concat(require('./types/pouch').map(i => ({
   completion: "complete",
   from_file: "./types/pouch.js"
 })))
+categories.push({
+  name: "Pouch Creatures",
+  id: "pouch"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}RetireMyths${colors.Reset} from ${colors.fg.Green}./types/retiremyth.js${colors.Reset}`)
 munzees = munzees.concat(require('./types/retiremyth').map(i => ({
@@ -409,6 +499,14 @@ munzees = munzees.concat(require('./types/retiremyth').map(i => ({
   completion: "complete",
   from_file: "./types/retiremyth.js"
 })))
+categories.push({
+  name: "Zombie Pouch Creatures",
+  id: "zombiepouch"
+})
+categories.push({
+  name: "RetireMyths",
+  id: "retiremyth"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Temp POBs${colors.Reset} from ${colors.fg.Green}./types/temppob.js${colors.Reset}`)
 munzees = munzees.concat(require('./types/temppob').map(i => ({
@@ -440,6 +538,10 @@ munzees = munzees.concat(require('./types/temppob').map(i => ({
   completion: "complete",
   from_file: "./types/temppob.js"
 })))
+categories.push({
+  name: "TempPOBs",
+  id: "temppob"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}TOBs${colors.Reset} from ${colors.fg.Green}./types/tob.js${colors.Reset}`)
 munzees = munzees.concat(require('./types/tob').map(i => ({
@@ -470,6 +572,10 @@ munzees = munzees.concat(require('./types/tob').map(i => ({
   completion: "complete",
   from_file: "./types/tob.js"
 })))
+categories.push({
+  name: "TOBs",
+  id: "tob"
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Scatters${colors.Reset} from ${colors.fg.Green}./types/scatter.json${colors.Reset}`)
 munzees = munzees.concat(require('./types/scatter.json').map(i => ({
@@ -486,6 +592,59 @@ munzees = munzees.concat(require('./types/scatter.json').map(i => ({
   completion: "complete",
   from_file: "./types/scatter.json"
 })))
+categories.push({
+  name: "Scatters",
+  id: "scatter"
+})
+
+console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Seasonals${colors.Reset} from ${colors.fg.Green}./types/seasonals.json${colors.Reset}`)
+categories = categories.concat(require('./types/seasonals.json').map(c=>{
+  munzees = munzees.concat((c.scatters||[]).map(i => ({
+    name: i.name,
+    icon: i.icon,
+    id: i.id,
+
+    scatter: i.scatter,
+    capture_types: i.capture_types,
+    capture_type_from: i.capture_type_from,
+    ...(i.extra || {}),
+
+    state: i.state,
+    category: c.category,
+
+    completion: "complete",
+    from_file: "./types/seasonals.json"
+  })))
+  munzees = munzees.concat((c.specials||[]).map(i => ({
+    name: i.name,
+    icon: i.icon,
+    id: i.id,
+
+    bouncer: {
+      type: "seasonal",
+      duration: i.duration,
+      lands_on: i.lands_on
+    },
+    capture_types: i.capture_types,
+    capture_type_from: i.capture_type_from,
+    ...(i.extra || {}),
+
+    state: i.state,
+    category: c.category,
+
+    completion: "complete",
+    from_file: "./types/seasonals.json"
+  })))
+  return {
+    name: c.name,
+    id: c.category,
+    seasonal: {
+      year: c.year,
+      starts: new Date(c.starts).valueOf(),
+      ends: new Date(c.ends).valueOf()
+    }
+  }
+}));
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Types Generated - Checking... ${colors.Reset}`)
 
@@ -555,6 +714,9 @@ for (var munzee of munzees) {
   if (munzee.id===undefined) {
     console.log(`${colors.bg.Red}  ${colors.Reset} Missing ${colors.fg.Yellow}id${colors.Reset} for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
   }
+  if (!munzee.category || !categories.find(i=>i.id==munzee.category)) {
+    console.log(`${colors.bg.Red}  ${colors.Reset} Invalid ${colors.fg.Yellow}category${colors.Reset} for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
+  }
 
   delete munzee.from_file;
 }
@@ -565,10 +727,19 @@ for (var munzee of munzees) {
 
 munzees.sort((a, b) => (a.id||0) - (b.id||0));
 
-console.log(`${colors.bg.Green}${colors.fg.Black} Types Checked - Writing to Files... ${colors.Reset}`)
+console.log(`${colors.bg.Green}${colors.fg.Black} Types Checked - Writing Types to Files... ${colors.Reset}`)
 
 fs.writeFileSync('types.json', JSON.stringify(munzees, null, 2))
 fs.writeFileSync('types.min.json', JSON.stringify(munzees))
 fs.writeFileSync('../PaperZee/sections/DB/types.json', JSON.stringify(munzees))
 
-console.log(`${colors.bg.Green}${colors.fg.Black} Types Written to Files${colors.Reset}`)
+console.log(`${colors.bg.Green}${colors.fg.Black} Types Written to Files - Writing Categories to JSON... ${colors.Reset}`)
+
+fs.writeFileSync('categories.json', JSON.stringify(categories, null, 2))
+fs.writeFileSync('categories.min.json', JSON.stringify(categories))
+fs.writeFileSync('../PaperZee/sections/DB/categories.json', JSON.stringify(categories))
+
+console.log(`${colors.bg.Green}${colors.fg.Black} Categories Written to Files ${colors.Reset}`)
+
+console.log(`${colors.bg.Cyan}${colors.fg.Black} Current Progress: ${munzees.length} / ${munzees.length+require('./types/NA.json').length} - ${Math.round((munzees.length)/(munzees.length+require('./types/NA.json').length)*10000)/100}% ${colors.Reset}`)
+console.log(`${colors.bg.Yellow}${colors.fg.Black} Remaining of N/A: ${require('./types/NA.json').length} ${colors.Reset}`)
