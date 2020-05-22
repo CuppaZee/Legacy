@@ -10,6 +10,7 @@ import useAPIRequest from '~sections/Shared/useAPIRequest';
 import MHQ from '~sections/Shared/MHQ';
 import { ClanRequirementsConverter } from '../../Clan/Data';
 import font from '~sections/Shared/font';
+import { FlatList } from 'react-native-gesture-handler';
 
 function UserIcon({user_id,size}) { 
   return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size-24)/2, marginTop: -(size-24)/2, height: size, width: size }} />
@@ -88,25 +89,32 @@ export default function ClanScreen({ route }) {
       <ScrollView
         contentContainerStyle={{ width: 600, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4, paddingBottom: 92 }}
         style={{ flex: 1, backgroundColor: theme.page.bg }}>
-        {gotData&&requirements?.order?.requirements?.map?.(i=><View style={{ padding: 4 }}>
-          <Card noPad>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <View style={{ padding: 8 }}>
-                <Image source={{ uri: requirements?.requirements?.[i]?.icon }} style={{ width: 48, height: 48 }} />
+        {gotData&&<FlatList
+          style={{flexGrow:0}}
+          data={requirements?.order?.requirements}
+          extraData={data}
+          renderItem={({item:i})=><View style={{ padding: 4 }}>
+            <Card noPad>
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <View style={{ padding: 8 }}>
+                  <Image source={{ uri: requirements?.requirements?.[i]?.icon }} style={{ width: 48, height: 48 }} />
+                </View>
+                <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
+                  <Text style={{ fontSize: 20, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{requirements?.requirements?.[i]?.top} {requirements?.requirements?.[i]?.bottom}</Text>
+                  {/* <Text style={{ fontSize: 12, fontWeight: "500", color: theme.page_content.fg, opacity: 0.8 }}>{requirements?.requirements?.[i]?.description}</Text> */}
+                  <Text style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{data?.[i]?.toLocaleString?.()||'0'}</Text>
+                </View>
+                {requirements?.order?.individual?.includes?.(i)?<View style={{alignSelf:"stretch",borderTopRightRadius:8,borderBottomRightRadius:8,borderLeftWidth:dark?2:0,borderLeftColor:dark?level_colors[calculateLevel(i,data?.[i])]:undefined,backgroundColor:dark?undefined:level_colors[calculateLevel(i,data?.[i])],width:60,alignItems:"center",justifyContent:"center"}}>
+                  <Text style={{color:theme.page_content.fg,...font()}}>Level</Text>
+                  <Text style={{color:theme.page_content.fg,fontSize:24,...font("bold")}}>{calculateLevel(i,data?.[i])}</Text>
+                </View>:null}
               </View>
-              <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
-                <Text style={{ fontSize: 20, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{requirements?.requirements?.[i]?.top} {requirements?.requirements?.[i]?.bottom}</Text>
-                {/* <Text style={{ fontSize: 12, fontWeight: "500", color: theme.page_content.fg, opacity: 0.8 }}>{requirements?.requirements?.[i]?.description}</Text> */}
-                <Text style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{data?.[i]?.toLocaleString?.()||'0'}</Text>
-              </View>
-              {requirements?.order?.individual?.includes?.(i)?<View style={{alignSelf:"stretch",borderTopRightRadius:8,borderBottomRightRadius:8,borderLeftWidth:dark?2:0,borderLeftColor:dark?level_colors[calculateLevel(i,data?.[i])]:undefined,backgroundColor:dark?undefined:level_colors[calculateLevel(i,data?.[i])],width:60,alignItems:"center",justifyContent:"center"}}>
-                <Text style={{color:theme.page_content.fg,...font()}}>Level</Text>
-                <Text style={{color:theme.page_content.fg,fontSize:24,...font("bold")}}>{calculateLevel(i,data?.[i])}</Text>
-              </View>:null}
-            </View>
-          </Card>
-        </View>)}
-        {gotData&&<RequirementsCard game_id={86}/>}
+            </Card>
+          </View>}
+        />}
+        {gotData&&<View style={{padding:4,flex:1}}>
+          <RequirementsCard game_id={86}/>
+        </View>}
       </ScrollView>
       {/* <Portal> */}
         <FAB.Group
