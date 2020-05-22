@@ -142,5 +142,32 @@
       "starts": 1573246800000,
       "ends": 1574056740000
     }
+  },
+  {
+    "name": "Boomerangs 2020",
+    "id": "boomerangs2020",
+    "seasonal": {
+      "year": 2020,
+      "starts": 1579881600000,
+      "ends": 1581227940000
+    }
+  },
+  {
+    "name": "Leap Day 2020",
+    "id": "leapday2020",
+    "seasonal": {
+      "year": 2020,
+      "starts": 1582912800000,
+      "ends": 1583251200000
+    }
+  },
+  {
+    "name": "Flat Day the 13th pt.3 2020",
+    "id": "flatdaythe13thpt32020",
+    "seasonal": {
+      "year": 2020,
+      "starts": 1582912800000,
+      "ends": 1583251200000
+    }
   }
 ]

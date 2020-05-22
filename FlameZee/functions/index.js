@@ -4,6 +4,7 @@ var parser = new rss();
 
 const functions = require('firebase-functions');
 const needle = require('needle');
+const cheerio = require('cheerio');
 const spherical = require('spherical');
 const MunzeeAPI = require('./Utils/API');
 const config = require('./Utils/Config');
@@ -444,12 +445,25 @@ exports.blogzee_checker_minute = functions.runWith({memory:"512MB"}).pubsub.topi
             data.munzee_blog = feed.items[0].link;
             update.munzee_blog = feed.items[0].link;
 
-            console.log('New Munzee Blog',feed.items[0].link);
+            console.log('New Munzee Blog', feed.items[0].link);
+            let img = cheerio.load(feed.items[0]["content:encoded"]||'')('img')[0];
             needle(
                 'post',
                 config.discord.blog,
                 {
-                    content:`[${feed.items[0].title}](${feed.items[0].link}#content)`
+                    "payload_json": JSON.stringify({
+                        embeds: [
+                            {
+                                title: feed.items[0].title,
+                                url: feed.items[0].link + '#content',
+                                description: feed.items[0].contentSnippet + `\n[Read More](<${feed.items[0].link}#content>)`,
+                                image: img ? {
+                                    url: img ? img.attribs.src : ''
+                                } : null
+                            }
+                        ],
+                        content: feed.items[0].title
+                    })
                 }
             )
         } else {

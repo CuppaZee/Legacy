@@ -629,7 +629,7 @@ categories = categories.concat(require('./types/seasonals.json').map(c=>{
     capture_type_from: i.capture_type_from,
     ...(i.extra || {}),
 
-    state: i.state,
+    state: "bouncer",
     category: c.category,
 
     completion: "complete",

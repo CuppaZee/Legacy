@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Button, Text, View, Platform, Image, AsyncStorage, ScrollView } from 'react-native';
-import { Button as MaterialButton } from 'react-native-paper';
+import { Text, View, Platform, Image, AsyncStorage, ScrollView } from 'react-native';
+import { Button } from 'react-native-paper';
 import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from "react-redux";
 import Card from '../Shared/Card';
@@ -62,64 +62,55 @@ export default function SettingsScreen({ navigation }) {
                 <Text style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{user[1].username}</Text>
               </View>
             </View>)}
-            <MaterialButton
-              mode="contained"
-              backgroundColor={theme.navigation.fg}
-              style={theme.page_content.border?{borderColor:"white",borderWidth:1}:{}}
-              color={theme.navigation.bg}
-              onPress={() => navigation.navigate('Auth')}>
-              Add User
-            </MaterialButton>
-            {Platform.OS==="web"&&<MaterialButton
-              mode="contained"
-              backgroundColor={theme.navigation.fg}
-              style={theme.page_content.border?{borderColor:"white",borderWidth:1}:{}}
-              color={theme.navigation.bg}
-              onPress={() => forceReload()}>
-              Force Update
-            </MaterialButton>}
+            <View style={{flexDirection:"row",flexWrap:"wrap"}}>
+              <Button
+                mode="contained"
+                backgroundColor={theme.navigation.fg}
+                style={theme.page_content.border?{margin:4,borderColor:"white",borderWidth:1}:{margin:4}}
+                color={theme.navigation.bg}
+                onPress={() => navigation.navigate('Auth')}>
+                Add User
+              </Button>
+              {Platform.OS==="web"&&<Button
+                mode="contained"
+                backgroundColor={theme.navigation.fg}
+                style={theme.page_content.border?{margin:4,borderColor:"white",borderWidth:1}:{margin:4}}
+                color={theme.navigation.bg}
+                onPress={() => forceReload()}>
+                Force Update
+              </Button>}
+            </View>
             
             {/* TODO: Theme Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
             <Text style={{color:theme.page_content.fg,...font()}}>Current Theme: {selected_theme}</Text>
             <View style={{flexDirection:"row",flexWrap:"wrap"}}>
-              <Button
-                style={{flex:1}}
-                color={themes.hcontrast.navigation.bg}
-                title="High Contrast Mode"
-                onPress={() => dispatch(setTheme("hcontrast"))}
-              />
-              <Button
-                style={{flex:1}}
-                color={themes.light.navigation.bg}
-                title="Light Mode"
-                onPress={() => dispatch(setTheme("light"))}
-              />
-              <Button
-                style={{flex:1}}
-                color={themes.dark.page_content.bg}
-                title="Dark Mode"
-                onPress={() => dispatch(setTheme("dark"))}
-              />
-              <Button
-                style={{flex:1}}
-                color={themes.xdark.page_content.bg}
-                title="AMOLED Dark Mode"
-                onPress={() => dispatch(setTheme("xdark"))}
-              />
+              {[
+                ["Lightest","hcontrast"],
+                ["Light","light"],
+                ["Dark","dark"],
+                ["Darkest","xdark"]
+              ].map(i=><View style={{padding:4}}>
+                <Button
+                  mode="contained"
+                  style={theme.page_content.border?{borderColor:"white",borderWidth:1}:{}}
+                  color={themes[i[1]].navigation.bg}
+                  onPress={() => dispatch(setTheme(i[1]))}
+                >{i[0]}</Button>
+              </View>)}
             </View>
 
             {/* TODO: Language Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
             <Text style={{color:theme.page_content.fg,...font()}}>Current Language: {i18n.language}</Text>
             <View style={{flexDirection:"row",flexWrap:"wrap",paddingTop:4}}>
               {languages.map(i=><View style={{padding:4}}>
-                <MaterialButton
+                <Button
                   mode="contained"
                   backgroundColor={theme.navigation.fg}
                   style={theme.page_content.border?{borderColor:"white",borderWidth:1}:{}}
                   color={theme.navigation.bg}
                   onPress={() => setLang(i.code)}
                   icon={()=><Flag size={24} code={i.flag||i.code.slice(-2).toUpperCase()} type="flat"/>}
-                >{i.name}</MaterialButton>
+                >{i.name}</Button>
               </View>)}
             </View>
           </ScrollView>

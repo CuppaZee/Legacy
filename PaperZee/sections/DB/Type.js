@@ -2,9 +2,11 @@ import * as React from 'react';
 import { Text, View, ScrollView, Image } from 'react-native';
 import { useSelector, useDispatch } from "react-redux";
 import types from './types.json';
+import categories from './categories.json';
 import { TouchableRipple } from 'react-native-paper';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import font from '~sections/Shared/font';
+import moment from 'moment';
 
 function g(icon) {
   return icon.replace(/_/g,'').replace(/munzee$/g,'');
@@ -42,19 +44,20 @@ export default function SettingsScreen() {
         {munzee.event=="custom"&&<Chip label="Custom Event"/>}
         {munzee.unique&&<Chip label="Unique"/>}
         {munzee.destination?.max_rooms&&<Chip label={`${munzee.destination?.max_rooms} Rooms`}/>}
-        {/* {munzee.bouncer?.type=="nomad"&&<Chip label="Nomad"/>}
-        {munzee.bouncer?.type=="pouch"&&<Chip label="Pouch Creature"/>}
-        {munzee.bouncer?.type=="myth"&&<Chip label="Mythological"/>} */}
-        <Chip label={`Category: ${u(munzee.category)}`}/>
+        <Chip label={`Category: ${categories.find(i=>i.id==munzee.category)?.name}`}/>
         {munzee.virtual_colors?.map(i=><Chip label={`Virtual Color: ${u(i)}`}/>)}
       </View>
-      {munzee.can_host&&<>
+      {categories.find(i=>i.id==munzee.category)?.seasonal&&<View style={{alignItems:"center"}}>
+        <Text style={{color:theme.page_content.fg}}>{moment(categories.find(i=>i.id==munzee.category).seasonal.starts).format('L LT')} - {moment(categories.find(i=>i.id==munzee.category).seasonal.ends).format('L LT')}</Text>
+        <Text style={{color:theme.page_content.fg}}>Duration: {moment.duration(moment(categories.find(i=>i.id==munzee.category).seasonal.starts).diff(moment(categories.find(i=>i.id==munzee.category).seasonal.ends))).humanize()}</Text>
+      </View>}
+      {munzee.can_host?.filter?.(i=>!types.find(x=>x.id==i).category.match(/20[0-9]{2}/))?.length>0&&<>
         <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
         <View style={{alignItems:"center"}}>
           <Text style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Can Host</Text>
         </View>
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
-          {munzee.can_host.map(i=>types.find(x=>x.id==i)).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
+          {munzee.can_host.filter(i=>!types.find(x=>x.id==i).category.match(/20[0-9]{2}/)).map(i=>types.find(x=>x.id==i)).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
             <View style={{alignItems:"center",padding:4,width:100}}>
               <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} style={{height:32,width:32}} />
               <Text numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>

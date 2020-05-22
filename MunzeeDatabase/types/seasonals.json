@@ -272,5 +272,116 @@
         "lands_on": [":virtual","flathammock"]
       }
     ]
+  },
+  {
+    "name": "Boomerangs 2020",
+    "category": "boomerangs2020",
+    "year": 2020,
+    "starts": "2020-01-24 16:00",
+    "ends": "2020-02-09 05:59",
+    "specials": [
+      {
+        "name": "Coral Catcher Boomerang",
+        "icon":  "coralcatcherboomerang",
+        "id": 2346,
+        "duration": 6,
+        "lands_on": [":virtual","airmystery"]
+      },
+      {
+        "name": "Sunsetter Boomerang",
+        "icon":  "sunsetterboomerang",
+        "id": 2345,
+        "duration": 6,
+        "lands_on": [":virtual","airmystery"]
+      },
+      {
+        "name": "Parting Sea Boomerang",
+        "icon":  "partingseaboomerang",
+        "id": 2344,
+        "duration": 6,
+        "lands_on": [":virtual","airmystery"]
+      },
+      {
+        "name": "Great Dividing Boomerang",
+        "icon":  "greatdividingboomerang",
+        "id": 2343,
+        "duration": 6,
+        "lands_on": ["munzee","earthmystery"]
+      },
+      {
+        "name": "Country Crawler Boomerang",
+        "icon":  "countrycrawlerboomerang",
+        "id": 2342,
+        "duration": 6,
+        "lands_on": ["munzee","earthmystery"]
+      },
+      {
+        "name": "Root Runner Boomerang",
+        "icon":  "rootrunnerboomerang",
+        "id": 2341,
+        "duration": 6,
+        "lands_on": ["munzee","earthmystery"]
+      }
+    ]
+  },
+  {
+    "name": "Leap Day 2020",
+    "category": "leapday2020",
+    "year": 2020,
+    "starts": "2020-02-28 18:00",
+    "ends": "2020-03-03 16:00",
+    "specials": [
+      {
+        "name": "H.Zee. Wells’ Time Machine",
+        "icon":  "h.zee.wells'timemachine",
+        "id": 2363,
+        "duration": 4,
+        "lands_on": ["munzee","premium","mace","mystery"]
+      },
+      {
+        "name": "Zeeloreon Time Traveler",
+        "icon":  "zeeloreontimetraveler",
+        "id": 2364,
+        "duration": 4,
+        "lands_on": [":virtual"]
+      },
+      {
+        "name": "TARDY Time Traveler",
+        "icon":  "tardytimetraveler",
+        "id": 2365,
+        "duration": 4,
+        "lands_on": [":virtual"]
+      }
+    ]
+  },
+  {
+    "name": "Flat Day the 13th pt.3 2020",
+    "category": "flatdaythe13thpt32020",
+    "year": 2020,
+    "starts": "2020-02-28 18:00",
+    "ends": "2020-03-03 16:00",
+    "specials": [
+      {
+        "name": "The Return",
+        "icon":  "thereturn",
+        "id": 2363,
+        "duration": 4,
+        "lands_on": ["munzee","premium","mace","mystery"]
+      },
+      {
+        "name": "Zeeloreon Time Traveler",
+        "icon":  "zeeloreontimetraveler",
+        "id": 2364,
+        "duration": 4,
+        "lands_on": [":virtual"]
+      },
+      {
+        "name": "TARDY Time Traveler",
+        "icon":  "tardytimetraveler",
+        "id": 2365,
+        "duration": 4,
+        "lands_on": [":virtual"]
+      }
+    ]
   }
 ]
