@@ -1,5 +1,7 @@
-import {AsyncStorage} from 'react-native';
+import {Platform,AsyncStorage} from 'react-native';
 import stringify from 'fast-json-stable-stringify';
+
+import config from '~sections/Shared/Config';
 var login_ = (data) => ({ type: "LOGIN", data: data })
 var login = (data,noUpdate) => async (dispatch, getState) => {
   if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_STORE_API_TOKENS',JSON.stringify({...getState().logins,...data}));
@@ -55,7 +57,7 @@ async function makeRequest(getState, dispatch, pageInput, force) {
       if((token_data.expires*1000)<Date.now()+10000) {
         var formData = new FormData();
         formData.append('client_id', config.client_id)
-        formData.append('client_secret', '')
+        formData.append('client_secret', config.client_secret)
         formData.append('grant_type', 'refresh_token')
         formData.append('refresh_token', token_data.refresh_token)
         var n = await fetch('https://api.munzee.com/oauth/login', {
@@ -63,7 +65,7 @@ async function makeRequest(getState, dispatch, pageInput, force) {
           body: formData
         })
         var ne = await n.json();
-        var new_token = ne.data.token;
+        var new_token = {...token_data,...ne.data.token};
         var x = {};
         x[use_user] = getState().logins[use_user]
         x[use_user].token = new_token;

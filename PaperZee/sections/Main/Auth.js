@@ -5,23 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import * as AuthSession from 'expo-auth-session';
 import { useNavigation } from '@react-navigation/native';
 import s from '~store';
+import config from '~sections/Shared/Config';
 const {login} = s;
-
-const config = Platform.OS=="web"?(
-  __DEV__?{
-    useProxy: false,
-    redirect_uri: "http://localhost:19006/auth",
-    client_id: '9cd8e4f29c2c9a7292289aed8fcf7df4'
-  }:{
-    useProxy: false,
-    redirect_uri: "https://cuppazee.app/auth",
-    client_id: '355009b7588039f6d66fc13dfb7c008a'
-  }
-):{
-  useProxy: true,
-  redirect_uri: 'https://auth.expo.io/@sohcah/PaperZee',
-  client_id: '33e432fb12539990f41755cbd9a92b42'
-}
 
 export default function AuthScreen () {
   var dispatch = useDispatch();
