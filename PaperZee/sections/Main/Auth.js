@@ -5,7 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import * as AuthSession from 'expo-auth-session';
 import { useNavigation } from '@react-navigation/native';
 import s from '~store';
-import config from '~sections/Shared/Config';
+import Oconfig from '~sections/Shared/Config';
+var config = {
+  redirect_uri: 'https://devserver.cuppazee.app/auth/auth/v1',
+  client_id: '91714935879f433364bff187bda66183'
+}
 const {login} = s;
 
 export default function AuthScreen () {
@@ -16,6 +20,10 @@ export default function AuthScreen () {
   var [redirect,setRedirect] = React.useState(false);
   const navigation = useNavigation();
   
+  // const discovery = {
+  //   // authorizationEndpoint: 'https://devserver.cuppazee.app/auth/auth',
+  //   // tokenEndpoint: 'https://api.munzee.com/oauth/login',
+  // };
   const discovery = {
     authorizationEndpoint: 'https://api.munzee.com/oauth',
     tokenEndpoint: 'https://api.munzee.com/oauth/login',
@@ -25,48 +33,65 @@ export default function AuthScreen () {
     {
       clientId: config.client_id,
       scopes: ['read'],
-      redirectUri: config.redirect_uri
+      redirectUri: config.redirect_uri,
+      state: JSON.stringify({
+        redirect: Oconfig.redirect_uri,
+        platform: Platform.OS
+      })
     },
     discovery
   );
 
   React.useEffect(() => {
     if (response) {
-      console.log('Response',response);
-      if(!response.params || !response.params.code) return setLoading(false);
-      var formData = new FormData();
-      formData.append('client_id', config.client_id)
-      formData.append('client_secret', '')
-      formData.append('grant_type', 'authorization_code')
-      formData.append('code', response.params.code)
-      formData.append('redirect_uri', config.redirect_uri)
-      fetch(discovery.tokenEndpoint, {
-        method: 'POST',
-        body: formData
-      }).then(async i=>{
-        var {token,user_id} = (await i.json()).data;
-        var {access_token} = token;
-        var reqformData = new FormData();
-        reqformData.append('data',JSON.stringify({user_id,access_token}))
-        reqformData.append('access_token',access_token)
-        var d = await fetch(`https://api.munzee.com/user`, {
-          method: 'POST',
-          body: reqformData
-        })
-        var {data: {username}} = await d.json();
+      (async function() {
+        console.log('Response',response);
+        if(!response.params || !response.params.teaken) return setLoading(false);
         var x = {};
-        x[user_id] = {
-          username,
-          token
+        x[response.params.user_id] = {
+          username: response.params.username,
+          teaken: response.params.teaken
         }
-        fetch(`https://server.cuppazee.app/authlog?platform=${Platform.OS}&user=${username}`)
+        var y = await fetch(`https://devserver.cuppazee.app/auth/get?teaken=${encodeURIComponent(response.params.teaken)}&user_id=${encodeURIComponent(response.params.user_id)}`)
+        x[response.params.user_id].token = (await y.json()).data;
         dispatch(login(x));
         setLoading(false);
-        setRedirect(user_id);
-      });
+        setRedirect(response.params.user_id);
+      })()
+      // if(!response.params || !response.params.code) return setLoading(false);
+      // var formData = new FormData();
+      // formData.append('client_id', config.client_id)
+      // formData.append('client_secret', '')
+      // formData.append('grant_type', 'authorization_code')
+      // formData.append('code', response.params.code)
+      // formData.append('redirect_uri', config.redirect_uri)
+      // fetch(discovery.tokenEndpoint, {
+      //   method: 'POST',
+      //   body: formData
+      // }).then(async i=>{
+      //   var {token,user_id} = (await i.json()).data;
+      //   var {access_token} = token;
+      //   var reqformData = new FormData();
+      //   reqformData.append('data',JSON.stringify({user_id,access_token}))
+      //   reqformData.append('access_token',access_token)
+      //   var d = await fetch(`https://api.munzee.com/user`, {
+      //     method: 'POST',
+      //     body: reqformData
+      //   })
+      //   var {data: {username}} = await d.json();
+      //   var x = {};
+      //   x[user_id] = {
+      //     username,
+      //     token
+      //   }
+      //   fetch(`https://server.cuppazee.app/authlog?platform=${Platform.OS}&user=${username}`)
+      //   dispatch(login(x));
+      //   setLoading(false);
+      //   setRedirect(user_id);
+      // });
     }
   }, [response]);
-  if(redirect) setTimeout(()=>navigation.navigate('UserDetails',{userid:redirect}),500)
+  if(redirect) setTimeout(()=>navigation.replace('UserDetails',{userid:redirect}),500)
   return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page_content.bg}}>{
     loading ? <ActivityIndicator size="large" color={theme.page_content.fg} /> : <>
     <Text style={{color:theme.page_content.fg,fontSize:24}}>{hasLogin?'Add a new User':'Welcome to CuppaZee'}</Text>
@@ -76,7 +101,7 @@ export default function AuthScreen () {
         onPress={() => {
           setLoading(true);
           promptAsync({
-            useProxy: config.useProxy,
+            useProxy: Oconfig.useProxy,
             redirectUri: config.redirect_uri
           });
         }}

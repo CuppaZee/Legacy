@@ -13,9 +13,9 @@ import font from '~sections/Shared/font';
 function DrawerItem(props) {
 
   return <TouchableRipple onPress={props.onPress} style={props.side=="right"?{
-    marginLeft:8,borderTopLeftRadius:8,borderBottomLeftRadius:8,opacity:props.style?.opacity??1
+    marginLeft:8,borderTopLeftRadius:8,borderBottomLeftRadius:8,opacity:props.style?.opacity??(props.focused?1:0.9)
   }:{
-    marginRight:8,borderTopRightRadius:8,borderBottomRightRadius:8,opacity:props.style?.opacity??1
+    marginRight:8,borderTopRightRadius:8,borderBottomRightRadius:8,opacity:props.style?.opacity??(props.focused?1:0.9)
   }}>
     <View style={props.side=="right"?{
       borderTopLeftRadius:8,borderBottomLeftRadius:8,backgroundColor:props.focused?props.activeBackgroundColor:"transparent",padding:4,paddingRight:16,flexDirection:"row",alignItems:"center"
@@ -31,9 +31,7 @@ function DrawerItem(props) {
   </TouchableRipple>
   /*<DrawerItem
         key={i.title}
-        activeBackgroundColor={theme.navigation.fg}
-        activeTintColor={theme.navigation.bg}
-        inactiveTintColor={theme.navigation.fg}
+        {...itemProps}
         style={{marginVertical:0}}
         focused={route.name==i.page}
         icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{margin: 4}} />}
@@ -70,26 +68,29 @@ export default function CustomDrawerContent(props) {
     // {title:t(`common:donate`),icon:"coin",page:"Donate",disabled:true},
     {title:`GitHub`,icon:"github-circle",page:"https://github.com/CuppaZee/CuppaZee",link:true}
   ].filter(i=>!i.hide)
+  var itemProps = {
+    side: props.side,
+    mini: mini,
+    activeBackgroundColor: theme.navigation_selected?.bg??theme.navigation.fg,
+    activeTintColor: theme.navigation_selected?.fg??theme.navigation.bg,
+    inactiveTintColor: theme.navigation.fg
+  }
   return (
     <DrawerContentScrollView style={{backgroundColor: theme.navigation.bg,...(theme.page_content.border?{borderRightWidth:1,borderRightColor:"white"}:{})}} {...props}>
     <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
-      <Text style={{fontSize:16,...font("bold"),color:"#fffa"}}>Remember this is a{Platform.OS=="android"?'n Early Access':' Beta'} build</Text>
-      <Text style={{fontSize:12,...font("bold"),color:"#fffa"}}>Feedback is welcome via Messenger or Email</Text>
+      <Text style={{fontSize:16,...font("bold"),color:theme.navigation.fg,opacity:0.8}}>Remember this is a{Platform.OS=="android"?'n Early Access':' Beta'} build</Text>
+      <Text style={{fontSize:12,...font("bold"),color:theme.navigation.fg,opacity:0.8}}>Feedback is welcome via Messenger or Email</Text>
     </View>
     {Platform.OS=="web"&&globalThis?.navigator?.userAgent?.match?.(/Android/)&&<View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
-      <Text style={{fontSize:16,...font("bold"),color:"#fffa"}}>CuppaZee Beta is now on Google Play</Text>
-      <Text style={{fontSize:12,...font("bold"),color:"#fffa"}}>Download it now!</Text>
+      <Text style={{fontSize:16,...font("bold"),color:theme.navigation.fg,opacity:0.8}}>CuppaZee Beta is now on Google Play</Text>
+      <Text style={{fontSize:12,...font("bold"),color:theme.navigation.fg,opacity:0.8}}>Download it now!</Text>
     </View>}
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
-        <Text style={{fontSize:16,...font("bold"),color:"#fffa"}}>Users</Text>
+        <Text style={{fontSize:16,...font("bold"),color:theme.navigation.fg,opacity:0.8}}>Users</Text>
       </View>
       {users?.map?.(i=><DrawerItem
-        side={props.side}
-        mini={mini}
         key={`user_${i[0]}`}
-        activeBackgroundColor={theme.navigation.fg}
-        activeTintColor={theme.navigation.bg}
-        inactiveTintColor={theme.navigation.fg}
+        {...itemProps}
         style={{marginVertical:0}}
         icon={({ focused, color, size }) => <Image style={{height: 32, width: 32, borderRadius: 16}} source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i[0]||0).toString(36)}.png`}} />}
         label={i[1].username||""}
@@ -103,11 +104,7 @@ export default function CustomDrawerContent(props) {
         }
       />)}
       <DrawerItem
-        side={props.side}
-        mini={mini}
-        activeBackgroundColor={theme.navigation.fg}
-        activeTintColor={theme.navigation.bg}
-        inactiveTintColor={theme.navigation.fg}
+        {...itemProps}
         style={{marginVertical:0}}
         focused={route.name=="UserSearch"}
         icon={({ focused, color, size }) => <MaterialCommunityIcons name="magnify" color={color} size={24} style={{margin: 4}} />}
@@ -121,13 +118,11 @@ export default function CustomDrawerContent(props) {
         }
       />
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
-        <Text style={{fontSize:16,...font("bold"),color:"#fffa"}}>Clans</Text>
+        <Text style={{fontSize:16,...font("bold"),color:theme.navigation.fg,opacity:0.8}}>Clans</Text>
       </View>
       <DrawerItem
         side={props.side}
-        activeBackgroundColor={theme.navigation.fg}
-        activeTintColor={theme.navigation.bg}
-        inactiveTintColor={theme.navigation.fg}
+        {...itemProps}
         style={{marginVertical:0}}
         focused={route.name=="ClanRequirements"&&route.params.gameid==87}
         icon={({ focused, color, size }) => <MaterialCommunityIcons name="star" color={color} size={24} style={{margin: 4}} />}
@@ -141,12 +136,8 @@ export default function CustomDrawerContent(props) {
         }
       />
       {clanBookmarks?.slice?.(0,showMoreClan?Infinity:clanBookmarks.length>6?5:6)?.map?.(i=><DrawerItem
-        side={props.side}
-        mini={mini}
         key={`clan_${i.clan_id}`}
-        activeBackgroundColor={theme.navigation.fg}
-        activeTintColor={theme.navigation.bg}
-        inactiveTintColor={theme.navigation.fg}
+        {...itemProps}
         style={{marginVertical:0}}
         focused={route.name=="Clan"&&route.params?.clanid==Number(i.clan_id)}
         icon={({ focused, color, size }) => <Image style={{height: 32, width: 32, borderRadius: 16}} source={{uri:i.logo??`https://munzee.global.ssl.fastly.net/images/clan_logos/${(i.clan_id||0).toString(36)}.png`}} />}
@@ -160,11 +151,7 @@ export default function CustomDrawerContent(props) {
         }
       />)}
       {clanBookmarks.length>6&&<DrawerItem
-        side={props.side}
-        mini={mini}
-        activeBackgroundColor={theme.navigation.fg}
-        activeTintColor={theme.navigation.bg}
-        inactiveTintColor={theme.navigation.fg}
+        {...itemProps}
         style={{marginVertical:0}}
         focused={false}
         icon={({ focused, color, size }) => <MaterialCommunityIcons name={showMoreClan?"chevron-up":"chevron-down"} color={color} size={24} style={{margin: 4}} />}
@@ -172,11 +159,7 @@ export default function CustomDrawerContent(props) {
         onPress={()=>setShowMoreClan(!showMoreClan)}
       />}
       <DrawerItem
-        side={props.side}
-        mini={mini}
-        activeBackgroundColor={theme.navigation.fg}
-        activeTintColor={theme.navigation.bg}
-        inactiveTintColor={theme.navigation.fg}
+        {...itemProps}
         style={{marginVertical:0}}
         focused={route.name=="ClanSearch"}
         icon={({ focused, color, size }) => <MaterialCommunityIcons name="magnify" color={color} size={24} style={{margin: 4}} />}
@@ -190,11 +173,7 @@ export default function CustomDrawerContent(props) {
         }
       />
       {clanBookmarks.length>0&&<DrawerItem
-        side={props.side}
-        mini={mini}
-        activeBackgroundColor={theme.navigation.fg}
-        activeTintColor={theme.navigation.bg}
-        inactiveTintColor={theme.navigation.fg}
+        {...itemProps}
         style={{marginVertical:0}}
         focused={route.name=="AllClans"}
         icon={({ focused, color, size }) => <MaterialCommunityIcons name="format-list-bulleted" color={color} size={24} style={{margin: 4}} />}
@@ -211,15 +190,11 @@ export default function CustomDrawerContent(props) {
         }
       />}
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
-        <Text style={{fontSize:16,...font("bold"),color:"#fffa"}}>{t('common:tools')}</Text>
+        <Text style={{fontSize:16,...font("bold"),color:theme.navigation.fg,opacity:0.8}}>{t('common:tools')}</Text>
       </View>
       {pages.map?.(i=><DrawerItem
-        side={props.side}
-        mini={mini}
         key={i.title}
-        activeBackgroundColor={theme.navigation.fg}
-        activeTintColor={theme.navigation.bg}
-        inactiveTintColor={theme.navigation.fg}
+        {...itemProps}
         style={{marginVertical:0}}
         focused={route.name==i.page}
         icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{margin: 4}} />}
@@ -233,15 +208,11 @@ export default function CustomDrawerContent(props) {
         }
       />)}
       <View style={{paddingTop: 8, paddingBottom: 4, paddingLeft: 16}}>
-        <Text style={{fontSize:16,...font("bold"),color:"#fffa"}}>{t('common:more')}</Text>
+        <Text style={{fontSize:16,...font("bold"),color:theme.navigation.fg,opacity:0.8}}>{t('common:more')}</Text>
       </View>
       {more.map?.(i=><DrawerItem
-        side={props.side}
-        mini={mini}
         key={i.title}
-        activeBackgroundColor={theme.navigation.fg}
-        activeTintColor={theme.navigation.bg}
-        inactiveTintColor={theme.navigation.fg}
+        {...itemProps}
         style={{marginVertical:0,opacity: i.disabled?0.6:1}}
         focused={route.name==i.page}
         icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{margin: 4}} />}

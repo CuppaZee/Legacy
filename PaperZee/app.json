@@ -9,9 +9,9 @@
       "android",
       "web"
     ],
-    "githubUrl": "https://github.com/CuppaZee/PaperZee",
+    "githubUrl": "https://github.com/CuppaZee/CuppaZee",
     "scheme": "cuppazee",
-    "version": "1.0.6",
+    "version": "1.1",
     "orientation": "default",
     "icon": "./assets/CuppaZeeIcon.png",
     "splash": {
@@ -27,7 +27,7 @@
     ],
     "ios": {
       "bundleIdentifier": "uk.cuppazee.paper",
-      "buildNumber": "1.0.0",
+      "buildNumber": "1.1",
       "icon": "./assets/CuppaZeeIcon.png",
       "requireFullScreen": false,
       "supportsTablet": true,

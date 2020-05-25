@@ -84,10 +84,15 @@ export default function ({user_id,date:dateInput}) {
   var dispatch = useDispatch();
   var users = useSelector(i => Object.keys(i.logins));
   
+  // const data = useAPIRequest({
+  //   endpoint: 'statzee/player/day',
+  //   data: {day:dateInput||dateString},
+  //   user: user_id
+  // })
   const data = useAPIRequest({
-    endpoint: 'statzee/player/day',
-    data: {day:dateInput||dateString},
-    user: user_id
+    endpoint: 'user/activity',
+    data: {day:dateString,user_id},
+    cuppazee: true
   })
   // var { data } = useSelector(i => i.request_data[`user/activity?user_id=${user_id}&day=${dateString}`] ?? {})
   // var { data: userdata } = useSelector(i => i.request_data[`user/details?user_id=${user_id}`] ?? {})

@@ -62,13 +62,13 @@ export default function UserActivityDash({ game_id, scale: s = 1 }) {
   return (
     // <View style={{ flex: 1, alignItems: "stretch", flexDirection: "column", backgroundColor: "#e9ffdc"??"#e6fcd9", borderRadius: 8 }}>
     <Card noPad>
-      <View style={{ ...(darkBG?{borderBottomWidth: 2*s, borderBottomColor: level_colors.border}:{}), backgroundColor: theme.navigation.bg, paddingHorizontal: 8*s, borderTopLeftRadius: 8*s, borderTopRightRadius: 8*s, flexDirection: "row", alignItems: "center" }}>
+      <View style={{ ...(darkBG?{borderBottomWidth: 2*s, borderBottomColor: level_colors.border}:{}), backgroundColor: (theme.clanCardHeader||theme.navigation).bg, paddingHorizontal: 8*s, borderTopLeftRadius: 8*s, borderTopRightRadius: 8*s, flexDirection: "row", alignItems: "center" }}>
         <View style={{flex:1,paddingVertical:8*s}}>
-          <Text style={{ color: theme.navigation.fg, ...font("bold"), fontSize: 12*s, opacity: 0.7, lineHeight: 12*s }}>{data?.battle.title.slice(10)}</Text>
-          <Text style={{ color: theme.navigation.fg, ...font("bold"), fontSize: 16*s, lineHeight: 16*s }}>{reward?'Rewards':'Requirements'}</Text>
+          <Text style={{ color: (theme.clanCardHeader||theme.navigation).fg, ...font("bold"), fontSize: 12*s, opacity: 0.7, lineHeight: 12*s }}>{data?.battle.title.slice(10)}</Text>
+          <Text style={{ color: (theme.clanCardHeader||theme.navigation).fg, ...font("bold"), fontSize: 16*s, lineHeight: 16*s }}>{reward?'Rewards':'Requirements'}</Text>
         </View>
         <TouchableRipple style={{borderRadius:24*s,padding:4*s}} onPress={()=>{setReward(!reward)}}>
-          <MaterialCommunityIcons name="gift" size={24*s} color={theme.navigation.fg} />
+          <MaterialCommunityIcons name="gift" size={24*s} color={(theme.clanCardHeader||theme.navigation).fg} />
         </TouchableRipple>
       </View>
       {data?.levels?.length>0&&<View style={{flexDirection:"row"}}>

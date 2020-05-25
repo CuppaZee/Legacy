@@ -10,7 +10,7 @@
   },
   "hosting": [
     {
-      "target": "flame",
+      "target": "server",
       "public": "public",
       "ignore": [
         "firebase.json",
@@ -27,177 +27,13 @@
           "destination": "/cuppazeeprivacy.html"
         },
         {
-          "source": "/db/munzees/list",
-          "function": "db_munzees_list_v1"
-        },
-        {
-          "source": "/db/munzees/list/v1",
-          "function": "db_munzees_list_v1"
-        },
-        {
-          "source": "/auth",
-          "function": "auth_v1"
-        },
-        {
-          "source": "/auth/v1",
-          "function": "auth_v1"
-        },
-        {
-          "source": "/auth/cryptoken",
-          "function": "generateCryptokens"
-        },
-        {
-          "source": "/bouncers/limbo",
-          "function": "bouncers_limbo_v1"
-        },
-        {
-          "source": "/bouncers/limbo/v1",
-          "function": "bouncers_limbo_v1"
-        },
-        {
-          "source": "/user/details",
-          "function": "user_details_v1"
-        },
-        {
-          "source": "/user/details/v1",
-          "function": "user_details_v1"
-        },
-        {
-          "source": "/user/clan",
-          "function": "user_clan_v1"
-        },
-        {
-          "source": "/user/clan/v1",
-          "function": "user_clan_v1"
-        },
-        {
-          "source": "/user/activity",
-          "function": "user_activity_v1"
-        },
-        {
-          "source": "/user/activity/v1",
-          "function": "user_activity_v1"
-        },
-        {
-          "source": "/user/inventory",
-          "function": "user_inventory_v1"
-        },
-        {
-          "source": "/user/inventory/v1",
-          "function": "user_inventory_v1"
-        },
-        {
-          "source": "/user/badges",
-          "function": "user_badges"
-        },
-        {
-          "source": "/user/specials",
-          "function": "user_specials_v1"
-        },
-        {
-          "source": "/user/specials/v1",
-          "function": "user_specials_v1"
-        },
-        {
-          "source": "/user/quest",
-          "function": "user_quest_v1"
-        },
-        {
-          "source": "/user/quest/v1",
-          "function": "user_quest_v1"
-        },
-        {
-          "source": "/user/search",
-          "function": "user_search_v1"
-        },
-        {
-          "source": "/user/search/v1",
-          "function": "user_search_v1"
-        },
-        {
-          "source": "/munzee/specials/overview",
-          "function": "munzee_specials_overview"
-        },
-        {
-          "source": "/munzee/bouncers/overview",
-          "function": "munzee_bouncers_overview"
-        },
-        {
-          "source": "/munzee/bouncers",
-          "function": "munzee_bouncers_v1"
-        },
-        {
-          "source": "/munzee/bouncers/v1",
-          "function": "munzee_bouncers_v1"
-        },
-        {
-          "source": "/clan/requirements/v1",
-          "function": "clan_requirements_v1"
-        },
-        {
-          "source": "/clan/requirements",
-          "function": "clan_requirements"
-        },
-        {
-          "source": "/clan/rewards/v1",
-          "function": "clan_rewards_v1"
-        },
-        {
-          "source": "/clan/rewards",
-          "function": "clan_rewards_v1"
-        },
-        {
-          "source": "/clan/list",
-          "function": "clan_list_v1"
-        },
-        {
-          "source": "/clan/list/v1",
-          "function": "clan_list_v1"
-        },
-        {
-          "source": "/clan/details",
-          "function": "clan_details"
-        },
-        {
-          "source": "/clan/details/formatted",
-          "function": "clan_details_v1"
-        },
-        {
-          "source": "/clan/details",
-          "function": "clan_details_v1"
-        },
-        {
-          "source": "/clan/details/v1",
-          "function": "clan_details_v1"
-        },
-        {
-          "source": "/clan/shadow",
-          "function": "clan_shadow_v1"
-        },
-        {
-          "source": "/clan/shadow/v1",
-          "function": "clan_shadow_v1"
-        },
-        {
-          "source": "/munzee/deploytime",
-          "function": "munzee_deploytime"
-        },
-        {
-          "source": "/bingo",
-          "function": "bingo"
-        },
-        {
-          "source": "/authlog",
-          "function": "authlog"
-        },
-        {
           "source": "**",
           "function": "api"
         }
       ]
     },
     {
-      "target": "paper",
+      "target": "app",
       "public": "paper",
       "ignore": [
         "firebase.json",
@@ -228,51 +64,6 @@
         {
           "source": "**",
           "destination": "/index.html"
-        }
-      ]
-    },
-    {
-      "target": "oldpaper",
-      "public": "oldpaper",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
-      "target": "clan",
-      "public": "clan",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
-      "target": "down",
-      "public": "down",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "function": "down"
         }
       ]
     }

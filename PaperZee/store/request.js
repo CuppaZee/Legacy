@@ -55,25 +55,6 @@ async function makeRequest(getState, dispatch, pageInput, force) {
       for (var loop = 0; loop < 2; loop++) {
         // Get Updated Token
         var token_data = getState().logins[use_user].token;
-        if ((token_data.expires * 1000) > Date.now() + 10000 || loop == 1) {
-          var formData = new FormData();
-          formData.append('client_id', config.client_id)
-          formData.append('client_secret', config.client_secret)
-          formData.append('grant_type', 'refresh_token')
-          formData.append('refresh_token', token_data.refresh_token)
-          var n = await fetch('https://api.munzee.com/oauth/login', {
-            method: 'POST',
-            body: formData
-          })
-          var ne = await n.json();
-          console.log(ne);
-          var new_token = { ...token_data, ...ne.data.token };
-          var x = {};
-          x[use_user] = getState().logins[use_user]
-          x[use_user].token = new_token;
-          dispatch(login(x))
-          token_data = new_token;
-        }
         var token = token_data.access_token;
 
         // Request Data
@@ -83,9 +64,9 @@ async function makeRequest(getState, dispatch, pageInput, force) {
             var reqformData = new FormData();
             reqformData.append('data', stringify({ ...page.data, page: i, access_token: token }))
             reqformData.append('access_token', token)
-            var d = await fetch(`https://api.munzee.com/${page.endpoint}`, {
+            var d = await fetch(`${page.cuppazee?'https://devserver.cuppazee.app':'https://api.munzee.com'}/${page.endpoint}`, {
               method: 'POST',
-              body: reqformData
+              body: page.cuppazee?stringify({ ...page.data, page: i, access_token: token }):reqformData
             })
             var da = await d.json();
             if(da?.data) loop = 10;
@@ -96,9 +77,9 @@ async function makeRequest(getState, dispatch, pageInput, force) {
           var reqformData = new FormData();
           reqformData.append('data', stringify({ ...page.data, access_token: token }))
           reqformData.append('access_token', token)
-          var d = await fetch(`https://api.munzee.com/${page.endpoint}`, {
+          var d = await fetch(`${page.cuppazee?'https://devserver.cuppazee.app':'https://api.munzee.com'}/${page.endpoint}`, {
             method: 'POST',
-            body: reqformData
+            body: page.cuppazee?stringify({ ...page.data, access_token: token }):reqformData
           })
           data = await d.json();
           if(data?.data) loop = 10;

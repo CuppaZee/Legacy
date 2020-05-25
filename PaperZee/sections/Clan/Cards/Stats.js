@@ -214,16 +214,16 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
   return (
     // <View style={{ flex: 1, alignItems: "stretch", flexDirection: "column", backgroundColor: "#e9ffdc"??"#e6fcd9", borderRadius: 8 }}>
     <Card noPad>
-      <View style={{ ...(darkBG?{borderBottomWidth: 2*s, borderBottomColor: level_colors.border}:{}), backgroundColor: theme.navigation.bg, paddingHorizontal: 8*s, borderTopLeftRadius: 8*s, borderTopRightRadius: 8*s, flexDirection: "row", alignItems: "center" }}>
+      <View style={{ ...(darkBG?{borderBottomWidth: 2*s, borderBottomColor: level_colors.border}:{}), backgroundColor: (theme.clanCardHeader||theme.navigation).bg, paddingHorizontal: 8*s, borderTopLeftRadius: 8*s, borderTopRightRadius: 8*s, flexDirection: "row", alignItems: "center" }}>
         <View style={{flex:1,paddingVertical:8*s}}>
-    <Text style={{ color: theme.navigation.fg, ...font("bold"), fontSize: 12*s, opacity: 0.7, lineHeight: 12*s }}>{clan?.details?.goal??'Shadow Clan'}{clan?.details?.goal&&' Goal'} - {levelTable?'Subtract View':'Total View'}{!showGhost&&" - Hiding Shadow Members"}</Text>
-          <Text style={{ color: theme.navigation.fg, ...font("bold"), fontSize: 16*s, lineHeight: 16*s }}>{clan?.details?.name}</Text>
+    <Text style={{ color: (theme.clanCardHeader||theme.navigation).fg, ...font("bold"), fontSize: 12*s, opacity: 0.7, lineHeight: 12*s }}>{clan?.details?.goal??'Shadow Clan'}{clan?.details?.goal&&' Goal'} - {levelTable?'Subtract View':'Total View'}{!showGhost&&" - Hiding Shadow Members"}</Text>
+          <Text style={{ color: (theme.clanCardHeader||theme.navigation).fg, ...font("bold"), fontSize: 16*s, lineHeight: 16*s }}>{clan?.details?.name}</Text>
         </View>
         {shadow_clans.includes(Number(clan_id))&&Number(clan_id)>=0&&<TouchableRipple style={{borderRadius:24*s,padding:4*s}} onPress={()=>{setShowGhost(!showGhost)}}>
-          <MaterialCommunityIcons name="ghost" size={24*s} color={theme.navigation.fg} />
+          <MaterialCommunityIcons name="ghost" size={24*s} color={(theme.clanCardHeader||theme.navigation).fg} />
         </TouchableRipple>}
         <TouchableRipple style={{borderRadius:24*s,padding:4*s}} onPress={()=>{setLevelTable(!levelTable)}}>
-          <MaterialCommunityIcons name="plus-minus" size={24*s} color={theme.navigation.fg} />
+          <MaterialCommunityIcons name="plus-minus" size={24*s} color={(theme.clanCardHeader||theme.navigation).fg} />
         </TouchableRipple>
       </View>
         {/* <View style={{flex:1,paddingVertical:8}}>

@@ -39,25 +39,21 @@ var hostIcon = (icon) => {
 
 export default function UserActivityDash({user_id}) {
   var theme = useSelector(i=>i.themes[i.theme])
-  var has_login = useSelector(i=>!!i.logins[user_id]);
   var nav = useNavigation();
   var date = new Date(Date.now() - (5 * 60 * 60000));
   var dateString = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${(date.getUTCDate()).toString().padStart(2, '0')}`
-  const data = useAPIRequest(has_login?{
-    endpoint: 'statzee/player/day',
-    data: {day:dateString},
-    user: user_id
-  }:null)
+  const data = useAPIRequest({
+    endpoint: 'user/activity',
+    data: {day:dateString,user_id},
+    cuppazee: true
+  })
+  // const data = useAPIRequest(has_login?{
+  //   endpoint: 'statzee/player/day',
+  //   data: {day:dateString},
+  //   user: user_id
+  // }:null)
   if (!data?.captures) {
-    if(!has_login) {
-      return (
-        <Card>
-          <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-            <MaterialCommunityIcons name="lock" size={48} color={theme.page_content.fg} />
-          </View>
-        </Card>
-      )
-    } else if(!data) {
+    if(!data) {
       return (
         <Card>
           <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
@@ -87,7 +83,7 @@ export default function UserActivityDash({user_id}) {
           <MaterialCommunityIcons name="chevron-right" size={24} color={theme.navigation.fg} />
         </View>
       </TouchableRipple>
-      {data?.captures?<ActivityOverview user_id={user_id}/>??<>
+      {data?.captures?<View style={{paddingBottom:4}}><ActivityOverview user_id={user_id}/></View>??<>
         <View key="total" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
           <View><Text style={{ fontSize: 24, ...font("bold") }}>{[...data?.captures??[], ...data?.deploys??[], ...data?.captures_on??[]].reduce((a, b) => a + Number(b.points_for_creator ?? b.points), 0)} Points</Text></View>
         </View>

@@ -60,7 +60,9 @@ import { useDimensions } from '@react-native-community/hooks';
 import * as WebBrowser from 'expo-web-browser';
 import Header from './sections/Main/Header';
 
-WebBrowser?.maybeCompleteAuthSession?.();
+WebBrowser?.maybeCompleteAuthSession?.({
+  skipRedirectCheck: true
+});
 
 const Drawer = createDrawerNavigator();
 
@@ -83,31 +85,6 @@ function StackNav () {
     screenOptions={({ navigation, route }) => ({
       gestureEnabled: Platform.OS == 'ios',
       header: (props) => <Header {...(props||{})}/>
-      // headerStyle: {
-      //   backgroundColor: theme.navigation.bg
-      // },
-      // headerLeft: () => (
-      //   width<=1000?<View style={{flexDirection:"row"}}>
-      //     {width<=1000&&<IconButton
-      //       onPress={() => navigation.toggleDrawer()}
-      //       color="#fff"
-      //       icon="menu"
-      //     />}
-      //   </View>:null
-      // ),
-      // headerRight: () => {
-      //   return loggedIn && (
-      //     <View style={{ flexDirection: "row" }}>
-      //       {(route.name == "Home" || !loggedIn || navigation.dangerouslyGetState().index<1) ? null : <IconButton
-      //         onPress={() => navigation.pop()}
-      //         color="#fff"
-      //         icon="arrow-left"
-      //       />}
-      //       <LoadingButton />
-      //     </View>
-      //   )
-      // },
-      // headerTintColor: '#fff',
     })}>
     {loggedIn && <>
       <Stack.Screen
@@ -232,12 +209,13 @@ function StackNav () {
 
 function DrawerNav() {
   var { width } = useDimensions().window;
+  var loggedIn = useSelector(i=>i.loggedIn);
   return <Drawer.Navigator
     drawerPosition="left"
     drawerStyle={{width:width>1000?260:Math.min(320,width)}}
     drawerContent={props => <DrawerContent side="left" {...props} />}
-    drawerType={width>1000?"permanent":"front"}
-    edgeWidth={100}
+    drawerType={(width>1000&&loggedIn)?"permanent":"front"}
+    edgeWidth={loggedIn?100:0}
   >
     <Drawer.Screen
       name="__primary"

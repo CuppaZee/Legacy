@@ -49,9 +49,9 @@ export default function UserActivityScreen() {
   var user_id = Number(route.params.userid);
   const [data,userdata] = useAPIRequest([
     {
-      endpoint: 'statzee/player/day',
-      data: {day:dateString},
-      user: user_id
+      endpoint: 'user/activity',
+      data: {day:dateString,user_id},
+      cuppazee: true
     },
     {
       endpoint: 'user',
