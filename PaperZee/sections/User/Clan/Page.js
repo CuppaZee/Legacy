@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
+import { Text, View, Image, ScrollView, ActivityIndicator, TouchableHighlightComponent } from 'react-native';
+import { Button } from 'react-native-paper';
 import Card from '~sections/Shared/Card';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -7,7 +8,6 @@ import { FAB } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import RequirementsCard from '~sections/Clan/Cards/Requirements';
 import useAPIRequest from '~sections/Shared/useAPIRequest';
-import MHQ from '~sections/Shared/MHQ';
 import { ClanRequirementsConverter } from '../../Clan/Data';
 import font from '~sections/Shared/font';
 import { FlatList } from 'react-native-gesture-handler';
@@ -20,6 +20,7 @@ export default function ClanScreen({ route }) {
   var selected_theme = useSelector(i=>i.theme);
   var theme = useSelector(i => i.themes[i.theme]);
   var dark = false;
+  var [cookies,setCookies] = React.useState(0);
   var level_colors = {
     ind: "#ffe97f",
     bot: "#dff77e",
@@ -42,34 +43,27 @@ export default function ClanScreen({ route }) {
   var nav = useNavigation();
   var logins = useSelector(i => i.logins);
   var user_id = Number(route.params.userid)
-  var arr = []
-  var current_date = MHQ();
-  for(var i = 3;i <= current_date.date();i++) {
-    arr.push(i);
-  }
   var unformatted_requirements = useAPIRequest({
     endpoint: 'clan/v2/requirements',
     data: {clan_id:1349,game_id:86}
   })
-  var unformatted_data = useAPIRequest(arr.map(i=>({
-    endpoint: 'statzee/player/day',
-    data: {day:`${current_date.year()}-${(current_date.month()+1).toString().padStart(2,'0')}-${i.toString().padStart(2,'0')}`},
-    user: user_id,
-    converter: "ClanProgress"
-  })))
-  var gotData = false;
-  var data = {};
-  if(!(unformatted_data.findIndex(i=>!i)+1)) {
-    gotData = true;
-    for(let day of unformatted_data) {
-      for(let x in day) {
-        data[x] = (data[x]||0) + day[x];
-      }
-    }
-  }
-  if(!gotData) {
-    return <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page.bg }}>
+  var data = useAPIRequest({
+    endpoint: 'user/clanprogress',
+    data: {user_id},
+    cuppazee: true
+  })
+  if(!data) {
+    return <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: theme.page.bg }}>
       <ActivityIndicator size="large" color={theme.page.fg} />
+      <Text style={{color:theme.page.fg,textAlign:"center",marginTop:4,fontSize:18}}>All of our elves are working hard on this</Text>
+      <Text style={{color:theme.page.fg,textAlign:"center",marginTop:4,fontSize:14}}>This may still take a few moments, please be patient</Text>
+      <Button
+        style={{marginTop:4}}
+        color={theme.page.fg}
+        mode="contained"
+        onPress={()=>setCookies(cookies+1)}
+      >Feed the elves a cookie</Button>
+      <Text style={{color:theme.page.fg,textAlign:"center",marginTop:4,fontSize:20}}>🍪 {cookies} Cookies Fed</Text>
     </View>
   }
   var requirements = ClanRequirementsConverter(unformatted_requirements);
@@ -89,7 +83,7 @@ export default function ClanScreen({ route }) {
       <ScrollView
         contentContainerStyle={{ width: 600, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4, paddingBottom: 92 }}
         style={{ flex: 1, backgroundColor: theme.page.bg }}>
-        {gotData&&<FlatList
+        <FlatList
           style={{flexGrow:0}}
           data={requirements?.order?.requirements}
           extraData={data}
@@ -111,10 +105,10 @@ export default function ClanScreen({ route }) {
               </View>
             </Card>
           </View>}
-        />}
-        {gotData&&<View style={{padding:4,flex:1}}>
+        />
+        <View style={{padding:4,flex:1}}>
           <RequirementsCard game_id={86}/>
-        </View>}
+        </View>
       </ScrollView>
       {/* <Portal> */}
         <FAB.Group

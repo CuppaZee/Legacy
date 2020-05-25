@@ -1,4 +1,4 @@
-var retrieve = require("../retrievetoken");
+var {retrieve} = require("../util");
 
 module.exports = {
   path: "auth/get",

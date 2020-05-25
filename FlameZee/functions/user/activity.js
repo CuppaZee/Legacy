@@ -1,5 +1,4 @@
-var retrieve = require("../retrievetoken");
-var request = require("../requestapi");
+var {retrieve,request} = require("../util");
 
 module.exports = {
   path: "user/activity",

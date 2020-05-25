@@ -1,6 +1,6 @@
 var fetch = require("node-fetch");
 var { URLSearchParams } = require("url");
-var config = require('./config.json');
+var config = require('../config.json');
 module.exports = async function (db, {user_id,teaken}, time) {
   try {
     var doc = db.collection('auth').doc(user_id.toString());

@@ -1,5 +1,4 @@
-var retrieve = require("../retrievetoken");
-var request = require("../requestapi");
+var {retrieve,request} = require("../util");
 
 module.exports = {
   path: "user/inventory",
@@ -21,10 +20,10 @@ module.exports = {
         var undeployed = [];
         for (var page = 0; page < 10; page++) {
             let und = await request('user/undeploys', { page }, access_token);
-            if (!und.has_more) {
+            if (!und || !und.has_more) {
                 page = 10;
             }
-            undeployed = undeployed.concat(und.munzees);
+            undeployed = undeployed.concat(und?und.munzees:[]);
         }
         undeployed = Object.entries(undeployed.map(i => i.pin_icon.match(/\/([^./]+).png/)[1]).reduce((obj, item) => {
             obj[item] = (obj[item] || 0) + 1;
