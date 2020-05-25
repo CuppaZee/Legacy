@@ -1,12 +1,12 @@
 import amoleddark from './theme_amoleddark';
 import dark from './theme_dark';
 import light from './theme_light';
-import green from './theme_green';
+import white from './theme_white';
 
 export default {
   _default: "light",
   xdark: amoleddark,
   dark: dark,
   light: light,
-  green: green
+  white: white
 }

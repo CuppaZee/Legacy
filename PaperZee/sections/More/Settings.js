@@ -85,7 +85,7 @@ export default function SettingsScreen({ navigation }) {
             <Text style={{color:theme.page_content.fg,...font()}}>Current Theme: {selected_theme}</Text>
             <View style={{flexDirection:"row",flexWrap:"wrap"}}>
               {[
-                ["Green","green"],
+                ["White","white"],
                 ["Light","light"],
                 ["Dark","dark"],
                 ["Darkest","xdark"]
