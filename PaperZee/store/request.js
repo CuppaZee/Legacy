@@ -4,7 +4,7 @@ import stringify from 'fast-json-stable-stringify';
 import config from '~sections/Shared/Config';
 var login_ = (data) => ({ type: "LOGIN", data: data })
 var login = (data, noUpdate) => async (dispatch, getState) => {
-  if (!noUpdate) await AsyncStorage.setItem('CUPPAZEE_STORE_API_TOKENS', JSON.stringify({ ...getState().logins, ...data }));
+  if (!noUpdate) await AsyncStorage.setItem('CUPPAZEE_TEAKENS', JSON.stringify({ ...getState().logins, ...data }));
   dispatch(login_(data));
 }
 

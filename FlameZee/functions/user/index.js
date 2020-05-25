@@ -1,3 +1,4 @@
 module.exports = [
-  require('./activity')
+  require('./activity'),
+  require('./inventory')
 ]
