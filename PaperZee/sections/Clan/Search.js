@@ -33,8 +33,12 @@ export default function SearchScreen({ navigation }) {
   }
   
   var reqData = {
-    endpoint: `clan/list/v1?format=list&query=${encodeURIComponent(search)}`,
-    flameZee: true
+    endpoint: `clan/list/v1`,
+    data: {
+      query: search,
+      format: "list"
+    },
+    cuppazee: true
   }
   var clans = useSelector(i => i.request_data[stringify(reqData)] ?? {})
   useFocusEffect(

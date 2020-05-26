@@ -6,7 +6,7 @@ const cors = require("cors")({
   origin: true,
 });
 
-var routes = [...require("./user"), ...require("./auth")];
+var routes = [...require("./user"), ...require("./auth"), ...require("./minute"), ...require("./clan")];
 console.log(routes);
 
 exports.api = functions.https.onRequest(async (req, res) => {
@@ -74,15 +74,15 @@ exports.api = functions.https.onRequest(async (req, res) => {
       }
       var body = {};
       try {
-        if(typeof req.body === "string") {
+        if (typeof req.body === "string") {
           body = JSON.parse(req.body || "{}");
         } else {
           body = req.body;
         }
-      } catch(e) {
+      } catch (e) {
         console.log(e);
       }
-      var params = Object.assign({}, req.query || {}, body || {} );
+      var params = Object.assign({}, req.query || {}, body || {});
       var response = await use.function({
         params: params,
         res,
