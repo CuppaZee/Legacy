@@ -35,8 +35,11 @@ export default function UserActivityDash({ game_id, scale: s = 1 }) {
     data: {clan_id:1349,game_id}
   })
   var unformatted_rewards = useAPIRequest({
-    endpoint: `clan/rewards/v1?game_id=${game_id}`,
-    flameZee: true
+    endpoint: 'clan/rewards/v1',
+    data: {
+      game_id
+    },
+    cuppazee: true
   })
   var data = ClanRequirementsConverter(unformatted_requirements,unformatted_rewards);
   var tick = useSelector(i => i.tick)

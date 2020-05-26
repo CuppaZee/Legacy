@@ -1,3 +1,4 @@
 module.exports = [
-  require('./list')
+  require('./list'),
+  require('./rewards')
 ];
