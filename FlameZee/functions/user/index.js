@@ -1,5 +1,6 @@
 module.exports = [
   require('./activity'),
   require('./inventory'),
-  require('./clanprogress')
+  require('./clanprogress'),
+  require('./quest')
 ]
