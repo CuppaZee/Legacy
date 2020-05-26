@@ -6,7 +6,7 @@ const cors = require("cors")({
   origin: true,
 });
 
-var routes = [...require("./user"), ...require("./auth"), ...require("./minute"), ...require("./clan")];
+var routes = [...require("./user"), ...require("./auth"), ...require("./minute"), ...require("./clan"), ...require("./munzee")];
 console.log(routes);
 
 exports.api = functions.https.onRequest(async (req, res) => {
