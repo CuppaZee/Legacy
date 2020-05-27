@@ -30,10 +30,14 @@ var tasks = {
     top: "Total",
     bottom: "Deploys",
     icon: "https://munzee.global.ssl.fastly.net/images/pins/owned.png",
-    function: ({ dep, arc }) => {
+    function: ({ dep, arc, no_reduce }) => {
       return [...dep,...arc].filter(i => !g(i).personal).reduce((a,b)=>{
         if(b.archived_at) {
-          delete a[b.id];
+          if(no_reduce) {
+            a[b.id] = "delete";
+          } else {
+            delete a[b.id];
+          }
         } else {
           a[b.id] = true;
         }
@@ -184,7 +188,8 @@ function calculate(data = [], no_reduce) {
     cap: [],
     con: [],
     dep: [],
-    arc: []
+    arc: [],
+    no_reduce
   }
   var output = {};
   for (var day of data) {

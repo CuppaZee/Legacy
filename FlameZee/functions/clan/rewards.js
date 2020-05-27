@@ -1,4 +1,3 @@
-
 var { request, retrieve } = require('../util');
 const POLYfromEntries = require('object.fromentries')
 module.exports = {

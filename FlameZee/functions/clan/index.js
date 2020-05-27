@@ -1,4 +1,5 @@
 module.exports = [
   require('./list'),
-  require('./rewards')
+  require('./rewards'),
+  require('./shadow')
 ];

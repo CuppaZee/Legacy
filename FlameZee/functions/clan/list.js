@@ -1,4 +1,3 @@
-
 var Fuse = require('fuse.js');
 module.exports = {
   path: "clan/list",
