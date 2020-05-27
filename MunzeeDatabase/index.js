@@ -39,7 +39,8 @@ console.log(`${colors.bg.Green}${colors.fg.Black} Generating Types... ${colors.R
 
 categories.push({
   name: "Bouncer Hosts",
-  id: "bouncerhost"
+  id: "bouncerhost",
+  icon: "expiring_specials_filter"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Destinations${colors.Reset} from ${colors.fg.Green}./types/destination.json${colors.Reset}`)
@@ -67,7 +68,8 @@ munzees = munzees.concat(require('./types/destination.json').map(i => ({
 })))
 categories.push({
   name: "Destinations",
-  id: "destination"
+  id: "destination",
+  icon: "destination"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Custom Events${colors.Reset} from ${colors.fg.Green}./types/event.json${colors.Reset}`)
@@ -85,8 +87,9 @@ munzees = munzees.concat(require('./types/event.json').map(i => ({
   from_file: "./types/event.json"
 })))
 categories.push({
-  name: "Events",
-  id: "event"
+  name: "Events - DO NOT CLICK",
+  id: "event",
+  icon: "event"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Evolutions${colors.Reset} from ${colors.fg.Green}./types/evolution.json${colors.Reset}`)
@@ -109,7 +112,8 @@ munzees = munzees.concat(require('./types/evolution.json').map(i => ({
 })))
 categories.push({
   name: "Evolutions",
-  id: "evolution"
+  id: "evolution",
+  icon: "evolution"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Fancy Flats${colors.Reset} from ${colors.fg.Green}./types/fancyflat.json${colors.Reset}`)
@@ -146,7 +150,8 @@ munzees = munzees.concat(require('./types/fancyflat.json').map(i => ({
 })))
 categories.push({
   name: "Fancy Flats",
-  id: "fancyflat"
+  id: "fancyflat",
+  icon: "tuxflatrob"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Flats${colors.Reset} from ${colors.fg.Green}./types/flat.json${colors.Reset}`)
@@ -166,7 +171,8 @@ munzees = munzees.concat(require('./types/flat.json').map(i => ({
 })))
 categories.push({
   name: "Flats",
-  id: "flat"
+  id: "flat",
+  icon: "flatrob"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Gaming${colors.Reset} from ${colors.fg.Green}./types/gaming.json${colors.Reset}`)
@@ -185,7 +191,8 @@ munzees = munzees.concat(require('./types/gaming.json').map(i => ({
 })))
 categories.push({
   name: "Gaming",
-  id: "gaming"
+  id: "gaming",
+  icon: "joystickfull"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Jewels${colors.Reset} from ${colors.fg.Green}./types/jewel.json${colors.Reset}`)
@@ -204,7 +211,8 @@ munzees = munzees.concat(require('./types/jewel.json').map(i => ({
 })))
 categories.push({
   name: "Jewels",
-  id: "jewel"
+  id: "jewel",
+  icon: "diamond"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Virtuals${colors.Reset} from ${colors.fg.Green}./types/virtual.json${colors.Reset}`)
@@ -223,7 +231,8 @@ munzees = munzees.concat(require('./types/virtual.json').map(i => ({
 })))
 categories.push({
   name: "Virtuals",
-  id: "virtual"
+  id: "virtual",
+  icon: "virtual"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Misc${colors.Reset} from ${colors.fg.Green}./types/misc.json${colors.Reset}`)
@@ -241,7 +250,8 @@ munzees = munzees.concat(require('./types/misc.json').map(i => ({
 })))
 categories.push({
   name: "Misc.",
-  id: "misc"
+  id: "misc",
+  icon: "munzee"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Mysteries${colors.Reset} from ${colors.fg.Green}./types/mystery.json${colors.Reset}`)
@@ -260,7 +270,8 @@ munzees = munzees.concat(require('./types/mystery.json').map(i => ({
 })))
 categories.push({
   name: "Mysteries",
-  id: "mystery"
+  id: "mystery",
+  icon: "mystery"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Mythologicals${colors.Reset} from ${colors.fg.Green}./types/myth.js${colors.Reset}`)
@@ -294,7 +305,8 @@ munzees = munzees.concat(require('./types/myth').map(i => ({
 })))
 categories.push({
   name: "Mythologicals",
-  id: "myth"
+  id: "myth",
+  icon: "theunicorn_full"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}POIs${colors.Reset} from ${colors.fg.Green}./types/poi.json${colors.Reset}`)
@@ -313,7 +325,8 @@ munzees = munzees.concat(require('./types/poi.json').map(i => ({
 })))
 categories.push({
   name: "Places of Interest",
-  id: "poi"
+  id: "poi",
+  icon: "poi_filter"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Resellers${colors.Reset} from ${colors.fg.Green}./types/reseller.json${colors.Reset}`)
@@ -332,7 +345,8 @@ munzees = munzees.concat(require('./types/reseller.json').map(i => ({
 })))
 categories.push({
   name: "Resellers",
-  id: "reseller"
+  id: "reseller",
+  icon: "reseller"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Weapons${colors.Reset} from ${colors.fg.Green}./types/weapon.json${colors.Reset}`)
@@ -351,11 +365,13 @@ munzees = munzees.concat(require('./types/weapon.json').map(i => ({
 })))
 categories.push({
   name: "Clan Weapons",
-  id: "clan"
+  id: "clan",
+  icon: "mace"
 })
 categories.push({
   name: "Zeecret Weapons",
-  id: "zeecret"
+  id: "zeecret",
+  icon: "briefcase"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Zodiacs${colors.Reset} from ${colors.fg.Green}./types/zodiac.json${colors.Reset}`)
@@ -374,11 +390,13 @@ munzees = munzees.concat(require('./types/zodiac.json').map(i => ({
 })))
 categories.push({
   name: "Western Zodiacs",
-  id: "western_zodiac"
+  id: "western_zodiac",
+  icon: "zodiac"
 })
 categories.push({
   name: "Chinese Zodiacs",
-  id: "chinese_zodiac"
+  id: "chinese_zodiac",
+  icon: "chinese_zodiac"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Tourisms${colors.Reset} from ${colors.fg.Green}./types/tourism.json${colors.Reset}`)
@@ -397,7 +415,8 @@ munzees = munzees.concat(require('./types/tourism.json').map(i => ({
 })))
 categories.push({
   name: "Tourism",
-  id: "tourism"
+  id: "tourism",
+  icon: "tourism_filter"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Cards${colors.Reset} from ${colors.fg.Green}./types/cards.json${colors.Reset}`)
@@ -417,7 +436,8 @@ munzees = munzees.concat(require('./types/cards.json').map(i => ({
 })))
 categories.push({
   name: "Greetings Cards",
-  id: "card"
+  id: "card",
+  icon: "envelope"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Nomads${colors.Reset} from ${colors.fg.Green}./types/nomad.js${colors.Reset}`)
@@ -440,7 +460,8 @@ munzees = munzees.concat(require('./types/nomad').map(i => ({
 })))
 categories.push({
   name: "Nomads",
-  id: "nomad"
+  id: "nomad",
+  icon: "nomad"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Pouch Creatures${colors.Reset} from ${colors.fg.Green}./types/pouch.js${colors.Reset}`)
@@ -477,7 +498,8 @@ munzees = munzees.concat(require('./types/pouch').map(i => ({
 })))
 categories.push({
   name: "Pouch Creatures",
-  id: "pouch"
+  id: "pouch",
+  icon: "oniks"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}RetireMyths${colors.Reset} from ${colors.fg.Green}./types/retiremyth.js${colors.Reset}`)
@@ -501,11 +523,13 @@ munzees = munzees.concat(require('./types/retiremyth').map(i => ({
 })))
 categories.push({
   name: "Zombie Pouch Creatures",
-  id: "zombiepouch"
+  id: "zombiepouch",
+  icon: "zombiemuru"
 })
 categories.push({
   name: "RetireMyths",
-  id: "retiremyth"
+  id: "retiremyth",
+  icon: "retiredpegasus"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Temp POBs${colors.Reset} from ${colors.fg.Green}./types/temppob.js${colors.Reset}`)
@@ -540,7 +564,8 @@ munzees = munzees.concat(require('./types/temppob').map(i => ({
 })))
 categories.push({
   name: "TempPOBs",
-  id: "temppob"
+  id: "temppob",
+  icon: "butterfly"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}TOBs${colors.Reset} from ${colors.fg.Green}./types/tob.js${colors.Reset}`)
@@ -574,7 +599,8 @@ munzees = munzees.concat(require('./types/tob').map(i => ({
 })))
 categories.push({
   name: "TOBs",
-  id: "tob"
+  id: "tob",
+  icon: "firepegasus"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Scatters${colors.Reset} from ${colors.fg.Green}./types/scatter.json${colors.Reset}`)
@@ -594,7 +620,8 @@ munzees = munzees.concat(require('./types/scatter.json').map(i => ({
 })))
 categories.push({
   name: "Scatters",
-  id: "scatter"
+  id: "scatter",
+  icon: "scattered"
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Seasonals${colors.Reset} from ${colors.fg.Green}./types/seasonals/*.js${colors.Reset}`)
@@ -638,6 +665,7 @@ categories = categories.concat(require('./types/seasonals').map(c=>{
   return {
     name: c.name,
     id: c.category,
+    icon: c.icon||c.specials[0].icon,
     seasonal: {
       year: c.year,
       starts: new Date(c.starts).valueOf(),
