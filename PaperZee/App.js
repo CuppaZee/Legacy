@@ -49,6 +49,7 @@ const UserSearchScreen = loadable(() => import('./sections/User/Search'),{fallba
 const UserInventoryScreen = loadable(() => import('./sections/User/Inventory/Page'),{fallback: <LoadingPage x="page_content"/>})
 const UserClanScreen = loadable(() => import('./sections/User/Clan/Page'),{fallback: <LoadingPage/>})
 const UserQuestScreen = loadable(() => import('./sections/User/Quest'),{fallback: <LoadingPage/>})
+const UserBouncersScreen = loadable(() => import('./sections/User/Bouncers'),{fallback: <LoadingPage/>})
 
 // Navigation Sections
 import DrawerContent from './sections/Main/Drawer';
@@ -183,6 +184,13 @@ function StackNav () {
         component={UserQuestScreen}
       />
       <Stack.Screen
+        name="UserBouncers"
+        options={{
+          title: 'User Bouncers',
+        }}
+        component={UserBouncersScreen}
+      />
+      <Stack.Screen
         name="DBType"
         options={{
           title: 'Munzee Type',
@@ -298,6 +306,12 @@ function App() {
           },
           UserQuest: {
             path: 'user/:userid/quest',
+            parse: {
+              userid: Number
+            }
+          },
+          UserBouncers: {
+            path: 'user/:userid/bouncers',
             parse: {
               userid: Number
             }
