@@ -330,7 +330,7 @@ module.exports = [
   {
     "name": "Elektrivool",
     "icon": "elektrivool",
-    "id": 2408,
+    "id": 2409,
     "state": "bouncer",
     "base": "elekter",
     "stage": 3,

@@ -51,6 +51,42 @@ export default function SettingsScreen() {
         <Text style={{color:theme.page_content.fg}}>{moment(categories.find(i=>i.id==munzee.category).seasonal.starts).format('L LT')} - {moment(categories.find(i=>i.id==munzee.category).seasonal.ends).format('L LT')}</Text>
         <Text style={{color:theme.page_content.fg}}>Duration: {moment.duration(moment(categories.find(i=>i.id==munzee.category).seasonal.starts).diff(moment(categories.find(i=>i.id==munzee.category).seasonal.ends))).humanize()}</Text>
       </View>}
+
+      {/* Evo Stages */}
+      {munzee.evolution&&<>
+        <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
+        <View style={{alignItems:"center"}}>
+          <Text style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Evolution Stages</Text>
+        </View>
+        <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
+          {types.filter(i=>i.evolution?.base===munzee.evolution.base).sort((a,b)=>a.evolution?.stage-b.evolution?.stage).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
+            <View style={{alignItems:"center",padding:4,width:100}}>
+              <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} style={{height:32,width:32}} />
+              <Text numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
+              <Text style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
+            </View>
+          </TouchableRipple>)}
+        </View>
+      </>}
+
+      {/* Pouch Creature Stages */}
+      {munzee.bouncer?.base&&<>
+        <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
+        <View style={{alignItems:"center"}}>
+          <Text style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Pouch Creature Stages</Text>
+        </View>
+        <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
+          {types.filter(i=>i.bouncer?.base===munzee.bouncer.base).sort((a,b)=>a.bouncer?.stage-b.bouncer?.stage).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
+            <View style={{alignItems:"center",padding:4,width:100}}>
+              <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} style={{height:32,width:32}} />
+              <Text numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
+              <Text style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
+            </View>
+          </TouchableRipple>)}
+        </View>
+      </>}
+
+      {/* Can Host */}
       {munzee.can_host?.filter?.(i=>!types.find(x=>x.id==i).category.match(/20[0-9]{2}/))?.length>0&&<>
         <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
         <View style={{alignItems:"center"}}>
@@ -66,6 +102,8 @@ export default function SettingsScreen() {
           </TouchableRipple>)}
         </View>
       </>}
+
+      {/* Lands On */}
       {munzee?.bouncer?.lands_on&&<>
         <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
         <View style={{alignItems:"center"}}>
