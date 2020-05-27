@@ -29,7 +29,7 @@ function InventoryHistoryItem({ i, theme }) {
       {i.reason.match(/magnetus/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: 'https://munzee.global.ssl.fastly.net/images/pins/magnetus.png' }} />}
       {i.reason.match(/prize\s*wheel/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: 'https://munzee.global.ssl.fastly.net/images/pins/prizewheel.png' }} />}
       {i.reason.match(/pimedus/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: 'https://munzee.global.ssl.fastly.net/images/pins/pimedus.png' }} />}
-      {i.reason.match(/space\s*coast/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: 'https://devserver.cuppazee.app/spacecoastgeostore.png' }} />}
+      {i.reason.match(/space\s*coast/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: 'https://server.cuppazee.app/spacecoastgeostore.png' }} />}
     </View>
   </TouchableRipple>
 }

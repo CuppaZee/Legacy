@@ -64,7 +64,7 @@ async function makeRequest(getState, dispatch, pageInput, force) {
             var reqformData = new FormData();
             reqformData.append('data', stringify({ ...page.data, page: i, access_token: token }))
             reqformData.append('access_token', token)
-            var d = await fetch(`${page.cuppazee?'https://devserver.cuppazee.app':'https://api.munzee.com'}/${page.endpoint}`, {
+            var d = await fetch(`${page.cuppazee?'https://server.cuppazee.app':'https://api.munzee.com'}/${page.endpoint}`, {
               method: 'POST',
               body: page.cuppazee?stringify({ ...page.data, page: i, access_token: token }):reqformData
             })
@@ -77,7 +77,7 @@ async function makeRequest(getState, dispatch, pageInput, force) {
           var reqformData = new FormData();
           reqformData.append('data', stringify({ ...page.data, access_token: token }))
           reqformData.append('access_token', token)
-          var d = await fetch(`${page.cuppazee?'https://devserver.cuppazee.app':'https://api.munzee.com'}/${page.endpoint}`, {
+          var d = await fetch(`${page.cuppazee?'https://server.cuppazee.app':'https://api.munzee.com'}/${page.endpoint}`, {
             method: 'POST',
             body: page.cuppazee?stringify({ ...page.data, access_token: token }):reqformData
           })

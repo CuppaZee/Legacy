@@ -22,6 +22,15 @@ function CustomChip({label,onPress}) {
   // </View>
 }
 
+function getCategory(id) {
+  var cat = categories.find(i=>i.id==id) || {};
+  // if(cat.parent) {
+  //   return `${getCategory(cat.parent)} > ${cat.name}`
+  // } else {
+    return cat.name;
+  // }
+}
+
 function checkCanHost(i) {
   return types.find(x=>x.id==i)?.bouncer?.type!=="seasonal"
     || (
@@ -54,7 +63,7 @@ export default function SettingsScreen() {
         {munzee.event=="custom"&&<CustomChip label="Custom Event"/>}
         {munzee.unique&&<CustomChip label="Unique"/>}
         {munzee.destination?.max_rooms&&<CustomChip label={`${munzee.destination?.max_rooms} Rooms`}/>}
-        <CustomChip onPress={()=>nav.navigate('DBCategory',{category:munzee.category})} label={`Category: ${categories.find(i=>i.id==munzee.category)?.name}`}/>
+        <CustomChip onPress={()=>nav.navigate('DBCategory',{category:munzee.category})} label={`Category: ${getCategory(munzee.category)}`}/>
         {munzee.virtual_colors?.map(i=><CustomChip label={`Virtual Color: ${u(i)}`}/>)}
       </View>
       {categories.find(i=>i.id==munzee.category)?.seasonal&&<View style={{alignItems:"center"}}>

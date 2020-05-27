@@ -5103,7 +5103,7 @@
       "base": "tomatoseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       2255,
@@ -5120,7 +5120,7 @@
       "base": "cornseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       2255
@@ -5136,7 +5136,7 @@
       "base": "carrotseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       2255
@@ -5152,7 +5152,7 @@
       "base": "peasseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       2255
@@ -5168,7 +5168,7 @@
       "base": "tomatoseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       2255,
@@ -5185,7 +5185,7 @@
       "base": "cornseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       2255,
@@ -5202,7 +5202,7 @@
       "base": "carrotseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       2255,
@@ -5219,7 +5219,7 @@
       "base": "peasseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       2255,
@@ -5236,7 +5236,7 @@
       "base": "tomatoseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       2255,
@@ -5256,7 +5256,7 @@
       "base": "cornseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       2255,
@@ -5276,7 +5276,7 @@
       "base": "carrotseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       2255,
@@ -5296,7 +5296,7 @@
       "base": "peasseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       2255,
@@ -5388,7 +5388,7 @@
       "base": "goldencarrotseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       2255
@@ -5404,7 +5404,7 @@
       "base": "goldencarrotseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       2255,
@@ -5421,7 +5421,7 @@
       "base": "goldencarrotplant"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       1830,
@@ -5486,7 +5486,7 @@
       "base": "calf"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete"
   },
   {
@@ -5499,7 +5499,7 @@
       "base": "piglet"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete"
   },
   {
@@ -5612,7 +5612,7 @@
       "base": "calf"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       1745
@@ -5628,7 +5628,7 @@
       "base": "piglet"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       1745
@@ -5644,7 +5644,7 @@
       "base": "calf"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete"
   },
   {
@@ -5657,7 +5657,7 @@
       "base": "piglet"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete"
   },
   {
@@ -5670,7 +5670,7 @@
       "base": "colt"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete"
   },
   {
@@ -5683,7 +5683,7 @@
       "base": "chick"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete"
   },
   {
@@ -5696,7 +5696,7 @@
       "base": "colt"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       1745
@@ -5712,7 +5712,7 @@
       "base": "chick"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       1745
@@ -5728,7 +5728,7 @@
       "base": "colt"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete"
   },
   {
@@ -5741,7 +5741,7 @@
       "base": "chick"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete"
   },
   {
@@ -5754,7 +5754,7 @@
       "base": "lean-toshed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete"
   },
   {
@@ -5767,7 +5767,7 @@
       "base": "hoe"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete"
   },
   {
@@ -5928,7 +5928,7 @@
       "base": "lean-toshed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       1745
@@ -5944,7 +5944,7 @@
       "base": "lean-toshed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete"
   },
   {
@@ -5957,7 +5957,7 @@
       "base": "hoe"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       1745
@@ -5973,7 +5973,7 @@
       "base": "plow"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete"
   },
   {
@@ -5995,7 +5995,7 @@
       "base": "farmer"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       1998,
@@ -6017,7 +6017,7 @@
       "base": "pottedplant"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       1830,
@@ -6036,7 +6036,7 @@
       "base": "farmer"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       1998,
@@ -6059,7 +6059,7 @@
       "base": "farmer"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       1998,
@@ -6081,7 +6081,7 @@
       "base": "pottedplant"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       1830,
@@ -6101,7 +6101,7 @@
       "base": "pottedplant"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_farm",
     "completion": "complete",
     "can_host": [
       1830,
@@ -6120,7 +6120,7 @@
       "base": "seaweed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete",
     "can_host": [
       2067,
@@ -6139,7 +6139,7 @@
       "base": "seaweed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete",
     "can_host": [
       1745
@@ -6155,7 +6155,7 @@
       "base": "seaweed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete"
   },
   {
@@ -6168,7 +6168,7 @@
       "base": "canoe"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete",
     "can_host": [
       2067,
@@ -6187,7 +6187,7 @@
       "base": "canoe"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete",
     "can_host": [
       1745
@@ -6203,7 +6203,7 @@
       "base": "canoe"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete"
   },
   {
@@ -6684,7 +6684,7 @@
       "base": "egg"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete",
     "can_host": [
       1745
@@ -6700,7 +6700,7 @@
       "base": "egg"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete"
   },
   {
@@ -6713,7 +6713,7 @@
       "base": "egg"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete"
   },
   {
@@ -6762,7 +6762,7 @@
       "base": "firstwheel"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete",
     "can_host": [
       2067,
@@ -6781,7 +6781,7 @@
       "base": "firstwheel"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete",
     "can_host": [
       1745
@@ -6797,7 +6797,7 @@
       "base": "firstwheel"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete"
   },
   {
@@ -7025,7 +7025,7 @@
       "base": "lioncub"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete",
     "can_host": [
       1995
@@ -7041,7 +7041,7 @@
       "base": "lioncub"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete",
     "can_host": [
       1995,
@@ -7058,7 +7058,7 @@
       "base": "lioncub"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete",
     "can_host": [
       1995
@@ -7074,7 +7074,7 @@
       "base": "safaritruck"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete",
     "can_host": [
       2067,
@@ -7093,7 +7093,7 @@
       "base": "safaritruck"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete",
     "can_host": [
       1745
@@ -7109,7 +7109,7 @@
       "base": "safaritruck"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_education",
     "completion": "complete"
   },
   {
@@ -8355,7 +8355,7 @@
       "base": "coin"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_reseller",
     "completion": "complete",
     "can_host": [
       1875,
@@ -8372,7 +8372,7 @@
       "base": "coin"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_reseller",
     "completion": "complete",
     "can_host": [
       1875
@@ -8388,7 +8388,7 @@
       "base": "coin"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_reseller",
     "completion": "complete",
     "can_host": [
       1875
@@ -18674,7 +18674,7 @@
       "base": "roseseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -18694,7 +18694,7 @@
       "base": "tulipseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -18780,7 +18780,7 @@
       "base": "lilyseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -18800,7 +18800,7 @@
       "base": "tulipseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -18817,7 +18817,7 @@
       "base": "tulipseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255
@@ -18833,7 +18833,7 @@
       "base": "tulipseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -18853,7 +18853,7 @@
       "base": "tulipseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -18873,7 +18873,7 @@
       "base": "tulipseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -18893,7 +18893,7 @@
       "base": "tulipseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -18913,7 +18913,7 @@
       "base": "tulipseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -18933,7 +18933,7 @@
       "base": "roseseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -18950,7 +18950,7 @@
       "base": "roseseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255
@@ -18966,7 +18966,7 @@
       "base": "roseseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -18986,7 +18986,7 @@
       "base": "roseseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19006,7 +19006,7 @@
       "base": "roseseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19026,7 +19026,7 @@
       "base": "roseseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19046,7 +19046,7 @@
       "base": "roseseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19066,7 +19066,7 @@
       "base": "roseseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19086,7 +19086,7 @@
       "base": "lilyseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19103,7 +19103,7 @@
       "base": "lilyseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255
@@ -19119,7 +19119,7 @@
       "base": "lilyseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19139,7 +19139,7 @@
       "base": "lilyseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19159,7 +19159,7 @@
       "base": "lilyseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19179,7 +19179,7 @@
       "base": "lilyseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19199,7 +19199,7 @@
       "base": "lilyseed"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19219,7 +19219,7 @@
       "base": "carnationseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19239,7 +19239,7 @@
       "base": "carnationseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19256,7 +19256,7 @@
       "base": "carnationseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255
@@ -19272,7 +19272,7 @@
       "base": "carnationseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19292,7 +19292,7 @@
       "base": "carnationseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19312,7 +19312,7 @@
       "base": "carnationseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19332,7 +19332,7 @@
       "base": "carnationseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19352,7 +19352,7 @@
       "base": "carnationseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19372,7 +19372,7 @@
       "base": "carnationseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19392,7 +19392,7 @@
       "base": "carnationseed"
     },
     "state": "virtual",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       2255,
@@ -19749,7 +19749,7 @@
       "base": "butterflyegg"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       1745
@@ -19765,7 +19765,7 @@
       "base": "butterflyegg"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete"
   },
   {
@@ -19778,7 +19778,7 @@
       "base": "butterflyegg"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete"
   },
   {
@@ -19791,7 +19791,7 @@
       "base": "butterflyegg"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete"
   },
   {
@@ -22468,7 +22468,7 @@
       "base": "frogegg"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete",
     "can_host": [
       1745
@@ -22484,7 +22484,7 @@
       "base": "frogegg"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete"
   },
   {
@@ -22497,7 +22497,7 @@
       "base": "frogegg"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete"
   },
   {
@@ -22510,7 +22510,7 @@
       "base": "frogegg"
     },
     "state": "physical",
-    "category": "evolution",
+    "category": "evolution_nature",
     "completion": "complete"
   },
   {

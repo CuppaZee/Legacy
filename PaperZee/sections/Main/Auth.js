@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import s from '~store';
 import Oconfig from '~sections/Shared/Config';
 var config = {
-  redirect_uri: 'https://devserver.cuppazee.app/auth/auth/v1',
+  redirect_uri: 'https://server.cuppazee.app/auth/auth/v1',
   client_id: '91714935879f433364bff187bda66183'
 }
 const {login} = s;
@@ -21,7 +21,7 @@ export default function AuthScreen () {
   const navigation = useNavigation();
   
   // const discovery = {
-  //   // authorizationEndpoint: 'https://devserver.cuppazee.app/auth/auth',
+  //   // authorizationEndpoint: 'https://server.cuppazee.app/auth/auth',
   //   // tokenEndpoint: 'https://api.munzee.com/oauth/login',
   // };
   const discovery = {
@@ -52,7 +52,7 @@ export default function AuthScreen () {
           username: response.params.username,
           teaken: response.params.teaken
         }
-        var y = await fetch(`https://devserver.cuppazee.app/auth/get?teaken=${encodeURIComponent(response.params.teaken)}&user_id=${encodeURIComponent(response.params.user_id)}`)
+        var y = await fetch(`https://server.cuppazee.app/auth/get?teaken=${encodeURIComponent(response.params.teaken)}&user_id=${encodeURIComponent(response.params.user_id)}`)
         x[response.params.user_id].token = (await y.json()).data;
         dispatch(login(x));
         setLoading(false);
