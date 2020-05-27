@@ -597,8 +597,8 @@ categories.push({
   id: "scatter"
 })
 
-console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Seasonals${colors.Reset} from ${colors.fg.Green}./types/seasonals.json${colors.Reset}`)
-categories = categories.concat(require('./types/seasonals.json').map(c=>{
+console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Seasonals${colors.Reset} from ${colors.fg.Green}./types/seasonals/*.js${colors.Reset}`)
+categories = categories.concat(require('./types/seasonals').map(c=>{
   munzees = munzees.concat((c.scatters||[]).map(i => ({
     name: i.name,
     icon: i.icon,
@@ -613,7 +613,7 @@ categories = categories.concat(require('./types/seasonals.json').map(c=>{
     category: c.category,
 
     completion: "complete",
-    from_file: "./types/seasonals.json"
+    from_file: "./types/seasonals/*.js"
   })))
   munzees = munzees.concat((c.specials||[]).map(i => ({
     name: i.name,
@@ -633,7 +633,7 @@ categories = categories.concat(require('./types/seasonals.json').map(c=>{
     category: c.category,
 
     completion: "complete",
-    from_file: "./types/seasonals.json"
+    from_file: "./types/seasonals/*.js"
   })))
   return {
     name: c.name,

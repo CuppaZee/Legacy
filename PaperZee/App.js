@@ -33,7 +33,8 @@ const InfoScreen = loadable(() => import('./sections/More/Info'),{fallback: <Loa
 
 // DB Screens
 const DBTypeScreen = loadable(() => import('./sections/DB/Type'),{fallback: <LoadingPage x="page_content"/>})
-const DBSearchScreen = loadable(() => import('./sections/DB/Search'),{fallback: <LoadingPage x="page_content"/>})
+const DBSearchScreen = loadable(() => import('./sections/DB/Search'),{fallback: <LoadingPage/>})
+const DBCategoryScreen = loadable(() => import('./sections/DB/Category'),{fallback: <LoadingPage/>})
 
 // Tools Screens
 const ToolsScreen = loadable(() => import('./sections/Tools/Home'),{fallback: <LoadingPage/>})
@@ -204,6 +205,13 @@ function StackNav () {
         }}
         component={DBSearchScreen}
       />
+      <Stack.Screen
+        name="DBCategory"
+        options={{
+          title: 'Type Category',
+        }}
+        component={DBCategoryScreen}
+      />
     </>}
     <Stack.Screen
       name="Auth"
@@ -328,6 +336,12 @@ function App() {
             path: 'db/type/:munzee',
             parse: {
               munzee: String
+            }
+          },
+          DBCategory: {
+            path: 'db/category/:category',
+            parse: {
+              category: String
             }
           },
 

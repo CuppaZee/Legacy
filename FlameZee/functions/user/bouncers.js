@@ -23,9 +23,9 @@ module.exports = {
           request('munzee/specials/bouncers',{},token.access_token)
         ]);
         for(var q = 0;q < 5&&data[0].has_more;q++) {
-          var x = await r('user/deploys',{user_id,type_id:505508,page:q+1});
-          if(!x.data.has_more) data[0].has_more = false;
-          data[0].munzees = data[0].munzees.concat(x.data.munzees)
+          var x = await request('user/deploys',{user_id,type_id:505508,page:q+1},token.access_token);
+          if(!x.has_more) data[0].has_more = false;
+          data[0].munzees = data[0].munzees.concat(x.munzees)
         }
         var body = [].concat(...data.slice(1));
         var deps = await Promise.all(data[0].munzees.slice().reverse().map(async (i,index)=>{
