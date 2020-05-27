@@ -1,7 +1,9 @@
 import MunzeeTypes from './types.json';
 var types = MunzeeTypes.map(i=>{
-  i.icon = f(i.icon);
-  return i;
+  return {
+    ...i,
+    icon: f(i.icon)
+  };
 })
 function f(a) {
   return a.toString().replace(/_/g,'').replace(/munzee/g,'');

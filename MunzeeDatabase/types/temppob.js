@@ -138,5 +138,35 @@ module.exports = [
     "id": 2114,
     "state": "virtual",
     "hosts": [2110,2111,2112]
+  },
+  {
+    "name": "Hedgehog",
+    "icon": "hedgehog",
+    "id": 2427,
+    "state": "bouncer",
+    "lands_on": ["skyland","treehouse","earthmystery","icemystery","flatlou",i=>(i.category=="virtual"&&!['virtual','virtual_black','virtual_timberwolf','virtual_gray','virtual_silver'].includes(i.icon))],
+    "extra": {
+      "baby_animal": true
+    }
+  },
+  {
+    "name": "Polar Bear",
+    "icon": "polarbear",
+    "id": 2428,
+    "state": "bouncer",
+    "lands_on": ["skyland","treehouse","earthmystery","icemystery","flatlou",i=>(i.category=="virtual"&&!['virtual','virtual_black','virtual_timberwolf','virtual_gray','virtual_silver'].includes(i.icon))],
+    "extra": {
+      "baby_animal": true
+    }
+  },
+  {
+    "name": "Owlet",
+    "icon": "owlet",
+    "id": 2429,
+    "state": "bouncer",
+    "lands_on": ["skyland","treehouse","virtual","airmystery","electricmystery","flathammock"],
+    "extra": {
+      "baby_animal": true
+    }
   }
 ]

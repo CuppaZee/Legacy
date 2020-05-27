@@ -369,5 +369,33 @@ module.exports = [
     "id": 2255,
     "state": "bouncer",
     "lands_on": ["skyland","treehouse","munzee","airmystery","firemystery",i=>(i.evolution&&["tomatoseed","cornseed","goldencarrotseed","carrotseed","peasseed","farmer","tulipseed","roseseed","lilyseed","carnationseed"].includes(i.evolution.base))]
+  },
+  {
+    "name": "Minotaur Cyclops",
+    "icon": "minotaurcyclops",
+    "id": 2477,
+    "state": "bouncer",
+    "lands_on": ["treehouse","munzee",i=>i.category=="jewel",i=>i.weapon=="clan","rockpaperscissors"]
+  },
+  {
+    "name": "Balor Cyclops",
+    "icon": "balorcyclops",
+    "id": 2478,
+    "state": "bouncer",
+    "lands_on": ["treehouse","munzee","shamrock","electricmystery"]
+  },
+  {
+    "name": "Vampire Nymph",
+    "icon": "vampirenymph",
+    "id": 2479,
+    "state": "bouncer",
+    "lands_on": ["treehouse","skyland","munzee","earthmystery",i=>(i.virtual_colors||[]).includes("red"),i=>(i.virtual_colors||[]).includes("green"),"tomato",i=>(i.evolution&&i.evolution.base=="farmer")]
+  },
+  {
+    "name": "Elf Nymph",
+    "icon": "elfnymph",
+    "id": 2480,
+    "state": "bouncer",
+    "lands_on": ["treehouse","munzee","earthmystery",i=>i.weapon=="clan",i=>(i.virtual_colors||[]).includes("green"),"virtual"]
   }
 ]
