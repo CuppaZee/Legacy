@@ -4,6 +4,7 @@ module.exports = [
     "icon": "theunicorn",
     "id": 505,
     "state": "bouncer",
+    "type": "original",
     "lands_on": ["treehouse","munzee","shamrock"]
   },
   {
@@ -18,6 +19,7 @@ module.exports = [
     "icon": "leprechaun",
     "id": 508,
     "state": "bouncer",
+    "type": "original",
     "lands_on": ["treehouse","munzee","shamrock"]
   },
   {
@@ -32,6 +34,7 @@ module.exports = [
     "icon": "dragon",
     "id": 573,
     "state": "bouncer",
+    "type": "original",
     "lands_on": ["treehouse","munzee","firemystery"]
   },
   {
@@ -46,6 +49,7 @@ module.exports = [
     "icon": "yeti",
     "id": 725,
     "state": "bouncer",
+    "type": "original",
     "lands_on": ["treehouse","munzee","icemystery"]
   },
   {
@@ -60,6 +64,7 @@ module.exports = [
     "icon": "faun",
     "id": 853,
     "state": "bouncer",
+    "type": "classical",
     "lands_on": ["treehouse","munzee","earthmystery"]
   },
   {
@@ -74,6 +79,7 @@ module.exports = [
     "icon": "hydra",
     "id": 953,
     "state": "bouncer",
+    "type": "classical",
     "lands_on": ["treehouse","munzee","watermystery"]
   },
   {
@@ -88,6 +94,7 @@ module.exports = [
     "icon": "pegasus",
     "id": 1100,
     "state": "bouncer",
+    "type": "classical",
     "lands_on": ["skyland",i=>i.category=="virtual","airmystery","electricmystery"]
   },
   {
@@ -102,6 +109,7 @@ module.exports = [
     "icon": "cyclops",
     "id": 1168,
     "state": "bouncer",
+    "type": "classical",
     "lands_on": ["skyland","treehouse",i=>(i.category=="jewel"&&i.id!=148)]
   },
   {
@@ -123,6 +131,7 @@ module.exports = [
     "icon": "mermaid",
     "id": 1378,
     "state": "bouncer",
+    "type": "mirror",
     "lands_on": ["treehouse","munzee","watermystery",i=>(i.category=="jewel"&&i.state=="physical")]
   },
   {
@@ -137,6 +146,7 @@ module.exports = [
     "icon": "fairy",
     "id": 1544,
     "state": "bouncer",
+    "type": "mirror",
     "lands_on": ["skyland","treehouse","munzee","airmystery","mystery"]
   },
   {
@@ -158,6 +168,7 @@ module.exports = [
     "icon": "dryadfairy",
     "id": 1602,
     "state": "bouncer",
+    "type": "mirror",
     "lands_on": ["skyland","treehouse","munzee","airmystery","earthmystery"]
   },
   {
@@ -165,6 +176,7 @@ module.exports = [
     "icon": "wildfirefairy",
     "id": 1603,
     "state": "bouncer",
+    "type": "mirror",
     "lands_on": ["skyland","treehouse","munzee","airmystery","firemystery"]
   },
   {
@@ -172,6 +184,7 @@ module.exports = [
     "icon": "battleunicorn",
     "id": 1604,
     "state": "bouncer",
+    "type": "original",
     "lands_on": ["treehouse","munzee","mace","longsword","battleaxe","thehammer"]
   },
   {
@@ -179,6 +192,7 @@ module.exports = [
     "icon": "hippocampunicorn",
     "id": 1605,
     "state": "bouncer",
+    "type": "original",
     "lands_on": ["treehouse","munzee","watermystery","icemystery"]
   },
   {
@@ -186,6 +200,7 @@ module.exports = [
     "icon": "dwarfleprechaun",
     "id": 1646,
     "state": "bouncer",
+    "type": "original",
     "lands_on": ["skyland","treehouse","munzee",i=>i.category=="clan"]
   },
   {
@@ -193,6 +208,7 @@ module.exports = [
     "icon": "goblinleprechaun",
     "id": 1647,
     "state": "bouncer",
+    "type": "original",
     "lands_on": ["skyland","treehouse","munzee",i=>(i.category=="jewel"&&i.id!=148)]
   },
   {
@@ -200,6 +216,7 @@ module.exports = [
     "icon": "hotspringmermaid",
     "id": 1648,
     "state": "bouncer",
+    "type": "mirror",
     "lands_on": ["treehouse","munzee","watermystery","firemystery"]
   },
   {
@@ -207,6 +224,7 @@ module.exports = [
     "icon": "melusinemermaid",
     "id": 1649,
     "state": "bouncer",
+    "type": "mirror",
     "lands_on": ["skyland","treehouse","munzee","watermystery","airmystery"]
   },
   {
@@ -228,6 +246,7 @@ module.exports = [
     "icon": "banshee",
     "id": 1827,
     "state": "bouncer",
+    "type": "mirror",
     "lands_on": ["skyland","treehouse","munzee","shamrock","airmystery",i=>(i.virtual_colors||[]).includes("black"),i=>(i.virtual_colors||[]).includes("green")]
   },
   {
@@ -249,6 +268,7 @@ module.exports = [
     "icon": "chinesedragon",
     "id": 1874,
     "state": "bouncer",
+    "type": "original",
     "lands_on": ["skyland","treehouse","munzee","firemystery","airmystery",i=>i.zodiac=="chinese"]
   },
   {
@@ -256,6 +276,7 @@ module.exports = [
     "icon": "wyverndragon",
     "id": 1875,
     "state": "bouncer",
+    "type": "original",
     "lands_on": ["skyland","treehouse","munzee","airmystery","virtual_amethyst",i=>(i.evolution&&i.evolution.base=="coin")]
   },
   {
@@ -263,6 +284,7 @@ module.exports = [
     "icon": "lycanthropeyeti",
     "id": 1876,
     "state": "bouncer",
+    "type": "original",
     "lands_on": ["treehouse","munzee","earthmystery","firemystery",i=>i.zodiac=="western"]
   },
   {
@@ -270,6 +292,7 @@ module.exports = [
     "icon": "reptoidyeti",
     "id": 1877,
     "state": "bouncer",
+    "type": "original",
     "lands_on": ["treehouse","munzee","earthmystery","watermystery"]
   },
   {
@@ -284,6 +307,7 @@ module.exports = [
     "icon": "griffinpegasus",
     "id": 1995,
     "state": "bouncer",
+    "type": "classical",
     "lands_on": ["skyland","treehouse","munzee",i=>i.category=="jewel","airmystery",i=>(i.evolution&&i.evolution.base=="lioncub")]
   },
   {
@@ -291,6 +315,7 @@ module.exports = [
     "icon": "alicornpegasus",
     "id": 1996,
     "state": "bouncer",
+    "type": "classical",
     "lands_on": ["skyland","treehouse",i=>i.category=="virtual","airmystery","shamrock"]
   },
   {
@@ -298,6 +323,7 @@ module.exports = [
     "icon": "centaurfaun",
     "id": 1997,
     "state": "bouncer",
+    "type": "classical",
     "lands_on": ["skyland","treehouse","munzee","earthmystery",i=>i.category=="clan"]
   },
   {
@@ -305,6 +331,7 @@ module.exports = [
     "icon": "krampusfaun",
     "id": 1998,
     "state": "bouncer",
+    "type": "classical",
     "lands_on": ["skyland","treehouse","munzee","earthmystery","icemystery",i=>(i.evolution&&i.evolution.base=="farmer")]
   },
   {
@@ -326,6 +353,7 @@ module.exports = [
     "icon": "nymph",
     "id": 2118,
     "state": "bouncer",
+    "type": "mirror",
     "lands_on": ["skyland","treehouse","munzee","earthmystery",i=>(i.virtual_colors||[]).includes("brown"),i=>(i.virtual_colors||[]).includes("green")]
   },
   {
@@ -347,6 +375,7 @@ module.exports = [
     "icon": "cerberushydra",
     "id": 2252,
     "state": "bouncer",
+    "type": "classical",
     "lands_on": ["skyland","treehouse","munzee","watermystery","firemystery"]
   },
   {
@@ -354,6 +383,7 @@ module.exports = [
     "icon": "cthulhuhydra",
     "id": 2253,
     "state": "bouncer",
+    "type": "classical",
     "lands_on": ["skyland","treehouse","munzee","watermystery","airmystery"]
   },
   {
@@ -361,6 +391,7 @@ module.exports = [
     "icon": "harpybanshee",
     "id": 2254,
     "state": "bouncer",
+    "type": "mirror",
     "lands_on": ["skyland","treehouse","munzee","shamrock","airmystery",i=>i.category=="jewel"]
   },
   {
@@ -368,6 +399,7 @@ module.exports = [
     "icon": "witchbanshee",
     "id": 2255,
     "state": "bouncer",
+    "type": "mirror",
     "lands_on": ["skyland","treehouse","munzee","airmystery","firemystery",i=>(i.evolution&&["tomatoseed","cornseed","goldencarrotseed","carrotseed","peasseed","farmer","tulipseed","roseseed","lilyseed","carnationseed"].includes(i.evolution.base))]
   },
   {
@@ -375,6 +407,7 @@ module.exports = [
     "icon": "minotaurcyclops",
     "id": 2477,
     "state": "bouncer",
+    "type": "classical",
     "lands_on": ["treehouse","munzee",i=>i.category=="jewel",i=>i.weapon=="clan","rockpaperscissors"]
   },
   {
@@ -382,6 +415,7 @@ module.exports = [
     "icon": "balorcyclops",
     "id": 2478,
     "state": "bouncer",
+    "type": "classical",
     "lands_on": ["treehouse","munzee","shamrock","electricmystery"]
   },
   {
@@ -389,6 +423,7 @@ module.exports = [
     "icon": "vampirenymph",
     "id": 2479,
     "state": "bouncer",
+    "type": "mirror",
     "lands_on": ["treehouse","skyland","munzee","earthmystery",i=>(i.virtual_colors||[]).includes("red"),i=>(i.virtual_colors||[]).includes("green"),"tomato",i=>(i.evolution&&i.evolution.base=="farmer")]
   },
   {
@@ -396,6 +431,7 @@ module.exports = [
     "icon": "elfnymph",
     "id": 2480,
     "state": "bouncer",
+    "type": "mirror",
     "lands_on": ["treehouse","munzee","earthmystery",i=>i.weapon=="clan",i=>(i.virtual_colors||[]).includes("green"),"virtual"]
   }
 ]

@@ -91,7 +91,7 @@ export default function ({user_id,date:dateInput}) {
   // })
   const data = useAPIRequest({
     endpoint: 'user/activity',
-    data: {day:dateString,user_id},
+    data: {day:dateInput||dateString,user_id},
     cuppazee: true
   })
   // var { data } = useSelector(i => i.request_data[`user/activity?user_id=${user_id}&day=${dateString}`] ?? {})

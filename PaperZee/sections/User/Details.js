@@ -82,6 +82,13 @@ export default function DetailsScreen({ route }) {
                 <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
               </View>
             </TouchableRipple>
+            <TouchableRipple onPress={() => nav.navigate('UserSHC', { userid: user_id })}>
+              <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
+                <MaterialCommunityIcons name="star" size={24} color={theme.page_content.fg} />
+                <Text style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Special Hunter Challenge</Text>
+                <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
+              </View>
+            </TouchableRipple>
           </Card>
         </View>
       </ScrollView>

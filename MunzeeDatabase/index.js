@@ -326,6 +326,7 @@ munzees = munzees.concat(require('./types/myth').map(i => ({
         duration: i.duration || 12,
         lands_on: i.lands_on
       },
+      myth_set: i.type,
 
       state: "bouncer",
       category: "myth"

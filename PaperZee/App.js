@@ -51,6 +51,7 @@ const UserInventoryScreen = loadable(() => import('./sections/User/Inventory/Pag
 const UserClanScreen = loadable(() => import('./sections/User/Clan/Page'),{fallback: <LoadingPage/>})
 const UserQuestScreen = loadable(() => import('./sections/User/Quest'),{fallback: <LoadingPage/>})
 const UserBouncersScreen = loadable(() => import('./sections/User/Bouncers'),{fallback: <LoadingPage/>})
+const UserSHCScreen = loadable(() => import('./sections/User/SpecialHunterChallenge'),{fallback: <LoadingPage/>})
 
 // Navigation Sections
 import DrawerContent from './sections/Main/Drawer';
@@ -183,6 +184,20 @@ function StackNav () {
           title: 'User Quest Progress',
         }}
         component={UserQuestScreen}
+      />
+      <Stack.Screen
+        name="UserSHC"
+        options={{
+          title: 'User Special Hunter Challenge',
+        }}
+        component={UserSHCScreen}
+      />
+      <Stack.Screen
+        name="UserSHCDate"
+        options={{
+          title: 'User Special Hunter Challenge',
+        }}
+        component={UserSHCScreen}
       />
       <Stack.Screen
         name="UserBouncers"
@@ -320,6 +335,19 @@ function App() {
           },
           UserBouncers: {
             path: 'user/:userid/bouncers',
+            parse: {
+              userid: Number
+            }
+          },
+          UserSHCDate: {
+            path: 'user/:userid/shc/:date',
+            parse: {
+              userid: Number,
+              date: String
+            }
+          },
+          UserSHC: {
+            path: 'user/:userid/shc',
             parse: {
               userid: Number
             }
