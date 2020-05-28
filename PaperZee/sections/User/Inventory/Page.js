@@ -34,6 +34,47 @@ function InventoryHistoryItem({ i, theme }) {
   </TouchableRipple>
 }
 
+var UserInventoryOverview = React.memo(function ({ data, theme }) {
+  return <View style={{ flexDirection: "row", justifyContent: "center" }}><View style={{ flex: 1, maxWidth: 800 }}>
+    <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
+      <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
+        Undeployed
+                </Text></View>
+      <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
+        {
+          data?.undeployed?.map(i => <InventoryItem key={i.icon} i={i} />)
+        }
+        {
+          data?.undeployed?.length == 0 && <ActivityIndicator size="large" color={theme.page_content.fg} />
+        }
+      </View>
+    </View>
+    <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
+      <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
+        Credits
+                </Text></View>
+      <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
+        {
+          data?.credits?.map(i => <InventoryItem key={i.icon} i={i} />)
+        }
+        {
+          data?.credits?.length == 0 && <ActivityIndicator size="large" color={theme.page_content.fg} />
+        }
+      </View>
+    </View>
+    <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
+      <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
+        History
+      </Text></View>
+      <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
+        {
+          data?.history?.length == 0 && <ActivityIndicator size="large" color={theme.page_content.fg} />
+        }
+      </View>
+    </View>
+  </View></View>
+})
+
 export default function UserInventoryScreen() {
   var route = useRoute();
   var theme = useSelector(i => i.themes[i.theme]);
@@ -51,60 +92,13 @@ export default function UserInventoryScreen() {
     </View>
   )
   return (
-    // <ScrollView
-    //   contentContainerStyle={{ width: 800, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4 }}
-    //   style={{ flex: 1, backgroundColor: theme.page_content.bg }}>
-
-    // <View style={{ flexWrap: "wrap", flexDirection: "column", alignItems: "stretch" }}> */}
-    // <View style={{flex:1,alignItems:"center"}}>
     <FlatList
       windowSize={7}
       style={{ flex: 1, backgroundColor: theme.page_content.bg }}
-      ListHeaderComponent={<View style={{ flexDirection: "row", justifyContent: "center" }}><View style={{ flex: 1, maxWidth: 800 }}>
-        <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
-          <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
-            Undeployed
-                </Text></View>
-          <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-            {
-              data?.undeployed?.map(i => <InventoryItem key={i.icon} i={i} />)
-            }
-            {
-              data?.undeployed?.length == 0 && <ActivityIndicator size="large" color={theme.page_content.fg} />
-            }
-          </View>
-        </View>
-        <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
-          <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
-            Credits
-                </Text></View>
-          <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-            {
-              data?.credits?.map(i => <InventoryItem key={i.icon} i={i} />)
-            }
-            {
-              data?.credits?.length == 0 && <ActivityIndicator size="large" color={theme.page_content.fg} />
-            }
-          </View>
-        </View>
-        <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
-          <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
-            History
-                </Text></View>
-          <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-            {
-              data?.history?.length == 0 && <ActivityIndicator size="large" color={theme.page_content.fg} />
-            }
-          </View>
-        </View>
-      </View></View>}
+      ListHeaderComponent={<UserInventoryOverview data={data} theme={theme} />}
       extraData={[theme]}
       data={data?.history ?? []}
       renderItem={({ item: i }) => <InventoryHistoryItem i={i} theme={theme} />}
     />
-    // </View>
-    //     {/* </View> */}
-    //   {/* </View> */}
-    // {/* </ScrollView> */}
   );
 }

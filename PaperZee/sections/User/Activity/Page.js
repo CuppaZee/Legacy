@@ -4,7 +4,7 @@ import { ActivityIndicator, FAB } from 'react-native-paper';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import ActivityOverview from './ActivityOverview'
+import ActivityOverview from './Overview'
 import useAPIRequest from '~sections/Shared/useAPIRequest';
 import font from '~sections/Shared/font';
 
@@ -20,7 +20,8 @@ var creatures = {
   'fancyflatmatt': 'footyflatmatt',
   'fancy_flat_matt': 'footyflatmatt',
   'tempbouncer': 'expiring_specials_filter',
-  'temp_bouncer': 'expiring_specials_filter'
+  'temp_bouncer': 'expiring_specials_filter',
+  'funfinity': 'oniks'
 }
 
 var hostIcon = (icon) => {
@@ -72,12 +73,6 @@ export default function UserActivityScreen() {
       style={{ flex: 1, backgroundColor: theme.page_content.bg }}
       data={[
         <ActivityOverview date={dateString} user_id={user_id}/>,
-        // data.captures.filter(i=>isRenovation(i)).length?<View key="renovations" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-        //   <View style={{ paddingLeft: 8, paddingRight: 8, borderRadius: 8 }}><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{data.captures.filter(i=>isRenovation(i)).length} Renovation{data.captures.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points), 0)} Points</Text></View>
-        // </View>:1234,
-        // data.captures_on.filter(i=>isRenovation(i)).length?<View key="renons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-        //   <View style={{ paddingLeft: 8, paddingRight: 8, borderRadius: 8 }}><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{data.captures_on.filter(i=>isRenovation(i)).length} Renov-on{data.captures_on.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures_on.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0)} Points</Text></View>
-        // </View>:1234,
         ...data.captures,
         ...data.deploys,
         ...data.captures_on
@@ -91,7 +86,7 @@ export default function UserActivityScreen() {
           </View>
           <View style={{ position: 'relative' }}>
             <Image style={{ height: 32, width: 32 }} source={{ uri: act.pin }} />
-            {hostIcon(act.pin) && <Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: -5 }} source={{ uri: hostIcon(act.pin) }} />}
+            {hostIcon(act.pin) && <Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: -8 }} source={{ uri: hostIcon(act.pin) }} />}
           </View>
         </View>
         <TouchableHighlight style={{ paddingLeft: 8, paddingRight: 8, flexGrow: 1, flexShrink: 1 }} onPress={() => { navigation.navigate('MunzeeDetails', { url: `/m/${!act.points_for_creator && act.captured_at ? act.username : userdata?.username}/${act.code}` }) }} underlayColor="white">

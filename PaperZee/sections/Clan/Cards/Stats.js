@@ -256,7 +256,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
                     <Image source={{uri:data?.requirements?.[i]?.icon??data?.requirements?.[i]?.icons?.[tick%data?.requirements?.[i]?.icons?.length]}} style={{height:36*s,width:36*s}} />
                     <View style={{flexDirection:"row",alignItems:"baseline"}}>
                       <Text numberOfLines={1} style={{color:darkBG&&level_colors[data?.order.individual.includes(i)?(data?.order.group.includes(i)?'bot':'ind'):'gro'],textAlign:"center",...font("bold"),fontSize:12*s}}>{data?.requirements?.[i]?.top}</Text>
-                      <MaterialCommunityIcons name={sortReq===i?(ascending?'menu-up':'menu-down'):'menu-swap'} size={12*s}/>
+                      <MaterialCommunityIcons color={darkBG&&level_colors[data?.order.individual.includes(i)?(data?.order.group.includes(i)?'bot':'ind'):'gro']} name={sortReq===i?(ascending?'menu-up':'menu-down'):'menu-swap'} size={12*s}/>
                     </View>
                     <Text numberOfLines={1} style={{color:darkBG&&level_colors[data?.order.individual.includes(i)?(data?.order.group.includes(i)?'bot':'ind'):'gro'],textAlign:"center",...font(),fontSize:12*s}}>{data?.requirements?.[i]?.bottom}</Text>
                   </View>
@@ -269,8 +269,9 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
                   }
                 </View>
                 {members?.map(u=><View style={{marginHorizontal:-1*s,height:24*s,padding:4*s,alignItems:"center",backgroundColor:darkBG??level_colors[calculateLevel(true,clan.requirements?.[i]?.users?.[u.user_id],i)]}}>
-                  <Text style={{textAlign:"center",width:'100%',...font(),fontSize:12*s,color:darkBG&&level_colors[calculateLevel(true,clan.requirements?.[i]?.users?.[u.user_id],i)]}}>
+                  <Text style={{flexDirection:"row",textAlign:"center",width:'100%',...font(),fontSize:12*s,color:darkBG&&level_colors[calculateLevel(true,clan.requirements?.[i]?.users?.[u.user_id],i)]}}>
                     {levelTable?num((data?.levels?.[levelSelect]?.individual?.[i]||0) - clan.requirements?.[i]?.users?.[u.user_id]):num(clan.requirements?.[i]?.users?.[u.user_id])}
+                    {/* <Text style={{paddingLeft:2,fontSize:12,lineHeight:6,textAlignVertical:'top',color:theme.page_content.fg}}>{calculateLevel(true,clan.requirements?.[i]?.users?.[u.user_id],i)}</Text> */}
                   </Text>
                 </View>)}
                 <View style={{borderTopWidth:2*s,borderTopColor:level_colors.border,marginHorizontal:-1*s,height:24*s,padding:4*s,alignItems:"center",backgroundColor:darkBG??level_colors[calculateLevel(false,clan.requirements?.[i]?.total,i)]}}>

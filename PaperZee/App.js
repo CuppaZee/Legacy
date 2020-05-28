@@ -2,6 +2,7 @@ import * as React from 'react';
 import { NavigationContainer, useLinking, useNavigation } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
+// import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 import { Provider as ReduxProvider, useSelector, useDispatch } from 'react-redux';
 import s from '~store/index';
 import './lang/i18n';
@@ -45,7 +46,7 @@ const MapScreen = loadable(() => import('./sections/Maps/Home'),{fallback: <Load
 
 // User Screens
 const UserDetailsScreen = loadable(() => import('./sections/User/Details'),{fallback: <LoadingPage/>})
-const UserActivityScreen = loadable(() => import('./sections/User/Activity'),{fallback: <LoadingPage x="page_content"/>})
+const UserActivityScreen = loadable(() => import('./sections/User/Activity/Page'),{fallback: <LoadingPage x="page_content"/>})
 const UserSearchScreen = loadable(() => import('./sections/User/Search'),{fallback: <LoadingPage/>})
 const UserInventoryScreen = loadable(() => import('./sections/User/Inventory/Page'),{fallback: <LoadingPage x="page_content"/>})
 const UserClanScreen = loadable(() => import('./sections/User/Clan/Page'),{fallback: <LoadingPage/>})
@@ -70,6 +71,7 @@ WebBrowser?.maybeCompleteAuthSession?.({
 const Drawer = createDrawerNavigator();
 
 const Stack = createStackNavigator();
+// const Stack = createSharedElementStackNavigator();
 
 function RedirectScreen() {
   var nav = useNavigation();
@@ -123,6 +125,9 @@ function StackNav () {
       />
       <Stack.Screen
         name="ClanRequirements"
+        options={{
+          title: 'Clan Requirements'
+        }}
         component={ClanRequirementsScreen}
       />
       <Stack.Screen

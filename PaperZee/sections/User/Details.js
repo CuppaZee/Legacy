@@ -5,7 +5,7 @@ import Card from '~sections/Shared/Card';
 import { useSelector } from 'react-redux';
 import { TouchableRipple, FAB } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import ActivityCard from './ActivityCard';
+import ActivityCard from './Activity/Card';
 import useAPIRequest from '~sections/Shared/useAPIRequest';
 import { useDimensions } from '@react-native-community/hooks';
 import font from '~sections/Shared/font';

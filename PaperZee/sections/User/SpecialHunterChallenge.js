@@ -81,8 +81,8 @@ export default function UserSHCScreen() {
   )
   return <View style={{ flex: 1, backgroundColor: theme.page_content.bg }}><ScrollView style={{ flex: 1 }}>
     <View style={{ flexDirection: "column", padding: 8 }}>
-      {categories.map(i => <View style={{ flexDirection: "row", alignItems: "center", height: 40, flexWrap: "wrap" }}>
-        <Text style={{ width: 120, color: theme.activity["capon"].fg }}>
+      {categories.map(i => <View style={{ flexDirection: "row", alignItems: "center", minHeight: 40, flexWrap: "wrap" }}>
+        <Text style={{ width: 120, ...font(), color: theme.activity["capon"].fg }}>
           {i.name}
         </Text>
         {data.captures.filter(x => i.function(g(x))).map(x => <SHCItem i={x} />)}
