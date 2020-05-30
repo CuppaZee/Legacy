@@ -62,5 +62,40 @@
     "name": "Safe Travels Card",
     "icon": "safetravelscard",
     "id": 2451
+  },
+  {
+    "name": "Congrats Card",
+    "icon": "congratscard",
+    "id": 2495,
+    "open": true
+  },
+  {
+    "name": "Sorry Card",
+    "icon": "sorrycard",
+    "id": 2496,
+    "open": true
+  },
+  {
+    "name": "Sorry Card 1",
+    "icon": "sorrycard1",
+    "id": 2497,
+    "open": true
+  },
+  {
+    "name": "Sorry Card 2",
+    "icon": "sorrycard2",
+    "id": 2498,
+    "open": true
+  },
+  {
+    "name": "Sorry Card 3",
+    "icon": "sorrycard3",
+    "id": 2499,
+    "open": true
+  },
+  {
+    "name": "May Flowers Card",
+    "icon": "mayflowerscard",
+    "id": 2500
   }
 ]
