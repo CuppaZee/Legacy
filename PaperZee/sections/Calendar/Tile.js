@@ -17,13 +17,13 @@ export default function Tile({data,date,type,theme}) {
   if(type=="alt") {
     return <View style={{flex:1,backgroundColor:theme.page_content.bg,borderWidth:1,borderColor:'#d3d3d3',height:60,justifyContent:"center",alignItems:"center",paddingBottom:2}}>
       <View style={{flexDirection:"row"}}>
-        <Text style={{color:theme.page_content.fg,...font(),fontSize:12,fontWeight:"bold",textAlignVertical:"center"}}>{(date||1).toString()}</Text>
+        <Text style={{color:theme.page_content.fg,...font("bold"),fontSize:12,textAlignVertical:"center"}}>{(date||1).toString()}</Text>
       </View>
       <View style={{flexDirection:"row"}}>
-        {types.map(i=>data.includes(i.label)?<Text style={{color:i.color,...font(),fontSize:12,fontWeight:"bold",textAlignVertical:"center",letterSpacing:1}}>{i.label}</Text>:null)}
+        {types.map(i=>data.includes(i.label)?<Text style={{color:i.color,...font("bold"),fontSize:12,textAlignVertical:"center",letterSpacing:1}}>{i.label}</Text>:null)}
       </View>
       <View style={{flexDirection:"row"}}>
-        <Text style={{color:data.includes('Z')?"rgb(235, 105, 42)":"rgb(200, 200, 200)",...font(),fontSize:10,fontWeight:"bold",textAlignVertical:"center"}}>{data.includes('Z')?"QRewZee":"Off"}</Text>
+        <Text style={{color:data.includes('Z')?"rgb(235, 105, 42)":"rgb(200, 200, 200)",...font("bold"),fontSize:10,textAlignVertical:"center"}}>{data.includes('Z')?"QRewZee":"Off"}</Text>
       </View>
     </View>
   }
@@ -34,7 +34,7 @@ export default function Tile({data,date,type,theme}) {
           <ImageBackground source={u(data.includes('H')?'H':null)} style={{flex:1}}>
             <ImageBackground source={u(data.includes('Z')?'QRewZeeOn':'QRewZeeOff')} style={{flex:1}}>
               <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
-                <Text style={{color:"white",...font(),fontSize:16,fontWeight:"bold",textAlignVertical:"center"}}>{(date||"1").toString()}</Text>
+                <Text style={{color:"white",...font("bold"),fontSize:16,textAlignVertical:"center"}}>{(date||"1").toString()}</Text>
               </View>
             </ImageBackground>
           </ImageBackground>

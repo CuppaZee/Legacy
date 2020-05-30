@@ -18,10 +18,10 @@ module.exports = {
             request('user/boosters/credits', {}, access_token)
         ]);
         var undeployed = [];
-        for (var page = 0; page < 10; page++) {
+        for (var page = 0; page < 20; page++) {
             let und = await request('user/undeploys', { page }, access_token);
             if (!und || !und.has_more) {
-                page = 10;
+                page = 100;
             }
             undeployed = undeployed.concat(und?und.munzees:[]);
         }

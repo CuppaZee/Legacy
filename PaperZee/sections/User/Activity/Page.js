@@ -1,12 +1,16 @@
 import * as React from 'react';
 import { Text, View, Image, FlatList, TouchableHighlight } from 'react-native';
-import { ActivityIndicator, FAB } from 'react-native-paper';
+import { ActivityIndicator, FAB, IconButton, Menu } from 'react-native-paper';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import ActivityOverview from './Overview'
 import useAPIRequest from '~sections/Shared/useAPIRequest';
 import font from '~sections/Shared/font';
+import Card from '~sections/Shared/Card';
+import DatePicker from '~sections/Shared/DatePicker';
+import moment from 'moment';
+import 'moment-timezone';
 
 var creatures = {
   'firepouchcreature': 'tuli',
@@ -36,12 +40,15 @@ function UserIcon({user_id,size}) {
 
 export default function UserActivityScreen() {
   var [FABOpen,setFABOpen] = React.useState(false);
+  var [datePickerOpen,setDatePickerOpen] = React.useState(false);
   var logins = useSelector(i=>i.logins)
   var nav = useNavigation();
   var {t} = useTranslation();
   var theme = useSelector(i=>i.themes[i.theme]);
   var date = new Date(Date.now() - (5 * 60 * 60000));
-  var dateString = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${(date.getUTCDate()).toString().padStart(2, '0')}`
+  var date = moment().tz('America/Chicago');
+  var dateString = `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
+  // `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${(date.getUTCDate()).toString().padStart(2, '0')}`
   var navigation = useNavigation();
   var route = useRoute();
   if(route.params.date) {
@@ -72,6 +79,38 @@ export default function UserActivityScreen() {
       contentContainerStyle={{ width: 500, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", paddingBottom: 88 }}
       style={{ flex: 1, backgroundColor: theme.page_content.bg }}
       data={[
+        <View style={{padding:4}}>
+          <Card cardStyle={{backgroundColor:(theme.clanCardHeader||theme.navigation).bg}} noPad>
+            <View style={{flexDirection:"row",alignItems:"center"}}>
+              <Menu
+                visible={datePickerOpen}
+                onDismiss={() => setDatePickerOpen(false)}
+                anchor={
+                  <IconButton icon="calendar" color={(theme.clanCardHeader||theme.navigation).fg} onPress={()=>setDatePickerOpen(true)}/>
+                }
+                contentStyle={{ padding: 0, backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border?1:0, borderColor: theme.page_content.border }}
+              >
+                <DatePicker noWrap value={moment({
+                  year: Number(dateString.split('-')[0]),
+                  month: Number(dateString.split('-')[1])-1,
+                  date: Number(dateString.split('-')[2]),
+                })} onChange={(date)=>{
+                  nav.pop();
+                  nav.push('UserActivityDate',{
+                    userid:user_id,
+                    date:`${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
+                  })
+                }} />
+              </Menu>
+              
+              <Text style={{flex:1,...font("bold"),fontSize:16,color:(theme.clanCardHeader||theme.navigation).fg}}>{moment({
+                  year: Number(dateString.split('-')[0]),
+                  month: Number(dateString.split('-')[1])-1,
+                  date: Number(dateString.split('-')[2]),
+                }).format('L')}</Text>
+            </View>
+          </Card>
+        </View>,
         <ActivityOverview date={dateString} user_id={user_id}/>,
         ...data.captures,
         ...data.deploys,

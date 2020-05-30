@@ -11,12 +11,34 @@ const yearList = [2011,2012,2013,2014,2015,2016,2017,2018,2019,2020]
 const monthList = [0,1,2,3,4,5,6,7,8,9,10,11]
 const months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
 
-export default function ({t}) {
+function Wrapper({noWrap,children,t}) {
+  const theme = useSelector(i=>i.themes[t||i.theme]);
+  if(noWrap===undefined) {
+    return <Card cardStyle={{width:300,backgroundColor:theme.page_content.bg,alignItems:"stretch"}}>
+      {children}
+    </Card>
+  }
+  return <View style={{padding:8,width:300,backgroundColor:theme.page_content.bg,alignItems:"stretch"}}>
+    {children}
+  </View>
+}
+
+export default function ({t,noWrap,onChange,value}) {
   const theme = useSelector(i=>i.themes[t||i.theme]);
   const [select,setSelect] = React.useState("date");
-  const [date,setDate] = React.useState(8);
-  const [month,setMonth] = React.useState(3);
-  const [year,setYear] = React.useState(2020);
+  const [date,setDate] = React.useState(value.date());
+  const [month,setMonth] = React.useState(value.month());
+  const [year,setYear] = React.useState(value.year());
+  const [firstLoad,setFirstLoad] = React.useState(true);
+
+  React.useEffect(()=>{
+    if(firstLoad) {
+      setFirstLoad(false);
+    } else {
+      onChange(moment({date,month,year}))
+    }
+  },[date,month,year]);
+
   const monthStart = moment({date:1,month,year}).day();
   const monthEnd = moment({date:1,month,year}).add(1,"month").subtract(1,'day').date();
 
@@ -34,7 +56,7 @@ export default function ({t}) {
   }
 
   return (
-    <Card cardStyle={{width:300,backgroundColor:theme.page_content.bg,alignItems:"stretch"}}>
+    <Wrapper t={t} noWrap={noWrap}>
       <TouchableRipple onPress={()=>setSelect(select=="year"?"date":"year")}>
         <Text style={{...font("bold"),lineHeight:12,opacity:0.8,color:theme.page_content.fg}}>{year}</Text>
       </TouchableRipple>
@@ -67,6 +89,6 @@ export default function ({t}) {
           </View>
         </TouchableRipple>)}
       </ScrollView>}
-    </Card>
+    </Wrapper>
   );
 }

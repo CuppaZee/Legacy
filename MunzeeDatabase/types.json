@@ -28494,5 +28494,65 @@
     "state": "bouncer",
     "category": "hometownheroes2020",
     "completion": "complete"
+  },
+  {
+    "name": "Congrats Card",
+    "icon": "congratscard",
+    "id": 2495,
+    "card": "open",
+    "temporary": 7,
+    "state": "virtual",
+    "category": "card",
+    "completion": "complete"
+  },
+  {
+    "name": "Sorry Card",
+    "icon": "sorrycard",
+    "id": 2496,
+    "card": "open",
+    "temporary": 7,
+    "state": "virtual",
+    "category": "card",
+    "completion": "complete"
+  },
+  {
+    "name": "Sorry Card 1",
+    "icon": "sorrycard1",
+    "id": 2497,
+    "card": "open",
+    "temporary": 7,
+    "state": "virtual",
+    "category": "card",
+    "completion": "complete"
+  },
+  {
+    "name": "Sorry Card 2",
+    "icon": "sorrycard2",
+    "id": 2498,
+    "card": "open",
+    "temporary": 7,
+    "state": "virtual",
+    "category": "card",
+    "completion": "complete"
+  },
+  {
+    "name": "Sorry Card 3",
+    "icon": "sorrycard3",
+    "id": 2499,
+    "card": "open",
+    "temporary": 7,
+    "state": "virtual",
+    "category": "card",
+    "completion": "complete"
+  },
+  {
+    "name": "May Flowers Card",
+    "icon": "mayflowerscard",
+    "id": 2500,
+    "card": "limited",
+    "temporary": 7,
+    "state": "virtual",
+    "category": "card",
+    "completion": "complete"
   }
 ]
