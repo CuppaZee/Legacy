@@ -59,6 +59,7 @@ export default function CustomDrawerContent(props) {
   var pages = [
     { title: t(`common:maps`), icon: "map", page: "Map" },
     { title: "Munzee Types", icon: "database", page: "DBSearch" },
+    { title: "Calendar", icon: "calendar", page: "Calendar" },
     { title: t(`common:scanner`), icon: "qrcode", page: "Scanner", hide: Platform.OS === "web" },
     // {title:t(`common:tools`),icon:"wrench",page:"Tools"},
   ].filter(i => !i.hide)

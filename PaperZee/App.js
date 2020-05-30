@@ -40,6 +40,7 @@ const DBCategoryScreen = loadable(() => import('./sections/DB/Category'),{fallba
 // Tools Screens
 const ToolsScreen = loadable(() => import('./sections/Tools/Home'),{fallback: <LoadingPage/>})
 const ScannerScreen = loadable(() => import('./sections/Tools/Scanner'),{fallback: <LoadingPage/>})
+const CalendarScreen = loadable(() => import('./sections/Calendar/Page'),{fallback: <LoadingPage/>})
 
 // Maps Screens
 const MapScreen = loadable(() => import('./sections/Maps/Home'),{fallback: <LoadingPage/>})
@@ -115,6 +116,10 @@ function StackNav () {
       <Stack.Screen
         name="Scanner"
         component={ScannerScreen}
+      />
+      <Stack.Screen
+        name="Calendar"
+        component={CalendarScreen}
       />
       <Stack.Screen
         name="AllClans"
@@ -286,6 +291,7 @@ function App() {
           Tools: 'tools',
           Map: 'maps',
           Scanner: 'scanner',
+          Calendar: 'calendar',
           Settings: 'settings',
           Info: 'info',
           ClanSearch: 'clan/search',
