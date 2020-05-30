@@ -32,15 +32,17 @@ export default function CalendarScreen() {
 
   return (
     <View style={{backgroundColor:theme.page.bg,flex:1,padding:4,justifyContent:"center",alignItems:"center"}}>
-      <View style={{maxWidth:400,width:"100%"}}>
-        <Card noPad>
-          <View style={{borderTopLeftRadius:8,borderTopRightRadius:8,flexDirection:"row",alignItems:"center",backgroundColor:(theme.clanCardHeader||theme.navigation).bg}}>
-            <IconButton icon={type=="default"?"format-text":"view-grid"} color={(theme.clanCardHeader||theme.navigation).fg} onPress={()=>setType(type=="default"?"alt":"default")}/>
-            <IconButton icon="chevron-left" color={(theme.clanCardHeader||theme.navigation).fg} onPress={remove}/>
-            <Text style={{flex:1,textAlign:"center",color:(theme.clanCardHeader||theme.navigation).fg}}>{moment({month,year}).format('MMMM YYYY')}</Text>
-            <IconButton icon="chevron-right" color={(theme.clanCardHeader||theme.navigation).fg} onPress={add}/>
+      <View style={{width:"100%",maxWidth:400}}>
+        <Card noFlex noPad={true}>
+          <View style={{flexDirection:"column"}}>
+            <View style={{borderTopLeftRadius:8,borderTopRightRadius:8,flexDirection:"row",alignItems:"center",backgroundColor:(theme.clanCardHeader||theme.navigation).bg}}>
+              <IconButton icon={type=="default"?"format-text":"view-grid"} color={(theme.clanCardHeader||theme.navigation).fg} onPress={()=>setType(type=="default"?"alt":"default")}/>
+              <IconButton icon="chevron-left" color={(theme.clanCardHeader||theme.navigation).fg} onPress={remove}/>
+              <Text style={{flex:1,textAlign:"center",color:(theme.clanCardHeader||theme.navigation).fg}}>{moment({month,year}).format('MMMM YYYY')}</Text>
+              <IconButton icon="chevron-right" color={(theme.clanCardHeader||theme.navigation).fg} onPress={add}/>
+            </View>
+            <Calendar month={month} year={year} theme={theme} type={type}/>
           </View>
-          <Calendar month={month} year={year} theme={theme} type={type}/>
         </Card>
       </View>
     </View>

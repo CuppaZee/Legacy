@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, ImageBackground } from 'react-native';
+import { View, Text, ImageBackground, ActivityIndicator } from 'react-native';
 import font from '~sections/Shared/font';
 
 function u(a) {
@@ -33,8 +33,8 @@ export default function Tile({data,date,type,theme}) {
         <ImageBackground source={u(data.includes('L')?'L':null)} style={{flex:1}}>
           <ImageBackground source={u(data.includes('H')?'H':null)} style={{flex:1}}>
             <ImageBackground source={u(data.includes('Z')?'QRewZeeOn':'QRewZeeOff')} style={{flex:1}}>
-              <View style={{flex:1,justifyContent:"center",alignItems:"center",paddingBottom:2}}>
-                <Text style={{color:"white",...font(),fontSize:16,lineHeight:0,fontWeight:"bold",textAlignVertical:"center"}}>{(date||"1").toString()}</Text>
+              <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
+                <Text style={{color:"white",...font(),fontSize:16,fontWeight:"bold",textAlignVertical:"center"}}>{(date||"1").toString()}</Text>
               </View>
             </ImageBackground>
           </ImageBackground>
