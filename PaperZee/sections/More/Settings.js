@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Card from '../Shared/Card';
 import s from "~store";
 import { useTranslation } from 'react-i18next';
-import Flag from 'react-native-flags';
 var { setTheme } = s;
 import font from '~sections/Shared/font';
 
@@ -85,7 +84,7 @@ export default function SettingsScreen({ navigation }) {
             <Text style={{color:theme.page_content.fg,...font()}}>Current Theme: {selected_theme}</Text>
             <View style={{flexDirection:"row",flexWrap:"wrap"}}>
               {[
-                ["Lightest","hcontrast"],
+                ["White","white"],
                 ["Light","light"],
                 ["Dark","dark"],
                 ["Darkest","xdark"]
@@ -109,7 +108,6 @@ export default function SettingsScreen({ navigation }) {
                   style={theme.page_content.border?{borderColor:"white",borderWidth:1}:{}}
                   color={theme.navigation.bg}
                   onPress={() => setLang(i.code)}
-                  icon={()=><Flag size={24} code={i.flag||i.code.slice(-2).toUpperCase()} type="flat"/>}
                 >{i.name}</Button>
               </View>)}
             </View>

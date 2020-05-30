@@ -1,7 +1,9 @@
 import MunzeeTypes from './types.json';
 var types = MunzeeTypes.map(i=>{
-  i.icon = f(i.icon);
-  return i;
+  return {
+    ...i,
+    icon: f(i.icon)
+  };
 })
 function f(a) {
   return a.toString().replace(/_/g,'').replace(/munzee/g,'');
@@ -39,6 +41,17 @@ export default {
     function: ({ dep }) => {
       return dep.filter(i => !g(i)?.personal).reduce(total,0);
     }
+  },
+  7: {
+    task_id: 7,
+    top: "Dest.",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/hotel.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/1starmotel.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/virtualresort.png"
+    ],
+    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i)?.destination).reduce(points,0)
   },
   10: {
     task_id: 10,
@@ -86,6 +99,28 @@ export default {
       "https://munzee.global.ssl.fastly.net/images/pins/evolution_filter_physical.png"
     ],
     function: ({ cap, dep }) => [...dep, ...cap].filter(i => g(i)?.evolution).reduce(total,0)
+  },
+  19: {
+    task_id: 19,
+    top: "Jewel",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/diamond.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/aquamarine.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/virtual_citrine.png"
+    ],
+    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i)?.category=="jewel").reduce(points,0)
+  },
+  23: {
+    task_id: 23,
+    top: "Weapon",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/catapult.png"
+    ],
+    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i)?.weapon=="clan").reduce(points,0)
   },
   24: {
     task_id: 24,

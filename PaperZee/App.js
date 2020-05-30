@@ -2,6 +2,7 @@ import * as React from 'react';
 import { NavigationContainer, useLinking, useNavigation } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
+// import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 import { Provider as ReduxProvider, useSelector, useDispatch } from 'react-redux';
 import s from '~store/index';
 import './lang/i18n';
@@ -33,22 +34,26 @@ const InfoScreen = loadable(() => import('./sections/More/Info'),{fallback: <Loa
 
 // DB Screens
 const DBTypeScreen = loadable(() => import('./sections/DB/Type'),{fallback: <LoadingPage x="page_content"/>})
-const DBSearchScreen = loadable(() => import('./sections/DB/Search'),{fallback: <LoadingPage x="page_content"/>})
+const DBSearchScreen = loadable(() => import('./sections/DB/Search'),{fallback: <LoadingPage/>})
+const DBCategoryScreen = loadable(() => import('./sections/DB/Category'),{fallback: <LoadingPage/>})
 
 // Tools Screens
 const ToolsScreen = loadable(() => import('./sections/Tools/Home'),{fallback: <LoadingPage/>})
 const ScannerScreen = loadable(() => import('./sections/Tools/Scanner'),{fallback: <LoadingPage/>})
+const CalendarScreen = loadable(() => import('./sections/Calendar/Page'),{fallback: <LoadingPage/>})
 
 // Maps Screens
 const MapScreen = loadable(() => import('./sections/Maps/Home'),{fallback: <LoadingPage/>})
 
 // User Screens
 const UserDetailsScreen = loadable(() => import('./sections/User/Details'),{fallback: <LoadingPage/>})
-const UserActivityScreen = loadable(() => import('./sections/User/Activity'),{fallback: <LoadingPage x="page_content"/>})
+const UserActivityScreen = loadable(() => import('./sections/User/Activity/Page'),{fallback: <LoadingPage x="page_content"/>})
 const UserSearchScreen = loadable(() => import('./sections/User/Search'),{fallback: <LoadingPage/>})
 const UserInventoryScreen = loadable(() => import('./sections/User/Inventory/Page'),{fallback: <LoadingPage x="page_content"/>})
 const UserClanScreen = loadable(() => import('./sections/User/Clan/Page'),{fallback: <LoadingPage/>})
 const UserQuestScreen = loadable(() => import('./sections/User/Quest'),{fallback: <LoadingPage/>})
+const UserBouncersScreen = loadable(() => import('./sections/User/Bouncers'),{fallback: <LoadingPage/>})
+const UserSHCScreen = loadable(() => import('./sections/User/SpecialHunterChallenge'),{fallback: <LoadingPage/>})
 
 // Navigation Sections
 import DrawerContent from './sections/Main/Drawer';
@@ -60,11 +65,14 @@ import { useDimensions } from '@react-native-community/hooks';
 import * as WebBrowser from 'expo-web-browser';
 import Header from './sections/Main/Header';
 
-WebBrowser?.maybeCompleteAuthSession?.();
+WebBrowser?.maybeCompleteAuthSession?.({
+  skipRedirectCheck: true
+});
 
 const Drawer = createDrawerNavigator();
 
 const Stack = createStackNavigator();
+// const Stack = createSharedElementStackNavigator();
 
 function RedirectScreen() {
   var nav = useNavigation();
@@ -83,31 +91,6 @@ function StackNav () {
     screenOptions={({ navigation, route }) => ({
       gestureEnabled: Platform.OS == 'ios',
       header: (props) => <Header {...(props||{})}/>
-      // headerStyle: {
-      //   backgroundColor: theme.navigation.bg
-      // },
-      // headerLeft: () => (
-      //   width<=1000?<View style={{flexDirection:"row"}}>
-      //     {width<=1000&&<IconButton
-      //       onPress={() => navigation.toggleDrawer()}
-      //       color="#fff"
-      //       icon="menu"
-      //     />}
-      //   </View>:null
-      // ),
-      // headerRight: () => {
-      //   return loggedIn && (
-      //     <View style={{ flexDirection: "row" }}>
-      //       {(route.name == "Home" || !loggedIn || navigation.dangerouslyGetState().index<1) ? null : <IconButton
-      //         onPress={() => navigation.pop()}
-      //         color="#fff"
-      //         icon="arrow-left"
-      //       />}
-      //       <LoadingButton />
-      //     </View>
-      //   )
-      // },
-      // headerTintColor: '#fff',
     })}>
     {loggedIn && <>
       <Stack.Screen
@@ -135,6 +118,10 @@ function StackNav () {
         component={ScannerScreen}
       />
       <Stack.Screen
+        name="Calendar"
+        component={CalendarScreen}
+      />
+      <Stack.Screen
         name="AllClans"
         options={{
           title: 'All Clans',
@@ -143,6 +130,9 @@ function StackNav () {
       />
       <Stack.Screen
         name="ClanRequirements"
+        options={{
+          title: 'Clan Requirements'
+        }}
         component={ClanRequirementsScreen}
       />
       <Stack.Screen
@@ -206,6 +196,27 @@ function StackNav () {
         component={UserQuestScreen}
       />
       <Stack.Screen
+        name="UserSHC"
+        options={{
+          title: 'User Special Hunter Challenge',
+        }}
+        component={UserSHCScreen}
+      />
+      <Stack.Screen
+        name="UserSHCDate"
+        options={{
+          title: 'User Special Hunter Challenge',
+        }}
+        component={UserSHCScreen}
+      />
+      <Stack.Screen
+        name="UserBouncers"
+        options={{
+          title: 'User Bouncers',
+        }}
+        component={UserBouncersScreen}
+      />
+      <Stack.Screen
         name="DBType"
         options={{
           title: 'Munzee Type',
@@ -218,6 +229,13 @@ function StackNav () {
           title: 'Database Search',
         }}
         component={DBSearchScreen}
+      />
+      <Stack.Screen
+        name="DBCategory"
+        options={{
+          title: 'Type Category',
+        }}
+        component={DBCategoryScreen}
       />
     </>}
     <Stack.Screen
@@ -232,12 +250,13 @@ function StackNav () {
 
 function DrawerNav() {
   var { width } = useDimensions().window;
+  var loggedIn = useSelector(i=>i.loggedIn);
   return <Drawer.Navigator
     drawerPosition="left"
     drawerStyle={{width:width>1000?260:Math.min(320,width)}}
     drawerContent={props => <DrawerContent side="left" {...props} />}
-    drawerType={width>1000?"permanent":"front"}
-    edgeWidth={100}
+    drawerType={(width>1000&&loggedIn)?"permanent":"front"}
+    edgeWidth={loggedIn?100:0}
   >
     <Drawer.Screen
       name="__primary"
@@ -272,6 +291,7 @@ function App() {
           Tools: 'tools',
           Map: 'maps',
           Scanner: 'scanner',
+          Calendar: 'calendar',
           Settings: 'settings',
           Info: 'info',
           ClanSearch: 'clan/search',
@@ -324,6 +344,25 @@ function App() {
               userid: Number
             }
           },
+          UserBouncers: {
+            path: 'user/:userid/bouncers',
+            parse: {
+              userid: Number
+            }
+          },
+          UserSHCDate: {
+            path: 'user/:userid/shc/:date',
+            parse: {
+              userid: Number,
+              date: String
+            }
+          },
+          UserSHC: {
+            path: 'user/:userid/shc',
+            parse: {
+              userid: Number
+            }
+          },
           UserDetails: {
             path: 'user/:userid',
             parse: {
@@ -336,6 +375,12 @@ function App() {
             path: 'db/type/:munzee',
             parse: {
               munzee: String
+            }
+          },
+          DBCategory: {
+            path: 'db/category/:category',
+            parse: {
+              category: String
             }
           },
 

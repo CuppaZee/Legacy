@@ -5,7 +5,7 @@ import Card from '~sections/Shared/Card';
 import { useSelector } from 'react-redux';
 import { TouchableRipple, FAB } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import ActivityCard from './ActivityCard';
+import ActivityCard from './Activity/Card';
 import useAPIRequest from '~sections/Shared/useAPIRequest';
 import { useDimensions } from '@react-native-community/hooks';
 import font from '~sections/Shared/font';
@@ -61,9 +61,16 @@ export default function DetailsScreen({ route }) {
                 <MaterialCommunityIcons name={logins[user_id] ? 'chevron-right' : 'lock'} size={24} color={theme.page_content.fg} />
               </View>
             </TouchableRipple>
-            <TouchableRipple onPress={() => nav.navigate('UserClan', { userid: user_id })}>
+            <TouchableRipple onPress={() => nav.navigate('UserBouncers', { userid: user_id })}>
               <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                 <MaterialCommunityIcons name="star" size={24} color={theme.page_content.fg} />
+                <Text style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Your Bouncers</Text>
+                <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
+              </View>
+            </TouchableRipple>
+            <TouchableRipple onPress={() => nav.navigate('UserClan', { userid: user_id })}>
+              <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
+                <MaterialCommunityIcons name="shield-half-full" size={24} color={theme.page_content.fg} />
                 <Text style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Clan Progress</Text>
                 <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
               </View>
@@ -72,6 +79,13 @@ export default function DetailsScreen({ route }) {
               <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                 <MaterialCommunityIcons name="run" size={24} color={theme.page_content.fg} />
                 <Text style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Quebec Quest Progress</Text>
+                <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
+              </View>
+            </TouchableRipple>
+            <TouchableRipple onPress={() => nav.navigate('UserSHC', { userid: user_id })}>
+              <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
+                <MaterialCommunityIcons name="star" size={24} color={theme.page_content.fg} />
+                <Text style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Special Hunter Challenge</Text>
                 <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
               </View>
             </TouchableRipple>

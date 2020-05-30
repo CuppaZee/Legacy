@@ -39,7 +39,7 @@ var setTheme_ = (data) => ({ type: "SET_THEME", data: data })
 var levelSelect_ = (data) => ({ type: "LEVEL_SELECT", data: data })
 var tick = () => ({ type: "TICK" })
 var login = (data,noUpdate) => async (dispatch, getState) => {
-  if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_STORE_API_TOKENS',JSON.stringify({...getState().logins,...data}));
+  if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_TEAKENS',JSON.stringify({...getState().logins,...data}));
   dispatch(login_(data));
 }
 var clanBookmarks = (data,noUpdate) => async (dispatch, getState) => {
@@ -153,10 +153,20 @@ setInterval(refreshRequests,60000,store);
 // setInterval(()=>{
 //   store.dispatch(tick());
 // },1000)
-
-AsyncStorage.getItem('CUPPAZEE_STORE_API_TOKENS').then((data)=>{
-  if(!data) return store.dispatch(login({},true));
-  store.dispatch(login(JSON.parse(data),true));
+async function getToken(user_id,data) {
+  var x = Object.assign({},data);
+  var y = await fetch(`https://server.cuppazee.app/auth/get?teaken=${encodeURIComponent(x.teaken)}&user_id=${encodeURIComponent(user_id)}`)
+  x.token = (await y.json()).data;
+  return x;
+}
+AsyncStorage.getItem('CUPPAZEE_TEAKENS').then(async (dat)=>{
+  if(!dat) return store.dispatch(login({},true));
+  var data = JSON.parse(dat)
+  console.log(data,dat);
+  for(var user in data) {
+    data[user] = await getToken(user,data[user]);
+  }
+  store.dispatch(login(data,true));
 })
 AsyncStorage.getItem('CLAN_BOOKMARKS').then((data)=>{
   if(!data) return store.dispatch(clanBookmarks([],true));
@@ -168,7 +178,8 @@ AsyncStorage.getItem('CODE').then((data)=>{
 })
 AsyncStorage.getItem('THEME').then((data)=>{
   if(!data) return;
-  store.dispatch(setTheme(data,true));
+  if(themes[data]) store.dispatch(setTheme(data,true));
+  return;
 })
 AsyncStorage.getItem('LEVEL_SELECT').then((data)=>{
   if(!data) return store.dispatch(levelSelect({},true));

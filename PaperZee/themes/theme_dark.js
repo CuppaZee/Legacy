@@ -6,15 +6,19 @@ export default {
     fg: '#ffffff'
   },
   navigation: {
+    bg: "#232323",
+    fg: "#ffffff"
+  },
+  navigation_selected: {
     bg: "#121212",
     fg: "#ffffff"
   },
   page: {
-    bg: "#232323",
+    bg: "#121212",
     fg: "#ffffff"
   },
   page_content: {
-    bg: "#343434",
+    bg: "#232323",
     fg: "#d3d3d3",
     border: "#ffffff"
   },

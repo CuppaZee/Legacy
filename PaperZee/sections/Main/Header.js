@@ -17,7 +17,7 @@ export default function Header(props) {
       paddingRight: props.insets.right,
     }}
   >
-    {width<=1000&&<Appbar.Action icon="menu" onPress={()=>props.navigation.toggleDrawer()} />}
+    {width<=1000&&loggedIn&&<Appbar.Action icon="menu" onPress={()=>props.navigation.toggleDrawer()} />}
     {!(props.route?.name == "Home" || !loggedIn || props.navigation.dangerouslyGetState().index<1)&&<Appbar.BackAction
       onPress={()=>props.navigation.pop()}
     />}

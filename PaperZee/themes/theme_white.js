@@ -3,12 +3,20 @@ export default {
     bg: '#ffaaaa',
     fg: '#000000'
   },
-  navigation: {
-    bg: "#00642D",
+  clanCardHeader: {
+    bg: "#232323",
     fg: "#ffffff"
   },
+  navigation: {
+    bg: "#ffffff",
+    fg: "#000000"
+  },
+  navigation_selected: {
+    bg: "#d3d3d3",
+    fg: "#000000"
+  },
   page: {
-    bg: "#c6e3b6",
+    bg: "#eeeeee",
     fg: "#000000"
   },
   page_content: {
@@ -29,4 +37,4 @@ export default {
       fg: "#401700"
     }
   }
-}
+};

@@ -9,6 +9,10 @@ export default {
     bg: "#000000",
     fg: "#ffffff"
   },
+  navigation_selected: {
+    bg: "#121212",
+    fg: "#ffffff"
+  },
   page: {
     // bg: "#121212",
     bg: "#000000",

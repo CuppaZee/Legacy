@@ -330,10 +330,26 @@ module.exports = [
   {
     "name": "Elektrivool",
     "icon": "elektrivool",
-    "id": 2408,
+    "id": 2409,
     "state": "bouncer",
     "base": "elekter",
     "stage": 3,
     "lands_on": ["skyland",":virtual","electricmystery"]
+  },
+  {
+    "name": "Teemant",
+    "icon": "teemant",
+    "id": 2369,
+    "state": "bouncer",
+    "funfinity": true,
+    "lands_on": ["treehouse","munzee","earthmystery","diamond"]
+  },
+  {
+    "name": "Smaragd",
+    "icon": "smaragd",
+    "id": 2370,
+    "state": "bouncer",
+    "funfinity": true,
+    "lands_on": ["skyland",i=>(i.virtual_colors||[]).includes("green"),"airmystery","virtual_emerald"]
   }
 ]

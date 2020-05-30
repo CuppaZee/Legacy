@@ -118,13 +118,21 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
       data: {clan_id:1349,game_id}
     },
     shadow_clans.includes(Number(clan_id))?{
-      endpoint: `clan/shadow/v1?clan_id=${clan_id}&game_id=${game_id}`,
-      flameZee: true
+      endpoint: `clan/shadow/v1`,
+      data: {clan_id,game_id},
+      cuppazee: true
     }:null
   ])
   var data = ClanRequirementsConverter(unformatted_stats);
   var clan_data = ClanStatsConverter(Number(clan_id)<0?{shadow:true}:unformatted_clan,unformatted_stats,showGhost?unformatted_shadow:{});
   var clan = clan_data;
+
+  var members = clan?.members??[];
+  var [ascending,setAscending] = React.useState(false);
+  var [sortReq,setSortReq] = React.useState(3);
+  members.sort((a,b) => {
+    return clan?.requirements?.[sortReq]?.users?.[(ascending?a:b).user_id] - clan?.requirements?.[sortReq]?.users?.[(ascending?b:a).user_id];
+  })
 
   function calculateLevel(user,value,requirement) {
     var x = false;
@@ -214,16 +222,16 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
   return (
     // <View style={{ flex: 1, alignItems: "stretch", flexDirection: "column", backgroundColor: "#e9ffdc"??"#e6fcd9", borderRadius: 8 }}>
     <Card noPad>
-      <View style={{ ...(darkBG?{borderBottomWidth: 2*s, borderBottomColor: level_colors.border}:{}), backgroundColor: theme.navigation.bg, paddingHorizontal: 8*s, borderTopLeftRadius: 8*s, borderTopRightRadius: 8*s, flexDirection: "row", alignItems: "center" }}>
+      <View style={{ ...(darkBG?{borderBottomWidth: 2*s, borderBottomColor: level_colors.border}:{}), backgroundColor: (theme.clanCardHeader||theme.navigation).bg, paddingHorizontal: 8*s, borderTopLeftRadius: 8*s, borderTopRightRadius: 8*s, flexDirection: "row", alignItems: "center" }}>
         <View style={{flex:1,paddingVertical:8*s}}>
-    <Text style={{ color: theme.navigation.fg, ...font("bold"), fontSize: 12*s, opacity: 0.7, lineHeight: 12*s }}>{clan?.details?.goal??'Shadow Clan'}{clan?.details?.goal&&' Goal'} - {levelTable?'Subtract View':'Total View'}{!showGhost&&" - Hiding Shadow Members"}</Text>
-          <Text style={{ color: theme.navigation.fg, ...font("bold"), fontSize: 16*s, lineHeight: 16*s }}>{clan?.details?.name}</Text>
+    <Text style={{ color: (theme.clanCardHeader||theme.navigation).fg, ...font("bold"), fontSize: 12*s, opacity: 0.7, lineHeight: 12*s }}>{clan?.details?.goal??'Shadow Clan'}{clan?.details?.goal&&' Goal'} - {levelTable?'Subtract View':'Total View'}{!showGhost&&" - Hiding Shadow Members"}</Text>
+          <Text style={{ color: (theme.clanCardHeader||theme.navigation).fg, ...font("bold"), fontSize: 16*s, lineHeight: 16*s }}>{clan?.details?.name}</Text>
         </View>
         {shadow_clans.includes(Number(clan_id))&&Number(clan_id)>=0&&<TouchableRipple style={{borderRadius:24*s,padding:4*s}} onPress={()=>{setShowGhost(!showGhost)}}>
-          <MaterialCommunityIcons name="ghost" size={24*s} color={theme.navigation.fg} />
+          <MaterialCommunityIcons name="ghost" size={24*s} color={(theme.clanCardHeader||theme.navigation).fg} />
         </TouchableRipple>}
         <TouchableRipple style={{borderRadius:24*s,padding:4*s}} onPress={()=>{setLevelTable(!levelTable)}}>
-          <MaterialCommunityIcons name="plus-minus" size={24*s} color={theme.navigation.fg} />
+          <MaterialCommunityIcons name="plus-minus" size={24*s} color={(theme.clanCardHeader||theme.navigation).fg} />
         </TouchableRipple>
       </View>
         {/* <View style={{flex:1,paddingVertical:8}}>
@@ -236,11 +244,23 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
           <View style={{flexDirection:"column",flexGrow:1,alignItems:"stretch",backgroundColor:level_colors.null}}>
             <View style={{flexDirection:"row",marginRight:1}}>
               {(data?.order?.requirements??[]).map(i=><View style={{flexGrow:1}}>
-                <View style={{height:(96-19)*s,padding:4*s,alignItems:"center",backgroundColor:darkBG??level_colors[data?.order.individual.includes(i)?(data?.order.group.includes(i)?'bot':'ind'):'gro']}}>
-                  <Image source={{uri:data?.requirements?.[i]?.icon??data?.requirements?.[i]?.icons?.[tick%data?.requirements?.[i]?.icons?.length]}} style={{height:36*s,width:36*s}} />
-                  <Text numberOfLines={1} style={{color:darkBG&&level_colors[data?.order.individual.includes(i)?(data?.order.group.includes(i)?'bot':'ind'):'gro'],textAlign:"center",...font("bold"),fontSize:12*s}}>{data?.requirements?.[i]?.top}</Text>
-                  <Text numberOfLines={1} style={{color:darkBG&&level_colors[data?.order.individual.includes(i)?(data?.order.group.includes(i)?'bot':'ind'):'gro'],textAlign:"center",...font(),fontSize:12*s}}>{data?.requirements?.[i]?.bottom}</Text>
-                </View>
+                <TouchableRipple onPress={()=>{
+                  if(sortReq!==i) {
+                    setSortReq(i);
+                    setAscending(false);
+                  } else {
+                    setAscending(!ascending);
+                  }
+                }}>
+                  <View style={{height:(96-19)*s,padding:4*s,alignItems:"center",backgroundColor:darkBG??level_colors[data?.order.individual.includes(i)?(data?.order.group.includes(i)?'bot':'ind'):'gro']}}>
+                    <Image source={{uri:data?.requirements?.[i]?.icon??data?.requirements?.[i]?.icons?.[tick%data?.requirements?.[i]?.icons?.length]}} style={{height:36*s,width:36*s}} />
+                    <View style={{flexDirection:"row",alignItems:"baseline"}}>
+                      <Text numberOfLines={1} style={{color:darkBG&&level_colors[data?.order.individual.includes(i)?(data?.order.group.includes(i)?'bot':'ind'):'gro'],textAlign:"center",...font("bold"),fontSize:12*s}}>{data?.requirements?.[i]?.top}</Text>
+                      <MaterialCommunityIcons color={darkBG&&level_colors[data?.order.individual.includes(i)?(data?.order.group.includes(i)?'bot':'ind'):'gro']} name={sortReq===i?(ascending?'menu-up':'menu-down'):'menu-swap'} size={12*s}/>
+                    </View>
+                    <Text numberOfLines={1} style={{color:darkBG&&level_colors[data?.order.individual.includes(i)?(data?.order.group.includes(i)?'bot':'ind'):'gro'],textAlign:"center",...font(),fontSize:12*s}}>{data?.requirements?.[i]?.bottom}</Text>
+                  </View>
+                </TouchableRipple>
                 <View style={{borderBottomWidth:2*s,borderBottomColor:level_colors.border,marginHorizontal:-1*s,height:24*s,padding:4*s,alignItems:"center",backgroundColor:darkBG??level_colors[levelSelect+1]}}>
                   {
                     share?
@@ -248,9 +268,10 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
                     :<Text style={{textAlign:"center",...font(),width:'100%',fontSize:12*s,color:darkBG&&level_colors[levelSelect+1]}}>{num(data?.levels?.[levelSelect]?.individual?.[i]||0,true)}</Text>
                   }
                 </View>
-                {clan?.members?.map(u=><View style={{marginHorizontal:-1*s,height:24*s,padding:4*s,alignItems:"center",backgroundColor:darkBG??level_colors[calculateLevel(true,clan.requirements?.[i]?.users?.[u.user_id],i)]}}>
-                  <Text style={{textAlign:"center",width:'100%',...font(),fontSize:12*s,color:darkBG&&level_colors[calculateLevel(true,clan.requirements?.[i]?.users?.[u.user_id],i)]}}>
+                {members?.map(u=><View style={{marginHorizontal:-1*s,height:24*s,padding:4*s,alignItems:"center",backgroundColor:darkBG??level_colors[calculateLevel(true,clan.requirements?.[i]?.users?.[u.user_id],i)]}}>
+                  <Text style={{flexDirection:"row",textAlign:"center",width:'100%',...font(),fontSize:12*s,color:darkBG&&level_colors[calculateLevel(true,clan.requirements?.[i]?.users?.[u.user_id],i)]}}>
                     {levelTable?num((data?.levels?.[levelSelect]?.individual?.[i]||0) - clan.requirements?.[i]?.users?.[u.user_id]):num(clan.requirements?.[i]?.users?.[u.user_id])}
+                    {/* <Text style={{paddingLeft:2,fontSize:12,lineHeight:6,textAlignVertical:'top',color:theme.page_content.fg}}>{calculateLevel(true,clan.requirements?.[i]?.users?.[u.user_id],i)}</Text> */}
                   </Text>
                 </View>)}
                 <View style={{borderTopWidth:2*s,borderTopColor:level_colors.border,marginHorizontal:-1*s,height:24*s,padding:4*s,alignItems:"center",backgroundColor:darkBG??level_colors[calculateLevel(false,clan.requirements?.[i]?.total,i)]}}>
@@ -271,14 +292,6 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
           {/* height:Platform.OS=="web"?76:77, */}
           <View style={{height:(96-19)*s,backgroundColor:darkBG??level_colors.null,flexDirection:"row",alignItems:"center",padding:4*s}}><Text style={{fontSize:12*s,...font(),color:darkBG&&level_colors.null}}>Players ({clan?.members?.length})</Text></View>
           <View style={{borderBottomWidth:2*s,borderBottomColor:level_colors.border,height:24*s,justifyContent:"center",backgroundColor:darkBG??level_colors[levelSelect+1]}}>
-            {/* <Picker
-              selectedValue={ls}
-              style={{ height: 20, fontSize: 12, backgroundColor: "transparent", borderWidth: 0 }}
-              onValueChange={(val, index) => setLevelSelect(val)}
-            >
-              {data?.levels?.map((i,index)=><Picker.Item key={i} label={i.name + " Indiv"} value={index} />)}
-              {data?.levels?.map((i,index)=><Picker.Item key={i+'s'} label={i.name + " Share"} value={index+'s'} />)}
-            </Picker> */}
             <Menu
               visible={userLevelSelect}
               onDismiss={()=>setUserLevelSelect(false)}
@@ -307,7 +320,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
               />)}
             </Menu>
           </View>
-          {clan?.members?.map(i=><TouchableWithoutFeedback onPress={()=>nav.navigate('UserDetails',{userid:i.user_id})}>
+          {members?.map(i=><TouchableWithoutFeedback onPress={()=>nav.navigate('UserDetails',{userid:i.user_id})}>
             <View style={{backgroundColor:darkBG??level_colors[calculateLevelT(i.user_id)],padding:4*s,height:24*s,flexDirection:"row",alignItems:"center",justifyContent:"flex-start"}} key={i.name}>
               {(i.leader||i.ghost)&&<MaterialCommunityIcons name={i.ghost?'ghost':'hammer'} color={darkBG&&level_colors[calculateLevelT(i.user_id)]} size={12*s} />}
               <Text numberOfLines={1} ellipsizeMode="tail" style={{fontSize:12*s,...font(),flexShrink:1,color:darkBG&&level_colors[calculateLevelT(i.user_id)]}}>{i.username}</Text>
@@ -338,13 +351,6 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
                 title={<Text style={{fontSize:12*s,...font()}}>{i.name}</Text>}
               />)}
             </Menu>
-            {/* <Picker
-              selectedValue={levelSelect}
-              style={{ height: 20, fontSize: 12, backgroundColor: "transparent", borderWidth: 0 }}
-              onValueChange={(val, index) => setLevelSelect(index)}
-            >
-              {data?.levels?.map((i,index)=><Picker.Item key={i} label={i.name + " Group"} value={index} />)}
-            </Picker> */}
           </View>
         </View>
       </View>

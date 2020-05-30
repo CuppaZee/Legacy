@@ -7,12 +7,16 @@ export default {
     bg: "#016930",
     fg: "#ffffff"
   },
+  navigation_selected: {
+    bg: "#005627",
+    fg: "#ffffff"
+  },
   page: {
-    bg: "#c6e3b6",
+    bg: "#c6ebd0",
     fg: "#000000"
   },
   page_content: {
-    bg: "#e6fcd9",
+    bg: "#e7f7ec",
     fg: "#000000"
   },
   activity: {

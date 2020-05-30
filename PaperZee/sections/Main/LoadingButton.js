@@ -7,10 +7,11 @@ import r from "~store";
 export default function () {
   var dispatch = useDispatch();
   var loading = useSelector(i=>i.loading>0);
+  var theme = useSelector(i=>i.themes[i.theme]);
   return (
-    loading ? <View style={{width:48,justifyContent:"center"}}><ActivityIndicator size="small" color="#ffffff" /></View> : <IconButton
+    loading ? <View style={{width:48,justifyContent:"center"}}><ActivityIndicator size="small" color={theme.navigation.fg} /></View> : <IconButton
       onPress={() => dispatch(r.refresh())}
-      color="#fff"
+      color={theme.navigation.fg}
       icon="refresh"
     />
   )

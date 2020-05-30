@@ -2,10 +2,6 @@ import MunzeeTypes from '~sections/DB/types.json';
 import moment from 'moment';
 import 'moment-timezone';
 export default function InventoryConverter(credits={}, boosters=[], history={}, undeployed=[]) {
-  undeployed = Object.entries(undeployed?.map?.(i => i.pin_icon.match(/\/([^./]+).png/)[1])?.reduce?.((obj, item) => {
-    obj[item] = (obj[item] || 0) + 1;
-    return obj;
-  }, {})).map(i => ({ type: i[0], amount: i[1] }));
   var data = {
     undeployed: [],
     credits: [],

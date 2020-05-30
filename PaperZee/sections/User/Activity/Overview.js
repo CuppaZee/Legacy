@@ -32,7 +32,8 @@ var creatures = {
   'fancyflatmatt': 'footyflatmatt',
   'fancy_flat_matt': 'footyflatmatt',
   'tempbouncer': 'expiring_specials_filter',
-  'temp_bouncer': 'expiring_specials_filter'
+  'temp_bouncer': 'expiring_specials_filter',
+  'funfinity': 'oniks'
 }
 
 var hostIcon = (icon) => {
@@ -53,6 +54,7 @@ function OverviewItem({i}) {
         <View key={i.icon} style={{ padding: 2, alignItems: "center" }}>
           <Image style={{ height: 32, width: 32 }} source={{ uri: i[0] }} />
           <Text style={{ color: theme.page_content.fg,...font() }}>{i[1].total}</Text>
+          {hostIcon(i[0])&&<Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: 15 }} source={{ uri: hostIcon(i[0]) }} />}
         </View>
       </TouchableRipple>
     }
@@ -60,7 +62,10 @@ function OverviewItem({i}) {
     contentStyle={{ backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border?1:0, borderColor: theme.page_content.border }}
   >
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
-      <Image style={{ height: 48, width: 48 }} source={{ uri: i[0] }} />
+      <View>
+        <Image style={{ height: 48, width: 48 }} source={{ uri: i[0] }} />
+        {hostIcon(i[0])&&<Image style={{ height: 36, width: 36, position: "absolute", right: -7.5, bottom: -7.5 }} source={{ uri: hostIcon(i[0]) }} />}
+      </View>
       <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].total}x {(MunzeeTypes.find(x=>x.icon==i[0].slice(49,-4))||{name:i[0].slice(49,-4)}).name}</Text>
       <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].points} Points</Text>
       <Button
@@ -78,29 +83,11 @@ export default function ({user_id,date:dateInput}) {
   var theme = useSelector(i=>i.themes[i.theme]);
   var date = new Date(Date.now() - (5 * 60 * 60000));
   var dateString = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${(date.getUTCDate()).toString().padStart(2, '0')}`
-  var navigation = useNavigation();
-  var route = useRoute();
-  // var user_id = Number(route.params.userid);
-  var dispatch = useDispatch();
-  var users = useSelector(i => Object.keys(i.logins));
-  
   const data = useAPIRequest({
-    endpoint: 'statzee/player/day',
-    data: {day:dateInput||dateString},
-    user: user_id
+    endpoint: 'user/activity',
+    data: {day:dateInput||dateString,user_id},
+    cuppazee: true
   })
-  // var { data } = useSelector(i => i.request_data[`user/activity?user_id=${user_id}&day=${dateString}`] ?? {})
-  // var { data: userdata } = useSelector(i => i.request_data[`user/details?user_id=${user_id}`] ?? {})
-  // useFocusEffect(
-  //   React.useCallback(() => {
-  //     dispatch(request.add(`user/activity?user_id=${user_id}&day=${dateString}`))
-  //     dispatch(request.add(`user/details?user_id=${user_id}`))
-  //     return () => {
-  //       dispatch(request.remove(`user/activity?user_id=${user_id}&day=${dateString}`))
-  //       dispatch(request.remove(`user/details?user_id=${user_id}`))
-  //     };
-  //   }, [])
-  // );
   function isRenovation(act) {
     return !!(act.pin.includes('/renovation.') && act.captured_at);
   }
