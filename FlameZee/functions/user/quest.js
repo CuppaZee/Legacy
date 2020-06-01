@@ -6,6 +6,23 @@ function g(a) {
 var path = require('path');
 var geocoder = require('offline-geocoder')({ database: path.join(__dirname,'../util/geolocate/db.sqlite') })
 
+function c(i) {
+  return Number((i.captured_at || i.deployed_at).slice(8, 10)) > 2;
+}
+var games = {
+  1: {
+    tasks: [
+      { id: 1, function: ({ cap, dep }) => [...cap, ...dep].filter(i => c(i) && g(i).category==="mystery").length },
+      { id: 2, function: ({ cap, dep }) => [...cap, ...dep].filter(i => c(i) && g(i).evolution).length },
+      { id: 3, function: ({ cap, dep }) => [...cap, ...dep].filter(i => c(i) && g(i).weapon==="clan").length },
+      { id: 4, function: ({ cap, dep }) => [...cap, ...dep].filter(i => c(i) && g(i).jewel).length },
+      { id: 5, function: ({ cap }) => cap.filter(i => (i.url || "").includes("XeresDan/1707")).length }
+    ],
+    month: "05",
+    year: "2020"
+  }
+}
+
 module.exports = {
   path: "user/quest",
   latest: 1,
@@ -17,21 +34,24 @@ module.exports = {
           type: "userid",
         },
       },
-      async function({ params: { user_id }, db }) {
-        var month = "05";
+      async function({ params: { user_id, game_id = 1 }, db }) {
+        var month = games[game_id].month;
+        var year = games[game_id].year;
         var token = await retrieve(db, { user_id: 125914, teaken: false }, 60);
-        function c(i) {
-          return Number((i.captured_at || i.deployed_at).slice(8, 10)) > 2;
-        }
-        var tasks = [
-          { id: 1, function: ({ cap, dep }) => [...cap, ...dep].filter(i => c(i) && g(i).category==="mystery").length },
-          { id: 2, function: ({ cap, dep }) => [...cap, ...dep].filter(i => c(i) && g(i).evolution).length },
-          { id: 3, function: ({ cap, dep }) => [...cap, ...dep].filter(i => c(i) && g(i).weapon==="clan").length },
-          { id: 4, function: ({ cap, dep }) => [...cap, ...dep].filter(i => c(i) && g(i).jewel).length },
-          { id: 5, function: ({ cap }) => cap.filter(i => (i.url || "").includes("XeresDan/1707")).length }
-        ]
+        var tasks = games[game_id].tasks
 
         var output = {};
+
+        function checkTime(time) {
+          console.log(time);
+          if(!time) return false;
+          if(Number(time.slice(0,4)) > Number(year)) {
+            return true;
+          } else if(Number(time.slice(0,4)) === Number(year) && Number(time.slice(5,7)) >= Number(month)) {
+            return true;
+          }
+          return false;
+        }
 
         var captures = [];
         for (var i = 0; i < 50; i++) {
@@ -40,7 +60,8 @@ module.exports = {
             user_id
           }, token.access_token);
           captures = captures.concat(x)
-          if (!x[0] || !x[0].captured_at.startsWith('2020-'+month)) {
+          if (!x[0] || !checkTime(x[0].captured_at)) {
+            console.log(user_id,game_id,'Breaking at',i);
             break;
           }
         }
@@ -52,12 +73,12 @@ module.exports = {
             user_id
           }, token.access_token);
           deploys = deploys.concat(x.munzees)
-          if (!x.munzees[0] || !x.munzees[0].deployed_at.startsWith('2020-'+month)) {
+          if (!x.munzees[0] || !checkTime(x.munzees[0].deployed_at)) {
             break;
           }
         }
-        captures = captures.filter(i => i.captured_at.startsWith('2020-'+month))
-        deploys = deploys.filter(i => i.deployed_at.startsWith('2020-'+month))
+        captures = captures.filter(i => i.captured_at.startsWith(year+'-'+month))
+        deploys = deploys.filter(i => i.deployed_at.startsWith(year+'-'+month))
         for (var capture of captures) {
           capture.location = await geocoder.reverse(capture.latitude, capture.longitude);
         }
