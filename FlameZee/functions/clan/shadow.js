@@ -7,6 +7,7 @@ module.exports = {
       params: {},
       async function({ db, params: { game_id, clan_id } }) {
         var d = (await db.collection(`shadow_${game_id}`).doc((clan_id || "1349").toString()).get()).data();
+        if(!d.total) d.total = {};
         var details = d._details;
         var members = d._members.map(i=>i.user_id);
         var usernames = {};

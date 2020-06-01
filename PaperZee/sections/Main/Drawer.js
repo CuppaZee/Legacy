@@ -57,7 +57,7 @@ export default function CustomDrawerContent(props) {
   var nav = props.navigation;
   var [showMoreClan, setShowMoreClan] = React.useState(false);
   var pages = [
-    { title: t(`common:maps`), icon: "map", page: "Map" },
+    // { title: t(`common:maps`), icon: "map", page: "Map" },
     { title: "Munzee Types", icon: "database", page: "DBSearch" },
     { title: "Calendar", icon: "calendar", page: "Calendar" },
     { title: t(`common:scanner`), icon: "qrcode", page: "Scanner", hide: Platform.OS === "web" },
@@ -77,10 +77,10 @@ export default function CustomDrawerContent(props) {
   }
   return (
     <DrawerContentScrollView style={{ backgroundColor: theme.navigation.bg, ...(theme.page_content.border ? { borderRightWidth: 1, borderRightColor: "white" } : {}) }} {...props}>
-      <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
+      {/* <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
         <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Remember this is a{Platform.OS == "android" ? 'n Early Access' : ' Beta'} build</Text>
         <Text style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Feedback is welcome via Messenger or Email</Text>
-      </View>
+      </View> */}
       {Platform.OS == "web" && globalThis?.navigator?.userAgent?.match?.(/Android/) && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
         <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>The CuppaZee App is now on Google Play</Text>
         <Text style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Download it now!</Text>
@@ -168,14 +168,14 @@ export default function CustomDrawerContent(props) {
         />
         <IconButton
           style={{
-            backgroundColor: route.name == "ClanRequirements" && route.params.gameid == 87 ? itemProps.activeBackgroundColor : null
+            backgroundColor: route.name == "ClanRequirements" && route.params.gameid == 88 ? itemProps.activeBackgroundColor : null
           }}
           icon="new-box"
           color={itemProps.inactiveTintColor}
           onPress={() => nav.reset({
             index: 1,
             routes: [
-              { name: '__primary', params: { screen: "ClanRequirements", params: { gameid: 87 } } },
+              { name: '__primary', params: { screen: "ClanRequirements", params: { gameid: 88 } } },
             ],
           })
           }

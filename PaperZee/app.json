@@ -11,7 +11,7 @@
     ],
     "githubUrl": "https://github.com/CuppaZee/CuppaZee",
     "scheme": "cuppazee",
-    "version": "1.1",
+    "version": "1.0.1",
     "orientation": "default",
     "icon": "./assets/CuppaZeeIcon.png",
     "splash": {
@@ -27,18 +27,24 @@
     ],
     "ios": {
       "bundleIdentifier": "uk.cuppazee.paper",
-      "buildNumber": "1.1",
+      "buildNumber": "1.0.1",
       "icon": "./assets/CuppaZeeIcon.png",
       "requireFullScreen": false,
       "supportsTablet": true,
       "infoPlist": {
         "NSCameraUsageDescription": "CuppaZee uses the camera to scan Munzees."
-      }
+      },
+      "config": {
+        "googleMapsApiKey": "AIzaSyAT1J1Z5S02Avk9p4IqUKPtEYOV7gI8-PA"
+      },
+      "associatedDomains": [
+        "applinks:cuppazee.app"
+      ]
     },
     "android": {
       "config": {
         "googleMaps": {
-          "apiKey": "AIzaSyAOiVpM8NwPruxhr-Dtx1_QyrPP6ecr9s8"
+          "apiKey": "AIzaSyBDgPXi66fB9Yd4XyAhEnDaA0XrqdbvEDo"
         }
       },
       "package": "uk.cuppazee.paper",

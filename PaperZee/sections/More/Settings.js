@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Text, View, Platform, Image, AsyncStorage, ScrollView } from 'react-native';
-import { Button } from 'react-native-paper';
+import { Button, IconButton } from 'react-native-paper';
 import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from "react-redux";
 import Card from '../Shared/Card';
 import s from "~store";
 import { useTranslation } from 'react-i18next';
-var { setTheme } = s;
+var { setTheme, removeLogin } = s;
 import font from '~sections/Shared/font';
 
 function forceReload() {
@@ -37,6 +37,15 @@ export default function SettingsScreen({ navigation }) {
     AsyncStorage.setItem('LANG',lang);
   }
 
+  function logout(user_id) {
+    dispatch(removeLogin(user_id))
+    // if(Object.keys(logins).length===1) {
+    //   return ;
+    // } else {
+    //   return;
+    // }
+  }
+
   var languages = [
     {code:'cs',name:'Čeština',flag:"CZ"},
     // {code:'de',name:'Deutsch'},
@@ -57,9 +66,10 @@ export default function SettingsScreen({ navigation }) {
           <ScrollView contentContainerStyle={{padding:8}}>
             {Object.entries(logins).map(user=><View key={user[0]} style={{padding:8,flexDirection:"row"}}>
               <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(user[0]).toString(36)}.png`}} style={{borderRadius:24,width:48,height:48}} />
-              <View style={{paddingLeft:8,flexGrow:1,alignSelf:"center"}}>
+              <View style={{paddingLeft:8,flex:1,alignSelf:"center"}}>
                 <Text style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{user[1].username}</Text>
               </View>
+              <IconButton icon="close" color="red" onPress={()=>logout(user[0])}/>
             </View>)}
             <View style={{flexDirection:"row",flexWrap:"wrap"}}>
               <Button
@@ -81,7 +91,12 @@ export default function SettingsScreen({ navigation }) {
             </View>
             
             {/* TODO: Theme Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
-            <Text style={{color:theme.page_content.fg,...font()}}>Current Theme: {selected_theme}</Text>
+            <Text style={{color:theme.page_content.fg,...font()}}>Current Theme: {{
+              xdark: "Darkest",
+              dark: "Dark",
+              light: "Light",
+              white: "White"
+            }[selected_theme]}</Text>
             <View style={{flexDirection:"row",flexWrap:"wrap"}}>
               {[
                 ["White","white"],
@@ -99,7 +114,7 @@ export default function SettingsScreen({ navigation }) {
             </View>
 
             {/* TODO: Language Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
-            <Text style={{color:theme.page_content.fg,...font()}}>Current Language: {i18n.language}</Text>
+            {/* <Text style={{color:theme.page_content.fg,...font()}}>Current Language: {languages.find(i=>i.code==i18n.language)?.name??i18n.language}</Text>
             <View style={{flexDirection:"row",flexWrap:"wrap",paddingTop:4}}>
               {languages.map(i=><View style={{padding:4}}>
                 <Button
@@ -110,7 +125,7 @@ export default function SettingsScreen({ navigation }) {
                   onPress={() => setLang(i.code)}
                 >{i.name}</Button>
               </View>)}
-            </View>
+            </View> */}
           </ScrollView>
         </Card>
       </View>

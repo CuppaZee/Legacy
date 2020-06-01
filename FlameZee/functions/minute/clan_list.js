@@ -8,17 +8,19 @@ module.exports = {
       version: 1,
       params: {},
       async function({ db }) {
-        var token = retrieve(db, { user_id: 455935, teaken: false }, 60)
+        var token = await retrieve(db, { user_id: 455935, teaken: false }, 60)
         var clans = (await db.collection('data').doc('clans').get()).data();
         var array = [];
         for (var i = clans.counter; i < (clans.counter + 5); i++) {
-          array.push(request('clan/v2', { clan_id: i }, token.access_token))
+          array.push(request('clan/v2', { clan_id: i }, token.access_token));
+          console.log(i);
         }
         var found = false;
         var data = await Promise.all(array);
         for (var d of data) {
+          console.log(d);
           try {
-            let det = d.data.details;
+            let det = d.details;
             if (det.name && det.members) {
               found = true;
               clans.clans[det.clan_id] = {

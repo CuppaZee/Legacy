@@ -33,11 +33,18 @@ var refresh = () => async (dispatch, getState) => {
 
 var setCurrentRoute = (data) => ({ type: "CURRENT_ROUTE", data: data })
 var login_ = (data) => ({ type: "LOGIN", data: data })
+var replaceLogin_ = (data) => ({ type: "REPLACE_LOGIN", data: data })
 var clanBookmarks_ = (data) => ({ type: "CLAN_BOOKMARKS", data: data })
 var setCode_ = (data) => ({ type: "SET_CODE", data: data })
 var setTheme_ = (data) => ({ type: "SET_THEME", data: data })
 var levelSelect_ = (data) => ({ type: "LEVEL_SELECT", data: data })
 var tick = () => ({ type: "TICK" })
+var removeLogin = (user_id) => async (dispatch, getState) => {
+  var x = {...getState().logins};
+  delete x[user_id]
+  await AsyncStorage.setItem('CUPPAZEE_TEAKENS',JSON.stringify(x));
+  dispatch(replaceLogin_(x));
+}
 var login = (data,noUpdate) => async (dispatch, getState) => {
   if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_TEAKENS',JSON.stringify({...getState().logins,...data}));
   dispatch(login_(data));
@@ -95,6 +102,13 @@ var rootReducer = (state = defaultState, action) => {
         ...state,
         loggedIn: Object.keys(action.data).length>0,
         logins: {...state.logins,...action.data},
+        loadingLogin: false,
+      }
+    case 'REPLACE_LOGIN':
+      return {
+        ...state,
+        loggedIn: Object.keys(action.data).length>0,
+        logins: action.data,
         loadingLogin: false,
       }
     case 'SET_REQUEST_DATA':
@@ -186,4 +200,4 @@ AsyncStorage.getItem('LEVEL_SELECT').then((data)=>{
   store.dispatch(levelSelect(JSON.parse(data),true));
 })
 
-export default {store,refresh,login,setCode,clanBookmarks,levelSelect,setCurrentRoute,setTheme};
+export default {store,refresh,login,setCode,clanBookmarks,levelSelect,setCurrentRoute,setTheme,removeLogin};

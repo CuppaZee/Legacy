@@ -4,6 +4,7 @@ import { Image } from "react-native"
 var Map = function Map(props) {
   return (
     <MapView
+      provider="google"
       customMapStyle={props.mapStyle}
       style={{flex:1}}>
       {props.markers.map((i,index) => <Marker key={index} coordinate={{latitude: i.lat, longitude: i.lng}} pinColor={i.color} />

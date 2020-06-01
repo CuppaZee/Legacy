@@ -72,7 +72,7 @@ export function ClanStatsConverter(clan, stats, shadow) {
       goal: clan?.details?.goal
     },
     members: [
-      ...(shadow?.members||[]).map(i=>{
+      ...(shadow?.members||[]).filter(i=>!(clan?.users||[]).find(x=>x.user_id==i)).map(i=>{
         return {
           username: shadow?.usernames?.[i],
           user_id: Number(i),

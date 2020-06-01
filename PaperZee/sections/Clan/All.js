@@ -9,10 +9,10 @@ import s from '~store';
 function Clan({ item }) {
   return ({
     clan_stats: <View style={{ padding: 4, flex: 1 }}>
-      <ClanStats clan_id={item.clan_id} game_id={86} />
+      <ClanStats clan_id={item.clan_id} game_id={87} />
     </View>,
     clan_requirements: <View style={{ padding: 4, flex: 1 }}>
-      <ClanRequirements game_id={86} />
+      <ClanRequirements game_id={87} />
     </View>,
     blankHack: <View style={{ flex: 1, padding: 4 }}></View>
   }[item.type]||null)

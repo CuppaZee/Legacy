@@ -128,7 +128,7 @@ export default function UserActivityDash({ game_id, scale: s = 1 }) {
 
 
         <View style={{width:56*s,position:"absolute",left:0,top:0,borderRightWidth:2*s,borderRightColor:level_colors.border}}>
-          <View style={{height:24*s,backgroundColor:darkBG??level_colors.null,padding:4*s}}><Text style={{...font("bold"),fontSize:12*s,color:darkBG&&level_colors.null}}>May 20</Text></View>
+          <View style={{height:24*s,backgroundColor:darkBG??level_colors.null,padding:4*s}}><Text style={{...font("bold"),fontSize:12*s,color:darkBG&&level_colors.null}}>{data?.battle?.title?.slice(10)?.split(' ')?.[0]?.slice(0,3)} {data?.battle?.title?.slice(10)?.split(' ')?.[1]?.slice(2)}</Text></View>
           <View style={{height:(reward?60:77)*s,backgroundColor:darkBG??level_colors.null,flexDirection:"row",alignItems:"center",padding:4*s,borderBottomWidth:2*s,borderBottomColor:level_colors.border}}>
             <Text numberOfLines={1} ellipsizeMode="head" style={{fontSize:12*s,color:darkBG&&level_colors.null,...font()}}>Levels</Text>
           </View>

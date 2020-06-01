@@ -8,7 +8,7 @@ module.exports = {
       version: 1,
       params: {},
       async function({ db, params: { game_id } }) {
-        var token = await retrieve(db, { user_id: 125914, teaken: false }, 60);
+        var token = await retrieve(db, { user_id: 455935, teaken: false }, 60);
         var rewards = (await request(`clan/v2/challenges/${game_id}`, {}, token.access_token));
         var reqs = {
           battle: rewards.battle,

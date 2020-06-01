@@ -81,6 +81,11 @@
         "tagline": "Just For Fun!"
       },
       {
+        "clan_id": 2042,
+        "name": "The Cup of Mocha Clan",
+        "tagline": "A chocolate flavoured variant of a cup of latte"
+      },
+      {
         "clan_id": 1441,
         "name": "The Cup Of Cocoa Clan",
         "tagline": "Time to relax"
@@ -100,6 +105,11 @@
         "name": "CuppaClans Shadow Crew",
         "tagline": "We'll join soon!",
         "logo": "https://munzee.global.ssl.fastly.net/images/pins/ghost.png"
+      },
+      {
+        "clan_id": 2041,
+        "name": "The Cup of Dev Clan",
+        "tagline": "Keeping CuppaZee Running"
       }
     ]
   },

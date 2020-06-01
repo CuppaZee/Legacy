@@ -27,6 +27,10 @@
           "destination": "/cuppazeeprivacy.html"
         },
         {
+          "source": "/support",
+          "destination": "/cuppazeesupport.html"
+        },
+        {
           "source": "**",
           "function": "api"
         }
