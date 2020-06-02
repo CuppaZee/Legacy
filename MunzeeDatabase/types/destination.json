@@ -18,7 +18,7 @@
     "state": "physical"
   },
   {
-    "name": "Hotel Munzee",
+    "name": "Hotel",
     "icon": "hotel",
     "id": 170,
     "type": "destination",
@@ -50,8 +50,8 @@
     "state": "virtual"
   },
   {
-    "name": "Time Share Munzee",
-    "icon": "timesharemunzee",
+    "name": "Time Share",
+    "icon": "timeshare",
     "id": 970,
     "temp": true,
     "rooms": 5,
@@ -59,8 +59,8 @@
     "state": "physical"
   },
   {
-    "name": "Time Share Room",
-    "icon": "timeshareroom",
+    "name": "Time Share",
+    "icon": "timeshare",
     "id": 971,
     "room_of": 970,
     "temp": true,

@@ -343,7 +343,7 @@ module.exports = [
   },
   {
     "name": "Faun Virtual Host",
-    "icon": "faun_virtual_host",
+    "icon": "faunvirtualhost",
     "id": 2000,
     "state": "virtual",
     "hosts": [1997,1998]

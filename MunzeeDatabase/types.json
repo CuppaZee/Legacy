@@ -902,7 +902,7 @@
     "completion": "complete"
   },
   {
-    "name": "Hotel Munzee",
+    "name": "Hotel",
     "icon": "hotel",
     "id": 170,
     "destination": {
@@ -7604,8 +7604,8 @@
     "completion": "complete"
   },
   {
-    "name": "Time Share Munzee",
-    "icon": "timesharemunzee",
+    "name": "Time Share",
+    "icon": "timeshare",
     "id": 970,
     "destination": {
       "type": "destination",
@@ -7621,8 +7621,8 @@
     ]
   },
   {
-    "name": "Time Share Room",
-    "icon": "timeshareroom",
+    "name": "Time Share",
+    "icon": "timeshare",
     "id": 971,
     "destination": {
       "type": "room",
@@ -9177,7 +9177,7 @@
     "completion": "complete"
   },
   {
-    "name": "Spring Seasonal Munzee",
+    "name": "Spring Seasonal",
     "icon": "springseasonalmunzee",
     "id": 1135,
     "seasonal": true,
@@ -9193,7 +9193,7 @@
     ]
   },
   {
-    "name": "Summer Seasonal Munzee",
+    "name": "Summer Seasonal",
     "icon": "summerseasonalmunzee",
     "id": 1136,
     "seasonal": true,
@@ -9209,7 +9209,7 @@
     ]
   },
   {
-    "name": "Fall Seasonal Munzee",
+    "name": "Fall Seasonal",
     "icon": "fallseasonalmunzee",
     "id": 1137,
     "seasonal": true,
@@ -9225,7 +9225,7 @@
     ]
   },
   {
-    "name": "Winter Seasonal Munzee",
+    "name": "Winter Seasonal",
     "icon": "winterseasonalmunzee",
     "id": 1138,
     "seasonal": true,
@@ -9241,8 +9241,8 @@
     ]
   },
   {
-    "name": "Seasonal Munzee",
-    "icon": "seasonalmunzee",
+    "name": "Seasonal",
+    "icon": "seasonal",
     "id": 1139,
     "seasonal": true,
     "state": "physical",
@@ -21447,7 +21447,7 @@
   },
   {
     "name": "Faun Virtual Host",
-    "icon": "faun_virtual_host",
+    "icon": "faunvirtualhost",
     "id": 2000,
     "host": {
       "type": "myth",

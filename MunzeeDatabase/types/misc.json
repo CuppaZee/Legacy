@@ -87,7 +87,7 @@
     }
   },
   {
-    "name": "Spring Seasonal Munzee",
+    "name": "Spring Seasonal",
     "icon": "springseasonalmunzee",
     "id": 1135,
     "state": "physical",
@@ -96,7 +96,7 @@
     }
   },
   {
-    "name": "Summer Seasonal Munzee",
+    "name": "Summer Seasonal",
     "icon": "summerseasonalmunzee",
     "id": 1136,
     "state": "physical",
@@ -105,7 +105,7 @@
     }
   },
   {
-    "name": "Fall Seasonal Munzee",
+    "name": "Fall Seasonal",
     "icon": "fallseasonalmunzee",
     "id": 1137,
     "state": "physical",
@@ -114,7 +114,7 @@
     }
   },
   {
-    "name": "Winter Seasonal Munzee",
+    "name": "Winter Seasonal",
     "icon": "winterseasonalmunzee",
     "id": 1138,
     "state": "physical",
@@ -123,8 +123,8 @@
     }
   },
   {
-    "name": "Seasonal Munzee",
-    "icon": "seasonalmunzee",
+    "name": "Seasonal",
+    "icon": "seasonal",
     "id": 1139,
     "state": "physical",
     "extra": {
