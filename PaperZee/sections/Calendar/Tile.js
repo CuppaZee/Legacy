@@ -3,10 +3,10 @@ import { View, Text, ImageBackground, ActivityIndicator } from 'react-native';
 import font from '~sections/Shared/font';
 
 function u(a) {
-  return {uri:`https://server.cuppazee.app/Calendar/${a||"_"}.png`}
+  return a?{uri:`https://server.cuppazee.app/Cal/${a||"_"}.png`}:null
 }
 
-export default function Tile({data,date,type,theme}) {
+export default function Tile({data,date,type,theme,header,extraText}) {
   var types = [
     {label:"R",type:"flatrob",color:"rgb(0, 148, 68)"},
     {label:"M",type:"flatmatt",color:"rgb(237, 32, 36)"},
@@ -27,13 +27,14 @@ export default function Tile({data,date,type,theme}) {
       </View>
     </View>
   }
-  return <View style={{flex:1,backgroundColor:"black",borderWidth:1,borderColor:'#d3d3d3',height:40}}>
+  return <View style={{flex:1,backgroundColor:"black",borderWidth:1,borderColor:'#d3d3d3',height:header?56:40}}>
     <ImageBackground source={u(data.includes('R')?'R':null)} style={{flex:1}}>
       <ImageBackground source={u(data.includes('M')?'M':null)} style={{flex:1}}>
         <ImageBackground source={u(data.includes('L')?'L':null)} style={{flex:1}}>
           <ImageBackground source={u(data.includes('H')?'H':null)} style={{flex:1}}>
             <ImageBackground source={u(data.includes('Z')?'QRewZeeOn':'QRewZeeOff')} style={{flex:1}}>
               <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
+                {extraText&&<Text style={{color:"white",...font("bold"),fontSize:16,textAlignVertical:"center"}}>{extraText}</Text>}
                 <Text style={{color:"white",...font("bold"),fontSize:16,textAlignVertical:"center"}}>{(date||"1").toString()}</Text>
               </View>
             </ImageBackground>

@@ -204,9 +204,8 @@ var tasks = {
   }
 }
 
-function calculate(data = [], no_reduce) {
-  console.log(data);
-  var current_tasks = [
+var all_tasks = {
+  86: [
     1,
     3,
     13,
@@ -216,7 +215,27 @@ function calculate(data = [], no_reduce) {
     17,
     26,
     28
+  ],
+  87: [
+    6,
+    1,
+    3,
+    13,
+    24,
+    7,
+    12,
+    19,
+    23,
+    28,
+    31,
+    33,
+    34
   ]
+}
+var current_month = 87;
+
+function calculate(data = [], no_reduce) {
+  var current_tasks = all_tasks[current_month];
   var all = {
     cap: [],
     con: [],

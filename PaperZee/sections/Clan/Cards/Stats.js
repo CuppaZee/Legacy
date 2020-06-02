@@ -86,17 +86,6 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
     return dispatch(levelSelectX(x));
   }
   var [showGhost,setShowGhost] = React.useState(true);
-  
-  // useFocusEffect(
-  //   React.useCallback(() => {
-  //     dispatch(request.add(`clan/requirements/v1?game_id=${game_id}`))
-  //     dispatch(request.add(`clan/details/v1?game_id=${game_id}&clan_id=${clan_id}`))
-  //     return () => {
-  //       dispatch(request.remove(`clan/requirements/v1?game_id=${game_id}`))
-  //       dispatch(request.remove(`clan/details/v1?game_id=${game_id}&clan_id=${clan_id}`))
-  //     };
-  //   }, [game_id, clan_id])
-  // );
   const shadow_clans = [
     -1,
     457,
