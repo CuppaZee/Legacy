@@ -103,7 +103,8 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
     1349,
     1441,
     1870,
-    1902
+    1902,
+    2402
   ]
   var [unformatted_clan,unformatted_stats,unformatted_shadow] = useAPIRequest([
     Number(clan_id)>=0?{
