@@ -54,6 +54,7 @@ const UserClanScreen = loadable(() => import('./sections/User/Clan/Page'),{fallb
 const UserQuestScreen = loadable(() => import('./sections/User/Quest'),{fallback: <LoadingPage/>})
 const UserBouncersScreen = loadable(() => import('./sections/User/Bouncers'),{fallback: <LoadingPage/>})
 const UserSHCScreen = loadable(() => import('./sections/User/SpecialHunterChallenge'),{fallback: <LoadingPage/>})
+const UserCapturesCategoryScreen = loadable(() => import('./sections/User/CapturesCategory'),{fallback: <LoadingPage/>})
 
 // Navigation Sections
 import DrawerContent from './sections/Main/Drawer';
@@ -194,6 +195,13 @@ function StackNav () {
           title: 'User Quest Progress',
         }}
         component={UserQuestScreen}
+      />
+      <Stack.Screen
+        name="UserCapturesCategory"
+        options={{
+          title: 'User Captures Category',
+        }}
+        component={UserCapturesCategoryScreen}
       />
       <Stack.Screen
         name="UserSHC"
@@ -359,6 +367,12 @@ function App() {
           },
           UserSHC: {
             path: 'user/:userid/shc',
+            parse: {
+              userid: Number
+            }
+          },
+          UserCapturesCategory: {
+            path: 'user/:userid/captures/:category',
             parse: {
               userid: Number
             }
