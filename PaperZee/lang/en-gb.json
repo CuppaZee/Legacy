@@ -69,5 +69,18 @@
         "special_hunter_challenge": "Special Hunter Challenge",
         "captured_types": "Captured Types",
         "activity": "Activity"
+    },
+    "inventory": {
+        "undeployed": "Undeployed",
+        "credits": "Credits",
+        "history": "History"
+    },
+    "app_info": {
+        "credits": "Credits",
+        "primary_developer": "Primary Developer",
+        "translator": "Translator",
+        "database_contributor": "Database Contributor",
+        "patrons_and_supporters": "Patrons and Supporters",
+        "build_n": "Build {build}"
     }
 }
