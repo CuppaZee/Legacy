@@ -8,7 +8,6 @@
         "authenticate": "s'authentifier",
         "auth_success": "",
         "scanner": "",
-        "the_quest": "",
         "maps": "",
         "credits": "",
         "app_info": "",
@@ -22,7 +21,12 @@
             "one": "",
             "other": ""
         },
-        "more": ""
+        "more": "",
+        "find_user": "",
+        "munzee_types": "",
+        "show_more": "",
+        "show_less": "",
+        "help": ""
     },
     "activity": {
         "user_captured": "Captures {user}",
@@ -53,5 +57,16 @@
         },
         "none": "Aucun",
         "user_today": ""
+    },
+    "user": {
+        "level_n": "",
+        "rank_n": "",
+        "inventory": "",
+        "your_bouncers": "",
+        "clan_progress": "",
+        "quebec_quest_progress": "",
+        "special_hunter_challenge": "",
+        "captured_types": "",
+        "activity": ""
     }
 }
