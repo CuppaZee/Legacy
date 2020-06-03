@@ -126,10 +126,20 @@ export default function CustomDrawerContent(props) {
       </View>
       <View style={{ padding: 4, paddingLeft: 8, paddingRight: 16, flexDirection: "row", justifyContent: "space-between" }}>
         <IconButton
+          icon="shield-half-full"
+          color={itemProps.inactiveTintColor}
+          onPress={() => nav.reset({
+            index: 1,
+            routes: [
+              { name: '__primary', params: { screen: "AllClans" } },
+            ],
+          })}
+        />
+        <IconButton
           style={{
             backgroundColor: route.name == "AllClans" ? itemProps.activeBackgroundColor : null
           }}
-          icon="shield-half-full"
+          icon="format-list-bulleted"
           color={itemProps.inactiveTintColor}
           onPress={() => nav.reset({
             index: 1,

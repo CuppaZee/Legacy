@@ -91,7 +91,7 @@ function StackNav () {
   return <Stack.Navigator
     screenOptions={({ navigation, route }) => ({
       gestureEnabled: Platform.OS == 'ios',
-      animationEnabled: false,
+      // animationEnabled: false,
       header: (props) => <Header {...(props||{})}/>
     })}>
     {loggedIn && <>

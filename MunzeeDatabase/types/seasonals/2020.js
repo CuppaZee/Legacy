@@ -1,5 +1,84 @@
 module.exports = [
   {
+    "name": "20/20 Vision",
+    "category": "vision2020",
+    "year": 2020,
+    "starts": "2020-01-02T15:00:00-06:00",
+    "ends": "2020-12-31T23:59:00-06:00",
+    "specials": [
+      {
+        "name": "Spectacular Spectacles",
+        "icon": "spectacularspectacles2020vision",
+        "id": 2282,
+        "duration": 12,
+        "lands_on": ["munzee"]
+      },
+      {
+        "name": "The King's Sunglasses",
+        "icon": "theking'ssunglasses2020vision",
+        "id": 2283,
+        "duration": 12,
+        "lands_on": [":virtual"]
+      },
+      {
+        "name": "Welding Goggles",
+        "icon": "weldinggoggles2020vision",
+        "id": 2284,
+        "duration": 12,
+        "lands_on": ["munzee"]
+      },
+      {
+        "name": "Flip Glasses",
+        "icon": "flipglasses2020vision",
+        "id": 2285,
+        "duration": 12,
+        "lands_on": [":virtual"]
+      },
+      {
+        "name": "Ski Goggles",
+        "icon": "skigoggles2020vision",
+        "id": 2286,//
+        "duration": 12,
+        "lands_on": ["munzee"]
+      },
+      {
+        "name": "Theatre Binoculars",
+        "icon": "theatrebinoculars2020vision",
+        "id": 2287,
+        "duration": 12,
+        "lands_on": [":virtual"]
+      },
+      {
+        "name": "Joke Glasses",
+        "icon": "jokeglasses2020vision",
+        "id": 2288,//
+        "duration": 12,
+        "lands_on": ["munzee"]
+      },
+      {
+        "name": "3D Glasses",
+        "icon": "3dglasses2020vision",
+        "id": 2289,
+        "duration": 12,
+        "lands_on": [":virtual"]
+      },
+      {
+        "name": "Viewfinder",
+        "icon": "viewfinder2020vision",
+        "id": 2290,
+        "duration": 12,
+        "lands_on": ["munzee"]
+      },
+      {
+        "name": "VR Goggles",
+        "icon": "vrgoggles2020vision",
+        "id": 2291,
+        "duration": 12,
+        "lands_on": [":virtual"]
+      },
+    ]
+  },
+  {
     "name": "Hometown Heroes 2020",
     "category": "hometownheroes2020",
     "year": 2020,
@@ -338,8 +417,8 @@ module.exports = [
     "name": "Leap Day 2020",
     "category": "leapday2020",
     "year": 2020,
-    "starts": "2020-02-28T12:00:00-05:00",
-    "ends": "2020-03-03T10:00:00-05:00",
+    "starts": "2020-02-28T12:00:00-06:00",
+    "ends": "2020-03-03T10:00:00-06:00",
     "specials": [
       {
         "name": "H.Zee. Wells’ Time Machine",
@@ -368,8 +447,8 @@ module.exports = [
     "name": "Boomerangs 2020",
     "category": "boomerangs2020",
     "year": 2020,
-    "starts": "2020-01-24T10:00:00-05:00",
-    "ends": "2020-02-08T23:59:00-05:00",
+    "starts": "2020-01-24T10:00:00-06:00",
+    "ends": "2020-02-08T23:59:00-06:00",
     "specials": [
       {
         "name": "Coral Catcher Boomerang",
