@@ -283,7 +283,7 @@ module.exports = [
     "icon": "magnetus",
     "id": 2306,
     "state": "bouncer",
-    "lands_on": ["skyland","treehouse","munzee","airmystery",i=>(i.virtual_colors||[]).includes("blue"),i=>(i.virtual_colors||[]).includes("red"),"watermystery","joystickvirtual","joystickphysical","virtual_yellow","virtual_goldenrod","virtual_dandelion"]
+    "lands_on": ["skyland","treehouse","munzee","airmystery",i=>(i.virtual_colors||[]).includes("blue"),i=>(i.virtual_colors||[]).includes("red"),"watermystery","joystickvirtual","joystick","virtual_yellow","virtual_goldenrod","virtual_dandelion"]
   },
   {
     "name": "Topaas",

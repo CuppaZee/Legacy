@@ -13,7 +13,7 @@ import font from '~sections/Shared/font';
 function InventoryHistoryItem({ i, theme }) {
   return <TouchableRipple style={{ flexDirection: "row", justifyContent: "center" }}>
     <View key={i.icon} style={{ padding: 2, alignSelf: "center", flex: 1, maxWidth: 400, alignItems: "center", flexDirection: "row" }}>
-      <Image style={{ height: 36, width: 36 }} source={{ uri: i.icon?.includes?.('NA.png') ? 'https://server.cuppazee.app/missing.png' : i.icon }} />
+      <Image style={{ height: 36, width: 36 }} source={{ uri: i.icon?.includes?.('NA.png') ? 'https://server.cuppazee.app/missing.png' : i.icon.replace("https://munzee.global.ssl.fastly.net/images/pins","https://server.cuppazee.app/pins/64").replace(/_/g,'') }} />
       <View style={{ flex: 1 }}>
         <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i.name}</Text>
         <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font() }}>{i.reason}</Text>

@@ -21035,7 +21035,7 @@
   },
   {
     "name": "Joystick Physical",
-    "icon": "joystickphysical",
+    "icon": "joystick",
     "id": 1976,
     "gaming": true,
     "state": "physical",

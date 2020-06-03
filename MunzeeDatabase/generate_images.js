@@ -5,7 +5,7 @@ var fs = require('fs');
 
 async function downloadIcon (icon,size) {
   const url = `https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(icon)}.png`
-  const savePath = path.resolve(__dirname, '../FlameZee/public/pins/'+size, `${icon}.png`)
+  const savePath = path.resolve(__dirname, '../FlameZee/public/pins/'+size, `${icon.replace(/_/g,'')}.png`)
   if(fs.existsSync(savePath)) return new Promise((resolve, reject)=>{
     resolve(true);
   });
@@ -27,7 +27,10 @@ async function downloadIcon (icon,size) {
     writer.on('error', reject)
   })
 }
-var types = require('./types.min.json');
+var types = [
+  ...require('./types.min.json'),
+  ...require('./extraicons.json')
+];
 (async function() {
   var arr = [];
   for(let type of types.filter(i=>i.event!=="custom")) {

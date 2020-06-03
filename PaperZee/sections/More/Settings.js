@@ -64,12 +64,12 @@ export default function SettingsScreen({ navigation }) {
       <View style={{flex: 1, width:width>800?"50%":"100%",padding:4}}>
         <Card noPad>
           <ScrollView contentContainerStyle={{padding:8}}>
-            {Object.entries(logins).map(user=><View key={user[0]} style={{padding:8,flexDirection:"row"}}>
-              <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(user[0]).toString(36)}.png`}} style={{borderRadius:24,width:48,height:48}} />
+            {Object.entries(logins).map(user=><View key={user[0]} style={{padding:8,flexDirection:"row",alignItems:"center"}}>
+              <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(user[0]).toString(36)}.png`}} style={{borderRadius:16,width:32,height:32}} />
               <View style={{paddingLeft:8,flex:1,alignSelf:"center"}}>
                 <Text style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{user[1].username}</Text>
               </View>
-              <IconButton icon="close" color="red" onPress={()=>logout(user[0])}/>
+              <Button compact={true} mode="contained" color="red" onPress={()=>logout(user[0])}>Logout</Button>
             </View>)}
             <View style={{flexDirection:"row",flexWrap:"wrap"}}>
               <Button
