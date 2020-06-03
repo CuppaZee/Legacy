@@ -6,7 +6,7 @@
     "state": "physical",
     "scatter": {
       "duration": 2,
-      "lands_on": [0]
+      "lands_on": ["munzee"]
     }
   },
   {
@@ -16,7 +16,7 @@
     "state": "physical",
     "scatter": {
       "duration": 2,
-      "lands_on": [0]
+      "lands_on": ["munzee"]
     }
   },
   {
@@ -26,7 +26,7 @@
     "state": "physical",
     "scatter": {
       "duration": 2,
-      "lands_on": [0]
+      "lands_on": ["munzee"]
     }
   },
   {
@@ -36,7 +36,7 @@
     "state": "physical",
     "scatter": {
       "duration": 2,
-      "lands_on": [0]
+      "lands_on": ["munzee"]
     }
   },
   {
@@ -61,7 +61,7 @@
     "name": "Golden Feather",
     "icon": "goldenfeather",
     "id": 1088,
-    "state": "physical",
+    "state": "virtual",
     "scatter": {
       "standalone": true,
       "duration": 2
@@ -74,7 +74,7 @@
     "state": "physical",
     "scatter": {
       "duration": 2,
-      "lands_on": [0]
+      "lands_on": ["munzee"]
     }
   },
   {
@@ -84,7 +84,7 @@
     "state": "physical",
     "scatter": {
       "duration": 2,
-      "lands_on": [0]
+      "lands_on": ["munzee"]
     }
   },
   {
@@ -104,7 +104,7 @@
     "state": "physical",
     "scatter": {
       "duration": 2,
-      "lands_on": [0]
+      "lands_on": ["munzee"]
     }
   },
   {
@@ -114,7 +114,7 @@
     "state": "physical",
     "scatter": {
       "duration": 2,
-      "lands_on": [0]
+      "lands_on": ["munzee"]
     }
   },
   {
@@ -124,7 +124,7 @@
     "state": "physical",
     "scatter": {
       "duration": 2,
-      "lands_on": [0]
+      "lands_on": ["munzee"]
     }
   },
   {
@@ -144,7 +144,7 @@
     "state": "physical",
     "scatter": {
       "duration": 2,
-      "lands_on": [0]
+      "lands_on": ["munzee"]
     }
   },
   {
@@ -164,7 +164,7 @@
     "state": "physical",
     "scatter": {
       "duration": 2,
-      "lands_on": [0]
+      "lands_on": ["munzee"]
     }
   },
   {
@@ -215,6 +215,16 @@
     "scatter": {
       "duration": 1,
       "standalone": true
+    }
+  },
+  {
+    "name": "Charge",
+    "icon": "charge",
+    "id": 2392,
+    "state": "physical",
+    "scatter": {
+      "duration": 12,
+      "lands_on": [":virtual"]
     }
   }
 ]

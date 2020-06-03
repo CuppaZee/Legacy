@@ -807,6 +807,32 @@ for (var munzee of munzees) {
     }
     munzee.bouncer.lands_on = lands_on.filter(i => i !== undefined && i !== null);
   }
+  if (munzee.scatter && munzee.scatter.lands_on) {
+    let lands_on = [];
+    let index = 0;
+    for (let host of munzee.scatter.lands_on) {
+      if (typeof host === "string") {
+        if (host.startsWith(':')) {
+          lands_on = lands_on.concat((munzees.filter(x => x.category == host.slice(1)) || []).map(i => i.id));
+          if (munzees.filter(x => x.category == host.slice(1)).length === 0) {
+            console.log(`${colors.bg.Red}  ${colors.Reset} No Munzees for ${colors.fg.Yellow}lands_on${colors.Reset}[${colors.fg.Yellow}${index}${colors.Reset}] for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
+          }
+        } else {
+          lands_on.push((munzees.find(i => i.icon === host && i.redirect === undefined) || {}).id)
+          if (!munzees.find(i => i.icon === host && i.redirect === undefined)) {
+            console.log(`${colors.bg.Red}  ${colors.Reset} No Munzee for ${colors.fg.Yellow}bouncer${colors.Reset}.${colors.fg.Yellow}lands_on${colors.Reset}[${colors.fg.Yellow}${index}${colors.Reset}] for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
+          }
+        }
+      } else if (typeof host === "function") {
+        lands_on = lands_on.concat((munzees.filter(host) || []).map(i => i.id));
+        if (munzees.filter(host).length === 0) {
+          console.log(`${colors.bg.Red}  ${colors.Reset} No Munzees for ${colors.fg.Yellow}bouncer${colors.Reset}.${colors.fg.Yellow}lands_on${colors.Reset}[${colors.fg.Yellow}${index}${colors.Reset}] for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
+        }
+      }
+      index++;
+    }
+    munzee.scatter.lands_on = lands_on.filter(i => i !== undefined && i !== null);
+  }
 
   if (munzee.bouncer) {
     if (!munzee.bouncer.lands_on) {
