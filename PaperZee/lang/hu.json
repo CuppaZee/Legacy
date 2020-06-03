@@ -7,22 +7,26 @@
         "settings": "Beállítások",
         "authenticate": "Hitelesítés",
         "auth_success": "Sikeres hitelesítés",
-        "scanner": "",
-        "the_quest": "",
+        "scanner": "Szkenner",
         "maps": "Térképek",
         "credits": "Kreditek",
-        "app_info": "",
-        "donate": "",
-        "build_info": "",
+        "app_info": "App infó",
+        "donate": "Adományozás",
+        "build_info": "CuppaZee App Build {count}",
         "user": {
-            "one": "",
+            "one": "Felhasználó",
             "other": ""
         },
         "clan": {
-            "one": "",
-            "other": ""
+            "one": "Klán",
+            "other": "Klánok"
         },
-        "more": ""
+        "more": "Több",
+        "find_user": "",
+        "munzee_types": "",
+        "show_more": "",
+        "show_less": "",
+        "help": ""
     },
     "activity": {
         "user_captured": "{user} megtalálta",
@@ -53,5 +57,16 @@
         },
         "none": "Nincs",
         "user_today": "Ma"
+    },
+    "user": {
+        "level_n": "",
+        "rank_n": "",
+        "inventory": "",
+        "your_bouncers": "",
+        "clan_progress": "",
+        "quebec_quest_progress": "",
+        "special_hunter_challenge": "",
+        "captured_types": "",
+        "activity": ""
     }
 }
