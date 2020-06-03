@@ -8,7 +8,6 @@
         "authenticate": "Autorisatie",
         "auth_success": "Autorisatie is succesvol",
         "scanner": "Scanner",
-        "the_quest": "De uitdaging",
         "maps": "Maps",
         "credits": "Credits",
         "app_info": "App Info",
@@ -22,7 +21,12 @@
             "one": "Clan",
             "other": "Clans"
         },
-        "more": "meer"
+        "more": "Meer",
+        "find_user": "",
+        "munzee_types": "",
+        "show_more": "",
+        "show_less": "",
+        "help": ""
     },
     "activity": {
         "user_captured": "{user} captured",
@@ -53,5 +57,16 @@
         },
         "none": "Geen",
         "user_today": "{user} Vandaag"
+    },
+    "user": {
+        "level_n": "",
+        "rank_n": "",
+        "inventory": "",
+        "your_bouncers": "",
+        "clan_progress": "",
+        "quebec_quest_progress": "",
+        "special_hunter_challenge": "",
+        "captured_types": "",
+        "activity": ""
     }
 }
