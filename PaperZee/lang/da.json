@@ -1,1 +1,95 @@
-{}
+{
+    "common": {
+        "dashboard": "Oversigt",
+        "search": "Søg",
+        "map": "Kort",
+        "tools": "Værktøjer",
+        "settings": "Indstillinger",
+        "authenticate": "Autentificering",
+        "auth_success": "Autentificering vellykket",
+        "scanner": "Skanner",
+        "maps": "Kort",
+        "credits": "Anerkendelser",
+        "app_info": "App-information",
+        "donate": "Doner",
+        "build_info": "CuppaZee App Build {count}",
+        "user": {
+            "one": "Bruger",
+            "other": "Brugere"
+        },
+        "clan": {
+            "one": "Klan",
+            "other": "Klaner"
+        },
+        "more": "Flere",
+        "find_user": "Find en bruger",
+        "munzee_types": "Munzee-typer",
+        "show_more": "Vis mere",
+        "show_less": "Vis mindre",
+        "help": "Hjælp",
+        "users": "Brugere",
+        "calendar": "Kalender"
+    },
+    "activity": {
+        "user_captured": "{user} scannede",
+        "user_deployed": "{user} placerede",
+        "you_captured": "Du scannede",
+        "you_deployed": "Du placerede",
+        "by_user": "af {user}",
+        "by_you": "af dig",
+        "total_point": {
+            "one": "{count} total point",
+            "other": "{count} total point"
+        },
+        "capture": {
+            "one": "{count} scannet",
+            "other": "{count} scannede"
+        },
+        "deploy": {
+            "one": "{count} placeret",
+            "other": "{count} placerede"
+        },
+        "capon": {
+            "one": "{count} fra placerede",
+            "other": "{count} fra placerede"
+        },
+        "point": {
+            "one": "{count} point",
+            "other": "{count} point"
+        },
+        "none": "Ingen",
+        "user_today": "{user} i dag"
+    },
+    "user": {
+        "level_n": "Niveau {level}",
+        "rank_n": "Rang #{rank}",
+        "inventory": "Beholdning",
+        "your_bouncers": "Dine springere",
+        "clan_progress": "Klan-fremskridt",
+        "quebec_quest_progress": "\"Quebec udfordring\"-fremskridt",
+        "special_hunter_challenge": "Special-jæger udfordringen",
+        "captured_types": "Skannede typer",
+        "activity": "Aktivitet"
+    },
+    "inventory": {
+        "undeployed": "Ikke-placerede",
+        "credits": "Kreditter",
+        "history": "Historik"
+    },
+    "app_info": {
+        "credits": "Anerkendelser",
+        "primary_developer": "Primær udvikler",
+        "translators": "Oversættere",
+        "database_contributors": "Database-bidragsydere",
+        "patrons_and_supporters": "Patrons og supportere",
+        "build_n": "Build {build}"
+    },
+    "your_bouncers": {
+        "capture": {
+            "one": "{count} skanning",
+            "other": "{count} skanninger"
+        },
+        "last_captured": "Sidst skannet: {time}",
+        "in_limbo": "Tager en pause"
+    }
+}
