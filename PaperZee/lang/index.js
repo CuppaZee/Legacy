@@ -1,4 +1,5 @@
 import cs from './cs.json'
+import da from './da.json'
 import de from './de.json'
 import en_gb from './en-gb.json'
 import fi from './fi.json'
@@ -38,6 +39,7 @@ function x(obj, key){
 
 export default {
     cs:x(cs,"a").a,
+    da:x(da,"a").a,
     de:x(de,"a").a,
     "en-GB":x(en_gb,"a").a,
     fi:x(fi,"a").a,
