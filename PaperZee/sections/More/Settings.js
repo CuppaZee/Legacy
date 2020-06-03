@@ -51,11 +51,11 @@ export default function SettingsScreen({ navigation }) {
     {code:'da',name:'Dansk'},
     // {code:'de',name:'Deutsch'},
     {code:'en-GB',name:'English (UK)'},
-    // {code:'fi',name:'Suomen Kieli'},
+    {code:'fi',name:'Suomen Kieli'},
     // {code:'fr',name:'Français'},
-    // {code:'hu',name:'Magyar Nyelv'},
+    {code:'hu',name:'Magyar Nyelv'},
     // {code:'lt',name:'Lietuvių Kalba'},
-    // {code:'nl',name:'Nederlands'},
+    {code:'nl',name:'Nederlands'},
     {code:'pt',name:'Português'},
     // {code:'sv',name:'Svenska'}
   ]
