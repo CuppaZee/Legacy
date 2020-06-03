@@ -25,7 +25,7 @@ function DrawerItem(props) {
       <props.icon color={props.focused ? props.activeTintColor : props.inactiveTintColor} />
       {!props.mini && <>
         <View style={{ width: 4 }}></View>
-        {typeof props.label == "string" ? <Text style={{ color: props.focused ? props.activeTintColor : props.inactiveTintColor, fontSize: 14, ...font("500") }}>{props.label}</Text> : <props.label color={props.focused ? props.activeTintColor : props.inactiveTintColor} />}
+        {typeof props.label == "string" ? <Text allowFontScaling={false} style={{ color: props.focused ? props.activeTintColor : props.inactiveTintColor, fontSize: 14, ...font("500") }}>{props.label}</Text> : <props.label color={props.focused ? props.activeTintColor : props.inactiveTintColor} />}
       </>}
     </View>
   </TouchableRipple>
@@ -78,19 +78,19 @@ export default function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView style={{ backgroundColor: theme.navigation.bg, ...(theme.page_content.border ? { borderRightWidth: 1, borderRightColor: "white" } : {}) }} {...props}>
       {/* <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
-        <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Remember this is a{Platform.OS == "android" ? 'n Early Access' : ' Beta'} build</Text>
-        <Text style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Feedback is welcome via Messenger or Email</Text>
+        <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Remember this is a{Platform.OS == "android" ? 'n Early Access' : ' Beta'} build</Text>
+        <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Feedback is welcome via Messenger or Email</Text>
       </View> */}
       {Platform.OS == "web" && globalThis?.navigator?.userAgent?.match?.(/Android/) && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
-        <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>The CuppaZee App is now on Google Play</Text>
-        <Text style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Download it now!</Text>
+        <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>The CuppaZee App is now on Google Play</Text>
+        <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Download it now!</Text>
       </View>}
       {Platform.OS == "web" && globalThis?.navigator?.userAgent?.match?.(/iPhone|iPad|iPod/) && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
-        <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>The CuppaZee App is now on the App Store</Text>
-        <Text style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Download it now!</Text>
+        <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>The CuppaZee App is now on the App Store</Text>
+        <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Download it now!</Text>
       </View>}
       <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
-        <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t(`common:users`)}</Text>
+        <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t(`common:users`)}</Text>
       </View>
       {users?.map?.(i => <DrawerItem
         key={`user_${i[0]}`}
@@ -122,7 +122,7 @@ export default function CustomDrawerContent(props) {
         }
       />
       <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
-        {/* <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Clans</Text> */}
+        {/* <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Clans</Text> */}
       </View>
       <View style={{ padding: 4, paddingLeft: 8, paddingRight: 16, flexDirection: "row", justifyContent: "space-between" }}>
         <IconButton
@@ -205,7 +205,7 @@ export default function CustomDrawerContent(props) {
         onPress={() => setShowMoreClan(!showMoreClan)}
       />}
       <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
-        <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:tools')}</Text>
+        <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:tools')}</Text>
       </View>
       {pages.map?.(i => <DrawerItem
         key={i.title}
@@ -223,7 +223,7 @@ export default function CustomDrawerContent(props) {
         }
       />)}
       <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
-        <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:more')}</Text>
+        <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:more')}</Text>
       </View>
       {more.map?.(i => <DrawerItem
         key={i.title}
@@ -255,8 +255,8 @@ export default function CustomDrawerContent(props) {
         contentStyle={{ backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border ? 1 : 0, borderColor: theme.page_content.border }}
       >
         <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
-          <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>You can contact us via Facebook <TouchableRipple onPress={()=>Linking.openURL('https://m.me/CuppaZee')}><Text style={{color:theme.page_content.fg=="#000000"?'blue':'lightblue'}}>@CuppaZee</Text></TouchableRipple></Text>
-          <Text style={{ color: theme.page_content.fg, fontSize: 16 }}>or email us at support@cuppazee.app</Text>
+          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>You can contact us via Facebook <TouchableRipple onPress={()=>Linking.openURL('https://m.me/CuppaZee')}><Text allowFontScaling={false} style={{color:theme.page_content.fg=="#000000"?'blue':'lightblue'}}>@CuppaZee</Text></TouchableRipple></Text>
+          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16 }}>or email us at support@cuppazee.app</Text>
         </View>
       </Menu>
     </DrawerContentScrollView>

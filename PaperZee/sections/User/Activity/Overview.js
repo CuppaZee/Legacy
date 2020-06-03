@@ -53,7 +53,7 @@ function OverviewItem({i}) {
       <TouchableRipple onPress={() => setOpen(true)}>
         <View key={i.icon} style={{ padding: 2, alignItems: "center" }}>
           <Image style={{ height: 32, width: 32 }} source={{ uri: i[0] }} />
-          <Text style={{ color: theme.page_content.fg,...font() }}>{i[1].total}</Text>
+          <Text allowFontScaling={false} style={{ color: theme.page_content.fg,...font() }}>{i[1].total}</Text>
           {hostIcon(i[0])&&<Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: 15 }} source={{ uri: hostIcon(i[0]) }} />}
         </View>
       </TouchableRipple>
@@ -66,8 +66,8 @@ function OverviewItem({i}) {
         <Image style={{ height: 48, width: 48 }} source={{ uri: i[0] }} />
         {hostIcon(i[0])&&<Image style={{ height: 36, width: 36, position: "absolute", right: -7.5, bottom: -7.5 }} source={{ uri: hostIcon(i[0]) }} />}
       </View>
-      <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].total}x {(MunzeeTypes.find(x=>x.icon==i[0].slice(49,-4))||{name:i[0].slice(49,-4)}).name}</Text>
-      <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].points} Points</Text>
+      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].total}x {(MunzeeTypes.find(x=>x.icon==i[0].slice(49,-4))||{name:i[0].slice(49,-4)}).name}</Text>
+      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].points} Points</Text>
       <Button
         mode="contained"
         style={{backgroundColor: theme.navigation.bg}}
@@ -94,12 +94,12 @@ export default function ({user_id,date:dateInput}) {
   if(!data||!data.captures) return null;
   return <View>
     <View key="total" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-      <View style={{alignSelf:"stretch"}}><Text style={{ textAlign: "center", fontSize: 24, ...font("bold"), color: theme.page_content.fg }}>
+      <View style={{alignSelf:"stretch"}}><Text allowFontScaling={false} style={{ textAlign: "center", fontSize: 24, ...font("bold"), color: theme.page_content.fg }}>
         {t('activity:point', { count: [...data.captures, ...data.deploys, ...data.captures_on].reduce((a, b) => a + Number(b.points_for_creator ?? b.points), 0) })}
       </Text></View>
     </View>
     <View key="captures" style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
-      <View style={{alignSelf:"stretch"}}><Text style={{ textAlign: "center", color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
+      <View style={{alignSelf:"stretch"}}><Text allowFontScaling={false} style={{ textAlign: "center", color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
         {t('activity:capture', { count: data.captures.filter(i => !isRenovation(i)).length })} - {t('activity:point', { count: data.captures.filter(i => !isRenovation(i)).reduce((a, b) => a + Number(b.points), 0) })}
       </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
@@ -107,7 +107,7 @@ export default function ({user_id,date:dateInput}) {
       </View>
     </View>
     <View key="deploys" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-      <View style={{alignSelf:"stretch", paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#a5fffc', borderRadius: 0 }}><Text style={{ textAlign: "center", color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
+      <View style={{alignSelf:"stretch", paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#a5fffc', borderRadius: 0 }}><Text allowFontScaling={false} style={{ textAlign: "center", color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
         {t('activity:deploy', { count: data.deploys.length })} - {t('activity:point', { count: data.deploys.reduce((a, b) => a + Number(b.points), 0) })}
       </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
@@ -115,7 +115,7 @@ export default function ({user_id,date:dateInput}) {
       </View>
     </View>
     <View key="capons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-      <View style={{alignSelf:"stretch", paddingLeft: 8, paddingRight: 8, borderRadius: 8 }}><Text style={{ textAlign: "center", color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
+      <View style={{alignSelf:"stretch", paddingLeft: 8, paddingRight: 8, borderRadius: 8 }}><Text allowFontScaling={false} style={{ textAlign: "center", color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
         {t('activity:capon', { count: data.captures_on.filter(i => !isRenovation(i)).length })} - {t('activity:point', { count: data.captures_on.filter(i => !isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0) })}
       </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
@@ -124,14 +124,14 @@ export default function ({user_id,date:dateInput}) {
     </View>
     {data.captures.filter(i=>isRenovation(i)).length>0&&<View key="renovations" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
       <View style={{alignSelf:"stretch", paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#ffbcad', borderRadius: 8 }}>
-        <Text style={{ textAlign: "center", color: 'black' ?? `#401700`, fontSize: 20, ...font("bold") }}>
+        <Text allowFontScaling={false} style={{ textAlign: "center", color: 'black' ?? `#401700`, fontSize: 20, ...font("bold") }}>
           {data.captures.filter(i=>isRenovation(i)).length} Renovation{data.captures.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points), 0)} Points
         </Text>
       </View>
     </View>}
     {data.captures_on.filter(i=>isRenovation(i)).length>0&&<View key="renons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
       <View style={{alignSelf:"stretch", paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#ffbcad', borderRadius: 8 }}>
-        <Text style={{ textAlign: "center", color: 'black' ?? `#401700`, fontSize: 20, ...font("bold") }}>
+        <Text allowFontScaling={false} style={{ textAlign: "center", color: 'black' ?? `#401700`, fontSize: 20, ...font("bold") }}>
           {data.captures_on.filter(i=>isRenovation(i)).length} Renov-on{data.captures_on.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures_on.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0)} Points
         </Text>
       </View>

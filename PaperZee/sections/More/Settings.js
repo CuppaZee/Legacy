@@ -48,13 +48,14 @@ export default function SettingsScreen({ navigation }) {
 
   var languages = [
     {code:'cs',name:'Čeština',flag:"CZ"},
+    {code:'da',name:'Dansk'},
     // {code:'de',name:'Deutsch'},
     {code:'en-GB',name:'English (UK)'},
-    {code:'fi',name:'Suomen Kieli'},
-    {code:'fr',name:'Français'},
-    {code:'hu',name:'Magyar Nyelv'},
-    {code:'lt',name:'Lietuvių Kalba'},
-    {code:'nl',name:'Nederlands'},
+    // {code:'fi',name:'Suomen Kieli'},
+    // {code:'fr',name:'Français'},
+    // {code:'hu',name:'Magyar Nyelv'},
+    // {code:'lt',name:'Lietuvių Kalba'},
+    // {code:'nl',name:'Nederlands'},
     {code:'pt',name:'Português'},
     // {code:'sv',name:'Svenska'}
   ]
@@ -67,7 +68,7 @@ export default function SettingsScreen({ navigation }) {
             {Object.entries(logins).map(user=><View key={user[0]} style={{padding:8,flexDirection:"row",alignItems:"center"}}>
               <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(user[0]).toString(36)}.png`}} style={{borderRadius:16,width:32,height:32}} />
               <View style={{paddingLeft:8,flex:1,alignSelf:"center"}}>
-                <Text style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{user[1].username}</Text>
+                <Text allowFontScaling={false} style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{user[1].username}</Text>
               </View>
               <Button compact={true} mode="contained" color="red" onPress={()=>logout(user[0])}>Logout</Button>
             </View>)}
@@ -91,7 +92,7 @@ export default function SettingsScreen({ navigation }) {
             </View>
             
             {/* TODO: Theme Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
-            <Text style={{color:theme.page_content.fg,...font()}}>Current Theme: {{
+            <Text allowFontScaling={false} style={{color:theme.page_content.fg,...font()}}>Current Theme: {{
               xdark: "Darkest",
               dark: "Dark",
               light: "Light",
@@ -114,7 +115,7 @@ export default function SettingsScreen({ navigation }) {
             </View>
 
             {/* TODO: Language Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
-            {/* <Text style={{color:theme.page_content.fg,...font()}}>Current Language: {languages.find(i=>i.code==i18n.language)?.name??i18n.language}</Text>
+            <Text allowFontScaling={false} style={{color:theme.page_content.fg,...font()}}>Current Language: {languages.find(i=>i.code==i18n.language)?.name??i18n.language}</Text>
             <View style={{flexDirection:"row",flexWrap:"wrap",paddingTop:4}}>
               {languages.map(i=><View style={{padding:4}}>
                 <Button
@@ -125,7 +126,7 @@ export default function SettingsScreen({ navigation }) {
                   onPress={() => setLang(i.code)}
                 >{i.name}</Button>
               </View>)}
-            </View> */}
+            </View>
           </ScrollView>
         </Card>
       </View>

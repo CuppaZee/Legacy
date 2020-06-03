@@ -74,22 +74,22 @@ export default function SearchScreen({ navigation }) {
       <View style={{padding:4}}>
         <Card noPad>
           <View>
-            {!search&&<Text style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>Search for a Clan</Text>}
-            {!!search&&!clans?.data&&<Text style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>Loading...</Text>}
+            {!search&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>Search for a Clan</Text>}
+            {!!search&&!clans?.data&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>Loading...</Text>}
             {(search?clans?.data?.slice?.(0,20):clansInGroup)?.map?.(i=><View key={i.clan_id} style={{padding: 4, flexDirection: "row", alignItems: "center"}}>
               {!clanBookmarks.find(x=>x.clan_id==i.clan_id)&&<IconButton size={24} onPress={()=>addClan(i)} icon="bookmark-plus" color="#016930" />}
               {!!clanBookmarks.find(x=>x.clan_id==i.clan_id)&&<IconButton size={24} onPress={()=>removeClan(i)} icon="bookmark-minus" color="#ff2222" />}
               <Image style={{height:24,width:24,marginRight:8,marginLeft:-8,borderRadius:8}} source={{uri:i.logo??`https://munzee.global.ssl.fastly.net/images/clan_logos/${Number(i.clan_id).toString(36)}.png`}} />
               <View style={{flex:1}}>
-                <Text style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{i.name}</Text>
-                <Text style={{...font("bold"),fontSize:12,color:theme.page_content.fg}}>{i.tagline}</Text>
+                <Text allowFontScaling={false} style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{i.name}</Text>
+                <Text allowFontScaling={false} style={{...font("bold"),fontSize:12,color:theme.page_content.fg}}>{i.tagline}</Text>
               </View>
               <IconButton size={24} onPress={()=>navigation.navigate('Clan',{clanid:i.clan_id})} icon="chevron-right" color={theme.page_content.fg} />
             </View>)}
             {!search&&groups.map(i=><View key={i.clan_id} style={{padding: 4, flexDirection: "row", alignItems: "center"}}>
               <Image style={{height:32,width:32,marginHorizontal:8,borderRadius:8}} source={{uri:i.icon??`https://munzee.global.ssl.fastly.net/images/clan_logos/${Number(i.clan_id).toString(36)}.png`}} />
               <View style={{flex:1}}>
-                <Text style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{i.title}</Text>
+                <Text allowFontScaling={false} style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{i.title}</Text>
               </View>
               <IconButton size={24} onPress={()=>setSelectedClanGroup(i.title)} icon="chevron-right" color={theme.page_content.fg} />
             </View>)}

@@ -18,7 +18,7 @@ function u(str) {
 function CustomChip({label,onPress}) {
   return <Chip style={{margin:4}} mode="outlined" textStyle={font()} onPress={onPress}>{label}</Chip>
   // return <View style={{padding:4,margin:4,borderRadius:4,backgroundColor:'white',borderWidth:1,borderColor:"black"}}>
-  //   <Text style={{color:'black'}}>{label}</Text>
+  //   <Text allowFontScaling={false} style={{color:'black'}}>{label}</Text>
   // </View>
 }
 
@@ -51,8 +51,8 @@ export default function SettingsScreen() {
     <ScrollView style={{ backgroundColor: theme.page_content.bg }} contentContainerStyle={{padding:8}}>
       <View style={{alignItems:"center"}}>
         <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(munzee.icon)}.png`}} style={{height:48,width:48}} />
-        <Text style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>{munzee.name}</Text>
-        <Text style={{color: theme.page_content.fg,fontSize:20,...font("bold")}}>Icon: {munzee.icon} - ID: {munzee.id}</Text>
+        <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>{munzee.name}</Text>
+        <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:20,...font("bold")}}>Icon: {munzee.icon} - ID: {munzee.id}</Text>
       </View>
       <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
         {munzee.state!="bouncer"&&<CustomChip label={`${u(munzee.state)}`}/>}
@@ -67,22 +67,22 @@ export default function SettingsScreen() {
         {munzee.virtual_colors?.map(i=><CustomChip label={`Virtual Color: ${u(i)}`}/>)}
       </View>
       {categories.find(i=>i.id==munzee.category)?.seasonal&&<View style={{alignItems:"center"}}>
-        <Text style={{color:theme.page_content.fg}}>{moment(categories.find(i=>i.id==munzee.category).seasonal.starts).format('L LT')} - {moment(categories.find(i=>i.id==munzee.category).seasonal.ends).format('L LT')}</Text>
-        <Text style={{color:theme.page_content.fg}}>Duration: {moment.duration(moment(categories.find(i=>i.id==munzee.category).seasonal.starts).diff(moment(categories.find(i=>i.id==munzee.category).seasonal.ends))).humanize()}</Text>
+        <Text allowFontScaling={false} style={{color:theme.page_content.fg}}>{moment(categories.find(i=>i.id==munzee.category).seasonal.starts).format('L LT')} - {moment(categories.find(i=>i.id==munzee.category).seasonal.ends).format('L LT')}</Text>
+        <Text allowFontScaling={false} style={{color:theme.page_content.fg}}>Duration: {moment.duration(moment(categories.find(i=>i.id==munzee.category).seasonal.starts).diff(moment(categories.find(i=>i.id==munzee.category).seasonal.ends))).humanize()}</Text>
       </View>}
 
       {/* Evo Stages */}
       {munzee.evolution&&<>
         <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
         <View style={{alignItems:"center"}}>
-          <Text style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Evolution Stages</Text>
+          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Evolution Stages</Text>
         </View>
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
           {types.filter(i=>i.evolution?.base===munzee.evolution.base).sort((a,b)=>a.evolution?.stage-b.evolution?.stage).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
             <View style={{alignItems:"center",padding:4,width:100}}>
               <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} style={{height:32,width:32}} />
-              <Text numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
-              <Text style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
+              <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
+              <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
             </View>
           </TouchableRipple>)}
         </View>
@@ -92,14 +92,14 @@ export default function SettingsScreen() {
       {munzee.bouncer?.base&&<>
         <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
         <View style={{alignItems:"center"}}>
-          <Text style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Pouch Creature Stages</Text>
+          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Pouch Creature Stages</Text>
         </View>
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
           {types.filter(i=>i.bouncer?.base===munzee.bouncer.base).sort((a,b)=>a.bouncer?.stage-b.bouncer?.stage).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
             <View style={{alignItems:"center",padding:4,width:100}}>
               <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} style={{height:32,width:32}} />
-              <Text numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
-              <Text style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
+              <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
+              <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
             </View>
           </TouchableRipple>)}
         </View>
@@ -109,14 +109,14 @@ export default function SettingsScreen() {
       {munzee.can_host?.filter?.(checkCanHost)?.length>0&&<>
         <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
         <View style={{alignItems:"center"}}>
-          <Text style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Can Host</Text>
+          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Can Host</Text>
         </View>
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
           {munzee.can_host.filter(checkCanHost).map(i=>types.find(x=>x.id==i)).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
             <View style={{alignItems:"center",padding:4,width:100}}>
               <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} style={{height:32,width:32}} />
-              <Text numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
-              <Text style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
+              <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
+              <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
             </View>
           </TouchableRipple>)}
         </View>
@@ -126,28 +126,28 @@ export default function SettingsScreen() {
       {munzee?.bouncer?.lands_on&&<>
         <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
         <View style={{alignItems:"center"}}>
-          <Text style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Lands On</Text>
+          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Lands On</Text>
         </View>
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
           {munzee.bouncer.lands_on.map(i=>types.find(x=>x.id==i)).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
             <View style={{alignItems:"center",padding:4,width:100}}>
               <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} style={{height:32,width:32}} />
-              <Text numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
-              <Text style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
+              <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
+              <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
             </View>
           </TouchableRipple>)}
         </View>
       </>}
       {/* <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
       <View style={{alignItems:"center"}}>
-        <Text style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Credits</Text>
+        <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Credits</Text>
       </View>
       <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
         {credits.filter(i=>i.type=="dev").map(i=><TouchableRipple onPress={()=>nav.navigate('UserDetails',{userid:i.user_id})}>
           <View style={{alignItems:"center",padding:4,width:160}}>
             <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png`}} style={{backgroundColor:"white",height:48,width:48,borderRadius:24}} />
-            <Text style={{color: theme.page_content.fg,fontSize:20,...font("bold")}}>{i.username}</Text>
-            <Text style={{color: theme.page_content.fg,fontSize:16,...font()}}>{i.title}</Text>
+            <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:20,...font("bold")}}>{i.username}</Text>
+            <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font()}}>{i.title}</Text>
           </View>
         </TouchableRipple>)}
       </View>
@@ -156,18 +156,18 @@ export default function SettingsScreen() {
         {credits.filter(i=>i.type=="translator").map(i=><TouchableRipple onPress={()=>nav.navigate('UserDetails',{userid:i.user_id})}>
           <View style={{alignItems:"center",padding:4,width:120}}>
             <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png`}} style={{backgroundColor:"white",height:48,width:48,borderRadius:24}} />
-            <Text style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.username}</Text>
-            <Text style={{color: theme.page_content.fg,fontSize:12,...font()}}>{i.title}</Text>
+            <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.username}</Text>
+            <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>{i.title}</Text>
           </View>
         </TouchableRipple>)}
       </View>
       <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
-      <Text style={{color: theme.page_content.fg,fontSize:20,...font("bold"),textAlign:"center"}}>Patrons and Supporters</Text>
+      <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:20,...font("bold"),textAlign:"center"}}>Patrons and Supporters</Text>
       <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
         {credits.filter(i=>i.type=="supporter").map(i=><TouchableRipple onPress={()=>nav.navigate('UserDetails',{userid:i.user_id})}>
           <View style={{alignItems:"center",padding:4,width:100}}>
             <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png`}} style={{backgroundColor:"white",height:36,width:36,borderRadius:18}} />
-            <Text numberOfLines={1} ellipsizeMode='head' style={{color: theme.page_content.fg,fontSize:12,...font("bold")}}>{i.username}</Text>
+            <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode='head' style={{color: theme.page_content.fg,fontSize:12,...font("bold")}}>{i.username}</Text>
           </View>
         </TouchableRipple>)}
       </View> */}

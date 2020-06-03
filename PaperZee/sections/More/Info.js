@@ -17,44 +17,44 @@ export default function SettingsScreen() {
     <ScrollView style={{ backgroundColor: theme.page_content.bg }} contentContainerStyle={{ padding: 8 }}>
       <View style={{ alignItems: "center" }}>
         <Image style={{ width: 300, height: 90.78 }} source={{ uri: 'https://server.cuppazee.app/logo.png' }} />
-        <Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{t('app_info:build_n', { build: 72 })}</Text>
+        <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{t('app_info:build_n', { build: 72 })}</Text>
       </View>
       <View style={{ height: 1, backgroundColor: theme.page_content.fg, opacity: 0.5, margin: 8 }}></View>
       <View style={{ alignItems: "center" }}>
-        <Text style={{ color: theme.page_content.fg, fontSize: 24, ...font("bold") }}>{t('app_info:credits')}</Text>
+        <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 24, ...font("bold") }}>{t('app_info:credits')}</Text>
       </View>
       <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
         {credits.filter(i => i.type == "dev").map(i => <TouchableRipple onPress={() => nav.navigate('UserDetails', { userid: i.user_id })}>
           <View style={{ alignItems: "center", padding: 4, width: 160 }}>
             <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png` }} style={{ backgroundColor: "white", height: 48, width: 48, borderRadius: 24 }} />
-            <Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{i.username}</Text>
-            <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font() }}>{t('app_info:' + i.title)}</Text>
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{i.username}</Text>
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font() }}>{t('app_info:' + i.title)}</Text>
           </View>
         </TouchableRipple>)}
       </View>
       <View style={{ height: 1, backgroundColor: theme.page_content.fg, opacity: 0.5, margin: 8 }}></View>
-      <Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold"), textAlign: "center" }}>{t('app_info:translators')}</Text>
+      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold"), textAlign: "center" }}>{t('app_info:translators')}</Text>
       <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
         {credits.filter(i => i.type == "translator").map(i => <TouchableRipple onPress={() => nav.navigate('UserDetails', { userid: i.user_id })}>
           <View style={{ alignItems: "center", padding: 4, width: 120 }}>
             <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png` }} style={{ backgroundColor: "white", height: 48, width: 48, borderRadius: 24 }} />
-            <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i.username}</Text>
-            <Text style={{ color: theme.page_content.fg, fontSize: 12, ...font() }}>{i.title}</Text>
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i.username}</Text>
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 12, ...font() }}>{i.title}</Text>
           </View>
         </TouchableRipple>)}
       </View>
       <View style={{ height: 1, backgroundColor: theme.page_content.fg, opacity: 0.5, margin: 8 }}></View>
-      <Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold"), textAlign: "center" }}>{t('app_info:database_contributors')}</Text>
+      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold"), textAlign: "center" }}>{t('app_info:database_contributors')}</Text>
       <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
         {credits.filter(i => i.type == "db").map(i => <TouchableRipple onPress={() => nav.navigate('UserDetails', { userid: i.user_id })}>
           <View style={{ alignItems: "center", padding: 4, width: 100 }}>
             <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png` }} style={{ backgroundColor: "white", height: 32, width: 32, borderRadius: 16 }} />
-            <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i.username}</Text>
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i.username}</Text>
           </View>
         </TouchableRipple>)}
       </View>
       <View style={{ height: 1, backgroundColor: theme.page_content.fg, opacity: 0.5, margin: 8 }}></View>
-      <Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold"), textAlign: "center" }}>{t('app_info:patrons_and_supporters')}</Text>
+      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold"), textAlign: "center" }}>{t('app_info:patrons_and_supporters')}</Text>
       <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
         <Button style={{ marginHorizontal: 4 }} color="#F96854" mode="contained" onPress={() => Linking.openURL('https://patreon.com/CuppaZee')} icon="patreon">Monthly via Patreon</Button>
         <Menu
@@ -73,7 +73,7 @@ export default function SettingsScreen() {
         {credits.filter(i => i.type == "supporter").map(i => <TouchableRipple onPress={() => nav.navigate('UserDetails', { userid: i.user_id })}>
           <View style={{ alignItems: "center", padding: 4, width: 100 }}>
             <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png` }} style={{ backgroundColor: "white", height: 36, width: 36, borderRadius: 18 }} />
-            <Text numberOfLines={1} ellipsizeMode='head' style={{ color: theme.page_content.fg, fontSize: 12, ...font("bold") }}>{i.username}</Text>
+            <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode='head' style={{ color: theme.page_content.fg, fontSize: 12, ...font("bold") }}>{i.username}</Text>
           </View>
         </TouchableRipple>)}
       </View>

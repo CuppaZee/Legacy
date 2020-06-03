@@ -71,7 +71,7 @@ export default function ToolsScreen({ navigation }) {
       />
       {/* <View style={{position:"absolute",top:0,left:0,bottom:0,right:0,alignItems:"center",justifyContent:"center"}}>
         <View style={{borderRadius:8,backgroundColor:'#ff3322',padding:8}}>
-          <Text style={{...font("bold"),fontSize:20,color:"white"}}>Coming Soon</Text>
+          <Text allowFontScaling={false} style={{...font("bold"),fontSize:20,color:"white"}}>Coming Soon</Text>
         </View>
       </View> */}
     </View>

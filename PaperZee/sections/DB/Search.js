@@ -47,13 +47,13 @@ export default function SearchScreen({ navigation }) {
       <View style={{padding:4}}>
         <Card noPad>
           <View>
-            {search.length<3&&<Text style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>Search for a Munzee Type</Text>}
-            {search.length>=3&&list.length===0&&<Text style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>No Results {":("}</Text>}
+            {search.length<3&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>Search for a Munzee Type</Text>}
+            {search.length>=3&&list.length===0&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>No Results {":("}</Text>}
             {(search.length<3?categories.filter(i=>i.parents.includes('root')).map(i=>({item:i})):list.slice(0,20)).map(({item:i})=><View key={i.id} style={{padding: 4, flexDirection: "row", alignItems: "center"}}>
               <Image style={{height:32,width:32,marginHorizontal:8}} source={{uri:i.custom_icon??`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} />
               <View style={{flex:1}}>
-                <Text style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{i.name}</Text>
-                <Text style={{...font("bold"),fontSize:12,color:theme.page_content.fg}}>{i.category?`#${i.id}`:`Category`}</Text>
+                <Text allowFontScaling={false} style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{i.name}</Text>
+                <Text allowFontScaling={false} style={{...font("bold"),fontSize:12,color:theme.page_content.fg}}>{i.category?`#${i.id}`:`Category`}</Text>
               </View>
               <IconButton size={24} onPress={i.category?()=>navigation.navigate('DBType',{munzee:i.icon}):()=>navigation.navigate('DBCategory',{category:i.id})} icon="chevron-right" color={theme.page_content.fg} />
             </View>)}

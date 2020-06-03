@@ -16,9 +16,9 @@ function InventoryHistoryItem({ i, theme }) {
     <View key={i.icon} style={{ padding: 2, alignSelf: "center", flex: 1, maxWidth: 400, alignItems: "center", flexDirection: "row" }}>
       <Image style={{ height: 36, width: 36 }} source={{ uri: i.icon?.includes?.('NA.png') ? 'https://server.cuppazee.app/missing.png' : i.icon.replace("https://munzee.global.ssl.fastly.net/images/pins","https://server.cuppazee.app/pins/64").replace(/_/g,'') }} />
       <View style={{ flex: 1 }}>
-        <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i.name}</Text>
-        <Text style={{ color: theme.page_content.fg, fontSize: 16, ...font() }}>{i.reason}</Text>
-        <Text style={{ color: theme.page_content.fg, fontSize: 12, ...font() }}>{new Date(i.time).toLocaleString()}</Text>
+        <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i.name}</Text>
+        <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font() }}>{i.reason}</Text>
+        <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 12, ...font() }}>{new Date(i.time).toLocaleString()}</Text>
       </View>
 
       {i.reason.match(/level [0-9] reward/i) && <MaterialCommunityIcons name="shield-outline" size={24} color={theme.page_content.fg} />}
@@ -39,7 +39,7 @@ var UserInventoryOverview = React.memo(function ({ data, theme }) {
   var {t} = useTranslation()
   return <View style={{ flexDirection: "row", justifyContent: "center" }}><View style={{ flex: 1, maxWidth: 800 }}>
     <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
-      <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
+      <View><Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
         {t('inventory:undeployed')}
                 </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
@@ -52,7 +52,7 @@ var UserInventoryOverview = React.memo(function ({ data, theme }) {
       </View>
     </View>
     <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
-      <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
+      <View><Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
         {t('inventory:credits')}
                 </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
@@ -65,7 +65,7 @@ var UserInventoryOverview = React.memo(function ({ data, theme }) {
       </View>
     </View>
     <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
-      <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
+      <View><Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
         {t('inventory:history')}
       </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>

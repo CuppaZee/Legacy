@@ -37,8 +37,8 @@ function SHCItem({ i }) {
   >
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
       <Image style={{ height: 48, width: 48 }} source={{ uri: i.pin }} />
-      <Text style={{ fontSize: 12, ...font("bold") }}>{i.friendly_name}</Text>
-      <Text style={{ fontSize: 12, ...font("bold") }}>by {i.username}</Text>
+      <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold") }}>{i.friendly_name}</Text>
+      <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold") }}>by {i.username}</Text>
     </View>
   </Menu>;
 }
@@ -82,7 +82,7 @@ export default function UserSHCScreen() {
   return <View style={{ flex: 1, backgroundColor: theme.page_content.bg }}><ScrollView style={{ flex: 1 }}>
     <View style={{ flexDirection: "column", padding: 8 }}>
       {categories.map(i => <View style={{ flexDirection: "row", alignItems: "center", minHeight: 40, flexWrap: "wrap" }}>
-        <Text style={{ width: 120, ...font(), color: theme.activity["capon"].fg }}>
+        <Text allowFontScaling={false} style={{ width: 120, ...font(), color: theme.activity["capon"].fg }}>
           {i.name}
         </Text>
         {data.captures.filter(x => i.function(g(x))).map(x => <SHCItem i={x} />)}

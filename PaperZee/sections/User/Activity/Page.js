@@ -103,7 +103,7 @@ export default function UserActivityScreen() {
                 }} />
               </Menu>
               
-              <Text style={{flex:1,...font("bold"),fontSize:16,color:(theme.clanCardHeader||theme.navigation).fg}}>{moment({
+              <Text allowFontScaling={false} style={{flex:1,...font("bold"),fontSize:16,color:(theme.clanCardHeader||theme.navigation).fg}}>{moment({
                   year: Number(dateString.split('-')[0]),
                   month: Number(dateString.split('-')[1])-1,
                   date: Number(dateString.split('-')[2]),
@@ -120,7 +120,7 @@ export default function UserActivityScreen() {
         <View style={{ padding: 4, paddingLeft: 8, position: "relative", alignContent: 'center', alignItems: "center", flexGrow: 0 }}>
           <View style={{ width: 60, justifyContent: 'center', flexDirection: "row", flexWrap: "wrap", flexGrow: 0 }}>
             <View style={{ paddingLeft: 8, paddingRight: 8, backgroundColor: act.points_for_creator ? theme.activity.capon.bg : (act.captured_at ? theme.activity.capture.bg : theme.activity.deploy.bg), borderRadius: 9.5 }}>
-              <Text style={{ alignSelf: "stretch", textAlign: "center", color: act.points_for_creator ? theme.activity.capon.fg : (act.captured_at ? theme.activity.capture.fg : theme.activity.deploy.fg), ...font("bold") }}>{(act.points_for_creator ?? act.points) > 0 && '+'}{(Number(act.points_for_creator ?? act.points)) || t('activity:none')}</Text>
+              <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "center", color: act.points_for_creator ? theme.activity.capon.fg : (act.captured_at ? theme.activity.capture.fg : theme.activity.deploy.fg), ...font("bold") }}>{(act.points_for_creator ?? act.points) > 0 && '+'}{(Number(act.points_for_creator ?? act.points)) || t('activity:none')}</Text>
             </View>
           </View>
           <View style={{ position: 'relative' }}>
@@ -130,13 +130,13 @@ export default function UserActivityScreen() {
         </View>
         <TouchableHighlight style={{ paddingLeft: 8, paddingRight: 8, flexGrow: 1, flexShrink: 1 }} onPress={() => { navigation.navigate('MunzeeDetails', { url: `/m/${!act.points_for_creator && act.captured_at ? act.username : userdata?.username}/${act.code}` }) }} underlayColor="white">
           <View>
-            <Text style={{color: theme.page_content.fg,...font()}}>{act.points_for_creator ? (isRenovation(act) ? `${act.username} Renovated your Motel` : t('activity:user_captured',{user:act.username})) : (act.captured_at ? (isRenovation(act) ? `You Renovated a Motel` : t('activity:you_captured')) : t('activity:you_deployed'))}</Text>
-            {!isRenovation(act)&&<Text style={{ color: theme.page_content.fg, ...font("bold") }}>{act.friendly_name}</Text>}
-            {!isRenovation(act)&&<Text style={{ color: theme.page_content.fg, opacity: 0.8, ...font() }}>{act.points_for_creator ? t('activity:by_you') : (act.captured_at ? t('activity:by_user',{user:act.username}) : t('activity:by_you'))}</Text>}
+            <Text allowFontScaling={false} style={{color: theme.page_content.fg,...font()}}>{act.points_for_creator ? (isRenovation(act) ? `${act.username} Renovated your Motel` : t('activity:user_captured',{user:act.username})) : (act.captured_at ? (isRenovation(act) ? `You Renovated a Motel` : t('activity:you_captured')) : t('activity:you_deployed'))}</Text>
+            {!isRenovation(act)&&<Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font("bold") }}>{act.friendly_name}</Text>}
+            {!isRenovation(act)&&<Text allowFontScaling={false} style={{ color: theme.page_content.fg, opacity: 0.8, ...font() }}>{act.points_for_creator ? t('activity:by_you') : (act.captured_at ? t('activity:by_user',{user:act.username}) : t('activity:by_you'))}</Text>}
           </View>
         </TouchableHighlight>
         <View style={{ padding: 8, flexGrow: 0, paddingLeft: 16, alignContent: 'center', position: "relative", alignItems: "flex-end" }}>
-          <Text style={{ alignSelf: "stretch", textAlign: "right", color: theme.page_content.fg, ...font("bold") }}>{new Date(act.captured_at ?? act.deployed_at).getHours().toString().padStart(2, "0")}:{new Date(act.captured_at ?? act.deployed_at).getMinutes().toString().padStart(2, "0")}</Text>
+          <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "right", color: theme.page_content.fg, ...font("bold") }}>{new Date(act.captured_at ?? act.deployed_at).getHours().toString().padStart(2, "0")}:{new Date(act.captured_at ?? act.deployed_at).getMinutes().toString().padStart(2, "0")}</Text>
           {/* <Image style={{ height: 32, width: 32 }} source={{ uri: act.pin }}/>
             {hostIcon(act.pin)&&<Image style={{ height: 24, width: 24, position: "absolute", right: 5, bottom: 5 }} source={{ uri: hostIcon(act.pin) }}/>} */}
         </View>

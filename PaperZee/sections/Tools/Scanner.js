@@ -35,7 +35,7 @@ export default function App() {
               WebBrowser.openBrowserAsync(i)
             }
           }}>
-          <Text style={{color:i?.startsWith?.('http')?'blue':'black',textAlign:"center",fontSize:16,...font("bold"),padding:4,paddingVertical:16}}>{i}</Text>
+          <Text allowFontScaling={false} style={{color:i?.startsWith?.('http')?'blue':'black',textAlign:"center",fontSize:16,...font("bold"),padding:4,paddingVertical:16}}>{i}</Text>
         </TouchableOpacity>)}
       </View>}
       {!scanned&&<Camera
@@ -104,7 +104,7 @@ export default function App() {
               );
               
             }}>
-            <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
+            <Text allowFontScaling={false} style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
           </TouchableOpacity> */}
         </View>
       </Camera>}

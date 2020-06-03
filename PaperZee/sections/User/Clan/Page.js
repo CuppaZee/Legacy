@@ -55,15 +55,15 @@ export default function ClanScreen({ route }) {
   if(!data) {
     return <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: theme.page.bg }}>
       <ActivityIndicator size="large" color={theme.page.fg} />
-      <Text style={{color:theme.page.fg,textAlign:"center",marginTop:4,fontSize:18}}>All of our elves are working hard on this</Text>
-      <Text style={{color:theme.page.fg,textAlign:"center",marginTop:4,fontSize:14}}>This may still take a few moments, please be patient</Text>
+      {/* <Text allowFontScaling={false} style={{color:theme.page.fg,textAlign:"center",marginTop:4,fontSize:18}}>All of our elves are working hard on this</Text>
+      <Text allowFontScaling={false} style={{color:theme.page.fg,textAlign:"center",marginTop:4,fontSize:14}}>This may still take a few moments, please be patient</Text>
       <Button
         style={{marginTop:4}}
         color={theme.page.fg}
         mode="contained"
         onPress={()=>setCookies(cookies+1)}
       >Feed the elves a cookie</Button>
-      <Text style={{color:theme.page.fg,textAlign:"center",marginTop:4,fontSize:20}}>🍪 {cookies} Cookies Fed</Text>
+      <Text allowFontScaling={false} style={{color:theme.page.fg,textAlign:"center",marginTop:4,fontSize:20}}>🍪 {cookies} Cookies Fed</Text> */}
     </View>
   }
   var requirements = ClanRequirementsConverter(unformatted_requirements);
@@ -94,13 +94,13 @@ export default function ClanScreen({ route }) {
                   <Image source={{ uri: requirements?.requirements?.[i]?.icon }} style={{ width: 48, height: 48 }} />
                 </View>
                 <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
-                  <Text style={{ fontSize: 20, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{requirements?.requirements?.[i]?.top} {requirements?.requirements?.[i]?.bottom}</Text>
-                  {/* <Text style={{ fontSize: 12, fontWeight: "500", color: theme.page_content.fg, opacity: 0.8 }}>{requirements?.requirements?.[i]?.description}</Text> */}
-                  <Text style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{data?.[i]?.toLocaleString?.()||'0'}</Text>
+                  <Text allowFontScaling={false} style={{ fontSize: 20, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{requirements?.requirements?.[i]?.top} {requirements?.requirements?.[i]?.bottom}</Text>
+                  {/* <Text allowFontScaling={false} style={{ fontSize: 12, fontWeight: "500", color: theme.page_content.fg, opacity: 0.8 }}>{requirements?.requirements?.[i]?.description}</Text> */}
+                  <Text allowFontScaling={false} style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{data?.[i]?.toLocaleString?.()||'0'}</Text>
                 </View>
                 {requirements?.order?.individual?.includes?.(i)?<View style={{alignSelf:"stretch",borderTopRightRadius:8,borderBottomRightRadius:8,borderLeftWidth:dark?2:0,borderLeftColor:dark?level_colors[calculateLevel(i,data?.[i])]:undefined,backgroundColor:dark?undefined:level_colors[calculateLevel(i,data?.[i])],width:60,alignItems:"center",justifyContent:"center"}}>
-                  <Text style={{color:theme.page_content.fg,...font()}}>Level</Text>
-                  <Text style={{color:theme.page_content.fg,fontSize:24,...font("bold")}}>{calculateLevel(i,data?.[i])}</Text>
+                  <Text allowFontScaling={false} style={{color:theme.page_content.fg,...font()}}>Level</Text>
+                  <Text allowFontScaling={false} style={{color:theme.page_content.fg,fontSize:24,...font("bold")}}>{calculateLevel(i,data?.[i])}</Text>
                 </View>:null}
               </View>
             </Card>

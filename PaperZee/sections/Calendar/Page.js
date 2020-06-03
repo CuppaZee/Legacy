@@ -38,7 +38,7 @@ export default function CalendarScreen() {
             <View style={{borderTopLeftRadius:8,borderTopRightRadius:8,flexDirection:"row",alignItems:"center",backgroundColor:(theme.clanCardHeader||theme.navigation).bg}}>
               <IconButton icon={type=="default"?"format-text":"view-grid"} color={(theme.clanCardHeader||theme.navigation).fg} onPress={()=>setType(type=="default"?"alt":"default")}/>
               <IconButton icon="chevron-left" color={(theme.clanCardHeader||theme.navigation).fg} onPress={remove}/>
-              <Text style={{flex:1,textAlign:"center",color:(theme.clanCardHeader||theme.navigation).fg}}>{moment({month,year}).format('MMMM YYYY')}</Text>
+              <Text allowFontScaling={false} style={{flex:1,textAlign:"center",color:(theme.clanCardHeader||theme.navigation).fg}}>{moment({month,year}).format('MMMM YYYY')}</Text>
               <IconButton icon="chevron-right" color={(theme.clanCardHeader||theme.navigation).fg} onPress={add}/>
             </View>
             <Calendar month={month} year={year} theme={theme} type={type}/>

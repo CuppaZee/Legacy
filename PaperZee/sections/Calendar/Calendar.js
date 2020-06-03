@@ -34,12 +34,12 @@ export default function Calendar({style,month,year,theme,type="default"}) {
     {type=="default"&&<View style={{flexDirection:"row"}}>
       {types.map(i=><View style={{flex:1,borderWidth:1,borderColor:'#d3d3d3',backgroundColor:i.color,justifyContent:"center",alignItems:"center",height:60}}>
         <Image source={{uri: `https://munzee.global.ssl.fastly.net/images/pins/${i.type}.png`}} style={{height:32,width:32}}/>
-        <Text style={{fontSize:12,color:"white"}}>{i.label}</Text>
+        <Text allowFontScaling={false} style={{fontSize:12,color:"white"}}>{i.label}</Text>
       </View>)}
     </View>}
     <View style={{flexDirection:"row"}}>
       {["M","T","W","T","F","S","S"].map(i=><View style={{flex:1,borderWidth:1,borderColor:'#d3d3d3',justifyContent:"center",alignItems:"center",height:40}}>
-        <Text style={{fontSize:16,color:theme.page_content.fg}}>{i}</Text>
+        <Text allowFontScaling={false} style={{fontSize:16,color:theme.page_content.fg}}>{i}</Text>
       </View>)}
     </View>
     {grid.map(row=><View style={{flexDirection:"row"}}>

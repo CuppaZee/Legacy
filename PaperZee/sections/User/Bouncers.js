@@ -49,7 +49,7 @@ export default function ClanScreen({ route }) {
       <ScrollView
         contentContainerStyle={{ width: 600, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4, paddingBottom: 92 }}
         style={{ flex: 1, backgroundColor: theme.page.bg }}>
-        {!bouncers&&<Text style={{color:theme.page.fg,...font()}}>Loading...</Text>}
+        {!bouncers&&<Text allowFontScaling={false} style={{color:theme.page.fg,...font()}}>Loading...</Text>}
         {bouncers?.map?.(i=><View style={{ padding: 4 }}>
           <Card noPad cardStyle={{opacity:i.bouncer?1:0.4}}>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -57,14 +57,14 @@ export default function ClanScreen({ route }) {
                 <Image source={{ uri: i.pin_icon }} style={{ width: 48, height: 48 }} />
               </View>
               <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
-                <Text style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{i.friendly_name}</Text>
-                {/* <Text style={{fontSize:16,opacity:0.8}}><MaterialCommunityIcons name="sword-cross" size={16}/> The Cup of Coffee Clan</Text> */}
+                <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{i.friendly_name}</Text>
+                {/* <Text allowFontScaling={false} style={{fontSize:16,opacity:0.8}}><MaterialCommunityIcons name="sword-cross" size={16}/> The Cup of Coffee Clan</Text> */}
                 {i.bouncer?<>
-                  <Text style={{ fontSize: 14,...font(400), color: theme.page_content.fg, opacity: 1 }}>At <Text style={font(600)}>{i.bouncer.friendly_name}</Text> by <Text style={font(600)}>{i.bouncer.full_url.match(/\/m\/([^/]+)\/[0-9]+/)[1]}</Text></Text>
-                  <Text style={{ fontSize: 14,...font(400), color: theme.page_content.fg, opacity: 0.8 }}>{i.location.formatted}</Text>
-                <Text style={{ fontSize: 12,...font(400), color: theme.page_content.fg, opacity: 0.8 }}>{i.number_of_captures} Captures - Last Captured: {moment(i.last_captured_at).format('L LTS')}</Text>
+                  <Text allowFontScaling={false} style={{ fontSize: 14,...font(400), color: theme.page_content.fg, opacity: 1 }}>At <Text allowFontScaling={false} style={font(600)}>{i.bouncer.friendly_name}</Text> by <Text allowFontScaling={false} style={font(600)}>{i.bouncer.full_url.match(/\/m\/([^/]+)\/[0-9]+/)[1]}</Text></Text>
+                  <Text allowFontScaling={false} style={{ fontSize: 14,...font(400), color: theme.page_content.fg, opacity: 0.8 }}>{i.location.formatted}</Text>
+                <Text allowFontScaling={false} style={{ fontSize: 12,...font(400), color: theme.page_content.fg, opacity: 0.8 }}>{i.number_of_captures} Captures - Last Captured: {moment(i.last_captured_at).format('L LTS')}</Text>
                 </>:<>
-                  <Text style={{ fontSize: 14,...font(500), color: theme.page_content.fg, opacity: 1 }}>Taking a Rest</Text>
+                  <Text allowFontScaling={false} style={{ fontSize: 14,...font(500), color: theme.page_content.fg, opacity: 1 }}>Taking a Rest</Text>
                 </>}
               </View>
             </View>

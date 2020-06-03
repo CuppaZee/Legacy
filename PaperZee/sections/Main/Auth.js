@@ -94,8 +94,8 @@ export default function AuthScreen () {
   if(redirect) setTimeout(()=>navigation.replace('UserDetails',{userid:redirect}),500)
   return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page_content.bg}}>{
     loading ? <ActivityIndicator size="large" color={theme.page_content.fg} /> : <>
-    <Text style={{color:theme.page_content.fg,fontSize:24}}>{hasLogin?'Add a new User':'Welcome to CuppaZee'}</Text>
-      <Text style={{color:theme.page_content.fg,fontSize:16}}>Tap below to log in</Text>
+    <Text allowFontScaling={false} style={{color:theme.page_content.fg,fontSize:24}}>{hasLogin?'Add a new User':'Welcome to CuppaZee'}</Text>
+      <Text allowFontScaling={false} style={{color:theme.page_content.fg,fontSize:16}}>Tap below to log in</Text>
       <IconButton
         size={32}
         onPress={() => {
