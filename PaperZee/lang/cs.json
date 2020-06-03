@@ -7,24 +7,28 @@
         "settings": "Nastavení",
         "authenticate": "Přihlásit se",
         "auth_success": "Přihlášení úspěšné",
-        "scanner": "",
-        "the_quest": "",
-        "maps": "",
-        "credits": "",
-        "app_info": "",
-        "donate": "",
-        "build_info": "",
+        "scanner": "Skener",
+        "maps": "Mapy",
+        "credits": "Kredity",
+        "app_info": "Informace o aplikaci",
+        "donate": "Darovat",
+        "build_info": "Sestavení CuppaZee aplikace {count}",
         "user": {
-            "one": "",
-            "few": "",
-            "other": ""
+            "one": "Uživatel",
+            "few": "Uživatelé",
+            "other": "Uživatelů"
         },
         "clan": {
-            "one": "",
-            "few": "",
-            "other": ""
+            "one": "Klan",
+            "few": "Klany",
+            "other": "Klanů"
         },
-        "more": ""
+        "more": "Více",
+        "find_user": "",
+        "munzee_types": "",
+        "show_more": "",
+        "show_less": "",
+        "help": ""
     },
     "activity": {
         "user_captured": "{user} zachytil",
@@ -60,5 +64,16 @@
         },
         "none": "Nic",
         "user_today": "{user} dnes"
+    },
+    "user": {
+        "level_n": "",
+        "rank_n": "",
+        "inventory": "",
+        "your_bouncers": "",
+        "clan_progress": "",
+        "quebec_quest_progress": "",
+        "special_hunter_challenge": "",
+        "captured_types": "",
+        "activity": ""
     }
 }
