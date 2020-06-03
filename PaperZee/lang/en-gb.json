@@ -89,6 +89,7 @@
             "one": "{count} Capture",
             "other": "{count} Captures"
         },
-        "last_captured": "Last Captured: {time}"
+        "last_captured": "Last Captured: {time}",
+        "in_limbo": "Taking a Rest"
     }
 }
