@@ -24,11 +24,13 @@
             "other": "Klanů"
         },
         "more": "Více",
-        "find_user": "",
-        "munzee_types": "",
-        "show_more": "",
-        "show_less": "",
-        "help": ""
+        "find_user": "Najít uživatele",
+        "munzee_types": "Typy munzee",
+        "show_more": "Zobrazit více",
+        "show_less": "Zobrazit méně",
+        "help": "Pomoc",
+        "users": "Uživatelé",
+        "calendar": "Kalendář"
     },
     "activity": {
         "user_captured": "{user} zachytil",
@@ -66,14 +68,36 @@
         "user_today": "{user} dnes"
     },
     "user": {
-        "level_n": "",
-        "rank_n": "",
-        "inventory": "",
-        "your_bouncers": "",
-        "clan_progress": "",
-        "quebec_quest_progress": "",
-        "special_hunter_challenge": "",
-        "captured_types": "",
-        "activity": ""
+        "level_n": "Level {level}",
+        "rank_n": "Pořadí #{rank}",
+        "inventory": "Inventář",
+        "your_bouncers": "Vaši cestovatelé",
+        "clan_progress": "Postup klanu",
+        "quebec_quest_progress": "Postup v Quebec Quest",
+        "special_hunter_challenge": "Výzva speciálních lovců",
+        "captured_types": "Zachycené typy",
+        "activity": "Aktivita"
+    },
+    "inventory": {
+        "undeployed": "Neumístěné",
+        "credits": "Poděkování",
+        "history": "Historie"
+    },
+    "app_info": {
+        "credits": "Poděkování",
+        "primary_developer": "Hlavní vývojář",
+        "translators": "Překladatelé",
+        "database_contributors": "Přispěvatelé do databáze",
+        "patrons_and_supporters": "Patroni a podporovatelé",
+        "build_n": "Číslo sestavení {build}"
+    },
+    "your_bouncers": {
+        "capture": {
+            "one": "{count} zachycení",
+            "few": "{count} zachycení",
+            "other": "{count} zachycení"
+        },
+        "last_captured": "Naposledy zachyceno: {time}",
+        "in_limbo": "Odpočívá"
     }
 }
