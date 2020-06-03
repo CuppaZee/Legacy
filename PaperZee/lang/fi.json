@@ -7,26 +7,28 @@
         "settings": "Asetukset",
         "authenticate": "Autentikoidu",
         "auth_success": "Autentikointi onnistui",
-        "scanner": "",
-        "maps": "",
-        "credits": "",
-        "app_info": "",
-        "donate": "",
-        "build_info": "",
+        "scanner": "Skanneri",
+        "maps": "Kartat",
+        "credits": "Crediitit",
+        "app_info": "Appi-info",
+        "donate": "Lahjoita",
+        "build_info": "Cuppazeen koonti {count}",
         "user": {
-            "one": "",
-            "other": ""
+            "one": "Pelaaja",
+            "other": "Pelaajat"
         },
         "clan": {
-            "one": "",
-            "other": ""
+            "one": "Klaani",
+            "other": "Klaanit"
         },
-        "more": "",
-        "find_user": "",
-        "munzee_types": "",
-        "show_more": "",
-        "show_less": "",
-        "help": ""
+        "more": "Lisää",
+        "find_user": "Etsi käyttäjä",
+        "munzee_types": "Munzee tyypit",
+        "show_more": "Näytä lisää",
+        "show_less": "Näytä vähemmän",
+        "help": "Apua",
+        "users": "Käyttäjät",
+        "calendar": "Kalenteri"
     },
     "activity": {
         "user_captured": "{user} cappasi",
@@ -59,14 +61,35 @@
         "user_today": "{user} tänään"
     },
     "user": {
-        "level_n": "",
-        "rank_n": "",
-        "inventory": "",
-        "your_bouncers": "",
-        "clan_progress": "",
-        "quebec_quest_progress": "",
-        "special_hunter_challenge": "",
-        "captured_types": "",
-        "activity": ""
+        "level_n": "Taso",
+        "rank_n": "Sijoitus #{number}",
+        "inventory": "Omistuksesi",
+        "your_bouncers": "Pomppijasi",
+        "clan_progress": "Edistymisesi llaanissa",
+        "quebec_quest_progress": "Quebec Quest edistyminen",
+        "special_hunter_challenge": "Spessun metsästäjän haaste",
+        "captured_types": "Capatut tyypit",
+        "activity": "Aktiviteetit"
+    },
+    "inventory": {
+        "undeployed": "Deppaamattomat",
+        "credits": "Crediitit",
+        "history": "Historia"
+    },
+    "app_info": {
+        "credits": "Crediitit",
+        "primary_developer": "Pääkehittäjä",
+        "translators": "Kääntäjät",
+        "database_contributors": "Tietokanta-avustajat",
+        "patrons_and_supporters": "Patronit ja kannattajat",
+        "build_n": "Koonti"
+    },
+    "your_bouncers": {
+        "capture": {
+            "one": "{count} cappaus",
+            "other": "{count} cappausta"
+        },
+        "last_captured": "Viimeksi capattu {time}",
+        "in_limbo": "Huilailee"
     }
 }
