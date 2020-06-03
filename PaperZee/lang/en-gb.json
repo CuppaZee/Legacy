@@ -27,7 +27,8 @@
         "show_more": "Show More",
         "show_less": "Show Less",
         "help": "Help",
-        "users": "Users"
+        "users": "Users",
+        "calendar": "Calendar"
     },
     "activity": {
         "user_captured": "{user} captured",
@@ -82,5 +83,12 @@
         "database_contributors": "Database Contributors",
         "patrons_and_supporters": "Patrons and Supporters",
         "build_n": "Build {build}"
+    },
+    "your_bouncers": {
+        "capture": {
+            "one": "{count} Capture",
+            "other": "{count} Captures"
+        },
+        "last_captured": "Last Captured: {time}"
     }
 }
