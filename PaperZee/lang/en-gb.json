@@ -26,7 +26,8 @@
         "munzee_types": "Munzee Types",
         "show_more": "Show More",
         "show_less": "Show Less",
-        "help": "Help"
+        "help": "Help",
+        "users": "Users"
     },
     "activity": {
         "user_captured": "{user} captured",
