@@ -18495,6 +18495,7 @@
         1836,
         2106,
         1055,
+        2461,
         1086
       ]
     },
@@ -27869,6 +27870,22 @@
     "state": "virtual",
     "category": "card",
     "completion": "complete"
+  },
+  {
+    "name": "Planula Larva",
+    "icon": "planulalarva",
+    "id": 2461,
+    "evolution": {
+      "stage": 1,
+      "set": "nature",
+      "base": "planulalarva"
+    },
+    "state": "virtual",
+    "category": "evolution_nature",
+    "completion": "complete",
+    "can_host": [
+      1745
+    ]
   },
   {
     "name": "Minotaur Cyclops",

@@ -925,5 +925,14 @@
     "set": "reseller",
     "stage": 3,
     "base": "coin"
+  },
+  {
+    "name": "Planula Larva",
+    "icon": "planulalarva",
+    "id": 2461,
+    "state": "virtual",
+    "set": "nature",
+    "stage": 1,
+    "base": "planulalarva"
   }
 ]
