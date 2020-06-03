@@ -97,5 +97,10 @@
     "name": "May Flowers Card",
     "icon": "mayflowerscard",
     "id": 2500
+  },
+  {
+    "name": "World Ocean Day Card",
+    "icon": "worldoceandaycard",
+    "id": "null_worldoceandaycard"
   }
 ]

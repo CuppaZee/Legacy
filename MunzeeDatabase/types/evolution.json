@@ -934,5 +934,59 @@
     "set": "nature",
     "stage": 1,
     "base": "planulalarva"
+  },
+  {
+    "name": "Polyp",
+    "icon": "polyp",
+    "id": 2462,
+    "state": "virtual",
+    "set": "nature",
+    "stage": 2,
+    "base": "planulalarva"
+  },
+  {
+    "name": "Ephyra Larva",
+    "icon": "ephyralarva",
+    "id": 2464,
+    "state": "virtual",
+    "set": "nature",
+    "stage": 4,
+    "base": "planulalarva"
+  },
+  {
+    "name": "Turtle Egg",
+    "icon": "turtleegg",
+    "id": 2452,
+    "state": "physical",
+    "set": "nature",
+    "stage": 1,
+    "base": "turtleegg"
+  },
+  {
+    "name": "Turtle Hatchling",
+    "icon": "turtlehatchling",
+    "id": 2453,
+    "state": "physical",
+    "set": "nature",
+    "stage": 2,
+    "base": "turtleegg"
+  },
+  {
+    "name": "Juvenile Turtle",
+    "icon": "juvenileturtle",
+    "id": 2454,
+    "state": "physical",
+    "set": "nature",
+    "stage": 3,
+    "base": "turtleegg"
+  },
+  {
+    "name": "Adult Turtle",
+    "icon": "adultturtle",
+    "id": 2455,
+    "state": "physical",
+    "set": "nature",
+    "stage": 4,
+    "base": "turtleegg"
   }
 ]

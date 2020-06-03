@@ -87,6 +87,7 @@ munzees = munzees.concat(require('./types/destination.json').map(i => ({
   category: "destination",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/destination.json"
 })))
 categories.push({
@@ -108,6 +109,7 @@ munzees = munzees.concat(require('./types/event.json').map(i => ({
   category: "event",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/event.json"
 })))
 categories.push({
@@ -134,6 +136,7 @@ munzees = munzees.concat(require('./types/evolution.json').map(i => ({
   category: "evolution_"+i.set,
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/evolution.json"
 })))
 categories.push({
@@ -197,6 +200,7 @@ munzees = munzees.concat(require('./types/fancyflat.json').map(i => ({
     }),
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/fancyflat.json"
 })))
 categories.push({
@@ -219,6 +223,7 @@ munzees = munzees.concat(require('./types/flat.json').map(i => ({
   category: "flat",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/flat.json"
 })))
 categories.push({
@@ -240,6 +245,7 @@ munzees = munzees.concat(require('./types/gaming.json').map(i => ({
   category: "gaming",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/gaming.json"
 })))
 categories.push({
@@ -261,6 +267,7 @@ munzees = munzees.concat(require('./types/jewel.json').map(i => ({
   category: "jewel",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/jewel.json"
 })))
 categories.push({
@@ -282,6 +289,7 @@ munzees = munzees.concat(require('./types/virtual.json').map(i => ({
   category: "virtual",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/virtual.json"
 })))
 categories.push({
@@ -302,6 +310,7 @@ munzees = munzees.concat(require('./types/misc.json').map(i => ({
   category: "misc",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/misc.json"
 })))
 categories.push({
@@ -323,6 +332,7 @@ munzees = munzees.concat(require('./types/mystery.json').map(i => ({
   category: "mystery",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/mystery.json"
 })))
 categories.push({
@@ -356,17 +366,36 @@ munzees = munzees.concat(require('./types/myth').map(i => ({
       myth_set: i.type,
 
       state: "bouncer",
-      category: "myth"
+      category: "myth_"+i.type
     }),
-
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/myth.js"
 })))
 categories.push({
-  name: "Mythologicals",
-  id: "myth",
-  icon: "theunicorn_full",
+  name: "Original Myths",
+  id: "myth_original",
+  icon: "theunicorn",
   parents: ["bouncer"]
+})
+categories.push({
+  name: "Classical Myths",
+  id: "myth_classical",
+  icon: "pegasus",
+  parents: ["bouncer"]
+})
+categories.push({
+  name: "Mirror Myths",
+  id: "myth_mirror",
+  icon: "mermaid",
+  parents: ["bouncer"]
+})
+categories.push({
+  name: "Modern Myths",
+  id: "myth_modern",
+  icon: "poseidon",
+  parents: ["bouncer"],
+  hidden: true
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}POIs${colors.Reset} from ${colors.fg.Green}./types/poi.json${colors.Reset}`)
@@ -381,6 +410,7 @@ munzees = munzees.concat(require('./types/poi.json').map(i => ({
   category: "poi",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/poi.json"
 })))
 categories.push({
@@ -402,6 +432,7 @@ munzees = munzees.concat(require('./types/reseller.json').map(i => ({
   category: "reseller",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/reseller.json"
 })))
 categories.push({
@@ -423,6 +454,7 @@ munzees = munzees.concat(require('./types/weapon.json').map(i => ({
   category: i.weapon,
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/weapon.json"
 })))
 categories.push({
@@ -450,6 +482,7 @@ munzees = munzees.concat(require('./types/zodiac.json').map(i => ({
   category: `${i.zodiac}_zodiac`,
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/zodiac.json"
 })))
 categories.push({
@@ -483,6 +516,7 @@ munzees = munzees.concat(require('./types/tourism.json').map(i => ({
   category: "tourism",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/tourism.json"
 })))
 categories.push({
@@ -505,6 +539,7 @@ munzees = munzees.concat(require('./types/cards.json').map(i => ({
   category: "card",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/cards.json"
 })))
 categories.push({
@@ -531,6 +566,7 @@ munzees = munzees.concat(require('./types/nomad').map(i => ({
   category: "nomad",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/nomad.js"
 })))
 categories.push({
@@ -570,6 +606,7 @@ munzees = munzees.concat(require('./types/pouch').map(i => ({
     }),
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/pouch.js"
 })))
 categories.push({
@@ -596,6 +633,7 @@ munzees = munzees.concat(require('./types/retiremyth').map(i => ({
   category: i.pouch ? "zombiepouch" : "retiremyth",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/retiremyth.js"
 })))
 categories.push({
@@ -639,6 +677,7 @@ munzees = munzees.concat(require('./types/temppob').map(i => ({
   ...(i.extra || {}),
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/temppob.js"
 })))
 categories.push({
@@ -676,6 +715,7 @@ munzees = munzees.concat(require('./types/tob').map(i => ({
     }),
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/tob.js"
 })))
 categories.push({
@@ -698,6 +738,7 @@ munzees = munzees.concat(require('./types/scatter.json').map(i => ({
   category: i.category || "scatter",
 
   completion: "complete",
+  hidden: i.hidden,
   from_file: "./types/scatter.json"
 })))
 categories.push({
@@ -760,14 +801,14 @@ categories = categories.concat(require('./types/seasonals').map(c=>{
 categories.push({
   name: "2020 Seasonal Specials",
   id: "seasonal_2020",
-  icon: categories.find(i=>i.parents.includes("seasonal_2020")).icon,
+  icon: categories.slice().sort((a,b)=>(b.seasonal||{}).starts-(a.seasonal||{}).starts).find(i=>i.parents.includes("seasonal_2020")).icon,
   parents: ["seasonal","root"],
   priority: 10
 })
 categories.push({
   name: "2019 Seasonal Specials",
   id: "seasonal_2019",
-  icon: categories.find(i=>i.parents.includes("seasonal_2019")).icon,
+  icon: categories.slice().sort((a,b)=>(b.seasonal||{}).starts-(a.seasonal||{}).starts).find(i=>i.parents.includes("seasonal_2019")).icon,
   parents: ["seasonal"]
 })
 categories.push({
@@ -881,6 +922,7 @@ for (var munzee of munzees) {
 for (var munzee of munzees) {
   munzee.can_host = munzees.filter(i => i.bouncer && (i.bouncer.lands_on || []).includes(munzee.id)).map(i => i.id);
   if (munzee.can_host.length == 0) munzee.can_host = undefined;
+  munzee.cid = munzee.icon.replace(/[^a-zA-Z0-9]/g,'');
 }
 
 munzees.sort((a, b) => (a.id||0) - (b.id||0));

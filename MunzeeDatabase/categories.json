@@ -18,7 +18,7 @@
   {
     "name": "2020 Seasonal Specials",
     "id": "seasonal_2020",
-    "icon": "spectacularspectacles2020vision",
+    "icon": "staysafe",
     "parents": [
       "seasonal",
       "root"
@@ -167,12 +167,37 @@
     ]
   },
   {
-    "name": "Mythologicals",
-    "id": "myth",
-    "icon": "theunicorn_full",
+    "name": "Original Myths",
+    "id": "myth_original",
+    "icon": "theunicorn",
     "parents": [
       "bouncer"
     ]
+  },
+  {
+    "name": "Classical Myths",
+    "id": "myth_classical",
+    "icon": "pegasus",
+    "parents": [
+      "bouncer"
+    ]
+  },
+  {
+    "name": "Mirror Myths",
+    "id": "myth_mirror",
+    "icon": "mermaid",
+    "parents": [
+      "bouncer"
+    ]
+  },
+  {
+    "name": "Modern Myths",
+    "id": "myth_modern",
+    "icon": "poseidon",
+    "parents": [
+      "bouncer"
+    ],
+    "hidden": true
   },
   {
     "name": "Places of Interest",
@@ -458,7 +483,7 @@
   {
     "name": "2019 Seasonal Specials",
     "id": "seasonal_2019",
-    "icon": "knight'shelmet2019",
+    "icon": "origamicrane",
     "parents": [
       "seasonal"
     ]

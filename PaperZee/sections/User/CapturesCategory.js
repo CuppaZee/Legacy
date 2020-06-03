@@ -67,7 +67,7 @@ export default function SearchScreen({ navigation, route }) {
                   <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{`Go Back`}</Text>
                 </View>
               </View>)}
-            {categories.filter(i => i.parents.includes(category)).filter(i => hasChild(i)).map(i => <View key={i.id} style={{ padding: 4, flexDirection: "row", alignItems: "center" }}>
+            {categories.filter(i => i.parents.includes(category)).filter(i => hasChild(i)).filter(i=>!i.hidden).map(i => <View key={i.id} style={{ padding: 4, flexDirection: "row", alignItems: "center" }}>
               <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={{ uri: i.custom_icon ?? `https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png` }} />
               <View style={{ flex: 1 }}>
                 <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{i.name}</Text>
@@ -78,7 +78,7 @@ export default function SearchScreen({ navigation, route }) {
           </View>
         </Card>
       </View>
-      {categories.filter(i => i.parents.includes(category)).filter(i => !hasChild(i)).map(cdata=><View style={{ padding: 4 }}>
+      {categories.filter(i => i.parents.includes(category)).filter(i => !hasChild(i)).filter(i=>!i.hidden).map(cdata=><View style={{ padding: 4 }}>
         <Card noPad>
           <View>
             <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 24, color: theme.page_content.fg, padding: 4, textAlign: "center" }}>{cdata.name}</Text>
@@ -88,7 +88,7 @@ export default function SearchScreen({ navigation, route }) {
               <Text allowFontScaling={false} style={{ ...font(), textAlign: "center", color: theme.page_content.fg }}>Duration: {moment.duration(moment(cdata.seasonal.starts).diff(moment(cdata.seasonal.ends))).humanize()}</Text>
             </>}
             <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
-              {types.filter(i => i.category === cdata.id).map(i => <View key={i.id} style={{ padding: 4, width: 80, alignItems: "center", opacity: get(i.icon)>0?1:0.4 }}>
+              {types.filter(i => i.category === cdata.id).filter(i=>!i.hidden).map(i => <View key={i.id} style={{ padding: 4, width: 80, alignItems: "center", opacity: get(i.icon)>0?1:0.4 }}>
                 <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={{ uri: i.custom_icon ?? `https://server.cuppazee.app/pins/64/${encodeURIComponent(i.icon)}.png` }} />
                 <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{i.name}</Text>
                 <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{get(i.icon).toString()}</Text>

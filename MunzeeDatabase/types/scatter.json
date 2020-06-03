@@ -105,6 +105,9 @@
     "scatter": {
       "duration": 2,
       "lands_on": ["munzee"]
+    },
+    "extra": {
+      "gaming": true
     }
   },
   {
@@ -115,6 +118,9 @@
     "scatter": {
       "duration": 2,
       "lands_on": ["munzee"]
+    },
+    "extra": {
+      "gaming": true
     }
   },
   {
@@ -125,6 +131,9 @@
     "scatter": {
       "duration": 2,
       "lands_on": ["munzee"]
+    },
+    "extra": {
+      "gaming": true
     }
   },
   {
@@ -135,6 +144,9 @@
     "scatter": {
       "duration": 2,
       "standalone": true
+    },
+    "extra": {
+      "gaming": true
     }
   },
   {
@@ -145,6 +157,9 @@
     "scatter": {
       "duration": 2,
       "lands_on": ["munzee"]
+    },
+    "extra": {
+      "gaming": true
     }
   },
   {
@@ -155,6 +170,9 @@
     "scatter": {
       "duration": 2,
       "standalone": true
+    },
+    "extra": {
+      "gaming": true
     }
   },
   {
@@ -165,6 +183,9 @@
     "scatter": {
       "duration": 2,
       "lands_on": ["munzee"]
+    },
+    "extra": {
+      "gaming": true
     }
   },
   {
@@ -175,6 +196,9 @@
     "scatter": {
       "duration": 2,
       "standalone": true
+    },
+    "extra": {
+      "gaming": true
     }
   },
   {
@@ -185,6 +209,9 @@
     "scatter": {
       "duration": 2,
       "standalone": true
+    },
+    "extra": {
+      "gaming": true
     }
   },
   {
@@ -195,6 +222,9 @@
     "scatter": {
       "duration": 2,
       "standalone": true
+    },
+    "extra": {
+      "gaming": true
     }
   },
   {
@@ -223,8 +253,43 @@
     "id": 2392,
     "state": "physical",
     "scatter": {
-      "duration": 12,
+      "duration": 2,
       "lands_on": [":virtual"]
     }
+  },
+  {
+    "name": "Flaming Arrow",
+    "icon": "flamingarrow",
+    "id": "null_flamingarrow",
+    "state": "virtual",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    },
+    "extra": {
+      "weapon": "clan"
+    }
+  },
+  {
+    "name": "Trident",
+    "icon": "trident",
+    "id": "null_trident",
+    "state": "virtual",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    },
+    "hidden": true
+  },
+  {
+    "name": "Lifebuoy",
+    "icon": "lifebuoy",
+    "id": "null_lifebuoy",
+    "state": "virtual",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    },
+    "hidden": true
   }
 ]

@@ -39,11 +39,6 @@ export default function SettingsScreen({ navigation }) {
 
   function logout(user_id) {
     dispatch(removeLogin(user_id))
-    // if(Object.keys(logins).length===1) {
-    //   return ;
-    // } else {
-    //   return;
-    // }
   }
 
   var languages = [
@@ -53,7 +48,7 @@ export default function SettingsScreen({ navigation }) {
     {code:'en-GB',name:'English (UK)'},
     {code:'fi',name:'Suomen Kieli'},
     // {code:'fr',name:'Français'},
-    {code:'hu',name:'Magyar Nyelv'},
+    {code:'hu',name:'Magyar'},
     // {code:'lt',name:'Lietuvių Kalba'},
     {code:'nl',name:'Nederlands'},
     {code:'pt',name:'Português'},

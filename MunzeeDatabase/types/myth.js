@@ -433,5 +433,22 @@ module.exports = [
     "state": "bouncer",
     "type": "mirror",
     "lands_on": ["treehouse","munzee","earthmystery",i=>i.weapon=="clan",i=>(i.virtual_colors||[]).includes("green"),"virtual"]
+  },
+  {
+    "name": "Poseidon",
+    "icon": "poseidon",
+    "id": "null_poseidon",
+    "state": "bouncer",
+    "type": "modern",
+    "lands_on": ["skyland","treehouse","munzee","watermystery"],
+    "extra": {
+      "scatters": {
+        "radius": 1000,
+        "types": ["null_trident","null_lifebuoy"],
+        "min": 3,
+        "max": 3
+      }
+    },
+    "hidden": true
   }
 ]

@@ -112,7 +112,7 @@ export default function SettingsScreen() {
           <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Can Host</Text>
         </View>
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
-          {munzee.can_host.filter(checkCanHost).map(i=>types.find(x=>x.id==i)).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
+          {munzee.can_host.filter(checkCanHost).map(i=>types.find(x=>x.id==i)).filter(i=>!i.hidden).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
             <View style={{alignItems:"center",padding:4,width:100}}>
               <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} style={{height:32,width:32}} />
               <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
@@ -129,7 +129,7 @@ export default function SettingsScreen() {
           <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Lands On</Text>
         </View>
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
-          {munzee.bouncer.lands_on.map(i=>types.find(x=>x.id==i)).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
+          {munzee.bouncer.lands_on.map(i=>types.find(x=>x.id==i)).filter(i=>!i.hidden).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
             <View style={{alignItems:"center",padding:4,width:100}}>
               <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} style={{height:32,width:32}} />
               <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>

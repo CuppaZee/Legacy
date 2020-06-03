@@ -41,7 +41,7 @@ export default function SearchScreen({ navigation, route }) {
               <Text allowFontScaling={false} style={{...font(),textAlign:"center",color:theme.page_content.fg}}>{moment(category_data.seasonal.starts).format('L LT')} - {moment(category_data.seasonal.ends).format('L LT')}</Text>
               <Text allowFontScaling={false} style={{...font(),textAlign:"center",color:theme.page_content.fg}}>Duration: {moment.duration(moment(category_data.seasonal.starts).diff(moment(category_data.seasonal.ends))).humanize()}</Text>
             </>}
-            {[...types.filter(i=>i.category===category),...categories.filter(i=>i.parents.includes(category))].map(i=><View key={i.id} style={{padding: 4, flexDirection: "row", alignItems: "center"}}>
+            {[...types.filter(i=>i.category===category),...categories.filter(i=>i.parents.includes(category))].filter(i=>!i.hidden).map(i=><View key={i.id} style={{padding: 4, flexDirection: "row", alignItems: "center"}}>
               <Image style={{height:32,width:32,marginHorizontal:8}} source={{uri:i.custom_icon??`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} />
               <View style={{flex:1}}>
                 <Text allowFontScaling={false} style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{i.name}</Text>

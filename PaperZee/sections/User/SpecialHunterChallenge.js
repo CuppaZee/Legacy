@@ -69,6 +69,7 @@ export default function UserSHCScreen() {
     { name: "Original Myths", function: i => i?.myth_set == "original" },
     { name: "Classical Myths", function: i => i?.myth_set == "classical" },
     { name: "Mirror Myths", function: i => i?.myth_set == "mirror" },
+    // { name: "Modern Myths", function: i => i?.myth_set == "modern" },
     { name: "Pouch Creatures", function: i => i?.bouncer?.type == "pouch" },
     { name: "Fancy Flats", function: i => i?.bouncer?.type == "flat" },
     { name: "tempPOBs", function: i => i?.bouncer?.type == "tpob" },
