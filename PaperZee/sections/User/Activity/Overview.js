@@ -42,6 +42,10 @@ var hostIcon = (icon) => {
   return `https://munzee.global.ssl.fastly.net/images/pins/${creatures[host] ?? host}.png`;
 }
 
+function g(icon) {
+  return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'');
+}
+
 function OverviewItem({i}) {
   var theme = useSelector(i=>i.themes[i.theme]);
   var [open,setOpen] = React.useState(false);
@@ -66,12 +70,12 @@ function OverviewItem({i}) {
         <Image style={{ height: 48, width: 48 }} source={{ uri: i[0] }} />
         {hostIcon(i[0])&&<Image style={{ height: 36, width: 36, position: "absolute", right: -7.5, bottom: -7.5 }} source={{ uri: hostIcon(i[0]) }} />}
       </View>
-      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].total}x {(MunzeeTypes.find(x=>x.icon==i[0].slice(49,-4))||{name:i[0].slice(49,-4)}).name}</Text>
+      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].total}x {(MunzeeTypes.find(x=>x.cid==g(i[0].slice(49,-4)))||{name:i[0].slice(49,-4)}).name}</Text>
       <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].points} Points</Text>
       <Button
         mode="contained"
         style={{backgroundColor: theme.navigation.bg}}
-        onPress={()=>{setOpen(false);nav.push('DBType',{munzee:i[0].slice(49,-4)})}}>
+        onPress={()=>{setOpen(false);nav.push('DBType',{munzee:g(i[0].slice(49,-4))})}}>
         Type Info
       </Button>
     </View>

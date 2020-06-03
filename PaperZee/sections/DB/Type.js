@@ -9,7 +9,7 @@ import font from '~sections/Shared/font';
 import moment from 'moment';
 
 function g(icon) {
-  return icon.replace(/_/g,'').replace(/munzee$/g,'');
+  return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'');
 }
 function u(str) {
   return str[0].toUpperCase() + str.slice(1)
@@ -43,7 +43,7 @@ function checkCanHost(i) {
 export default function SettingsScreen() {
   var route = useRoute();
   var munzee_icon = route.params.munzee;
-  var munzee = types.find(i=>g(i.icon)==g(munzee_icon));
+  var munzee = types.find(i=>i.cid==g(munzee_icon));
   var theme = useSelector(i=>i.themes[i.theme]);
   var nav = useNavigation();
   if(!munzee) return null;
