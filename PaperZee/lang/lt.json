@@ -8,7 +8,6 @@
         "authenticate": "Užsiloginkite",
         "auth_success": "Įsiloginta sėkmingai",
         "scanner": "",
-        "the_quest": "",
         "maps": "",
         "credits": "",
         "app_info": "",
@@ -24,7 +23,12 @@
             "few": "",
             "other": ""
         },
-        "more": ""
+        "more": "",
+        "find_user": "",
+        "munzee_types": "",
+        "show_more": "",
+        "show_less": "",
+        "help": ""
     },
     "activity": {
         "user_captured": "{user} sugavo",
@@ -60,5 +64,16 @@
         },
         "none": "Nėra",
         "user_today": "{user} Šiandien"
+    },
+    "user": {
+        "level_n": "",
+        "rank_n": "",
+        "inventory": "",
+        "your_bouncers": "",
+        "clan_progress": "",
+        "quebec_quest_progress": "",
+        "special_hunter_challenge": "",
+        "captured_types": "",
+        "activity": ""
     }
 }
