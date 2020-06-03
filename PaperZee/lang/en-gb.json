@@ -79,7 +79,7 @@
         "credits": "Credits",
         "primary_developer": "Primary Developer",
         "translator": "Translator",
-        "database_contributor": "Database Contributor",
+        "database_contributors": "Database Contributors",
         "patrons_and_supporters": "Patrons and Supporters",
         "build_n": "Build {build}"
     }
