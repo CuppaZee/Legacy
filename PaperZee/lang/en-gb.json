@@ -8,7 +8,6 @@
         "authenticate": "Authenticate",
         "auth_success": "Authentication Successful",
         "scanner": "Scanner",
-        "the_quest": "The Quest",
         "maps": "Maps",
         "credits": "Credits",
         "app_info": "App Info",
@@ -22,7 +21,12 @@
             "one": "Clan",
             "other": "Clans"
         },
-        "more": "more"
+        "more": "More",
+        "find_user": "Find a User",
+        "munzee_types": "Munzee Types",
+        "show_more": "Show More",
+        "show_less": "Show Less",
+        "help": "Help"
     },
     "activity": {
         "user_captured": "{user} captured",
@@ -53,5 +57,16 @@
         },
         "none": "None",
         "user_today": "{user} Today"
+    },
+    "user": {
+        "level_n": "Level {level}",
+        "rank_n": "Rank #{rank}",
+        "inventory": "Inventory",
+        "your_bouncers": "Your Bouncers",
+        "clan_progress": "Clan Progress",
+        "quebec_quest_progress": "Quebec Quest Progress",
+        "special_hunter_challenge": "Special Hunter Challenge",
+        "captured_types": "Captured Types",
+        "activity": "Activity"
     }
 }
