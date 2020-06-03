@@ -78,7 +78,7 @@
     "app_info": {
         "credits": "Credits",
         "primary_developer": "Primary Developer",
-        "translator": "Translator",
+        "translators": "Translators",
         "database_contributors": "Database Contributors",
         "patrons_and_supporters": "Patrons and Supporters",
         "build_n": "Build {build}"
