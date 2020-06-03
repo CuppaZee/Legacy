@@ -58,8 +58,8 @@ export default function CustomDrawerContent(props) {
   var [showMoreClan, setShowMoreClan] = React.useState(false);
   var pages = [
     // { title: t(`common:maps`), icon: "map", page: "Map" },
-    { title: "Munzee Types", icon: "database", page: "DBSearch" },
-    { title: "Calendar", icon: "calendar", page: "Calendar" },
+    { title: t(`common:munzee_types`), icon: "database", page: "DBSearch" },
+    { title: t(`common:calendar`), icon: "calendar", page: "Calendar" },
     { title: t(`common:scanner`), icon: "qrcode", page: "Scanner", hide: Platform.OS === "web" },
     // {title:t(`common:tools`),icon:"wrench",page:"Tools"},
   ].filter(i => !i.hide)
@@ -90,7 +90,7 @@ export default function CustomDrawerContent(props) {
         <Text style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Download it now!</Text>
       </View>}
       <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
-        <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Users</Text>
+        <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t(`common:users`)}</Text>
       </View>
       {users?.map?.(i => <DrawerItem
         key={`user_${i[0]}`}
@@ -112,7 +112,7 @@ export default function CustomDrawerContent(props) {
         style={{ marginVertical: 0 }}
         focused={route.name == "UserSearch"}
         icon={({ focused, color, size }) => <MaterialCommunityIcons name="magnify" color={color} size={24} style={{ margin: 4 }} />}
-        label="Find a User"
+        label={t(`common:find_user`)}
         onPress={() => nav.reset({
           index: 1,
           routes: [

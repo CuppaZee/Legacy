@@ -9,6 +9,7 @@ import useAPIRequest from '~sections/Shared/useAPIRequest';
 import InventoryConverter from './Data';
 import { FlatList } from 'react-native-gesture-handler';
 import font from '~sections/Shared/font';
+import { useTranslation } from 'react-i18next';
 
 function InventoryHistoryItem({ i, theme }) {
   return <TouchableRipple style={{ flexDirection: "row", justifyContent: "center" }}>
@@ -35,10 +36,11 @@ function InventoryHistoryItem({ i, theme }) {
 }
 
 var UserInventoryOverview = React.memo(function ({ data, theme }) {
+  var {t} = useTranslation()
   return <View style={{ flexDirection: "row", justifyContent: "center" }}><View style={{ flex: 1, maxWidth: 800 }}>
     <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
       <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
-        Undeployed
+        {t('inventory:undeployed')}
                 </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
         {
@@ -51,7 +53,7 @@ var UserInventoryOverview = React.memo(function ({ data, theme }) {
     </View>
     <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
       <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
-        Credits
+        {t('inventory:credits')}
                 </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
         {
@@ -64,7 +66,7 @@ var UserInventoryOverview = React.memo(function ({ data, theme }) {
     </View>
     <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
       <View><Text style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
-        History
+        {t('inventory:history')}
       </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
         {
