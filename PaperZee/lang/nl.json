@@ -22,11 +22,13 @@
             "other": "Clans"
         },
         "more": "Meer",
-        "find_user": "",
-        "munzee_types": "",
-        "show_more": "",
-        "show_less": "",
-        "help": ""
+        "find_user": "Vind een speler",
+        "munzee_types": "Munzee Soorten",
+        "show_more": "Laat meer zien",
+        "show_less": "Laat minder zien",
+        "help": "Help",
+        "users": "Spelers",
+        "calendar": "Kalender"
     },
     "activity": {
         "user_captured": "{user} captured",
@@ -59,14 +61,35 @@
         "user_today": "{user} Vandaag"
     },
     "user": {
-        "level_n": "",
-        "rank_n": "",
-        "inventory": "",
-        "your_bouncers": "",
-        "clan_progress": "",
-        "quebec_quest_progress": "",
-        "special_hunter_challenge": "",
-        "captured_types": "",
-        "activity": ""
+        "level_n": "Level {level}",
+        "rank_n": "Rang #{rank}",
+        "inventory": "Inventaris",
+        "your_bouncers": "Mijn Bouncers",
+        "clan_progress": "Clan voortgang",
+        "quebec_quest_progress": "Quebec Quest voortgang",
+        "special_hunter_challenge": "Special Hunter uitdaging",
+        "captured_types": "Captured soorten",
+        "activity": "Activiteit"
+    },
+    "inventory": {
+        "undeployed": "Niet gedeployed",
+        "credits": "Kredieten",
+        "history": "Geschiedenis"
+    },
+    "app_info": {
+        "credits": "Kredieten",
+        "primary_developer": "Primaire ontwikkelaar",
+        "translators": "Vertalers",
+        "database_contributors": "Database-bijdragers",
+        "patrons_and_supporters": "Patrons and supporters",
+        "build_n": "Versie {build}"
+    },
+    "your_bouncers": {
+        "capture": {
+            "one": "{count} Capture",
+            "other": "{count} Captures"
+        },
+        "last_captured": "Laatst Captured: {time}",
+        "in_limbo": "Doet een dutje"
     }
 }
