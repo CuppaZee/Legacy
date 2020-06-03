@@ -5,24 +5,28 @@
         "map": "Mapa",
         "tools": "Ferramentas",
         "settings": "Configurações",
-        "authenticate": "",
-        "auth_success": "",
-        "scanner": "",
-        "the_quest": "",
-        "maps": "",
-        "credits": "",
-        "app_info": "",
-        "donate": "",
-        "build_info": "",
+        "authenticate": "Autenticar",
+        "auth_success": "Autenticação com sucesso",
+        "scanner": "Scanner",
+        "maps": "Mapas",
+        "credits": "Créditos",
+        "app_info": "App Informação",
+        "donate": "Doar",
+        "build_info": "CuppaZee App Build",
         "user": {
-            "one": "",
-            "other": ""
+            "one": "Utilizador",
+            "other": "Utilizadores"
         },
         "clan": {
-            "one": "",
-            "other": ""
+            "one": "Clã",
+            "other": "Clãs"
         },
-        "more": ""
+        "more": "Mais",
+        "find_user": "",
+        "munzee_types": "",
+        "show_more": "",
+        "show_less": "",
+        "help": ""
     },
     "activity": {
         "user_captured": "{user} Capturado",
@@ -52,6 +56,17 @@
             "other": "{count} Pontos"
         },
         "none": "Nenhum",
-        "user_today": ""
+        "user_today": "Hoje"
+    },
+    "user": {
+        "level_n": "",
+        "rank_n": "",
+        "inventory": "",
+        "your_bouncers": "",
+        "clan_progress": "",
+        "quebec_quest_progress": "",
+        "special_hunter_challenge": "",
+        "captured_types": "",
+        "activity": ""
     }
 }
