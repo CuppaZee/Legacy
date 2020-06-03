@@ -31,9 +31,9 @@
         "calendar": "Kalender"
     },
     "activity": {
-        "user_captured": "{user} scannede",
+        "user_captured": "{user} skannede",
         "user_deployed": "{user} placerede",
-        "you_captured": "Du scannede",
+        "you_captured": "Du skannede",
         "you_deployed": "Du placerede",
         "by_user": "af {user}",
         "by_you": "af dig",
@@ -42,16 +42,16 @@
             "other": "{count} total point"
         },
         "capture": {
-            "one": "{count} scannet",
-            "other": "{count} scannede"
+            "one": "{count} skannet",
+            "other": "{count} skannede"
         },
         "deploy": {
             "one": "{count} placeret",
             "other": "{count} placerede"
         },
         "capon": {
-            "one": "{count} fra placerede",
-            "other": "{count} fra placerede"
+            "one": "{count} cap-on",
+            "other": "{count} cap-ons"
         },
         "point": {
             "one": "{count} point",
