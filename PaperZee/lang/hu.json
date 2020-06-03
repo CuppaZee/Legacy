@@ -15,18 +15,20 @@
         "build_info": "CuppaZee App Build {count}",
         "user": {
             "one": "Felhasználó",
-            "other": ""
+            "other": "Felhasználó"
         },
         "clan": {
             "one": "Klán",
             "other": "Klánok"
         },
         "more": "Több",
-        "find_user": "",
-        "munzee_types": "",
-        "show_more": "",
-        "show_less": "",
-        "help": ""
+        "find_user": "Felhasználó keresése",
+        "munzee_types": "Munzee típusok",
+        "show_more": "Több",
+        "show_less": "Kevesebb",
+        "help": "Segítség",
+        "users": "Felhasználók",
+        "calendar": "Naptár"
     },
     "activity": {
         "user_captured": "{user} megtalálta",
@@ -59,14 +61,35 @@
         "user_today": "Ma"
     },
     "user": {
-        "level_n": "",
-        "rank_n": "",
-        "inventory": "",
-        "your_bouncers": "",
-        "clan_progress": "",
-        "quebec_quest_progress": "",
-        "special_hunter_challenge": "",
-        "captured_types": "",
-        "activity": ""
+        "level_n": "Szint",
+        "rank_n": "Helyezés",
+        "inventory": "Készletem",
+        "your_bouncers": "Saját ugrálók",
+        "clan_progress": "Klán fejlődés",
+        "quebec_quest_progress": "Quebec kihívás",
+        "special_hunter_challenge": "Vadászat a speciálisokra kihívás",
+        "captured_types": "Megtalált típusok",
+        "activity": "Aktivitás"
+    },
+    "inventory": {
+        "undeployed": "Nem telepített munzee-k",
+        "credits": "Kreditek",
+        "history": "Történet"
+    },
+    "app_info": {
+        "credits": "Közreműködők",
+        "primary_developer": "Vezető fejlesztő",
+        "translators": "Fordítók",
+        "database_contributors": "Adatbázis-közreműködők",
+        "patrons_and_supporters": "Mecénások és támogatók",
+        "build_n": "Build"
+    },
+    "your_bouncers": {
+        "capture": {
+            "one": "Megtalálás",
+            "other": "Megtalálás"
+        },
+        "last_captured": "Legutoljára megtalálva:",
+        "in_limbo": "Pihen"
     }
 }
