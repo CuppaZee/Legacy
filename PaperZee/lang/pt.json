@@ -12,7 +12,7 @@
         "credits": "Créditos",
         "app_info": "App Informação",
         "donate": "Doar",
-        "build_info": "CuppaZee App Build",
+        "build_info": "CuppaZee App Construção  {count}",
         "user": {
             "one": "Utilizador",
             "other": "Utilizadores"
@@ -22,11 +22,13 @@
             "other": "Clãs"
         },
         "more": "Mais",
-        "find_user": "",
-        "munzee_types": "",
-        "show_more": "",
-        "show_less": "",
-        "help": ""
+        "find_user": "Procurar um Utilizador",
+        "munzee_types": "Tipos de Munzee",
+        "show_more": "Mostrar mais",
+        "show_less": "Mostrar menos",
+        "help": "Ajuda",
+        "users": "Utilizadores",
+        "calendar": "Calendário"
     },
     "activity": {
         "user_captured": "{user} Capturado",
@@ -59,14 +61,35 @@
         "user_today": "Hoje"
     },
     "user": {
-        "level_n": "",
-        "rank_n": "",
-        "inventory": "",
-        "your_bouncers": "",
-        "clan_progress": "",
-        "quebec_quest_progress": "",
-        "special_hunter_challenge": "",
-        "captured_types": "",
-        "activity": ""
+        "level_n": "\nNível {level}",
+        "rank_n": "Rank #{rank}",
+        "inventory": "Inventário",
+        "your_bouncers": "Os vossos Bouncers",
+        "clan_progress": "Progresso do Clã",
+        "quebec_quest_progress": "Quebec Quest Progress",
+        "special_hunter_challenge": "Desafio Especial Caçador",
+        "captured_types": "Tipos Capturados",
+        "activity": "Atividade"
+    },
+    "inventory": {
+        "undeployed": "Não implantados",
+        "credits": "Créditos",
+        "history": "Historico"
+    },
+    "app_info": {
+        "credits": "Creditos",
+        "primary_developer": "Desenvolvedor Principal",
+        "translators": "Tradutores",
+        "database_contributors": "Contribuidores da Base de Dados",
+        "patrons_and_supporters": "Patronos e Patrocinadores",
+        "build_n": "Contruir {build}"
+    },
+    "your_bouncers": {
+        "capture": {
+            "one": "{count} Captura",
+            "other": "{count} Capturas"
+        },
+        "last_captured": "\nUltimo capturado: {time}",
+        "in_limbo": "Descansando"
     }
 }
