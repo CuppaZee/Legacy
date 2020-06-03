@@ -86,8 +86,8 @@ export default function CustomDrawerContent(props) {
         <Text style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Download it now!</Text>
       </View>}
       {Platform.OS == "web" && globalThis?.navigator?.userAgent?.match?.(/iPhone|iPad|iPod/) && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
-        <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>The Native CuppaZee App is now on TestFlight</Text>
-        <Text style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Check our Facebook page for info</Text>
+        <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>The CuppaZee App is now on the App Store</Text>
+        <Text style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Download it now!</Text>
       </View>}
       <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
         <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Users</Text>
@@ -122,14 +122,14 @@ export default function CustomDrawerContent(props) {
         }
       />
       <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
-        <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Clans</Text>
+        {/* <Text style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Clans</Text> */}
       </View>
       <View style={{ padding: 4, paddingLeft: 8, paddingRight: 16, flexDirection: "row", justifyContent: "space-between" }}>
         <IconButton
           style={{
             backgroundColor: route.name == "AllClans" ? itemProps.activeBackgroundColor : null
           }}
-          icon="format-list-bulleted"
+          icon="shield-half-full"
           color={itemProps.inactiveTintColor}
           onPress={() => nav.reset({
             index: 1,
