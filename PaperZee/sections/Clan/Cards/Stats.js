@@ -121,7 +121,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
   var [ascending, setAscending] = React.useState(false);
   var [sortReq, setSortReq] = React.useState(3);
   members.sort((a, b) => {
-    return clan?.requirements?.[sortReq]?.users?.[(ascending ? a : b).user_id] || 0 - clan?.requirements?.[sortReq]?.users?.[(ascending ? b : a).user_id || 0];
+    return (clan?.requirements?.[sortReq]?.users?.[(ascending ? a : b).user_id] || 0) - (clan?.requirements?.[sortReq]?.users?.[(ascending ? b : a).user_id] || 0);
   })
 
   function calculateLevel(user, value, requirement) {
