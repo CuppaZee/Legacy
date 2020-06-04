@@ -12,7 +12,7 @@
         "credits": "Crediitit",
         "app_info": "Appi-info",
         "donate": "Lahjoita",
-        "build_info": "Cuppazeen koonti {count}",
+        "build_info": "Cuppazeen kooste {count}",
         "user": {
             "one": "Pelaaja",
             "other": "Pelaajat"
@@ -82,7 +82,7 @@
         "translators": "Kääntäjät",
         "database_contributors": "Tietokanta-avustajat",
         "patrons_and_supporters": "Patronit ja kannattajat",
-        "build_n": "Koonti"
+        "build_n": "Kooste {build}"
     },
     "your_bouncers": {
         "capture": {
