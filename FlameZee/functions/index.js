@@ -7,7 +7,6 @@ const cors = require("cors")({
 });
 
 var routes = [...require("./user"), ...require("./auth"), ...require("./minute"), ...require("./clan"), ...require("./munzee")];
-console.log(routes);
 
 exports.api = functions.https.onRequest(async (req, res) => {
   var startTime = process.hrtime();

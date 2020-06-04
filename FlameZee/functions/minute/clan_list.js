@@ -13,12 +13,10 @@ module.exports = {
         var array = [];
         for (var i = clans.counter; i < (clans.counter + 5); i++) {
           array.push(request('clan/v2', { clan_id: i }, token.access_token));
-          console.log(i);
         }
         var found = false;
         var data = await Promise.all(array);
         for (var d of data) {
-          console.log(d);
           try {
             let det = d.details;
             if (det.name && det.members) {
