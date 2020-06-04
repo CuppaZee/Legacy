@@ -1,9 +1,10 @@
 import React from "react"
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import { useSelector } from 'react-redux';
 var Map = withScriptjs(withGoogleMap(function Map(props) {
   return (
     <GoogleMap
-      defaultZoom={2}
+      defaultZoom={0}
       defaultCenter={{ lat: 0, lng: 0 }}
       options={{
         styles: props.mapStyles,
@@ -24,9 +25,10 @@ var Map = withScriptjs(withGoogleMap(function Map(props) {
 }))
 
 export default function WebMap(props) {
+  var mapStyle = useSelector(i=>i.themes[i.theme].mapStyle)
   return (
     <Map
-      mapStyles={props.mapStyle}
+      mapStyles={mapStyle}
       markers={props.markers}
       googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDenr1Ki2iRgz3vmXa70xhyRTmok2wwycE&v=3.exp&libraries=geometry,drawing,places"
       loadingElement={<div style={{ height: `100%` }} />}
