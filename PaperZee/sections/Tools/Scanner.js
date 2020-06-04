@@ -5,6 +5,7 @@ import { Camera } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { IconButton } from 'react-native-paper';
 import Slider from 'react-native-slider';
+import font from '~sections/Shared/font';
 
 export default function App() {
   const [scanned,setScanned] = useState(false);
