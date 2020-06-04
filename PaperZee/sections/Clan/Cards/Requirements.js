@@ -28,6 +28,7 @@ export default function UserActivityDash({ game_id, scale: s = 1 }) {
   }
   if(selected_theme.includes('dark')) {
     darkBG = theme.page_content.bg;
+    console.log(darkBG);
     level_colors.border = "#fffa"
   }
   var unformatted_requirements = useAPIRequest({
@@ -94,15 +95,15 @@ export default function UserActivityDash({ game_id, scale: s = 1 }) {
           </View>
 
           <View style={{flexDirection:"column",flexGrow:1,alignItems:"stretch",backgroundColor:darkBG??level_colors.gro}}>
-            <View style={{height:24*s,padding:4*s}}><Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:12*s,color:darkBG&&level_colors.gro}}>Group</Text></View>
+            <View style={{borderLeftWidth:2*s,borderLeftColor:level_colors.border,marginHorizontal:-1*s,height:24*s,padding:4*s}}><Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:12*s,color:darkBG&&level_colors.gro}}>Group</Text></View>
             <View style={{flexDirection:"row",marginRight:1}}>
-              {data?.order?.group?.map(i=><View style={{flexGrow:1}}>
-                <View style={{height:(96-19)*s,borderBottomWidth:2*s,borderBottomColor:level_colors.border,padding:4*s,alignItems:"center"}}>
+              {data?.order?.group?.map((i,index)=><View style={{flexGrow:1}}>
+                <View style={{...(index==0?{borderLeftWidth:2*s,borderLeftColor:level_colors.border}:{}),marginHorizontal:-1*s,height:(96-19)*s,borderBottomWidth:2*s,borderBottomColor:level_colors.border,padding:4*s,alignItems:"center"}}>
                   <Image source={{uri:data?.requirements?.[i]?.icon??data?.requirements?.[i]?.icons?.[tick%data?.requirements?.[i]?.icons?.length]}} style={{height:36*s,width:36*s}} />
                   <Text allowFontScaling={false} style={{color:darkBG&&level_colors.gro,textAlign:"center",width:'100%',...font("bold"),fontSize:12*s}}>{data?.requirements?.[i]?.top}</Text>
                   <Text allowFontScaling={false} style={{color:darkBG&&level_colors.gro,textAlign:"center",width:'100%',...font(),fontSize:12*s}}>{data?.requirements?.[i]?.bottom}</Text>
                 </View>
-                {data?.levels?.map(l=><View style={{marginHorizontal:-1*s,height:24*s,padding:4*s,alignItems:"center",backgroundColor:darkBG??level_colors[l.id]}}>
+                {data?.levels?.map(l=><View style={{...(index==0?{borderLeftWidth:2*s,borderLeftColor:level_colors.border}:{}),marginHorizontal:-1*s,height:24*s,padding:4*s,alignItems:"center",backgroundColor:darkBG??level_colors[l.id]}}>
                   <Text allowFontScaling={false} style={{color:darkBG&&level_colors[l.id],textAlign:"center",width:'100%',...font(),fontSize:12*s}}>{l.group?.[i]}</Text>
                 </View>)}
               </View>)}
