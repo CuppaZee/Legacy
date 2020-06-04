@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TouchableOpacity, Button, Vibration } from 'react-native';
+import { Text, View, TouchableOpacity, Button, Vibration, Image } from 'react-native';
 import * as WebBrowser from 'expo-web-browser';
 import { Camera } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { IconButton } from 'react-native-paper';
 import Slider from 'react-native-slider';
 import font from '~sections/Shared/font';
+import useAPIRequest from '~sections/Shared/useAPIRequest';
+import { useNavigation } from '@react-navigation/native';
 
 export default function App() {
+  var nav = useNavigation();
   const [scanned,setScanned] = useState(false);
   const [list,setList] = useState([]);
   const [flash,setFlash] = useState(false);
@@ -21,6 +24,10 @@ export default function App() {
     })();
   }, []);
 
+  var data = useAPIRequest(list.map(i=>({
+    endpoint: 'munzee/testscan',
+    data: {barcode: i}
+  })));
   if (hasPermission === null) {
     return <View />;
   }
@@ -31,7 +38,25 @@ export default function App() {
     <View style={{ flex: 1 }}>
       {scanned&&<View>
         <Button title="Scan new Munzee" onPress={()=>setScanned(false)} />
-        {list.slice().reverse().map(i=><TouchableOpacity style={{borderBottomWidth: 1}} onPress={()=>{
+        {list.slice().reverse().map((i,index)=>data[index]?.valid?<TouchableOpacity style={{borderBottomWidth: 1}} onPress={()=>{
+            if(data[index].munzee) {
+              WebBrowser.openBrowserAsync(i)
+            } else {
+              nav.navigate('DBType',{munzee:data[index].munzee_logo.slice(49,-4)})
+            }
+          }}>
+          <View style={{flexDirection:"row",alignItems:"center",padding:8}}>
+            <Image style={{height:48,width:48}} source={{uri:data[index].munzee_logo}} />
+            <View>
+              {data[index].munzee&&<Text allowFontScaling={false} style={{color:'blue',fontSize:16,...font("bold")}}>
+                {data[index].munzee?`${data[index].munzee.friendly_name} by ${data[index].munzee.creator_username}`:`Type: ${data[index].munzee_type}`}
+              </Text>}
+              <Text allowFontScaling={false} style={{color:'blue',fontSize:data[index].munzee?12:16,...font(data[index].munzee?400:"bold")}}>
+                Type: {data[index].munzee_type}
+              </Text>
+            </View>
+          </View>
+        </TouchableOpacity>:<TouchableOpacity style={{borderBottomWidth: 1}} onPress={()=>{
             if(i?.startsWith?.('http')) {
               WebBrowser.openBrowserAsync(i)
             }
