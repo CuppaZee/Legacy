@@ -67,7 +67,7 @@ module.exports = {
         }[state_data.platform]||`[${state_data.platform}] `;
         var {list} = (await db.collection('data').doc('user_list').get()).data();
         if(list.includes(username)){
-            discordmessage = `${platform}🔁 ${username} | ${list.length} Users`
+            discordmessage = `${platform}🔁 ${username} | ${list.length} Users [#${list.indexOf(username)+1}]`
         } else {
             discordmessage = `${platform}🆕 ${username} | User #${list.length+1}`;
             db.collection('data').doc('user_list').update({
