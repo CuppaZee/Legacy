@@ -450,7 +450,7 @@ munzees = munzees.concat(require('./types/weapon.json').map(i => ({
 
   weapon: i.weapon,
 
-  state: "physical",
+  state: i.state,
   category: i.weapon,
 
   completion: "complete",
@@ -922,7 +922,7 @@ for (var munzee of munzees) {
 for (var munzee of munzees) {
   munzee.can_host = munzees.filter(i => i.bouncer && (i.bouncer.lands_on || []).includes(munzee.id)).map(i => i.id);
   if (munzee.can_host.length == 0) munzee.can_host = undefined;
-  munzee.cid = munzee.icon.replace(/[^a-zA-Z0-9]/g,'');
+  munzee.cid = munzee.icon.replace(/[^a-zA-Z0-9]/g,'').replace(/munzee$/,'');
 }
 
 munzees.sort((a, b) => (a.id||0) - (b.id||0));

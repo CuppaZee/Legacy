@@ -43,7 +43,7 @@ var hostIcon = (icon) => {
 }
 
 function g(icon) {
-  return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'');
+  return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'').replace(/munzee$/,'');
 }
 
 function OverviewItem({i}) {

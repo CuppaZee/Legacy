@@ -137,7 +137,7 @@
       2229,
       2230
     ],
-    "cid": "munzee"
+    "cid": ""
   },
   {
     "name": "Premium",
@@ -1150,7 +1150,7 @@
     "state": "personal",
     "category": "misc",
     "completion": "complete",
-    "cid": "personalmunzee"
+    "cid": "personal"
   },
   {
     "name": "QRazy turns one",
@@ -2779,7 +2779,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "bahmunzee"
+    "cid": "bah"
   },
   {
     "name": "MaerchenMarkt MunzeeMeeting Gera",
@@ -5581,9 +5581,7 @@
         52,
         53,
         140,
-        306,
-        998,
-        1248
+        306
       ]
     },
     "state": "bouncer",
@@ -5895,7 +5893,7 @@
       1841,
       1842
     ],
-    "cid": "springseasonalmunzee"
+    "cid": "springseasonal"
   },
   {
     "name": "Summer Seasonal",
@@ -5912,7 +5910,7 @@
       1841,
       1842
     ],
-    "cid": "summerseasonalmunzee"
+    "cid": "summerseasonal"
   },
   {
     "name": "Fall Seasonal",
@@ -5929,7 +5927,7 @@
       1841,
       1842
     ],
-    "cid": "fallseasonalmunzee"
+    "cid": "fallseasonal"
   },
   {
     "name": "Winter Seasonal",
@@ -5946,7 +5944,7 @@
       1841,
       1842
     ],
-    "cid": "winterseasonalmunzee"
+    "cid": "winterseasonal"
   },
   {
     "name": "Seasonal",
@@ -13788,7 +13786,7 @@
     "icon": "crossbow",
     "id": 998,
     "weapon": "clan",
-    "state": "physical",
+    "state": "virtual",
     "category": "clan",
     "completion": "complete",
     "can_host": [
@@ -13796,7 +13794,6 @@
       1997,
       2477,
       2480,
-      999,
       1919,
       1268,
       1329,
@@ -13824,7 +13821,7 @@
     "icon": "catapult",
     "id": 1248,
     "weapon": "clan",
-    "state": "physical",
+    "state": "virtual",
     "category": "clan",
     "completion": "complete",
     "can_host": [
@@ -13832,7 +13829,6 @@
       1997,
       2477,
       2480,
-      999,
       1919,
       1329,
       2139,
@@ -13898,7 +13894,7 @@
     "icon": "nightvisiongoggles",
     "id": 1359,
     "weapon": "zeecret",
-    "state": "physical",
+    "state": "virtual",
     "category": "zeecret",
     "completion": "complete",
     "cid": "nightvisiongoggles"
@@ -14685,7 +14681,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "gratulerermed5rsdagenmunzee"
+    "cid": "gratulerermed5rsdagen"
   },
   {
     "name": "!5th Birthday Celebrations in Shepparton!",
@@ -14895,7 +14891,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "pahappybirthdaymunzee"
+    "cid": "pahappybirthday"
   },
   {
     "name": "FL Munzee Birthday Celebration",
@@ -15325,7 +15321,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "snaillakeparkfallintomunzee"
+    "cid": "snaillakeparkfallinto"
   },
   {
     "name": "Greer Munzee Hunt",
@@ -15700,7 +15696,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "spiraltrolletsjulemunzee"
+    "cid": "spiraltrolletsjule"
   },
   {
     "name": "XMas 2016 Dortmund",
@@ -16783,7 +16779,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "moviesmonstersand1munzee"
+    "cid": "moviesmonstersand1"
   },
   {
     "name": "Rackheath's Pinwheel Tea Party",
@@ -16933,7 +16929,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "orangeparkmunzee"
+    "cid": "orangepark"
   },
   {
     "name": "A May Munzee Meetup",
@@ -18187,7 +18183,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "nightofthelivingmunzee"
+    "cid": "nightoftheliving"
   },
   {
     "name": "Something Wicked This Way Munzees",
@@ -18295,7 +18291,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "thexmasmagicofmunzee"
+    "cid": "thexmasmagicof"
   },
   {
     "name": "TX - 2nd Annual White Unicorn",
@@ -19662,7 +19658,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "marylandgoesgreenwithmunzee"
+    "cid": "marylandgoesgreenwith"
   },
   {
     "name": "Motor City Goes Green",
@@ -20278,7 +20274,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "happybirthdaymunzee"
+    "cid": "happybirthday"
   },
   {
     "name": "Stuttgart 2018-Schwabenstreich I",
@@ -20428,7 +20424,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "cirquedumunzee"
+    "cid": "cirquedu"
   },
   {
     "name": "Cirque-Du-Stout Spectacular",
@@ -20596,7 +20592,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "sitsipandmunzee"
+    "cid": "sitsipand"
   },
   {
     "name": "South Sound Summer Event",
@@ -20706,7 +20702,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "happybirthdaymunzee"
+    "cid": "happybirthday"
   },
   {
     "name": "Maryland Celebrates Munzee's 7th Birthday",
@@ -22874,7 +22870,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "flhikenseekmunzee"
+    "cid": "flhikenseek"
   },
   {
     "name": "San Antonio, TX St. Patrick's Day early",
@@ -23131,7 +23127,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "flportofcallmunzee"
+    "cid": "flportofcall"
   },
   {
     "name": "April Event 2019",
@@ -24364,7 +24360,7 @@
     "state": "physical",
     "category": "event",
     "completion": "complete",
-    "cid": "menudomunzee"
+    "cid": "menudo"
   },
   {
     "name": "2x the Celebration Budapest",

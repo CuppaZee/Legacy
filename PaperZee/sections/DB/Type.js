@@ -9,7 +9,7 @@ import font from '~sections/Shared/font';
 import moment from 'moment';
 
 function g(icon) {
-  return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'');
+  return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'').replace(/munzee$/,'');
 }
 function u(str) {
   return str[0].toUpperCase() + str.slice(1)

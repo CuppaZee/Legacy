@@ -10,7 +10,7 @@ import categories from '~sections/DB/categories.json';
 import moment from 'moment';
 
 function g(icon) {
-  return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'');
+  return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'').replace(/munzee$/,'');
 }
 
 export default function SearchScreen({ navigation, route }) {
