@@ -70,6 +70,7 @@ console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Dest
 munzees = munzees.concat(require('./types/destination.json').map(i => ({
   name: i.name,
   icon: i.icon,
+  alt_icons: i.type=="bouncer"?[1,2,3,4,5,6,7,8,9,10].map(x=>`${i.icon}${x}`):undefined,
   id: i.id,
 
   destination: {

@@ -25987,6 +25987,18 @@
   {
     "name": "Treehouse",
     "icon": "treehouse",
+    "alt_icons": [
+      "treehouse1",
+      "treehouse2",
+      "treehouse3",
+      "treehouse4",
+      "treehouse5",
+      "treehouse6",
+      "treehouse7",
+      "treehouse8",
+      "treehouse9",
+      "treehouse10"
+    ],
     "id": 2145,
     "destination": {
       "type": "bouncer",
@@ -30135,6 +30147,18 @@
   {
     "name": "Skyland",
     "icon": "skyland",
+    "alt_icons": [
+      "skyland1",
+      "skyland2",
+      "skyland3",
+      "skyland4",
+      "skyland5",
+      "skyland6",
+      "skyland7",
+      "skyland8",
+      "skyland9",
+      "skyland10"
+    ],
     "id": 2426,
     "destination": {
       "type": "bouncer",
