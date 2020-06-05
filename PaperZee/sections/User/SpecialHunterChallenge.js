@@ -10,11 +10,14 @@ import font from '~sections/Shared/font';
 
 function g(a) {
   console.log(a);
-  return types.find(i => f(i.icon) == f((a.pin || a.icon || a.pin_icon).slice(49, -4)))
+  return types.find(i => i.cid == f((a.pin || a.icon || a.pin_icon).slice(49, -4)))
 }
-function f(a) {
-  return a.toString().replace(/_/g, '').replace(/munzee/g, '');
+function f(icon) {
+  return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'').replace(/munzee$/,'');
 }
+// function f(a) {
+//   return a.toString().replace(/_/g, '').replace(/munzee/g, '');
+// }
 
 function UserIcon({ user_id, size }) {
   return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size - 24) / 2, marginTop: -(size - 24) / 2, height: size, width: size }} />
