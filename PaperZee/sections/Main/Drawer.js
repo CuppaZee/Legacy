@@ -47,7 +47,7 @@ function DrawerItem(props) {
 }
 
 export default function CustomDrawerContent(props) {
-  var [helpOpen,setHelpOpen] = React.useState(false);
+  var [helpOpen, setHelpOpen] = React.useState(false);
   var mini = props.mini;
   var { t } = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
@@ -259,13 +259,16 @@ export default function CustomDrawerContent(props) {
             style={{ marginVertical: 0 }}
             icon={({ focused, color, size }) => <MaterialCommunityIcons name="help-circle" color={color} size={24} style={{ margin: 4 }} />}
             label="Help"
-            onPress={()=>setHelpOpen(true)}
+            onPress={() => setHelpOpen(true)}
           />
         }
         contentStyle={{ backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border ? 1 : 0, borderColor: theme.page_content.border }}
       >
         <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
-          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>You can contact us via Facebook <TouchableRipple onPress={()=>Linking.openURL('https://m.me/CuppaZee')}><Text allowFontScaling={false} style={{color:theme.page_content.fg=="#000000"?'blue':'lightblue'}}>@CuppaZee</Text></TouchableRipple></Text>
+          <View style={{ flexDirection: "row" }}>
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>You can contact us via Facebook </Text>
+            <TouchableRipple onPress={() => Linking.openURL('https://m.me/CuppaZee')}><Text allowFontScaling={false} style={{ color: theme.page_content.fg == "#000000" ? 'blue' : 'lightblue', fontSize: 16, ...font("bold") }}>@CuppaZee</Text></TouchableRipple>
+          </View>
           <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16 }}>or email us at support@cuppazee.app</Text>
         </View>
       </Menu>
