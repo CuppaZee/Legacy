@@ -79,6 +79,50 @@ module.exports = [
     ]
   },
   {
+    "name": "Aquatic Baby Animals",
+    "category": "aquaticbabyanimals2020",
+    "year": 2020,
+    "starts": "2020-06-05T12:00:00-05:00",
+    "ends": "2020-06-21T23:59:00-05:00",
+    "specials": [
+      {
+        "name": "Baby Narwhal",
+        "icon": "babynarwhal",
+        "id": "null_babynarwhal",
+        "duration": 6,
+        "lands_on": [i=>(i.virtual_colors||[]).includes("blue"),"seaweed","fish","shark","canoe","motorboat","submarine","planulalarva","polyp"]
+      },
+      {
+        "name": "Baby Penguin",
+        "icon": "babypenguin",
+        "id": "null_babypenguin",
+        "duration": 5,
+        "lands_on": [i=>(i.virtual_colors||[]).includes("blue"),"seaweed","fish","shark","canoe","motorboat","submarine","planulalarva","polyp"]
+      },
+      {
+        "name": "Baby Crab",
+        "icon": "babycrab",
+        "id": "null_babycrab",
+        "duration": 4,
+        "lands_on": ["watermystery","mystery","aquamarine","turtleegg","turtlehatchling","juvenileturtle"]
+      },
+      {
+        "name": "Seal Pup",
+        "icon": "sealpup",
+        "id": "null_sealpup",
+        "duration": 3,
+        "lands_on": [i=>(i.virtual_colors||[]).includes("blue"),"seaweed","fish","shark","canoe","motorboat","submarine","planulalarva","polyp"]
+      },
+      {
+        "name": "Baby Shark",
+        "icon": "babyshark",
+        "id": "null_babyshark",
+        "duration": 2,
+        "lands_on": [i=>(i.virtual_colors||[]).includes("blue"),"seaweed","fish","shark","canoe","motorboat","submarine","planulalarva","polyp"]
+      }
+    ]
+  },
+  {
     "name": "Hometown Heroes 2020",
     "category": "hometownheroes2020",
     "year": 2020,

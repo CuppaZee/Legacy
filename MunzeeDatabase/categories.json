@@ -18,7 +18,7 @@
   {
     "name": "2020 Seasonal Specials",
     "id": "seasonal_2020",
-    "icon": "staysafe",
+    "icon": "babynarwhal",
     "parents": [
       "seasonal",
       "root"
@@ -322,6 +322,19 @@
       "year": 2020,
       "starts": 1577998800000,
       "ends": 1609480740000
+    }
+  },
+  {
+    "name": "Aquatic Baby Animals",
+    "id": "aquaticbabyanimals2020",
+    "icon": "babynarwhal",
+    "parents": [
+      "seasonal_2020"
+    ],
+    "seasonal": {
+      "year": 2020,
+      "starts": 1591376400000,
+      "ends": 1592801940000
     }
   },
   {
