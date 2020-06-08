@@ -19,23 +19,23 @@ jobs:
           expo-username: ${{ secrets.EXPO_CLI_USERNAME }}
           expo-password: ${{ secrets.EXPO_CLI_PASSWORD }}
       - run: |
-        cd MunzeeDatabase
-        npm install
-        node index.js
-        cd ..
+          cd MunzeeDatabase
+          npm install
+          node index.js
+          cd ..
       - run: |
-        cd PaperZee
-        yarn install
-        expo publish
-        expo build:web
-        cd ..
+          cd PaperZee
+          yarn install
+          expo publish
+          expo build:web
+          cd ..
       - run: |
-        cd FlameZee
-        cd functions
-        npm install
-        cd ..
-        rm paper/* -r
-        cp ../PaperZee/web-build/* paper -r
+          cd FlameZee
+          cd functions
+          npm install
+          cd ..
+          rm paper/* -r
+          cp ../PaperZee/web-build/* paper -r
       - uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting,functions
