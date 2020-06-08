@@ -1,0 +1,43 @@
+name: Deploy CuppaZee
+
+on:
+  push:
+    branches: [ master ]
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: 12
+      - uses: expo/expo-github-action@v5
+        with:
+          expo-version: 3.x
+          expo-username: ${{ secrets.EXPO_CLI_USERNAME }}
+          expo-password: ${{ secrets.EXPO_CLI_PASSWORD }}
+      - run: |
+        cd MunzeeDatabase
+        npm install
+        node index.js
+        cd ..
+      - run: |
+        cd PaperZee
+        yarn install
+        expo publish
+        expo build:web
+        cd ..
+      - run: |
+        cd FlameZee
+        cd functions
+        npm install
+        cd ..
+        rm paper/* -r
+        cp ../PaperZee/web-build/* paper -r
+      - uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting,functions
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
