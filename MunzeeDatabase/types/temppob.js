@@ -168,5 +168,12 @@ module.exports = [
     "extra": {
       "baby_animal": true
     }
+  },
+  {
+    "name": "Trojan Unicorn",
+    "icon": "trojan_unicorn",
+    "id": "null_trojan_unicorn",
+    "state": "bouncer",
+    "lands_on": ["Mace","Longsword","Battle Axe","Hammer","Crossbow","Catapult"]
   }
 ]
