@@ -55,6 +55,9 @@ export default function ClanScreen({ route }) {
     },
     cuppazee: true
   })
+  if(!data) return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
+    <ActivityIndicator size="large" color={theme.page.fg} />
+  </View>
   return (
     <View style={{ flex: 1 }}>
       <ScrollView
