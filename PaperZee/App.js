@@ -21,6 +21,7 @@ import {
 import { Coiny_400Regular } from '@expo-google-fonts/coiny';
 
 import LoadingPage from './sections/Shared/LoadingPage';
+import font from './sections/Shared/font';
 
 // Clan Screens
 const AllClansScreen = loadable(() => import('./sections/Clan/All'),{fallback: <LoadingPage/>})
@@ -41,6 +42,7 @@ const DBCategoryScreen = loadable(() => import('./sections/DB/Category'),{fallba
 const ToolsScreen = loadable(() => import('./sections/Tools/Home'),{fallback: <LoadingPage/>})
 const ScannerScreen = loadable(() => import('./sections/Tools/Scanner'),{fallback: <LoadingPage/>})
 const CalendarScreen = loadable(() => import('./sections/Calendar/Page'),{fallback: <LoadingPage/>})
+const BouncersScreen = loadable(() => import('./sections/Tools/Bouncers'),{fallback: <LoadingPage/>})
 
 // Maps Screens
 const MapScreen = loadable(() => import('./sections/Maps/Home'),{fallback: <LoadingPage/>})
@@ -59,7 +61,7 @@ const UserCapturesCategoryScreen = loadable(() => import('./sections/User/Captur
 // Navigation Sections
 import DrawerContent from './sections/Main/Drawer';
 
-import { Platform, View, Text, StatusBar } from 'react-native';
+import { Platform, View, Text, StatusBar, ActivityIndicator } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper'
 
 import { useDimensions } from '@react-native-community/hooks';
@@ -122,6 +124,10 @@ function StackNav () {
       <Stack.Screen
         name="Calendar"
         component={CalendarScreen}
+      />
+      <Stack.Screen
+        name="Bouncers"
+        component={BouncersScreen}
       />
       <Stack.Screen
         name="AllClans"
@@ -277,7 +283,7 @@ function DrawerNav() {
 
 function App() {
   let [fontsLoaded] = useFonts(Platform.OS=="web"?{
-    Coiny_400Regular,
+    // Coiny_400Regular,
   }:{
     Coiny_400Regular,
     Roboto_100Thin,
@@ -303,6 +309,7 @@ function App() {
           Calendar: 'calendar',
           Settings: 'settings',
           Info: 'info',
+          Bouncers: 'bouncers',
           ClanSearch: 'clan/search',
 
           // Clan
@@ -433,9 +440,20 @@ function App() {
     dispatch(setCurrentRoute(a?.routes?.[0]?.state?.routes?.slice?.()?.reverse?.()?.[0]??{}))
   }
 
-  if (loadingLogin||!fontsLoaded) {
+  if (!theme || !theme.page || !theme.page.bg) {
     return <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
-      <Text>Loading...</Text>
+      <ActivityIndicator size="large" />
+    </View>;
+  }
+  if (!fontsLoaded) {
+    return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
+      <ActivityIndicator size="large" color={theme.page.fg} />
+    </View>;
+  }
+  if (loadingLogin) {
+    return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
+      <Text allowFontScaling={false} style={{...font("bold"),fontSize:20,color:theme.page.fg,marginBottom:20}}>Logging in...</Text>
+      <ActivityIndicator size="large" color={theme.page.fg} />
     </View>;
   }
   if (!isReady) {

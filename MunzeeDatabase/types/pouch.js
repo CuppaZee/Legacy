@@ -153,6 +153,9 @@ module.exports = [
     "state": "bouncer",
     "base": "muru",
     "gleaming": true,
+    "extra": {
+      "capture_only": true
+    },
     "stage": 1,
     "lands_on": ["treehouse","munzee","earthmystery"],
     "set": "season_1"
@@ -164,6 +167,9 @@ module.exports = [
     "state": "bouncer",
     "base": "muru",
     "gleaming": true,
+    "extra": {
+      "capture_only": true
+    },
     "stage": 2,
     "lands_on": ["treehouse","munzee","earthmystery"],
     "set": "season_1"
@@ -175,6 +181,9 @@ module.exports = [
     "state": "bouncer",
     "base": "muru",
     "gleaming": true,
+    "extra": {
+      "capture_only": true
+    },
     "stage": 3,
     "lands_on": ["treehouse","munzee","earthmystery"],
     "set": "season_1"
@@ -186,6 +195,9 @@ module.exports = [
     "state": "bouncer",
     "base": "tuli",
     "gleaming": true,
+    "extra": {
+      "capture_only": true
+    },
     "stage": 1,
     "lands_on": ["treehouse","munzee","firemystery"],
     "set": "season_1"
@@ -197,6 +209,9 @@ module.exports = [
     "state": "bouncer",
     "base": "tuli",
     "gleaming": true,
+    "extra": {
+      "capture_only": true
+    },
     "stage": 2,
     "lands_on": ["treehouse","munzee","firemystery"],
     "set": "season_1"
@@ -208,6 +223,9 @@ module.exports = [
     "state": "bouncer",
     "base": "tuli",
     "gleaming": true,
+    "extra": {
+      "capture_only": true
+    },
     "stage": 3,
     "lands_on": ["treehouse","munzee","firemystery"],
     "set": "season_1"
@@ -219,6 +237,9 @@ module.exports = [
     "state": "bouncer",
     "base": "vesi",
     "gleaming": true,
+    "extra": {
+      "capture_only": true
+    },
     "stage": 1,
     "lands_on": ["treehouse","munzee","watermystery"],
     "set": "season_1"
@@ -230,6 +251,9 @@ module.exports = [
     "state": "bouncer",
     "base": "vesi",
     "gleaming": true,
+    "extra": {
+      "capture_only": true
+    },
     "stage": 2,
     "lands_on": ["treehouse","munzee","watermystery"],
     "set": "season_1"
@@ -241,6 +265,9 @@ module.exports = [
     "state": "bouncer",
     "base": "vesi",
     "gleaming": true,
+    "extra": {
+      "capture_only": true
+    },
     "stage": 3,
     "lands_on": ["treehouse","munzee","watermystery"],
     "set": "season_1"

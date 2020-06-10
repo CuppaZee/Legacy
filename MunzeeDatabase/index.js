@@ -70,7 +70,7 @@ console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Dest
 munzees = munzees.concat(require('./types/destination.json').map(i => ({
   name: i.name,
   icon: i.icon,
-  alt_icons: i.type=="bouncer"?[1,2,3,4,5,6,7,8,9,10].map(x=>`${i.icon}${x}`):undefined,
+  alt_icons: i.type == "bouncer" ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(x => `${i.icon}${x}`) : undefined,
   id: i.id,
 
   destination: {
@@ -134,7 +134,7 @@ munzees = munzees.concat(require('./types/evolution.json').map(i => ({
   },
 
   state: i.state,
-  category: "evolution_"+i.set,
+  category: "evolution_" + i.set,
 
   completion: "complete",
   hidden: i.hidden,
@@ -367,7 +367,7 @@ munzees = munzees.concat(require('./types/myth').map(i => ({
       myth_set: i.type,
 
       state: "bouncer",
-      category: "myth_"+i.type
+      category: "myth_" + i.type
     }),
   completion: "complete",
   hidden: i.hidden,
@@ -533,7 +533,7 @@ munzees = munzees.concat(require('./types/cards.json').map(i => ({
   icon: i.icon,
   id: i.id,
 
-  card: i.open?"open":"limited",
+  card: i.open ? "open" : "limited",
   temporary: 7,
 
   state: "virtual",
@@ -562,6 +562,8 @@ munzees = munzees.concat(require('./types/nomad').map(i => ({
     duration: i.duration || 12,
     lands_on: i.lands_on
   },
+
+  ...(i.extra || {}),
 
   state: "bouncer",
   category: "nomad",
@@ -603,8 +605,9 @@ munzees = munzees.concat(require('./types/pouch').map(i => ({
       },
 
       state: "bouncer",
-      category: "pouch_"+i.set
+      category: "pouch_" + i.set
     }),
+  ...(i.extra || {}),
 
   completion: "complete",
   hidden: i.hidden,
@@ -762,8 +765,8 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Seasonals${colors.Reset} from ${colors.fg.Green}./types/seasonals/*.js${colors.Reset}`)
-categories = categories.concat(require('./types/seasonals').map(c=>{
-  munzees = munzees.concat((c.scatters||[]).map(i => ({
+categories = categories.concat(require('./types/seasonals').map(c => {
+  munzees = munzees.concat((c.scatters || []).map(i => ({
     name: i.name,
     icon: i.icon,
     id: i.id,
@@ -779,7 +782,7 @@ categories = categories.concat(require('./types/seasonals').map(c=>{
     completion: "complete",
     from_file: "./types/seasonals/*.js"
   })))
-  munzees = munzees.concat((c.specials||[]).map(i => ({
+  munzees = munzees.concat((c.specials || []).map(i => ({
     name: i.name,
     icon: i.icon,
     id: i.id,
@@ -802,8 +805,8 @@ categories = categories.concat(require('./types/seasonals').map(c=>{
   return {
     name: c.name,
     id: c.category,
-    icon: c.icon||c.specials[0].icon,
-    parents: ["seasonal_"+c.year],
+    icon: c.icon || c.specials[0].icon,
+    parents: ["seasonal_" + c.year],
     seasonal: {
       year: c.year,
       starts: new Date(c.starts).valueOf(),
@@ -814,21 +817,21 @@ categories = categories.concat(require('./types/seasonals').map(c=>{
 categories.push({
   name: "2020 Seasonal Specials",
   id: "seasonal_2020",
-  icon: categories.slice().sort((a,b)=>(b.seasonal||{}).starts-(a.seasonal||{}).starts).find(i=>i.parents.includes("seasonal_2020")).icon,
-  parents: ["seasonal","root"],
+  icon: categories.slice().sort((a, b) => (b.seasonal || {}).starts - (a.seasonal || {}).starts).find(i => i.parents.includes("seasonal_2020")).icon,
+  parents: ["seasonal", "root"],
   priority: 10
 })
 categories.push({
   name: "2019 Seasonal Specials",
   id: "seasonal_2019",
-  icon: categories.slice().sort((a,b)=>(b.seasonal||{}).starts-(a.seasonal||{}).starts).find(i=>i.parents.includes("seasonal_2019")).icon,
+  icon: categories.slice().sort((a, b) => (b.seasonal || {}).starts - (a.seasonal || {}).starts).find(i => i.parents.includes("seasonal_2019")).icon,
   parents: ["seasonal"]
 })
 categories.push({
   name: "Seasonal Specials",
   id: "seasonal",
   icon: "bouncing_specials_filter",
-  parents: ["root","bouncer"],
+  parents: ["root", "bouncer"],
   priority: 7
 })
 
@@ -923,10 +926,10 @@ for (var munzee of munzees) {
       console.log(`${colors.bg.Red}  ${colors.Reset} Missing ${colors.fg.Yellow}destination${colors.Reset}.${colors.fg.Yellow}type${colors.Reset} for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
     }
   }
-  if (munzee.id===undefined) {
+  if (munzee.id === undefined) {
     console.log(`${colors.bg.Red}  ${colors.Reset} Missing ${colors.fg.Yellow}id${colors.Reset} for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
   }
-  if (!munzee.category || !categories.find(i=>i.id==munzee.category)) {
+  if (!munzee.category || !categories.find(i => i.id == munzee.category)) {
     console.log(`${colors.bg.Red}  ${colors.Reset} Invalid ${colors.fg.Yellow}category${colors.Reset} for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
   }
 
@@ -935,12 +938,12 @@ for (var munzee of munzees) {
 for (var munzee of munzees) {
   munzee.can_host = munzees.filter(i => i.bouncer && (i.bouncer.lands_on || []).includes(munzee.id)).map(i => i.id);
   if (munzee.can_host.length == 0) munzee.can_host = undefined;
-  munzee.cid = munzee.icon.replace(/[^a-zA-Z0-9]/g,'').replace(/munzee$/,'');
+  munzee.cid = munzee.icon.replace(/[^a-zA-Z0-9]/g, '').replace(/munzee$/, '');
 }
 
-munzees.sort((a, b) => (a.id||0) - (b.id||0));
+munzees.sort((a, b) => (a.id || 0) - (b.id || 0));
 
-categories.sort((a, b) => (b.priority||0) - (a.priority||0));
+categories.sort((a, b) => (b.priority || 0) - (a.priority || 0));
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Types Checked - Writing Types to Files... ${colors.Reset}`)
 
@@ -958,5 +961,5 @@ fs.writeFileSync('../FlameZee/functions/util/db/categories.json', JSON.stringify
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Categories Written to Files ${colors.Reset}`)
 
-console.log(`${colors.bg.Cyan}${colors.fg.Black} Current Progress: ${munzees.length} / ${munzees.length+require('./types/NA.json').length} - ${Math.round((munzees.length)/(munzees.length+require('./types/NA.json').length)*10000)/100}% ${colors.Reset}`)
+console.log(`${colors.bg.Cyan}${colors.fg.Black} Current Progress: ${munzees.length} / ${munzees.length + require('./types/NA.json').length} - ${Math.round((munzees.length) / (munzees.length + require('./types/NA.json').length) * 10000) / 100}% ${colors.Reset}`)
 console.log(`${colors.bg.Yellow}${colors.fg.Black} Remaining of N/A: ${require('./types/NA.json').length} ${colors.Reset}`)

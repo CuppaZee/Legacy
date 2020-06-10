@@ -58,6 +58,7 @@ export default function CustomDrawerContent(props) {
   var [showMoreClan, setShowMoreClan] = React.useState(false);
   var pages = [
     // { title: t(`common:maps`), icon: "map", page: "Map" },
+    { title: "Bouncers", icon: "map-marker", page: "Bouncers" },
     { title: t(`common:munzee_types`), icon: "database", page: "DBSearch" },
     { title: t(`common:calendar`), icon: "calendar", page: "Calendar" },
     { title: t(`common:scanner`), icon: "qrcode", page: "Scanner", hide: Platform.OS === "web" },
@@ -121,11 +122,11 @@ export default function CustomDrawerContent(props) {
         })
         }
       />
-      <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
-        {/* <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Clans</Text> */}
+      <View style={{ paddingTop: 8, paddingLeft: 16 }}>
+        <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Clans</Text>
       </View>
       <View style={{ padding: 4, paddingLeft: 8, paddingRight: 16, flexDirection: "row", justifyContent: "space-between" }}>
-        <IconButton
+        {/* <IconButton
           icon="shield-half-full"
           color={itemProps.inactiveTintColor}
           onPress={() => nav.reset({
@@ -134,7 +135,7 @@ export default function CustomDrawerContent(props) {
               { name: '__primary', params: { screen: "AllClans" } },
             ],
           })}
-        />
+        /> */}
         <IconButton
           style={{
             backgroundColor: route.name == "AllClans" ? itemProps.activeBackgroundColor : null

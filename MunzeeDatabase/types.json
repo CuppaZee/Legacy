@@ -42,6 +42,7 @@
       2480,
       "null_poseidon",
       296,
+      2074,
       2075,
       2076,
       2077,
@@ -11182,7 +11183,7 @@
   },
   {
     "name": "Virtual Flat Nomad",
-    "icon": "virtual_flat_nomad",
+    "icon": "virtualflatnomad",
     "id": 1691,
     "bouncer": {
       "type": "nomad",
@@ -12678,6 +12679,22 @@
     "cid": "internationellesvirtual"
   },
   {
+    "name": "Coupe Champion Nomad",
+    "icon": "coupechampionnomad",
+    "id": 2074,
+    "bouncer": {
+      "type": "nomad",
+      "duration": 12,
+      "lands_on": [
+        0
+      ]
+    },
+    "state": "bouncer",
+    "category": "nomad",
+    "completion": "complete",
+    "cid": "coupechampionnomad"
+  },
+  {
     "name": "Coupe Champions #1",
     "icon": "coupechampions#1",
     "id": 2075,
@@ -12688,6 +12705,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -12704,6 +12722,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -12720,6 +12739,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -12736,6 +12756,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -12752,6 +12773,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -12768,6 +12790,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -12784,26 +12807,11 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
     "cid": "coupechampions7"
-  },
-  {
-    "name": "Coupe Champions #8",
-    "icon": "coupechampions#8",
-    "id": 2082,
-    "bouncer": {
-      "type": "nomad",
-      "duration": 12,
-      "lands_on": [
-        0
-      ]
-    },
-    "state": "bouncer",
-    "category": "nomad",
-    "completion": "complete",
-    "cid": "coupechampions8"
   },
   {
     "name": "Frog Egg",
@@ -23484,6 +23492,7 @@
     },
     "state": "bouncer",
     "category": "pouch_season_1",
+    "capture_only": true,
     "completion": "complete",
     "cid": "gleamingmuru"
   },
@@ -23505,6 +23514,7 @@
     },
     "state": "bouncer",
     "category": "pouch_season_1",
+    "capture_only": true,
     "completion": "complete",
     "cid": "gleamingmuruchi"
   },
@@ -23526,6 +23536,7 @@
     },
     "state": "bouncer",
     "category": "pouch_season_1",
+    "capture_only": true,
     "completion": "complete",
     "cid": "gleamingmurutain"
   },
@@ -23547,6 +23558,7 @@
     },
     "state": "bouncer",
     "category": "pouch_season_1",
+    "capture_only": true,
     "completion": "complete",
     "cid": "gleamingtuli"
   },
@@ -23568,6 +23580,7 @@
     },
     "state": "bouncer",
     "category": "pouch_season_1",
+    "capture_only": true,
     "completion": "complete",
     "cid": "gleamingtulimber"
   },
@@ -23589,6 +23602,7 @@
     },
     "state": "bouncer",
     "category": "pouch_season_1",
+    "capture_only": true,
     "completion": "complete",
     "cid": "gleamingtuliferno"
   },
@@ -23610,6 +23624,7 @@
     },
     "state": "bouncer",
     "category": "pouch_season_1",
+    "capture_only": true,
     "completion": "complete",
     "cid": "gleamingvesi"
   },
@@ -23631,6 +23646,7 @@
     },
     "state": "bouncer",
     "category": "pouch_season_1",
+    "capture_only": true,
     "completion": "complete",
     "cid": "gleamingvesial"
   },
@@ -23652,6 +23668,7 @@
     },
     "state": "bouncer",
     "category": "pouch_season_1",
+    "capture_only": true,
     "completion": "complete",
     "cid": "gleamingvesisaur"
   },
@@ -25152,6 +25169,23 @@
     "cid": "frog"
   },
   {
+    "name": "Coupe Champions #8",
+    "icon": "coupechampions#8",
+    "id": 2082,
+    "bouncer": {
+      "type": "nomad",
+      "duration": 12,
+      "lands_on": [
+        0
+      ]
+    },
+    "capture_only": true,
+    "state": "bouncer",
+    "category": "nomad",
+    "completion": "complete",
+    "cid": "coupechampions8"
+  },
+  {
     "name": "Coupe Champions #9",
     "icon": "coupechampions#9",
     "id": 2083,
@@ -25162,6 +25196,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25178,6 +25213,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25194,6 +25230,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25210,6 +25247,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25226,6 +25264,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25242,6 +25281,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25258,6 +25298,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25274,6 +25315,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25290,6 +25332,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25306,6 +25349,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25322,6 +25366,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25338,6 +25383,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25354,6 +25400,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25370,6 +25417,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25386,6 +25434,7 @@
         0
       ]
     },
+    "capture_only": true,
     "state": "bouncer",
     "category": "nomad",
     "completion": "complete",
@@ -25994,395 +26043,6 @@
     "cid": "flipglasses2020vision"
   },
   {
-    "name": "Ski Goggles",
-    "icon": "skigoggles2020vision",
-    "id": 2286,
-    "bouncer": {
-      "type": "seasonal",
-      "duration": 12,
-      "lands_on": [
-        0
-      ]
-    },
-    "state": "bouncer",
-    "category": "vision2020",
-    "completion": "complete",
-    "cid": "skigoggles2020vision"
-  },
-  {
-    "name": "Joke Glasses",
-    "icon": "jokeglasses2020vision",
-    "id": 2288,
-    "bouncer": {
-      "type": "seasonal",
-      "duration": 12,
-      "lands_on": [
-        0
-      ]
-    },
-    "state": "bouncer",
-    "category": "vision2020",
-    "completion": "complete",
-    "cid": "jokeglasses2020vision"
-  },
-  {
-    "name": "Viewfinder",
-    "icon": "viewfinder2020vision",
-    "id": 2290,
-    "bouncer": {
-      "type": "seasonal",
-      "duration": 12,
-      "lands_on": [
-        0
-      ]
-    },
-    "state": "bouncer",
-    "category": "vision2020",
-    "completion": "complete",
-    "cid": "viewfinder2020vision"
-  },
-  {
-    "name": "Mother Earth",
-    "icon": "motherearth",
-    "id": 2337,
-    "bouncer": {
-      "type": "tob",
-      "duration": 12,
-      "lands_on": [
-        0,
-        441,
-        532,
-        651,
-        851,
-        1020,
-        1086,
-        2391,
-        1468,
-        1469,
-        1470,
-        1471,
-        1473,
-        1432,
-        1433,
-        1434,
-        1435,
-        1436,
-        1437,
-        1438,
-        1439,
-        1440
-      ]
-    },
-    "state": "bouncer",
-    "category": "tob",
-    "completion": "complete",
-    "cid": "motherearth"
-  },
-  {
-    "name": "Charge",
-    "icon": "charge",
-    "id": 2392,
-    "scatter": {
-      "duration": 2,
-      "lands_on": [
-        1409,
-        1410,
-        1411,
-        1412,
-        1413,
-        1414,
-        1415,
-        1416,
-        1417,
-        1418,
-        1419,
-        1420,
-        1421,
-        1423,
-        1424,
-        1425,
-        1426,
-        1427,
-        1428,
-        1429,
-        1430,
-        1431,
-        1432,
-        1433,
-        1434,
-        1435,
-        1436,
-        1437,
-        1438,
-        1439,
-        1440,
-        1441,
-        1442,
-        1443,
-        1444,
-        1445,
-        1446,
-        1448,
-        1449,
-        1450,
-        1451,
-        1452,
-        1453,
-        1454,
-        1455,
-        1456,
-        1457,
-        1458,
-        1459,
-        1460,
-        1461,
-        1462,
-        1463,
-        1464,
-        1465,
-        1466,
-        1467,
-        1468,
-        1469,
-        1470,
-        1471,
-        1473
-      ]
-    },
-    "state": "physical",
-    "category": "scatter",
-    "completion": "complete",
-    "cid": "charge"
-  },
-  {
-    "name": "Red Apple",
-    "icon": "redapple",
-    "id": 2404,
-    "scatter": {
-      "duration": 1,
-      "standalone": true
-    },
-    "state": "virtual",
-    "category": "scatter",
-    "completion": "complete",
-    "cid": "redapple"
-  },
-  {
-    "name": "Cherry Blossom",
-    "icon": "cherryblossom",
-    "id": 2405,
-    "scatter": {
-      "duration": 1,
-      "standalone": true
-    },
-    "state": "virtual",
-    "category": "scatter",
-    "completion": "complete",
-    "cid": "cherryblossom"
-  },
-  {
-    "name": "Hedgehog",
-    "icon": "hedgehog",
-    "id": 2427,
-    "bouncer": {
-      "type": "temppob",
-      "duration": 12,
-      "lands_on": [
-        2426,
-        2145,
-        851,
-        651,
-        1338,
-        1410,
-        1415,
-        1416,
-        1417,
-        1418,
-        1419,
-        1420,
-        1421,
-        1423,
-        1424,
-        1425,
-        1426,
-        1427,
-        1428,
-        1429,
-        1430,
-        1431,
-        1432,
-        1433,
-        1434,
-        1435,
-        1436,
-        1437,
-        1438,
-        1439,
-        1440,
-        1441,
-        1442,
-        1443,
-        1444,
-        1445,
-        1446,
-        1448,
-        1449,
-        1450,
-        1451,
-        1452,
-        1453,
-        1454,
-        1455,
-        1456,
-        1457,
-        1458,
-        1459,
-        1460,
-        1461,
-        1462,
-        1463,
-        1464,
-        1465,
-        1466,
-        1467,
-        1468,
-        1469,
-        1470,
-        1471,
-        1473
-      ]
-    },
-    "state": "bouncer",
-    "category": "temppob",
-    "baby_animal": true,
-    "completion": "complete",
-    "cid": "hedgehog"
-  },
-  {
-    "name": "Polar Bear",
-    "icon": "polarbear",
-    "id": 2428,
-    "bouncer": {
-      "type": "temppob",
-      "duration": 12,
-      "lands_on": [
-        2426,
-        2145,
-        851,
-        651,
-        1338,
-        1410,
-        1415,
-        1416,
-        1417,
-        1418,
-        1419,
-        1420,
-        1421,
-        1423,
-        1424,
-        1425,
-        1426,
-        1427,
-        1428,
-        1429,
-        1430,
-        1431,
-        1432,
-        1433,
-        1434,
-        1435,
-        1436,
-        1437,
-        1438,
-        1439,
-        1440,
-        1441,
-        1442,
-        1443,
-        1444,
-        1445,
-        1446,
-        1448,
-        1449,
-        1450,
-        1451,
-        1452,
-        1453,
-        1454,
-        1455,
-        1456,
-        1457,
-        1458,
-        1459,
-        1460,
-        1461,
-        1462,
-        1463,
-        1464,
-        1465,
-        1466,
-        1467,
-        1468,
-        1469,
-        1470,
-        1471,
-        1473
-      ]
-    },
-    "state": "bouncer",
-    "category": "temppob",
-    "baby_animal": true,
-    "completion": "complete",
-    "cid": "polarbear"
-  },
-  {
-    "name": "Flaming Arrow",
-    "icon": "flamingarrow",
-    "id": "null_flamingarrow",
-    "scatter": {
-      "duration": 2,
-      "standalone": true
-    },
-    "weapon": "clan",
-    "state": "virtual",
-    "category": "scatter",
-    "completion": "complete",
-    "can_host": [
-      2477,
-      2480
-    ],
-    "cid": "flamingarrow"
-  },
-  {
-    "name": "Trident",
-    "icon": "trident",
-    "id": "null_trident",
-    "scatter": {
-      "duration": 2,
-      "standalone": true
-    },
-    "state": "virtual",
-    "category": "scatter",
-    "completion": "complete",
-    "hidden": true,
-    "cid": "trident"
-  },
-  {
-    "name": "Lifebuoy",
-    "icon": "lifebuoy",
-    "id": "null_lifebuoy",
-    "scatter": {
-      "duration": 2,
-      "standalone": true
-    },
-    "state": "virtual",
-    "category": "scatter",
-    "completion": "complete",
-    "hidden": true,
-    "cid": "lifebuoy"
-  },
-  {
     "name": "Theatre Binoculars",
     "icon": "theatrebinoculars2020vision",
     "id": 2287,
@@ -26612,6 +26272,509 @@
     "category": "vision2020",
     "completion": "complete",
     "cid": "vrgoggles2020vision"
+  },
+  {
+    "name": "Mother Earth",
+    "icon": "motherearth",
+    "id": 2337,
+    "bouncer": {
+      "type": "tob",
+      "duration": 12,
+      "lands_on": [
+        0,
+        441,
+        532,
+        651,
+        851,
+        1020,
+        1086,
+        2391,
+        1468,
+        1469,
+        1470,
+        1471,
+        1473,
+        1432,
+        1433,
+        1434,
+        1435,
+        1436,
+        1437,
+        1438,
+        1439,
+        1440
+      ]
+    },
+    "state": "bouncer",
+    "category": "tob",
+    "completion": "complete",
+    "cid": "motherearth"
+  },
+  {
+    "name": "H.Zee. Wells’ Time Machine",
+    "icon": "h.zee.wells'timemachine",
+    "id": 2363,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 4,
+      "lands_on": [
+        0,
+        13,
+        52,
+        280
+      ]
+    },
+    "state": "bouncer",
+    "category": "leapday2020",
+    "completion": "complete",
+    "cid": "hzeewellstimemachine"
+  },
+  {
+    "name": "Charge",
+    "icon": "charge",
+    "id": 2392,
+    "scatter": {
+      "duration": 2,
+      "lands_on": [
+        1409,
+        1410,
+        1411,
+        1412,
+        1413,
+        1414,
+        1415,
+        1416,
+        1417,
+        1418,
+        1419,
+        1420,
+        1421,
+        1423,
+        1424,
+        1425,
+        1426,
+        1427,
+        1428,
+        1429,
+        1430,
+        1431,
+        1432,
+        1433,
+        1434,
+        1435,
+        1436,
+        1437,
+        1438,
+        1439,
+        1440,
+        1441,
+        1442,
+        1443,
+        1444,
+        1445,
+        1446,
+        1448,
+        1449,
+        1450,
+        1451,
+        1452,
+        1453,
+        1454,
+        1455,
+        1456,
+        1457,
+        1458,
+        1459,
+        1460,
+        1461,
+        1462,
+        1463,
+        1464,
+        1465,
+        1466,
+        1467,
+        1468,
+        1469,
+        1470,
+        1471,
+        1473
+      ]
+    },
+    "state": "physical",
+    "category": "scatter",
+    "completion": "complete",
+    "cid": "charge"
+  },
+  {
+    "name": "THE RETURN",
+    "icon": "thereturn",
+    "id": 2393,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 6,
+      "lands_on": [
+        0
+      ]
+    },
+    "state": "bouncer",
+    "category": "flatdaythe13thpt.32020",
+    "completion": "complete",
+    "cid": "thereturn"
+  },
+  {
+    "name": "Rainbow Trail",
+    "icon": "rainbowtrail",
+    "id": 2394,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 7,
+      "lands_on": [
+        0,
+        441,
+        851
+      ]
+    },
+    "state": "bouncer",
+    "category": "rainbowtrail2020",
+    "completion": "complete",
+    "cid": "rainbowtrail"
+  },
+  {
+    "name": "Red ZED",
+    "icon": "redzed",
+    "id": 2395,
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    },
+    "state": "virtual",
+    "category": "rainbowtrail2020",
+    "completion": "complete",
+    "cid": "redzed"
+  },
+  {
+    "name": "Orange ZED",
+    "icon": "orangezed",
+    "id": 2396,
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    },
+    "state": "virtual",
+    "category": "rainbowtrail2020",
+    "completion": "complete",
+    "cid": "orangezed"
+  },
+  {
+    "name": "Yellow ZED",
+    "icon": "yellowzed",
+    "id": 2397,
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    },
+    "state": "virtual",
+    "category": "rainbowtrail2020",
+    "completion": "complete",
+    "cid": "yellowzed"
+  },
+  {
+    "name": "Red Apple",
+    "icon": "redapple",
+    "id": 2404,
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    },
+    "state": "virtual",
+    "category": "scatter",
+    "completion": "complete",
+    "cid": "redapple"
+  },
+  {
+    "name": "Cherry Blossom",
+    "icon": "cherryblossom",
+    "id": 2405,
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    },
+    "state": "virtual",
+    "category": "scatter",
+    "completion": "complete",
+    "cid": "cherryblossom"
+  },
+  {
+    "name": "Flaming Arrow",
+    "icon": "flamingarrow",
+    "id": "null_flamingarrow",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    },
+    "weapon": "clan",
+    "state": "virtual",
+    "category": "scatter",
+    "completion": "complete",
+    "can_host": [
+      2477,
+      2480
+    ],
+    "cid": "flamingarrow"
+  },
+  {
+    "name": "Trident",
+    "icon": "trident",
+    "id": "null_trident",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    },
+    "state": "virtual",
+    "category": "scatter",
+    "completion": "complete",
+    "hidden": true,
+    "cid": "trident"
+  },
+  {
+    "name": "Lifebuoy",
+    "icon": "lifebuoy",
+    "id": "null_lifebuoy",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    },
+    "state": "virtual",
+    "category": "scatter",
+    "completion": "complete",
+    "hidden": true,
+    "cid": "lifebuoy"
+  },
+  {
+    "name": "Ski Goggles",
+    "icon": "skigoggles2020vision",
+    "id": 2286,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 12,
+      "lands_on": [
+        0
+      ]
+    },
+    "state": "bouncer",
+    "category": "vision2020",
+    "completion": "complete",
+    "cid": "skigoggles2020vision"
+  },
+  {
+    "name": "Joke Glasses",
+    "icon": "jokeglasses2020vision",
+    "id": 2288,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 12,
+      "lands_on": [
+        0
+      ]
+    },
+    "state": "bouncer",
+    "category": "vision2020",
+    "completion": "complete",
+    "cid": "jokeglasses2020vision"
+  },
+  {
+    "name": "Viewfinder",
+    "icon": "viewfinder2020vision",
+    "id": 2290,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 12,
+      "lands_on": [
+        0
+      ]
+    },
+    "state": "bouncer",
+    "category": "vision2020",
+    "completion": "complete",
+    "cid": "viewfinder2020vision"
+  },
+  {
+    "name": "Hedgehog",
+    "icon": "hedgehog",
+    "id": 2427,
+    "bouncer": {
+      "type": "temppob",
+      "duration": 12,
+      "lands_on": [
+        2426,
+        2145,
+        851,
+        651,
+        1338,
+        1410,
+        1415,
+        1416,
+        1417,
+        1418,
+        1419,
+        1420,
+        1421,
+        1423,
+        1424,
+        1425,
+        1426,
+        1427,
+        1428,
+        1429,
+        1430,
+        1431,
+        1432,
+        1433,
+        1434,
+        1435,
+        1436,
+        1437,
+        1438,
+        1439,
+        1440,
+        1441,
+        1442,
+        1443,
+        1444,
+        1445,
+        1446,
+        1448,
+        1449,
+        1450,
+        1451,
+        1452,
+        1453,
+        1454,
+        1455,
+        1456,
+        1457,
+        1458,
+        1459,
+        1460,
+        1461,
+        1462,
+        1463,
+        1464,
+        1465,
+        1466,
+        1467,
+        1468,
+        1469,
+        1470,
+        1471,
+        1473
+      ]
+    },
+    "state": "bouncer",
+    "category": "temppob",
+    "baby_animal": true,
+    "completion": "complete",
+    "cid": "hedgehog"
+  },
+  {
+    "name": "Polar Bear",
+    "icon": "polarbear",
+    "id": 2428,
+    "bouncer": {
+      "type": "temppob",
+      "duration": 12,
+      "lands_on": [
+        2426,
+        2145,
+        851,
+        651,
+        1338,
+        1410,
+        1415,
+        1416,
+        1417,
+        1418,
+        1419,
+        1420,
+        1421,
+        1423,
+        1424,
+        1425,
+        1426,
+        1427,
+        1428,
+        1429,
+        1430,
+        1431,
+        1432,
+        1433,
+        1434,
+        1435,
+        1436,
+        1437,
+        1438,
+        1439,
+        1440,
+        1441,
+        1442,
+        1443,
+        1444,
+        1445,
+        1446,
+        1448,
+        1449,
+        1450,
+        1451,
+        1452,
+        1453,
+        1454,
+        1455,
+        1456,
+        1457,
+        1458,
+        1459,
+        1460,
+        1461,
+        1462,
+        1463,
+        1464,
+        1465,
+        1466,
+        1467,
+        1468,
+        1469,
+        1470,
+        1471,
+        1473
+      ]
+    },
+    "state": "bouncer",
+    "category": "temppob",
+    "baby_animal": true,
+    "completion": "complete",
+    "cid": "polarbear"
+  },
+  {
+    "name": "Owlet",
+    "icon": "owlet",
+    "id": 2429,
+    "bouncer": {
+      "type": "temppob",
+      "duration": 12,
+      "lands_on": [
+        2426,
+        2145,
+        1409,
+        1086,
+        2391,
+        1581
+      ]
+    },
+    "state": "bouncer",
+    "category": "temppob",
+    "baby_animal": true,
+    "completion": "complete",
+    "cid": "owlet"
   },
   {
     "name": "Baby Narwhal",
@@ -29137,25 +29300,6 @@
     "cid": "3starmotelroom"
   },
   {
-    "name": "H.Zee. Wells’ Time Machine",
-    "icon": "h.zee.wells'timemachine",
-    "id": 2363,
-    "bouncer": {
-      "type": "seasonal",
-      "duration": 4,
-      "lands_on": [
-        0,
-        13,
-        52,
-        280
-      ]
-    },
-    "state": "bouncer",
-    "category": "leapday2020",
-    "completion": "complete",
-    "cid": "hzeewellstimemachine"
-  },
-  {
     "name": "Zeeloreon Time Traveler",
     "icon": "zeeloreontimetraveler",
     "id": 2364,
@@ -29541,79 +29685,6 @@
     "category": "pouch_funfinity",
     "completion": "complete",
     "cid": "smaragd"
-  },
-  {
-    "name": "THE RETURN",
-    "icon": "thereturn",
-    "id": 2393,
-    "bouncer": {
-      "type": "seasonal",
-      "duration": 6,
-      "lands_on": [
-        0
-      ]
-    },
-    "state": "bouncer",
-    "category": "flatdaythe13thpt.32020",
-    "completion": "complete",
-    "cid": "thereturn"
-  },
-  {
-    "name": "Rainbow Trail",
-    "icon": "rainbowtrail",
-    "id": 2394,
-    "bouncer": {
-      "type": "seasonal",
-      "duration": 7,
-      "lands_on": [
-        0,
-        441,
-        851
-      ]
-    },
-    "state": "bouncer",
-    "category": "rainbowtrail2020",
-    "completion": "complete",
-    "cid": "rainbowtrail"
-  },
-  {
-    "name": "Red ZED",
-    "icon": "redzed",
-    "id": 2395,
-    "scatter": {
-      "duration": 1,
-      "standalone": true
-    },
-    "state": "virtual",
-    "category": "rainbowtrail2020",
-    "completion": "complete",
-    "cid": "redzed"
-  },
-  {
-    "name": "Orange ZED",
-    "icon": "orangezed",
-    "id": 2396,
-    "scatter": {
-      "duration": 1,
-      "standalone": true
-    },
-    "state": "virtual",
-    "category": "rainbowtrail2020",
-    "completion": "complete",
-    "cid": "orangezed"
-  },
-  {
-    "name": "Yellow ZED",
-    "icon": "yellowzed",
-    "id": 2397,
-    "scatter": {
-      "duration": 1,
-      "standalone": true
-    },
-    "state": "virtual",
-    "category": "rainbowtrail2020",
-    "completion": "complete",
-    "cid": "yellowzed"
   },
   {
     "name": "Green ZED",
@@ -30466,28 +30537,6 @@
       2488
     ],
     "cid": "skyland"
-  },
-  {
-    "name": "Owlet",
-    "icon": "owlet",
-    "id": 2429,
-    "bouncer": {
-      "type": "temppob",
-      "duration": 12,
-      "lands_on": [
-        2426,
-        2145,
-        1409,
-        1086,
-        2391,
-        1581
-      ]
-    },
-    "state": "bouncer",
-    "category": "temppob",
-    "baby_animal": true,
-    "completion": "complete",
-    "cid": "owlet"
   },
   {
     "name": "Pirate Joke",
