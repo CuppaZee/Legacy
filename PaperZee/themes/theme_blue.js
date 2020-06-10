@@ -1,22 +1,23 @@
 export default {
+  name: "Blue",
   error: {
     bg: '#ffaaaa',
     fg: '#000000'
   },
   navigation: {
-    bg: "#016930",
+    bg: "#016269",
     fg: "#ffffff"
   },
   navigation_selected: {
-    bg: "#005627",
+    bg: "#078495",
     fg: "#ffffff"
   },
   page: {
-    bg: "#c6ebd0",
+    bg: "#82dfef",
     fg: "#000000"
   },
   page_content: {
-    bg: "#e7f7ec",
+    bg: "#b3ebf6",
     fg: "#000000"
   },
   activity: {

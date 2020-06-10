@@ -27,7 +27,6 @@ export default function SettingsScreen({ navigation }) {
   var {t,i18n} = useTranslation();
   var logins = useSelector(i=>i.logins);
   var themes = useSelector(i=>i.themes);
-  var selected_theme = useSelector(i=>i.theme);
   var theme = useSelector(i=>i.themes[i.theme]);
   var dispatch = useDispatch();
   var {width,height} = useDimensions().window;
@@ -87,25 +86,15 @@ export default function SettingsScreen({ navigation }) {
             </View>
             
             {/* TODO: Theme Dropdown instead of Buttons - See /sections/Clan/Cards/Stats, lines 285-305 for Example Dropdown */}
-            <Text allowFontScaling={false} style={{color:theme.page_content.fg,...font()}}>Current Theme: {{
-              xdark: "Darkest",
-              dark: "Dark",
-              light: "Light",
-              white: "White"
-            }[selected_theme]}</Text>
+            <Text allowFontScaling={false} style={{color:theme.page_content.fg,...font()}}>Current Theme: {theme.name}</Text>
             <View style={{flexDirection:"row",flexWrap:"wrap"}}>
-              {[
-                ["White","white"],
-                ["Light","light"],
-                ["Dark","dark"],
-                ["Darkest","xdark"]
-              ].map(i=><View style={{padding:4}}>
+              {Object.entries(themes).filter(i=>!i[0].startsWith('_')).reverse().map(i=><View style={{padding:4}}>
                 <Button
                   mode="contained"
                   style={theme.page_content.border?{borderColor:"white",borderWidth:1}:{}}
-                  color={themes[i[1]].navigation.bg}
-                  onPress={() => dispatch(setTheme(i[1]))}
-                >{i[0]}</Button>
+                  color={i[1].navigation.bg}
+                  onPress={() => dispatch(setTheme(i[0]))}
+                >{i[1].name}</Button>
               </View>)}
             </View>
 

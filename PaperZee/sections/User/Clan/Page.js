@@ -34,7 +34,7 @@ export default function ClanScreen({ route }) {
     null:"#e3e3e3",
     border: '#000a'
   }
-  if(selected_theme.includes('dark')) {
+  if(theme.dark) {
     dark = true;
     level_colors.border = "#fffa"
   }

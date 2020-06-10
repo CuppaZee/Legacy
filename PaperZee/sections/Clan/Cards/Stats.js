@@ -60,7 +60,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
     // border: '#fff9', // < Changed from 7 to 9.. what do you think Sam?
     border: '#000a'
   }
-  if (selected_theme.includes('dark')) {
+  if (theme.dark) {
     darkBG = theme.page_content.bg;
     level_colors.border = "#fffa"
   }

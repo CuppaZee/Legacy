@@ -1,27 +1,23 @@
 export default {
-  name: "White",
+  name: "Purple",
   error: {
     bg: '#ffaaaa',
     fg: '#000000'
   },
-  clanCardHeader: {
-    bg: "#232323",
+  navigation: {
+    bg: "#440169",
     fg: "#ffffff"
   },
-  navigation: {
-    bg: "#ffffff",
-    fg: "#000000"
-  },
   navigation_selected: {
-    bg: "#d3d3d3",
-    fg: "#000000"
+    bg: "#600578",
+    fg: "#ffffff"
   },
   page: {
-    bg: "#eeeeee",
+    bg: "#c68ac4",
     fg: "#000000"
   },
   page_content: {
-    bg: "#ffffff",
+    bg: "#dcb8db",
     fg: "#000000"
   },
   activity: {

@@ -41,10 +41,10 @@ export default function UserActivityDash({user_id}) {
   return (
     <Card noPad>
       <TouchableRipple onPress={()=>nav.navigate('UserActivity',{userid:user_id})}>
-        <View style={{...(theme.page_content.border?{borderBottomWidth:1,borderBottomColor:theme.page_content.border}:{}), backgroundColor:theme.navigation.bg,padding:8, borderTopLeftRadius: 8, borderTopRightRadius: 8, flexDirection:"row", alignItems: "center"}}>
-          <MaterialCommunityIcons style={{marginHorizontal:4}} name="calendar" size={24} color={theme.navigation.fg} />
-          <Text allowFontScaling={false} style={{paddingLeft: 4, ...font("bold"),fontSize:16,flex:1,color:theme.navigation.fg}}>Activity</Text>
-          <MaterialCommunityIcons name="chevron-right" size={24} color={theme.navigation.fg} />
+        <View style={{...(theme.page_content.border?{borderBottomWidth:1,borderBottomColor:theme.page_content.border}:{}), backgroundColor:(theme.clanCardHeader||theme.navigation).bg,padding:8, borderTopLeftRadius: 8, borderTopRightRadius: 8, flexDirection:"row", alignItems: "center"}}>
+          <MaterialCommunityIcons style={{marginHorizontal:4}} name="calendar" size={24} color={(theme.clanCardHeader||theme.navigation).fg} />
+          <Text allowFontScaling={false} style={{paddingLeft: 4, ...font("bold"),fontSize:16,flex:1,color:(theme.clanCardHeader||theme.navigation).fg}}>Activity</Text>
+          <MaterialCommunityIcons name="chevron-right" size={24} color={(theme.clanCardHeader||theme.navigation).fg} />
         </View>
       </TouchableRipple>
       {data?.captures?

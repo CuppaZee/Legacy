@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, Image, ScrollView } from 'react-native';
+import { Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
 import Card from '~sections/Shared/Card';
 import { useSelector, useDispatch } from 'react-redux';
 import { FAB } from 'react-native-paper';
@@ -30,7 +30,7 @@ export default function ClanScreen({ route }) {
     null: "#e3e3e3",
     border: '#000a'
   }
-  if (selected_theme.includes('dark')) {
+  if (theme.dark) {
     dark = true;
     level_colors.border = "#fffa"
   }
@@ -45,6 +45,9 @@ export default function ClanScreen({ route }) {
     },
     cuppazee: true
   })
+  if(!bouncers) return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
+    <ActivityIndicator size="large" color={theme.page.fg} />
+  </View>
   return (
     <View style={{ flex: 1 }}>
       <ScrollView

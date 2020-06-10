@@ -1,12 +1,14 @@
 import darkMapStyle from './map_dark.json';
+
 export default {
+  name: "Dark Grey",
+  dark: true,
   error: {
-    bg: '#660000',
+    bg: '#aa0000',
     fg: '#ffffff'
   },
   navigation: {
-    // bg: "#232323",
-    bg: "#000000",
+    bg: "#232323",
     fg: "#ffffff"
   },
   navigation_selected: {
@@ -14,12 +16,11 @@ export default {
     fg: "#ffffff"
   },
   page: {
-    // bg: "#121212",
-    bg: "#000000",
+    bg: "#121212",
     fg: "#ffffff"
   },
   page_content: {
-    bg: "#000000",
+    bg: "#232323",
     fg: "#d3d3d3",
     border: "#ffffff"
   },
