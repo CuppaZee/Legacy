@@ -39,6 +39,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.0.tar.gz",
     "react-native-expo-image-cache": "^4.1.0",
     "react-native-gesture-handler": "~1.6.0",
+    "react-native-map-clustering": "^3.3.9",
     "react-native-maps": "0.26.1",
     "react-native-paper": "^3.6.0",
     "react-native-reanimated": "~1.7.0",

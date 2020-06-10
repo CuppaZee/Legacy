@@ -43,6 +43,7 @@ const ToolsScreen = loadable(() => import('./sections/Tools/Home'),{fallback: <L
 const ScannerScreen = loadable(() => import('./sections/Tools/Scanner'),{fallback: <LoadingPage/>})
 const CalendarScreen = loadable(() => import('./sections/Calendar/Page'),{fallback: <LoadingPage/>})
 const BouncersScreen = loadable(() => import('./sections/Tools/Bouncers'),{fallback: <LoadingPage/>})
+const BouncerMapScreen = loadable(() => import('./sections/Tools/BouncerMap'),{fallback: <LoadingPage/>})
 
 // Maps Screens
 const MapScreen = loadable(() => import('./sections/Maps/Home'),{fallback: <LoadingPage/>})
@@ -128,6 +129,10 @@ function StackNav () {
       <Stack.Screen
         name="Bouncers"
         component={BouncersScreen}
+      />
+      <Stack.Screen
+        name="BouncerMap"
+        component={BouncerMapScreen}
       />
       <Stack.Screen
         name="AllClans"
@@ -309,6 +314,12 @@ function App() {
           Calendar: 'calendar',
           Settings: 'settings',
           Info: 'info',
+          BouncerMap: {
+            path: 'bouncers/:type',
+            parse: {
+              type: String
+            }
+          },
           Bouncers: 'bouncers',
           ClanSearch: 'clan/search',
 
