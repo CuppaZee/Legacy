@@ -6,7 +6,8 @@ module.exports = [
     "state": "bouncer",
     "base": "tuli",
     "stage": 1,
-    "lands_on": ["treehouse","munzee","firemystery"]
+    "lands_on": ["treehouse","munzee","firemystery"],
+    "set": "season_1"
   },
   {
     "name": "Tulimber",
@@ -15,7 +16,8 @@ module.exports = [
     "state": "bouncer",
     "base": "tuli",
     "stage": 2,
-    "lands_on": ["treehouse","munzee","firemystery"]
+    "lands_on": ["treehouse","munzee","firemystery"],
+    "set": "season_1"
   },
   {
     "name": "Tuliferno",
@@ -24,7 +26,8 @@ module.exports = [
     "state": "bouncer",
     "base": "tuli",
     "stage": 3,
-    "lands_on": ["treehouse","munzee","firemystery"]
+    "lands_on": ["treehouse","munzee","firemystery"],
+    "set": "season_1"
   },
   {
     "name": "Vesi",
@@ -33,7 +36,8 @@ module.exports = [
     "state": "bouncer",
     "base": "vesi",
     "stage": 1,
-    "lands_on": ["treehouse","munzee","watermystery"]
+    "lands_on": ["treehouse","munzee","watermystery"],
+    "set": "season_1"
   },
   {
     "name": "Vesial",
@@ -42,7 +46,8 @@ module.exports = [
     "state": "bouncer",
     "base": "vesi",
     "stage": 2,
-    "lands_on": ["treehouse","munzee","watermystery"]
+    "lands_on": ["treehouse","munzee","watermystery"],
+    "set": "season_1"
   },
   {
     "name": "Vesisaur",
@@ -51,7 +56,8 @@ module.exports = [
     "state": "bouncer",
     "base": "vesi",
     "stage": 3,
-    "lands_on": ["treehouse","munzee","watermystery"]
+    "lands_on": ["treehouse","munzee","watermystery"],
+    "set": "season_1"
   },
   {
     "name": "Water Pouch Creature Host",
@@ -67,7 +73,8 @@ module.exports = [
     "state": "bouncer",
     "base": "muru",
     "stage": 1,
-    "lands_on": ["treehouse","munzee","earthmystery"]
+    "lands_on": ["treehouse","munzee","earthmystery"],
+    "set": "season_1"
   },
   {
     "name": "Muruchi",
@@ -76,7 +83,8 @@ module.exports = [
     "state": "bouncer",
     "base": "muru",
     "stage": 2,
-    "lands_on": ["treehouse","munzee","earthmystery"]
+    "lands_on": ["treehouse","munzee","earthmystery"],
+    "set": "season_1"
   },
   {
     "name": "Murutain",
@@ -85,7 +93,8 @@ module.exports = [
     "state": "bouncer",
     "base": "muru",
     "stage": 3,
-    "lands_on": ["treehouse","munzee","earthmystery"]
+    "lands_on": ["treehouse","munzee","earthmystery"],
+    "set": "season_1"
   },
   {
     "name": "Earth Pouch Creature Host",
@@ -100,7 +109,8 @@ module.exports = [
     "id": 1752,
     "state": "bouncer",
     "base": "mitmegu",
-    "lands_on": ["treehouse","munzee","shamrock","scatter","premium","rockpaperscissors","watermystery","earthmystery","firemystery"]
+    "lands_on": ["treehouse","munzee","shamrock","scatter","premium","rockpaperscissors","watermystery","earthmystery","firemystery"],
+    "set": "season_1"
   },
   {
     "name": "Jootmegu",
@@ -108,7 +118,8 @@ module.exports = [
     "id": 1753,
     "state": "bouncer",
     "base": "mitmegu",
-    "lands_on": ["watermystery"]
+    "lands_on": ["watermystery"],
+    "set": "season_1"
   },
   {
     "name": "Rohimegu",
@@ -116,7 +127,8 @@ module.exports = [
     "id": 1754,
     "state": "bouncer",
     "base": "mitmegu",
-    "lands_on": ["earthmystery"]
+    "lands_on": ["earthmystery"],
+    "set": "season_1"
   },
   {
     "name": "Lokemegu",
@@ -124,7 +136,8 @@ module.exports = [
     "id": 1755,
     "state": "bouncer",
     "base": "mitmegu",
-    "lands_on": ["firemystery"]
+    "lands_on": ["firemystery"],
+    "set": "season_1"
   },
   {
     "name": "Mitmegu Pouch Creature Host",
@@ -141,7 +154,8 @@ module.exports = [
     "base": "muru",
     "gleaming": true,
     "stage": 1,
-    "lands_on": ["treehouse","munzee","earthmystery"]
+    "lands_on": ["treehouse","munzee","earthmystery"],
+    "set": "season_1"
   },
   {
     "name": "Gleaming Muruchi",
@@ -151,7 +165,8 @@ module.exports = [
     "base": "muru",
     "gleaming": true,
     "stage": 2,
-    "lands_on": ["treehouse","munzee","earthmystery"]
+    "lands_on": ["treehouse","munzee","earthmystery"],
+    "set": "season_1"
   },
   {
     "name": "Gleaming Murutain",
@@ -161,7 +176,8 @@ module.exports = [
     "base": "muru",
     "gleaming": true,
     "stage": 3,
-    "lands_on": ["treehouse","munzee","earthmystery"]
+    "lands_on": ["treehouse","munzee","earthmystery"],
+    "set": "season_1"
   },
   {
     "name": "Gleaming Tuli",
@@ -171,7 +187,8 @@ module.exports = [
     "base": "tuli",
     "gleaming": true,
     "stage": 1,
-    "lands_on": ["treehouse","munzee","firemystery"]
+    "lands_on": ["treehouse","munzee","firemystery"],
+    "set": "season_1"
   },
   {
     "name": "Gleaming Tulimber",
@@ -181,7 +198,8 @@ module.exports = [
     "base": "tuli",
     "gleaming": true,
     "stage": 2,
-    "lands_on": ["treehouse","munzee","firemystery"]
+    "lands_on": ["treehouse","munzee","firemystery"],
+    "set": "season_1"
   },
   {
     "name": "Gleaming Tuliferno",
@@ -191,7 +209,8 @@ module.exports = [
     "base": "tuli",
     "gleaming": true,
     "stage": 3,
-    "lands_on": ["treehouse","munzee","firemystery"]
+    "lands_on": ["treehouse","munzee","firemystery"],
+    "set": "season_1"
   },
   {
     "name": "Gleaming Vesi",
@@ -201,7 +220,8 @@ module.exports = [
     "base": "vesi",
     "gleaming": true,
     "stage": 1,
-    "lands_on": ["treehouse","munzee","watermystery"]
+    "lands_on": ["treehouse","munzee","watermystery"],
+    "set": "season_1"
   },
   {
     "name": "Gleaming Vesial",
@@ -211,7 +231,8 @@ module.exports = [
     "base": "vesi",
     "gleaming": true,
     "stage": 2,
-    "lands_on": ["treehouse","munzee","watermystery"]
+    "lands_on": ["treehouse","munzee","watermystery"],
+    "set": "season_1"
   },
   {
     "name": "Gleaming Vesisaur",
@@ -221,14 +242,16 @@ module.exports = [
     "base": "vesi",
     "gleaming": true,
     "stage": 3,
-    "lands_on": ["treehouse","munzee","watermystery"]
+    "lands_on": ["treehouse","munzee","watermystery"],
+    "set": "season_1"
   },
   {
     "name": "Pimedus",
     "icon": "pimedus",
     "id": 1919,
     "state": "bouncer",
-    "lands_on": ["skyland","treehouse","munzee",":reseller",i=>i.zodiac=="chinese","virtual_sapphire","briefcase","thehammer","crossbow","catapult"]
+    "lands_on": ["skyland","treehouse","munzee",":reseller",i=>i.zodiac=="chinese","virtual_sapphire","briefcase","thehammer","crossbow","catapult"],
+    "set": "season_1"
   },
   {
     "name": "Pimedus Host",
@@ -251,7 +274,8 @@ module.exports = [
     "state": "bouncer",
     "base": "puffle",
     "stage": 1,
-    "lands_on": ["skyland",":virtual","airmystery"]
+    "lands_on": ["skyland",":virtual","airmystery"],
+    "set": "season_2"
   },
   {
     "name": "Pufrain",
@@ -260,7 +284,8 @@ module.exports = [
     "state": "bouncer",
     "base": "puffle",
     "stage": 2,
-    "lands_on": [":virtual","airmystery"]
+    "lands_on": [":virtual","airmystery"],
+    "set": "season_2"
   },
   {
     "name": "Puflawn",
@@ -269,7 +294,8 @@ module.exports = [
     "state": "bouncer",
     "base": "puffle",
     "stage": 3,
-    "lands_on": [":virtual","airmystery"]
+    "lands_on": [":virtual","airmystery"],
+    "set": "season_2"
   },
   {
     "name": "Air Pouch Creature Host",
@@ -283,7 +309,8 @@ module.exports = [
     "icon": "magnetus",
     "id": 2306,
     "state": "bouncer",
-    "lands_on": ["skyland","treehouse","munzee","airmystery",i=>(i.virtual_colors||[]).includes("blue"),i=>(i.virtual_colors||[]).includes("red"),"watermystery","joystickvirtual","joystick","virtual_yellow","virtual_goldenrod","virtual_dandelion"]
+    "lands_on": ["skyland","treehouse","munzee","airmystery",i=>(i.virtual_colors||[]).includes("blue"),i=>(i.virtual_colors||[]).includes("red"),"watermystery","joystickvirtual","joystick","virtual_yellow","virtual_goldenrod","virtual_dandelion"],
+    "set": "season_2"
   },
   {
     "name": "Topaas",
@@ -291,7 +318,8 @@ module.exports = [
     "id": 2366,
     "state": "bouncer",
     "funfinity": true,
-    "lands_on": ["treehouse","munzee","earthmystery","topaz","treehouse"]
+    "lands_on": ["treehouse","munzee","earthmystery","topaz","treehouse"],
+    "set": "funfinity"
   },
   {
     "name": "Ametust",
@@ -299,7 +327,8 @@ module.exports = [
     "id": 2367,
     "state": "bouncer",
     "funfinity": true,
-    "lands_on": ["skyland",":virtual","earthmystery","virtual_amethyst","treehouse"]
+    "lands_on": ["skyland",":virtual","earthmystery","virtual_amethyst","treehouse"],
+    "set": "funfinity"
   },
   {
     "name": "Oniks",
@@ -307,7 +336,8 @@ module.exports = [
     "id": 2368,
     "state": "bouncer",
     "funfinity": true,
-    "lands_on": ["skyland",":virtual","earthmystery","virtual_onyx","treehouse"]
+    "lands_on": ["skyland",":virtual","earthmystery","virtual_onyx","treehouse"],
+    "set": "funfinity"
   },
   {
     "name": "Elekter",
@@ -316,7 +346,8 @@ module.exports = [
     "state": "bouncer",
     "base": "elekter",
     "stage": 1,
-    "lands_on": ["skyland",":virtual","electricmystery"]
+    "lands_on": ["skyland",":virtual","electricmystery"],
+    "set": "season_2"
   },
   {
     "name": "Elekjoud",
@@ -325,7 +356,8 @@ module.exports = [
     "state": "bouncer",
     "base": "elekter",
     "stage": 2,
-    "lands_on": ["skyland",":virtual","electricmystery"]
+    "lands_on": ["skyland",":virtual","electricmystery"],
+    "set": "season_2"
   },
   {
     "name": "Elektrivool",
@@ -334,7 +366,8 @@ module.exports = [
     "state": "bouncer",
     "base": "elekter",
     "stage": 3,
-    "lands_on": ["skyland",":virtual","electricmystery"]
+    "lands_on": ["skyland",":virtual","electricmystery"],
+    "set": "season_2"
   },
   {
     "name": "Teemant",
@@ -342,7 +375,8 @@ module.exports = [
     "id": 2369,
     "state": "bouncer",
     "funfinity": true,
-    "lands_on": ["treehouse","munzee","earthmystery","diamond"]
+    "lands_on": ["treehouse","munzee","earthmystery","diamond"],
+    "set": "funfinity"
   },
   {
     "name": "Smaragd",
@@ -350,6 +384,7 @@ module.exports = [
     "id": 2370,
     "state": "bouncer",
     "funfinity": true,
-    "lands_on": ["skyland",i=>(i.virtual_colors||[]).includes("green"),"airmystery","virtual_emerald"]
+    "lands_on": ["skyland",i=>(i.virtual_colors||[]).includes("green"),"airmystery","virtual_emerald"],
+    "set": "funfinity"
   }
 ]

@@ -603,7 +603,7 @@ munzees = munzees.concat(require('./types/pouch').map(i => ({
       },
 
       state: "bouncer",
-      category: "pouch"
+      category: "pouch_"+i.set
     }),
 
   completion: "complete",
@@ -611,9 +611,21 @@ munzees = munzees.concat(require('./types/pouch').map(i => ({
   from_file: "./types/pouch.js"
 })))
 categories.push({
-  name: "Pouch Creatures",
-  id: "pouch",
-  icon: "oniks",
+  name: "Season 1 Creatures",
+  id: "pouch_season_1",
+  icon: "muru",
+  parents: ["bouncer"]
+})
+categories.push({
+  name: "Season 2 Creatures",
+  id: "pouch_season_2",
+  icon: "elekter",
+  parents: ["bouncer"]
+})
+categories.push({
+  name: "Funfinity Creatures",
+  id: "pouch_funfinity",
+  icon: "smaragd",
   parents: ["bouncer"]
 })
 

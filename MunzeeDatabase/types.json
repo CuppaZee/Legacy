@@ -19127,7 +19127,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "tuli"
   },
@@ -19147,7 +19147,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "tulimber"
   },
@@ -19167,7 +19167,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "tuliferno"
   },
@@ -20217,7 +20217,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "vesi"
   },
@@ -20237,7 +20237,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "vesial"
   },
@@ -20257,7 +20257,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "vesisaur"
   },
@@ -22029,7 +22029,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "muru"
   },
@@ -22049,7 +22049,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "muruchi"
   },
@@ -22069,7 +22069,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "murutain"
   },
@@ -22811,7 +22811,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "mitmegu"
   },
@@ -22828,7 +22828,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "jootmegu"
   },
@@ -22845,7 +22845,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "rohimegu"
   },
@@ -22862,7 +22862,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "lokemegu"
   },
@@ -23483,7 +23483,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "gleamingmuru"
   },
@@ -23504,7 +23504,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "gleamingmuruchi"
   },
@@ -23525,7 +23525,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "gleamingmurutain"
   },
@@ -23546,7 +23546,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "gleamingtuli"
   },
@@ -23567,7 +23567,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "gleamingtulimber"
   },
@@ -23588,7 +23588,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "gleamingtuliferno"
   },
@@ -23609,7 +23609,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "gleamingvesi"
   },
@@ -23630,7 +23630,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "gleamingvesial"
   },
@@ -23651,7 +23651,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "gleamingvesisaur"
   },
@@ -24096,7 +24096,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_1",
     "completion": "complete",
     "cid": "pimedus"
   },
@@ -28214,7 +28214,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_2",
     "completion": "complete",
     "cid": "puffle"
   },
@@ -28294,7 +28294,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_2",
     "completion": "complete",
     "cid": "pufrain"
   },
@@ -28374,7 +28374,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_2",
     "completion": "complete",
     "cid": "puflawn"
   },
@@ -28785,7 +28785,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_2",
     "completion": "complete",
     "cid": "magnetus"
   },
@@ -29326,7 +29326,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_funfinity",
     "completion": "complete",
     "cid": "topaas"
   },
@@ -29408,7 +29408,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_funfinity",
     "completion": "complete",
     "cid": "ametust"
   },
@@ -29490,7 +29490,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_funfinity",
     "completion": "complete",
     "cid": "oniks"
   },
@@ -29510,7 +29510,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_funfinity",
     "completion": "complete",
     "cid": "teemant"
   },
@@ -29538,7 +29538,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_funfinity",
     "completion": "complete",
     "cid": "smaragd"
   },
@@ -29744,7 +29744,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_2",
     "completion": "complete",
     "cid": "elekter"
   },
@@ -29825,7 +29825,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_2",
     "completion": "complete",
     "cid": "elekjoud"
   },
@@ -29906,7 +29906,7 @@
       ]
     },
     "state": "bouncer",
-    "category": "pouch",
+    "category": "pouch_season_2",
     "completion": "complete",
     "cid": "elektrivool"
   },
