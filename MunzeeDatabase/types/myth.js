@@ -437,14 +437,14 @@ module.exports = [
   {
     "name": "Poseidon",
     "icon": "poseidon",
-    "id": "null_poseidon",
+    "id": 2524,
     "state": "bouncer",
     "type": "modern",
     "lands_on": ["skyland","treehouse","munzee","watermystery",i=>(i.virtual_colors||[]).includes("blue"),"aquamarine"],
     "extra": {
       "scatters": {
         "radius": 1000,
-        "types": ["null_trident","null_lifebuoy"],
+        "types": [2527,2528],
         "min": 3,
         "max": 3
       }

@@ -273,7 +273,7 @@
   {
     "name": "Trident",
     "icon": "trident",
-    "id": "null_trident",
+    "id": 2527,
     "state": "virtual",
     "scatter": {
       "duration": 2,
@@ -283,7 +283,7 @@
   {
     "name": "Lifebuoy",
     "icon": "lifebuoy",
-    "id": "null_lifebuoy",
+    "id": 2528,
     "state": "virtual",
     "scatter": {
       "duration": 2,
