@@ -59,7 +59,9 @@ const UserInventoryScreen = loadable(() => import('./sections/User/Inventory/Pag
 const UserClanScreen = loadable(() => import('./sections/User/Clan/Page'),{fallback: <LoadingPage/>})
 const UserQuestScreen = loadable(() => import('./sections/User/Quest'),{fallback: <LoadingPage/>})
 const UserBouncersScreen = loadable(() => import('./sections/User/Bouncers'),{fallback: <LoadingPage/>})
-const UserSHCScreen = loadable(() => import('./sections/User/SpecialHunterChallenge'),{fallback: <LoadingPage/>})
+const UserSHCScreen = loadable(() => import('./sections/User/SpecialHunterChallenge/Classic'),{fallback: <LoadingPage/>})
+const UserSHCLiteScreen = loadable(() => import('./sections/User/SpecialHunterChallenge/Lite'),{fallback: <LoadingPage/>})
+const UserSHCProScreen = loadable(() => import('./sections/User/SpecialHunterChallenge/Pro'),{fallback: <LoadingPage/>})
 const UserCapturesCategoryScreen = loadable(() => import('./sections/User/CapturesCategory'),{fallback: <LoadingPage/>})
 
 // Navigation Sections
@@ -233,6 +235,34 @@ function StackNav () {
         component={UserCapturesCategoryScreen}
       />
       <Stack.Screen
+        name="UserSHCPro"
+        options={{
+          title: 'User SHC Pro',
+        }}
+        component={UserSHCProScreen}
+      />
+      <Stack.Screen
+        name="UserSHCProDate"
+        options={{
+          title: 'User SHC Pro',
+        }}
+        component={UserSHCProScreen}
+      />
+      <Stack.Screen
+        name="UserSHCLite"
+        options={{
+          title: 'User SHC Lite',
+        }}
+        component={UserSHCLiteScreen}
+      />
+      <Stack.Screen
+        name="UserSHCLiteDate"
+        options={{
+          title: 'User SHC Lite',
+        }}
+        component={UserSHCLiteScreen}
+      />
+      <Stack.Screen
         name="UserSHC"
         options={{
           title: 'User Special Hunter Challenge',
@@ -390,6 +420,32 @@ function App() {
           },
           UserBouncers: {
             path: 'user/:userid/bouncers',
+            parse: {
+              userid: Number
+            }
+          },
+          UserSHCProDate: {
+            path: 'user/:userid/shcpro/:date',
+            parse: {
+              userid: Number,
+              date: String
+            }
+          },
+          UserSHCPro: {
+            path: 'user/:userid/shcpro',
+            parse: {
+              userid: Number
+            }
+          },
+          UserSHCLiteDate: {
+            path: 'user/:userid/shclite/:date',
+            parse: {
+              userid: Number,
+              date: String
+            }
+          },
+          UserSHCLite: {
+            path: 'user/:userid/shclite',
             parse: {
               userid: Number
             }

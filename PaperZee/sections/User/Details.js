@@ -110,6 +110,35 @@ export default function DetailsScreen({ route }) {
             </TouchableRipple>)}
           </Card>
         </View>
+        <View style={{ padding: 4 }}>
+          <Card noPad>
+            <View style={{ padding: 8, borderTopLeftRadius: 8, borderTopRightRadius: 8, flexDirection: "row", alignItems: "center", backgroundColor: (theme.clanCardHeader||theme.navigation).bg }}>
+              <MaterialCommunityIcons style={{marginHorizontal:4}} name="star" size={24} color={(theme.clanCardHeader||theme.navigation).fg} />
+              <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: (theme.clanCardHeader||theme.navigation).fg }}>{t('user:special_hunter_challenge')}</Text>
+            </View>
+            <TouchableRipple onPress={() => nav.navigate('UserSHCLite', { userid: user_id })}>
+              <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
+                <MaterialCommunityIcons style={{marginHorizontal:4}} name="star-half" size={24} color={theme.page_content.fg} />
+                <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Lite</Text>
+                <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
+              </View>
+            </TouchableRipple>
+            <TouchableRipple onPress={() => nav.navigate('UserSHCPro', { userid: user_id })}>
+              <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
+                <MaterialCommunityIcons style={{marginHorizontal:4}} name="star" size={24} color={theme.page_content.fg} />
+                <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Pro</Text>
+                <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
+              </View>
+            </TouchableRipple>
+            <TouchableRipple onPress={() => nav.navigate('UserSHC', { userid: user_id })}>
+              <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
+                <MaterialCommunityIcons style={{marginHorizontal:4}} name="star-face" size={24} color={theme.page_content.fg} />
+                <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Classic</Text>
+                <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
+              </View>
+            </TouchableRipple>
+          </Card>
+        </View>
       </ScrollView>
       <FAB.Group
         open={FABOpen}
