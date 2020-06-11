@@ -171,9 +171,9 @@ module.exports = [
   },
   {
     "name": "Trojan Unicorn",
-    "icon": "trojan_unicorn",
-    "id": "null_trojan_unicorn",
+    "icon": "trojanunicorn",
+    "id": "null_trojanunicorn",
     "state": "bouncer",
-    "lands_on": ["Mace","Longsword","Battle Axe","Hammer","Crossbow","Catapult"]
+    "lands_on": ["mace","longsword","battleaxe","thehammer","crossbow","catapult"]
   }
 ]
