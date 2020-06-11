@@ -196,8 +196,7 @@
     "icon": "poseidon",
     "parents": [
       "bouncer"
-    ],
-    "hidden": true
+    ]
   },
   {
     "name": "Places of Interest",

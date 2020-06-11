@@ -395,8 +395,7 @@ categories.push({
   name: "Modern Myths",
   id: "myth_modern",
   icon: "poseidon",
-  parents: ["bouncer"],
-  hidden: true
+  parents: ["bouncer"]
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}POIs${colors.Reset} from ${colors.fg.Green}./types/poi.json${colors.Reset}`)

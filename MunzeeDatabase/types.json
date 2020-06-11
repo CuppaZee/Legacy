@@ -1299,6 +1299,7 @@
       1995,
       2254,
       2477,
+      "null_poseidon",
       822,
       1541,
       1543,
@@ -7066,6 +7067,7 @@
     "can_host": [
       1100,
       1996,
+      "null_poseidon",
       297,
       2240,
       2241,
@@ -7141,6 +7143,7 @@
     "can_host": [
       1100,
       1996,
+      "null_poseidon",
       297,
       2240,
       2241,
@@ -7216,6 +7219,7 @@
     "can_host": [
       1100,
       1996,
+      "null_poseidon",
       297,
       2240,
       2241,
@@ -7291,6 +7295,7 @@
     "can_host": [
       1100,
       1996,
+      "null_poseidon",
       297,
       2240,
       2241,
@@ -7366,6 +7371,7 @@
     "can_host": [
       1100,
       1996,
+      "null_poseidon",
       297,
       2240,
       2241,
@@ -7441,6 +7447,7 @@
     "can_host": [
       1100,
       1996,
+      "null_poseidon",
       297,
       2240,
       2241,
@@ -7516,6 +7523,7 @@
     "can_host": [
       1100,
       1996,
+      "null_poseidon",
       297,
       2240,
       2241,
@@ -7591,6 +7599,7 @@
     "can_host": [
       1100,
       1996,
+      "null_poseidon",
       297,
       2240,
       2241,
@@ -7666,6 +7675,7 @@
     "can_host": [
       1100,
       1996,
+      "null_poseidon",
       297,
       2240,
       2241,
@@ -7741,6 +7751,7 @@
     "can_host": [
       1100,
       1996,
+      "null_poseidon",
       297,
       2240,
       2241,
@@ -7816,6 +7827,7 @@
     "can_host": [
       1100,
       1996,
+      "null_poseidon",
       297,
       2240,
       2241,
@@ -13569,14 +13581,25 @@
         2426,
         2145,
         0,
-        1020
+        1020,
+        1420,
+        1421,
+        1423,
+        1424,
+        1425,
+        1426,
+        1427,
+        1428,
+        1429,
+        1430,
+        1431,
+        218
       ]
     },
     "myth_set": "modern",
     "state": "bouncer",
     "category": "myth_modern",
     "completion": "complete",
-    "hidden": true,
     "cid": "poseidon"
   },
   {
@@ -26386,7 +26409,6 @@
     "state": "virtual",
     "category": "scatter",
     "completion": "complete",
-    "hidden": true,
     "cid": "trident"
   },
   {
@@ -26400,7 +26422,6 @@
     "state": "virtual",
     "category": "scatter",
     "completion": "complete",
-    "hidden": true,
     "cid": "lifebuoy"
   },
   {

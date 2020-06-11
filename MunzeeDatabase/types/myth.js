@@ -440,7 +440,7 @@ module.exports = [
     "id": "null_poseidon",
     "state": "bouncer",
     "type": "modern",
-    "lands_on": ["skyland","treehouse","munzee","watermystery"],
+    "lands_on": ["skyland","treehouse","munzee","watermystery",i=>(i.virtual_colors||[]).includes("blue"),"aquamarine"],
     "extra": {
       "scatters": {
         "radius": 1000,
@@ -448,7 +448,6 @@ module.exports = [
         "min": 3,
         "max": 3
       }
-    },
-    "hidden": true
+    }
   }
 ]
