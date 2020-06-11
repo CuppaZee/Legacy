@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, Image, ScrollView, TouchableHighlight } from 'react-native';
-import { ActivityIndicator, FAB, Menu, TouchableRipple } from 'react-native-paper';
+import { ActivityIndicator, FAB, Menu, TouchableRipple, IconButton } from 'react-native-paper';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -8,6 +8,8 @@ import types from '~sections/DB/types.json';
 import useAPIRequest from '~sections/Shared/useAPIRequest';
 import font from '~sections/Shared/font';
 import Card from '~sections/Shared/Card';
+import DatePicker from '~sections/Shared/DatePicker';
+import moment from 'moment';
 
 function g(a) {
   return types.find(i => i.cid == f((a.pin || a.icon || a.pin_icon).slice(49, -4)))
@@ -23,7 +25,7 @@ function UserIcon({ user_id, size }) {
   return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size - 24) / 2, marginTop: -(size - 24) / 2, height: size, width: size }} />
 }
 
-function SHCItem({ i }) {
+function SHCItem({ i, m }) {
   var theme = useSelector(i => i.themes[i.theme]);
   var [open, setOpen] = React.useState(false);
   return <Menu
@@ -31,8 +33,9 @@ function SHCItem({ i }) {
     onDismiss={() => setOpen(false)}
     anchor={
       <TouchableRipple onPress={() => setOpen(true)}>
-        <View key={i.icon} style={{ padding: 2, alignItems: "center" }}>
+        <View key={i.icon} style={{ padding: 2, alignItems: "center", position: "relative" }}>
           <Image style={{ height: 32, width: 32 }} source={{ uri: i.pin }} />
+          {m&&<Image style={{ height: 20, width: 20, position: "absolute", bottom: 0, right: -4 }} source={{ uri: m.pin }} />}
         </View>
       </TouchableRipple>
     }
@@ -48,6 +51,7 @@ function SHCItem({ i }) {
 
 export default function UserSHCScreen() {
   var [FABOpen, setFABOpen] = React.useState(false);
+  var [datePickerOpen, setDatePickerOpen] = React.useState(false);
   var logins = useSelector(i => i.logins)
   var nav = useNavigation();
   var { t } = useTranslation();
@@ -101,8 +105,40 @@ export default function UserSHCScreen() {
     </View>
   )
   return <View style={{ flex: 1, backgroundColor: theme.page.bg }}>
-    <ScrollView style={{ flex: 1 }}>
-      <View style={{ flexDirection: "row", padding: 8, flexWrap: "wrap", justifyContent: "center" }}>
+    <ScrollView style={{ flex: 1 }} contentContainerStyle={{padding:8}}>
+      <View style={{ padding: 4, width: 400, maxWidth: "100%", alignSelf: "center" }}>
+        <Card cardStyle={{ backgroundColor: (theme.clanCardHeader || theme.navigation).bg }} noPad>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Menu
+              visible={datePickerOpen}
+              onDismiss={() => setDatePickerOpen(false)}
+              anchor={
+                <IconButton icon="calendar" color={(theme.clanCardHeader || theme.navigation).fg} onPress={() => setDatePickerOpen(true)} />
+              }
+              contentStyle={{ padding: 0, backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border ? 1 : 0, borderColor: theme.page_content.border }}
+            >
+              <DatePicker noWrap value={moment({
+                year: Number(dateString.split('-')[0]),
+                month: Number(dateString.split('-')[1]) - 1,
+                date: Number(dateString.split('-')[2]),
+              })} onChange={(date) => {
+                nav.pop();
+                nav.push('UserSHCLiteDate', {
+                  userid: user_id,
+                  date: `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
+                })
+              }} />
+            </Menu>
+
+            <Text allowFontScaling={false} style={{ flex: 1, ...font("bold"), fontSize: 16, color: (theme.clanCardHeader || theme.navigation).fg }}>{moment({
+              year: Number(dateString.split('-')[0]),
+              month: Number(dateString.split('-')[1]) - 1,
+              date: Number(dateString.split('-')[2]),
+            }).format('L')}</Text>
+          </View>
+        </Card>
+      </View>
+      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
         {categories.map(i => <View style={{ padding: 4, width: 400, maxWidth: "100%" }}>
           <Card noPad>
             <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
@@ -112,7 +148,7 @@ export default function UserSHCScreen() {
               <View style={{ paddingRight: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
                 <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{data.captures.filter(x => i.function(g(x))).length}x {i?.name}</Text>
                 <View style={{ flexDirection: "row", alignItems: "center", flexWrap: "wrap" }}>
-                  {data.captures.filter(x => i.function(g(x))).map(x => <SHCItem i={x} />)}
+                  {data.captures.filter(x => i.function(g(x))).map(x => <SHCItem i={x} m={data.captures.find(z=>z.captured_at==x.captured_at&&g(z)?.destination?.type=="bouncer")} />)}
                 </View>
               </View>
               <View style={{ alignSelf: "stretch", borderTopRightRadius: 8, borderBottomRightRadius: 8, borderLeftWidth: dark ? 2 : 0, borderLeftColor: dark ? level_colors[data.captures.filter(x => i.function(g(x))).length > 0 ? 5 : 0] : undefined, backgroundColor: dark ? undefined : level_colors[data.captures.filter(x => i.function(g(x))).length > 0 ? 5 : 0], width: 50, alignItems: "center", justifyContent: "center" }}>
