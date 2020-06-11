@@ -5,7 +5,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import useAPIRequest from '~sections/Shared/useAPIRequest';
-import MunzeeTypes from '~sections/DB/types.json';
+import MunzeeTypes from '~sections/DB/types';
 import font from '~sections/Shared/font';
 
 var count = (array, t) => {
@@ -70,7 +70,7 @@ function OverviewItem({i}) {
         <Image style={{ height: 48, width: 48 }} source={{ uri: i[0] }} />
         {hostIcon(i[0])&&<Image style={{ height: 36, width: 36, position: "absolute", right: -7.5, bottom: -7.5 }} source={{ uri: hostIcon(i[0]) }} />}
       </View>
-      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].total}x {(MunzeeTypes.find(x=>x.cid==g(i[0].slice(49,-4)))||{name:i[0].slice(49,-4)}).name}</Text>
+      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].total}x {(MunzeeTypes[g(i[0].slice(49,-4))]||{name:i[0].slice(49,-4)}).name}</Text>
       <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].points} Points</Text>
       <Button
         mode="contained"

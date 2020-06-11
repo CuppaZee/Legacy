@@ -45,7 +45,6 @@ export default function AuthScreen () {
   React.useEffect(() => {
     if (response) {
       (async function() {
-        console.log('Response',response);
         if(!response.params || !response.params.teaken) return setLoading(false);
         var x = {};
         x[response.params.user_id] = {

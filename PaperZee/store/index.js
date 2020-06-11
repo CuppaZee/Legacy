@@ -2,6 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import r from './request';
 import { AsyncStorage } from 'react-native';
+import stringify from 'fast-json-stable-stringify';
 import themes from '../themes'
 var {makeRequest} = r;
 const defaultState = {
@@ -42,15 +43,15 @@ var tick = () => ({ type: "TICK" })
 var removeLogin = (user_id) => async (dispatch, getState) => {
   var x = {...getState().logins};
   delete x[user_id]
-  await AsyncStorage.setItem('CUPPAZEE_TEAKENS',JSON.stringify(x));
+  await AsyncStorage.setItem('CUPPAZEE_TEAKENS',stringify(x));
   dispatch(replaceLogin_(x));
 }
 var login = (data,noUpdate) => async (dispatch, getState) => {
-  if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_TEAKENS',JSON.stringify({...getState().logins,...data}));
+  if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_TEAKENS',stringify({...getState().logins,...data}));
   dispatch(login_(data));
 }
 var clanBookmarks = (data,noUpdate) => async (dispatch, getState) => {
-  if(!noUpdate) await AsyncStorage.setItem('CLAN_BOOKMARKS',JSON.stringify(data));
+  if(!noUpdate) await AsyncStorage.setItem('CLAN_BOOKMARKS',stringify(data));
   dispatch(clanBookmarks_(data));
 }
 var setCode = (data,noUpdate) => async (dispatch, getState) => {
@@ -62,34 +63,34 @@ var setTheme = (data,noUpdate) => async (dispatch, getState) => {
   dispatch(setTheme_(data));
 }
 var levelSelect = (data,noUpdate) => async (dispatch, getState) => {
-  if(!noUpdate) await AsyncStorage.setItem('LEVEL_SELECT',JSON.stringify({...getState().clanLevelSelect,...data}));
+  if(!noUpdate) await AsyncStorage.setItem('LEVEL_SELECT',stringify({...getState().clanLevelSelect,...data}));
   dispatch(levelSelect_(data));
 }
 
 var rootReducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_REQUEST':
-      if(state.requests.find(i=>i.page==JSON.stringify(action.page))) {
+      if(state.requests.find(i=>i.page==stringify(action.page))) {
         return {
           ...state,
-          requests: state.requests.map(i=>i.page==JSON.stringify(action.page)?{...i,count:i.count+1}:i)
+          requests: state.requests.map(i=>i.page==stringify(action.page)?{...i,count:i.count+1}:i)
         }
       } else {
         return {
           ...state,
-          requests: [...state.requests, {page:JSON.stringify(action.page),count:1,expires:Date.now()+(15*60000)}]
+          requests: [...state.requests, {page:stringify(action.page),count:1,expires:Date.now()+(15*60000)}]
         }
       }
     case 'REMOVE_REQUEST':
-      if(state.requests.find(i=>i.page==JSON.stringify(action.page)).count>0) {
+      if(state.requests.find(i=>i.page==stringify(action.page)).count>0) {
         return {
           ...state,
-          requests: state.requests.map(i=>i.page==JSON.stringify(action.page)?{...i,count:i.count-1}:i)
+          requests: state.requests.map(i=>i.page==stringify(action.page)?{...i,count:i.count-1}:i)
         }
       } else {
         return {
           ...state,
-          requests: state.requests.filter(i=>i.page!=JSON.stringify(action.page))
+          requests: state.requests.filter(i=>i.page!=stringify(action.page))
         }
       }
     case 'LOADING':
@@ -176,7 +177,6 @@ async function getToken(user_id,data) {
 AsyncStorage.getItem('CUPPAZEE_TEAKENS').then(async (dat)=>{
   if(!dat) return store.dispatch(login({},true));
   var data = JSON.parse(dat)
-  console.log(data,dat);
   for(var user in data) {
     data[user] = await getToken(user,data[user]);
   }

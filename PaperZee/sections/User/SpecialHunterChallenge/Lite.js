@@ -4,7 +4,7 @@ import { ActivityIndicator, FAB, Menu, TouchableRipple, IconButton } from 'react
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import types from '~sections/DB/types.json';
+import types from '~sections/DB/types';
 import useAPIRequest from '~sections/Shared/useAPIRequest';
 import font from '~sections/Shared/font';
 import Card from '~sections/Shared/Card';
@@ -12,10 +12,14 @@ import DatePicker from '~sections/Shared/DatePicker';
 import moment from 'moment';
 
 function g(a) {
-  return types.find(i => i.cid == f((a.pin || a.icon || a.pin_icon).slice(49, -4)))
+  return types[f((a.pin || a.icon || a.pin_icon).slice(49, -4))];
 }
 function f(icon) {
   return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g, '').replace(/munzee$/, '');
+}
+
+function s(icon, size = 64) {
+  return icon.replace('https://munzee.global.ssl.fastly.net/images/pins/', `https://server.cuppazee.app/pins/${size}/`)
 }
 // function f(a) {
 //   return a.toString().replace(/_/g, '').replace(/munzee/g, '');
@@ -34,8 +38,8 @@ function SHCItem({ i, m }) {
     anchor={
       <TouchableRipple onPress={() => setOpen(true)}>
         <View key={i.icon} style={{ padding: 2, alignItems: "center", position: "relative" }}>
-          <Image style={{ height: 32, width: 32 }} source={{ uri: i.pin }} />
-          {m&&<Image style={{ height: 20, width: 20, position: "absolute", bottom: 0, right: -4 }} source={{ uri: m.pin }} />}
+          <Image style={{ height: 32, width: 32 }} source={{ uri: s(i.pin) }} />
+          {m && <Image style={{ height: 20, width: 20, position: "absolute", bottom: 0, right: -4 }} source={{ uri: s(m.pin) }} />}
         </View>
       </TouchableRipple>
     }
@@ -58,7 +62,6 @@ export default function UserSHCScreen() {
   var theme = useSelector(i => i.themes[i.theme]);
   var date = new Date(Date.now() - (5 * 60 * 60000));
   var dateString = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${(date.getUTCDate()).toString().padStart(2, '0')}`
-  var navigation = useNavigation();
   var theme = useSelector(i => i.themes[i.theme]);
   var dark = false;
   var level_colors = {
@@ -104,8 +107,25 @@ export default function UserSHCScreen() {
       <ActivityIndicator size="large" color={theme.page.fg} />
     </View>
   )
+  var destinations = data.captures.filter(z => g(z)?.destination?.type == "bouncer")
+  var category_data = {};
+  for (let category of categories) {
+    category_data[category.name] = [];
+  }
+  for (let x of data.captures) {
+    var y = g(x);
+    if(!y?.bouncer && !y?.scatter) continue;
+    for (let category of categories) {
+      if(category.function(y)) {
+        category_data[category.name].push({
+          i: x,
+          m: destinations.find(z => z.captured_at == x.captured_at)
+        })
+      };
+    }
+  }
   return <View style={{ flex: 1, backgroundColor: theme.page.bg }}>
-    <ScrollView style={{ flex: 1 }} contentContainerStyle={{padding:8}}>
+    <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 8 }}>
       <View style={{ padding: 4, width: 400, maxWidth: "100%", alignSelf: "center" }}>
         <Card cardStyle={{ backgroundColor: (theme.clanCardHeader || theme.navigation).bg }} noPad>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -146,13 +166,13 @@ export default function UserSHCScreen() {
                 <Image source={{ uri: `https://server.cuppazee.app/pins/128/${i?.icon}.png` }} style={{ width: 36, height: 36 }} />
               </View>
               <View style={{ paddingRight: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
-                <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{data.captures.filter(x => i.function(g(x))).length}x {i?.name}</Text>
+                <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{category_data[i.name].length}x {i?.name}</Text>
                 <View style={{ flexDirection: "row", alignItems: "center", flexWrap: "wrap" }}>
-                  {data.captures.filter(x => i.function(g(x))).map(x => <SHCItem i={x} m={data.captures.find(z=>z.captured_at==x.captured_at&&g(z)?.destination?.type=="bouncer")} />)}
+                  {category_data[i.name].map(x => <SHCItem i={x.i} m={x.m} />)}
                 </View>
               </View>
-              <View style={{ alignSelf: "stretch", borderTopRightRadius: 8, borderBottomRightRadius: 8, borderLeftWidth: dark ? 2 : 0, borderLeftColor: dark ? level_colors[data.captures.filter(x => i.function(g(x))).length > 0 ? 5 : 0] : undefined, backgroundColor: dark ? undefined : level_colors[data.captures.filter(x => i.function(g(x))).length > 0 ? 5 : 0], width: 50, alignItems: "center", justifyContent: "center" }}>
-                <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 24, ...font("bold") }}>{data.captures.filter(x => i.function(g(x))).length > 0 ? '✔' : ''}</Text>
+              <View style={{ alignSelf: "stretch", borderTopRightRadius: 8, borderBottomRightRadius: 8, borderLeftWidth: dark ? 2 : 0, borderLeftColor: dark ? level_colors[data.captures.filter(x => i.function(g(x))).length > 0 ? 5 : 0] : undefined, backgroundColor: dark ? undefined : level_colors[category_data[i.name].length > 0 ? 5 : 0], width: 50, alignItems: "center", justifyContent: "center" }}>
+                <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 24, ...font("bold") }}>{category_data[i.name].length > 0 ? '✔' : ''}</Text>
               </View>
             </View>
           </Card>

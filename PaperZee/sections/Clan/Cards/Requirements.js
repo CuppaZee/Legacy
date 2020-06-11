@@ -28,7 +28,6 @@ export default function UserActivityDash({ game_id, scale: s = 1 }) {
   }
   if(theme.dark) {
     darkBG = theme.page_content.bg;
-    console.log(darkBG);
     level_colors.border = "#fffa"
   }
   var unformatted_requirements = useAPIRequest({
