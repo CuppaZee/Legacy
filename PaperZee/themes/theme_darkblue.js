@@ -1,24 +1,28 @@
+import darkMapStyle from './map_dark.json';
+
 export default {
   name: "Dark Blue",
+  dark: true,
   error: {
     bg: '#ffaaaa',
     fg: '#000000'
   },
   navigation: {
-    bg: "#010569",
+    bg: "#0f1358",
     fg: "#ffffff"
   },
   navigation_selected: {
-    bg: "#151a7d",
+    bg: "#050043",
     fg: "#ffffff"
   },
   page: {
-    bg: "#9597cd",
-    fg: "#000000"
+    bg: "#050043",
+    fg: "#ffffff"
   },
   page_content: {
-    bg: "#bfc0e1",
-    fg: "#000000"
+    bg: "#0f1358",
+    fg: "#ffffff",
+    border: "#ffffff"
   },
   activity: {
     capture: {
@@ -33,5 +37,6 @@ export default {
       bg: "#ffbcad",
       fg: "#401700"
     }
-  }
+  },
+  mapStyle: darkMapStyle
 };

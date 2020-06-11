@@ -3,5 +3,6 @@ module.exports = [
   require('./inventory'),
   require('./clanprogress'),
   require('./quest'),
-  require('./bouncers')
+  require('./bouncers'),
+  require('./list')
 ]

@@ -56,7 +56,7 @@ export default function ClanScreen({ route }) {
         {!bouncers && <Text allowFontScaling={false} style={{ color: theme.page.fg, ...font() }}>Loading...</Text>}
         {bouncers && <View style={{ padding: 4, height: 400 }}>
           <Card noPad>
-            <MapView markers={bouncers.filter(i => i.bouncer).map(i => ({
+            <MapView tracksViewChanges={true} markers={bouncers.filter(i => i.bouncer).map(i => ({
               lat: Number(i.bouncer.latitude),
               lng: Number(i.bouncer.longitude),
               icon: i.pin_icon.replace('https://munzee.global.ssl.fastly.net/images/pins','https://server.cuppazee.app/pins/64')

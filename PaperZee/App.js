@@ -23,6 +23,9 @@ import { Coiny_400Regular } from '@expo-google-fonts/coiny';
 import LoadingPage from './sections/Shared/LoadingPage';
 import font from './sections/Shared/font';
 
+// Munzee Screens
+const MunzeeDetailsScreen = loadable(() => import('./sections/Munzee/Details'),{fallback: <LoadingPage/>})
+
 // Clan Screens
 const AllClansScreen = loadable(() => import('./sections/Clan/All'),{fallback: <LoadingPage/>})
 const ClanDetailsScreen = loadable(() => import('./sections/Clan/Details'),{fallback: <LoadingPage/>})
@@ -133,6 +136,20 @@ function StackNav () {
       <Stack.Screen
         name="BouncerMap"
         component={BouncerMapScreen}
+      />
+      <Stack.Screen
+        name="MunzeeDetails"
+        options={{
+          title: 'Munzee Details',
+        }}
+        component={MunzeeDetailsScreen}
+      />
+      <Stack.Screen
+        name="MunzeeDetailsID"
+        options={{
+          title: 'Munzee Details',
+        }}
+        component={MunzeeDetailsScreen}
       />
       <Stack.Screen
         name="AllClans"
@@ -418,7 +435,19 @@ function App() {
           },
 
           Auth: 'auth',
-          MunzeeDetails: 'munzee/:url',
+          MunzeeDetails: {
+            path: 'munzee/:username/:code',
+            parse: {
+              username: String,
+              code: Number
+            }
+          },
+          MunzeeDetailsID: {
+            path: 'munzee/:munzeeid',
+            parse: {
+              munzeeid: Number
+            }
+          },
         },
       }
     },
