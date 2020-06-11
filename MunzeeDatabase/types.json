@@ -26317,7 +26317,7 @@
         1473
       ]
     },
-    "state": "physical",
+    "state": "virtual",
     "category": "scatter",
     "completion": "complete",
     "cid": "charge"

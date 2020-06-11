@@ -251,7 +251,7 @@
     "name": "Charge",
     "icon": "charge",
     "id": 2392,
-    "state": "physical",
+    "state": "virtual",
     "scatter": {
       "duration": 2,
       "lands_on": [":virtual"]
