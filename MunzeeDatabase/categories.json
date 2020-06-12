@@ -532,6 +532,7 @@
     "parents": [
       "root"
     ],
-    "priority": -10
+    "priority": -10,
+    "hidden": true
   }
 ]

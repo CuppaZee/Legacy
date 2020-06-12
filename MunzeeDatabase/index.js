@@ -118,7 +118,8 @@ categories.push({
   id: "event",
   icon: "event",
   parents: ["root"],
-  priority: -10
+  priority: -10,
+  hidden: true
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Evolutions${colors.Reset} from ${colors.fg.Green}./types/evolution.json${colors.Reset}`)

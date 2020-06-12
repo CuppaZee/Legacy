@@ -8,8 +8,7 @@ var data = {
       "sidcup",
       "cambridgehannons",
       "benandlou",
-      "vike91",
-      "maattmoo"
+      "vike91"
     ],
     457: [
       "thegenie18",
@@ -27,7 +26,8 @@ var data = {
       "tecmjrb",
       "tzaruba",
       "franca",
-      "pelicanrouge"
+      "pelicanrouge",
+      "maattmoo"
     ],
     1441: [
       "shellie1210",
