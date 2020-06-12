@@ -99,7 +99,7 @@ export default function UserSHCScreen() {
     { icon: 'tuli', name: "Pouch Creature S1", function: i => i?.category == "pouch_season_1" },
     { icon: 'oniks', name: "Pouch Creature S2", function: i => i?.category == "pouch_season_2" || i?.category == "pouch_funfinity" },
     { icon: 'tuxflatrob', name: "Fancy Flat", function: i => i?.bouncer?.type == "flat" },
-    { icon: 'morphobutterfly', name: "Evo Bouncer / tPOB", function: i => i?.bouncer?.type == "tpob" },
+    { icon: 'morphobutterfly', name: "Evo Bouncer / tPOB", function: i => i?.bouncer?.type == "temppob" },
     { icon: 'scattered', name: "Scatter", function: i => i?.scatter },
   ]
   if (!data || !data.captures) return (

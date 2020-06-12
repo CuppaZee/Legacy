@@ -103,7 +103,7 @@ export default function UserSHCScreen() {
     { icon: 'magnetus', name: "Pouch Creature S2", function: i => i?.category == "pouch_season_2" },
     { icon: 'oniks', name: "Funfinity Stone", function: i => i?.category == "pouch_funfinity" },
     { icon: 'tuxflatrob', name: "Fancy Flat", function: i => i?.bouncer?.type == "flat" },
-    { icon: 'morphobutterfly', name: "Evo Bouncer / tPOB", function: i => i?.bouncer?.type == "tpob" },
+    { icon: 'morphobutterfly', name: "Evo Bouncer / tPOB", function: i => i?.bouncer?.type == "temppob" },
     { icon: 'scattered', name: "Physical Scatter", function: i => i?.scatter && i.state == "physical" },
     { icon: 'feather', name: "Virtual Scatter", function: i => i?.scatter && i.state == "virtual" },
   ]
