@@ -228,6 +228,16 @@
     }
   },
   {
+    "name": "Tree",
+    "icon": "tree",
+    "id": "null_tree",
+    "state": "physical",
+    "scatter": {
+      "duration": 1,
+      "lands_on": ["munzee"]
+    }
+  },
+  {
     "name": "Red Apple",
     "icon": "redapple",
     "id": 2404,

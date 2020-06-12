@@ -16,7 +16,7 @@ module.exports = [
     "state": "bouncer",
     "base": "tuli",
     "stage": 2,
-    "lands_on": ["treehouse","munzee","firemystery"],
+    "lands_on": ["munzee","firemystery"],
     "set": "season_1"
   },
   {
@@ -26,7 +26,7 @@ module.exports = [
     "state": "bouncer",
     "base": "tuli",
     "stage": 3,
-    "lands_on": ["treehouse","munzee","firemystery"],
+    "lands_on": ["munzee","firemystery"],
     "set": "season_1"
   },
   {
@@ -46,7 +46,7 @@ module.exports = [
     "state": "bouncer",
     "base": "vesi",
     "stage": 2,
-    "lands_on": ["treehouse","munzee","watermystery"],
+    "lands_on": ["munzee","watermystery"],
     "set": "season_1"
   },
   {
@@ -56,7 +56,7 @@ module.exports = [
     "state": "bouncer",
     "base": "vesi",
     "stage": 3,
-    "lands_on": ["treehouse","munzee","watermystery"],
+    "lands_on": ["munzee","watermystery"],
     "set": "season_1"
   },
   {
@@ -83,7 +83,7 @@ module.exports = [
     "state": "bouncer",
     "base": "muru",
     "stage": 2,
-    "lands_on": ["treehouse","munzee","earthmystery"],
+    "lands_on": ["munzee","earthmystery"],
     "set": "season_1"
   },
   {
@@ -93,7 +93,7 @@ module.exports = [
     "state": "bouncer",
     "base": "muru",
     "stage": 3,
-    "lands_on": ["treehouse","munzee","earthmystery"],
+    "lands_on": ["munzee","earthmystery"],
     "set": "season_1"
   },
   {
@@ -171,7 +171,7 @@ module.exports = [
       "capture_only": true
     },
     "stage": 2,
-    "lands_on": ["treehouse","munzee","earthmystery"],
+    "lands_on": ["munzee","earthmystery"],
     "set": "season_1"
   },
   {
@@ -185,7 +185,7 @@ module.exports = [
       "capture_only": true
     },
     "stage": 3,
-    "lands_on": ["treehouse","munzee","earthmystery"],
+    "lands_on": ["munzee","earthmystery"],
     "set": "season_1"
   },
   {
@@ -213,7 +213,7 @@ module.exports = [
       "capture_only": true
     },
     "stage": 2,
-    "lands_on": ["treehouse","munzee","firemystery"],
+    "lands_on": ["munzee","firemystery"],
     "set": "season_1"
   },
   {
@@ -227,7 +227,7 @@ module.exports = [
       "capture_only": true
     },
     "stage": 3,
-    "lands_on": ["treehouse","munzee","firemystery"],
+    "lands_on": ["munzee","firemystery"],
     "set": "season_1"
   },
   {
@@ -255,7 +255,7 @@ module.exports = [
       "capture_only": true
     },
     "stage": 2,
-    "lands_on": ["treehouse","munzee","watermystery"],
+    "lands_on": ["munzee","watermystery"],
     "set": "season_1"
   },
   {
@@ -269,7 +269,7 @@ module.exports = [
       "capture_only": true
     },
     "stage": 3,
-    "lands_on": ["treehouse","munzee","watermystery"],
+    "lands_on": ["munzee","watermystery"],
     "set": "season_1"
   },
   {
@@ -383,7 +383,7 @@ module.exports = [
     "state": "bouncer",
     "base": "elekter",
     "stage": 2,
-    "lands_on": ["skyland",":virtual","electricmystery"],
+    "lands_on": [":virtual","electricmystery"],
     "set": "season_2"
   },
   {
@@ -393,7 +393,7 @@ module.exports = [
     "state": "bouncer",
     "base": "elekter",
     "stage": 3,
-    "lands_on": ["skyland",":virtual","electricmystery"],
+    "lands_on": [":virtual","electricmystery"],
     "set": "season_2"
   },
   {
