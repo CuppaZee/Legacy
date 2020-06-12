@@ -2,6 +2,8 @@ import * as React from 'react';
 import { NavigationContainer, useLinking, useNavigation } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
+import { enableScreens } from 'react-native-screens';
+enableScreens();
 // import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 import { Provider as ReduxProvider, useSelector, useDispatch } from 'react-redux';
 import s from '~store/index';
@@ -204,13 +206,13 @@ function StackNav () {
         }}
         component={UserActivityScreen}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="UserActivityDate"
         options={{
           title: 'User Activity',
         }}
         component={UserActivityScreen}
-      />
+      /> */}
       <Stack.Screen
         name="UserInventory"
         options={{
@@ -246,13 +248,13 @@ function StackNav () {
         }}
         component={UserSHCProScreen}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="UserSHCProDate"
         options={{
           title: 'User SHC Pro',
         }}
         component={UserSHCProScreen}
-      />
+      /> */}
       <Stack.Screen
         name="UserSHCLite"
         options={{
@@ -260,13 +262,13 @@ function StackNav () {
         }}
         component={UserSHCLiteScreen}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="UserSHCLiteDate"
         options={{
           title: 'User SHC Lite',
         }}
         component={UserSHCLiteScreen}
-      />
+      /> */}
       <Stack.Screen
         name="UserSHC"
         options={{
@@ -393,19 +395,19 @@ function App() {
 
           // User
           UserSearch: 'user/search',
-          UserActivityDate: {
+          UserActivity: {
             path: 'user/:userid/activity/:date',
             parse: {
               userid: Number,
               date: String
             }
           },
-          UserActivity: {
-            path: 'user/:userid/activity',
-            parse: {
-              userid: Number
-            }
-          },
+          // UserActivity: {
+          //   path: 'user/:userid/activity',
+          //   parse: {
+          //     userid: Number
+          //   }
+          // },
           UserInventory: {
             path: 'user/:userid/inventory',
             parse: {
@@ -430,32 +432,32 @@ function App() {
               userid: Number
             }
           },
-          UserSHCProDate: {
+          UserSHCPro: {
             path: 'user/:userid/shcpro/:date',
             parse: {
               userid: Number,
               date: String
             }
           },
-          UserSHCPro: {
-            path: 'user/:userid/shcpro',
-            parse: {
-              userid: Number
-            }
-          },
-          UserSHCLiteDate: {
+          // UserSHCPro: {
+          //   path: 'user/:userid/shcpro',
+          //   parse: {
+          //     userid: Number
+          //   }
+          // },
+          UserSHCLite: {
             path: 'user/:userid/shclite/:date',
             parse: {
               userid: Number,
               date: String
             }
           },
-          UserSHCLite: {
-            path: 'user/:userid/shclite',
-            parse: {
-              userid: Number
-            }
-          },
+          // UserSHCLite: {
+          //   path: 'user/:userid/shclite',
+          //   parse: {
+          //     userid: Number
+          //   }
+          // },
           UserSHCDate: {
             path: 'user/:userid/shc/:date',
             parse: {

@@ -53,6 +53,42 @@ function SHCItem({ i, m }) {
   </Menu>;
 }
 
+function DateSwitcher({ dateString }) {
+  const nav = useNavigation();
+  const theme = useSelector(i=>i.themes[i.theme]);
+  const [datePickerOpen,setDatePickerOpen] = React.useState(false);
+  return <View style={{ padding: 4, width: 400, maxWidth: "100%", alignSelf: "center" }}>
+    <Card cardStyle={{ backgroundColor: (theme.clanCardHeader || theme.navigation).bg }} noPad>
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <Menu
+          visible={datePickerOpen}
+          onDismiss={() => setDatePickerOpen(false)}
+          anchor={
+            <IconButton icon="calendar" color={(theme.clanCardHeader || theme.navigation).fg} onPress={() => setDatePickerOpen(true)} />
+          }
+          contentStyle={{ padding: 0, backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border ? 1 : 0, borderColor: theme.page_content.border }}
+        >
+          <DatePicker noWrap value={moment({
+            year: Number(dateString.split('-')[0]),
+            month: Number(dateString.split('-')[1]) - 1,
+            date: Number(dateString.split('-')[2]),
+          })} onChange={(date) => {
+            nav.setParams({
+              date: `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
+            })
+          }} />
+        </Menu>
+
+        <Text allowFontScaling={false} style={{ flex: 1, ...font("bold"), fontSize: 16, color: (theme.clanCardHeader || theme.navigation).fg }}>{moment({
+          year: Number(dateString.split('-')[0]),
+          month: Number(dateString.split('-')[1]) - 1,
+          date: Number(dateString.split('-')[2]),
+        }).format('L')}</Text>
+      </View>
+    </Card>
+  </View>
+}
+
 export default function UserSHCScreen() {
   var [FABOpen, setFABOpen] = React.useState(false);
   var [datePickerOpen, setDatePickerOpen] = React.useState(false);
@@ -126,38 +162,7 @@ export default function UserSHCScreen() {
   }
   return <View style={{ flex: 1, backgroundColor: theme.page.bg }}>
     <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 8 }}>
-      <View style={{ padding: 4, width: 400, maxWidth: "100%", alignSelf: "center" }}>
-        <Card cardStyle={{ backgroundColor: (theme.clanCardHeader || theme.navigation).bg }} noPad>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <Menu
-              visible={datePickerOpen}
-              onDismiss={() => setDatePickerOpen(false)}
-              anchor={
-                <IconButton icon="calendar" color={(theme.clanCardHeader || theme.navigation).fg} onPress={() => setDatePickerOpen(true)} />
-              }
-              contentStyle={{ padding: 0, backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border ? 1 : 0, borderColor: theme.page_content.border }}
-            >
-              <DatePicker noWrap value={moment({
-                year: Number(dateString.split('-')[0]),
-                month: Number(dateString.split('-')[1]) - 1,
-                date: Number(dateString.split('-')[2]),
-              })} onChange={(date) => {
-                nav.pop();
-                nav.push('UserSHCLiteDate', {
-                  userid: user_id,
-                  date: `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
-                })
-              }} />
-            </Menu>
-
-            <Text allowFontScaling={false} style={{ flex: 1, ...font("bold"), fontSize: 16, color: (theme.clanCardHeader || theme.navigation).fg }}>{moment({
-              year: Number(dateString.split('-')[0]),
-              month: Number(dateString.split('-')[1]) - 1,
-              date: Number(dateString.split('-')[2]),
-            }).format('L')}</Text>
-          </View>
-        </Card>
-      </View>
+      <DateSwitcher dateString={dateString} />
       <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
         {categories.map(i => <View style={{ padding: 4, width: 400, maxWidth: "100%" }}>
           <Card noPad>

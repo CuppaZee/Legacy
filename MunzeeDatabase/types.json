@@ -19146,7 +19146,6 @@
       "stage": 2,
       "duration": 6,
       "lands_on": [
-        2145,
         0,
         532
       ]
@@ -19166,7 +19165,6 @@
       "stage": 3,
       "duration": 6,
       "lands_on": [
-        2145,
         0,
         532
       ]
@@ -20236,7 +20234,6 @@
       "stage": 2,
       "duration": 6,
       "lands_on": [
-        2145,
         0,
         1020
       ]
@@ -20256,7 +20253,6 @@
       "stage": 3,
       "duration": 6,
       "lands_on": [
-        2145,
         0,
         1020
       ]
@@ -22048,7 +22044,6 @@
       "stage": 2,
       "duration": 6,
       "lands_on": [
-        2145,
         0,
         851
       ]
@@ -22068,7 +22063,6 @@
       "stage": 3,
       "duration": 6,
       "lands_on": [
-        2145,
         0,
         851
       ]
@@ -23504,7 +23498,6 @@
       "stage": 2,
       "duration": 6,
       "lands_on": [
-        2145,
         0,
         851
       ]
@@ -23526,7 +23519,6 @@
       "stage": 3,
       "duration": 6,
       "lands_on": [
-        2145,
         0,
         851
       ]
@@ -23570,7 +23562,6 @@
       "stage": 2,
       "duration": 6,
       "lands_on": [
-        2145,
         0,
         532
       ]
@@ -23592,7 +23583,6 @@
       "stage": 3,
       "duration": 6,
       "lands_on": [
-        2145,
         0,
         532
       ]
@@ -23636,7 +23626,6 @@
       "stage": 2,
       "duration": 6,
       "lands_on": [
-        2145,
         0,
         1020
       ]
@@ -23658,7 +23647,6 @@
       "stage": 3,
       "duration": 6,
       "lands_on": [
-        2145,
         0,
         1020
       ]
@@ -26090,6 +26078,21 @@
     "cid": "bowling2ndroll"
   },
   {
+    "name": "Tree",
+    "icon": "tree",
+    "id": "null_tree",
+    "scatter": {
+      "duration": 1,
+      "lands_on": [
+        0
+      ]
+    },
+    "state": "physical",
+    "category": "scatter",
+    "completion": "complete",
+    "cid": "tree"
+  },
+  {
     "name": "Spectacular Spectacles",
     "icon": "spectacularspectacles2020vision",
     "id": 2282,
@@ -26181,190 +26184,6 @@
     "category": "vision2020",
     "completion": "complete",
     "cid": "thekingssunglasses2020vision"
-  },
-  {
-    "name": "Welding Goggles",
-    "icon": "weldinggoggles2020vision",
-    "id": 2284,
-    "bouncer": {
-      "type": "seasonal",
-      "duration": 12,
-      "lands_on": [
-        0
-      ]
-    },
-    "state": "bouncer",
-    "category": "vision2020",
-    "completion": "complete",
-    "cid": "weldinggoggles2020vision"
-  },
-  {
-    "name": "Ski Goggles",
-    "icon": "skigoggles2020vision",
-    "id": 2286,
-    "bouncer": {
-      "type": "seasonal",
-      "duration": 12,
-      "lands_on": [
-        0
-      ]
-    },
-    "state": "bouncer",
-    "category": "vision2020",
-    "completion": "complete",
-    "cid": "skigoggles2020vision"
-  },
-  {
-    "name": "Joke Glasses",
-    "icon": "jokeglasses2020vision",
-    "id": 2288,
-    "bouncer": {
-      "type": "seasonal",
-      "duration": 12,
-      "lands_on": [
-        0
-      ]
-    },
-    "state": "bouncer",
-    "category": "vision2020",
-    "completion": "complete",
-    "cid": "jokeglasses2020vision"
-  },
-  {
-    "name": "Viewfinder",
-    "icon": "viewfinder2020vision",
-    "id": 2290,
-    "bouncer": {
-      "type": "seasonal",
-      "duration": 12,
-      "lands_on": [
-        0
-      ]
-    },
-    "state": "bouncer",
-    "category": "vision2020",
-    "completion": "complete",
-    "cid": "viewfinder2020vision"
-  },
-  {
-    "name": "Charge",
-    "icon": "charge",
-    "id": 2392,
-    "scatter": {
-      "duration": 2,
-      "lands_on": [
-        1409,
-        1410,
-        1411,
-        1412,
-        1413,
-        1414,
-        1415,
-        1416,
-        1417,
-        1418,
-        1419,
-        1420,
-        1421,
-        1423,
-        1424,
-        1425,
-        1426,
-        1427,
-        1428,
-        1429,
-        1430,
-        1431,
-        1432,
-        1433,
-        1434,
-        1435,
-        1436,
-        1437,
-        1438,
-        1439,
-        1440,
-        1441,
-        1442,
-        1443,
-        1444,
-        1445,
-        1446,
-        1448,
-        1449,
-        1450,
-        1451,
-        1452,
-        1453,
-        1454,
-        1455,
-        1456,
-        1457,
-        1458,
-        1459,
-        1460,
-        1461,
-        1462,
-        1463,
-        1464,
-        1465,
-        1466,
-        1467,
-        1468,
-        1469,
-        1470,
-        1471,
-        1473
-      ]
-    },
-    "state": "virtual",
-    "category": "scatter",
-    "completion": "complete",
-    "cid": "charge"
-  },
-  {
-    "name": "Red Apple",
-    "icon": "redapple",
-    "id": 2404,
-    "scatter": {
-      "duration": 1,
-      "standalone": true
-    },
-    "state": "virtual",
-    "category": "scatter",
-    "completion": "complete",
-    "cid": "redapple"
-  },
-  {
-    "name": "Cherry Blossom",
-    "icon": "cherryblossom",
-    "id": 2405,
-    "scatter": {
-      "duration": 1,
-      "standalone": true
-    },
-    "state": "virtual",
-    "category": "scatter",
-    "completion": "complete",
-    "cid": "cherryblossom"
-  },
-  {
-    "name": "Flaming Arrow",
-    "icon": "flamingarrow",
-    "id": "null_flamingarrow",
-    "scatter": {
-      "duration": 2,
-      "standalone": true
-    },
-    "weapon": "clan",
-    "state": "virtual",
-    "category": "scatter",
-    "completion": "complete",
-    "can_host": [
-      2477,
-      2480
-    ],
-    "cid": "flamingarrow"
   },
   {
     "name": "Flip Glasses",
@@ -26675,20 +26494,80 @@
     "cid": "vrgoggles2020vision"
   },
   {
-    "name": "THE RETURN",
-    "icon": "thereturn",
-    "id": 2393,
-    "bouncer": {
-      "type": "seasonal",
-      "duration": 6,
+    "name": "Charge",
+    "icon": "charge",
+    "id": 2392,
+    "scatter": {
+      "duration": 2,
       "lands_on": [
-        0
+        1409,
+        1410,
+        1411,
+        1412,
+        1413,
+        1414,
+        1415,
+        1416,
+        1417,
+        1418,
+        1419,
+        1420,
+        1421,
+        1423,
+        1424,
+        1425,
+        1426,
+        1427,
+        1428,
+        1429,
+        1430,
+        1431,
+        1432,
+        1433,
+        1434,
+        1435,
+        1436,
+        1437,
+        1438,
+        1439,
+        1440,
+        1441,
+        1442,
+        1443,
+        1444,
+        1445,
+        1446,
+        1448,
+        1449,
+        1450,
+        1451,
+        1452,
+        1453,
+        1454,
+        1455,
+        1456,
+        1457,
+        1458,
+        1459,
+        1460,
+        1461,
+        1462,
+        1463,
+        1464,
+        1465,
+        1466,
+        1467,
+        1468,
+        1469,
+        1470,
+        1471,
+        1473
       ]
     },
-    "state": "bouncer",
-    "category": "flatdaythe13thpt.32020",
+    "state": "virtual",
+    "category": "scatter",
     "completion": "complete",
-    "cid": "thereturn"
+    "cid": "charge"
   },
   {
     "name": "Rainbow Trail",
@@ -26735,19 +26614,6 @@
     "cid": "orangezed"
   },
   {
-    "name": "Yellow ZED",
-    "icon": "yellowzed",
-    "id": 2397,
-    "scatter": {
-      "duration": 1,
-      "standalone": true
-    },
-    "state": "virtual",
-    "category": "rainbowtrail2020",
-    "completion": "complete",
-    "cid": "yellowzed"
-  },
-  {
     "name": "Green ZED",
     "icon": "greenzed",
     "id": 2398,
@@ -26759,6 +26625,127 @@
     "category": "rainbowtrail2020",
     "completion": "complete",
     "cid": "greenzed"
+  },
+  {
+    "name": "Red Apple",
+    "icon": "redapple",
+    "id": 2404,
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    },
+    "state": "virtual",
+    "category": "scatter",
+    "completion": "complete",
+    "cid": "redapple"
+  },
+  {
+    "name": "Cherry Blossom",
+    "icon": "cherryblossom",
+    "id": 2405,
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    },
+    "state": "virtual",
+    "category": "scatter",
+    "completion": "complete",
+    "cid": "cherryblossom"
+  },
+  {
+    "name": "Flaming Arrow",
+    "icon": "flamingarrow",
+    "id": "null_flamingarrow",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    },
+    "weapon": "clan",
+    "state": "virtual",
+    "category": "scatter",
+    "completion": "complete",
+    "can_host": [
+      2477,
+      2480
+    ],
+    "cid": "flamingarrow"
+  },
+  {
+    "name": "Welding Goggles",
+    "icon": "weldinggoggles2020vision",
+    "id": 2284,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 12,
+      "lands_on": [
+        0
+      ]
+    },
+    "state": "bouncer",
+    "category": "vision2020",
+    "completion": "complete",
+    "cid": "weldinggoggles2020vision"
+  },
+  {
+    "name": "Ski Goggles",
+    "icon": "skigoggles2020vision",
+    "id": 2286,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 12,
+      "lands_on": [
+        0
+      ]
+    },
+    "state": "bouncer",
+    "category": "vision2020",
+    "completion": "complete",
+    "cid": "skigoggles2020vision"
+  },
+  {
+    "name": "Joke Glasses",
+    "icon": "jokeglasses2020vision",
+    "id": 2288,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 12,
+      "lands_on": [
+        0
+      ]
+    },
+    "state": "bouncer",
+    "category": "vision2020",
+    "completion": "complete",
+    "cid": "jokeglasses2020vision"
+  },
+  {
+    "name": "Viewfinder",
+    "icon": "viewfinder2020vision",
+    "id": 2290,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 12,
+      "lands_on": [
+        0
+      ]
+    },
+    "state": "bouncer",
+    "category": "vision2020",
+    "completion": "complete",
+    "cid": "viewfinder2020vision"
+  },
+  {
+    "name": "Yellow ZED",
+    "icon": "yellowzed",
+    "id": 2397,
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    },
+    "state": "virtual",
+    "category": "rainbowtrail2020",
+    "completion": "complete",
+    "cid": "yellowzed"
   },
   {
     "name": "Blue ZED",
@@ -29083,24 +29070,12 @@
       2480,
       2524,
       1240,
-      1241,
-      1242,
       1370,
-      1371,
-      1372,
       1638,
-      1639,
-      1640,
       1752,
       1850,
-      1851,
-      1852,
       1853,
-      1854,
-      1855,
       1856,
-      1857,
-      1858,
       1919,
       2306,
       2366,
@@ -31497,6 +31472,22 @@
     "cid": "smaragd"
   },
   {
+    "name": "THE RETURN",
+    "icon": "thereturn",
+    "id": 2393,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 6,
+      "lands_on": [
+        0
+      ]
+    },
+    "state": "bouncer",
+    "category": "flatdaythe13thpt.32020",
+    "completion": "complete",
+    "cid": "thereturn"
+  },
+  {
     "name": "Elekter",
     "icon": "elekter",
     "id": 2407,
@@ -31587,7 +31578,6 @@
       "stage": 2,
       "duration": 6,
       "lands_on": [
-        2426,
         1409,
         1410,
         1411,
@@ -31668,7 +31658,6 @@
       "stage": 3,
       "duration": 6,
       "lands_on": [
-        2426,
         1409,
         1410,
         1411,
@@ -31792,8 +31781,6 @@
       2367,
       2368,
       2407,
-      2408,
-      2409,
       2370,
       1830,
       1840,

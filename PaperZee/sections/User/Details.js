@@ -11,6 +11,7 @@ import { useDimensions } from '@react-native-community/hooks';
 import font from '~sections/Shared/font';
 import categories from '~sections/DB/categories.json';
 import { useTranslation } from 'react-i18next'
+import moment from 'moment';
 
 function UserIcon({user_id,size}) { 
   return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size-24)/2, marginTop: -(size-24)/2, height: size, width: size }} />
@@ -24,6 +25,8 @@ export default function DetailsScreen({ route }) {
   var logins = useSelector(i => i.logins);
   var user_id = Number(route.params.userid)
   var {t} = useTranslation();
+  var date = moment().tz('America/Chicago');
+  var dateString = `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
   const data = useAPIRequest({
     endpoint: 'user',
     data: {user_id}
@@ -109,14 +112,14 @@ export default function DetailsScreen({ route }) {
               <MaterialCommunityIcons style={{marginHorizontal:4}} name="star" size={24} color={(theme.clanCardHeader||theme.navigation).fg} />
               <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: (theme.clanCardHeader||theme.navigation).fg }}>{t('user:special_hunter_challenge')}</Text>
             </View>
-            <TouchableRipple onPress={() => nav.navigate('UserSHCLite', { userid: user_id })}>
+            <TouchableRipple onPress={() => nav.navigate('UserSHCLite', { userid: user_id, date: dateString })}>
               <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                 <MaterialCommunityIcons style={{marginHorizontal:4}} name="star-half" size={24} color={theme.page_content.fg} />
                 <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Lite</Text>
                 <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
               </View>
             </TouchableRipple>
-            <TouchableRipple onPress={() => nav.navigate('UserSHCPro', { userid: user_id })}>
+            <TouchableRipple onPress={() => nav.navigate('UserSHCPro', { userid: user_id, date: dateString })}>
               <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                 <MaterialCommunityIcons style={{marginHorizontal:4}} name="star" size={24} color={theme.page_content.fg} />
                 <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Pro</Text>
