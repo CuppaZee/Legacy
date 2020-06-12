@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, Image, ScrollView } from 'react-native';
+import { Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
 import Card from '~sections/Shared/Card';
 import { useSelector, useDispatch } from 'react-redux';
 import { FAB } from 'react-native-paper';

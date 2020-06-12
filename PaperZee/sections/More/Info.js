@@ -12,12 +12,26 @@ export default function SettingsScreen() {
   var theme = useSelector(i => i.themes[i.theme]);
   var nav = useNavigation();
   var [open,setOpen] = React.useState(false);
+  var [dev,setDev] = React.useState(0);
+  var [devData,setDevData] = React.useState("N/A");
+
+  React.useEffect(()=>{
+    (async function(){
+      switch(dev-5) {
+        case 0:
+          nav.navigate('Tools');
+      }
+    })()
+  },[dev]);
 
   return (
     <ScrollView style={{ backgroundColor: theme.page_content.bg }} contentContainerStyle={{ padding: 8 }}>
       <View style={{ alignItems: "center" }}>
         <Image style={{ width: 300, height: 90.78 }} source={{ uri: 'https://server.cuppazee.app/logo.png' }} />
-        <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{t('app_info:build_n', { build: 105 })}</Text>
+        <TouchableRipple onPress={()=>setDev(i=>i+1)}>
+          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{dev<5?t('app_info:build_n', { build: 107 }):dev-4}</Text>
+        </TouchableRipple>
+        {dev>=5&&<Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{devData}</Text>}
       </View>
       <View style={{ height: 1, backgroundColor: theme.page_content.fg, opacity: 0.5, margin: 8 }}></View>
       <View style={{ alignItems: "center" }}>

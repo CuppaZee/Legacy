@@ -40,7 +40,7 @@ export default function ToolsScreen({ navigation }) {
       to: push,
       sound: 'default',
       title: 'Munzee Blog Post',
-      body: 'MHQ Petting Zoo Animals Have Escaped!',
+      body: 'Introducing the All NEW Poseidon Modern Myth Munzee!',
       data: { data: 'goes here' },
       _displayInForeground: true,
     };
@@ -61,19 +61,10 @@ export default function ToolsScreen({ navigation }) {
     <View style={{ flex: 1, backgroundColor: '#c6e3b6', justifyContent: 'center', alignItems: 'center' }}>
       <Text>Tools Page</Text>
       <Button
-        title="Test"
-        onPress={()=>nav.navigate('UserActivity',{userid:125914})}
-      />
-      <Button
         disabled={!push}
-        title="Push Notification Test (Android)"
+        title="Push Notification Test"
         onPress={sendNotification}
       />
-      {/* <View style={{position:"absolute",top:0,left:0,bottom:0,right:0,alignItems:"center",justifyContent:"center"}}>
-        <View style={{borderRadius:8,backgroundColor:'#ff3322',padding:8}}>
-          <Text allowFontScaling={false} style={{...font("bold"),fontSize:20,color:"white"}}>Coming Soon</Text>
-        </View>
-      </View> */}
     </View>
   );
 }
