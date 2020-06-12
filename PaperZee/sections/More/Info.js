@@ -29,7 +29,7 @@ export default function SettingsScreen() {
       <View style={{ alignItems: "center" }}>
         <Image style={{ width: 300, height: 90.78 }} source={{ uri: 'https://server.cuppazee.app/logo.png' }} />
         <TouchableRipple onPress={()=>setDev(i=>i+1)}>
-          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{dev<5?t('app_info:build_n', { build: 110 }):dev-4}</Text>
+          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{dev<5?t('app_info:build_n', { build: 111 }):dev-4}</Text>
         </TouchableRipple>
         {dev>=5&&<Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{devData}</Text>}
       </View>

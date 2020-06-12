@@ -33,11 +33,45 @@ var hostIcon = (icon) => {
   if (!host) return null;
   return `https://munzee.global.ssl.fastly.net/images/pins/${creatures[host] ?? host}.png`;
 }
+function isRenovation(act) {
+  return !!(act.pin.includes('/renovation.') && act.captured_at);
+}
+
+function ActivityListItem({ act, userdata }) {
+  var { t } = useTranslation();
+  var theme = useSelector(i => i.themes[i.theme]);
+  var navigation = useNavigation();
+  return <View style={{ flexDirection: "row", paddingTop: 8, alignItems: "center" }}>
+    <View style={{ padding: 4, paddingLeft: 8, position: "relative", alignContent: 'center', alignItems: "center", flexGrow: 0 }}>
+      <View style={{ width: 60, justifyContent: 'center', flexDirection: "row", flexWrap: "wrap", flexGrow: 0 }}>
+        <View style={{ paddingLeft: 8, paddingRight: 8, backgroundColor: act.points_for_creator ? theme.activity.capon.bg : (act.captured_at ? theme.activity.capture.bg : theme.activity.deploy.bg), borderRadius: 9.5 }}>
+          <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "center", color: act.points_for_creator ? theme.activity.capon.fg : (act.captured_at ? theme.activity.capture.fg : theme.activity.deploy.fg), ...font("bold") }}>{(act.points_for_creator ?? act.points) > 0 && '+'}{(Number(act.points_for_creator ?? act.points)) || t('activity:none')}</Text>
+        </View>
+      </View>
+      <View style={{ position: 'relative' }}>
+        <Image style={{ height: 32, width: 32 }} source={{ uri: act.pin }} />
+        {hostIcon(act.pin) && <Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: -8 }} source={{ uri: hostIcon(act.pin) }} />}
+      </View>
+    </View>
+    <TouchableHighlight style={{ paddingLeft: 8, paddingRight: 8, flexGrow: 1, flexShrink: 1 }} onPress={() => { navigation.navigate('MunzeeDetails', { username: (!act.points_for_creator && act.captured_at) ? act.username : userdata?.username, code: act.code }) }} underlayColor="white">
+      <View>
+        <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font() }}>{act.points_for_creator ? (isRenovation(act) ? `${act.username} Renovated your Motel` : t('activity:user_captured', { user: act.username })) : (act.captured_at ? (isRenovation(act) ? `You Renovated a Motel` : t('activity:you_captured')) : t('activity:you_deployed'))}</Text>
+        {!isRenovation(act) && <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font("bold") }}>{act.friendly_name}</Text>}
+        {!isRenovation(act) && <Text allowFontScaling={false} style={{ color: theme.page_content.fg, opacity: 0.8, ...font() }}>{act.points_for_creator ? t('activity:by_you') : (act.captured_at ? t('activity:by_user', { user: act.username }) : t('activity:by_you'))}</Text>}
+      </View>
+    </TouchableHighlight>
+    <View style={{ padding: 8, flexGrow: 0, paddingLeft: 16, alignContent: 'center', position: "relative", alignItems: "flex-end" }}>
+      <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "right", color: theme.page_content.fg, ...font("bold") }}>{new Date(act.captured_at ?? act.deployed_at).getHours().toString().padStart(2, "0")}:{new Date(act.captured_at ?? act.deployed_at).getMinutes().toString().padStart(2, "0")}</Text>
+      {/* <Image style={{ height: 32, width: 32 }} source={{ uri: act.pin }}/>
+            {hostIcon(act.pin)&&<Image style={{ height: 24, width: 24, position: "absolute", right: 5, bottom: 5 }} source={{ uri: hostIcon(act.pin) }}/>} */}
+    </View>
+  </View>
+}
 
 function DateSwitcher({ dateString }) {
   const nav = useNavigation();
-  const theme = useSelector(i=>i.themes[i.theme]);
-  const [datePickerOpen,setDatePickerOpen] = React.useState(false);
+  const theme = useSelector(i => i.themes[i.theme]);
+  const [datePickerOpen, setDatePickerOpen] = React.useState(false);
   return <View style={{ padding: 4 }}>
     <Card cardStyle={{ backgroundColor: (theme.clanCardHeader || theme.navigation).bg }} noPad>
       <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -106,13 +140,11 @@ export default function UserActivityScreen() {
       <ActivityIndicator size="large" color={theme.page_content.fg} />
     </View>
   )
-  function isRenovation(act) {
-    return !!(act.pin.includes('/renovation.') && act.captured_at);
-  }
   return <View style={{ flex: 1 }}>
     <FlatList
       contentContainerStyle={{ width: 500, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", paddingBottom: 88 }}
       style={{ flex: 1, backgroundColor: theme.page_content.bg }}
+      extraData={[userdata?.username]}
       data={[
         <DateSwitcher dateString={dateString} />,
         <ActivityOverview date={dateString} user_id={user_id} />,
@@ -120,31 +152,7 @@ export default function UserActivityScreen() {
         ...data.deploys,
         ...data.captures_on
       ].filter(i => i !== 1234).sort((a, b) => new Date(b.captured_at ?? b.deployed_at) - new Date(a.captured_at ?? a.deployed_at))}
-      renderItem={({ item: act }) => !act.pin ? act : <View style={{ flexDirection: "row", paddingTop: 8, alignItems: "center" }}>
-        <View style={{ padding: 4, paddingLeft: 8, position: "relative", alignContent: 'center', alignItems: "center", flexGrow: 0 }}>
-          <View style={{ width: 60, justifyContent: 'center', flexDirection: "row", flexWrap: "wrap", flexGrow: 0 }}>
-            <View style={{ paddingLeft: 8, paddingRight: 8, backgroundColor: act.points_for_creator ? theme.activity.capon.bg : (act.captured_at ? theme.activity.capture.bg : theme.activity.deploy.bg), borderRadius: 9.5 }}>
-              <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "center", color: act.points_for_creator ? theme.activity.capon.fg : (act.captured_at ? theme.activity.capture.fg : theme.activity.deploy.fg), ...font("bold") }}>{(act.points_for_creator ?? act.points) > 0 && '+'}{(Number(act.points_for_creator ?? act.points)) || t('activity:none')}</Text>
-            </View>
-          </View>
-          <View style={{ position: 'relative' }}>
-            <Image style={{ height: 32, width: 32 }} source={{ uri: act.pin }} />
-            {hostIcon(act.pin) && <Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: -8 }} source={{ uri: hostIcon(act.pin) }} />}
-          </View>
-        </View>
-        <TouchableHighlight style={{ paddingLeft: 8, paddingRight: 8, flexGrow: 1, flexShrink: 1 }} onPress={() => { navigation.navigate('MunzeeDetails', { url: `/m/${!act.points_for_creator && act.captured_at ? act.username : userdata?.username}/${act.code}` }) }} underlayColor="white">
-          <View>
-            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font() }}>{act.points_for_creator ? (isRenovation(act) ? `${act.username} Renovated your Motel` : t('activity:user_captured', { user: act.username })) : (act.captured_at ? (isRenovation(act) ? `You Renovated a Motel` : t('activity:you_captured')) : t('activity:you_deployed'))}</Text>
-            {!isRenovation(act) && <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font("bold") }}>{act.friendly_name}</Text>}
-            {!isRenovation(act) && <Text allowFontScaling={false} style={{ color: theme.page_content.fg, opacity: 0.8, ...font() }}>{act.points_for_creator ? t('activity:by_you') : (act.captured_at ? t('activity:by_user', { user: act.username }) : t('activity:by_you'))}</Text>}
-          </View>
-        </TouchableHighlight>
-        <View style={{ padding: 8, flexGrow: 0, paddingLeft: 16, alignContent: 'center', position: "relative", alignItems: "flex-end" }}>
-          <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "right", color: theme.page_content.fg, ...font("bold") }}>{new Date(act.captured_at ?? act.deployed_at).getHours().toString().padStart(2, "0")}:{new Date(act.captured_at ?? act.deployed_at).getMinutes().toString().padStart(2, "0")}</Text>
-          {/* <Image style={{ height: 32, width: 32 }} source={{ uri: act.pin }}/>
-            {hostIcon(act.pin)&&<Image style={{ height: 24, width: 24, position: "absolute", right: 5, bottom: 5 }} source={{ uri: hostIcon(act.pin) }}/>} */}
-        </View>
-      </View>}
+      renderItem={({ item: act }) => !act.pin ? act : <ActivityListItem act={act} userdata={userdata} />}
       keyExtractor={(item, index) => index.toString() ?? item.id ?? item.capture_id ?? item.captured_at ?? item.deployed_at}
     />
     <FAB.Group
