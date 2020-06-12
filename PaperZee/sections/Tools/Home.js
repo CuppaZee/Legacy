@@ -59,7 +59,7 @@ export default function ToolsScreen({ navigation }) {
   },[])
   return (
     <View style={{ flex: 1, backgroundColor: '#c6e3b6', justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Tools Page</Text>
+      <Text>{push}</Text>
       <Button
         disabled={!push}
         title="Push Notification Test"

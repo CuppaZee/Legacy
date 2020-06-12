@@ -65,6 +65,7 @@ export default function CustomDrawerContent(props) {
     // {title:t(`common:tools`),icon:"wrench",page:"Tools"},
   ].filter(i => !i.hide)
   var more = [
+    { title: 'Notifications', icon: "bell", page: "Notifications", hide: Platform.OS === "web" },
     { title: t(`common:settings`), icon: "settings", page: "Settings" },
     { title: t(`common:app_info`), icon: "information", page: "Info" },
     { title: `GitHub`, icon: "github-circle", page: "https://github.com/CuppaZee/CuppaZee", link: true }

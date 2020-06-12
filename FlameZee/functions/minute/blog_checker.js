@@ -4,6 +4,22 @@ var fetch = require("node-fetch");
 var { URLSearchParams } = require("url");
 var cheerio = require('cheerio');
 var config = require('../config.json');
+var notification = require('../util/notification');
+
+async function sendNotifications({ link, title }, db) {
+  var tokens = (await db.collection('push').where('munzee_blog','==',true).get()).docs;
+  await notification(db, tokens.map(i=>({
+    to: i.data().token,
+    sound: 'default',
+    title: 'Munzee Blog Post',
+    body: title,
+    data: {
+      type: 'blog',
+      link: link
+    },
+  })))
+}
+
 module.exports = {
   path: "minute/blogchecker",
   latest: 1,
@@ -24,7 +40,8 @@ module.exports = {
 
             console.log('New Munzee Blog', feed.items[0].link);
             let img = cheerio.load(feed.items[0]["content:encoded"] || '')('img')[0];
-            fetch(config.discord.blog,{
+            sendNotifications(feed.items[0], db);
+            fetch(config.discord.blog, {
               method: 'POST',
               body: new URLSearchParams({
                 "payload_json": JSON.stringify({

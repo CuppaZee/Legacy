@@ -34,6 +34,7 @@ const ClanSearchScreen = loadable(() => import('./sections/Clan/Search'),{fallba
 
 // More Screens
 const SettingsScreen = loadable(() => import('./sections/More/Settings'),{fallback: <LoadingPage/>})
+const NotificationsScreen = loadable(() => import('./sections/More/Notifications'),{fallback: <LoadingPage/>})
 const InfoScreen = loadable(() => import('./sections/More/Info'),{fallback: <LoadingPage x="page_content"/>})
 
 // DB Screens
@@ -118,6 +119,10 @@ function StackNav () {
       <Stack.Screen
         name="Settings"
         component={SettingsScreen}
+      />
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationsScreen}
       />
       <Stack.Screen
         name="Info"
@@ -360,6 +365,7 @@ function App() {
           Scanner: 'scanner',
           Calendar: 'calendar',
           Settings: 'settings',
+          Notifications: 'notifications',
           Info: 'info',
           BouncerMap: {
             path: 'bouncers/:type',
