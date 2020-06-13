@@ -572,21 +572,21 @@ function App() {
       arr.push(v);
     }
     var logs = arr.map(i=>[i,changelogs[i]])
-    return <ScrollView style={{ backgroundColor: theme.page_content.bg }} contentContainerStyle={{ padding: 8, justifyContent: "center", alignItems: "center", flex: 1 }}>
+    return <ScrollView style={{ backgroundColor: theme.navigation.bg }} contentContainerStyle={{ padding: 8, justifyContent: "center", alignItems: "center", flex: 1 }}>
       {logs.filter(Boolean).map(([build,log]) => <><View style={{ alignItems: "center" }}>
-        <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 32, ...font("bold") }}>Build {build}</Text>
+        <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 32, ...font("bold") }}>Build {build}</Text>
       </View>
           {log?.map(i => <View style={{ flexDirection: "row", alignItems: "center", width: 400, maxWidth: "100%" }}>
             {i.image && <Image source={{ uri: i.image }} style={{ height: 48, width: 48 }} />}
-            {i.icon && <View style={{ height: 48, width: 48, backgroundColor: theme.page.bg, borderRadius: 24, justifyContent: "center", alignItems: "center" }}>
-              <MaterialCommunityIcons size={32} color={theme.page.fg} name={i.icon} />
+            {i.icon && <View style={{ height: 48, width: 48, backgroundColor: theme.page_content.bg, borderRadius: 24, justifyContent: "center", alignItems: "center" }}>
+              <MaterialCommunityIcons size={32} color={theme.page_content.fg} name={i.icon} />
             </View>}
             <View style={{ padding: 8 }}>
-              <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{i.title}</Text>
-              <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font() }}>{i.description}</Text>
+              <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 20, ...font("bold") }}>{i.title}</Text>
+              <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 16, ...font() }}>{i.description}</Text>
             </View>
           </View>)??<Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>No Changelog</Text>}
-        {build == Math.max(...Object.keys(changelogs).map(Number)) && <Button mode="contained" color={theme.page.bg} onPress={() => {
+        {build == Math.max(...Object.keys(changelogs).map(Number)) && <Button mode="contained" style={{borderWidth: theme.page_content.border?2:0, borderColor: theme.page_content.border}} color={theme.page_content.bg} onPress={() => {
           dispatch(cuppazeeVersion(Math.max(...Object.keys(changelogs).map(Number))))
         }}>Continue to CuppaZee</Button>}
       </>)}

@@ -78,7 +78,7 @@ module.exports = [
       },
       {
         "name": "Jeweler Loupe",
-        "icon": "jewelerloupe2020vision",
+        "icon": "jewelerloupe2020glasses",
         "id": 2292,
         "duration": 12,
         "lands_on": ["munzee"]

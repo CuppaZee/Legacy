@@ -26732,7 +26732,7 @@
   },
   {
     "name": "Jeweler Loupe",
-    "icon": "jewelerloupe2020vision",
+    "icon": "jewelerloupe2020glasses",
     "id": 2292,
     "bouncer": {
       "type": "seasonal",
@@ -26744,7 +26744,7 @@
     "state": "bouncer",
     "category": "vision2020",
     "completion": "complete",
-    "cid": "jewelerloupe2020vision"
+    "cid": "jewelerloupe2020glasses"
   },
   {
     "name": "Green ZED",
