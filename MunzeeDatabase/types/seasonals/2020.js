@@ -76,6 +76,13 @@ module.exports = [
         "duration": 12,
         "lands_on": [":virtual"]
       },
+      {
+        "name": "Jeweler Loupe",
+        "icon": "jewelerloupe2020vision",
+        "id": 2292,
+        "duration": 12,
+        "lands_on": ["munzee"]
+      }
     ]
   },
   {

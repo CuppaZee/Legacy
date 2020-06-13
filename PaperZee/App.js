@@ -9,7 +9,8 @@ import { Provider as ReduxProvider, useSelector, useDispatch } from 'react-redux
 import s from '~store/index';
 import './lang/i18n';
 import loadable from '@loadable/component';
-var { store, setCurrentRoute } = s;
+import changelogs from './changelogs';
+var { store, setCurrentRoute, cuppazeeVersion } = s;
 
 import {
   useFonts,
@@ -26,52 +27,53 @@ import LoadingPage from './sections/Shared/LoadingPage';
 import font from './sections/Shared/font';
 
 // Munzee Screens
-const MunzeeDetailsScreen = loadable(() => import('./sections/Munzee/Details'),{fallback: <LoadingPage/>})
+const MunzeeDetailsScreen = loadable(() => import('./sections/Munzee/Details'), { fallback: <LoadingPage /> })
 
 // Clan Screens
-const AllClansScreen = loadable(() => import('./sections/Clan/All'),{fallback: <LoadingPage/>})
-const ClanDetailsScreen = loadable(() => import('./sections/Clan/Details'),{fallback: <LoadingPage/>})
-const ClanRequirementsScreen = loadable(() => import('./sections/Clan/Requirements'),{fallback: <LoadingPage/>})
-const ClanSearchScreen = loadable(() => import('./sections/Clan/Search'),{fallback: <LoadingPage/>})
+const AllClansScreen = loadable(() => import('./sections/Clan/All'), { fallback: <LoadingPage /> })
+const ClanDetailsScreen = loadable(() => import('./sections/Clan/Details'), { fallback: <LoadingPage /> })
+const ClanRequirementsScreen = loadable(() => import('./sections/Clan/Requirements'), { fallback: <LoadingPage /> })
+const ClanSearchScreen = loadable(() => import('./sections/Clan/Search'), { fallback: <LoadingPage /> })
 
 // More Screens
-const SettingsScreen = loadable(() => import('./sections/More/Settings'),{fallback: <LoadingPage/>})
-const NotificationsScreen = loadable(() => import('./sections/More/Notifications'),{fallback: <LoadingPage/>})
-const InfoScreen = loadable(() => import('./sections/More/Info'),{fallback: <LoadingPage x="page_content"/>})
+const SettingsScreen = loadable(() => import('./sections/More/Settings'), { fallback: <LoadingPage /> })
+const NotificationsScreen = loadable(() => import('./sections/More/Notifications'), { fallback: <LoadingPage /> })
+const InfoScreen = loadable(() => import('./sections/More/Info'), { fallback: <LoadingPage x="page_content" /> })
 
 // DB Screens
-const DBTypeScreen = loadable(() => import('./sections/DB/Type'),{fallback: <LoadingPage x="page_content"/>})
-const DBSearchScreen = loadable(() => import('./sections/DB/Search'),{fallback: <LoadingPage/>})
-const DBCategoryScreen = loadable(() => import('./sections/DB/Category'),{fallback: <LoadingPage/>})
+const DBTypeScreen = loadable(() => import('./sections/DB/Type'), { fallback: <LoadingPage x="page_content" /> })
+const DBSearchScreen = loadable(() => import('./sections/DB/Search'), { fallback: <LoadingPage /> })
+const DBCategoryScreen = loadable(() => import('./sections/DB/Category'), { fallback: <LoadingPage /> })
 
 // Tools Screens
-const ToolsScreen = loadable(() => import('./sections/Tools/Home'),{fallback: <LoadingPage/>})
-const ScannerScreen = loadable(() => import('./sections/Tools/Scanner'),{fallback: <LoadingPage/>})
-const CalendarScreen = loadable(() => import('./sections/Calendar/Page'),{fallback: <LoadingPage/>})
-const BouncersScreen = loadable(() => import('./sections/Tools/Bouncers'),{fallback: <LoadingPage/>})
-const BouncerMapScreen = loadable(() => import('./sections/Tools/BouncerMap'),{fallback: <LoadingPage/>})
+const ToolsScreen = loadable(() => import('./sections/Tools/Home'), { fallback: <LoadingPage /> })
+const ScannerScreen = loadable(() => import('./sections/Tools/Scanner'), { fallback: <LoadingPage /> })
+const CalendarScreen = loadable(() => import('./sections/Calendar/Page'), { fallback: <LoadingPage /> })
+const BouncersScreen = loadable(() => import('./sections/Tools/Bouncers'), { fallback: <LoadingPage /> })
+const BouncerMapScreen = loadable(() => import('./sections/Tools/BouncerMap'), { fallback: <LoadingPage /> })
 
 // Maps Screens
-const MapScreen = loadable(() => import('./sections/Maps/Home'),{fallback: <LoadingPage/>})
+const MapScreen = loadable(() => import('./sections/Maps/Home'), { fallback: <LoadingPage /> })
 
 // User Screens
-const UserDetailsScreen = loadable(() => import('./sections/User/Details'),{fallback: <LoadingPage/>})
-const UserActivityScreen = loadable(() => import('./sections/User/Activity/Page'),{fallback: <LoadingPage x="page_content"/>})
-const UserSearchScreen = loadable(() => import('./sections/User/Search'),{fallback: <LoadingPage/>})
-const UserInventoryScreen = loadable(() => import('./sections/User/Inventory/Page'),{fallback: <LoadingPage x="page_content"/>})
-const UserClanScreen = loadable(() => import('./sections/User/Clan/Page'),{fallback: <LoadingPage/>})
-const UserQuestScreen = loadable(() => import('./sections/User/Quest'),{fallback: <LoadingPage/>})
-const UserBouncersScreen = loadable(() => import('./sections/User/Bouncers'),{fallback: <LoadingPage/>})
-const UserSHCScreen = loadable(() => import('./sections/User/SpecialHunterChallenge/Classic'),{fallback: <LoadingPage/>})
-const UserSHCLiteScreen = loadable(() => import('./sections/User/SpecialHunterChallenge/Lite'),{fallback: <LoadingPage/>})
-const UserSHCProScreen = loadable(() => import('./sections/User/SpecialHunterChallenge/Pro'),{fallback: <LoadingPage/>})
-const UserCapturesCategoryScreen = loadable(() => import('./sections/User/CapturesCategory'),{fallback: <LoadingPage/>})
+const UserDetailsScreen = loadable(() => import('./sections/User/Details'), { fallback: <LoadingPage /> })
+const UserActivityScreen = loadable(() => import('./sections/User/Activity/Page'), { fallback: <LoadingPage x="page_content" /> })
+const UserSearchScreen = loadable(() => import('./sections/User/Search'), { fallback: <LoadingPage /> })
+const UserInventoryScreen = loadable(() => import('./sections/User/Inventory/Page'), { fallback: <LoadingPage x="page_content" /> })
+const UserClanScreen = loadable(() => import('./sections/User/Clan/Page'), { fallback: <LoadingPage /> })
+const UserQuestScreen = loadable(() => import('./sections/User/Quest'), { fallback: <LoadingPage /> })
+const UserBouncersScreen = loadable(() => import('./sections/User/Bouncers'), { fallback: <LoadingPage /> })
+const UserSHCScreen = loadable(() => import('./sections/User/SpecialHunterChallenge/Classic'), { fallback: <LoadingPage /> })
+const UserSHCLiteScreen = loadable(() => import('./sections/User/SpecialHunterChallenge/Lite'), { fallback: <LoadingPage /> })
+const UserSHCProScreen = loadable(() => import('./sections/User/SpecialHunterChallenge/Pro'), { fallback: <LoadingPage /> })
+const UserCapturesCategoryScreen = loadable(() => import('./sections/User/CapturesCategory'), { fallback: <LoadingPage /> })
 
 // Navigation Sections
 import DrawerContent from './sections/Main/Drawer';
 
-import { Platform, View, Text, StatusBar, ActivityIndicator } from 'react-native';
-import { Provider as PaperProvider } from 'react-native-paper'
+import { Platform, View, Text, StatusBar, ActivityIndicator, ScrollView, Image } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Provider as PaperProvider, Button } from 'react-native-paper'
 
 import { useDimensions } from '@react-native-community/hooks';
 import * as WebBrowser from 'expo-web-browser';
@@ -88,22 +90,22 @@ const Stack = createStackNavigator();
 
 function RedirectScreen() {
   var nav = useNavigation();
-  var users = useSelector(i=>Object.keys(i.logins??{}));
-  if(users && users[0]) {
-    nav.replace('UserDetails',{userid:Number(users[0])});
+  var users = useSelector(i => Object.keys(i.logins ?? {}));
+  if (users && users[0]) {
+    nav.replace('UserDetails', { userid: Number(users[0]) });
   }
   return <Text>_redirect</Text>;
 }
 
-const AuthScreen = loadable(() => import('./sections/Main/Auth'),{fallback: <LoadingPage/>})
+const AuthScreen = loadable(() => import('./sections/Main/Auth'), { fallback: <LoadingPage /> })
 
-function StackNav () {
-  const loggedIn = useSelector(i=>i.loggedIn);
+function StackNav() {
+  const loggedIn = useSelector(i => i.loggedIn);
   return <Stack.Navigator
     screenOptions={({ navigation, route }) => ({
       gestureEnabled: Platform.OS == 'ios',
       // animationEnabled: false,
-      header: (props) => <Header {...(props||{})}/>
+      header: (props) => <Header {...(props || {})} />
     })}>
     {loggedIn && <>
       <Stack.Screen
@@ -324,13 +326,13 @@ function StackNav () {
 
 function DrawerNav() {
   var { width } = useDimensions().window;
-  var loggedIn = useSelector(i=>i.loggedIn);
+  var loggedIn = useSelector(i => i.loggedIn);
   return <Drawer.Navigator
     drawerPosition="left"
-    drawerStyle={{width:width>1000?260:Math.min(320,width)}}
+    drawerStyle={{ width: width > 1000 ? 260 : Math.min(320, width) }}
     drawerContent={props => <DrawerContent side="left" {...props} />}
-    drawerType={(width>1000&&loggedIn)?"permanent":"front"}
-    edgeWidth={loggedIn?100:0}
+    drawerType={(width > 1000 && loggedIn) ? "permanent" : "front"}
+    edgeWidth={loggedIn ? 100 : 0}
   >
     <Drawer.Screen
       name="__primary"
@@ -341,18 +343,19 @@ function DrawerNav() {
 }
 
 function App() {
-  let [fontsLoaded] = useFonts(Platform.OS=="web"?{
+  let [fontsLoaded] = useFonts(Platform.OS == "web" ? {
     // Coiny_400Regular,
-  }:{
-    Coiny_400Regular,
-    Roboto_100Thin,
-    Roboto_300Light,
-    Roboto_400Regular,
-    Roboto_500Medium,
-    Roboto_700Bold,
-    Roboto_900Black,
-  });
-  const loadingLogin = useSelector(i=>i.loadingLogin);
+  } : {
+      Coiny_400Regular,
+      Roboto_100Thin,
+      Roboto_300Light,
+      Roboto_400Regular,
+      Roboto_500Medium,
+      Roboto_700Bold,
+      Roboto_900Black,
+    });
+  const loadingLogin = useSelector(i => i.loadingLogin || i.version < 0);
+  const version = useSelector(i => i.version);
   const ref = React.useRef();
   const dispatch = useDispatch();
 
@@ -518,7 +521,7 @@ function App() {
   });
   var [isReady, setIsReady] = React.useState(false);
   var [initialState, setInitialState] = React.useState();
-  var theme = useSelector(i=>i.themes[i.theme])
+  var theme = useSelector(i => i.themes[i.theme])
 
   React.useEffect(() => {
     Promise.race([
@@ -532,7 +535,7 @@ function App() {
       })
       .then(state => {
         if (state !== undefined) {
-          setTimeout(()=>dispatch(setCurrentRoute(state?.routes?.[0]?.state?.routes?.slice?.()?.reverse?.()?.[0]??{})),100);
+          setTimeout(() => dispatch(setCurrentRoute(state?.routes?.[0]?.state?.routes?.slice?.()?.reverse?.()?.[0] ?? {})), 100);
           setInitialState(state);
         }
 
@@ -540,25 +543,54 @@ function App() {
       });
   }, [getInitialState]);
 
-  function handleStateChange(a,b,c) {
-    dispatch(setCurrentRoute(a?.routes?.[0]?.state?.routes?.slice?.()?.reverse?.()?.[0]??{}))
+  function handleStateChange(a, b, c) {
+    dispatch(setCurrentRoute(a?.routes?.[0]?.state?.routes?.slice?.()?.reverse?.()?.[0] ?? {}))
   }
 
   if (!theme || !theme.page || !theme.page.bg) {
-    return <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
+    return <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <ActivityIndicator size="large" />
     </View>;
   }
   if (!fontsLoaded) {
-    return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
+    return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
       <ActivityIndicator size="large" color={theme.page.fg} />
     </View>;
   }
   if (loadingLogin) {
-    return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
-      <Text allowFontScaling={false} style={{...font("bold"),fontSize:20,color:theme.page.fg,marginBottom:20}}>Logging in...</Text>
+    return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
+      <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>Logging in...</Text>
       <ActivityIndicator size="large" color={theme.page.fg} />
     </View>;
+  }
+  if (version != Math.max(...Object.keys(changelogs).map(Number))) {
+    var arr = [];
+    for (var v = Math.max(
+      Math.max(...Object.keys(changelogs).map(Number)) - 10,
+      version + 1
+    ); v <= Math.max(...Object.keys(changelogs).map(Number)); v++) {
+      arr.push(v);
+    }
+    var logs = arr.map(i=>[i,changelogs[i]])
+    return <ScrollView style={{ backgroundColor: theme.page_content.bg }} contentContainerStyle={{ padding: 8, justifyContent: "center", alignItems: "center", flex: 1 }}>
+      {logs.filter(Boolean).map(([build,log]) => <><View style={{ alignItems: "center" }}>
+        <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 32, ...font("bold") }}>Build {build}</Text>
+      </View>
+          {log?.map(i => <View style={{ flexDirection: "row", alignItems: "center", width: 400, maxWidth: "100%" }}>
+            {i.image && <Image source={{ uri: i.image }} style={{ height: 48, width: 48 }} />}
+            {i.icon && <View style={{ height: 48, width: 48, backgroundColor: theme.page.bg, borderRadius: 24, justifyContent: "center", alignItems: "center" }}>
+              <MaterialCommunityIcons size={32} color={theme.page.fg} name={i.icon} />
+            </View>}
+            <View style={{ padding: 8 }}>
+              <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{i.title}</Text>
+              <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font() }}>{i.description}</Text>
+            </View>
+          </View>)??<Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>No Changelog</Text>}
+        {build == Math.max(...Object.keys(changelogs).map(Number)) && <Button mode="contained" color={theme.page.bg} onPress={() => {
+          dispatch(cuppazeeVersion(Math.max(...Object.keys(changelogs).map(Number))))
+        }}>Continue to CuppaZee</Button>}
+      </>)}
+    </ScrollView>;
   }
   if (!isReady) {
     return null;
@@ -567,8 +599,8 @@ function App() {
   return (
     <NavigationContainer independent={true} onStateChange={handleStateChange} initialState={initialState} ref={ref}>
       <StatusBar translucent={true} backgroundColor={theme.navigation.bg + 'cc'} barStyle="light-content" />
-      <View style={{flex:1}}>
-        <DrawerNav/>
+      <View style={{ flex: 1 }}>
+        <DrawerNav />
         {/* <View style={{position:"absolute",bottom:-0.5*navWidth,right:-0.5*navWidth,width:navWidth,height:navWidth,borderRadius:navWidth/2,paddingBottom:navWidth/2,paddingRight:navWidth/2,backgroundColor:"white"}}><Text>Hello</Text></View> */}
       </View>
     </NavigationContainer>

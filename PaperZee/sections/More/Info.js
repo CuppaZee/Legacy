@@ -6,6 +6,7 @@ import { TouchableRipple, Button, Menu } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import font from '~sections/Shared/font';
 import { useTranslation } from 'react-i18next';
+import changelogs from '../../changelogs';
 
 export default function SettingsScreen() {
   var { t } = useTranslation();
@@ -29,7 +30,7 @@ export default function SettingsScreen() {
       <View style={{ alignItems: "center" }}>
         <Image style={{ width: 300, height: 90.78 }} source={{ uri: 'https://server.cuppazee.app/logo.png' }} />
         <TouchableRipple onPress={()=>setDev(i=>i+1)}>
-          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{dev<5?t('app_info:build_n', { build: 113 }):dev-4}</Text>
+          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{dev<5?t('app_info:build_n', { build: Math.max(...Object.keys(changelogs).map(Number)) }):dev-4}</Text>
         </TouchableRipple>
         {dev>=5&&<Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{devData}</Text>}
       </View>

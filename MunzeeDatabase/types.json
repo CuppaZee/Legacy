@@ -124,6 +124,7 @@
       2286,
       2288,
       2290,
+      2292,
       2394,
       2393,
       2363,
@@ -26570,24 +26571,6 @@
     "cid": "charge"
   },
   {
-    "name": "Rainbow Trail",
-    "icon": "rainbowtrail",
-    "id": 2394,
-    "bouncer": {
-      "type": "seasonal",
-      "duration": 7,
-      "lands_on": [
-        0,
-        441,
-        851
-      ]
-    },
-    "state": "bouncer",
-    "category": "rainbowtrail2020",
-    "completion": "complete",
-    "cid": "rainbowtrail"
-  },
-  {
     "name": "Red ZED",
     "icon": "redzed",
     "id": 2395,
@@ -26614,9 +26597,9 @@
     "cid": "orangezed"
   },
   {
-    "name": "Green ZED",
-    "icon": "greenzed",
-    "id": 2398,
+    "name": "Yellow ZED",
+    "icon": "yellowzed",
+    "id": 2397,
     "scatter": {
       "duration": 1,
       "standalone": true
@@ -26624,7 +26607,20 @@
     "state": "virtual",
     "category": "rainbowtrail2020",
     "completion": "complete",
-    "cid": "greenzed"
+    "cid": "yellowzed"
+  },
+  {
+    "name": "Violet ZED",
+    "icon": "violetzed",
+    "id": 2401,
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    },
+    "state": "virtual",
+    "category": "rainbowtrail2020",
+    "completion": "complete",
+    "cid": "violetzed"
   },
   {
     "name": "Red Apple",
@@ -26735,9 +26731,25 @@
     "cid": "viewfinder2020vision"
   },
   {
-    "name": "Yellow ZED",
-    "icon": "yellowzed",
-    "id": 2397,
+    "name": "Jeweler Loupe",
+    "icon": "jewelerloupe2020vision",
+    "id": 2292,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 12,
+      "lands_on": [
+        0
+      ]
+    },
+    "state": "bouncer",
+    "category": "vision2020",
+    "completion": "complete",
+    "cid": "jewelerloupe2020vision"
+  },
+  {
+    "name": "Green ZED",
+    "icon": "greenzed",
+    "id": 2398,
     "scatter": {
       "duration": 1,
       "standalone": true
@@ -26745,7 +26757,7 @@
     "state": "virtual",
     "category": "rainbowtrail2020",
     "completion": "complete",
-    "cid": "yellowzed"
+    "cid": "greenzed"
   },
   {
     "name": "Blue ZED",
@@ -26772,19 +26784,6 @@
     "category": "rainbowtrail2020",
     "completion": "complete",
     "cid": "indigozed"
-  },
-  {
-    "name": "Violet ZED",
-    "icon": "violetzed",
-    "id": 2401,
-    "scatter": {
-      "duration": 1,
-      "standalone": true
-    },
-    "state": "virtual",
-    "category": "rainbowtrail2020",
-    "completion": "complete",
-    "cid": "violetzed"
   },
   {
     "name": "Lou Roll",
@@ -31486,6 +31485,24 @@
     "category": "flatdaythe13thpt.32020",
     "completion": "complete",
     "cid": "thereturn"
+  },
+  {
+    "name": "Rainbow Trail",
+    "icon": "rainbowtrail",
+    "id": 2394,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 7,
+      "lands_on": [
+        0,
+        441,
+        851
+      ]
+    },
+    "state": "bouncer",
+    "category": "rainbowtrail2020",
+    "completion": "complete",
+    "cid": "rainbowtrail"
   },
   {
     "name": "Elekter",

@@ -1,8 +1,9 @@
 import React from "react"
 import { Marker } from "react-native-maps";
 import MapView from "react-native-map-clustering";
-import { Image } from "react-native"
+import { Image, Platform } from "react-native"
 import { useSelector } from 'react-redux';
+import * as Location from 'expo-location';
 var Map = function Map(props) {
   return (<MapView
     initialRegion={props.markerClustering?{
@@ -11,6 +12,7 @@ var Map = function Map(props) {
       latitudeDelta: 25,
       longitudeDelta: 25
     }:null}
+    showsUserLocation={Platform.OS==="android"}
     clusteringEnabled={!!props.markerClustering}
     initialCamera={{
       zoom: -1,

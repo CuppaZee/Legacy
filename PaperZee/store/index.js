@@ -4,6 +4,7 @@ import r from './request';
 import { AsyncStorage } from 'react-native';
 import stringify from 'fast-json-stable-stringify';
 import themes from '../themes'
+import changelogs from '../changelogs'
 var {makeRequest} = r;
 const defaultState = {
   requests: [],
@@ -18,7 +19,8 @@ const defaultState = {
   clanLevelSelect: {},
   route: {},
   themes,
-  theme: themes._default
+  theme: themes._default,
+  version: -1
 };
 
 
@@ -33,6 +35,7 @@ var refresh = () => async (dispatch, getState) => {
 }
 
 var setCurrentRoute = (data) => ({ type: "CURRENT_ROUTE", data: data })
+var cuppazeeVersion_ = (data) => ({ type: "CUPPAZEE_VERSION", data: data })
 var login_ = (data) => ({ type: "LOGIN", data: data })
 var replaceLogin_ = (data) => ({ type: "REPLACE_LOGIN", data: data })
 var clanBookmarks_ = (data) => ({ type: "CLAN_BOOKMARKS", data: data })
@@ -53,6 +56,10 @@ var login = (data,noUpdate) => async (dispatch, getState) => {
 var clanBookmarks = (data,noUpdate) => async (dispatch, getState) => {
   if(!noUpdate) await AsyncStorage.setItem('CLAN_BOOKMARKS',stringify(data));
   dispatch(clanBookmarks_(data));
+}
+var cuppazeeVersion = (data,noUpdate) => async (dispatch, getState) => {
+  if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_VERSION',stringify(data));
+  dispatch(cuppazeeVersion_(data));
 }
 var setCode = (data,noUpdate) => async (dispatch, getState) => {
   if(!noUpdate) await AsyncStorage.setItem('CODE',data);
@@ -138,6 +145,11 @@ var rootReducer = (state = defaultState, action) => {
         ...state,
         theme: action.data
       }
+    case 'CUPPAZEE_VERSION':
+      return {
+        ...state,
+        version: action.data
+      }
     case 'CLAN_BOOKMARKS':
       return {
         ...state,
@@ -199,5 +211,11 @@ AsyncStorage.getItem('LEVEL_SELECT').then((data)=>{
   if(!data) return store.dispatch(levelSelect({},true));
   store.dispatch(levelSelect(JSON.parse(data),true));
 })
+AsyncStorage.getItem('CUPPAZEE_VERSION').then((data)=>{
+  if(!data) return store.dispatch(cuppazeeVersion(
+    Math.max(...Object.keys(changelogs).map(Number))
+  ));
+  store.dispatch(cuppazeeVersion(Number(data),true));
+})
 
-export default {store,refresh,login,setCode,clanBookmarks,levelSelect,setCurrentRoute,setTheme,removeLogin};
+export default {store,refresh,login,setCode,clanBookmarks,levelSelect,setCurrentRoute,setTheme,removeLogin,cuppazeeVersion};
