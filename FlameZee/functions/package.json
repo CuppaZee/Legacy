@@ -30,8 +30,8 @@
     "object.fromentries": "^2.0.2",
     "offline-geocoder": "^1.0.0",
     "rss-parser": "^3.7.6",
-    "spherical": "^0.2.0",
-    "snyk": "^1.339.2"
+    "snyk": "^1.339.2",
+    "spherical": "^0.2.0"
   },
   "devDependencies": {
     "eslint": "^5.12.0",
