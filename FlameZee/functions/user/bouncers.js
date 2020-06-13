@@ -1,6 +1,7 @@
 var {retrieve,request} = require("../util");
 var path = require("path");
 var geocoder = require('offline-geocoder')({ database: path.join(__dirname,'../util/geolocate/db.sqlite') })
+var geoTz = require('geo-tz')
 
 module.exports = {
   path: "user/bouncers",
@@ -30,7 +31,10 @@ module.exports = {
         var body = [].concat(...data.slice(1));
         var deps = await Promise.all(data[0].munzees.slice().reverse().map(async (i,index)=>{
           i.bouncer = body.find(b=>((b||{}).mythological_munzee||{}).munzee_id.toString()===i.munzee_id.toString());
-          if(i.bouncer) i.location = await geocoder.reverse(i.bouncer.latitude, i.bouncer.longitude);
+          if(i.bouncer) {
+            i.location = await geocoder.reverse(i.bouncer.latitude, i.bouncer.longitude);
+            i.timezone = geoTz(i.bouncer.latitude, i.bouncer.longitude);
+          }
           // if(i.bouncer&&index<10) i.location = JSON.parse(await rp(`https://api.mapbox.com/geocoding/v5/mapbox.places/${i.bouncer.longitude},${i.bouncer.latitude}.json?access_token=ACCESS_TOKEN_HERE`));
           return i;
         }));
