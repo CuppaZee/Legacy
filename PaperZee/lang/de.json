@@ -12,7 +12,7 @@
         "credits": "Credits",
         "app_info": "App Info",
         "donate": "Spenden",
-        "build_info": "CuppaZee App Build",
+        "build_info": "CuppaZee App Build {count}",
         "user": {
             "one": "Nutzer",
             "other": "Nutzer"
@@ -31,38 +31,38 @@
         "calendar": "Kalender"
     },
     "activity": {
-        "user_captured": "erfasste",
-        "user_deployed": "verteilte",
+        "user_captured": "{user} erfasste",
+        "user_deployed": "{user} verteilte",
         "you_captured": "Du erfasstest",
         "you_deployed": "Du verteiltest",
-        "by_user": "von",
+        "by_user": "von {user}",
         "by_you": "von dir",
         "total_point": {
-            "one": "Gesamte Punkte",
-            "other": "Gesamte Punkte"
+            "one": "{count} Gesamte Punkte",
+            "other": "{count} Gesamte Punkte"
         },
         "capture": {
-            "one": "Capture",
-            "other": "Captures"
+            "one": "{count} Capture",
+            "other": "{count} Captures"
         },
         "deploy": {
             "one": "Deploy",
             "other": "Deploys"
         },
         "capon": {
-            "one": "CapOn",
-            "other": "CapOns"
+            "one": "{count} CapOn",
+            "other": "{count} CapOns"
         },
         "point": {
-            "one": "Punkt",
-            "other": "Punkte"
+            "one": "{count} Punkt",
+            "other": "{count} Punkte"
         },
         "none": "keine",
-        "user_today": "heute"
+        "user_today": "{user} heute"
     },
     "user": {
-        "level_n": "Level",
-        "rank_n": "Rang",
+        "level_n": "Level {level}",
+        "rank_n": "Rang #{rank}",
         "inventory": "Inventar",
         "your_bouncers": "Deine Bouncer",
         "clan_progress": "Clan Fortschritt",
@@ -82,14 +82,14 @@
         "translators": "Übersetzer",
         "database_contributors": "Mitwirkende an der Datenbank",
         "patrons_and_supporters": "Spender und Unterstützer",
-        "build_n": "Helfer"
+        "build_n": "Version {build}"
     },
     "your_bouncers": {
         "capture": {
-            "one": "Capture",
-            "other": "Captures"
+            "one": "{count} Capture",
+            "other": "{count} Captures"
         },
-        "last_captured": "zuletzt erfasst",
+        "last_captured": "zuletzt erfasst: {time}",
         "in_limbo": "Eine Pause machen"
     }
 }
