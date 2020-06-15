@@ -1,72 +1,95 @@
 {
     "common": {
-        "dashboard": "",
-        "search": "",
-        "map": "",
-        "tools": "",
-        "settings": "",
-        "authenticate": "",
-        "auth_success": "",
-        "scanner": "",
-        "maps": "",
-        "credits": "",
-        "app_info": "",
-        "donate": "",
-        "build_info": "",
+        "dashboard": "Dashboard",
+        "search": "Suche",
+        "map": "Karte",
+        "tools": "Werkzeuge",
+        "settings": "Einstellungen",
+        "authenticate": "authentifizieren",
+        "auth_success": "Authentifizierung erfolgreich",
+        "scanner": "Scanner",
+        "maps": "Karten",
+        "credits": "Credits",
+        "app_info": "App Info",
+        "donate": "Spenden",
+        "build_info": "CuppaZee App Build",
         "user": {
-            "one": "",
-            "other": ""
+            "one": "Nutzer",
+            "other": "Nutzer"
         },
         "clan": {
-            "one": "",
-            "other": ""
+            "one": "Clan",
+            "other": "Clans"
         },
-        "more": "",
-        "find_user": "",
-        "munzee_types": "",
-        "show_more": "",
-        "show_less": "",
-        "help": ""
+        "more": "Mehr",
+        "find_user": "finde einen Nutzer",
+        "munzee_types": "Munzee-Typen",
+        "show_more": "Zeig mehr",
+        "show_less": "Zeig weniger",
+        "help": "Hilfe",
+        "users": "Nutzer",
+        "calendar": "Kalender"
     },
     "activity": {
-        "user_captured": "",
-        "user_deployed": "",
-        "you_captured": "",
-        "you_deployed": "",
-        "by_user": "",
-        "by_you": "",
+        "user_captured": "erfasste",
+        "user_deployed": "verteilte",
+        "you_captured": "Du erfasstest",
+        "you_deployed": "Du verteiltest",
+        "by_user": "von",
+        "by_you": "von dir",
         "total_point": {
-            "one": "",
-            "other": ""
+            "one": "Gesamte Punkte",
+            "other": "Gesamte Punkte"
         },
         "capture": {
-            "one": "",
-            "other": ""
+            "one": "Capture",
+            "other": "Captures"
         },
         "deploy": {
-            "one": "",
-            "other": ""
+            "one": "Deploy",
+            "other": "Deploys"
         },
         "capon": {
-            "one": "",
-            "other": ""
+            "one": "CapOn",
+            "other": "CapOns"
         },
         "point": {
-            "one": "",
-            "other": ""
+            "one": "Punkt",
+            "other": "Punkte"
         },
-        "none": "",
-        "user_today": ""
+        "none": "keine",
+        "user_today": "heute"
     },
     "user": {
-        "level_n": "",
-        "rank_n": "",
-        "inventory": "",
-        "your_bouncers": "",
-        "clan_progress": "",
-        "quebec_quest_progress": "",
-        "special_hunter_challenge": "",
-        "captured_types": "",
-        "activity": ""
+        "level_n": "Level",
+        "rank_n": "Rang",
+        "inventory": "Inventar",
+        "your_bouncers": "Deine Bouncer",
+        "clan_progress": "Clan Fortschritt",
+        "quebec_quest_progress": "Quebec Quest Progress",
+        "special_hunter_challenge": "Spezielle Jäger Herausforderung",
+        "captured_types": "Erfasste Typen",
+        "activity": "Aktivität"
+    },
+    "inventory": {
+        "undeployed": "Nicht verteilt",
+        "credits": "Credits",
+        "history": "Verlauf"
+    },
+    "app_info": {
+        "credits": "Credits",
+        "primary_developer": "Hauptentwickler",
+        "translators": "Übersetzer",
+        "database_contributors": "Mitwirkende an der Datenbank",
+        "patrons_and_supporters": "Spender und Unterstützer",
+        "build_n": "Helfer"
+    },
+    "your_bouncers": {
+        "capture": {
+            "one": "Capture",
+            "other": "Captures"
+        },
+        "last_captured": "zuletzt erfasst",
+        "in_limbo": "Eine Pause machen"
     }
 }
