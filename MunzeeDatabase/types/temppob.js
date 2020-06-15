@@ -175,5 +175,89 @@ module.exports = [
     "id": "null_trojanunicorn",
     "state": "bouncer",
     "lands_on": ["mace","longsword","battleaxe","thehammer","crossbow","catapult"]
+  },
+  {
+    "name": "Sea Turtle",
+    "icon": "seaturtle",
+    "id": "null_seaturtle",
+    "state": "bouncer",
+    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "extra": {
+      "evolution": {
+        "set": "nature",
+        "stage": 5,
+        "base": "turtleegg"
+      }
+    }
+  },
+  {
+    "name": "Snapping Turtle",
+    "icon": "snappingturtle",
+    "id": "null_snappingturtle",
+    "state": "bouncer",
+    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "extra": {
+      "evolution": {
+        "set": "nature",
+        "stage": 5,
+        "base": "turtleegg"
+      }
+    }
+  },
+  {
+    "name": "Taekwondo Tortoise",
+    "icon": "taekwondotortoise",
+    "id": "null_taekwondotortoise",
+    "state": "bouncer",
+    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "extra": {
+      "evolution": {
+        "set": "nature",
+        "stage": 5,
+        "base": "turtleegg"
+      }
+    }
+  },
+  {
+    "name": "Box Jellyfish",
+    "icon": "boxjellyfish",
+    "id": "null_boxjellyfish",
+    "state": "bouncer",
+    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "extra": {
+      "evolution": {
+        "set": "nature",
+        "stage": 5,
+        "base": "planulalarva"
+      }
+    }
+  },
+  {
+    "name": "Golden Jellyfish",
+    "icon": "goldenjellyfish",
+    "id": "null_goldenjellyfish",
+    "state": "bouncer",
+    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "extra": {
+      "evolution": {
+        "set": "nature",
+        "stage": 5,
+        "base": "planulalarva"
+      }
+    }
+  },
+  {
+    "name": "PB & Jellyfish",
+    "icon": "pb&jellyfish",
+    "id": "null_pb&jellyfish",
+    "state": "bouncer",
+    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "extra": {
+      "evolution": {
+        "set": "nature",
+        "stage": 5,
+        "base": "planulalarva"
+      }
+    }
   }
 ]
