@@ -19,5 +19,22 @@ export default {
       title: 'Updated Munzee Types',
       description: 'Fixed Icon for Jeweler Loupe'
     }
+  ],
+  120: [
+    {
+      icon: 'map-marker',
+      title: 'Updated Munzee Types',
+      description: 'Fixed some bugs with Joysticks, the latest 20/20 Vision and various others'
+    },
+    {
+      icon: 'translate',
+      title: 'German Translations',
+      description: 'Added German Translations, thanks to Bungi'
+    },
+    {
+      icon: 'heart',
+      title: 'Updated Credits',
+      description: 'Added CarlisleCachers to Supporters list'
+    }
   ]
 }

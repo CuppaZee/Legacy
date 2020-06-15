@@ -22,8 +22,12 @@ export default function SearchScreen({ navigation }) {
     endpoint: 'bouncers/overview/v1',
     cuppazee: true
   })
-  function get(icon) {
-    return (data||{})[`https://munzee.global.ssl.fastly.net/images/pins/${icon}.png`]||0;
+  function get(i) {
+    var x = 0;
+    for(var icon of [i.icon,...i.alt_icons||[]]) {
+      x = (data||{})[`https://munzee.global.ssl.fastly.net/images/pins/${icon}.png`]||x;
+    }
+    return x;
   }
   return (
     <ScrollView
@@ -43,10 +47,10 @@ export default function SearchScreen({ navigation }) {
             </>}
             <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
               {types.filter(i => i.category === cdata.id).filter(i=>!i.hidden&&!i.capture_only).map(i => <TouchableRipple onPress={()=>navigation.navigate("BouncerMap",{type:i.icon})}>
-                <View key={i.id} style={{ padding: 4, width: 80, alignItems: "center", opacity: get(i.icon)>0?1:0.4 }}>
+                <View key={i.id} style={{ padding: 4, width: 80, alignItems: "center", opacity: get(i)>0?1:0.4 }}>
                   <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={{ uri: i.custom_icon ?? `https://server.cuppazee.app/pins/64/${encodeURIComponent(i.icon)}.png` }} />
                   <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{i.name}</Text>
-                  <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{get(i.icon).toString()}</Text>
+                  <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{get(i).toString()}</Text>
                 </View>
               </TouchableRipple>)}
             </View>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Text, View, ScrollView, Image } from 'react-native';
 import { useSelector, useDispatch } from "react-redux";
 import types from './types.json';
+import getType from './types';
 import categories from './categories.json';
 import { TouchableRipple, Chip } from 'react-native-paper';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -43,7 +44,7 @@ function checkCanHost(i) {
 export default function SettingsScreen() {
   var route = useRoute();
   var munzee_icon = route.params.munzee;
-  var munzee = types.find(i=>i.cid==g(munzee_icon));
+  var munzee = getType(munzee_icon);
   var theme = useSelector(i=>i.themes[i.theme]);
   var nav = useNavigation();
   if(!munzee) return null;

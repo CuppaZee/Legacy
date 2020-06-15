@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import font from '~sections/Shared/font';
 import useAPIRequest from '~sections/Shared/useAPIRequest';
 import types from '~sections/DB/types.json';
+import getType from '~sections/DB/types';
 import categories from '~sections/DB/categories.json';
 import moment from 'moment';
 
@@ -30,10 +31,10 @@ export default function SearchScreen({ navigation, route }) {
     logo: i.logo,
     name: i.name,
     count: Number(i.count),
-    cid: g(i.logo)
+    x: getType(i.logo,1)
   }))
-  function get(cid) {
-    return data_improved.find(i=>i.cid===cid)?.count||0;
+  function get(x) {
+    return data_improved.find(i=>i.x===x)?.count||0;
   }
   return (
     <ScrollView
@@ -87,10 +88,10 @@ export default function SearchScreen({ navigation, route }) {
               <Text allowFontScaling={false} style={{ ...font(), textAlign: "center", color: theme.page_content.fg }}>Duration: {moment.duration(moment(cdata.seasonal.starts).diff(moment(cdata.seasonal.ends))).humanize()}</Text>
             </>}
             <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
-              {types.filter(i => i.category === cdata.id).filter(i=>!i.hidden&&!i.capture_types).map(i => <View key={i.id} style={{ padding: 4, width: 80, alignItems: "center", opacity: get(i.cid)>0?1:0.4 }}>
+              {types.filter(i => i.category === cdata.id).filter(i=>!i.hidden&&!i.capture_types).map(i => <View key={i.id} style={{ padding: 4, width: 80, alignItems: "center", opacity: get(i.x)>0?1:0.4 }}>
                 <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={{ uri: i.custom_icon ?? `https://server.cuppazee.app/pins/64/${encodeURIComponent(i.icon)}.png` }} />
                 <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{i.name}</Text>
-                <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{get(i.cid).toString()}</Text>
+                <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{get(i.x).toString()}</Text>
               </View>)}
             </View>
           </View>

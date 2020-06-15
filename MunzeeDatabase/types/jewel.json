@@ -21,7 +21,10 @@
     "name": "Aquamarine",
     "icon": "aquamarine",
     "id": 218,
-    "state": "physical"
+    "state": "physical",
+    "extra": {
+      "alt_icons": ["aquamarinemunzee"]
+    }
   },
   {
     "name": "Topaz",

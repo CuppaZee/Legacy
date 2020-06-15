@@ -33,7 +33,10 @@
     "name": "Joystick Physical",
     "icon": "joystick",
     "id": 1976,
-    "state": "physical"
+    "state": "physical",
+    "extra": {
+      "alt_icons": ["joystickphysical"]
+    }
   },
   {
     "name": "Joystick Virtual",

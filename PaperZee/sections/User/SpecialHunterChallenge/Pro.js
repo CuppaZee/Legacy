@@ -4,7 +4,7 @@ import { ActivityIndicator, FAB, Menu, TouchableRipple, IconButton } from 'react
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import types from '~sections/DB/types';
+import getType from '~sections/DB/types';
 import useAPIRequest from '~sections/Shared/useAPIRequest';
 import font from '~sections/Shared/font';
 import Card from '~sections/Shared/Card';
@@ -12,10 +12,7 @@ import DatePicker from '~sections/Shared/DatePicker';
 import moment from 'moment';
 
 function g(a) {
-  return types[f((a.pin || a.icon || a.pin_icon).slice(49, -4))];
-}
-function f(icon) {
-  return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g, '').replace(/munzee$/, '');
+  return getType(a.pin || a.icon || a.pin_icon);
 }
 
 function s(icon, size = 64) {

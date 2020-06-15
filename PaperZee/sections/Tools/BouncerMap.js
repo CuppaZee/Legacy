@@ -6,7 +6,7 @@ import types from '~sections/DB/types.json';
 
 export default function MapScreen({ route }) {
   var mapStyle = useSelector(i=>i.themes[i.theme].mapStyle)
-  var list = types.filter(i=>i.icon===route.params.type||i.category===route.params.type).map(i=>i.icon)
+  var list = [].concat(...types.filter(i=>i.icon===route.params.type||i.category===route.params.type||(i.alt_icons&&i.alt_icons.includes(route.params.type))).map(i=>[i.icon,...i.alt_icons||[]]))
   var data = useAPIRequest({
     endpoint: 'bouncers/list/v1',
     data: {

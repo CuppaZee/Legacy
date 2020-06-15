@@ -938,12 +938,23 @@ for (var munzee of munzees) {
 for (var munzee of munzees) {
   munzee.can_host = munzees.filter(i => i.bouncer && (i.bouncer.lands_on || []).includes(munzee.id)).map(i => i.id);
   if (munzee.can_host.length == 0) munzee.can_host = undefined;
-  munzee.cid = munzee.icon.replace(/[^a-zA-Z0-9]/g, '').replace(/munzee$/, '');
+  // munzee.cid = munzee.icon.replace(/[^a-zA-Z0-9]/g, '').replace(/munzee$/, '');
 }
 
 munzees.sort((a, b) => (a.id || 0) - (b.id || 0));
 
 categories.sort((a, b) => (b.priority || 0) - (a.priority || 0));
+
+var typekeys = {};
+
+for(var munzee_index in munzees) {
+  var munzee = munzees[munzee_index];
+  munzee.cids = []
+  munzees[munzee_index].x = Number(munzee_index);
+  for(var icon of [munzee.icon,...munzee.alt_icons||[]]) {
+    typekeys[icon.replace(/[^a-zA-Z0-9]/g, '').replace(/munzee$/, '')] = Number(munzee_index);
+  }
+}
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Types Checked - Writing Types to Files... ${colors.Reset}`)
 
@@ -952,7 +963,14 @@ fs.writeFileSync('types.min.json', JSON.stringify(munzees))
 fs.writeFileSync('../PaperZee/sections/DB/types.json', JSON.stringify(munzees))
 fs.writeFileSync('../FlameZee/functions/util/db/types.json', JSON.stringify(munzees))
 
-console.log(`${colors.bg.Green}${colors.fg.Black} Types Written to Files - Writing Categories to JSON... ${colors.Reset}`)
+console.log(`${colors.bg.Green}${colors.fg.Black} Types Written to Files - Writing Type Keys to Files... ${colors.Reset}`)
+
+fs.writeFileSync('typekeys.json', JSON.stringify(typekeys, null, 2))
+fs.writeFileSync('typekeys.min.json', JSON.stringify(typekeys))
+fs.writeFileSync('../PaperZee/sections/DB/typekeys.json', JSON.stringify(typekeys))
+fs.writeFileSync('../FlameZee/functions/util/db/typekeys.json', JSON.stringify(typekeys))
+
+console.log(`${colors.bg.Green}${colors.fg.Black} Type Keys Written to Files - Writing Categories to JSON... ${colors.Reset}`)
 
 fs.writeFileSync('categories.json', JSON.stringify(categories, null, 2))
 fs.writeFileSync('categories.min.json', JSON.stringify(categories))

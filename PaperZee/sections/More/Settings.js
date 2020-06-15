@@ -43,7 +43,7 @@ export default function SettingsScreen({ navigation }) {
   var languages = [
     {code:'cs',name:'Čeština',flag:"CZ"},
     {code:'da',name:'Dansk'},
-    // {code:'de',name:'Deutsch'},
+    {code:'de',name:'Deutsch'},
     {code:'en-GB',name:'English (UK)'},
     {code:'fi',name:'Suomen Kieli'},
     // {code:'fr',name:'Français'},
