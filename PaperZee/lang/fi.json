@@ -57,7 +57,7 @@
             "one": "{count} piste",
             "other": "{count} pistettä"
         },
-        "none": "Ei yhtään",
+        "none": "Nolla",
         "user_today": "{user} tänään"
     },
     "user": {
