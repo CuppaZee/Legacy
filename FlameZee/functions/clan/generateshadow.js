@@ -8,6 +8,7 @@ var data = {
       "sidcup",
       "cambridgehannons",
       "benandlou",
+      "godzilla73",
       "chipperlarter"
     ],
     457: [
@@ -35,7 +36,7 @@ var data = {
       "lolbot",
       "ajb777",
       "armchair",
-      "godzilla73",
+      "chefmummyyummy",
       "reart",
       "vike91"
     ],
@@ -63,7 +64,6 @@ var data = {
       "mary",
       "unicornpink",
       "shaunem",
-      "chefmummyyummy",
       "signal77"
     ]
   }
