@@ -14,5 +14,10 @@
       "user":"example@example.com",
       "pass":"password"
     }
+  },
+  "emails": {
+    "munzeeblog": [
+      "example@example.com"
+    ]
   }
 }

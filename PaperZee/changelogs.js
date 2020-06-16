@@ -85,5 +85,17 @@ export default {
       title: 'Updated Credits',
       description: 'Added TSwag to Supporters List'
     }
+  ],
+  128: [
+    {
+      icon: 'settings',
+      title: 'Updated Settings',
+      description: 'New Settings Page Design'
+    },
+    {
+      icon: 'brush',
+      title: 'Custom Clan Stats Colours',
+      description: 'You can now customise your Clan Stats colours in the settings'
+    }
   ]
 }

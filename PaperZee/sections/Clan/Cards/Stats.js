@@ -10,6 +10,7 @@ import s from '~store';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { ClanRequirementsConverter, ClanStatsConverter } from '../Data';
 import useAPIRequest from '~sections/Shared/useAPIRequest';
+import useLevelColours from '~sections/Shared/useLevelColours';
 import font from '~sections/Shared/font';
 var { levelSelect: levelSelectX } = s
 
@@ -41,35 +42,12 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
     s = 1;
   }
   var theme = useSelector(i => i.themes[i.theme]);
-  var selected_theme = useSelector(i => i.theme);
-  var darkBG = undefined;
   //else {
-  var level_colors = {
-    ind: "#ffe97f",
-    bot: "#dff77e",
-    gro: "#b0fc8d",
-    0: "#eb0000",
-    1: "#ef6500",
-    2: "#fa9102",
-    3: "#fcd302",
-    4: "#bfe913",
-    5: "#55f40b",
-    null: "#e3e3e3",
-    // border:"#016930",
-    // border:"white",
-    // border: '#fff9', // < Changed from 7 to 9.. what do you think Sam?
-    border: '#000a'
-  }
-  if (theme.dark) {
-    darkBG = theme.page_content.bg;
-    level_colors.border = "#fffa"
-  }
+  var level_colors = useLevelColours();
   // }
 
   var [levelTable, setLevelTable] = React.useState(false);
   var nav = useNavigation();
-  var date = new Date(Date.now() - (5 * 60 * 60000));
-  var dateString = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${(date.getUTCDate()).toString().padStart(2, '0')}`
   var dispatch = useDispatch();
   // var { data } = useSelector(i => i.request_data[`clan/requirements/v1?game_id=${game_id}`] ?? {})
   // var { data: clan_data } = useSelector(i => i.request_data[`clan/details/v1?game_id=${game_id}&clan_id=${clan_id}`] ?? {})
@@ -212,7 +190,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
   return (
     // <View style={{ flex: 1, alignItems: "stretch", flexDirection: "column", backgroundColor: "#e9ffdc"??"#e6fcd9", borderRadius: 8 }}>
     <Card noPad>
-      <View style={{ ...(darkBG ? { borderBottomWidth: 2 * s, borderBottomColor: level_colors.border } : {}), backgroundColor: (theme.clanCardHeader || theme.navigation).bg, paddingHorizontal: 8 * s, borderTopLeftRadius: 8 * s, borderTopRightRadius: 8 * s, flexDirection: "row", alignItems: "center" }}>
+      <View style={{ ...(theme.dark ? { borderBottomWidth: 2 * s, borderBottomColor: level_colors.border } : {}), backgroundColor: (theme.clanCardHeader || theme.navigation).bg, paddingHorizontal: 8 * s, borderTopLeftRadius: 8 * s, borderTopRightRadius: 8 * s, flexDirection: "row", alignItems: "center" }}>
         <View style={{ flex: 1, paddingVertical: 8 * s }}>
           <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader || theme.navigation).fg, ...font("bold"), fontSize: 12 * s, opacity: 0.7, lineHeight: 12 * s }}>{clan?.details?.goal ?? 'Shadow Clan'}{clan?.details?.goal && ' Goal'} - {levelTable ? 'Subtract View' : 'Total View'}{!showGhost && " - Hiding Shadow Members"}</Text>
           <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader || theme.navigation).fg, ...font("bold"), fontSize: 16 * s, lineHeight: 16 * s }}>{clan?.details?.name}</Text>
@@ -231,7 +209,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
       </View> */}
       <View style={{ flexDirection: "row" }}>
         <MainScrollView scroll={scroll} s={s}>
-          <View style={{ flexDirection: "column", flexGrow: 1, alignItems: "stretch", backgroundColor: darkBG ?? level_colors.null }}>
+          <View style={{ flexDirection: "column", flexGrow: 1, alignItems: "stretch", backgroundColor: level_colors.null.bg }}>
             <View style={{ flexDirection: "row", marginRight: 1 }}>
               {(data?.order?.requirements ?? []).map(i => <View style={{ flexGrow: 1 }}>
                 <TouchableRipple onPress={() => {
@@ -242,35 +220,35 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
                     setAscending(!ascending);
                   }
                 }}>
-                  <View style={{ height: (96 - 19) * s, padding: 4 * s, alignItems: "center", backgroundColor: darkBG ?? level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'] }}>
+                  <View style={{ height: (96 - 19) * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'].bg }}>
                     <Image source={{ uri: data?.requirements?.[i]?.icon ?? data?.requirements?.[i]?.icons?.[tick % data?.requirements?.[i]?.icons?.length] }} style={{ height: 36 * s, width: 36 * s }} />
                     <View style={{ flexDirection: "row", alignItems: "baseline" }}>
-                      <Text allowFontScaling={false} numberOfLines={1} style={{ color: darkBG && level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'], textAlign: "center", ...font("bold"), fontSize: 12 * s }}>{data?.requirements?.[i]?.top}</Text>
-                      <MaterialCommunityIcons color={darkBG && level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro']} name={sortReq === i ? (ascending ? 'menu-up' : 'menu-down') : 'menu-swap'} size={12 * s} />
+                      <Text allowFontScaling={false} numberOfLines={1} style={{ color: level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'].fg, textAlign: "center", ...font("bold"), fontSize: 12 * s }}>{data?.requirements?.[i]?.top}</Text>
+                      <MaterialCommunityIcons color={level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'].fg} name={sortReq === i ? (ascending ? 'menu-up' : 'menu-down') : 'menu-swap'} size={12 * s} />
                     </View>
-                    <Text allowFontScaling={false} numberOfLines={1} style={{ color: darkBG && level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'], textAlign: "center", ...font(), fontSize: 12 * s }}>{data?.requirements?.[i]?.bottom}</Text>
+                    <Text allowFontScaling={false} numberOfLines={1} style={{ color: level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'].fg, textAlign: "center", ...font(), fontSize: 12 * s }}>{data?.requirements?.[i]?.bottom}</Text>
                   </View>
                 </TouchableRipple>
-                <View style={{ borderBottomWidth: 2 * s, borderBottomColor: level_colors.border, marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: darkBG ?? level_colors[levelSelect + 1] }}>
+                <View style={{ borderBottomWidth: 2 * s, borderBottomColor: level_colors.border, marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[levelSelect + 1].bg }}>
                   {
                     share ?
-                      <Text allowFontScaling={false} style={{ textAlign: "center", ...font(), width: '100%', fontSize: 12 * s, color: darkBG && level_colors[levelSelect + 1] }}>{num(Math.max(data?.levels?.[levelSelect]?.individual?.[i] || 0, Math.ceil((data?.levels?.[levelSelect]?.group?.[i] || 0) / (clan?.members?.length || 100)), 0), true)}</Text>
-                      : <Text allowFontScaling={false} style={{ textAlign: "center", ...font(), width: '100%', fontSize: 12 * s, color: darkBG && level_colors[levelSelect + 1] }}>{num(data?.levels?.[levelSelect]?.individual?.[i] || 0, true)}</Text>
+                      <Text allowFontScaling={false} style={{ textAlign: "center", ...font(), width: '100%', fontSize: 12 * s, color: level_colors[levelSelect + 1].fg }}>{num(Math.max(data?.levels?.[levelSelect]?.individual?.[i] || 0, Math.ceil((data?.levels?.[levelSelect]?.group?.[i] || 0) / (clan?.members?.length || 100)), 0), true)}</Text>
+                      : <Text allowFontScaling={false} style={{ textAlign: "center", ...font(), width: '100%', fontSize: 12 * s, color: level_colors[levelSelect + 1].fg }}>{num(data?.levels?.[levelSelect]?.individual?.[i] || 0, true)}</Text>
                   }
                 </View>
-                {members?.map(u => <View style={{ marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: darkBG ?? level_colors[calculateLevel(true, clan.requirements?.[i]?.users?.[u.user_id], i)] }}>
-                  <Text allowFontScaling={false} style={{ flexDirection: "row", textAlign: "center", width: '100%', ...font(), fontSize: 12 * s, color: darkBG && level_colors[calculateLevel(true, clan.requirements?.[i]?.users?.[u.user_id], i)] }}>
+                {members?.map(u => <View style={{ marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[calculateLevel(true, clan.requirements?.[i]?.users?.[u.user_id], i)].bg }}>
+                  <Text allowFontScaling={false} style={{ flexDirection: "row", textAlign: "center", width: '100%', ...font(), fontSize: 12 * s, color: level_colors[calculateLevel(true, clan.requirements?.[i]?.users?.[u.user_id], i)].fg }}>
                     {levelTable ? num((data?.levels?.[levelSelect]?.individual?.[i] || 0) - clan.requirements?.[i]?.users?.[u.user_id]) : num(clan.requirements?.[i]?.users?.[u.user_id])}
                     {/* <Text allowFontScaling={false} style={{paddingLeft:2,fontSize:12,lineHeight:6,textAlignVertical:'top',color:theme.page_content.fg}}>{calculateLevel(true,clan.requirements?.[i]?.users?.[u.user_id],i)}</Text> */}
                   </Text>
                 </View>)}
-                <View style={{ borderTopWidth: 2 * s, borderTopColor: level_colors.border, marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: darkBG ?? level_colors[calculateLevel(false, clan.requirements?.[i]?.total, i)] }}>
-                  <Text allowFontScaling={false} style={{ textAlign: "center", width: '100%', ...font(), fontSize: 12 * s, color: darkBG && level_colors[calculateLevel(false, clan.requirements?.[i]?.total, i)] }}>
+                <View style={{ borderTopWidth: 2 * s, borderTopColor: level_colors.border, marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[calculateLevel(false, clan.requirements?.[i]?.total, i)].bg }}>
+                  <Text allowFontScaling={false} style={{ textAlign: "center", width: '100%', ...font(), fontSize: 12 * s, color: level_colors[calculateLevel(false, clan.requirements?.[i]?.total, i)].fg }}>
                     {levelTable ? num((data?.levels?.[levelSelect]?.group?.[i] || 0) - clan.requirements?.[i]?.total) : num(clan.requirements?.[i]?.total)}
                   </Text>
                 </View>
-                <View style={{ marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: darkBG ?? level_colors[levelSelect + 1] }}>
-                  <Text allowFontScaling={false} style={{ textAlign: "center", width: '100%', ...font(), fontSize: 12 * s, color: darkBG && level_colors[levelSelect + 1] }}>{num(data?.levels?.[levelSelect]?.group?.[i] || 0, true)}</Text>
+                <View style={{ marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[levelSelect + 1].bg }}>
+                  <Text allowFontScaling={false} style={{ textAlign: "center", width: '100%', ...font(), fontSize: 12 * s, color: level_colors[levelSelect + 1].fg }}>{num(data?.levels?.[levelSelect]?.group?.[i] || 0, true)}</Text>
                 </View>
               </View>)}
             </View>
@@ -280,8 +258,8 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
 
         <View style={{ width: 101 * s, position: "absolute", left: 0, top: 0, borderRightWidth: 2 * s, borderRightColor: level_colors.border }}>
           {/* height:Platform.OS=="web"?76:77, */}
-          <View style={{ height: (96 - 19) * s, backgroundColor: darkBG ?? level_colors.null, flexDirection: "row", alignItems: "center", padding: 4 * s }}><Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: darkBG && level_colors.null }}>Players ({clan?.members?.length})</Text></View>
-          <View style={{ borderBottomWidth: 2 * s, borderBottomColor: level_colors.border, height: 24 * s, justifyContent: "center", backgroundColor: darkBG ?? level_colors[levelSelect + 1] }}>
+          <View style={{ height: (96 - 19) * s, backgroundColor: level_colors.null.bg, flexDirection: "row", alignItems: "center", padding: 4 * s }}><Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors.null.fg }}>Players ({clan?.members?.length})</Text></View>
+          <View style={{ borderBottomWidth: 2 * s, borderBottomColor: level_colors.border, height: 24 * s, justifyContent: "center", backgroundColor: level_colors[levelSelect + 1].bg }}>
             <Menu
               visible={userLevelSelect}
               onDismiss={() => setUserLevelSelect(false)}
@@ -289,8 +267,8 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
               anchor={
                 <TouchableRipple style={{ height: 24 * s, justifyContent: "center", paddingHorizontal: 4 * s }} onPress={() => setUserLevelSelect(true)}>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <Text allowFontScaling={false} style={{ fontSize: 12 * s, flex: 1, color: darkBG && level_colors[levelSelect + 1], ...font() }}>{data?.levels?.[levelSelect]?.name} {(ls || "")?.endsWith?.('s') ? 'Share' : 'Indiv'}</Text>
-                    <MaterialCommunityIcons color={darkBG && level_colors[levelSelect + 1]} name="chevron-down" size={12} />
+                    <Text allowFontScaling={false} style={{ fontSize: 12 * s, flex: 1, color: level_colors[levelSelect + 1].fg, ...font() }}>{data?.levels?.[levelSelect]?.name} {(ls || "")?.endsWith?.('s') ? 'Share' : 'Indiv'}</Text>
+                    <MaterialCommunityIcons color={level_colors[levelSelect + 1].fg} name="chevron-down" size={12} />
                   </View>
                 </TouchableRipple>
               }
@@ -298,28 +276,28 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
             >
               {data?.levels?.map((i, index) => <Menu.Item
                 key={index}
-                style={{ padding: 4 * s, paddingVertical: 0, backgroundColor: level_colors[index + 1] }}
+                style={{ padding: 4 * s, paddingVertical: 0, backgroundColor: level_colors[index + 1].bg }}
                 onPress={() => { setLevelSelect(index); setUserLevelSelect(false) }}
-                title={<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font() }}>{i.name + " Indiv"}</Text>}
+                title={<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors[index + 1].fg }}>{i.name + " Indiv"}</Text>}
               />)}
               {data?.levels?.map((i, index) => <Menu.Item
                 key={index + 's'}
-                style={{ padding: 4 * s, paddingVertical: 0, backgroundColor: level_colors[index + 1] }}
+                style={{ padding: 4 * s, paddingVertical: 0, backgroundColor: level_colors[index + 1].bg }}
                 onPress={() => { setLevelSelect(index + 's'); setUserLevelSelect(false) }}
-                title={<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font() }}>{i.name + " Share"}</Text>}
+                title={<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors[index + 1].fg }}>{i.name + " Share"}</Text>}
               />)}
             </Menu>
           </View>
           {members?.map(i => <TouchableWithoutFeedback onPress={() => nav.navigate('UserDetails', { userid: i.user_id })}>
-            <View style={{ backgroundColor: darkBG ?? level_colors[calculateLevelT(i.user_id)], padding: 4 * s, height: 24 * s, flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }} key={i.name}>
-              {(i.leader || i.ghost) && <MaterialCommunityIcons name={i.ghost ? 'ghost' : 'hammer'} color={darkBG && level_colors[calculateLevelT(i.user_id)]} size={12 * s} />}
-              <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{ fontSize: 12 * s, ...font(), flexShrink: 1, color: darkBG && level_colors[calculateLevelT(i.user_id)] }}>{i.username}</Text>
+            <View style={{ backgroundColor: level_colors[calculateLevelT(i.user_id)].bg, padding: 4 * s, height: 24 * s, flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }} key={i.name}>
+              {(i.leader || i.ghost) && <MaterialCommunityIcons name={i.ghost ? 'ghost' : 'hammer'} color={level_colors[calculateLevelT(i.user_id)].fg} size={12 * s} />}
+              <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{ fontSize: 12 * s, ...font(), flexShrink: 1, color: level_colors[calculateLevelT(i.user_id)].fg }}>{i.username}</Text>
             </View>
           </TouchableWithoutFeedback>)}
-          <View style={{ justifyContent: "center", borderTopWidth: 2 * s, borderTopColor: level_colors.border, backgroundColor: darkBG ?? level_colors[calculateLevelT(false)], padding: 4 * s, height: 24 * s }}>
-            <Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: darkBG && level_colors[calculateLevelT(false)] }}>Group Total</Text>
+          <View style={{ justifyContent: "center", borderTopWidth: 2 * s, borderTopColor: level_colors.border, backgroundColor: level_colors[calculateLevelT(false)].bg, padding: 4 * s, height: 24 * s }}>
+            <Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors[calculateLevelT(false)].fg }}>Group Total</Text>
           </View>
-          <View style={{ justifyContent: "center", height: 24 * s, backgroundColor: darkBG ?? level_colors[levelSelect + 1] }}>
+          <View style={{ justifyContent: "center", height: 24 * s, backgroundColor: level_colors[levelSelect + 1].bg }}>
             <Menu
               visible={clanLevelSelect}
               onDismiss={() => setClanLevelSelect(false)}
@@ -327,8 +305,8 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
               anchor={
                 <TouchableRipple style={{ height: 24 * s, justifyContent: "center", paddingHorizontal: 4 * s }} onPress={() => setClanLevelSelect(true)}>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <Text allowFontScaling={false} style={{ fontSize: 12 * s, flex: 1, color: darkBG && level_colors[levelSelect + 1], ...font() }}>{data?.levels?.[levelSelect]?.name} Group</Text>
-                    <MaterialCommunityIcons color={darkBG && level_colors[levelSelect + 1]} name="chevron-down" size={12 * s} />
+                    <Text allowFontScaling={false} style={{ fontSize: 12 * s, flex: 1, color: level_colors[levelSelect + 1].fg, ...font() }}>{data?.levels?.[levelSelect]?.name} Group</Text>
+                    <MaterialCommunityIcons color={level_colors[levelSelect + 1].fg} name="chevron-down" size={12 * s} />
                   </View>
                 </TouchableRipple>
               }
@@ -336,9 +314,9 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
             >
               {data?.levels?.map((i, index) => <Menu.Item
                 key={index}
-                style={{ padding: 4 * s, paddingVertical: 0, fontSize: 12 * s, backgroundColor: level_colors[index + 1] }}
+                style={{ padding: 4 * s, paddingVertical: 0, fontSize: 12 * s, backgroundColor: level_colors[index + 1].bg }}
                 onPress={() => { setLevelSelect(index + ((ls || "")?.endsWith?.('s') ? 's' : '')); setClanLevelSelect(false) }}
-                title={<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font() }}>{i.name}</Text>}
+                title={<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors[index + 1].fg }}>{i.name}</Text>}
               />)}
             </Menu>
           </View>

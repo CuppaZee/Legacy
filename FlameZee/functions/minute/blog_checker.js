@@ -5,6 +5,7 @@ var { URLSearchParams } = require("url");
 var cheerio = require('cheerio');
 var config = require('../config.json');
 var notification = require('../util/notification');
+var sendEmail = require('../util/nodemailer');
 
 async function sendNotifications({ link, title }, db) {
   var tokens = (await db.collection('push').where('munzee_blog','==',true).get()).docs;
@@ -40,7 +41,14 @@ module.exports = {
 
             console.log('New Munzee Blog', feed.items[0].link);
             let img = cheerio.load(feed.items[0]["content:encoded"] || '')('img')[0];
-            sendNotifications(feed.items[0], db);
+            if(!data.dev) sendNotifications(feed.items[0], db);
+            for(var email of config.emails.munzeeblog) {
+              sendEmail({
+                to: email,
+                subject: feed.items[0].title,
+                text: feed.items[0].link + '#content'
+              })
+            }
             fetch(config.discord.blog, {
               method: 'POST',
               body: new URLSearchParams({

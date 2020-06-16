@@ -20,7 +20,20 @@ const defaultState = {
   route: {},
   themes,
   theme: themes._default,
-  version: -1
+  version: -1,
+  settings: {
+    alt_clan_design: false,
+    clan_level_ind: "#ffe97f",
+    clan_level_bot: "#dff77e",
+    clan_level_gro: "#b0fc8d",
+    clan_level_0:   "#eb0000",
+    clan_level_1:   "#ef6500",
+    clan_level_2:   "#fa9102",
+    clan_level_3:   "#fcd302",
+    clan_level_4:   "#bfe913",
+    clan_level_5:   "#55f40b",
+    clan_level_null:"#e3e3e3"
+  }
 };
 
 
@@ -42,6 +55,7 @@ var clanBookmarks_ = (data) => ({ type: "CLAN_BOOKMARKS", data: data })
 var setCode_ = (data) => ({ type: "SET_CODE", data: data })
 var setTheme_ = (data) => ({ type: "SET_THEME", data: data })
 var levelSelect_ = (data) => ({ type: "LEVEL_SELECT", data: data })
+var settings_ = (data) => ({ type: "SETTINGS", data: data })
 var tick = () => ({ type: "TICK" })
 var removeLogin = (user_id) => async (dispatch, getState) => {
   var x = {...getState().logins};
@@ -52,6 +66,10 @@ var removeLogin = (user_id) => async (dispatch, getState) => {
 var login = (data,noUpdate) => async (dispatch, getState) => {
   if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_TEAKENS',stringify({...getState().logins,...data}));
   dispatch(login_(data));
+}
+var settings = (data,noUpdate) => async (dispatch, getState) => {
+  if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_SETTINGS',stringify({...getState().settings,...data}));
+  dispatch(settings_(data));
 }
 var clanBookmarks = (data,noUpdate) => async (dispatch, getState) => {
   if(!noUpdate) await AsyncStorage.setItem('CLAN_BOOKMARKS',stringify(data));
@@ -160,6 +178,14 @@ var rootReducer = (state = defaultState, action) => {
         ...state,
         route: action.data
       }
+    case 'SETTINGS':
+      return {
+        ...state,
+        settings: {
+          ...state.settings,
+          ...action.data
+        }
+      }
     case 'LEVEL_SELECT':
       return {
         ...state,
@@ -211,6 +237,10 @@ AsyncStorage.getItem('LEVEL_SELECT').then((data)=>{
   if(!data) return store.dispatch(levelSelect({},true));
   store.dispatch(levelSelect(JSON.parse(data),true));
 })
+AsyncStorage.getItem('SETTINGS').then((data)=>{
+  if(!data) return store.dispatch(settings({},true));
+  store.dispatch(settings(JSON.parse(data),true));
+})
 AsyncStorage.getItem('CUPPAZEE_VERSION').then((data)=>{
   if(!data) return store.dispatch(cuppazeeVersion(
     Math.max(...Object.keys(changelogs).map(Number))
@@ -218,4 +248,4 @@ AsyncStorage.getItem('CUPPAZEE_VERSION').then((data)=>{
   store.dispatch(cuppazeeVersion(Number(data),true));
 })
 
-export default {store,refresh,login,setCode,clanBookmarks,levelSelect,setCurrentRoute,setTheme,removeLogin,cuppazeeVersion};
+export default {store,refresh,login,setCode,clanBookmarks,levelSelect,setCurrentRoute,setTheme,removeLogin,cuppazeeVersion,settings};
