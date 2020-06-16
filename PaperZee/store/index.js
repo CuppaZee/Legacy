@@ -237,7 +237,7 @@ AsyncStorage.getItem('LEVEL_SELECT').then((data)=>{
   if(!data) return store.dispatch(levelSelect({},true));
   store.dispatch(levelSelect(JSON.parse(data),true));
 })
-AsyncStorage.getItem('SETTINGS').then((data)=>{
+AsyncStorage.getItem('CUPPAZEE_SETTINGS').then((data)=>{
   if(!data) return store.dispatch(settings({},true));
   store.dispatch(settings(JSON.parse(data),true));
 })

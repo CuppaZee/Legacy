@@ -97,5 +97,12 @@ export default {
       title: 'Custom Clan Stats Colours',
       description: 'You can now customise your Clan Stats colours in the settings'
     }
+  ],
+  129: [
+    {
+      icon: 'settings',
+      title: 'Updated Settings',
+      description: 'Fixed a bug relating to Settings not being saved'
+    }
   ]
 }
