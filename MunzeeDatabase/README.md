@@ -6,7 +6,9 @@ Documentation on the Database will be coming in the future.
 
 ## Points Examples
 
-The `points` variable can be either a Points object (see below) or a String (eg. `"card_limited"` or `"myth"`) which related to a specific Points value in `points.json`
+The `points` variable can be either a Points object (see below) or a String (eg. `"card_limited"` or `"myth"`) which related to a specific Points Category in `points.json`
+
+If at least 3 similar types use the same points structure, it is recommended that you create a new Points category in `points.json` and link to that instead.
 
 When contributing to the Points values, please do not put points information for the following types:
 - Bouncers
