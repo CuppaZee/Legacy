@@ -350,6 +350,12 @@
     "jewel": true,
     "state": "physical",
     "category": "jewel",
+    "points": {
+      "deploy": 65,
+      "type": "split",
+      "split": 80,
+      "min": 20
+    },
     "completion": "complete",
     "can_host": [
       1707,
@@ -704,6 +710,12 @@
     "jewel": true,
     "state": "physical",
     "category": "jewel",
+    "points": {
+      "deploy": 50,
+      "type": "split",
+      "split": 70,
+      "min": 20
+    },
     "completion": "complete",
     "can_host": [
       1707,
@@ -866,6 +878,11 @@
     "jewel": true,
     "state": "virtual",
     "category": "jewel",
+    "points": {
+      "deploy": 50,
+      "capture": 40,
+      "capon": 50
+    },
     "completion": "complete",
     "can_host": [
       1707,
@@ -1480,6 +1497,12 @@
     "jewel": true,
     "state": "physical",
     "category": "jewel",
+    "points": {
+      "deploy": 30,
+      "type": "split",
+      "split": 40,
+      "min": 15
+    },
     "completion": "complete",
     "can_host": [
       1707,
@@ -1740,6 +1763,12 @@
     "jewel": true,
     "state": "physical",
     "category": "jewel",
+    "points": {
+      "deploy": 40,
+      "type": "split",
+      "split": 60,
+      "min": 15
+    },
     "completion": "complete",
     "can_host": [
       1707,
@@ -2217,6 +2246,11 @@
     "jewel": true,
     "state": "virtual",
     "category": "jewel",
+    "points": {
+      "deploy": 30,
+      "capture": 50,
+      "capon": 35
+    },
     "completion": "complete",
     "can_host": [
       1707,
@@ -5113,6 +5147,12 @@
     "jewel": true,
     "state": "physical",
     "category": "jewel",
+    "points": {
+      "deploy": 45,
+      "type": "split",
+      "split": 70,
+      "min": 15
+    },
     "completion": "complete",
     "can_host": [
       1707,
@@ -5489,6 +5529,11 @@
     "jewel": true,
     "state": "virtual",
     "category": "jewel",
+    "points": {
+      "deploy": 45,
+      "capture": 36,
+      "capon": 36
+    },
     "completion": "complete",
     "can_host": [
       1707,
@@ -14712,6 +14757,11 @@
     "jewel": true,
     "state": "virtual",
     "category": "jewel",
+    "points": {
+      "deploy": 40,
+      "capture": 45,
+      "capon": 40
+    },
     "completion": "complete",
     "can_host": [
       1707,
@@ -14746,6 +14796,11 @@
     "jewel": true,
     "state": "virtual",
     "category": "jewel",
+    "points": {
+      "deploy": 50,
+      "capture": 50,
+      "capon": 40
+    },
     "completion": "complete",
     "can_host": [
       1707,
