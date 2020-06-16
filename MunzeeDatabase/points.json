@@ -1,0 +1,12 @@
+{
+  "card_open": {
+    "capture": 40,
+    "deploy": 50,
+    "capon": 25
+  },
+  "card_limited": {
+    "capture": 50,
+    "deploy": 60,
+    "capon": 30
+  }
+}

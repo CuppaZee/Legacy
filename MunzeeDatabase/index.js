@@ -1,4 +1,5 @@
 var fs = require('fs');
+var points = require('./points');
 
 const colors = {
   Reset: "\x1b[0m",
@@ -87,6 +88,7 @@ munzees = munzees.concat(require('./types/destination.json').map(i => ({
   state: i.state,
   category: "destination",
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/destination.json"
@@ -109,6 +111,7 @@ munzees = munzees.concat(require('./types/event.json').map(i => ({
   state: "physical",
   category: "event",
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/event.json"
@@ -137,6 +140,7 @@ munzees = munzees.concat(require('./types/evolution.json').map(i => ({
   state: i.state,
   category: "evolution_" + i.set,
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/evolution.json"
@@ -201,6 +205,7 @@ munzees = munzees.concat(require('./types/fancyflat.json').map(i => ({
       category: "fancyflat"
     }),
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/fancyflat.json"
@@ -224,6 +229,7 @@ munzees = munzees.concat(require('./types/flat.json').map(i => ({
   state: "virtual",
   category: "flat",
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/flat.json"
@@ -246,6 +252,7 @@ munzees = munzees.concat(require('./types/gaming.json').map(i => ({
   state: i.state,
   category: "gaming",
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/gaming.json"
@@ -268,6 +275,7 @@ munzees = munzees.concat(require('./types/jewel.json').map(i => ({
   state: i.state,
   category: "jewel",
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/jewel.json"
@@ -290,6 +298,7 @@ munzees = munzees.concat(require('./types/virtual.json').map(i => ({
   state: i.state,
   category: "virtual",
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/virtual.json"
@@ -311,6 +320,7 @@ munzees = munzees.concat(require('./types/misc.json').map(i => ({
   state: i.state,
   category: "misc",
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/misc.json"
@@ -333,6 +343,7 @@ munzees = munzees.concat(require('./types/mystery.json').map(i => ({
   state: i.state,
   category: "mystery",
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/mystery.json"
@@ -370,6 +381,7 @@ munzees = munzees.concat(require('./types/myth').map(i => ({
       state: "bouncer",
       category: "myth_" + i.type
     }),
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/myth.js"
@@ -410,6 +422,7 @@ munzees = munzees.concat(require('./types/poi.json').map(i => ({
   state: "virtual",
   category: "poi",
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/poi.json"
@@ -432,6 +445,7 @@ munzees = munzees.concat(require('./types/reseller.json').map(i => ({
   state: "physical",
   category: "reseller",
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/reseller.json"
@@ -454,6 +468,7 @@ munzees = munzees.concat(require('./types/weapon.json').map(i => ({
   state: i.state,
   category: i.weapon,
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/weapon.json"
@@ -482,6 +497,7 @@ munzees = munzees.concat(require('./types/zodiac.json').map(i => ({
   state: "physical",
   category: `${i.zodiac}_zodiac`,
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/zodiac.json"
@@ -516,6 +532,7 @@ munzees = munzees.concat(require('./types/tourism.json').map(i => ({
   state: "virtual",
   category: "tourism",
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/tourism.json"
@@ -539,6 +556,7 @@ munzees = munzees.concat(require('./types/cards.json').map(i => ({
   state: "virtual",
   category: "card",
 
+  points: i.open ? "card_open" : "card_limited",
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/cards.json"
@@ -568,6 +586,7 @@ munzees = munzees.concat(require('./types/nomad').map(i => ({
   state: "bouncer",
   category: "nomad",
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/nomad.js"
@@ -609,6 +628,7 @@ munzees = munzees.concat(require('./types/pouch').map(i => ({
     }),
   ...(i.extra || {}),
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/pouch.js"
@@ -648,6 +668,7 @@ munzees = munzees.concat(require('./types/retiremyth').map(i => ({
   state: "bouncer",
   category: i.pouch ? "zombiepouch" : "retiremyth",
 
+  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/retiremyth.js"
@@ -691,6 +712,7 @@ munzees = munzees.concat(require('./types/temppob').map(i => ({
       category: "temppob"
     }),
   ...(i.extra || {}),
+  points: i.points,
 
   completion: "complete",
   hidden: i.hidden,
@@ -731,6 +753,7 @@ munzees = munzees.concat(require('./types/tob').map(i => ({
     }),
 
   completion: "complete",
+  points: i.points,
   hidden: i.hidden,
   from_file: "./types/tob.js"
 })))
@@ -752,6 +775,7 @@ munzees = munzees.concat(require('./types/scatter.json').map(i => ({
 
   state: i.state,
   category: i.category || "scatter",
+  points: i.points,
 
   completion: "complete",
   hidden: i.hidden,
@@ -778,6 +802,7 @@ categories = categories.concat(require('./types/seasonals').map(c => {
 
     state: i.state,
     category: c.category,
+    points: i.points,
 
     completion: "complete",
     from_file: "./types/seasonals/*.js"
@@ -798,6 +823,7 @@ categories = categories.concat(require('./types/seasonals').map(c => {
 
     state: "bouncer",
     category: c.category,
+    points: i.points,
 
     completion: "complete",
     from_file: "./types/seasonals/*.js"
@@ -932,6 +958,9 @@ for (var munzee of munzees) {
   if (!munzee.category || !categories.find(i => i.id == munzee.category)) {
     console.log(`${colors.bg.Red}  ${colors.Reset} Invalid ${colors.fg.Yellow}category${colors.Reset} for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
   }
+  if (munzee.points && typeof munzee.points == "string") {
+    munzee.points = points[munzee.points];
+  }
 
   delete munzee.from_file;
 }
@@ -947,33 +976,33 @@ categories.sort((a, b) => (b.priority || 0) - (a.priority || 0));
 
 var typekeys = {};
 
-for(var munzee_index in munzees) {
+for (var munzee_index in munzees) {
   var munzee = munzees[munzee_index];
   munzee.cids = []
   munzees[munzee_index].x = Number(munzee_index);
-  for(var icon of [munzee.icon,...munzee.alt_icons||[]]) {
+  for (var icon of [munzee.icon, ...munzee.alt_icons || []]) {
     typekeys[icon.replace(/[^a-zA-Z0-9]/g, '').replace(/munzee$/, '')] = Number(munzee_index);
   }
 }
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Types Checked - Writing Types to Files... ${colors.Reset}`)
 
-fs.writeFileSync('types.json', JSON.stringify(munzees, null, 2))
-fs.writeFileSync('types.min.json', JSON.stringify(munzees))
+fs.writeFileSync('output/types.json', JSON.stringify(munzees, null, 2))
+fs.writeFileSync('output/types.min.json', JSON.stringify(munzees))
 fs.writeFileSync('../PaperZee/sections/DB/types.json', JSON.stringify(munzees))
 fs.writeFileSync('../FlameZee/functions/util/db/types.json', JSON.stringify(munzees))
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Types Written to Files - Writing Type Keys to Files... ${colors.Reset}`)
 
-fs.writeFileSync('typekeys.json', JSON.stringify(typekeys, null, 2))
-fs.writeFileSync('typekeys.min.json', JSON.stringify(typekeys))
+fs.writeFileSync('output/typekeys.json', JSON.stringify(typekeys, null, 2))
+fs.writeFileSync('output/typekeys.min.json', JSON.stringify(typekeys))
 fs.writeFileSync('../PaperZee/sections/DB/typekeys.json', JSON.stringify(typekeys))
 fs.writeFileSync('../FlameZee/functions/util/db/typekeys.json', JSON.stringify(typekeys))
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Type Keys Written to Files - Writing Categories to JSON... ${colors.Reset}`)
 
-fs.writeFileSync('categories.json', JSON.stringify(categories, null, 2))
-fs.writeFileSync('categories.min.json', JSON.stringify(categories))
+fs.writeFileSync('output/categories.json', JSON.stringify(categories, null, 2))
+fs.writeFileSync('output/categories.min.json', JSON.stringify(categories))
 fs.writeFileSync('../PaperZee/sections/DB/categories.json', JSON.stringify(categories))
 fs.writeFileSync('../FlameZee/functions/util/db/categories.json', JSON.stringify(categories))
 

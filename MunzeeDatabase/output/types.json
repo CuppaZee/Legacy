@@ -14835,6 +14835,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 40,
+      "deploy": 50,
+      "capon": 25
+    },
     "completion": "complete",
     "cids": [],
     "x": 722
@@ -14847,6 +14852,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 40,
+      "deploy": 50,
+      "capon": 25
+    },
     "completion": "complete",
     "cids": [],
     "x": 723
@@ -14859,6 +14869,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 50,
+      "deploy": 60,
+      "capon": 30
+    },
     "completion": "complete",
     "cids": [],
     "x": 724
@@ -14871,6 +14886,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 50,
+      "deploy": 60,
+      "capon": 30
+    },
     "completion": "complete",
     "cids": [],
     "x": 725
@@ -14883,6 +14903,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 50,
+      "deploy": 60,
+      "capon": 30
+    },
     "completion": "complete",
     "cids": [],
     "x": 726
@@ -14895,6 +14920,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 50,
+      "deploy": 60,
+      "capon": 30
+    },
     "completion": "complete",
     "cids": [],
     "x": 727
@@ -14907,6 +14937,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 50,
+      "deploy": 60,
+      "capon": 30
+    },
     "completion": "complete",
     "cids": [],
     "x": 728
@@ -14919,6 +14954,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 50,
+      "deploy": 60,
+      "capon": 30
+    },
     "completion": "complete",
     "cids": [],
     "x": 729
@@ -14931,6 +14971,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 40,
+      "deploy": 50,
+      "capon": 25
+    },
     "completion": "complete",
     "cids": [],
     "x": 730
@@ -14943,6 +14988,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 50,
+      "deploy": 60,
+      "capon": 30
+    },
     "completion": "complete",
     "cids": [],
     "x": 731
@@ -15011,6 +15061,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 40,
+      "deploy": 50,
+      "capon": 25
+    },
     "completion": "complete",
     "cids": [],
     "x": 736
@@ -15023,6 +15078,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 50,
+      "deploy": 60,
+      "capon": 30
+    },
     "completion": "complete",
     "cids": [],
     "x": 737
@@ -15283,6 +15343,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 40,
+      "deploy": 50,
+      "capon": 25
+    },
     "completion": "complete",
     "cids": [],
     "x": 748
@@ -15295,6 +15360,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 40,
+      "deploy": 50,
+      "capon": 25
+    },
     "completion": "complete",
     "cids": [],
     "x": 749
@@ -15307,6 +15377,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 40,
+      "deploy": 50,
+      "capon": 25
+    },
     "completion": "complete",
     "cids": [],
     "x": 750
@@ -15319,6 +15394,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 40,
+      "deploy": 50,
+      "capon": 25
+    },
     "completion": "complete",
     "cids": [],
     "x": 751
@@ -15331,6 +15411,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 40,
+      "deploy": 50,
+      "capon": 25
+    },
     "completion": "complete",
     "cids": [],
     "x": 752
@@ -15343,6 +15428,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 50,
+      "deploy": 60,
+      "capon": 30
+    },
     "completion": "complete",
     "cids": [],
     "x": 753
@@ -15355,6 +15445,11 @@
     "temporary": 7,
     "state": "virtual",
     "category": "card",
+    "points": {
+      "capture": 50,
+      "deploy": 60,
+      "capon": 30
+    },
     "completion": "complete",
     "cids": [],
     "x": 754
