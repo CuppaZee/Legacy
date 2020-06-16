@@ -104,5 +104,17 @@ export default {
       title: 'Updated Settings',
       description: 'Fixed a bug relating to Settings not being saved'
     }
+  ],
+  130: [
+    {
+      icon: 'heart',
+      title: 'Updated Credits',
+      description: 'Added BrianMoos to Database Contributors List'
+    },
+    {
+      icon: 'database',
+      title: 'Updated Munzee Types',
+      description: 'Some Munzee types now show their points structures'
+    }
   ]
 }

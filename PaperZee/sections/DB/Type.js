@@ -6,6 +6,7 @@ import getType from './types';
 import categories from './categories.json';
 import { TouchableRipple, Chip } from 'react-native-paper';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import font from '~sections/Shared/font';
 import moment from 'moment';
 
@@ -71,6 +72,38 @@ export default function SettingsScreen() {
         <Text allowFontScaling={false} style={{color:theme.page_content.fg}}>{moment(categories.find(i=>i.id==munzee.category).seasonal.starts).format('L LT')} - {moment(categories.find(i=>i.id==munzee.category).seasonal.ends).format('L LT')}</Text>
         <Text allowFontScaling={false} style={{color:theme.page_content.fg}}>Duration: {moment.duration(moment(categories.find(i=>i.id==munzee.category).seasonal.starts).diff(moment(categories.find(i=>i.id==munzee.category).seasonal.ends))).humanize()}</Text>
       </View>}
+
+      {/* Points */}
+      {munzee.points&&<>
+        <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
+        <View style={{alignItems:"center"}}>
+          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Points</Text>
+        </View>
+        <View style={{flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
+          <View style={{alignItems:"center",padding:4,width:100}}>
+            <MaterialCommunityIcons name="account" size={32} color={theme.page_content.fg} />
+            <Text allowFontScaling={false} numberOfLines={1} style={{color: theme.page_content.fg,lineHeight:16,fontSize:16,...font("bold")}}>{munzee.points.deploy}</Text>
+            <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>Deploy</Text>
+          </View>
+          {!munzee.points.type&&<>
+            <View style={{alignItems:"center",padding:4,width:100}}>
+              <MaterialCommunityIcons name="check-bold" size={32} color={theme.page_content.fg} />
+              <Text allowFontScaling={false} numberOfLines={1} style={{color: theme.page_content.fg,lineHeight:16,fontSize:16,...font("bold")}}>{munzee.points.capture}</Text>
+              <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>Capture</Text>
+            </View>
+            <View style={{alignItems:"center",padding:4,width:100}}>
+              <MaterialCommunityIcons name="open-in-app" size={32} color={theme.page_content.fg} />
+              <Text allowFontScaling={false} numberOfLines={1} style={{color: theme.page_content.fg,lineHeight:16,fontSize:16,...font("bold")}}>{munzee.points.capon}</Text>
+              <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>Capon</Text>
+            </View>
+          </>}
+          {munzee.points.type=="split"&&<View style={{alignItems:"center",padding:4,width:100}}>
+            <MaterialCommunityIcons name="call-split" size={32} color={theme.page_content.fg} />
+            <Text allowFontScaling={false} numberOfLines={1} style={{color: theme.page_content.fg,lineHeight:16,fontSize:16,...font("bold")}}>{munzee.points.split} (Min {munzee.points.min})</Text>
+            <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>Cap/Capon Split</Text>
+          </View>}
+        </View>
+      </>}
 
       {/* Evo Stages */}
       {munzee.evolution&&<>
