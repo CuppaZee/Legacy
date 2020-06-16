@@ -16,7 +16,7 @@ When contributing to the Points values, please do not put points information for
 - Greetings Cards
 - Anything with Points Structure Types which are not listed below (eg. Destinations)
 
-Static Points
+### Static Points
 ```json
 {
   "capture": 30,
@@ -25,7 +25,8 @@ Static Points
 }
 ```
 
-Split Points (15 - 45 Points Split)
+### Split Points
+15 - 45 Points Split
 ```json
 {
   "deploy": 10,
@@ -35,7 +36,8 @@ Split Points (15 - 45 Points Split)
 }
 ```
 
-Mystery Split Points (15 - 45 Points Split, only values divisible by 5)
+### Mystery Split Points
+15 - 45 Points Split, only values divisible by 5
 ```json
 {
   "deploy": 10,
