@@ -3,8 +3,8 @@ module.exports = [
     "name": "Knight's Armor 2019",
     "category": "knightsarmor2019",
     "year": 2019,
-    "starts": "2019-09-20 05:01",
-    "ends": "2019-10-06 04:59",
+    "starts": "2019-09-20T05:01:00-00:00",
+    "ends": "2019-10-06T04:59:00-00:00",
     "specials": [
       {
         "name": "Knight's Helmet 2019",
@@ -54,8 +54,8 @@ module.exports = [
     "name": "MH-Qlue 2019",
     "category": "mhqlue2019",
     "year": 2019,
-    "starts": "2019-10-22 05:01",
-    "ends": "2019-11-06 05:59",
+    "starts": "2019-10-22T05:01:00-00:00",
+    "ends": "2019-11-06T05:59:00-00:00",
     "specials": [
       {
         "name": "MH-Qlue",
