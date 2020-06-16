@@ -78,5 +78,12 @@ export default {
       title: 'Fixed Changelog View',
       description: 'You can now scroll through the Changelog on iOS and Android, so you can\'t get stuck there anymore'
     }
+  ],
+  127: [
+    {
+      icon: 'patreon',
+      title: 'Updated Credits',
+      description: 'Added TSwag to Supporters List'
+    }
   ]
 }

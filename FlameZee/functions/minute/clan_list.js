@@ -11,7 +11,7 @@ module.exports = {
         var token = await retrieve(db, { user_id: 455935, teaken: false }, 60)
         var clans = (await db.collection('data').doc('clans').get()).data();
         var array = [];
-        for (var i = clans.counter; i < (clans.counter + 5); i++) {
+        for (var i = clans.counter; i < (clans.counter + 20); i++) {
           array.push(request('clan/v2', { clan_id: i }, token.access_token));
         }
         var found = false;

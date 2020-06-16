@@ -5,5 +5,14 @@
   "discord": {
     "authorization": "https://discordapp.com/api/webhooks/xxxxxxxxxxxxxxxxxx/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "blog": "https://discordapp.com/api/webhooks/xxxxxxxxxxxxxxxxxx/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  },
+  "nodemailer": {
+    "host": "smtp.example.com",
+    "port": 1234,
+    "secure": true,
+    "auth": {
+      "user":"example@example.com",
+      "pass":"password"
+    }
   }
 }
