@@ -37,7 +37,8 @@
             "facebook": "Můžete nás kontaktovat přes Facebook",
             "email": "nebo přes email na support@cuppazee.app"
         },
-        "clans": "Klany"
+        "clans": "Klany",
+        "logging_in": ""
     },
     "activity": {
         "user_captured": "{user} zachytil",
@@ -145,7 +146,7 @@
         },
         "last_captured": "Naposledy zachyceno: {time}",
         "in_limbo": "Odpočívá",
-        "at_munzee": "Na {munzee}"
+        "host": ""
     },
     "calendar": {
         "days": {
@@ -242,7 +243,9 @@
         "add_user": "Přidat uživatele",
         "update": "Vynutit aktualizaci",
         "theme": "Téma: {name}",
-        "language": "Jazyk: {name}"
+        "language": "Jazyk: {name}",
+        "logout": "",
+        "save": ""
     },
     "bouncers": {
         "duration": "Doba čekání: {duration}"
