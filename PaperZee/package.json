@@ -5,7 +5,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "dependencies": {
     "@expo-google-fonts/coiny": "^0.1.0",
@@ -37,7 +39,7 @@
     "react-dom": "16.9.0",
     "react-google-maps": "^9.4.5",
     "react-i18next": "^11.3.5",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.0.tar.gz",
+    "react-native": "0.62.0",
     "react-native-expo-image-cache": "^4.1.0",
     "react-native-gesture-handler": "~1.6.0",
     "react-native-map-clustering": "^3.3.9",
@@ -53,11 +55,13 @@
     "react-navigation-shared-element": "^5.0.0-alpha1",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "snyk": "^1.339.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "babel-preset-expo": "^8.1.0"
   },
-  "private": true
+  "private": true,
+  "snyk": true
 }
