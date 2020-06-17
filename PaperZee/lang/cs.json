@@ -31,13 +31,13 @@
         "help": "Pomoc",
         "users": "Uživatelé",
         "calendar": "Kalendář",
-        "bouncers": "",
-        "notifications": "",
+        "bouncers": "Bouncers",
+        "notifications": "notifikace",
         "contact": {
-            "facebook": "",
-            "email": ""
+            "facebook": "Můžete nás kontaktovat přes Facebook",
+            "email": "nebo přes email na support@cuppazee.app"
         },
-        "clans": ""
+        "clans": "Klany"
     },
     "activity": {
         "user_captured": "{user} zachytil",
@@ -73,17 +73,17 @@
         },
         "none": "Nic",
         "user_today": "{user} dnes",
-        "user_renovated": "",
-        "you_renovated": "",
+        "user_renovated": "{user} renovoval Váš motel",
+        "you_renovated": "Renovovali jste Motel",
         "renovation": {
-            "one": "",
-            "few": "",
-            "other": ""
+            "one": "{count} renovace",
+            "few": "{count} renovace",
+            "other": "{count} renovací"
         },
         "renovon": {
-            "one": "",
-            "few": "",
-            "other": ""
+            "one": "{count} renovace Vašeho munzee",
+            "few": "{count} renovace Vašich munzee",
+            "other": "{count} renovací Vašich munzee"
         }
     },
     "user": {
@@ -96,19 +96,22 @@
         "special_hunter_challenge": "Výzva speciálních lovců",
         "captured_types": "Zachycené typy",
         "activity": "Aktivita",
-        "clan_stats": "",
-        "clan_progress_desc": "",
-        "clan_info": "",
-        "clan_info_desc": "",
-        "challenges": "",
-        "sh_lite": "",
-        "sh_pro": ""
+        "clan_stats": "Statistiky klanů",
+        "clan_progress_desc": "Zjistěte, jaký level můžete získat!",
+        "clan_info": "Skupina na FB s informacemi o klanových bitvách",
+        "clan_info_desc": "Výborné místo pro nalezení klanů a odpovědí na vaše otázky!",
+        "challenges": "Výzvy",
+        "sh_lite": "Speciální lovec (lehká verze)",
+        "sh_pro": "Speciální lovec (těžká verze)",
+        "your_clan": "",
+        "no_clan": "",
+        "no_clan_desc": ""
     },
     "inventory": {
         "undeployed": "Neumístěné",
         "credits": "Poděkování",
         "history": "Historie",
-        "unknown_name": ""
+        "unknown_name": "Neznámé jméno"
     },
     "app_info": {
         "credits": "Poděkování",
@@ -117,21 +120,21 @@
         "database_contributors": "Přispěvatelé do databáze",
         "patrons_and_supporters": "Patroni a podporovatelé",
         "build_n": "Číslo sestavení {build}",
-        "patreon_donate": "",
-        "paypal_donate": "",
-        "paypal_donate_desc": "",
+        "patreon_donate": "Měsíčně přes Patreon",
+        "paypal_donate": "Jednorázově přes PayPal",
+        "paypal_donate_desc": "Dary přes PayPal můžte posílat na donate@cuppazee.app",
         "custom_titles": {
-            "primary_dev": "",
-            "finnish": "",
-            "dutch": "",
-            "german": "",
-            "hungarian": "",
-            "swedish": "",
-            "french": "",
-            "czech": "",
-            "danish": "",
-            "portugese": "",
-            "lithuanian": ""
+            "primary_dev": "Hlavní výbojář",
+            "finnish": "Finština",
+            "dutch": "Dánština",
+            "german": "Němčina",
+            "hungarian": "Maďarština",
+            "swedish": "Švédština",
+            "french": "Francouzština",
+            "czech": "Čeština",
+            "danish": "Dánština",
+            "portugese": "Portugalština",
+            "lithuanian": "Litevština"
         }
     },
     "your_bouncers": {
@@ -142,169 +145,169 @@
         },
         "last_captured": "Naposledy zachyceno: {time}",
         "in_limbo": "Odpočívá",
-        "at_munzee": ""
+        "at_munzee": "Na {munzee}"
     },
     "calendar": {
         "days": {
-            "monday": "P",
-            "tuesday": "U",
-            "wednesday": "S",
+            "monday": "Po",
+            "tuesday": "Ú",
+            "wednesday": "St",
             "thursday": "C",
-            "friday": "P",
+            "friday": "Pá",
             "saturday": "So",
-            "sunday": ""
+            "sunday": "N"
         },
-        "off": ""
+        "off": "vypnuté"
     },
     "clan": {
-        "requirements": "",
-        "rewards": "",
-        "individual": "",
-        "group": "",
-        "level_n": "",
-        "shadow": "",
-        "goal": "",
+        "requirements": "Požadavky",
+        "rewards": "Odměny",
+        "individual": "Osobní",
+        "group": "Skupinové",
+        "level_n": "Level {level}",
+        "shadow": "Stínový klan",
+        "goal": "Cíl",
         "view": {
-            "subtract": "",
-            "total": ""
+            "subtract": "Rozdílový pohled",
+            "total": "Celkový pohled"
         },
-        "share": "",
-        "indiv": "",
-        "group_total": "",
+        "share": "Sdílet",
+        "indiv": "Osob",
+        "group_total": "Celkem na klan",
         "level": {
-            "one": "",
-            "few": "",
-            "other": ""
+            "one": "Level",
+            "few": "Levely",
+            "other": "Levelů"
         }
     },
     "search": {
-        "clan": "",
-        "type": "",
-        "empty": "",
-        "user": ""
+        "clan": "Hledat klan",
+        "type": "Hledat typ munzee",
+        "empty": "Nic nenalezeno :(",
+        "user": "Hledat uživatele"
     },
     "db": {
-        "go_back": "",
-        "types_search": "",
-        "category": "",
+        "go_back": "Zpět",
+        "types_search": "Hledání typů",
+        "category": "Kategorie",
         "type": {
-            "info": "",
-            "evo": "",
-            "pouch": "",
-            "can_host": "",
-            "lands_on": ""
+            "info": "Ikona: {icon} - ID: {id}",
+            "evo": "Stádia evoluce",
+            "pouch": "Stádia příšerek z pytlíku",
+            "can_host": "Může hostovat",
+            "lands_on": "Přistává na"
         }
     },
     "auth": {
-        "add": "",
-        "welcome": "",
-        "tap": ""
+        "add": "Přidat nového uživatele",
+        "welcome": "Vítejte v CuppaZee",
+        "tap": "Klikněte níže pro přihlášení"
     },
     "shc": {
         "lite": {
             "tob": "",
-            "nomad": "",
-            "myth_1": "",
-            "myth_2": "",
-            "pc_1": "",
-            "pc_2": "",
-            "flat": "",
+            "nomad": "Nomád nebo zombie mytologické",
+            "myth_1": "Originální nebo klasicke mytologické",
+            "myth_2": "Zrcadlové nebo moderní mytologické",
+            "pc_1": "Příšerky z pytlíku S1",
+            "pc_2": "Příšerky z pytlíku S2",
+            "flat": "Zdobní placáci",
             "temp": "",
-            "scatter": ""
+            "scatter": "Rozprášené"
         },
         "pro": {
             "tob": "",
-            "nomad": "",
-            "retire": "",
-            "myth_1": "",
-            "myth_2": "",
-            "myth_3": "",
-            "myth_4": "",
-            "pc_1": "",
-            "pc_2": "",
+            "nomad": "Nomád",
+            "retire": "zombie mytologické",
+            "myth_1": "Originální mytologické",
+            "myth_2": "Klasické mytologické",
+            "myth_3": "Zrcadlové mytologické",
+            "myth_4": "Moderní mytologické",
+            "pc_1": "Příšerky z pytlíku S1",
+            "pc_2": "Příšerky z pytlíku S2",
             "pc_fun": "",
-            "flat": "",
+            "flat": "Zdobní placáci",
             "temp": "",
-            "pscatter": "",
-            "vscatter": ""
+            "pscatter": "Fyzické",
+            "vscatter": "Virtuální rozprášené"
         }
     },
     "notifications": {
-        "munzee_blog": "",
-        "save": "",
-        "unavailable_web": "",
-        "unavailable_generic": ""
+        "munzee_blog": "Blog Munzee",
+        "save": "Uložit",
+        "unavailable_web": "Notifikace nejsou dostupné na webu",
+        "unavailable_generic": "Notifikace nejsou dostupné. Povolili jste aplikaci přístup k notifikacím?"
     },
     "settings": {
-        "add_user": "",
-        "update": "",
-        "theme": "",
-        "language": ""
+        "add_user": "Přidat uživatele",
+        "update": "Vynutit aktualizaci",
+        "theme": "Téma: {name}",
+        "language": "Jazyk: {name}"
     },
     "bouncers": {
-        "duration": ""
+        "duration": "Doba čekání: {duration}"
     },
     "scanner": {
-        "scan_new": "",
-        "munzee": "",
-        "type": ""
+        "scan_new": "Naskenovat nové munzee",
+        "munzee": "{name} od {username}",
+        "type": "Typ: {type}"
     },
     "quest": {
         "task_1": "",
         "task_2": "",
         "task_3": "",
         "task_4": "",
-        "task_5": "",
+        "task_5": "Chytit /m/XeresDan/1707",
         "task_6": "",
         "task_7": "",
         "task_8": ""
     },
     "themes": {
-        "black": "",
-        "blue": "",
-        "bluegrey": "",
-        "darkblue": "",
-        "green": "",
-        "grey": "",
-        "purple": "",
-        "white": ""
+        "black": "Černá",
+        "blue": "Modrá",
+        "bluegrey": "Šedomodrá",
+        "darkblue": "Tmavěmodrá",
+        "green": "Zelená",
+        "grey": "Šedá",
+        "purple": "Růžová",
+        "white": "Bílá"
     },
     "screens": {
         "_redirect": "",
-        "Map": "",
-        "Tools": "",
-        "Settings": "",
-        "Notifications": "",
-        "Info": "",
-        "Scanner": "",
-        "Calendar": "",
+        "Map": "Mapa",
+        "Tools": "Nástroje",
+        "Settings": "Nastavení",
+        "Notifications": "Notifikace",
+        "Info": "Informace",
+        "Scanner": "Čtečka",
+        "Calendar": "Kalendář",
         "Bouncers": "",
         "BouncerMap": "",
-        "MunzeeDetails": "",
-        "MunzeeDetailsID": "",
-        "AllClans": "",
-        "ClanRequirements": "",
-        "ClanSearch": "",
-        "Clan": "",
-        "UserSearch": "",
-        "UserDetails": "",
-        "UserActivity": "",
-        "UserInventory": "",
-        "UserClan": "",
-        "UserQuest": "",
-        "UserCapturesCategory": "",
-        "UserSHCPro": "",
-        "UserSHCLite": "",
-        "UserSHC": "",
+        "MunzeeDetails": "Detaily munzee",
+        "MunzeeDetailsID": "Detaily munzee",
+        "AllClans": "Všechny klany",
+        "ClanRequirements": "Podmínky pro klany",
+        "ClanSearch": "Hledání klanů",
+        "Clan": "Statistiky klanů",
+        "UserSearch": "Hledání uživatelů",
+        "UserDetails": "Detaily uživatele",
+        "UserActivity": "Aktivita",
+        "UserInventory": "Inventář",
+        "UserClan": "Postup klanu",
+        "UserQuest": "Postup v úkolech",
+        "UserCapturesCategory": "Kategorie zachycení",
+        "UserSHCPro": "SHC Pro",
+        "UserSHCLite": "SHC Lite",
+        "UserSHC": "SHC Classic",
         "UserBouncers": "",
-        "DBType": "",
-        "DBSearch": "",
-        "DBCategory": "",
-        "Auth": ""
+        "DBType": "Typ databáze",
+        "DBSearch": "Hledání v databázi",
+        "DBCategory": "Kategorie databáze",
+        "Auth": "Přihlásit se"
     },
     "changelog": {
-        "build_n": "",
-        "continue": "",
-        "no_changelog": ""
+        "build_n": "Sestaveni {n}",
+        "continue": "Pokračovat do CuppaZee",
+        "no_changelog": "Žádné změny"
     }
 }
