@@ -93,7 +93,10 @@
         "clan_info_desc": "",
         "challenges": "",
         "sh_lite": "",
-        "sh_pro": ""
+        "sh_pro": "",
+        "your_clan": "",
+        "no_clan": "",
+        "no_clan_desc": ""
     },
     "inventory": {
         "undeployed": "Ikke-placerede",
@@ -195,8 +198,8 @@
             "nomad": "Nomade eller RetireMyth",
             "myth_1": "Original eller klassisk mytologisk",
             "myth_2": "Spejl- eller moderne mytologisk",
-            "pc_1": "",
-            "pc_2": "",
+            "pc_1": "Posevæsen S1",
+            "pc_2": "Posevæsen S2",
             "flat": "",
             "temp": "",
             "scatter": ""
