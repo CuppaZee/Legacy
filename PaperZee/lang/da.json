@@ -35,7 +35,8 @@
             "facebook": "Du kan kontakte os via Facebook",
             "email": "eller emaile os på support@cuppazee.app"
         },
-        "clans": "Klaner"
+        "clans": "Klaner",
+        "logging_in": ""
     },
     "activity": {
         "user_captured": "{user} skannede",
@@ -135,7 +136,7 @@
         },
         "last_captured": "Sidst skannet: {time}",
         "in_limbo": "Tager en pause",
-        "at_munzee": ""
+        "host": ""
     },
     "calendar": {
         "days": {
@@ -231,7 +232,9 @@
         "add_user": "",
         "update": "",
         "theme": "",
-        "language": ""
+        "language": "",
+        "logout": "",
+        "save": ""
     },
     "bouncers": {
         "duration": ""

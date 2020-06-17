@@ -35,7 +35,8 @@
             "facebook": "",
             "email": ""
         },
-        "clans": ""
+        "clans": "",
+        "logging_in": ""
     },
     "activity": {
         "user_captured": "Captures {user}",
@@ -135,7 +136,7 @@
         },
         "last_captured": "",
         "in_limbo": "",
-        "at_munzee": ""
+        "host": ""
     },
     "calendar": {
         "days": {
@@ -231,7 +232,9 @@
         "add_user": "",
         "update": "",
         "theme": "",
-        "language": ""
+        "language": "",
+        "logout": "",
+        "save": ""
     },
     "bouncers": {
         "duration": ""

@@ -31,12 +31,13 @@
         "users": "Users",
         "calendar": "Calendar",
         "bouncers": "Bouncers",
-        "notifications": "notifications",
+        "notifications": "Notifications",
         "contact": {
             "facebook": "You can contact us via Facebook",
             "email": "or email us at support@cuppazee.app"
         },
-        "clans": "Clans"
+        "clans": "Clans",
+        "logging_in": "Logging in..."
     },
     "activity": {
         "user_captured": "{user} captured",
@@ -234,7 +235,9 @@
         "add_user": "Add User",
         "update": "Force Update",
         "theme": "Theme: {name}",
-        "language": "Language: {name}"
+        "language": "Language: {name}",
+        "logout": "Logout",
+        "save": "Save Settings"
     },
     "bouncers": {
         "duration": "Duration: {duration}"
