@@ -7,7 +7,7 @@ enableScreens();
 // import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 import { Provider as ReduxProvider, useSelector, useDispatch } from 'react-redux';
 import s from '~store/index';
-import './utils/lang/i18n';
+import './lang/i18n';
 import loadable from '@loadable/component';
 import changelogs from './changelogs';
 var { store, setCurrentRoute, cuppazeeVersion } = s;

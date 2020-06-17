@@ -10,10 +10,10 @@ module.exports = function (api) {
           extensions: ['.ios.js', '.android.js', '.web.js', '.js', '.json'],
           alias: {
             "~sections": "./sections",
-            "~themes": "./utils/themes",
+            "~themes": "./themes",
             "~store": "./store",
-            "~hooks": "./utils/hooks",
-            "~db": "./utils/db",
+            "~hooks": "./hooks",
+            "~db": "./db",
           }
         }
       ]
