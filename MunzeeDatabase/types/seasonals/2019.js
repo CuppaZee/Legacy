@@ -210,8 +210,8 @@ module.exports = [
     "name": "Monster Nomads 2019",
     "category": "monsternomad2019",
     "year": 2019,
-    "starts": "2019-10-24 05:01",
-    "ends": "2019-11-03 04:59",
+    "starts": "2019-10-24T00:01:00-04:00",
+    "ends": "2019-11-03T23:59:00-05:00",
     "specials": [
       {
         "name": "Mummy Hand",
@@ -240,8 +240,8 @@ module.exports = [
     "name": "Origami Day 2019",
     "category": "origamiday2019",
     "year": 2019,
-    "starts": "2019-11-08 21:00",
-    "ends": "2019-11-18 05:59",
+    "starts": "2019-11-08T21:00:00-00:00",
+    "ends": "2019-11-18T05:59:00-00:00",
     "specials": [
       {
         "name": "Origami Crane",
