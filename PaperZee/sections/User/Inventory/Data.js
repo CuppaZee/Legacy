@@ -74,6 +74,7 @@ export default function InventoryConverter(credits={}, boosters=[], history={}, 
     }
   ]
   function get(a, b) {
+    // TODO Use new system
     return (MunzeeTypes.find(i => (i[a] || "").toLowerCase().replace(/_/g,'') === b.toLowerCase().replace(/_/g,'')) || extras.find(i => (i[a] || "").toLowerCase().replace(/_/g,'') === b.toLowerCase().replace(/_/g,''))) || {}
   }
   for (var credit in credits) {
