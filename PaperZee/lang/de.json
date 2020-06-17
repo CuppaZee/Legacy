@@ -93,7 +93,10 @@
         "clan_info_desc": "",
         "challenges": "",
         "sh_lite": "",
-        "sh_pro": ""
+        "sh_pro": "",
+        "your_clan": "",
+        "no_clan": "",
+        "no_clan_desc": ""
     },
     "inventory": {
         "undeployed": "Nicht verteilt",
