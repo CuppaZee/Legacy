@@ -1,6 +1,5 @@
 {
     "common": {
-        "logging_in": "Logging in...",
         "dashboard": "Dashboard",
         "search": "Search",
         "map": "Map",
@@ -230,8 +229,6 @@
         "unavailable_generic": "Notifications are unavailable. Did you accept the permissions?"
     },
     "settings": {
-        "logout": "Logout",
-        "save": "Save Settings",
         "add_user": "Add User",
         "update": "Force Update",
         "theme": "Theme: {name}",
