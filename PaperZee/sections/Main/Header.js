@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { useDimensions } from '@react-native-community/hooks';
 import font from '~sections/Shared/font'
 import Tile from '~sections/Calendar/Tile';
-import CalData from '~sections/DB/Calendar.json'
+import CalData from '~db/Calendar.json'
 import useMoment from '~hooks/useMoment';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';

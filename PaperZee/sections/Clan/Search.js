@@ -9,7 +9,7 @@ import s from '~store';
 var { clanBookmarks: clanBookmarksR } = s;
 import stringify from 'fast-json-stable-stringify';
 import font from '~sections/Shared/font';
-import groups from '~sections/DB/clans';
+import groups from '~db/clans';
 import { useTranslation } from 'react-i18next';
 
 export default function SearchScreen({ navigation }) {

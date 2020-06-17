@@ -107,7 +107,7 @@ export default function SettingsScreen({ navigation }) {
                 mode="contained"
                 icon="account-plus"
                 backgroundColor={theme.navigation.fg}
-                style={theme.page_content.border ? { margin: 4, borderColor: "white", borderWidth: 1 } : { margin: 4 }}
+                style={theme.page_content.border ? { margin: 4, flex: 1, borderColor: "white", borderWidth: 1 } : { margin: 4, flex: 1 }}
                 color={theme.navigation.bg}
                 onPress={() => navigation.navigate('Auth')}>
                 {t('settings:add_user')}
@@ -116,7 +116,7 @@ export default function SettingsScreen({ navigation }) {
                 mode="contained"
                 icon="reload"
                 backgroundColor={theme.navigation.fg}
-                style={theme.page_content.border ? { margin: 4, borderColor: "white", borderWidth: 1 } : { margin: 4 }}
+                style={theme.page_content.border ? { margin: 4, flex: 1, borderColor: "white", borderWidth: 1 } : { margin: 4, flex: 1 }}
                 color={theme.navigation.bg}
                 onPress={() => forceReload()}>
                 {t('settings:update')}

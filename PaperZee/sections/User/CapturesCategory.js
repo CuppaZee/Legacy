@@ -5,9 +5,9 @@ import { IconButton } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import font from '~sections/Shared/font';
 import useAPIRequest from '~hooks/useAPIRequest';
-import types from '~sections/DB/types.json';
-import getType from '~sections/DB/types';
-import categories from '~sections/DB/categories.json';
+import types from '~db/types.json';
+import getType from '~db/types';
+import categories from '~db/categories.json';
 import useMoment from '~hooks/useMoment';
 import { useTranslation } from 'react-i18next';
 

@@ -5,8 +5,8 @@ import { IconButton } from 'react-native-paper';
 import { useSelector, useDispatch } from 'react-redux';
 import font from '~sections/Shared/font';
 import Fuse from 'fuse.js'
-import types from './types.json';
-import categories from './categories.json';
+import types from '~db/types.json';
+import categories from '~db/categories.json';
 import { useTranslation } from 'react-i18next';
   
 const options = {

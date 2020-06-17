@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import r from './request';
 import { AsyncStorage } from 'react-native';
 import stringify from 'fast-json-stable-stringify';
-import themes from '../themes'
+import themes from '../utils/themes'
 import changelogs from '../changelogs'
 var {makeRequest} = r;
 const defaultState = {

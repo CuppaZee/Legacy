@@ -5,7 +5,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import useAPIRequest from '~hooks/useAPIRequest';
-import getType from '~sections/DB/types';
+import getType from '~db/types';
 import font from '~sections/Shared/font';
 import useMoment from '~hooks/useMoment';
 

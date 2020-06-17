@@ -989,21 +989,21 @@ console.log(`${colors.bg.Green}${colors.fg.Black} Types Checked - Writing Types 
 
 fs.writeFileSync('output/types.json', JSON.stringify(munzees, null, 2))
 fs.writeFileSync('output/types.min.json', JSON.stringify(munzees))
-fs.writeFileSync('../PaperZee/sections/DB/types.json', JSON.stringify(munzees))
+fs.writeFileSync('../PaperZee/utils/DB/types.json', JSON.stringify(munzees))
 fs.writeFileSync('../FlameZee/functions/util/db/types.json', JSON.stringify(munzees))
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Types Written to Files - Writing Type Keys to Files... ${colors.Reset}`)
 
 fs.writeFileSync('output/typekeys.json', JSON.stringify(typekeys, null, 2))
 fs.writeFileSync('output/typekeys.min.json', JSON.stringify(typekeys))
-fs.writeFileSync('../PaperZee/sections/DB/typekeys.json', JSON.stringify(typekeys))
+fs.writeFileSync('../PaperZee/utils/DB/typekeys.json', JSON.stringify(typekeys))
 fs.writeFileSync('../FlameZee/functions/util/db/typekeys.json', JSON.stringify(typekeys))
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Type Keys Written to Files - Writing Categories to JSON... ${colors.Reset}`)
 
 fs.writeFileSync('output/categories.json', JSON.stringify(categories, null, 2))
 fs.writeFileSync('output/categories.min.json', JSON.stringify(categories))
-fs.writeFileSync('../PaperZee/sections/DB/categories.json', JSON.stringify(categories))
+fs.writeFileSync('../PaperZee/utils/DB/categories.json', JSON.stringify(categories))
 fs.writeFileSync('../FlameZee/functions/util/db/categories.json', JSON.stringify(categories))
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Categories Written to Files ${colors.Reset}`)

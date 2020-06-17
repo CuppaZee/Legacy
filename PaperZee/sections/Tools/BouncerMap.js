@@ -2,7 +2,7 @@ import * as React from 'react';
 import MapView from '~sections/Maps/MapView'
 import { useSelector } from "react-redux";
 import useAPIRequest from '~hooks/useAPIRequest'
-import types from '~sections/DB/types.json';
+import types from '~db/types.json';
 
 export default function MapScreen({ route }) {
   var mapStyle = useSelector(i=>i.themes[i.theme].mapStyle)

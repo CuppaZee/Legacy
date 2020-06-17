@@ -9,7 +9,7 @@ import ActivityCard from './Activity/Card';
 import useAPIRequest from '~hooks/useAPIRequest';
 import { useDimensions } from '@react-native-community/hooks';
 import font from '~sections/Shared/font';
-import categories from '~sections/DB/categories.json';
+import categories from '~db/categories.json';
 import { useTranslation } from 'react-i18next'
 import useMoment from '~hooks/useMoment';
 

@@ -5,8 +5,8 @@ import { IconButton, TouchableRipple } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import font from '~sections/Shared/font';
 import useAPIRequest from '~hooks/useAPIRequest';
-import types from '~sections/DB/types.json';
-import categories from '~sections/DB/categories.json';
+import types from '~db/types.json';
+import categories from '~db/categories.json';
 import useMoment from '~hooks/useMoment';
 import { useTranslation } from 'react-i18next';
 

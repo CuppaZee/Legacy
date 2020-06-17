@@ -7,7 +7,7 @@ enableScreens();
 // import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 import { Provider as ReduxProvider, useSelector, useDispatch } from 'react-redux';
 import s from '~store/index';
-import './lang/i18n';
+import './utils/lang/i18n';
 import loadable from '@loadable/component';
 import changelogs from './changelogs';
 var { store, setCurrentRoute, cuppazeeVersion } = s;
@@ -331,7 +331,7 @@ function DrawerNav() {
   var loggedIn = useSelector(i => i.loggedIn);
   return <Drawer.Navigator
     drawerPosition="left"
-    drawerStyle={{ width: width > 1000 ? 260 : Math.min(320, width) }}
+    drawerStyle={{ width: width > 1000 ? 256 : Math.min(320, width) }}
     drawerContent={props => <DrawerContent side="left" {...props} />}
     drawerType={(width > 1000 && loggedIn) ? "permanent" : "front"}
     edgeWidth={loggedIn ? 100 : 0}

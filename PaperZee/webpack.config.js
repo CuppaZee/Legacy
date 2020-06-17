@@ -1,4 +1,5 @@
 const createExpoWebpackConfigAsync = require('@expo/webpack-config');
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 module.exports = async function (env, argv) {
   const config = await createExpoWebpackConfigAsync(env, argv);
@@ -16,6 +17,22 @@ module.exports = async function (env, argv) {
         plugin['config']['skipWaiting'] = true;
       }
     });
+    config['plugins'].push(new MomentLocalesPlugin({
+      localesToKeep: [
+        'cs',
+        'da',
+        'de',
+        'en-gb',
+        'en',
+        'fi',
+        'fr',
+        'hu',
+        'lt',
+        'nl',
+        'pt',
+        'sv'
+      ],
+  }))
   }
   return config;
 };

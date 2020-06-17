@@ -1,4 +1,4 @@
-import MunzeeTypes from '~sections/DB/types.json';
+import MunzeeTypes from '~db/types.json';
 import moment from 'moment';
 import 'moment-timezone';
 export default function InventoryConverter(credits={}, boosters=[], history={}, undeployed=[]) {

@@ -4,7 +4,7 @@ import { ActivityIndicator, FAB, Menu, TouchableRipple } from 'react-native-pape
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import types from '~sections/DB/types.json';
+import types from '~db/types.json';
 import useAPIRequest from '~hooks/useAPIRequest';
 import font from '~sections/Shared/font';
 import Card from '~sections/Shared/Card';

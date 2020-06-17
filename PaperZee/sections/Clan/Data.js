@@ -1,4 +1,4 @@
-import Clan from '~sections/DB/clan';
+import Clan from '~db/clan';
 export function ClanRequirementsConverter(req, rewards) {
   var output = {};
   var individual = {};

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text, Image } from 'react-native';
 import Tile from './Tile';
-import CalData from '~sections/DB/Calendar.json';
+import CalData from '~db/Calendar.json';
 import useMoment from '~hooks/useMoment';
 import { useTranslation } from 'react-i18next';
 

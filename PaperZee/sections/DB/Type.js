@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Text, View, ScrollView, Image } from 'react-native';
 import { useSelector, useDispatch } from "react-redux";
-import types from './types.json';
-import getType from './types';
-import categories from './categories.json';
+import types from '~db/types.json';
+import getType from '~db/types';
+import categories from '~db/categories.json';
 import { TouchableRipple, Chip } from 'react-native-paper';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';

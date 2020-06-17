@@ -142,5 +142,12 @@ export default {
       title: 'Fix Crash',
       description: 'Fixed a crash on Settings Page on iOS/Android'
     }
+  ],
+  134: [
+    {
+      icon: 'translate',
+      title: 'Updated German Translations',
+      description: 'German Translations are now available for almost everything in the app'
+    }
   ]
 }

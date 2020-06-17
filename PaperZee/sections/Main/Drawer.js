@@ -7,43 +7,25 @@ import {
 import { useSelector } from 'react-redux';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
-import { TouchableRipple, IconButton, Menu } from 'react-native-paper'
+import { TouchableRipple, IconButton, Menu, Divider } from 'react-native-paper'
 import font from '~sections/Shared/font';
 
 function DrawerItem(props) {
-
-  return <TouchableRipple onPress={props.onPress} style={props.side == "right" ? {
-    marginLeft: 8, borderTopLeftRadius: 8, borderBottomLeftRadius: 8, opacity: props.style?.opacity ?? (props.focused ? 1 : 0.9)
-  } : {
-      marginRight: 8, borderTopRightRadius: 8, borderBottomRightRadius: 8, opacity: props.style?.opacity ?? (props.focused ? 1 : 0.9)
+  return <TouchableRipple onPress={props.onPress} style={{
+    marginHorizontal: 8, borderRadius: 20, opacity: props.style?.opacity ?? (props.focused ? 1 : 0.9),
+    marginLeft: 0, marginRight: 4
+  }}>
+    <View style={{
+      padding: 4, paddingHorizontal: 8, borderRadius: 20, backgroundColor: props.focused ? props.activeBackgroundColor : "transparent", flexDirection: "row", alignItems: "center",
+      borderTopLeftRadius: 0, borderBottomLeftRadius: 0
     }}>
-    <View style={props.side == "right" ? {
-      borderTopLeftRadius: 8, borderBottomLeftRadius: 8, backgroundColor: props.focused ? props.activeBackgroundColor : "transparent", padding: 4, paddingRight: 16, flexDirection: "row", alignItems: "center"
-    } : {
-        borderTopRightRadius: 8, borderBottomRightRadius: 8, backgroundColor: props.focused ? props.activeBackgroundColor : "transparent", padding: 4, paddingLeft: 16, flexDirection: "row", alignItems: "center"
-      }}>
       <props.icon color={props.focused ? props.activeTintColor : props.inactiveTintColor} />
       {!props.mini && <>
         <View style={{ width: 4 }}></View>
-        {typeof props.label == "string" ? <Text allowFontScaling={false} style={{ color: props.focused ? props.activeTintColor : props.inactiveTintColor, fontSize: 14, ...font("500") }}>{props.label}</Text> : <props.label color={props.focused ? props.activeTintColor : props.inactiveTintColor} />}
+        {typeof props.label == "string" ? <Text numberOfLines={1} ellipsizeMode="tail" allowFontScaling={false} style={{ color: props.focused ? props.activeTintColor : props.inactiveTintColor, fontSize: 14, ...font("500") }}>{props.label}</Text> : <props.label color={props.focused ? props.activeTintColor : props.inactiveTintColor} />}
       </>}
     </View>
   </TouchableRipple>
-  /*<DrawerItem
-        key={i.title}
-        {...itemProps}
-        style={{marginVertical:0}}
-        focused={route.name==i.page}
-        icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{margin: 4}} />}
-        label={i.title}
-        onPress={() => nav.reset({
-            index: 1,
-            routes: [
-              { name: '__primary', params: {screen: i.page} },
-            ],
-          })
-        }
-      /> */
 }
 
 export default function CustomDrawerContent(props) {
@@ -123,20 +105,11 @@ export default function CustomDrawerContent(props) {
         })
         }
       />
+      <Divider theme={{dark:theme.id!=="white"}}/>
       <View style={{ paddingTop: 8, paddingLeft: 16 }}>
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:clan',{count:2})}</Text>
       </View>
       <View style={{ padding: 4, paddingLeft: 8, paddingRight: 16, flexDirection: "row", justifyContent: "space-between" }}>
-        {/* <IconButton
-          icon="shield-half-full"
-          color={itemProps.inactiveTintColor}
-          onPress={() => nav.reset({
-            index: 1,
-            routes: [
-              { name: '__primary', params: { screen: "AllClans" } },
-            ],
-          })}
-        /> */}
         <IconButton
           style={{
             backgroundColor: route.name == "AllClans" ? itemProps.activeBackgroundColor : null
@@ -216,6 +189,7 @@ export default function CustomDrawerContent(props) {
         label={showMoreClan ? t(`common:show_less`) : t(`common:show_more`)}
         onPress={() => setShowMoreClan(!showMoreClan)}
       />}
+      <Divider theme={{dark:theme.id!=="white"}}/>
       <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:tools')}</Text>
       </View>
@@ -234,6 +208,7 @@ export default function CustomDrawerContent(props) {
         })
         }
       />)}
+      <Divider theme={{dark:theme.id!=="white"}}/>
       <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:more')}</Text>
       </View>
