@@ -128,5 +128,19 @@ export default {
       title: 'Added English (US)',
       description: 'CuppaZee\'s Date and Time strings now use the locale\'s format. CuppaZee now has English (US) so that you can get US Date/Time format'
     }
+  ],
+  132: [
+    {
+      icon: 'bug',
+      title: 'Fix Crash',
+      description: 'Fixed a crash which occurred only on iOS/Android Production builds'
+    }
+  ],
+  133: [
+    {
+      icon: 'bug',
+      title: 'Fix Crash',
+      description: 'Fixed a crash on Settings Page on iOS/Android'
+    }
   ]
 }

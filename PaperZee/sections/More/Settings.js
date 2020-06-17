@@ -133,14 +133,12 @@ export default function SettingsScreen({ navigation }) {
                     mode="contained"
                     icon="brush"
                     style={theme.page_content.border ? { borderColor: "white", borderWidth: 1 } : {}}
-                    labelStyle={{ flex: 1 }}
+                    labelStyle={{ flexDirection: "row" }}
                     color={theme.navigation.bg}
                     onPress={() => setThemeDropdown(true)}
                   >
-                    <View style={{ flex: 1, flexDirection: "row", width: "100%" }}>
-                      <Text allowFontScaling={false} style={{ fontSize: 14, color: theme.navigation.fg, ...font(), flex: 1, textAlign: "left" }}>{t('settings:theme',{name: t(`themes:${theme.id}`)})}</Text>
-                      <MaterialCommunityIcons color={theme.navigation.fg} name="chevron-down" size={16} />
-                    </View>
+                    <Text allowFontScaling={false} style={{ fontSize: 14, color: theme.navigation.fg, ...font(), flex: 1, textAlign: "left" }}>{t('settings:theme',{name: t(`themes:${theme.id}`)})}</Text>
+                    <MaterialCommunityIcons color={theme.navigation.fg} name="chevron-down" size={16} />
                   </Button>
                 }
                 contentStyle={{ backgroundColor: theme.page_content.bg, padding: 0 }}
@@ -164,14 +162,12 @@ export default function SettingsScreen({ navigation }) {
                     mode="contained"
                     icon="translate"
                     style={theme.page_content.border ? { borderColor: "white", borderWidth: 1 } : {}}
-                    labelStyle={{ flex: 1 }}
+                    labelStyle={{ flexDirection: "row" }}
                     color={theme.navigation.bg}
                     onPress={() => setLangDropdown(true)}
                   >
-                    <View style={{ flex: 1, flexDirection: "row", width: "100%" }}>
-                      <Text allowFontScaling={false} style={{ fontSize: 14, color: theme.navigation.fg, ...font(), flex: 1, textAlign: "left" }}>{t('settings:language',{name:languages.find(i => i.code == i18n.language)?.name ?? i18n.language})}</Text>
-                      <MaterialCommunityIcons color={theme.navigation.fg} name="chevron-down" size={16} />
-                    </View>
+                    <Text allowFontScaling={false} style={{ fontSize: 14, color: theme.navigation.fg, ...font(), flex: 1, textAlign: "left" }}>{t('settings:language',{name:languages.find(i => i.code == i18n.language)?.name ?? i18n.language})}</Text>
+                    <MaterialCommunityIcons color={theme.navigation.fg} name="chevron-down" size={16} />
                   </Button>
                 }
                 contentStyle={{ backgroundColor: theme.page_content.bg, padding: 0 }}
