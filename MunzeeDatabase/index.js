@@ -445,7 +445,7 @@ munzees = munzees.concat(require('./types/reseller.json').map(i => ({
   state: "physical",
   category: "reseller",
 
-  points: i.points,
+  points: "reseller",
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/reseller.json"
