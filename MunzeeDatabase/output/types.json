@@ -3078,6 +3078,12 @@
     "flat": true,
     "state": "virtual",
     "category": "flat",
+    "points": {
+      "deploy": 19,
+      "type": "split",
+      "split": 76,
+      "min": 10
+    },
     "completion": "complete",
     "can_host": [
       1705,
@@ -4694,6 +4700,11 @@
     "reseller": true,
     "state": "physical",
     "category": "reseller",
+    "points": {
+      "deploy": 40,
+      "capture": 35,
+      "capon": 30
+    },
     "completion": "complete",
     "can_host": [
       824,
@@ -4710,6 +4721,11 @@
     "reseller": true,
     "state": "physical",
     "category": "reseller",
+    "points": {
+      "deploy": 40,
+      "capture": 35,
+      "capon": 30
+    },
     "completion": "complete",
     "can_host": [
       824,
@@ -4726,6 +4742,11 @@
     "reseller": true,
     "state": "physical",
     "category": "reseller",
+    "points": {
+      "deploy": 40,
+      "capture": 35,
+      "capon": 30
+    },
     "completion": "complete",
     "can_host": [
       824,
@@ -4742,6 +4763,11 @@
     "reseller": true,
     "state": "physical",
     "category": "reseller",
+    "points": {
+      "deploy": 40,
+      "capture": 35,
+      "capon": 30
+    },
     "completion": "complete",
     "can_host": [
       824,
@@ -4758,6 +4784,11 @@
     "reseller": true,
     "state": "physical",
     "category": "reseller",
+    "points": {
+      "deploy": 40,
+      "capture": 35,
+      "capon": 30
+    },
     "completion": "complete",
     "can_host": [
       824,
@@ -4774,6 +4805,11 @@
     "reseller": true,
     "state": "physical",
     "category": "reseller",
+    "points": {
+      "deploy": 40,
+      "capture": 35,
+      "capon": 30
+    },
     "completion": "complete",
     "can_host": [
       824,
@@ -4790,6 +4826,11 @@
     "reseller": true,
     "state": "physical",
     "category": "reseller",
+    "points": {
+      "deploy": 40,
+      "capture": 35,
+      "capon": 30
+    },
     "completion": "complete",
     "can_host": [
       824,
@@ -4994,6 +5035,11 @@
     "reseller": true,
     "state": "physical",
     "category": "reseller",
+    "points": {
+      "deploy": 40,
+      "capture": 35,
+      "capon": 30
+    },
     "completion": "complete",
     "can_host": [
       824,
@@ -5190,6 +5236,11 @@
     "reseller": true,
     "state": "physical",
     "category": "reseller",
+    "points": {
+      "deploy": 40,
+      "capture": 35,
+      "capon": 30
+    },
     "completion": "complete",
     "can_host": [
       824,
@@ -5605,6 +5656,11 @@
     "reseller": true,
     "state": "physical",
     "category": "reseller",
+    "points": {
+      "deploy": 40,
+      "capture": 35,
+      "capon": 30
+    },
     "completion": "complete",
     "can_host": [
       824,
@@ -6224,6 +6280,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -6238,6 +6299,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1985,
@@ -6255,6 +6321,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -6269,6 +6340,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -6283,6 +6359,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -6798,6 +6879,12 @@
     "flat": true,
     "state": "virtual",
     "category": "flat",
+    "points": {
+      "deploy": 19,
+      "type": "split",
+      "split": 92,
+      "min": 10
+    },
     "completion": "complete",
     "can_host": [
       1985,
@@ -7459,6 +7546,12 @@
     "flat": true,
     "state": "virtual",
     "category": "flat",
+    "points": {
+      "deploy": 19,
+      "type": "split",
+      "split": 78,
+      "min": 10
+    },
     "completion": "complete",
     "can_host": [
       1691,
@@ -7477,6 +7570,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -7491,6 +7589,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -7505,6 +7608,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -7519,6 +7627,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -12238,6 +12351,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -12252,6 +12370,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -12266,6 +12389,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -12345,6 +12473,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -12407,6 +12540,12 @@
     "flat": true,
     "state": "virtual",
     "category": "flat",
+    "points": {
+      "deploy": 19,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "completion": "complete",
     "can_host": [
       1691,
@@ -12523,6 +12662,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 10,
+      "capon": 5
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -12912,6 +13056,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -13934,6 +14083,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -13948,6 +14102,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -15059,6 +15218,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -15073,6 +15237,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -15087,6 +15256,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580
@@ -15101,6 +15275,11 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "points": {
+      "deploy": 40,
+      "capture": 20,
+      "capon": 10
+    },
     "completion": "complete",
     "can_host": [
       1580

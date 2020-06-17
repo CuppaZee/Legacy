@@ -3,7 +3,13 @@
     "name": "Flat Rob",
     "icon": "flatrob",
     "id": 353,
-    "state": "virtual"
+    "state": "virtual",
+    "points": {
+      "deploy": 19,
+      "type": "split",
+      "split": 76,
+      "min": 10
+    }
   },
   {
     "name": "MHQ Flat Matt",
@@ -23,13 +29,25 @@
     "name": "Flat Matt",
     "icon": "flatmatt",
     "id": 1015,
-    "state": "virtual"
+    "state": "virtual",
+    "points": {
+      "deploy": 19,
+      "type": "split",
+      "split": 92,
+      "min": 10
+    }
   },
   {
     "name": "Flat Lou",
     "icon": "flatlou",
     "id": 1338,
-    "state": "virtual"
+    "state": "virtual",
+    "points": {
+      "deploy": 19,
+      "type": "split",
+      "split": 78,
+      "min": 10
+    }
   },
   {
     "name": "Tower Bridge Flat Lou",
@@ -42,7 +60,13 @@
     "name": "Flat Hammock",
     "icon": "flathammock",
     "id": 1581,
-    "state": "virtual"
+    "state": "virtual",
+    "points": {
+      "deploy": 19,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    }
   },
   {
     "name": "Gettysburg Flat Hammock",
