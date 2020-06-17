@@ -35,7 +35,8 @@
             "facebook": "You can contact us via Facebook",
             "email": "or email us at support@cuppazee.app"
         },
-        "clans": "Clans"
+        "clans": "Clans",
+        "logging_in": "Logging in..."
     },
     "activity": {
         "user_captured": "{user} captured",
@@ -135,7 +136,7 @@
         },
         "last_captured": "Last Captured: {time}",
         "in_limbo": "Taking a Rest",
-        "at_munzee": "At {munzee}"
+        "host": "At {munzee} by {username}"
     },
     "calendar": {
         "days": {
@@ -231,7 +232,9 @@
         "add_user": "Add User",
         "update": "Force Update",
         "theme": "Theme: {name}",
-        "language": "Language: {name}"
+        "language": "Language: {name}",
+        "logout": "",
+        "save": ""
     },
     "bouncers": {
         "duration": "Duration: {duration}"
