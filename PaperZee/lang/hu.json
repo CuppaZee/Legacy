@@ -93,7 +93,10 @@
         "clan_info_desc": "",
         "challenges": "Kihívások",
         "sh_lite": "Vadászat a speciálisokra light verzió",
-        "sh_pro": "Vadászat a speciálisokra pro verzió"
+        "sh_pro": "Vadászat a speciálisokra pro verzió",
+        "your_clan": "",
+        "no_clan": "",
+        "no_clan_desc": ""
     },
     "inventory": {
         "undeployed": "Nem telepített munzee-k",
