@@ -35,7 +35,8 @@
             "facebook": "Kapcsolatba léphetsz velünk Facebook-on",
             "email": "vagy írj emailt a support@cuppazee.app címre."
         },
-        "clans": ""
+        "clans": "",
+        "logging_in": ""
     },
     "activity": {
         "user_captured": "{user} megtalálta",
@@ -135,7 +136,7 @@
         },
         "last_captured": "Legutoljára megtalálva:",
         "in_limbo": "Pihen",
-        "at_munzee": ""
+        "host": ""
     },
     "calendar": {
         "days": {
@@ -231,7 +232,9 @@
         "add_user": "Felhasználó hozzáadása",
         "update": "",
         "theme": "",
-        "language": ""
+        "language": "",
+        "logout": "",
+        "save": ""
     },
     "bouncers": {
         "duration": ""
