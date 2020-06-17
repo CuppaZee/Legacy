@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { View, Text, Image } from 'react-native';
 import Tile from './Tile';
-import moment from 'moment';
 import CalData from '~sections/DB/Calendar.json';
+import useMoment from '~hooks/useMoment';
+import { useTranslation } from 'react-i18next';
 
 export default function Calendar({style,month,year,theme,type="default"}) {
+  const {t} = useTranslation();
+  const moment = useMoment();
   const now = moment();
   const monthStart = moment({date:1,month:month??now.month(),year:year??now.year()}).day();
   const monthEnd = moment({date:1,month:month??now.month(),year:year??now.year()}).add(1,"month").subtract(1,'day').date();
@@ -38,7 +41,15 @@ export default function Calendar({style,month,year,theme,type="default"}) {
       </View>)}
     </View>}
     <View style={{flexDirection:"row"}}>
-      {["M","T","W","T","F","S","S"].map(i=><View style={{flex:1,borderWidth:1,borderColor:'#d3d3d3',justifyContent:"center",alignItems:"center",height:40}}>
+      {[
+        t("calendar:days.monday"),
+        t("calendar:days.tuesday"),
+        t("calendar:days.wednesday"),
+        t("calendar:days.thursday"),
+        t("calendar:days.friday"),
+        t("calendar:days.saturday"),
+        t("calendar:days.sunday")
+      ].map(i=><View style={{flex:1,borderWidth:1,borderColor:'#d3d3d3',justifyContent:"center",alignItems:"center",height:40}}>
         <Text allowFontScaling={false} style={{fontSize:16,color:theme.page_content.fg}}>{i}</Text>
       </View>)}
     </View>

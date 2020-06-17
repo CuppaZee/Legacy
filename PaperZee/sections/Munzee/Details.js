@@ -5,14 +5,15 @@ import { IconButton } from 'react-native-paper'
 import Card from '~sections/Shared/Card';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-import useAPIRequest from '~sections/Shared/useAPIRequest';
+import useAPIRequest from '~hooks/useAPIRequest';
 import { useDimensions } from '@react-native-community/hooks';
 import font from '~sections/Shared/font';
 import { useTranslation } from 'react-i18next'
-import moment from 'moment';
+import useMoment from '~hooks/useMoment';
 import * as WebBrowser from 'expo-web-browser';
 
 export default function DetailsScreen({ route }) {
+  var moment = useMoment();
   var {width} = useDimensions().window;
   var [FABOpen,setFABOpen] = React.useState(false);
   var nav = useNavigation();

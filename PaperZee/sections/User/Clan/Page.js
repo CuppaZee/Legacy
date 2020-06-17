@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux';
 import { FAB } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import RequirementsCard from '~sections/Clan/Cards/Requirements';
-import useAPIRequest from '~sections/Shared/useAPIRequest';
-import useLevelColours from '~sections/Shared/useLevelColours';
+import useAPIRequest from '~hooks/useAPIRequest';
+import useLevelColours from '~hooks/useLevelColours';
 import { ClanRequirementsConverter } from '../../Clan/Data';
 import font from '~sections/Shared/font';
 import { FlatList } from 'react-native-gesture-handler';
@@ -84,7 +84,7 @@ export default function ClanScreen({ route }) {
                   <Text allowFontScaling={false} style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{data?.[i]?.toLocaleString?.()||'0'}</Text>
                 </View>
                 {requirements?.order?.individual?.includes?.(i)?<View style={{alignSelf:"stretch",borderTopRightRadius:8,borderBottomRightRadius:8,borderLeftWidth:dark?2:0,borderLeftColor:dark?level_colors[calculateLevel(i,data?.[i])].fg:undefined,backgroundColor:dark?undefined:level_colors[calculateLevel(i,data?.[i])].bg,width:60,alignItems:"center",justifyContent:"center"}}>
-                  <Text allowFontScaling={false} style={{color:dark?theme.page_content.fg:level_colors[calculateLevel(i,data?.[i])].fg,...font()}}>Level</Text>
+                  <Text allowFontScaling={false} style={{color:dark?theme.page_content.fg:level_colors[calculateLevel(i,data?.[i])].fg,...font()}}>{t('clan:level',{count:1})}</Text>
                   <Text allowFontScaling={false} style={{color:dark?theme.page_content.fg:level_colors[calculateLevel(i,data?.[i])].fg,fontSize:24,...font("bold")}}>{calculateLevel(i,data?.[i])}</Text>
                 </View>:null}
               </View>

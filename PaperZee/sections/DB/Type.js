@@ -8,7 +8,8 @@ import { TouchableRipple, Chip } from 'react-native-paper';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import font from '~sections/Shared/font';
-import moment from 'moment';
+import useMoment from '~hooks/useMoment';
+import { useTranslation } from 'react-i18next';
 
 function g(icon) {
   return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'').replace(/munzee$/,'');
@@ -43,6 +44,8 @@ function checkCanHost(i) {
 }
 
 export default function SettingsScreen() {
+  var {t} = useTranslation()
+  var moment = useMoment();
   var route = useRoute();
   var munzee_icon = route.params.munzee;
   var munzee = getType(munzee_icon);
@@ -54,7 +57,7 @@ export default function SettingsScreen() {
       <View style={{alignItems:"center"}}>
         <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(munzee.icon)}.png`}} style={{height:48,width:48}} />
         <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>{munzee.name}</Text>
-        <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:20,...font("bold")}}>Icon: {munzee.icon} - ID: {munzee.id}</Text>
+        <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:20,...font("bold")}}>{t('db:type.info',{icon: munzee.icon, id: munzee.id})}</Text>
       </View>
       <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
         {munzee.state!="bouncer"&&<CustomChip label={`${u(munzee.state)}`}/>}
@@ -70,7 +73,7 @@ export default function SettingsScreen() {
       </View>
       {categories.find(i=>i.id==munzee.category)?.seasonal&&<View style={{alignItems:"center"}}>
         <Text allowFontScaling={false} style={{color:theme.page_content.fg}}>{moment(categories.find(i=>i.id==munzee.category).seasonal.starts).format('L LT')} - {moment(categories.find(i=>i.id==munzee.category).seasonal.ends).format('L LT')}</Text>
-        <Text allowFontScaling={false} style={{color:theme.page_content.fg}}>Duration: {moment.duration(moment(categories.find(i=>i.id==munzee.category).seasonal.starts).diff(moment(categories.find(i=>i.id==munzee.category).seasonal.ends))).humanize()}</Text>
+        <Text allowFontScaling={false} style={{color:theme.page_content.fg}}>{t('bouncers:duration',{duration:moment.duration(moment(categories.find(i=>i.id==munzee.category).seasonal.starts).diff(moment(categories.find(i=>i.id==munzee.category).seasonal.ends))).humanize()})}</Text>
       </View>}
 
       {/* Points */}
@@ -109,7 +112,7 @@ export default function SettingsScreen() {
       {munzee.evolution&&<>
         <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
         <View style={{alignItems:"center"}}>
-          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Evolution Stages</Text>
+          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>{t('db:type.evo')}</Text>
         </View>
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
           {types.filter(i=>i.evolution?.base===munzee.evolution.base).sort((a,b)=>a.evolution?.stage-b.evolution?.stage).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
@@ -126,7 +129,7 @@ export default function SettingsScreen() {
       {munzee.bouncer?.base&&<>
         <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
         <View style={{alignItems:"center"}}>
-          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Pouch Creature Stages</Text>
+          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>{t('db:type.pouch')}</Text>
         </View>
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
           {types.filter(i=>i.bouncer?.base===munzee.bouncer.base).sort((a,b)=>a.bouncer?.stage-b.bouncer?.stage).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
@@ -143,7 +146,7 @@ export default function SettingsScreen() {
       {munzee.can_host?.filter?.(checkCanHost)?.length>0&&<>
         <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
         <View style={{alignItems:"center"}}>
-          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Can Host</Text>
+          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>{t('db:type.can_host')}</Text>
         </View>
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
           {munzee.can_host.filter(checkCanHost).map(i=>types.find(x=>x.id==i)).filter(i=>!i.hidden).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
@@ -160,7 +163,7 @@ export default function SettingsScreen() {
       {munzee?.bouncer?.lands_on&&<>
         <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
         <View style={{alignItems:"center"}}>
-          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Lands On</Text>
+          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>{t('db:type.lands_on')}</Text>
         </View>
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
           {munzee.bouncer.lands_on.map(i=>types.find(x=>x.id==i)).filter(i=>!i.hidden).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>

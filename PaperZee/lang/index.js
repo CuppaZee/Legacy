@@ -2,6 +2,7 @@ import cs from './cs.json'
 import da from './da.json'
 import de from './de.json'
 import en_gb from './en-gb.json'
+import en_us from './en-us.json'
 import fi from './fi.json'
 import fr from './fr.json'
 import hu from './hu.json'
@@ -42,6 +43,7 @@ export default {
     da:x(da,"a").a,
     de:x(de,"a").a,
     "en-GB":x(en_gb,"a").a,
+    "en-US":x(en_us,"a").a,
     fi:x(fi,"a").a,
     fr:x(fr,"a").a,
     hu:x(hu,"a").a,

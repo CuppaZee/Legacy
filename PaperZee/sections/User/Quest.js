@@ -4,15 +4,16 @@ import Card from '~sections/Shared/Card';
 import { useSelector, useDispatch } from 'react-redux';
 import { FAB } from 'react-native-paper';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
-import useAPIRequest from '~sections/Shared/useAPIRequest'
+import useAPIRequest from '~hooks/useAPIRequest'
 import font from '~sections/Shared/font';
+import { useTranslation } from 'react-i18next';
 
 function UserIcon({user_id,size}) { 
   return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size-24)/2, marginTop: -(size-24)/2, height: size, width: size }} />
 }
 
 export default function ClanScreen({ route }) {
-  var selected_theme = useSelector(i=>i.theme);
+  var {t} = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
   var dark = false;
   var level_colors = {
@@ -71,7 +72,7 @@ export default function ClanScreen({ route }) {
                 <Image source={{ uri: i?.icon }} style={{ width: 48, height: 48 }} />
               </View>
               <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
-                <Text allowFontScaling={false} style={{ fontSize: 20, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{i?.name}</Text>
+                <Text allowFontScaling={false} style={{ fontSize: 20, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{t(`quest:task_${i.id}`)}</Text>
                 {/* <Text allowFontScaling={false} style={{fontSize:16,opacity:0.8}}><MaterialCommunityIcons name="sword-cross" size={16}/> The Cup of Coffee Clan</Text> */}
                 <Text allowFontScaling={false} style={{ fontSize: 16,...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{data?.[i.id]?.toLocaleString?.()}/{i.req}</Text>
               </View>

@@ -5,11 +5,13 @@ import { TouchableRipple } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import Card from '~sections/Shared/Card';
 import {ClanRequirementsConverter} from '../Data';
-import useAPIRequest from '~sections/Shared/useAPIRequest';
-import useLevelColours from '~sections/Shared/useLevelColours';
+import useAPIRequest from '~hooks/useAPIRequest';
+import useLevelColours from '~hooks/useLevelColours';
 import font from '~sections/Shared/font';
+import { useTranslation } from 'react-i18next';
 
 export default function UserActivityDash({ game_id, scale: s = 1 }) {
+  var {t} = useTranslation();
   var theme = useSelector(i=>i.themes[i.theme]);
   var [reward,setReward] = React.useState(false);
   var level_colors = useLevelColours();
@@ -51,7 +53,7 @@ export default function UserActivityDash({ game_id, scale: s = 1 }) {
       <View style={{ ...(theme.dark?{borderBottomWidth: 2*s, borderBottomColor: level_colors.border}:{}), backgroundColor: (theme.clanCardHeader||theme.navigation).bg, paddingHorizontal: 8*s, borderTopLeftRadius: 8*s, borderTopRightRadius: 8*s, flexDirection: "row", alignItems: "center" }}>
         <View style={{flex:1,paddingVertical:8*s}}>
           <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader||theme.navigation).fg, ...font("bold"), fontSize: 12*s, opacity: 0.7, lineHeight: 12*s }}>{data?.battle.title.slice(10)}</Text>
-          <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader||theme.navigation).fg, ...font("bold"), fontSize: 16*s, lineHeight: 16*s }}>{reward?'Rewards':'Requirements'}</Text>
+          <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader||theme.navigation).fg, ...font("bold"), fontSize: 16*s, lineHeight: 16*s }}>{reward?t('clan:rewards'):t('clan:requirements')}</Text>
         </View>
         <TouchableRipple style={{borderRadius:24*s,padding:4*s}} onPress={()=>{setReward(!reward)}}>
           <MaterialCommunityIcons name="gift" size={24*s} color={(theme.clanCardHeader||theme.navigation).fg} />
@@ -61,7 +63,7 @@ export default function UserActivityDash({ game_id, scale: s = 1 }) {
         <ScrollView horizontal={true} style={{flex:1}} contentContainerStyle={{flexDirection:"row",minWidth:'100%',paddingLeft:55*s}}>
           {!reward&&<>
           <View style={{flexDirection:"column",flexGrow:1,alignItems:"stretch",backgroundColor:level_colors.ind.bg}}>
-            <View style={{height:24*s,padding:4*s}}><Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:12*s,color:level_colors.ind.fg}}>Individual</Text></View>
+            <View style={{height:24*s,padding:4*s}}><Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:12*s,color:level_colors.ind.fg}}>{t('clan:individual')}</Text></View>
             <View style={{flexDirection:"row"}}>
               {(data?.order?.individual??[]).map(i=><View key={`Individual${i}`} style={{flexGrow:1}}>
                 <View style={{height:(96-19)*s,borderBottomWidth:2*s,borderBottomColor:level_colors.border,padding:4*s,alignItems:"center"}}>
@@ -77,7 +79,7 @@ export default function UserActivityDash({ game_id, scale: s = 1 }) {
           </View>
 
           <View style={{flexDirection:"column",flexGrow:1,alignItems:"stretch",backgroundColor:level_colors.gro.bg}}>
-            <View style={{borderLeftWidth:2*s,borderLeftColor:level_colors.border,marginHorizontal:-1*s,height:24*s,padding:4*s}}><Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:12*s,color:level_colors.gro.fg}}>Group</Text></View>
+            <View style={{borderLeftWidth:2*s,borderLeftColor:level_colors.border,marginHorizontal:-1*s,height:24*s,padding:4*s}}><Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:12*s,color:level_colors.gro.fg}}>{t('clan:group')}</Text></View>
             <View style={{flexDirection:"row",marginRight:1}}>
               {data?.order?.group?.map((i,index)=><View style={{flexGrow:1}}>
                 <View style={{...(index==0?{borderLeftWidth:2*s,borderLeftColor:level_colors.border}:{}),marginHorizontal:-1*s,height:(96-19)*s,borderBottomWidth:2*s,borderBottomColor:level_colors.border,padding:4*s,alignItems:"center"}}>
@@ -94,7 +96,7 @@ export default function UserActivityDash({ game_id, scale: s = 1 }) {
           </>}
 
           {reward&&<View style={{flexDirection:"column",flexGrow:1,alignItems:"stretch",backgroundColor:level_colors.ind.bg}}>
-            <View style={{height:24*s,padding:4*s}}><Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:12*s,color:level_colors.ind.fg}}>Rewards</Text></View>
+            <View style={{height:24*s,padding:4*s}}><Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:12*s,color:level_colors.ind.fg}}>{t('clan:rewards')}</Text></View>
             <View style={{flexDirection:"row",marginRight:1}}>
               {(data?.order?.rewards??[]).map(i=><View key={`Reward${i}`} style={{flexGrow:1}}>
                 <View style={{height:60,borderBottomWidth:2,borderBottomColor:level_colors.border,padding:4,alignItems:"center"}}>

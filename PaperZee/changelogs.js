@@ -116,5 +116,17 @@ export default {
       title: 'Updated Munzee Types',
       description: 'Some Munzee types now show their points structures'
     }
+  ],
+  131: [
+    {
+      icon: 'translate',
+      title: 'Updated Translations',
+      description: 'All text in the app is now translatable. Please be patient while CuppaZee\'s translators are translating all of this new text'
+    },
+    {
+      icon: 'translate',
+      title: 'Added English (US)',
+      description: 'CuppaZee\'s Date and Time strings now use the locale\'s format. CuppaZee now has English (US) so that you can get US Date/Time format'
+    }
   ]
 }

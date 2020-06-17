@@ -4,9 +4,10 @@ import { Menu, TouchableRipple, Button } from 'react-native-paper';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import useAPIRequest from '~sections/Shared/useAPIRequest';
+import useAPIRequest from '~hooks/useAPIRequest';
 import getType from '~sections/DB/types';
 import font from '~sections/Shared/font';
+import useMoment from '~hooks/useMoment';
 
 var count = (array, t) => {
   return Object.entries(array.reduce((a, b) => {
@@ -85,8 +86,9 @@ function OverviewItem({i}) {
 export default function ({user_id,date:dateInput}) {
   var {t} = useTranslation();
   var theme = useSelector(i=>i.themes[i.theme]);
-  var date = new Date(Date.now() - (5 * 60 * 60000));
-  var dateString = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${(date.getUTCDate()).toString().padStart(2, '0')}`
+  var moment = useMoment();
+  var date = moment().tz('America/Chicago');
+  var dateString = `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
   const data = useAPIRequest({
     endpoint: 'user/activity',
     data: {day:dateInput||dateString,user_id},
@@ -129,14 +131,14 @@ export default function ({user_id,date:dateInput}) {
     {data.captures.filter(i=>isRenovation(i)).length>0&&<View key="renovations" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
       <View style={{alignSelf:"stretch", paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#ffbcad', borderRadius: 8 }}>
         <Text allowFontScaling={false} style={{ textAlign: "center", color: 'black' ?? `#401700`, fontSize: 20, ...font("bold") }}>
-          {data.captures.filter(i=>isRenovation(i)).length} Renovation{data.captures.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points), 0)} Points
+          {t('activity:renovation', { count: data.captures.filter(i=>isRenovation(i)).length})} - {t('activity:point', { count: data.captures.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points), 0)})}
         </Text>
       </View>
     </View>}
     {data.captures_on.filter(i=>isRenovation(i)).length>0&&<View key="renons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
       <View style={{alignSelf:"stretch", paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#ffbcad', borderRadius: 8 }}>
         <Text allowFontScaling={false} style={{ textAlign: "center", color: 'black' ?? `#401700`, fontSize: 20, ...font("bold") }}>
-          {data.captures_on.filter(i=>isRenovation(i)).length} Renov-on{data.captures_on.filter(i=>isRenovation(i)).length !== 1 ? 's' : ''} - {data.captures_on.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0)} Points
+        {t('activity:renovon', { count: data.captures_on.filter(i=>isRenovation(i)).length})} - {t('activity:point', { count: data.captures_on.filter(i=>isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0)})}
         </Text>
       </View>
     </View>}

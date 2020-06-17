@@ -4,16 +4,19 @@ import Card from '~sections/Shared/Card';
 import { IconButton, TouchableRipple } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import font from '~sections/Shared/font';
-import useAPIRequest from '~sections/Shared/useAPIRequest';
+import useAPIRequest from '~hooks/useAPIRequest';
 import types from '~sections/DB/types.json';
 import categories from '~sections/DB/categories.json';
-import moment from 'moment';
+import useMoment from '~hooks/useMoment';
+import { useTranslation } from 'react-i18next';
 
 function g(icon) {
   return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'').replace(/munzee$/,'');
 }
 
 export default function SearchScreen({ navigation }) {
+  var {t} = useTranslation();
+  var moment = useMoment();
   var theme = useSelector(i => i.themes[i.theme])
   function hasChild(cat) {
     return !!categories.find(i => i.parents.includes(cat.id));
@@ -43,7 +46,7 @@ export default function SearchScreen({ navigation }) {
             {cdata?.seasonal && <>
               {/* <Text allowFontScaling={false} style={{...font("bold"),fontSize:20,color:theme.page_content.fg,textAlign:"center"}}>{category_data.id}</Text> */}
               <Text allowFontScaling={false} style={{ ...font(), textAlign: "center", color: theme.page_content.fg }}>{moment(cdata.seasonal.starts).format('L LT')} - {moment(cdata.seasonal.ends).format('L LT')}</Text>
-              <Text allowFontScaling={false} style={{ ...font(), textAlign: "center", color: theme.page_content.fg }}>Duration: {moment.duration(moment(cdata.seasonal.starts).diff(moment(cdata.seasonal.ends))).humanize()}</Text>
+              <Text allowFontScaling={false} style={{ ...font(), textAlign: "center", color: theme.page_content.fg }}>{t('bouncers:duration',{duration:moment.duration(moment(cdata.seasonal.starts).diff(moment(cdata.seasonal.ends))).humanize()})}</Text>
             </>}
             <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
               {types.filter(i => i.category === cdata.id).filter(i=>!i.hidden&&!i.capture_only).map(i => <TouchableRipple onPress={()=>navigation.navigate("BouncerMap",{type:i.icon})}>

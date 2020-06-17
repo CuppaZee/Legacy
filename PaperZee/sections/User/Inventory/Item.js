@@ -3,8 +3,10 @@ import { Text, View, Image, ScrollView, FlatList, TouchableHighlight } from 'rea
 import { ActivityIndicator, Menu, TouchableRipple } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import font from '~sections/Shared/font';
+import { useTranslation } from 'react-i18next';
 
 export default function InventoryItem({i}) {
+  var {t} = useTranslation();
   var theme = useSelector(i=>i.themes[i.theme]);
   var [open,setOpen] = React.useState(false);
   return <Menu
@@ -22,7 +24,7 @@ export default function InventoryItem({i}) {
   >
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
       <Image style={{ height: 48, width: 48 }} source={{ uri: i.icon.replace("https://munzee.global.ssl.fastly.net/images/pins","https://server.cuppazee.app/pins/64").replace(/_/g,'') }} />
-      <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{i.amount}x {i.name || "Unknown Name"}</Text>
+      <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{i.amount}x {i.name || t('inventory:unknown_name')}</Text>
     </View>
   </Menu>;
 }

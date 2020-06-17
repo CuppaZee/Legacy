@@ -1,5 +1,6 @@
 {
     "common": {
+        "logging_in": "Logging in...",
         "dashboard": "Dashboard",
         "search": "Search",
         "map": "Map",
@@ -135,7 +136,7 @@
         },
         "last_captured": "Last Captured: {time}",
         "in_limbo": "Taking a Rest",
-        "at_munzee": "At {munzee}"
+        "host": "At {munzee} by {username}"
     },
     "calendar": {
         "days": {
@@ -228,6 +229,8 @@
         "unavailable_generic": "Notifications are unavailable. Did you accept the permissions?"
     },
     "settings": {
+        "logout": "Logout",
+        "save": "Save Settings",
         "add_user": "Add User",
         "update": "Force Update",
         "theme": "Theme: {name}",

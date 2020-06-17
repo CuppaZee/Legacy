@@ -5,7 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import InventoryItem from './Item'
-import useAPIRequest from '~sections/Shared/useAPIRequest';
+import useAPIRequest from '~hooks/useAPIRequest';
 import InventoryConverter from './Data';
 import { FlatList } from 'react-native-gesture-handler';
 import font from '~sections/Shared/font';

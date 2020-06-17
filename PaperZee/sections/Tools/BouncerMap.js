@@ -1,7 +1,7 @@
 import * as React from 'react';
 import MapView from '~sections/Maps/MapView'
 import { useSelector } from "react-redux";
-import useAPIRequest from '~sections/Shared/useAPIRequest'
+import useAPIRequest from '~hooks/useAPIRequest'
 import types from '~sections/DB/types.json';
 
 export default function MapScreen({ route }) {

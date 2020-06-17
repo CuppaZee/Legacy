@@ -5,12 +5,11 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import ActivityOverview from './Overview'
-import useAPIRequest from '~sections/Shared/useAPIRequest';
+import useAPIRequest from '~hooks/useAPIRequest';
 import font from '~sections/Shared/font';
 import Card from '~sections/Shared/Card';
 import DatePicker from '~sections/Shared/DatePicker';
-import moment from 'moment';
-import 'moment-timezone';
+import useMoment from '~hooks/useMoment';
 
 var creatures = {
   'firepouchcreature': 'tuli',
@@ -55,7 +54,7 @@ function ActivityListItem({ act, userdata }) {
     </View>
     <TouchableHighlight style={{ paddingLeft: 8, paddingRight: 8, flexGrow: 1, flexShrink: 1 }} onPress={() => { navigation.navigate('MunzeeDetails', { username: (!act.points_for_creator && act.captured_at) ? act.username : userdata?.username, code: act.code }) }} underlayColor="white">
       <View>
-        <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font() }}>{act.points_for_creator ? (isRenovation(act) ? `${act.username} Renovated your Motel` : t('activity:user_captured', { user: act.username })) : (act.captured_at ? (isRenovation(act) ? `You Renovated a Motel` : t('activity:you_captured')) : t('activity:you_deployed'))}</Text>
+        <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font() }}>{act.points_for_creator ? (isRenovation(act) ? t('activity:user_renovated',{user:act.username}) : t('activity:user_captured', { user: act.username })) : (act.captured_at ? (isRenovation(act) ? t('activity:you_renovated') : t('activity:you_captured')) : t('activity:you_deployed'))}</Text>
         {!isRenovation(act) && <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font("bold") }}>{act.friendly_name}</Text>}
         {!isRenovation(act) && <Text allowFontScaling={false} style={{ color: theme.page_content.fg, opacity: 0.8, ...font() }}>{act.points_for_creator ? t('activity:by_you') : (act.captured_at ? t('activity:by_user', { user: act.username }) : t('activity:by_you'))}</Text>}
       </View>
@@ -69,6 +68,7 @@ function ActivityListItem({ act, userdata }) {
 }
 
 function DateSwitcher({ dateString }) {
+  var moment = useMoment();
   const nav = useNavigation();
   const theme = useSelector(i => i.themes[i.theme]);
   const [datePickerOpen, setDatePickerOpen] = React.useState(false);
@@ -109,12 +109,12 @@ function UserIcon({ user_id, size }) {
 }
 
 export default function UserActivityScreen() {
+  var moment = useMoment();
   var [FABOpen, setFABOpen] = React.useState(false);
   var logins = useSelector(i => i.logins)
   var nav = useNavigation();
   var { t } = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
-  var date = new Date(Date.now() - (5 * 60 * 60000));
   var date = moment().tz('America/Chicago');
   var dateString = `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
   // `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${(date.getUTCDate()).toString().padStart(2, '0')}`

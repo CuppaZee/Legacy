@@ -1,6 +1,7 @@
 import darkMapStyle from './map_dark.json';
 
 export default {
+  id: "darkblue",
   name: "Dark Blue",
   dark: true,
   error: {

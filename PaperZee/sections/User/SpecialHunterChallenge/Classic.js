@@ -5,7 +5,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import types from '~sections/DB/types.json';
-import useAPIRequest from '~sections/Shared/useAPIRequest';
+import useAPIRequest from '~hooks/useAPIRequest';
 import font from '~sections/Shared/font';
 import Card from '~sections/Shared/Card';
 
@@ -52,8 +52,9 @@ export default function UserSHCScreen() {
   var nav = useNavigation();
   var { t } = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
-  var date = new Date(Date.now() - (5 * 60 * 60000));
-  var dateString = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${(date.getUTCDate()).toString().padStart(2, '0')}`
+  var moment = useMoment();
+  var date = moment().tz('America/Chicago');
+  var dateString = `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
   var navigation = useNavigation();
   var theme = useSelector(i => i.themes[i.theme]);
   var dark = false;

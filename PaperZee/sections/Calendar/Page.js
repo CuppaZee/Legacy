@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
 import { useSelector } from 'react-redux';
-import moment from 'moment';
 import Calendar from '~sections/Calendar/Calendar';
 import Card from '~sections/Shared/Card';
 import { IconButton } from 'react-native-paper';
+import useMoment from '~hooks/useMoment';
 
 export default function CalendarScreen() {
+  var moment = useMoment()
   var theme = useSelector(i=>i.themes[i.theme]);
   var [month,setMonth] = React.useState(moment().month())
   var [year,setYear] = React.useState(moment().year())

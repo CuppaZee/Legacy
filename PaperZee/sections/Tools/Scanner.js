@@ -6,10 +6,12 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import { IconButton } from 'react-native-paper';
 import Slider from 'react-native-slider';
 import font from '~sections/Shared/font';
-import useAPIRequest from '~sections/Shared/useAPIRequest';
+import useAPIRequest from '~hooks/useAPIRequest';
 import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
 export default function App() {
+  var {t} = useTranslation();
   var nav = useNavigation();
   const [scanned,setScanned] = useState(false);
   const [list,setList] = useState([]);
@@ -37,7 +39,7 @@ export default function App() {
   return (
     <View style={{ flex: 1 }}>
       {scanned&&<View>
-        <Button title="Scan new Munzee" onPress={()=>setScanned(false)} />
+        <Button title={t('scanner:scan_new')} onPress={()=>setScanned(false)} />
         {list.slice().reverse().map((i,index)=>data[index]?.valid?<TouchableOpacity style={{borderBottomWidth: 1}} onPress={()=>{
             if(data[index].munzee) {
               WebBrowser.openBrowserAsync(i)
@@ -49,10 +51,10 @@ export default function App() {
             <Image style={{height:48,width:48}} source={{uri:data[index].munzee_logo}} />
             <View>
               {data[index].munzee&&<Text allowFontScaling={false} style={{color:'blue',fontSize:16,...font("bold")}}>
-                {data[index].munzee?`${data[index].munzee.friendly_name} by ${data[index].munzee.creator_username}`:`Type: ${data[index].munzee_type}`}
+                {t('scanner:munzee',{name:data[index].munzee.friendly_name,username:data[index].munzee.creator_username})}
               </Text>}
               <Text allowFontScaling={false} style={{color:'blue',fontSize:data[index].munzee?12:16,...font(data[index].munzee?400:"bold")}}>
-                Type: {data[index].munzee_type}
+                {t('scanner:type',{type:data[index].munzee_type})}
               </Text>
             </View>
           </View>

@@ -1,4 +1,5 @@
 export default {
+  id: "purple",
   name: "Purple",
   error: {
     bg: '#ffaaaa',

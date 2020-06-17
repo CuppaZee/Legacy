@@ -12,6 +12,7 @@ module.exports = function (api) {
             "~sections": "./sections",
             "~themes": "./themes",
             "~store": "./store",
+            "~hooks": "./hooks",
           }
         }
       ]

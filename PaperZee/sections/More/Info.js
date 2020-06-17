@@ -43,7 +43,7 @@ export default function SettingsScreen() {
           <View style={{ alignItems: "center", padding: 4, width: 160 }}>
             <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png` }} style={{ backgroundColor: "white", height: 48, width: 48, borderRadius: 24 }} />
             <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{i.username}</Text>
-            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font() }}>{t('app_info:' + i.title)}</Text>
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font() }}>{t('app_info:custom_titles.' + i.title)}</Text>
           </View>
         </TouchableRipple>)}
       </View>
@@ -54,7 +54,7 @@ export default function SettingsScreen() {
           <View style={{ alignItems: "center", padding: 4, width: 120 }}>
             <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png` }} style={{ backgroundColor: "white", height: 48, width: 48, borderRadius: 24 }} />
             <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i.username}</Text>
-            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 12, ...font() }}>{i.title}</Text>
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 12, ...font() }}>{t('app_info:custom_titles.' + i.title)}</Text>
           </View>
         </TouchableRipple>)}
       </View>
@@ -71,16 +71,16 @@ export default function SettingsScreen() {
       <View style={{ height: 1, backgroundColor: theme.page_content.fg, opacity: 0.5, margin: 8 }}></View>
       <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold"), textAlign: "center" }}>{t('app_info:patrons_and_supporters')}</Text>
       <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-        <Button style={{ marginHorizontal: 4 }} color="#F96854" mode="contained" onPress={() => Linking.openURL('https://patreon.com/CuppaZee')} icon="patreon">Monthly via Patreon</Button>
+        <Button style={{ marginHorizontal: 4 }} color="#F96854" mode="contained" onPress={() => Linking.openURL('https://patreon.com/CuppaZee')} icon="patreon">{t('app_info:patreon_donate')}</Button>
         <Menu
           visible={open}
           onDismiss={() => setOpen(false)}
           anchor={
-            <Button style={{ marginHorizontal: 4 }} color="#009CDE" mode="contained" onPress={() => setOpen(true)} icon="paypal">One-Time via PayPal</Button>
+            <Button style={{ marginHorizontal: 4 }} color="#009CDE" mode="contained" onPress={() => setOpen(true)} icon="paypal">{t('app_info:paypal_donate')}</Button>
           }
         >
           <View style={{paddingHorizontal:8}}>
-            <Text>PayPal donations can be sent to donate@cuppazee.app</Text>
+            <Text>{t('app_info:paypal_donate_desc')}</Text>
           </View>
         </Menu>
       </View>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, TextInput, Image, ScrollView } from 'react-native';
+import { Text, View, TextInput, Image, ScrollView, ActivityIndicator } from 'react-native';
 import Card from '~sections/Shared/Card';
 import { useFocusEffect } from '@react-navigation/native';
 import { IconButton } from 'react-native-paper';
@@ -7,8 +7,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import request from '~store/request';
 import stringify from 'fast-json-stable-stringify';
 import font from '~sections/Shared/font';
+import { useTranslation } from 'react-i18next';
 
 export default function SearchScreen({ navigation }) {
+  var {t} = useTranslation();
   var theme = useSelector(i=>i.themes[i.theme])
   var input = React.useRef();
   var [value,setValue] = React.useState('');
@@ -56,9 +58,11 @@ export default function SearchScreen({ navigation }) {
       <View style={{padding:4}}>
         <Card noPad>
           <View>
-            {search.length<3&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>Search for a User</Text>}
-            {search.length>=3&&!users?.data?.users&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>Loading...</Text>}
-            {users?.data?.users?.length===0&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>No Results :{"("}</Text>}
+            {search.length<3&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>{t('search:user')}</Text>}
+            {search.length>=3&&!users?.data?.users&&<View style={{height:100,justifyContent:"center",alignItems:"center"}}>
+              <ActivityIndicator size={32} color={theme.page_content.fg} />
+            </View>}
+            {users?.data?.users?.length===0&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>{t('search:empty')}</Text>}
             {users?.data?.users?.slice?.(0,20)?.map?.(i=><View key={i.clan_id} style={{padding: 4, flexDirection: "row", alignItems: "center"}}>
               <Image style={{height:24,width:24,marginHorizontal:8,borderRadius:8}} source={{uri:i.avatar??`https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i.user_id).toString(36)}.png`}} />
               <View style={{flex:1}}>

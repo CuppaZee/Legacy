@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {View,Text,ScrollView} from 'react-native';
 import {TouchableRipple} from 'react-native-paper';
-import moment from 'moment';
+import useMoment from '~hooks/useMoment';
 import {useSelector} from 'react-redux'
 import Card from '~sections/Shared/Card';
 import font from '~sections/Shared/font';
@@ -24,6 +24,7 @@ function Wrapper({noWrap,children,t}) {
 }
 
 export default function ({t,noWrap,onChange,value}) {
+  const moment = useMoment();
   const theme = useSelector(i=>i.themes[t||i.theme]);
   const [select,setSelect] = React.useState("date");
   const [date,setDate] = React.useState(value.date());
@@ -61,7 +62,7 @@ export default function ({t,noWrap,onChange,value}) {
         <Text allowFontScaling={false} style={{...font("bold"),lineHeight:12,opacity:0.8,color:theme.page_content.fg}}>{year}</Text>
       </TouchableRipple>
       <TouchableRipple onPress={()=>setSelect(select=="month"?"date":"month")}>
-        <Text allowFontScaling={false} style={{fontSize:20,...font("bold"),color:theme.page_content.fg}}>{date}{thList[date]} {months[month]||"lol"}</Text>
+        <Text allowFontScaling={false} style={{fontSize:20,...font("bold"),color:theme.page_content.fg}}>{value.format('wo MMMM')}</Text>
       </TouchableRipple>
       {select=="date"&&<View style={{flexDirection:"row",justifyContent:"space-evenly"}}>
         {["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map(i=><View style={{marginTop:8,width:36,justifyContent:"center",alignItems:"center"}}>

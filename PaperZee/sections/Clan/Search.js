@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, TextInput, Image, ScrollView } from 'react-native';
+import { Text, View, TextInput, Image, ScrollView, ActivityIndicator } from 'react-native';
 import Card from '~sections/Shared/Card';
 import { useFocusEffect } from '@react-navigation/native';
 import { IconButton } from 'react-native-paper';
@@ -10,8 +10,10 @@ var { clanBookmarks: clanBookmarksR } = s;
 import stringify from 'fast-json-stable-stringify';
 import font from '~sections/Shared/font';
 import groups from '~sections/DB/clans';
+import { useTranslation } from 'react-i18next';
 
 export default function SearchScreen({ navigation }) {
+  var {t} = useTranslation();
   var theme = useSelector(i=>i.themes[i.theme])
   var input = React.useRef();
   var [value,setValue] = React.useState('');
@@ -74,8 +76,10 @@ export default function SearchScreen({ navigation }) {
       <View style={{padding:4}}>
         <Card noPad>
           <View>
-            {!search&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>Search for a Clan</Text>}
-            {!!search&&!clans?.data&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>Loading...</Text>}
+            {!search&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>{t('search:clan')}</Text>}
+            {!!search&&!clans?.data&&<View style={{height:100,justifyContent:"center",alignItems:"center"}}>
+              <ActivityIndicator size={32} color={theme.page_content.fg} />
+            </View>}
             {(search?clans?.data?.slice?.(0,20):clansInGroup)?.map?.(i=><View key={i.clan_id} style={{padding: 4, flexDirection: "row", alignItems: "center"}}>
               {!clanBookmarks.find(x=>x.clan_id==i.clan_id)&&<IconButton size={24} onPress={()=>addClan(i)} icon="bookmark-plus" color="#016930" />}
               {!!clanBookmarks.find(x=>x.clan_id==i.clan_id)&&<IconButton size={24} onPress={()=>removeClan(i)} icon="bookmark-minus" color="#ff2222" />}

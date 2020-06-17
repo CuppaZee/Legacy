@@ -4,16 +4,19 @@ import Card from '~sections/Shared/Card';
 import { useSelector, useDispatch } from 'react-redux';
 import { FAB } from 'react-native-paper';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
-import useAPIRequest from '~sections/Shared/useAPIRequest'
+import useAPIRequest from '~hooks/useAPIRequest'
 import font from '~sections/Shared/font';
-import moment from 'moment';
+import useMoment from '~hooks/useMoment';
 import MapView from '~sections/Maps/MapView';
+import { useTranslation } from 'react-i18next';
 
 function UserIcon({ user_id, size }) {
   return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size - 24) / 2, marginTop: -(size - 24) / 2, height: size, width: size }} />
 }
 
 export default function ClanScreen({ route }) {
+  var {t} = useTranslation();
+  var moment = useMoment();
   var selected_theme = useSelector(i => i.theme);
   var theme = useSelector(i => i.themes[i.theme]);
   var dark = false;
@@ -75,9 +78,9 @@ export default function ClanScreen({ route }) {
                 {i.bouncer ? <>
                   <Text allowFontScaling={false} style={{ fontSize: 14, ...font(400), color: theme.page_content.fg, opacity: 1 }}>At <Text allowFontScaling={false} style={font(700)}>{i.bouncer.friendly_name}</Text> by <Text allowFontScaling={false} style={font(700)}>{i.bouncer.full_url.match(/\/m\/([^/]+)\/[0-9]+/)[1]}</Text></Text>
                   <Text allowFontScaling={false} style={{ fontSize: 14, ...font(400), color: theme.page_content.fg, opacity: 0.8 }}>{i.location.formatted} [{i.timezone.map(i=>moment().tz(i).format('LT')).join(' / ')}]</Text>
-                  <Text allowFontScaling={false} style={{ fontSize: 12, ...font(400), color: theme.page_content.fg, opacity: 0.8 }}>{i.number_of_captures} Captures - Last Captured: {moment(i.last_captured_at).format('L LTS')}</Text>
+                  <Text allowFontScaling={false} style={{ fontSize: 12, ...font(400), color: theme.page_content.fg, opacity: 0.8 }}>{t('your_bouncers:capture',{count:i.number_of_captures})} - {t('your_bouncers:last_captured',{time:moment(i.last_captured_at).format('L LTS')})}</Text>
                 </> : <>
-                    <Text allowFontScaling={false} style={{ fontSize: 14, ...font(500), color: theme.page_content.fg, opacity: 1 }}>Taking a Rest</Text>
+                    <Text allowFontScaling={false} style={{ fontSize: 14, ...font(500), color: theme.page_content.fg, opacity: 1 }}>{t('your_bouncers:in_limbo')}</Text>
                   </>}
               </View>
             </View>

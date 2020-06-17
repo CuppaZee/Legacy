@@ -5,11 +5,11 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import getType from '~sections/DB/types';
-import useAPIRequest from '~sections/Shared/useAPIRequest';
+import useAPIRequest from '~hooks/useAPIRequest';
 import font from '~sections/Shared/font';
 import Card from '~sections/Shared/Card';
 import DatePicker from '~sections/Shared/DatePicker';
-import moment from 'moment';
+import useMoment from '~hooks/useMoment';
 
 function g(a) {
   return getType(a.pin || a.icon || a.pin_icon);
@@ -27,6 +27,7 @@ function UserIcon({ user_id, size }) {
 }
 
 function SHCItem({ i, m }) {
+  var {t} = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
   var [open, setOpen] = React.useState(false);
   return <Menu
@@ -45,12 +46,13 @@ function SHCItem({ i, m }) {
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
       <Image style={{ height: 48, width: 48 }} source={{ uri: i.pin }} />
       <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold") }}>{i.friendly_name}</Text>
-      <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold") }}>by {i.username}</Text>
+      <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold") }}>{t('activity:by_user',{user:i.username})}</Text>
     </View>
   </Menu>;
 }
 
 function DateSwitcher({ dateString }) {
+  var moment = useMoment();
   const nav = useNavigation();
   const theme = useSelector(i=>i.themes[i.theme]);
   const [datePickerOpen,setDatePickerOpen] = React.useState(false);
@@ -87,14 +89,15 @@ function DateSwitcher({ dateString }) {
 }
 
 export default function UserSHCScreen() {
+  var moment = useMoment();
   var [FABOpen, setFABOpen] = React.useState(false);
   var [datePickerOpen, setDatePickerOpen] = React.useState(false);
   var logins = useSelector(i => i.logins)
   var nav = useNavigation();
   var { t } = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
-  var date = new Date(Date.now() - (5 * 60 * 60000));
-  var dateString = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${(date.getUTCDate()).toString().padStart(2, '0')}`
+  var date = moment().tz('America/Chicago');
+  var dateString = `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
   var theme = useSelector(i => i.themes[i.theme]);
   var dark = false;
   var level_colors = {
@@ -125,20 +128,20 @@ export default function UserSHCScreen() {
     cuppazee: true
   })
   var categories = [
-    { icon: 'rainbowunicorn', name: "AlternaMyth or Escaped PC", function: i => i?.bouncer?.type == "tob" },
-    { icon: 'nomad', name: "Nomad", function: i => i?.bouncer?.type == "nomad" },
-    { icon: 'retiredunicorn', name: "RetireMyth", function: i => i?.bouncer?.type == "retiremyth" || i?.bouncer?.type == "zombiepouch" },
-    { icon: 'yeti', name: "Original Myth", function: i => i?.myth_set == "original" },
-    { icon: 'cyclops', name: "Classical Myth", function: i => i?.myth_set == "classical" },
-    { icon: 'mermaid', name: "Mirror Myth", function: i => i?.myth_set == "mirror" },
-    { icon: 'poseidon', name: "Modern Myth", function: i => i?.myth_set == "modern" },
-    { icon: 'tuli', name: "Pouch Creature S1", function: i => i?.category == "pouch_season_1" },
-    { icon: 'magnetus', name: "Pouch Creature S2", function: i => i?.category == "pouch_season_2" },
-    { icon: 'oniks', name: "Funfinity Stone", function: i => i?.category == "pouch_funfinity" },
-    { icon: 'tuxflatrob', name: "Fancy Flat", function: i => i?.bouncer?.type == "flat" },
-    { icon: 'morphobutterfly', name: "Evo Bouncer / tPOB", function: i => i?.bouncer?.type == "temppob" },
-    { icon: 'scattered', name: "Physical Scatter", function: i => i?.scatter && i.state == "physical" },
-    { icon: 'feather', name: "Virtual Scatter", function: i => i?.scatter && i.state == "virtual" },
+    { icon: 'rainbowunicorn', name: t('shc:pro.tob'), function: i => i?.bouncer?.type == "tob" },
+    { icon: 'nomad', name: t('shc:pro.nomad'), function: i => i?.bouncer?.type == "nomad" },
+    { icon: 'retiredunicorn', name: t('shc:pro.retire'), function: i => i?.bouncer?.type == "retiremyth" || i?.bouncer?.type == "zombiepouch" },
+    { icon: 'yeti', name: t('shc:pro.myth_1'), function: i => i?.myth_set == "original" },
+    { icon: 'cyclops', name: t('shc:pro.myth_2'), function: i => i?.myth_set == "classical" },
+    { icon: 'mermaid', name: t('shc:pro.myth_3'), function: i => i?.myth_set == "mirror" },
+    { icon: 'poseidon', name: t('shc:pro.myth_4'), function: i => i?.myth_set == "modern" },
+    { icon: 'tuli', name: t('shc:pro.pc_1'), function: i => i?.category == "pouch_season_1" },
+    { icon: 'magnetus', name: t('shc:pro.pc_2'), function: i => i?.category == "pouch_season_2" },
+    { icon: 'oniks', name: t('shc:pro.pc_fun'), function: i => i?.category == "pouch_funfinity" },
+    { icon: 'tuxflatrob', name: t('shc:pro.flat'), function: i => i?.bouncer?.type == "flat" },
+    { icon: 'morphobutterfly', name: t('shc:pro.temp'), function: i => i?.bouncer?.type == "temppob" },
+    { icon: 'scattered', name: t('shc:pro.pscatter'), function: i => i?.scatter && i.state == "physical" },
+    { icon: 'feather', name: t('shc:pro.vscatter'), function: i => i?.scatter && i.state == "virtual" },
   ]
   if (!data || !data.captures) return (
     <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page.bg }}>

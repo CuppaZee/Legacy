@@ -58,14 +58,14 @@ export default function CustomDrawerContent(props) {
   var [showMoreClan, setShowMoreClan] = React.useState(false);
   var pages = [
     // { title: t(`common:maps`), icon: "map", page: "Map" },
-    { title: "Bouncers", icon: "map-marker", page: "Bouncers" },
+    { title: t(`common:bouncers`), icon: "map-marker", page: "Bouncers" },
     { title: t(`common:munzee_types`), icon: "database", page: "DBSearch" },
     { title: t(`common:calendar`), icon: "calendar", page: "Calendar" },
     { title: t(`common:scanner`), icon: "qrcode", page: "Scanner", hide: Platform.OS === "web" },
     // {title:t(`common:tools`),icon:"wrench",page:"Tools"},
   ].filter(i => !i.hide)
   var more = [
-    { title: 'Notifications', icon: "bell", page: "Notifications", hide: Platform.OS === "web" },
+    { title: t(`common:notifications`), icon: "bell", page: "Notifications", hide: Platform.OS === "web" },
     { title: t(`common:settings`), icon: "settings", page: "Settings" },
     { title: t(`common:app_info`), icon: "information", page: "Info" },
     { title: `GitHub`, icon: "github-circle", page: "https://github.com/CuppaZee/CuppaZee", link: true }
@@ -124,7 +124,7 @@ export default function CustomDrawerContent(props) {
         }
       />
       <View style={{ paddingTop: 8, paddingLeft: 16 }}>
-        <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Clans</Text>
+        <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:clan',{count:2})}</Text>
       </View>
       <View style={{ padding: 4, paddingLeft: 8, paddingRight: 16, flexDirection: "row", justifyContent: "space-between" }}>
         {/* <IconButton
@@ -213,7 +213,7 @@ export default function CustomDrawerContent(props) {
         style={{ marginVertical: 0 }}
         focused={false}
         icon={({ focused, color, size }) => <MaterialCommunityIcons name={showMoreClan ? "chevron-up" : "chevron-down"} color={color} size={24} style={{ margin: 4 }} />}
-        label={showMoreClan ? "Show Less" : "Show More"}
+        label={showMoreClan ? t(`common:show_less`) : t(`common:show_more`)}
         onPress={() => setShowMoreClan(!showMoreClan)}
       />}
       <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
@@ -260,7 +260,7 @@ export default function CustomDrawerContent(props) {
             {...itemProps}
             style={{ marginVertical: 0 }}
             icon={({ focused, color, size }) => <MaterialCommunityIcons name="help-circle" color={color} size={24} style={{ margin: 4 }} />}
-            label="Help"
+            label={t('common:help')}
             onPress={() => setHelpOpen(true)}
           />
         }
@@ -268,10 +268,10 @@ export default function CustomDrawerContent(props) {
       >
         <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
           <View style={{ flexDirection: "row" }}>
-            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>You can contact us via Facebook </Text>
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{t('common:contact.facebook')} </Text>
             <TouchableRipple onPress={() => Linking.openURL('https://m.me/CuppaZee')}><Text allowFontScaling={false} style={{ color: theme.page_content.fg == "#000000" ? 'blue' : 'lightblue', fontSize: 16, ...font("bold") }}>@CuppaZee</Text></TouchableRipple>
           </View>
-          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16 }}>or email us at support@cuppazee.app</Text>
+          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16 }}>{t('common:contact.email')}</Text>
         </View>
       </Menu>
     </DrawerContentScrollView>

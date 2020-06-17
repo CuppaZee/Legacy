@@ -7,16 +7,18 @@ import { useDimensions } from '@react-native-community/hooks';
 import font from '~sections/Shared/font'
 import Tile from '~sections/Calendar/Tile';
 import CalData from '~sections/DB/Calendar.json'
-import moment from 'moment';
-import 'moment-timezone';
+import useMoment from '~hooks/useMoment';
 import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
 export default function Header(props) {
+  var {t} = useTranslation();
+  var moment = useMoment();
   var nav = useNavigation();
   var theme = useSelector(i=>i.themes[i.theme]);
   var loggedIn = useSelector(i=>i.loggedIn);
   var {width} = useDimensions().window;
-  var [now,setNow] = React.useState(moment(0));
+  var [now,setNow] = React.useState(moment().tz('America/Chicago'));
   React.useEffect(()=>{
     var x = setInterval(()=>{
       setNow(moment().tz('America/Chicago'))
@@ -38,7 +40,7 @@ export default function Header(props) {
     />}
     <Appbar.Content
       titleStyle={{...font()}}
-      title={props?.scene?.descriptor?.options?.title??props.scene?.route?.name}
+      title={t(`screens:${props.scene?.route?.name}`)}
     />
     <LoadingButton />
     <TouchableRipple onPress={()=>nav.navigate('Calendar')} style={{width:width>600?80:60}}>

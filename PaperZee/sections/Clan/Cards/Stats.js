@@ -9,9 +9,10 @@ import Card from '~sections/Shared/Card';
 import s from '~store';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { ClanRequirementsConverter, ClanStatsConverter } from '../Data';
-import useAPIRequest from '~sections/Shared/useAPIRequest';
-import useLevelColours from '~sections/Shared/useLevelColours';
+import useAPIRequest from '~hooks/useAPIRequest';
+import useLevelColours from '~hooks/useLevelColours';
 import font from '~sections/Shared/font';
+import { useTranslation } from 'react-i18next';
 var { levelSelect: levelSelectX } = s
 
 var countup = (t) => (a, b) => {
@@ -41,6 +42,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
     scroll = true;
     s = 1;
   }
+  var {t} = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
   //else {
   var level_colors = useLevelColours();
@@ -192,7 +194,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
     <Card noPad>
       <View style={{ ...(theme.dark ? { borderBottomWidth: 2 * s, borderBottomColor: level_colors.border } : {}), backgroundColor: (theme.clanCardHeader || theme.navigation).bg, paddingHorizontal: 8 * s, borderTopLeftRadius: 8 * s, borderTopRightRadius: 8 * s, flexDirection: "row", alignItems: "center" }}>
         <View style={{ flex: 1, paddingVertical: 8 * s }}>
-          <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader || theme.navigation).fg, ...font("bold"), fontSize: 12 * s, opacity: 0.7, lineHeight: 12 * s }}>{clan?.details?.goal ?? 'Shadow Clan'}{clan?.details?.goal && ' Goal'} - {levelTable ? 'Subtract View' : 'Total View'}{!showGhost && " - Hiding Shadow Members"}</Text>
+          <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader || theme.navigation).fg, ...font("bold"), fontSize: 12 * s, opacity: 0.7, lineHeight: 12 * s }}>{clan?.details?.goal ?? t('clan:shadow')}{clan?.details?.goal && (' '+ t('clan:goal'))} - {levelTable ? t('clan:view.subtract') : t('clan:view.total')}{!showGhost && " - Hiding Shadow Members"}</Text>
           <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader || theme.navigation).fg, ...font("bold"), fontSize: 16 * s, lineHeight: 16 * s }}>{clan?.details?.name}</Text>
         </View>
         {shadow_clans.includes(Number(clan_id)) && Number(clan_id) >= 0 && <TouchableRipple style={{ borderRadius: 24 * s, padding: 4 * s }} onPress={() => { setShowGhost(!showGhost) }}>
@@ -267,7 +269,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
               anchor={
                 <TouchableRipple style={{ height: 24 * s, justifyContent: "center", paddingHorizontal: 4 * s }} onPress={() => setUserLevelSelect(true)}>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <Text allowFontScaling={false} style={{ fontSize: 12 * s, flex: 1, color: level_colors[levelSelect + 1].fg, ...font() }}>{data?.levels?.[levelSelect]?.name} {(ls || "")?.endsWith?.('s') ? 'Share' : 'Indiv'}</Text>
+                    <Text allowFontScaling={false} style={{ fontSize: 12 * s, flex: 1, color: level_colors[levelSelect + 1].fg, ...font() }}>{data?.levels?.[levelSelect]?.name} {(ls || "")?.endsWith?.('s') ? t('clan:share') : t('clan:indiv')}</Text>
                     <MaterialCommunityIcons color={level_colors[levelSelect + 1].fg} name="chevron-down" size={12} />
                   </View>
                 </TouchableRipple>
@@ -278,13 +280,13 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
                 key={index}
                 style={{ padding: 4 * s, paddingVertical: 0, backgroundColor: level_colors[index + 1].bg }}
                 onPress={() => { setLevelSelect(index); setUserLevelSelect(false) }}
-                title={<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors[index + 1].fg }}>{i.name + " Indiv"}</Text>}
+                title={<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors[index + 1].fg }}>{i.name + " " + t('clan:indiv')}</Text>}
               />)}
               {data?.levels?.map((i, index) => <Menu.Item
                 key={index + 's'}
                 style={{ padding: 4 * s, paddingVertical: 0, backgroundColor: level_colors[index + 1].bg }}
                 onPress={() => { setLevelSelect(index + 's'); setUserLevelSelect(false) }}
-                title={<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors[index + 1].fg }}>{i.name + " Share"}</Text>}
+                title={<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors[index + 1].fg }}>{i.name + " " + t('clan:share')}</Text>}
               />)}
             </Menu>
           </View>
@@ -305,7 +307,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
               anchor={
                 <TouchableRipple style={{ height: 24 * s, justifyContent: "center", paddingHorizontal: 4 * s }} onPress={() => setClanLevelSelect(true)}>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <Text allowFontScaling={false} style={{ fontSize: 12 * s, flex: 1, color: level_colors[levelSelect + 1].fg, ...font() }}>{data?.levels?.[levelSelect]?.name} Group</Text>
+                    <Text allowFontScaling={false} style={{ fontSize: 12 * s, flex: 1, color: level_colors[levelSelect + 1].fg, ...font() }}>{data?.levels?.[levelSelect]?.name} {t('clan:group')}</Text>
                     <MaterialCommunityIcons color={level_colors[levelSelect + 1].fg} name="chevron-down" size={12 * s} />
                   </View>
                 </TouchableRipple>

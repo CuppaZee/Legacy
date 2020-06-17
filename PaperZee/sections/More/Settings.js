@@ -64,6 +64,7 @@ export default function SettingsScreen({ navigation }) {
     { code: 'da', name: 'Dansk' },
     { code: 'de', name: 'Deutsch' },
     { code: 'en-GB', name: 'English (UK)' },
+    { code: 'en-US', name: 'English (US)' },
     { code: 'fi', name: 'Suomen Kieli' },
     // {code:'fr',name:'Français'},
     { code: 'hu', name: 'Magyar' },
@@ -99,7 +100,7 @@ export default function SettingsScreen({ navigation }) {
               <View style={{ paddingLeft: 8, flex: 1, alignSelf: "center" }}>
                 <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{user[1].username}</Text>
               </View>
-              <Button compact={true} mode="contained" color="red" onPress={() => logout(user[0])}>Logout</Button>
+              <Button compact={true} mode="contained" color="red" onPress={() => logout(user[0])}>{t('settings:logout')}</Button>
             </View>)}
             <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
               <Button
@@ -109,7 +110,7 @@ export default function SettingsScreen({ navigation }) {
                 style={theme.page_content.border ? { margin: 4, borderColor: "white", borderWidth: 1 } : { margin: 4 }}
                 color={theme.navigation.bg}
                 onPress={() => navigation.navigate('Auth')}>
-                Add User
+                {t('settings:add_user')}
               </Button>
               {Platform.OS === "web" && <Button
                 mode="contained"
@@ -118,7 +119,7 @@ export default function SettingsScreen({ navigation }) {
                 style={theme.page_content.border ? { margin: 4, borderColor: "white", borderWidth: 1 } : { margin: 4 }}
                 color={theme.navigation.bg}
                 onPress={() => forceReload()}>
-                Force Update
+                {t('settings:update')}
               </Button>}
             </View>
 
@@ -137,7 +138,7 @@ export default function SettingsScreen({ navigation }) {
                     onPress={() => setThemeDropdown(true)}
                   >
                     <View style={{ flex: 1, flexDirection: "row", width: "100%" }}>
-                      <Text allowFontScaling={false} style={{ fontSize: 14, color: theme.navigation.fg, ...font(), flex: 1, textAlign: "left" }}>Theme: {theme.name}</Text>
+                      <Text allowFontScaling={false} style={{ fontSize: 14, color: theme.navigation.fg, ...font(), flex: 1, textAlign: "left" }}>{t('settings:theme',{name: t(`themes:${theme.id}`)})}</Text>
                       <MaterialCommunityIcons color={theme.navigation.fg} name="chevron-down" size={16} />
                     </View>
                   </Button>
@@ -148,7 +149,7 @@ export default function SettingsScreen({ navigation }) {
                   key={index}
                   style={{ padding: 4, paddingVertical: 0, fontSize: 14, backgroundColor: i[1].navigation.bg }}
                   onPress={() => { dispatch(setTheme(i[0])); setThemeDropdown(false) }}
-                  title={<Text allowFontScaling={false} style={{ fontSize: 14, ...font(), color: i[1].navigation.fg }}>{i[1].name}</Text>}
+                  title={<Text allowFontScaling={false} style={{ fontSize: 14, ...font(), color: i[1].navigation.fg }}>{t(`themes:${i[1].id}`)}</Text>}
                 />)}
               </Menu>
             </View>
@@ -168,7 +169,7 @@ export default function SettingsScreen({ navigation }) {
                     onPress={() => setLangDropdown(true)}
                   >
                     <View style={{ flex: 1, flexDirection: "row", width: "100%" }}>
-                      <Text allowFontScaling={false} style={{ fontSize: 14, color: theme.navigation.fg, ...font(), flex: 1, textAlign: "left" }}>Language: {languages.find(i => i.code == i18n.language)?.name ?? i18n.language}</Text>
+                      <Text allowFontScaling={false} style={{ fontSize: 14, color: theme.navigation.fg, ...font(), flex: 1, textAlign: "left" }}>{t('settings:language',{name:languages.find(i => i.code == i18n.language)?.name ?? i18n.language})}</Text>
                       <MaterialCommunityIcons color={theme.navigation.fg} name="chevron-down" size={16} />
                     </View>
                   </Button>
@@ -221,7 +222,7 @@ export default function SettingsScreen({ navigation }) {
               style={theme.page_content.border ? { margin: 4, borderColor: "white", borderWidth: 1 } : { margin: 4 }}
               color={theme.navigation.bg}
               onPress={saveSettings}>
-              Save Settings
+              {t('settings:save')}
             </Button>
           </ScrollView>
         </Card>

@@ -9,8 +9,10 @@ import font from '~sections/Shared/font';
 import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
+import { useTranslation } from 'react-i18next';
 
 export default function SettingsScreen({ navigation }) {
+  var {t} = useTranslation();
   var logins = useSelector(i=>i.logins);
   var themes = useSelector(i=>i.themes);
   var theme = useSelector(i=>i.themes[i.theme]);
@@ -84,11 +86,11 @@ export default function SettingsScreen({ navigation }) {
   },[push]);
 
   if(Platform.OS==="web") return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
-    <Text>Notifications Unavailable on Web</Text>
+    <Text>{t('notifications:unavailable_web')}</Text>
   </View>
 
   if(push===false||data===null) return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
-    <Text>Notifications Unavailable. Did you accept the permission?</Text>
+    <Text>{t('notifications:unavailable_generic')}</Text>
   </View>
 
   if(push===null||data===false) return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
@@ -101,13 +103,13 @@ export default function SettingsScreen({ navigation }) {
           <ScrollView contentContainerStyle={{padding:8}}>
             {/* <Text allowFontScaling={false} style={{color:theme.page_content.fg,...font()}}>Push: {push||'Disabled'}</Text> */}
             <View style={{flexDirection:"row",alignItems:"center"}}>
-              <Text allowFontScaling={false} style={{color:theme.page_content.fg,...font("bold")}}>Munzee Blog</Text>
+              <Text allowFontScaling={false} style={{color:theme.page_content.fg,...font("bold")}}>{t('notifications:munzee_blog')}</Text>
               <Switch color={theme.page_content.fg} value={data.munzee_blog} onValueChange={(value)=>setData({
                 ...data,
                 munzee_blog: value
               })} />
             </View>
-            <Button mode="contained" color="green" onPress={saveCurrentOptions}>Save</Button>
+            <Button mode="contained" color="green" onPress={saveCurrentOptions}>{t('notifications:save')}</Button>
           </ScrollView>
         </Card>
       </View>

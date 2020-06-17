@@ -79,6 +79,7 @@ import { useDimensions } from '@react-native-community/hooks';
 import * as WebBrowser from 'expo-web-browser';
 import Header from './sections/Main/Header';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 WebBrowser?.maybeCompleteAuthSession?.({
   skipRedirectCheck: true
@@ -359,6 +360,7 @@ function App() {
   const version = useSelector(i => i.version);
   const ref = React.useRef();
   const dispatch = useDispatch();
+  const {t} = useTranslation();
 
   const { getInitialState } = useLinking(ref, {
     prefixes: ['https://cuppazee.app', 'cuppazee://'],
@@ -560,7 +562,7 @@ function App() {
   }
   if (loadingLogin) {
     return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
-      <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>Logging in...</Text>
+      <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>{t('common:logging_in')}</Text>
       <ActivityIndicator size="large" color={theme.page.fg} />
     </View>;
   }
@@ -577,7 +579,7 @@ function App() {
       style={{ backgroundColor: theme.navigation.bg, height: "100%" }}
       contentContainerStyle={{ padding: 8, justifyContent: "center", alignItems: "center", flexGrow: 1 }}>
       {logs.filter(Boolean).map(([build, log]) => <SafeAreaView><View style={{ alignItems: "center" }}>
-        <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 32, ...font("bold") }}>Build {build}</Text>
+        <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 32, ...font("bold") }}>{t('changelog:build_n',{n:build})}</Text>
       </View>
         {log?.map(i => <View style={{ flexDirection: "row", alignItems: "center", width: 400, maxWidth: "100%" }}>
           {i.image && <Image source={{ uri: i.image }} style={{ height: 48, width: 48 }} />}
@@ -588,10 +590,10 @@ function App() {
             <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 20, ...font("bold") }}>{i.title}</Text>
             <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 16, ...font() }}>{i.description}</Text>
           </View>
-        </View>) ?? <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>No Changelog</Text>}
+        </View>) ?? <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>{t('changelog:no_changelog')}</Text>}
         {build == Math.max(...Object.keys(changelogs).map(Number)) && <Button mode="contained" style={{ borderWidth: theme.page_content.border ? 2 : 0, borderColor: theme.page_content.border }} color={theme.page_content.bg} onPress={() => {
           dispatch(cuppazeeVersion(Math.max(...Object.keys(changelogs).map(Number))))
-        }}>Continue to CuppaZee</Button>}
+        }}>{t('changelog:continue')}</Button>}
       </SafeAreaView>)}
     </ScrollView>;
   }
