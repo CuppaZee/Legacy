@@ -93,7 +93,10 @@
         "clan_info_desc": "A great place to find a clan or ask questions!",
         "challenges": "Challenges",
         "sh_lite": "Special Hunter Lite",
-        "sh_pro": "Special Hunter Pro"
+        "sh_pro": "Special Hunter Pro",
+        "your_clan": "Your Clan",
+        "no_clan": "You're not in a Clan",
+        "no_clan_desc": "View your Progress Below"
     },
     "inventory": {
         "undeployed": "Undeployed",
