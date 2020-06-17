@@ -149,5 +149,12 @@ export default {
       title: 'Updated German Translations',
       description: 'German Translations are now available for almost everything in the app'
     }
+  ],
+  135: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Types',
+      description: 'More Munzee types now show their points structures'
+    }
   ]
 }
