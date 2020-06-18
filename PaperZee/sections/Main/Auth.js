@@ -11,13 +11,17 @@ var config = {
   redirect_uri: 'https://server.cuppazee.app/auth/auth/v1',
   client_id: '91714935879f433364bff187bda66183'
 }
-const {login} = s;
+const {login,userBookmarks: userBookmarksR} = s;
 
 export default function AuthScreen () {
   var {t} = useTranslation();
   var dispatch = useDispatch();
   var theme = useSelector(i=>i.themes[i.theme]);
   var hasLogin = useSelector(i=>Object.keys(i.logins).length>0);
+  var userBookmarks = useSelector(i => i.userBookmarks);
+  function addUser(user) {
+    if(!userBookmarks.find(i=>i.user_id==user.user_id)) dispatch(userBookmarksR(userBookmarks.concat([user])));
+  }
   var [loading,setLoading] = React.useState(false);
   var [redirect,setRedirect] = React.useState(false);
   const navigation = useNavigation();
@@ -51,6 +55,10 @@ export default function AuthScreen () {
         var y = await fetch(`https://server.cuppazee.app/auth/get?teaken=${encodeURIComponent(response.params.teaken)}&user_id=${encodeURIComponent(response.params.user_id)}`)
         x[response.params.user_id].token = (await y.json()).data;
         dispatch(login(x));
+        addUser({
+          user_id: response.params.user_id,
+          username: response.params.username
+        });
         setLoading(false);
         setRedirect(response.params.user_id);
       })()

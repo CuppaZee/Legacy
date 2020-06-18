@@ -8,6 +8,8 @@ import request from 'utils/store/request';
 import stringify from 'fast-json-stable-stringify';
 import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
+import s from 'utils/store';
+var { userBookmarks: userBookmarksR } = s;
 
 export default function SearchScreen({ navigation }) {
   var {t} = useTranslation();
@@ -24,6 +26,13 @@ export default function SearchScreen({ navigation }) {
     }, 500))
   }
   var dispatch = useDispatch();
+  var userBookmarks = useSelector(i => i.userBookmarks);
+  function addUser(user) {
+    dispatch(userBookmarksR(userBookmarks.concat([user])));
+  }
+  function removeUser(user) {
+    dispatch(userBookmarksR(userBookmarks.filter(i=>i.user_id!=user.user_id)));
+  }
   
   var reqData = {
     endpoint: 'user/find',
@@ -64,7 +73,9 @@ export default function SearchScreen({ navigation }) {
             </View>}
             {users?.data?.users?.length===0&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>{t('search:empty')}</Text>}
             {users?.data?.users?.slice?.(0,20)?.map?.(i=><View key={i.clan_id} style={{padding: 4, flexDirection: "row", alignItems: "center"}}>
-              <Image style={{height:24,width:24,marginHorizontal:8,borderRadius:8}} source={{uri:i.avatar??`https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i.user_id).toString(36)}.png`}} />
+              {!userBookmarks.find(x=>x.user_id==i.user_id)&&<IconButton size={24} onPress={()=>addUser(i)} icon="bookmark-plus" color="#016930" />}
+              {!!userBookmarks.find(x=>x.user_id==i.user_id)&&<IconButton size={24} onPress={()=>removeUser(i)} icon="bookmark-minus" color="#ff2222" />}
+              <Image style={{height:24,width:24,marginRight:8,marginLeft:-8,borderRadius:12}} source={{uri:i.avatar??`https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i.user_id).toString(36)}.png`}} />
               <View style={{flex:1}}>
                 <Text allowFontScaling={false} style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{i.username}</Text>
                 <Text allowFontScaling={false} style={{...font("bold"),fontSize:12,color:theme.page_content.fg}}>#{i.user_id}</Text>

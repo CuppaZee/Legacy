@@ -7,20 +7,42 @@ import themes from 'utils/themes'
 import changelogs from 'changelogs'
 var {makeRequest} = r;
 const defaultState = {
+  // Requests
   requests: [],
   request_data: {},
   loading: 0,
+
+  // Login Teakens
   loadingLogin: true,
   loggedIn: false,
   logins: true,
+
+  // Tick
   tick: 0,
+
+  // Beta Test Code
   code: '',
+  
+  // Clan Bookmarks
   clanBookmarks: [],
+  
+  // User Bookmarks
+  userBookmarks: [],
+
+  // Clan Level Selections
   clanLevelSelect: {},
+
+  // Current Navigation Route
   route: {},
+
+  // Themes
   themes,
   theme: themes._default,
+  
+  // Last Used Version
   version: -1,
+
+  // Settings
   settings: {
     alt_clan_design: false,
     clan_level_ind: "#ffe97f",
@@ -47,49 +69,70 @@ var refresh = () => async (dispatch, getState) => {
   refreshRequests({dispatch,getState},true);
 }
 
+// Current Navigation Route
 var setCurrentRoute = (data) => ({ type: "CURRENT_ROUTE", data: data })
+
+// Last Used Version
 var cuppazeeVersion_ = (data) => ({ type: "CUPPAZEE_VERSION", data: data })
+var cuppazeeVersion = (data,noUpdate) => async (dispatch, getState) => {
+  if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_VERSION',stringify(data));
+  dispatch(cuppazeeVersion_(data));
+}
+
+// Login Teakens
 var login_ = (data) => ({ type: "LOGIN", data: data })
 var replaceLogin_ = (data) => ({ type: "REPLACE_LOGIN", data: data })
-var clanBookmarks_ = (data) => ({ type: "CLAN_BOOKMARKS", data: data })
-var setCode_ = (data) => ({ type: "SET_CODE", data: data })
-var setTheme_ = (data) => ({ type: "SET_THEME", data: data })
-var levelSelect_ = (data) => ({ type: "LEVEL_SELECT", data: data })
-var settings_ = (data) => ({ type: "SETTINGS", data: data })
-var tick = () => ({ type: "TICK" })
+var login = (data,noUpdate) => async (dispatch, getState) => {
+  if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_TEAKENS',stringify({...getState().logins,...data}));
+  dispatch(login_(data));
+}
 var removeLogin = (user_id) => async (dispatch, getState) => {
   var x = {...getState().logins};
   delete x[user_id]
   await AsyncStorage.setItem('CUPPAZEE_TEAKENS',stringify(x));
   dispatch(replaceLogin_(x));
 }
-var login = (data,noUpdate) => async (dispatch, getState) => {
-  if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_TEAKENS',stringify({...getState().logins,...data}));
-  dispatch(login_(data));
-}
-var settings = (data,noUpdate) => async (dispatch, getState) => {
-  if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_SETTINGS',stringify({...getState().settings,...data}));
-  dispatch(settings_(data));
-}
+
+// Clan Bookmarks
+var clanBookmarks_ = (data) => ({ type: "CLAN_BOOKMARKS", data: data })
 var clanBookmarks = (data,noUpdate) => async (dispatch, getState) => {
   if(!noUpdate) await AsyncStorage.setItem('CLAN_BOOKMARKS',stringify(data));
   dispatch(clanBookmarks_(data));
 }
-var cuppazeeVersion = (data,noUpdate) => async (dispatch, getState) => {
-  if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_VERSION',stringify(data));
-  dispatch(cuppazeeVersion_(data));
+
+// User Bookmarks
+var userBookmarks_ = (data) => ({ type: "USER_BOOKMARKS", data: data })
+var userBookmarks = (data,noUpdate) => async (dispatch, getState) => {
+  if(!noUpdate) await AsyncStorage.setItem('USER_BOOKMARKS',stringify(data));
+  dispatch(userBookmarks_(data));
 }
+
+// Beta Test Code
+var setCode_ = (data) => ({ type: "SET_CODE", data: data })
 var setCode = (data,noUpdate) => async (dispatch, getState) => {
   if(!noUpdate) await AsyncStorage.setItem('CODE',data);
   dispatch(setCode_(data));
 }
+
+// Theme Selection
+var setTheme_ = (data) => ({ type: "SET_THEME", data: data })
 var setTheme = (data,noUpdate) => async (dispatch, getState) => {
   if(!noUpdate) await AsyncStorage.setItem('THEME',data);
   dispatch(setTheme_(data));
 }
+
+// Clan Level Selections
+var levelSelect_ = (data) => ({ type: "LEVEL_SELECT", data: data })
 var levelSelect = (data,noUpdate) => async (dispatch, getState) => {
   if(!noUpdate) await AsyncStorage.setItem('LEVEL_SELECT',stringify({...getState().clanLevelSelect,...data}));
   dispatch(levelSelect_(data));
+}
+
+// Settings
+var settings_ = (data) => ({ type: "SETTINGS", data: data })
+var settings = (data,noUpdate) => async (dispatch, getState) => {
+  if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_SETTINGS',stringify({...getState().settings,...data}));
+  dispatch(settings_(data));
 }
 
 var rootReducer = (state = defaultState, action) => {
@@ -148,11 +191,6 @@ var rootReducer = (state = defaultState, action) => {
           ...data
         }
       }
-    case 'TICK':
-      return {
-        ...state,
-        tick: state.tick+1
-      }
     case 'SET_CODE':
       return {
         ...state,
@@ -172,6 +210,11 @@ var rootReducer = (state = defaultState, action) => {
       return {
         ...state,
         clanBookmarks: action.data
+      }
+    case 'USER_BOOKMARKS':
+      return {
+        ...state,
+        userBookmarks: action.data
       }
     case 'CURRENT_ROUTE':
       return {
@@ -198,54 +241,63 @@ var rootReducer = (state = defaultState, action) => {
       return state;
   }
 }
-// import rootReducer from './reducers/index';
 
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 setInterval(refreshRequests,60000,store);
-// setInterval(()=>{
-//   store.dispatch(tick());
-// },1000)
+
 async function getToken(user_id,data) {
   var x = Object.assign({},data);
   var y = await fetch(`https://server.cuppazee.app/auth/get?teaken=${encodeURIComponent(x.teaken)}&user_id=${encodeURIComponent(user_id)}`)
   x.token = (await y.json()).data;
   return x;
 }
-AsyncStorage.getItem('CUPPAZEE_TEAKENS').then(async (dat)=>{
-  if(!dat) return store.dispatch(login({},true));
-  var data = JSON.parse(dat)
-  for(var user in data) {
-    data[user] = await getToken(user,data[user]);
+async function loadData() {
+  var [clan_bookmarks,user_bookmarks,code,theme,level_select,settingsD,version,teakens] = await Promise.all([
+    AsyncStorage.getItem('CLAN_BOOKMARKS'),
+    AsyncStorage.getItem('USER_BOOKMARKS'),
+    AsyncStorage.getItem('CODE'),
+    AsyncStorage.getItem('THEME'),
+    AsyncStorage.getItem('LEVEL_SELECT'),
+    AsyncStorage.getItem('CUPPAZEE_SETTINGS'),
+    AsyncStorage.getItem('CUPPAZEE_VERSION'),
+    AsyncStorage.getItem('CUPPAZEE_TEAKENS')
+  ])
+  if(clan_bookmarks) store.dispatch(clanBookmarks(JSON.parse(clan_bookmarks),true));
+  if(user_bookmarks) {
+    store.dispatch(userBookmarks(JSON.parse(user_bookmarks),true))
+  } else if(teakens) {
+    var teaken_data = JSON.parse(teakens);
+    var user_bookmark_list = [];
+    for(var user_id in teaken_data) {
+      user_bookmark_list.push({
+        user_id,
+        username: teaken_data[user_id].username
+      })
+    }
+    store.dispatch(userBookmarks(user_bookmark_list))
+  };
+  if(code) store.dispatch(setCode(code,true));
+  if(theme) store.dispatch(setTheme(theme,true));
+  if(level_select) store.dispatch(levelSelect(JSON.parse(level_select),true));
+  if(settingsD) store.dispatch(settings(JSON.parse(settingsD),true));
+  if(version) {
+    store.dispatch(cuppazeeVersion(Number(version),true));
+  } else {
+    store.dispatch(cuppazeeVersion(Math.max(...Object.keys(changelogs).map(Number))));
   }
-  store.dispatch(login(data,true));
-})
-AsyncStorage.getItem('CLAN_BOOKMARKS').then((data)=>{
-  if(!data) return store.dispatch(clanBookmarks([],true));
-  store.dispatch(clanBookmarks(JSON.parse(data),true));
-})
-AsyncStorage.getItem('CODE').then((data)=>{
-  if(!data) return;
-  store.dispatch(setCode(data,true));
-})
-AsyncStorage.getItem('THEME').then((data)=>{
-  if(!data) return;
-  if(themes[data]) store.dispatch(setTheme(data,true));
-  return;
-})
-AsyncStorage.getItem('LEVEL_SELECT').then((data)=>{
-  if(!data) return store.dispatch(levelSelect({},true));
-  store.dispatch(levelSelect(JSON.parse(data),true));
-})
-AsyncStorage.getItem('CUPPAZEE_SETTINGS').then((data)=>{
-  if(!data) return store.dispatch(settings({},true));
-  store.dispatch(settings(JSON.parse(data),true));
-})
-AsyncStorage.getItem('CUPPAZEE_VERSION').then((data)=>{
-  if(!data) return store.dispatch(cuppazeeVersion(
-    Math.max(...Object.keys(changelogs).map(Number))
-  ));
-  store.dispatch(cuppazeeVersion(Number(data),true));
-})
+  
+  if(teakens) {
+    var teakens_data = JSON.parse(teakens)
+    console.log(teakens_data);
+    var token_data = await Promise.all(Object.keys(teakens_data).map(async user=>[user,await getToken(user,teakens_data[user])]))
+    var final_data = {};
+    for(var token of token_data) final_data[token[0]] = token[1];
+    store.dispatch(login(final_data,true));
+  } else {
+    store.dispatch(login({},true))
+  }
+}
+loadData();
 
-export default {store,refresh,login,setCode,clanBookmarks,levelSelect,setCurrentRoute,setTheme,removeLogin,cuppazeeVersion,settings};
+export default {store,refresh,login,setCode,clanBookmarks,userBookmarks,levelSelect,setCurrentRoute,setTheme,removeLogin,cuppazeeVersion,settings};

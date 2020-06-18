@@ -34,10 +34,12 @@ export default function CustomDrawerContent(props) {
   var { t } = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
   var clanBookmarks = useSelector(i => i.clanBookmarks);
+  var userBookmarks = useSelector(i => i.userBookmarks);
   var users = useSelector(i => Object.entries(i.logins));
   var route = useSelector(i => i.route);
   var nav = props.navigation;
   var [showMoreClan, setShowMoreClan] = React.useState(false);
+  var [showMoreUser, setShowMoreUser] = React.useState(false);
   var pages = [
     // { title: t(`common:maps`), icon: "map", page: "Map" },
     { title: t(`common:bouncers`), icon: "map-marker", page: "Bouncers" },
@@ -76,21 +78,29 @@ export default function CustomDrawerContent(props) {
       <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t(`common:users`)}</Text>
       </View>
-      {users?.map?.(i => <DrawerItem
-        key={`user_${i[0]}`}
+      {userBookmarks?.slice?.(0, showMoreUser ? Infinity : userBookmarks.length > 6 ? 5 : 6)?.filter?.(i=>i)?.map?.(i => <DrawerItem
+        key={`user_${i.user_id}`}
         {...itemProps}
         style={{ marginVertical: 0 }}
-        icon={({ focused, color, size }) => <Image style={{ height: 32, width: 32, borderRadius: 16 }} source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i[0] || 0).toString(36)}.png` }} />}
-        label={i[1].username || ""}
-        focused={route.name?.startsWith?.('User') && route.params?.userid == Number(i[0])}
+        focused={route.name?.startsWith?.('User') && route.params?.userid == Number(i.user_id)}
+        icon={({ focused, color, size }) => <Image style={{ height: 32, width: 32, borderRadius: 16 }} source={{ uri: i.logo ?? `https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i.user_id || 0).toString(36)}.png` }} />}
+        label={i.username}
         onPress={() => nav.reset({
           index: 1,
           routes: [
-            { name: '__primary', params: { screen: "UserDetails", params: { userid: Number(i[0]) } } },
+            { name: '__primary', params: { screen: "UserDetails", params: { userid: Number(i.user_id) } } },
           ],
         })
         }
       />)}
+      {userBookmarks.length > 6 && <DrawerItem
+        {...itemProps}
+        style={{ marginVertical: 0 }}
+        focused={false}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name={showMoreUser ? "chevron-up" : "chevron-down"} color={color} size={24} style={{ margin: 4 }} />}
+        label={showMoreUser ? t(`common:show_less`) : t(`common:show_more`)}
+        onPress={() => setShowMoreUser(!showMoreUser)}
+      />}
       <DrawerItem
         {...itemProps}
         style={{ marginVertical: 0 }}
@@ -166,7 +176,7 @@ export default function CustomDrawerContent(props) {
           }
         />
       </View>
-      {clanBookmarks?.slice?.(0, showMoreClan ? Infinity : clanBookmarks.length > 6 ? 5 : 6)?.map?.(i => <DrawerItem
+      {clanBookmarks?.slice?.(0, showMoreClan ? Infinity : clanBookmarks.length > 6 ? 5 : 6)?.filter?.(i=>i)?.map?.(i => <DrawerItem
         key={`clan_${i.clan_id}`}
         {...itemProps}
         style={{ marginVertical: 0 }}

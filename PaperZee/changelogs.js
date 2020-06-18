@@ -198,5 +198,12 @@ export default {
       title: 'Improved Error Screens',
       description: 'More pages now have error screens for if they fail loading data'
     }
+  ],
+  142: [
+    {
+      icon: 'bookmark',
+      title: 'Improved Bookmarking',
+      description: 'In addition to clans, you can now bookmark users. The functionality to log in as another user still exists on the settings page and must be used to access a player\'s Inventory'
+    }
   ]
 }
