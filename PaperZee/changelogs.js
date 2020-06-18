@@ -170,5 +170,12 @@ export default {
       title: 'Updated Dutch Translations',
       description: 'Dutch Translations are now available for almost everything in the app'
     }
+  ],
+  138: [
+    {
+      icon: 'bug',
+      title: 'Bug Fixes',
+      description: 'Some minor bug fixes'
+    }
   ]
 }
