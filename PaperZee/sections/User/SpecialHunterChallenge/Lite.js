@@ -122,11 +122,6 @@ export default function UserSHCScreen() {
     dateString = route.params.date;
   }
   var user_id = Number(route.params.userid);
-  const data = useAPIRequest({
-    endpoint: 'user/activity',
-    data: { day: dateString, user_id },
-    cuppazee: true
-  })
   var categories = [
     { icon: 'rainbowunicorn', name: t('shc:lite.tob'), function: i => i?.bouncer?.type == "tob" },
     { icon: 'nomad', name: t('shc:lite.nomad'), function: i => i?.bouncer?.type == "nomad" || i?.bouncer?.type == "retiremyth" || i?.bouncer?.type == "zombiepouch" },
@@ -138,28 +133,38 @@ export default function UserSHCScreen() {
     { icon: 'morphobutterfly', name: t('shc:lite.temp'), function: i => i?.bouncer?.type == "temppob" },
     { icon: 'scattered', name: t('shc:lite.scatter'), function: i => i?.scatter },
   ]
-  if (!data || !data.captures) return (
+  const category_data = useAPIRequest({
+    endpoint: 'user/activity',
+    data: { day: dateString, user_id },
+    cuppazee: true,
+    function: data=>{
+      if(!data || !data.captures) return null;
+      var destinations = data.captures.filter(z => g(z)?.destination?.type == "bouncer")
+      var category_data = {};
+      for (let category of categories) {
+        category_data[category.name] = [];
+      }
+      for (let x of data.captures) {
+        var y = g(x);
+        if(!y?.bouncer && !y?.scatter) continue;
+        for (let category of categories) {
+          if(category.function(y)) {
+            category_data[category.name].push({
+              i: x,
+              m: destinations.find(z => z.captured_at == x.captured_at)
+            })
+            break;
+          };
+        }
+      }
+      return category_data;
+    }
+  })
+  if (!category_data) return (
     <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page.bg }}>
       <ActivityIndicator size="large" color={theme.page.fg} />
     </View>
   )
-  var destinations = data.captures.filter(z => g(z)?.destination?.type == "bouncer")
-  var category_data = {};
-  for (let category of categories) {
-    category_data[category.name] = [];
-  }
-  for (let x of data.captures) {
-    var y = g(x);
-    if(!y?.bouncer && !y?.scatter) continue;
-    for (let category of categories) {
-      if(category.function(y)) {
-        category_data[category.name].push({
-          i: x,
-          m: destinations.find(z => z.captured_at == x.captured_at)
-        })
-      };
-    }
-  }
   return <View style={{ flex: 1, backgroundColor: theme.page.bg }}>
     <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 8 }}>
       <DateSwitcher dateString={dateString} />
@@ -176,7 +181,7 @@ export default function UserSHCScreen() {
                   {category_data[i.name].map(x => <SHCItem i={x.i} m={x.m} />)}
                 </View>
               </View>
-              <View style={{ alignSelf: "stretch", borderTopRightRadius: 8, borderBottomRightRadius: 8, borderLeftWidth: dark ? 2 : 0, borderLeftColor: dark ? level_colors[data.captures.filter(x => i.function(g(x))).length > 0 ? 5 : 0] : undefined, backgroundColor: dark ? undefined : level_colors[category_data[i.name].length > 0 ? 5 : 0], width: 50, alignItems: "center", justifyContent: "center" }}>
+              <View style={{ alignSelf: "stretch", borderTopRightRadius: 8, borderBottomRightRadius: 8, borderLeftWidth: dark ? 2 : 0, borderLeftColor: dark ? level_colors[category_data[i.name].length > 0 ? 5 : 0] : undefined, backgroundColor: dark ? undefined : level_colors[category_data[i.name].length > 0 ? 5 : 0], width: 50, alignItems: "center", justifyContent: "center" }}>
                 <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 24, ...font("bold") }}>{category_data[i.name].length > 0 ? '✔' : ''}</Text>
               </View>
             </View>

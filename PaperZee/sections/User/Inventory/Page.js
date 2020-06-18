@@ -46,9 +46,6 @@ var UserInventoryOverview = React.memo(function ({ data, theme }) {
         {
           data?.undeployed?.map(i => <InventoryItem key={i.icon} i={i} />)
         }
-        {
-          data?.undeployed?.length == 0 && <ActivityIndicator size="large" color={theme.page_content.fg} />
-        }
       </View>
     </View>
     <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
@@ -59,20 +56,12 @@ var UserInventoryOverview = React.memo(function ({ data, theme }) {
         {
           data?.credits?.map(i => <InventoryItem key={i.icon} i={i} />)
         }
-        {
-          data?.credits?.length == 0 && <ActivityIndicator size="large" color={theme.page_content.fg} />
-        }
       </View>
     </View>
     <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
       <View><Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
         {t('inventory:history')}
       </Text></View>
-      <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-        {
-          data?.history?.length == 0 && <ActivityIndicator size="large" color={theme.page_content.fg} />
-        }
-      </View>
     </View>
   </View></View>
 })
@@ -81,14 +70,15 @@ export default function UserInventoryScreen() {
   var route = useRoute();
   var theme = useSelector(i => i.themes[i.theme]);
   var user_id = Number(route.params.userid);
-  var { credits, boosters, history, undeployed } = useAPIRequest({
+  var data = useAPIRequest({
     endpoint: 'user/inventory',
     data: {},
     user: user_id,
-    cuppazee: true
+    cuppazee: true,
+    function: ({credits,boosters,history,undeployed})=>InventoryConverter(credits,boosters,history,undeployed)
   }) ?? {};
-  var data = InventoryConverter(credits, boosters, history, undeployed);
-  if (!data) return (
+  // var data = InventoryConverter(credits, boosters, history, undeployed);
+  if (!data?.credits?.length) return (
     <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page_content.bg }}>
       <ActivityIndicator size="large" color={theme.page_content.fg} />
     </View>

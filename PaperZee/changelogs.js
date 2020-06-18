@@ -177,5 +177,12 @@ export default {
       title: 'Bug Fixes',
       description: 'Some minor bug fixes'
     }
+  ],
+  139: [
+    {
+      icon: 'clock-fast',
+      title: 'Performance Improvements',
+      description: 'Prevented some intensive operations from repeating unnecessarily'
+    }
   ]
 }

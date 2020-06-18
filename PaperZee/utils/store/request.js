@@ -87,6 +87,7 @@ async function makeRequest(getState, dispatch, pageInput, force) {
         if (page.converter) {
           data = { data: converter[page.converter](data?.data) };
         }
+        data.id = Math.floor(Math.random()*10000)
       }
     }
 
