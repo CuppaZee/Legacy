@@ -184,5 +184,12 @@ export default {
       title: 'Performance Improvements',
       description: 'Prevented some intensive operations from repeating unnecessarily'
     }
+  ],
+  140: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Types',
+      description: 'Added World Sushi Day Specials'
+    }
   ]
 }

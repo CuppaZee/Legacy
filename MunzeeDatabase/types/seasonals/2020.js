@@ -89,6 +89,108 @@ module.exports = [
     ]
   },
   {
+    "name": "World Sushi Day Ingredients",
+    "category": "worldsushiday2020",
+    "year": 2020,
+    "starts": "2020-06-18T12:00:00-05:00",
+    "ends": "2020-07-08T23:59:00-05:00",
+    "specials": [
+      {
+        "name": "Cucumber",
+        "icon": "cucumber",
+        "id": "null_cucumber",
+        "duration": 3,
+        "lands_on": [":virtual","eggs","farmer","farmerandwife","family"]
+      },
+      {
+        "name": "Fried Egg",
+        "icon": "friedegg",
+        "id": "null_friedegg",
+        "duration": 4,
+        "lands_on": [":virtual","eggs","farmer","farmerandwife","family"]
+      },
+      {
+        "name": "Puffer Fish",
+        "icon": "pufferfish",
+        "id": "null_pufferfish",
+        "duration": 9,
+        "lands_on": [":virtual","eggs","farmer","farmerandwife","family"]
+      },
+      {
+        "name": "Rice",
+        "icon": "rice",
+        "id": "null_rice",
+        "duration": 1,
+        "lands_on": [":virtual","eggs","farmer","farmerandwife","family"]
+      },
+      {
+        "name": "Roe",
+        "icon": "roe",
+        "id": "null_roe",
+        "duration": 7,
+        "lands_on": [":virtual","eggs","farmer","farmerandwife","family"]
+      },
+      {
+        "name": "Salmon",
+        "icon": "salmon",
+        "id": "null_salmon",
+        "duration": 6,
+        "lands_on": [":virtual","eggs","farmer","farmerandwife","family"]
+      },
+      {
+        "name": "Nori",
+        "icon": "nori",
+        "id": "null_nori",
+        "duration": 2,
+        "lands_on": ["watermystery","mystery","aquamarine","longsword","battleaxe"]
+      },
+      {
+        "name": "Prawn",
+        "icon": "prawn",
+        "id": "null_prawn",
+        "duration": 5,
+        "lands_on": ["watermystery","mystery","aquamarine","longsword","battleaxe"]
+      },
+      {
+        "name": "Tuna",
+        "icon": "tuna",
+        "id": "null_tuna",
+        "duration": 8,
+        "lands_on": ["watermystery","mystery","aquamarine","longsword","battleaxe"]
+      }
+    ]
+  },
+  {
+    "name": "World Sushi Day Masters",
+    "category": "worldsushidaymasters2020",
+    "year": 2020,
+    "starts": "2020-06-18T12:00:00-05:00",
+    "ends": "2020-07-08T23:59:00-05:00",
+    "specials": [
+      {
+        "name": "Neko",
+        "icon": "sushimasterneko",
+        "id": "null_sushimasterneko",
+        "duration": 6,
+        "lands_on": ["watermystery","mystery","aquamarine","longsword","battleaxe",":virtual","eggs","farmer","farmerandwife","family"]
+      },
+      {
+        "name": "Kappa",
+        "icon": "sushimasterkappa",
+        "id": "null_sushimasterkappa",
+        "duration": 6,
+        "lands_on": ["watermystery","mystery","aquamarine","longsword","battleaxe",":virtual","eggs","farmer","farmerandwife","family"]
+      },
+      {
+        "name": "Yurei",
+        "icon": "sushimasteryurei",
+        "id": "null_sushimasteryurei",
+        "duration": 6,
+        "lands_on": ["watermystery","mystery","aquamarine","longsword","battleaxe",":virtual","eggs","farmer","farmerandwife","family"]
+      }
+    ]
+  },
+  {
     "name": "Aquatic Baby Animals",
     "category": "aquaticbabyanimals2020",
     "year": 2020,

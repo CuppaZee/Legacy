@@ -28,7 +28,7 @@ async function downloadIcon (icon,size) {
   })
 }
 var types = [
-  ...require('./types.min.json'),
+  ...require('./output/types.min.json'),
   ...require('./extraicons.json')
 ];
 (async function() {
