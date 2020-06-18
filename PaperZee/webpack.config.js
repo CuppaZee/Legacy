@@ -1,5 +1,6 @@
 const createExpoWebpackConfigAsync = require('@expo/webpack-config');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = async function (env, argv) {
   const config = await createExpoWebpackConfigAsync(env, argv);
@@ -32,7 +33,14 @@ module.exports = async function (env, argv) {
         'pt',
         'sv'
       ],
-  }))
+    }))
+    // if (env.mode === 'production') {
+    //   config.plugins.push(
+    //     new BundleAnalyzerPlugin({
+    //       path: 'web-report',
+    //     })
+    //   );
+    // }
   }
   return config;
 };

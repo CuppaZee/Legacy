@@ -163,5 +163,12 @@ export default {
       title: 'Updated Finnish Translations',
       description: 'Finnish Translations are now available for almost everything in the app'
     }
+  ],
+  137: [
+    {
+      icon: 'translate',
+      title: 'Updated Dutch Translations',
+      description: 'Dutch Translations are now available for almost everything in the app'
+    }
   ]
 }
