@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Text, View, Image, ScrollView, ActivityIndicator, TouchableHighlightComponent } from 'react-native';
-import { Button } from 'react-native-paper';
+import { Text, View, Image, ScrollView, ActivityIndicator, FlatList } from 'react-native';
 import Card from 'sections/Shared/Card';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -11,7 +10,7 @@ import useAPIRequest from 'utils/hooks/useAPIRequest';
 import useLevelColours from 'utils/hooks/useLevelColours';
 import { ClanRequirementsConverter } from '../../Clan/Data';
 import font from 'sections/Shared/font';
-import { FlatList } from 'react-native-gesture-handler';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 function UserIcon({user_id,size}) { 
   return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size-24)/2, marginTop: -(size-24)/2, height: size, width: size }} />
@@ -37,19 +36,16 @@ export default function ClanScreen({ route }) {
     data: {user_id},
     cuppazee: true
   })
-  if(!data) {
-    return <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: theme.page.bg }}>
-      <ActivityIndicator size="large" color={theme.page.fg} />
-      {/* <Text allowFontScaling={false} style={{color:theme.page.fg,textAlign:"center",marginTop:4,fontSize:18}}>All of our elves are working hard on this</Text>
-      <Text allowFontScaling={false} style={{color:theme.page.fg,textAlign:"center",marginTop:4,fontSize:14}}>This may still take a few moments, please be patient</Text>
-      <Button
-        style={{marginTop:4}}
-        color={theme.page.fg}
-        mode="contained"
-        onPress={()=>setCookies(cookies+1)}
-      >Feed the elves a cookie</Button>
-      <Text allowFontScaling={false} style={{color:theme.page.fg,textAlign:"center",marginTop:4,fontSize:20}}>🍪 {cookies} Cookies Fed</Text> */}
-    </View>
+  if (!data) {
+    if(data===undefined) {
+      return <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg}}>
+        <ActivityIndicator size="large" color={theme.page_content.fg} />
+      </View>
+    } else {
+      return <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor:'#ffaaaa'}}>
+        <MaterialCommunityIcons name="alert" size={48} color="#d00" />
+      </View>;
+    }
   }
   var requirements = ClanRequirementsConverter(unformatted_requirements);
   function calculateLevel(requirement,value) {

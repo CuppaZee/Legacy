@@ -191,5 +191,12 @@ export default {
       title: 'Updated Munzee Types',
       description: 'Added World Sushi Day Specials'
     }
+  ],
+  141: [
+    {
+      icon: 'alert',
+      title: 'Improved Error Screens',
+      description: 'More pages now have error screens for if they fail loading data'
+    }
   ]
 }

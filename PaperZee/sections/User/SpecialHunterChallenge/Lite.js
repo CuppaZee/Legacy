@@ -10,6 +10,7 @@ import font from 'sections/Shared/font';
 import Card from 'sections/Shared/Card';
 import DatePicker from 'sections/Shared/DatePicker';
 import useMoment from 'utils/hooks/useMoment';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 function g(a) {
   return getType(a.pin || a.icon || a.pin_icon);
@@ -138,7 +139,8 @@ export default function UserSHCScreen() {
     data: { day: dateString, user_id },
     cuppazee: true,
     function: data=>{
-      if(!data || !data.captures) return null;
+      if(!data) return data;
+      if(!data.captures) return null;
       var destinations = data.captures.filter(z => g(z)?.destination?.type == "bouncer")
       var category_data = {};
       for (let category of categories) {
@@ -160,11 +162,17 @@ export default function UserSHCScreen() {
       return category_data;
     }
   })
-  if (!category_data) return (
-    <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page.bg }}>
-      <ActivityIndicator size="large" color={theme.page.fg} />
-    </View>
-  )
+  if (!category_data) {
+    if(category_data===undefined) {
+      return <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg}}>
+        <ActivityIndicator size="large" color={theme.page_content.fg} />
+      </View>
+    } else {
+      return <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor:'#ffaaaa'}}>
+        <MaterialCommunityIcons name="alert" size={48} color="#d00" />
+      </View>;
+    }
+  }
   return <View style={{ flex: 1, backgroundColor: theme.page.bg }}>
     <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 8 }}>
       <DateSwitcher dateString={dateString} />
