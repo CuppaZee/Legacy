@@ -29,14 +29,14 @@
         "help": "Apua",
         "users": "Käyttäjät",
         "calendar": "Kalenteri",
-        "bouncers": "",
-        "notifications": "",
+        "bouncers": "Pomppijat",
+        "notifications": "Ilmoitukset",
         "contact": {
-            "facebook": "",
-            "email": ""
+            "facebook": "Voit ottaa yhteyttä Facebookilla",
+            "email": "tai viestillä support@cuppazee.app"
         },
-        "clans": "",
-        "logging_in": ""
+        "clans": "Klaanit",
+        "logging_in": "Kirjaudutaan..."
     },
     "activity": {
         "user_captured": "{user} cappasi",
@@ -67,20 +67,20 @@
         },
         "none": "Nolla",
         "user_today": "{user} tänään",
-        "user_renovated": "",
-        "you_renovated": "",
+        "user_renovated": "{user} remppasi motellisi",
+        "you_renovated": "Remppasit motellin",
         "renovation": {
-            "one": "",
-            "other": ""
+            "one": "{count} remppa",
+            "other": "{count} remppaa"
         },
         "renovon": {
-            "one": "",
-            "other": ""
+            "one": "{count} saatu remppa",
+            "other": "{count} saatua remppaa"
         }
     },
     "user": {
-        "level_n": "Taso",
-        "rank_n": "Sijoitus #{number}",
+        "level_n": "Taso {level}",
+        "rank_n": "Sijoitus #{rank}",
         "inventory": "Omistuksesi",
         "your_bouncers": "Pomppijasi",
         "clan_progress": "Edistymisesi klaanissa",
@@ -88,22 +88,22 @@
         "special_hunter_challenge": "Spessun metsästäjän haaste",
         "captured_types": "Capatut tyypit",
         "activity": "Aktiviteetit",
-        "clan_stats": "",
-        "clan_progress_desc": "",
-        "clan_info": "",
-        "clan_info_desc": "",
-        "challenges": "",
-        "sh_lite": "",
-        "sh_pro": "",
-        "your_clan": "",
-        "no_clan": "",
-        "no_clan_desc": ""
+        "clan_stats": "Klaanin tilanne",
+        "clan_progress_desc": "Mihin klaanisi yltää",
+        "clan_info": "Klaanisotainfo FB-ryhmä",
+        "clan_info_desc": "Hyvä paikka etsiä klaania tai kysellä",
+        "challenges": "Haasteet",
+        "sh_lite": "Spessun metsästäjä (SHC), helppo",
+        "sh_pro": "Spessun metsästäjä (SHC), pro",
+        "your_clan": "Klaanisi",
+        "no_clan": "Et kuulu klaaniin",
+        "no_clan_desc": "Katso tuloksesi alta"
     },
     "inventory": {
         "undeployed": "Deppaamattomat",
         "credits": "Crediitit",
         "history": "Historia",
-        "unknown_name": ""
+        "unknown_name": "Nimi tuntematon"
     },
     "app_info": {
         "credits": "Crediitit",
@@ -112,21 +112,21 @@
         "database_contributors": "Tietokanta-avustajat",
         "patrons_and_supporters": "Patronit ja kannattajat",
         "build_n": "Kooste {build}",
-        "patreon_donate": "",
-        "paypal_donate": "",
-        "paypal_donate_desc": "",
+        "patreon_donate": "Kuukausittain Patreonin kautta",
+        "paypal_donate": "Kerran PayPal'lla",
+        "paypal_donate_desc": "PayPal-lahjoitukset voi lähettää donate@cuppazee.app",
         "custom_titles": {
-            "primary_dev": "",
-            "finnish": "",
-            "dutch": "",
-            "german": "",
-            "hungarian": "",
-            "swedish": "",
-            "french": "",
-            "czech": "",
-            "danish": "",
-            "portugese": "",
-            "lithuanian": ""
+            "primary_dev": "Pääkehittäjä",
+            "finnish": "Suomi",
+            "dutch": "Hollanti",
+            "german": "Saksa",
+            "hungarian": "Unkari",
+            "swedish": "Ruotsi",
+            "french": "Ranska",
+            "czech": "Tsekki",
+            "danish": "Tanska",
+            "portugese": "Portugali",
+            "lithuanian": "Liettua"
         }
     },
     "your_bouncers": {
@@ -136,170 +136,170 @@
         },
         "last_captured": "Viimeksi capattu {time}",
         "in_limbo": "Huilailee",
-        "host": ""
+        "host": "{username}'n {munzee}'lla "
     },
     "calendar": {
         "days": {
-            "monday": "",
-            "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
-            "friday": "",
-            "saturday": "",
-            "sunday": ""
+            "monday": "M",
+            "tuesday": "T",
+            "wednesday": "K",
+            "thursday": "T",
+            "friday": "P",
+            "saturday": "L",
+            "sunday": "S"
         },
-        "off": ""
+        "off": "pois"
     },
     "clan": {
-        "requirements": "",
-        "rewards": "",
-        "individual": "",
-        "group": "",
-        "level_n": "",
-        "shadow": "",
-        "goal": "",
+        "requirements": "Vaatimukset",
+        "rewards": "Palkinnot",
+        "individual": "Pelaaja",
+        "group": "Klaani",
+        "level_n": "Taso {level}",
+        "shadow": "Varjoklaani",
+        "goal": "Tavoite",
         "view": {
-            "subtract": "",
-            "total": ""
+            "subtract": "Puuttuvat",
+            "total": "Kaikki"
         },
-        "share": "",
-        "indiv": "",
-        "group_total": "",
+        "share": "Tasajako",
+        "indiv": "Pelaaja",
+        "group_total": "Klaani yht.",
         "level": {
-            "one": "",
-            "other": ""
+            "one": "Taso",
+            "other": "Tasot"
         }
     },
     "search": {
-        "clan": "",
-        "type": "",
-        "empty": "",
-        "user": ""
+        "clan": "Hae klaania",
+        "type": "Hae munzeetyyppiä",
+        "empty": "Ei löydy :(",
+        "user": "Hae käyttäjää"
     },
     "db": {
-        "go_back": "",
-        "types_search": "",
-        "category": "",
+        "go_back": "Takaisin",
+        "types_search": "Tyyppien haku",
+        "category": "Kategoria",
         "type": {
-            "info": "",
-            "evo": "",
-            "pouch": "",
-            "can_host": "",
-            "lands_on": ""
+            "info": "Ikoni: {icon} - ID: {id}",
+            "evo": "Evoluutiotasot",
+            "pouch": "Pussiotustasot",
+            "can_host": "Voi isännöidä",
+            "lands_on": "Alustat"
         }
     },
     "auth": {
-        "add": "",
-        "welcome": "",
-        "tap": ""
+        "add": "Lisää uusi käyttäjä",
+        "welcome": "Tervetula CuppaZee'hen",
+        "tap": "Klikkaa allaolevaa loggautuaksesi"
     },
     "shc": {
         "lite": {
-            "tob": "",
-            "nomad": "",
-            "myth_1": "",
-            "myth_2": "",
-            "pc_1": "",
-            "pc_2": "",
-            "flat": "",
-            "temp": "",
-            "scatter": ""
+            "tob": "Alterna-myto tai pussiotus",
+            "nomad": "Nomadi tai eläkeläinen",
+            "myth_1": "Originaali tai klassinen myto",
+            "myth_2": "Peili- tai moderni myto",
+            "pc_1": "Pussiotus erä 1",
+            "pc_2": "Pussiotus erä 2",
+            "flat": "Fancy Flat",
+            "temp": "Evo pomppija / väliaik. POB",
+            "scatter": "Sironneet"
         },
         "pro": {
-            "tob": "",
-            "nomad": "",
-            "retire": "",
-            "myth_1": "",
-            "myth_2": "",
-            "myth_3": "",
-            "myth_4": "",
-            "pc_1": "",
-            "pc_2": "",
-            "pc_fun": "",
-            "flat": "",
-            "temp": "",
-            "pscatter": "",
-            "vscatter": ""
+            "tob": "Alterna-myto tai pussiotus",
+            "nomad": "Nomadi",
+            "retire": "Eläkeläinen",
+            "myth_1": "Originaali myto",
+            "myth_2": "Klassinen myto",
+            "myth_3": "Peilimyto",
+            "myth_4": "Moderni myto",
+            "pc_1": "Pussiotus erä 1",
+            "pc_2": "Pussiotus erä 2",
+            "pc_fun": "Funfinity jalokivi",
+            "flat": "Fancy Flat",
+            "temp": "Evo pomppija",
+            "pscatter": "Sironneet fyysiset",
+            "vscatter": "Sironneet virtuaalit"
         }
     },
     "notifications": {
-        "munzee_blog": "",
-        "save": "",
-        "unavailable_web": "",
-        "unavailable_generic": ""
+        "munzee_blog": "Munzee blogi",
+        "save": "Tallenna",
+        "unavailable_web": "Ilmoituksia ei saa verkosta",
+        "unavailable_generic": "Ilmoituksia ei saa. Annoitko luvat?"
     },
     "settings": {
-        "add_user": "",
-        "update": "",
-        "theme": "",
-        "language": "",
-        "logout": "",
-        "save": ""
+        "add_user": "Lisää käyttäjä",
+        "update": "Päivitä nyt",
+        "theme": "Teema {name}",
+        "language": "Kieli {name}",
+        "logout": "Poistu",
+        "save": "Tallenna asetukset"
     },
     "bouncers": {
-        "duration": ""
+        "duration": "Kartalla: {duration}"
     },
     "scanner": {
-        "scan_new": "",
-        "munzee": "",
-        "type": ""
+        "scan_new": "Skannaa munzee",
+        "munzee": "{name} omistaja: {username}",
+        "type": "Tyyppi: {type}"
     },
     "quest": {
-        "task_1": "",
-        "task_2": "",
-        "task_3": "",
-        "task_4": "",
-        "task_5": "",
-        "task_6": "",
-        "task_7": "",
-        "task_8": ""
+        "task_1": "Mysteeriaktiviteetti",
+        "task_2": "Evoaktiviteetti",
+        "task_3": "Aseaktiviteetti",
+        "task_4": "Jalokibviaktiviteetti",
+        "task_5": "Kappaa /m/XeresDan/1707",
+        "task_6": "Flattien deppaukset",
+        "task_7": "Destination-aktiviteetti",
+        "task_8": "Pomppijoiden cappaus"
     },
     "themes": {
-        "black": "",
-        "blue": "",
-        "bluegrey": "",
-        "darkblue": "",
-        "green": "",
-        "grey": "",
-        "purple": "",
-        "white": ""
+        "black": "Musta",
+        "blue": "Sininen",
+        "bluegrey": "Siniharmaa",
+        "darkblue": "Tummansininen",
+        "green": "Vihreä",
+        "grey": "Harmaa",
+        "purple": "Violetti",
+        "white": "Valkoinen"
     },
     "screens": {
-        "_redirect": "",
-        "Map": "",
-        "Tools": "",
-        "Settings": "",
-        "Notifications": "",
-        "Info": "",
-        "Scanner": "",
-        "Calendar": "",
-        "Bouncers": "",
-        "BouncerMap": "",
-        "MunzeeDetails": "",
-        "MunzeeDetailsID": "",
-        "AllClans": "",
-        "ClanRequirements": "",
-        "ClanSearch": "",
-        "Clan": "",
-        "UserSearch": "",
-        "UserDetails": "",
-        "UserActivity": "",
-        "UserInventory": "",
-        "UserClan": "",
-        "UserQuest": "",
-        "UserCapturesCategory": "",
-        "UserSHCPro": "",
-        "UserSHCLite": "",
-        "UserSHC": "",
-        "UserBouncers": "",
-        "DBType": "",
-        "DBSearch": "",
-        "DBCategory": "",
-        "Auth": ""
+        "_redirect": "_uudelleenohjaus",
+        "Map": "Kartta",
+        "Tools": "Työkalut",
+        "Settings": "Asetukset",
+        "Notifications": "Ilmoitukset",
+        "Info": "Info",
+        "Scanner": "Skanneri",
+        "Calendar": "Kalenteri",
+        "Bouncers": "Pomppijat",
+        "BouncerMap": "Pomppijakartat",
+        "MunzeeDetails": "Munzeen tiedot",
+        "MunzeeDetailsID": "Munzeen tiedot",
+        "AllClans": "Kaikki klaanit",
+        "ClanRequirements": "Klaanivaatimukset",
+        "ClanSearch": "Klaanin haku",
+        "Clan": "Klaanitilastot",
+        "UserSearch": "Käyttäjän haku",
+        "UserDetails": "Käyttäjän tiedot",
+        "UserActivity": "Aktiviteetti",
+        "UserInventory": "Omistus",
+        "UserClan": "Klaanin edistyminen",
+        "UserQuest": "\"Quest\" edistyminen",
+        "UserCapturesCategory": "Cappauskategoria",
+        "UserSHCPro": "SHC Pro",
+        "UserSHCLite": "SHC Lite",
+        "UserSHC": "SHC klassinen",
+        "UserBouncers": "Käyttäjän pomppijat",
+        "DBType": "Tietokantatyyppi",
+        "DBSearch": "Tietokantahaku",
+        "DBCategory": "Tietokantaluokka",
+        "Auth": "Autentikoidu"
     },
     "changelog": {
-        "build_n": "",
-        "continue": "",
-        "no_changelog": ""
+        "build_n": "Kooste {n}",
+        "continue": "Jatka CuppaZee'hen",
+        "no_changelog": "Ei muutoksia"
     }
 }
