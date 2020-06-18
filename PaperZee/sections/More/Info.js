@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import credits from './credits.json';
 import { TouchableRipple, Button, Menu } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import font from '~sections/Shared/font';
+import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
 import changelogs from '../../changelogs';
 

@@ -15460,7 +15460,7 @@
         306,
         998,
         1248,
-        "null_flamingarrow",
+        2503,
         522
       ]
     },
@@ -15549,7 +15549,7 @@
         306,
         998,
         1248,
-        "null_flamingarrow",
+        2503,
         1432,
         1433,
         1434,
@@ -28995,6 +28995,26 @@
     "x": 1757
   },
   {
+    "name": "Jeweler Loupe",
+    "icon": "jewelerloupe2020vision",
+    "id": 2292,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 12,
+      "lands_on": [
+        0
+      ]
+    },
+    "alt_icons": [
+      "jewelerloupe2020glasses"
+    ],
+    "state": "bouncer",
+    "category": "vision2020",
+    "completion": "complete",
+    "cids": [],
+    "x": 1758
+  },
+  {
     "name": "Mother Earth",
     "icon": "motherearth",
     "id": 2337,
@@ -29030,7 +29050,7 @@
     "category": "tob",
     "completion": "complete",
     "cids": [],
-    "x": 1758
+    "x": 1759
   },
   {
     "name": "Charge",
@@ -29107,7 +29127,7 @@
     "category": "scatter",
     "completion": "complete",
     "cids": [],
-    "x": 1759
+    "x": 1760
   },
   {
     "name": "Red ZED",
@@ -29121,7 +29141,7 @@
     "category": "rainbowtrail2020",
     "completion": "complete",
     "cids": [],
-    "x": 1760
+    "x": 1761
   },
   {
     "name": "Red Apple",
@@ -29135,7 +29155,7 @@
     "category": "scatter",
     "completion": "complete",
     "cids": [],
-    "x": 1761
+    "x": 1762
   },
   {
     "name": "Cherry Blossom",
@@ -29149,46 +29169,7 @@
     "category": "scatter",
     "completion": "complete",
     "cids": [],
-    "x": 1762
-  },
-  {
-    "name": "Flaming Arrow",
-    "icon": "flamingarrow",
-    "id": "null_flamingarrow",
-    "scatter": {
-      "duration": 2,
-      "standalone": true
-    },
-    "weapon": "clan",
-    "state": "virtual",
-    "category": "scatter",
-    "completion": "complete",
-    "can_host": [
-      2477,
-      2480
-    ],
-    "cids": [],
     "x": 1763
-  },
-  {
-    "name": "Jeweler Loupe",
-    "icon": "jewelerloupe2020vision",
-    "id": 2292,
-    "bouncer": {
-      "type": "seasonal",
-      "duration": 12,
-      "lands_on": [
-        0
-      ]
-    },
-    "alt_icons": [
-      "jewelerloupe2020glasses"
-    ],
-    "state": "bouncer",
-    "category": "vision2020",
-    "completion": "complete",
-    "cids": [],
-    "x": 1764
   },
   {
     "name": "Lou Roll",
@@ -29267,7 +29248,7 @@
     "category": "louroll2020",
     "completion": "complete",
     "cids": [],
-    "x": 1765
+    "x": 1764
   },
   {
     "name": "Baby Bunny",
@@ -29349,7 +29330,7 @@
     "category": "pettingzoo2020",
     "completion": "complete",
     "cids": [],
-    "x": 1766
+    "x": 1765
   },
   {
     "name": "Baby Chick",
@@ -29431,7 +29412,7 @@
     "category": "pettingzoo2020",
     "completion": "complete",
     "cids": [],
-    "x": 1767
+    "x": 1766
   },
   {
     "name": "Baby Fawn",
@@ -29513,7 +29494,7 @@
     "category": "pettingzoo2020",
     "completion": "complete",
     "cids": [],
-    "x": 1768
+    "x": 1767
   },
   {
     "name": "Baby Lamb",
@@ -29595,7 +29576,7 @@
     "category": "pettingzoo2020",
     "completion": "complete",
     "cids": [],
-    "x": 1769
+    "x": 1768
   },
   {
     "name": "Baby Tiger",
@@ -29677,7 +29658,7 @@
     "category": "pettingzoo2020",
     "completion": "complete",
     "cids": [],
-    "x": 1770
+    "x": 1769
   },
   {
     "name": "Pirate Joke",
@@ -29755,7 +29736,7 @@
     "category": "worldlaughterday2020",
     "completion": "complete",
     "cids": [],
-    "x": 1771
+    "x": 1770
   },
   {
     "name": "Librarian Joke",
@@ -29833,7 +29814,7 @@
     "category": "worldlaughterday2020",
     "completion": "complete",
     "cids": [],
-    "x": 1772
+    "x": 1771
   },
   {
     "name": "Bison Joke",
@@ -29911,7 +29892,7 @@
     "category": "worldlaughterday2020",
     "completion": "complete",
     "cids": [],
-    "x": 1773
+    "x": 1772
   },
   {
     "name": "Fishy Joke",
@@ -29989,7 +29970,7 @@
     "category": "worldlaughterday2020",
     "completion": "complete",
     "cids": [],
-    "x": 1774
+    "x": 1773
   },
   {
     "name": "Dad Joke",
@@ -30067,7 +30048,7 @@
     "category": "worldlaughterday2020",
     "completion": "complete",
     "cids": [],
-    "x": 1775
+    "x": 1774
   },
   {
     "name": "Grape Joke",
@@ -30145,7 +30126,7 @@
     "category": "worldlaughterday2020",
     "completion": "complete",
     "cids": [],
-    "x": 1776
+    "x": 1775
   },
   {
     "name": "Chilly Joke",
@@ -30223,7 +30204,7 @@
     "category": "worldlaughterday2020",
     "completion": "complete",
     "cids": [],
-    "x": 1777
+    "x": 1776
   },
   {
     "name": "Cyclist Joke",
@@ -30301,7 +30282,7 @@
     "category": "worldlaughterday2020",
     "completion": "complete",
     "cids": [],
-    "x": 1778
+    "x": 1777
   },
   {
     "name": "Ninja Joke",
@@ -30379,7 +30360,7 @@
     "category": "worldlaughterday2020",
     "completion": "complete",
     "cids": [],
-    "x": 1779
+    "x": 1778
   },
   {
     "name": "Unicorn Joke",
@@ -30455,6 +30436,23 @@
     },
     "state": "bouncer",
     "category": "worldlaughterday2020",
+    "completion": "complete",
+    "cids": [],
+    "x": 1779
+  },
+  {
+    "name": "Stay Safe",
+    "icon": "staysafe",
+    "id": 2482,
+    "bouncer": {
+      "type": "seasonal",
+      "duration": 2,
+      "lands_on": [
+        1409
+      ]
+    },
+    "state": "bouncer",
+    "category": "hometownheroes2020",
     "completion": "complete",
     "cids": [],
     "x": 1780
@@ -30864,6 +30862,25 @@
     "x": 1788
   },
   {
+    "name": "Flaming Arrow",
+    "icon": "flamingarrow",
+    "id": 2503,
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    },
+    "weapon": "clan",
+    "state": "virtual",
+    "category": "scatter",
+    "completion": "complete",
+    "can_host": [
+      2477,
+      2480
+    ],
+    "cids": [],
+    "x": 1789
+  },
+  {
     "name": "Trident",
     "icon": "trident",
     "id": 2527,
@@ -30875,7 +30892,7 @@
     "category": "scatter",
     "completion": "complete",
     "cids": [],
-    "x": 1789
+    "x": 1790
   },
   {
     "name": "Lifebuoy",
@@ -30889,7 +30906,7 @@
     "category": "scatter",
     "completion": "complete",
     "cids": [],
-    "x": 1790
+    "x": 1791
   },
   {
     "name": "Baby Narwhal",
@@ -30924,7 +30941,7 @@
     "category": "aquaticbabyanimals2020",
     "completion": "complete",
     "cids": [],
-    "x": 1791
+    "x": 1792
   },
   {
     "name": "Baby Penguin",
@@ -30959,7 +30976,7 @@
     "category": "aquaticbabyanimals2020",
     "completion": "complete",
     "cids": [],
-    "x": 1792
+    "x": 1793
   },
   {
     "name": "Baby Crab",
@@ -30981,7 +30998,7 @@
     "category": "aquaticbabyanimals2020",
     "completion": "complete",
     "cids": [],
-    "x": 1793
+    "x": 1794
   },
   {
     "name": "Seal Pup",
@@ -31016,7 +31033,7 @@
     "category": "aquaticbabyanimals2020",
     "completion": "complete",
     "cids": [],
-    "x": 1794
+    "x": 1795
   },
   {
     "name": "Baby Shark",
@@ -31051,7 +31068,7 @@
     "category": "aquaticbabyanimals2020",
     "completion": "complete",
     "cids": [],
-    "x": 1795
+    "x": 1796
   },
   {
     "name": "Knight's Helmet 2019",
@@ -31131,7 +31148,7 @@
     "category": "knightsarmor2019",
     "completion": "complete",
     "cids": [],
-    "x": 1796
+    "x": 1797
   },
   {
     "name": "Knight's Left Gauntlet 2019",
@@ -31211,7 +31228,7 @@
     "category": "knightsarmor2019",
     "completion": "complete",
     "cids": [],
-    "x": 1797
+    "x": 1798
   },
   {
     "name": "Knight's Right Gauntlet 2019",
@@ -31291,7 +31308,7 @@
     "category": "knightsarmor2019",
     "completion": "complete",
     "cids": [],
-    "x": 1798
+    "x": 1799
   },
   {
     "name": "Knight's Breastplate 2019",
@@ -31312,7 +31329,7 @@
     "category": "knightsarmor2019",
     "completion": "complete",
     "cids": [],
-    "x": 1799
+    "x": 1800
   },
   {
     "name": "Knight's Left Boot 2019",
@@ -31333,7 +31350,7 @@
     "category": "knightsarmor2019",
     "completion": "complete",
     "cids": [],
-    "x": 1800
+    "x": 1801
   },
   {
     "name": "Knight's Right Boot 2019",
@@ -31354,7 +31371,7 @@
     "category": "knightsarmor2019",
     "completion": "complete",
     "cids": [],
-    "x": 1801
+    "x": 1802
   },
   {
     "name": "Treehouse",
@@ -31441,7 +31458,7 @@
       "null_pb&jellyfish"
     ],
     "cids": [],
-    "x": 1802
+    "x": 1803
   },
   {
     "name": "StL 1: Talk like a Pirate",
@@ -31452,7 +31469,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1803
+    "x": 1804
   },
   {
     "name": "Autumn Wave 2",
@@ -31463,7 +31480,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1804
+    "x": 1805
   },
   {
     "name": "StL 3: Pirates Love Tacos",
@@ -31474,7 +31491,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1805
+    "x": 1806
   },
   {
     "name": "LA - Small Town Houma Bayou Country",
@@ -31485,7 +31502,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1806
+    "x": 1807
   },
   {
     "name": "Bye Bye Bash 2019",
@@ -31496,7 +31513,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1807
+    "x": 1808
   },
   {
     "name": "It's Spookier Out West!",
@@ -31507,7 +31524,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1808
+    "x": 1809
   },
   {
     "name": "BHAM September Munzee Lunch",
@@ -31518,7 +31535,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1809
+    "x": 1810
   },
   {
     "name": "MHQ Bash 2019 Registration",
@@ -31529,7 +31546,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1810
+    "x": 1811
   },
   {
     "name": "MHQ Bash 6 Eventzee Fun",
@@ -31540,7 +31557,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1811
+    "x": 1812
   },
   {
     "name": "MHQ Bash 6 and WallaBash",
@@ -31551,7 +31568,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1812
+    "x": 1813
   },
   {
     "name": "Knight's Goblet 2019",
@@ -31562,7 +31579,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1813
+    "x": 1814
   },
   {
     "name": "The King's Fork",
@@ -31573,7 +31590,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1814
+    "x": 1815
   },
   {
     "name": "MHQ Bash 6 Fitness",
@@ -31584,7 +31601,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1815
+    "x": 1816
   },
   {
     "name": "Halloween i Hobro 2019",
@@ -31595,7 +31612,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1816
+    "x": 1817
   },
   {
     "name": "Rome, GA Munzee Meet-Up",
@@ -31606,7 +31623,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1817
+    "x": 1818
   },
   {
     "name": "Texas Halloween 2019",
@@ -31617,7 +31634,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1818
+    "x": 1819
   },
   {
     "name": "Prattville's Spooky Gathering",
@@ -31628,7 +31645,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1819
+    "x": 1820
   },
   {
     "name": "Fright Night in KC",
@@ -31639,7 +31656,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1820
+    "x": 1821
   },
   {
     "name": "Hallo Budapest, Halloween",
@@ -31650,7 +31667,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1821
+    "x": 1822
   },
   {
     "name": "A Ghoulish Good Time",
@@ -31661,7 +31678,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1822
+    "x": 1823
   },
   {
     "name": "BHAM Spooky Scary Lunch",
@@ -31672,7 +31689,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1823
+    "x": 1824
   },
   {
     "name": "Halloween Turku 2019",
@@ -31683,7 +31700,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1824
+    "x": 1825
   },
   {
     "name": "Munzee Day Startup, Spartanburg",
@@ -31694,7 +31711,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1825
+    "x": 1826
   },
   {
     "name": "Chillin at the IHOP",
@@ -31705,7 +31722,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1826
+    "x": 1827
   },
   {
     "name": "A Haunting in Hampton",
@@ -31716,7 +31733,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1827
+    "x": 1828
   },
   {
     "name": "Des Moines Spooktacular Halloween",
@@ -31727,7 +31744,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1828
+    "x": 1829
   },
   {
     "name": "A Maryland Munzoween Spooktacular",
@@ -31738,7 +31755,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1829
+    "x": 1830
   },
   {
     "name": "Halloween Kaffinami",
@@ -31749,7 +31766,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1830
+    "x": 1831
   },
   {
     "name": "Say Boo and Munzee on (Berlin)",
@@ -31760,7 +31777,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1831
+    "x": 1832
   },
   {
     "name": "Halloween Party Workum 2019",
@@ -31771,7 +31788,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1832
+    "x": 1833
   },
   {
     "name": "Dia de los Munzees",
@@ -31782,7 +31799,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1833
+    "x": 1834
   },
   {
     "name": "HOT DIGGITY DOG",
@@ -31793,7 +31810,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1834
+    "x": 1835
   },
   {
     "name": "Florida Frankenweenie",
@@ -31804,7 +31821,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1835
+    "x": 1836
   },
   {
     "name": "Halloween in Lithuania 2019",
@@ -31815,7 +31832,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1836
+    "x": 1837
   },
   {
     "name": "McDougall Ghosts and Goblins",
@@ -31826,7 +31843,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1837
+    "x": 1838
   },
   {
     "name": "Zauberhafte TraubenleZEE - Event 1",
@@ -31837,7 +31854,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1838
+    "x": 1839
   },
   {
     "name": "Spooktacular TomKatZEE - Event 2",
@@ -31848,7 +31865,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1839
+    "x": 1840
   },
   {
     "name": "Vacation Condo",
@@ -31864,7 +31881,7 @@
     "category": "destination",
     "completion": "complete",
     "cids": [],
-    "x": 1840
+    "x": 1841
   },
   {
     "name": "Vacation Condo Room",
@@ -31879,7 +31896,7 @@
     "category": "destination",
     "completion": "complete",
     "cids": [],
-    "x": 1841
+    "x": 1842
   },
   {
     "name": "Witch, Please",
@@ -31890,7 +31907,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1842
+    "x": 1843
   },
   {
     "name": "Tomcat Caterwaul",
@@ -31901,7 +31918,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1843
+    "x": 1844
   },
   {
     "name": "Ghouls in Orlando",
@@ -31912,7 +31929,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1844
+    "x": 1845
   },
   {
     "name": "Goblins for Dinner in Orlando",
@@ -31923,7 +31940,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1845
+    "x": 1846
   },
   {
     "name": "All Hallows in the Rye",
@@ -31934,7 +31951,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1846
+    "x": 1847
   },
   {
     "name": "Batty Mexican",
@@ -31945,7 +31962,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1847
+    "x": 1848
   },
   {
     "name": "October Pumpkin Fest",
@@ -31956,7 +31973,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1848
+    "x": 1849
   },
   {
     "name": "A Water-Halloween-Town Event",
@@ -31967,7 +31984,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1849
+    "x": 1850
   },
   {
     "name": "Spooky Mawson Lakes #2",
@@ -31978,7 +31995,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1850
+    "x": 1851
   },
   {
     "name": "YMH Halloween 2019",
@@ -31989,7 +32006,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1851
+    "x": 1852
   },
   {
     "name": "Pick your poison in the AL River Region",
@@ -32000,7 +32017,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1852
+    "x": 1853
   },
   {
     "name": "Meeting New & \"Scary\" Friends",
@@ -32011,7 +32028,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1853
+    "x": 1854
   },
   {
     "name": "Zombies are still eating my Munzees",
@@ -32022,7 +32039,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1854
+    "x": 1855
   },
   {
     "name": "Caterwauling Hallow-ZEEn 2",
@@ -32033,7 +32050,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1855
+    "x": 1856
   },
   {
     "name": "Possibly poisonous potions",
@@ -32044,7 +32061,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1856
+    "x": 1857
   },
   {
     "name": "Halloween 2019 - Praha",
@@ -32055,7 +32072,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1857
+    "x": 1858
   },
   {
     "name": "New England MunzFest: Meet & Greet",
@@ -32066,7 +32083,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1858
+    "x": 1859
   },
   {
     "name": "New England MunzFest: Saturday AM",
@@ -32077,7 +32094,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1859
+    "x": 1860
   },
   {
     "name": "New England MunzFest: Saturday Afternoon",
@@ -32088,7 +32105,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1860
+    "x": 1861
   },
   {
     "name": "New England MunzFest: Saturday P.M. - Think Pink",
@@ -32099,7 +32116,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1861
+    "x": 1862
   },
   {
     "name": "New England MunzFest: Sunday AM",
@@ -32110,7 +32127,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1862
+    "x": 1863
   },
   {
     "name": "Gettin' Spooky in Watertown!",
@@ -32121,7 +32138,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1863
+    "x": 1864
   },
   {
     "name": "MH-Qlue",
@@ -32143,7 +32160,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1864
+    "x": 1865
   },
   {
     "name": "Suspect Card",
@@ -32163,7 +32180,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1865
+    "x": 1866
   },
   {
     "name": "Weapon Card",
@@ -32183,7 +32200,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1866
+    "x": 1867
   },
   {
     "name": "Crime Scene Card",
@@ -32203,7 +32220,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1867
+    "x": 1868
   },
   {
     "name": "University Professor Corn",
@@ -32214,7 +32231,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1868
+    "x": 1869
   },
   {
     "name": "Mister Zee",
@@ -32225,7 +32242,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1869
+    "x": 1870
   },
   {
     "name": "Mademoiselle Eventa",
@@ -32236,7 +32253,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1870
+    "x": 1871
   },
   {
     "name": "General Green E",
@@ -32247,7 +32264,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1871
+    "x": 1872
   },
   {
     "name": "Ban Hammer Card",
@@ -32258,7 +32275,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1872
+    "x": 1873
   },
   {
     "name": "External Battery Card",
@@ -32269,7 +32286,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1873
+    "x": 1874
   },
   {
     "name": "Unicorn Horn Card",
@@ -32280,7 +32297,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1874
+    "x": 1875
   },
   {
     "name": "Globe Card",
@@ -32291,7 +32308,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1875
+    "x": 1876
   },
   {
     "name": "The Production Room",
@@ -32302,7 +32319,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1876
+    "x": 1877
   },
   {
     "name": "The Videocast Studio",
@@ -32313,7 +32330,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1877
+    "x": 1878
   },
   {
     "name": "The Munzee Museum",
@@ -32324,7 +32341,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1878
+    "x": 1879
   },
   {
     "name": "The CzeeO's Office",
@@ -32335,7 +32352,7 @@
     "category": "mhqlue2019",
     "completion": "complete",
     "cids": [],
-    "x": 1879
+    "x": 1880
   },
   {
     "name": "(NC) Halloween",
@@ -32346,7 +32363,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1880
+    "x": 1881
   },
   {
     "name": "The black cats bewitchment",
@@ -32357,7 +32374,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1881
+    "x": 1882
   },
   {
     "name": "Mummy Hand",
@@ -32375,7 +32392,7 @@
     "category": "monsternomad2019",
     "completion": "complete",
     "cids": [],
-    "x": 1882
+    "x": 1883
   },
   {
     "name": "Werewolf Paw",
@@ -32393,7 +32410,7 @@
     "category": "monsternomad2019",
     "completion": "complete",
     "cids": [],
-    "x": 1883
+    "x": 1884
   },
   {
     "name": "Frankenstein's Hand",
@@ -32411,7 +32428,7 @@
     "category": "monsternomad2019",
     "completion": "complete",
     "cids": [],
-    "x": 1884
+    "x": 1885
   },
   {
     "name": "KY - Small Town Georgetown Spooktacular",
@@ -32422,7 +32439,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1885
+    "x": 1886
   },
   {
     "name": "Pa-le Halloween 2019",
@@ -32433,7 +32450,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1886
+    "x": 1887
   },
   {
     "name": "Alabama River Region Pumpkin Splash",
@@ -32444,7 +32461,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1887
+    "x": 1888
   },
   {
     "name": "Bewitched in the Alabama RR",
@@ -32455,7 +32472,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1888
+    "x": 1889
   },
   {
     "name": "A Scary Good Time on the River",
@@ -32466,7 +32483,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1889
+    "x": 1890
   },
   {
     "name": "Falling For You in Kansas City",
@@ -32477,7 +32494,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1890
+    "x": 1891
   },
   {
     "name": "Putt loves Candy",
@@ -32488,7 +32505,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1891
+    "x": 1892
   },
   {
     "name": "BHAM Goblins & Gyros",
@@ -32499,7 +32516,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1892
+    "x": 1893
   },
   {
     "name": "Autumn is Finally Here & Someone is Turning 51!",
@@ -32510,7 +32527,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1893
+    "x": 1894
   },
   {
     "name": "Puffle",
@@ -32592,7 +32609,7 @@
     "category": "pouch_season_2",
     "completion": "complete",
     "cids": [],
-    "x": 1894
+    "x": 1895
   },
   {
     "name": "Pufrain",
@@ -32673,7 +32690,7 @@
     "category": "pouch_season_2",
     "completion": "complete",
     "cids": [],
-    "x": 1895
+    "x": 1896
   },
   {
     "name": "Puflawn",
@@ -32754,7 +32771,7 @@
     "category": "pouch_season_2",
     "completion": "complete",
     "cids": [],
-    "x": 1896
+    "x": 1897
   },
   {
     "name": "Air Pouch Creature Host",
@@ -32772,7 +32789,7 @@
     "category": "bouncerhost",
     "completion": "complete",
     "cids": [],
-    "x": 1897
+    "x": 1898
   },
   {
     "name": "Origami Crane",
@@ -32851,7 +32868,7 @@
     "category": "origamiday2019",
     "completion": "complete",
     "cids": [],
-    "x": 1898
+    "x": 1899
   },
   {
     "name": "Origami Lily",
@@ -32930,7 +32947,7 @@
     "category": "origamiday2019",
     "completion": "complete",
     "cids": [],
-    "x": 1899
+    "x": 1900
   },
   {
     "name": "Origami Boat",
@@ -33009,7 +33026,7 @@
     "category": "origamiday2019",
     "completion": "complete",
     "cids": [],
-    "x": 1900
+    "x": 1901
   },
   {
     "name": "Origami Butterfly",
@@ -33088,7 +33105,7 @@
     "category": "origamiday2019",
     "completion": "complete",
     "cids": [],
-    "x": 1901
+    "x": 1902
   },
   {
     "name": "Meet en Greet Lelystad",
@@ -33099,7 +33116,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1902
+    "x": 1903
   },
   {
     "name": "Celebrate Rosieree!!",
@@ -33110,7 +33127,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1903
+    "x": 1904
   },
   {
     "name": "Black Friday at Kiwanis Island Park",
@@ -33121,7 +33138,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1904
+    "x": 1905
   },
   {
     "name": "Berliner Weihnachtsevent 2019",
@@ -33132,7 +33149,7 @@
     "category": "event",
     "completion": "complete",
     "cids": [],
-    "x": 1905
+    "x": 1906
   },
   {
     "name": "Magnetus",
@@ -33175,7 +33192,7 @@
     "category": "pouch_season_2",
     "completion": "complete",
     "cids": [],
-    "x": 1906
+    "x": 1907
   },
   {
     "name": "Root Runner Boomerang",
@@ -33193,7 +33210,7 @@
     "category": "boomerangs2020",
     "completion": "complete",
     "cids": [],
-    "x": 1907
+    "x": 1908
   },
   {
     "name": "Country Crawler Boomerang",
@@ -33211,7 +33228,7 @@
     "category": "boomerangs2020",
     "completion": "complete",
     "cids": [],
-    "x": 1908
+    "x": 1909
   },
   {
     "name": "Great Dividing Boomerang",
@@ -33229,7 +33246,7 @@
     "category": "boomerangs2020",
     "completion": "complete",
     "cids": [],
-    "x": 1909
+    "x": 1910
   },
   {
     "name": "Parting Sea Boomerang",
@@ -33308,7 +33325,7 @@
     "category": "boomerangs2020",
     "completion": "complete",
     "cids": [],
-    "x": 1910
+    "x": 1911
   },
   {
     "name": "Sunsetter Boomerang",
@@ -33387,7 +33404,7 @@
     "category": "boomerangs2020",
     "completion": "complete",
     "cids": [],
-    "x": 1911
+    "x": 1912
   },
   {
     "name": "Coral Catcher Boomerang",
@@ -33466,7 +33483,7 @@
     "category": "boomerangs2020",
     "completion": "complete",
     "cids": [],
-    "x": 1912
+    "x": 1913
   },
   {
     "name": "2 Star Motel",
@@ -33484,7 +33501,7 @@
       823
     ],
     "cids": [],
-    "x": 1913
+    "x": 1914
   },
   {
     "name": "2 Star Motel Room",
@@ -33499,7 +33516,7 @@
     "category": "destination",
     "completion": "complete",
     "cids": [],
-    "x": 1914
+    "x": 1915
   },
   {
     "name": "3 Star Motel",
@@ -33517,7 +33534,7 @@
       823
     ],
     "cids": [],
-    "x": 1915
+    "x": 1916
   },
   {
     "name": "3 Star Motel Room",
@@ -33532,7 +33549,7 @@
     "category": "destination",
     "completion": "complete",
     "cids": [],
-    "x": 1916
+    "x": 1917
   },
   {
     "name": "H.Zee. Wells’ Time Machine",
@@ -33552,7 +33569,7 @@
     "category": "leapday2020",
     "completion": "complete",
     "cids": [],
-    "x": 1917
+    "x": 1918
   },
   {
     "name": "Zeeloreon Time Traveler",
@@ -33630,7 +33647,7 @@
     "category": "leapday2020",
     "completion": "complete",
     "cids": [],
-    "x": 1918
+    "x": 1919
   },
   {
     "name": "TARDY Time Traveler",
@@ -33708,7 +33725,7 @@
     "category": "leapday2020",
     "completion": "complete",
     "cids": [],
-    "x": 1919
+    "x": 1920
   },
   {
     "name": "Topaas",
@@ -33730,7 +33747,7 @@
     "category": "pouch_funfinity",
     "completion": "complete",
     "cids": [],
-    "x": 1920
+    "x": 1921
   },
   {
     "name": "Ametust",
@@ -33813,7 +33830,7 @@
     "category": "pouch_funfinity",
     "completion": "complete",
     "cids": [],
-    "x": 1921
+    "x": 1922
   },
   {
     "name": "Oniks",
@@ -33896,7 +33913,7 @@
     "category": "pouch_funfinity",
     "completion": "complete",
     "cids": [],
-    "x": 1922
+    "x": 1923
   },
   {
     "name": "Teemant",
@@ -33917,7 +33934,7 @@
     "category": "pouch_funfinity",
     "completion": "complete",
     "cids": [],
-    "x": 1923
+    "x": 1924
   },
   {
     "name": "Smaragd",
@@ -33946,7 +33963,7 @@
     "category": "pouch_funfinity",
     "completion": "complete",
     "cids": [],
-    "x": 1924
+    "x": 1925
   },
   {
     "name": "THE RETURN",
@@ -33963,7 +33980,7 @@
     "category": "flatdaythe13thpt.32020",
     "completion": "complete",
     "cids": [],
-    "x": 1925
+    "x": 1926
   },
   {
     "name": "Rainbow Trail",
@@ -33982,7 +33999,7 @@
     "category": "rainbowtrail2020",
     "completion": "complete",
     "cids": [],
-    "x": 1926
+    "x": 1927
   },
   {
     "name": "Orange ZED",
@@ -33996,7 +34013,7 @@
     "category": "rainbowtrail2020",
     "completion": "complete",
     "cids": [],
-    "x": 1927
+    "x": 1928
   },
   {
     "name": "Yellow ZED",
@@ -34010,7 +34027,7 @@
     "category": "rainbowtrail2020",
     "completion": "complete",
     "cids": [],
-    "x": 1928
+    "x": 1929
   },
   {
     "name": "Green ZED",
@@ -34024,7 +34041,7 @@
     "category": "rainbowtrail2020",
     "completion": "complete",
     "cids": [],
-    "x": 1929
+    "x": 1930
   },
   {
     "name": "Blue ZED",
@@ -34038,7 +34055,7 @@
     "category": "rainbowtrail2020",
     "completion": "complete",
     "cids": [],
-    "x": 1930
+    "x": 1931
   },
   {
     "name": "Indigo ZED",
@@ -34052,7 +34069,7 @@
     "category": "rainbowtrail2020",
     "completion": "complete",
     "cids": [],
-    "x": 1931
+    "x": 1932
   },
   {
     "name": "Violet ZED",
@@ -34066,7 +34083,7 @@
     "category": "rainbowtrail2020",
     "completion": "complete",
     "cids": [],
-    "x": 1932
+    "x": 1933
   },
   {
     "name": "Elekter",
@@ -34148,7 +34165,7 @@
     "category": "pouch_season_2",
     "completion": "complete",
     "cids": [],
-    "x": 1933
+    "x": 1934
   },
   {
     "name": "Elekjoud",
@@ -34229,7 +34246,7 @@
     "category": "pouch_season_2",
     "completion": "complete",
     "cids": [],
-    "x": 1934
+    "x": 1935
   },
   {
     "name": "Elektrivool",
@@ -34310,7 +34327,7 @@
     "category": "pouch_season_2",
     "completion": "complete",
     "cids": [],
-    "x": 1935
+    "x": 1936
   },
   {
     "name": "Skyland",
@@ -34389,7 +34406,7 @@
       2488
     ],
     "cids": [],
-    "x": 1936
+    "x": 1937
   },
   {
     "name": "Ephyra Larva",
@@ -34402,23 +34419,6 @@
     },
     "state": "virtual",
     "category": "evolution_nature",
-    "completion": "complete",
-    "cids": [],
-    "x": 1937
-  },
-  {
-    "name": "Stay Safe",
-    "icon": "staysafe",
-    "id": 2482,
-    "bouncer": {
-      "type": "seasonal",
-      "duration": 2,
-      "lands_on": [
-        1409
-      ]
-    },
-    "state": "bouncer",
-    "category": "hometownheroes2020",
     "completion": "complete",
     "cids": [],
     "x": 1938

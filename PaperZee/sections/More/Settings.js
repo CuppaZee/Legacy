@@ -5,10 +5,10 @@ import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from "react-redux";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Card from '../Shared/Card';
-import s from "~store";
+import s from "utils/store";
 import { useTranslation } from 'react-i18next';
 var { setTheme, removeLogin, settings: settingsDispatch } = s;
-import font from '~sections/Shared/font';
+import font from 'sections/Shared/font';
 
 function forceReload() {
   try {
@@ -65,7 +65,7 @@ export default function SettingsScreen({ navigation }) {
     { code: 'de', name: 'Deutsch' },
     { code: 'en-GB', name: 'English (UK)' },
     { code: 'en-US', name: 'English (US)' },
-    { code: 'fi', name: 'Suomen Kieli' },
+    { code: 'fi', name: 'Suomi' },
     // {code:'fr',name:'Français'},
     { code: 'hu', name: 'Magyar' },
     // {code:'lt',name:'Lietuvių Kalba'},

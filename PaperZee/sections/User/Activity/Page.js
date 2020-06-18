@@ -5,11 +5,11 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import ActivityOverview from './Overview'
-import useAPIRequest from '~hooks/useAPIRequest';
-import font from '~sections/Shared/font';
-import Card from '~sections/Shared/Card';
-import DatePicker from '~sections/Shared/DatePicker';
-import useMoment from '~hooks/useMoment';
+import useAPIRequest from 'utils/hooks/useAPIRequest';
+import font from 'sections/Shared/font';
+import Card from 'sections/Shared/Card';
+import DatePicker from 'sections/Shared/DatePicker';
+import useMoment from 'utils/hooks/useMoment';
 
 var creatures = {
   'firepouchcreature': 'tuli',

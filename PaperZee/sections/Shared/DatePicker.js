@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {View,Text,ScrollView} from 'react-native';
 import {TouchableRipple} from 'react-native-paper';
-import useMoment from '~hooks/useMoment';
+import useMoment from 'utils/hooks/useMoment';
 import {useSelector} from 'react-redux'
-import Card from '~sections/Shared/Card';
-import font from '~sections/Shared/font';
+import Card from 'sections/Shared/Card';
+import font from 'sections/Shared/font';
 
 const thList = [null,"st","nd","rd","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","st","nd","rd","th","th","th","th","th","th","th","st"]
 const yearList = [2011,2012,2013,2014,2015,2016,2017,2018,2019,2020]

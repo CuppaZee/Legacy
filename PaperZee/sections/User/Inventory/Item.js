@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, View, Image, ScrollView, FlatList, TouchableHighlight } from 'react-native';
 import { ActivityIndicator, Menu, TouchableRipple } from 'react-native-paper';
 import { useSelector } from 'react-redux';
-import font from '~sections/Shared/font';
+import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
 
 export default function InventoryItem({i}) {

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { View, Text, Image } from 'react-native';
 import Tile from './Tile';
-import CalData from '~db/Calendar.json';
-import useMoment from '~hooks/useMoment';
+import CalData from 'utils/db/Calendar.json';
+import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next';
 
 export default function Calendar({style,month,year,theme,type="default"}) {

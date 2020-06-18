@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Text, View, Image, ScrollView } from 'react-native';
-import Card from '~sections/Shared/Card';
+import Card from 'sections/Shared/Card';
 import { IconButton } from 'react-native-paper';
 import { useSelector } from 'react-redux';
-import font from '~sections/Shared/font';
-import useAPIRequest from '~hooks/useAPIRequest';
-import types from '~db/types.json';
-import getType from '~db/types';
-import categories from '~db/categories.json';
-import useMoment from '~hooks/useMoment';
+import font from 'sections/Shared/font';
+import useAPIRequest from 'utils/hooks/useAPIRequest';
+import types from 'utils/db/types.json';
+import getType from 'utils/db/types';
+import categories from 'utils/db/categories.json';
+import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next';
 
 function g(icon) {

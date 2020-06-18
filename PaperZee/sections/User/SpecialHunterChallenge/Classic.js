@@ -4,10 +4,10 @@ import { ActivityIndicator, FAB, Menu, TouchableRipple } from 'react-native-pape
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import types from '~db/types.json';
-import useAPIRequest from '~hooks/useAPIRequest';
-import font from '~sections/Shared/font';
-import Card from '~sections/Shared/Card';
+import types from 'utils/db/types.json';
+import useAPIRequest from 'utils/hooks/useAPIRequest';
+import font from 'sections/Shared/font';
+import Card from 'sections/Shared/Card';
 
 function g(a) {
   return types.find(i => i.cid == f((a.pin || a.icon || a.pin_icon).slice(49, -4)))

@@ -1,4 +1,4 @@
-import Clan from '~db/clan.js';
+import Clan from 'utils/db/clan.js';
 function f(a) {
   return a.toString().replace(/_/g,'').replace(/munzee/g,'');
 }

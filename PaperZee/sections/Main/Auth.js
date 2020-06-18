@@ -4,8 +4,8 @@ import { IconButton } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
 import * as AuthSession from 'expo-auth-session';
 import { useNavigation } from '@react-navigation/native';
-import s from '~store';
-import Oconfig from '~sections/Shared/Config';
+import s from 'utils/store';
+import Oconfig from 'sections/Shared/Config';
 import { useTranslation } from "react-i18next";
 var config = {
   redirect_uri: 'https://server.cuppazee.app/auth/auth/v1',

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text, ImageBackground, ActivityIndicator } from 'react-native';
-import font from '~sections/Shared/font';
+import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
 
 function u(a) {

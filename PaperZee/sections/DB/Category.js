@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Text, View, TextInput, Image, ScrollView } from 'react-native';
-import Card from '~sections/Shared/Card';
+import Card from 'sections/Shared/Card';
 import { IconButton } from 'react-native-paper';
 import { useSelector, useDispatch } from 'react-redux';
-import font from '~sections/Shared/font';
-import types from '~db/types.json';
-import categories from '~db/categories.json';
-import useMoment from '~hooks/useMoment';
+import font from 'sections/Shared/font';
+import types from 'utils/db/types.json';
+import categories from 'utils/db/categories.json';
+import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next'
 
 export default function SearchScreen({ navigation, route }) {

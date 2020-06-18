@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { Text, View, TextInput, Image, ScrollView, ActivityIndicator } from 'react-native';
-import Card from '~sections/Shared/Card';
+import Card from 'sections/Shared/Card';
 import { useFocusEffect } from '@react-navigation/native';
 import { IconButton } from 'react-native-paper';
 import { useSelector, useDispatch } from 'react-redux';
-import request from '~store/request';
-import s from '~store';
+import request from 'utils/store/request';
+import s from 'utils/store';
 var { clanBookmarks: clanBookmarksR } = s;
 import stringify from 'fast-json-stable-stringify';
-import font from '~sections/Shared/font';
-import groups from '~db/clans';
+import font from 'sections/Shared/font';
+import groups from 'utils/db/clans';
 import { useTranslation } from 'react-i18next';
 
 export default function SearchScreen({ navigation }) {

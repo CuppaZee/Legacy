@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
-import Card from '~sections/Shared/Card';
+import Card from 'sections/Shared/Card';
 import { useSelector, useDispatch } from 'react-redux';
 import { FAB } from 'react-native-paper';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
-import useAPIRequest from '~hooks/useAPIRequest'
-import font from '~sections/Shared/font';
-import useMoment from '~hooks/useMoment';
-import MapView from '~sections/Maps/MapView';
+import useAPIRequest from 'utils/hooks/useAPIRequest'
+import font from 'sections/Shared/font';
+import useMoment from 'utils/hooks/useMoment';
+import MapView from 'sections/Maps/MapView';
 import { useTranslation } from 'react-i18next';
 
 function UserIcon({ user_id, size }) {

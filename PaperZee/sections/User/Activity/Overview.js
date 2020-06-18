@@ -4,10 +4,10 @@ import { Menu, TouchableRipple, Button } from 'react-native-paper';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import useAPIRequest from '~hooks/useAPIRequest';
-import getType from '~db/types';
-import font from '~sections/Shared/font';
-import useMoment from '~hooks/useMoment';
+import useAPIRequest from 'utils/hooks/useAPIRequest';
+import getType from 'utils/db/types';
+import font from 'sections/Shared/font';
+import useMoment from 'utils/hooks/useMoment';
 
 var count = (array, t) => {
   return Object.entries(array.reduce((a, b) => {

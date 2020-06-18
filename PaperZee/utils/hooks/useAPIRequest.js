@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useFocusEffect } from '@react-navigation/native'
-import request from '~store/request';
+import request from 'utils/store/request';
 import stringify from 'fast-json-stable-stringify';
 
 export default function useAPIRequest (reqData) {

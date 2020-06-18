@@ -2,16 +2,16 @@ import * as React from 'react';
 import { Text, View, Image, ScrollView, Picker, FlatList, TouchableHighlight, Platform, ActivityIndicator } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableRipple, Menu } from 'react-native-paper';
-import request from '~store/request'
+import request from 'utils/store/request'
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
-import Card from '~sections/Shared/Card';
-import s from '~store';
+import Card from 'sections/Shared/Card';
+import s from 'utils/store';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { ClanRequirementsConverter, ClanStatsConverter } from '../Data';
-import useAPIRequest from '~hooks/useAPIRequest';
-import useLevelColours from '~hooks/useLevelColours';
-import font from '~sections/Shared/font';
+import useAPIRequest from 'utils/hooks/useAPIRequest';
+import useLevelColours from 'utils/hooks/useLevelColours';
+import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
 var { levelSelect: levelSelectX } = s
 

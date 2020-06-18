@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { Text, View, Image, ScrollView, ActivityIndicator, Linking } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import Card from '~sections/Shared/Card';
+import Card from 'sections/Shared/Card';
 import { useSelector } from 'react-redux';
 import { TouchableRipple, FAB } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import ActivityCard from './Activity/Card';
-import useAPIRequest from '~hooks/useAPIRequest';
+import useAPIRequest from 'utils/hooks/useAPIRequest';
 import { useDimensions } from '@react-native-community/hooks';
-import font from '~sections/Shared/font';
-import categories from '~db/categories.json';
+import font from 'sections/Shared/font';
+import categories from 'utils/db/categories.json';
 import { useTranslation } from 'react-i18next'
-import useMoment from '~hooks/useMoment';
+import useMoment from 'utils/hooks/useMoment';
 
 const useComponentSize = () => {
   const [size, setSize] = React.useState(null);

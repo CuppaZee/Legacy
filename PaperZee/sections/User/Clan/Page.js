@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { Text, View, Image, ScrollView, ActivityIndicator, TouchableHighlightComponent } from 'react-native';
 import { Button } from 'react-native-paper';
-import Card from '~sections/Shared/Card';
+import Card from 'sections/Shared/Card';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { FAB } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import RequirementsCard from '~sections/Clan/Cards/Requirements';
-import useAPIRequest from '~hooks/useAPIRequest';
-import useLevelColours from '~hooks/useLevelColours';
+import RequirementsCard from 'sections/Clan/Cards/Requirements';
+import useAPIRequest from 'utils/hooks/useAPIRequest';
+import useLevelColours from 'utils/hooks/useLevelColours';
 import { ClanRequirementsConverter } from '../../Clan/Data';
-import font from '~sections/Shared/font';
+import font from 'sections/Shared/font';
 import { FlatList } from 'react-native-gesture-handler';
 
 function UserIcon({user_id,size}) { 

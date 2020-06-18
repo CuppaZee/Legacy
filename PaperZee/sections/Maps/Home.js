@@ -4,7 +4,7 @@ import { Button, Text, View, Platform } from 'react-native';
 // var MapView;
 import MapView from './MapView'
 import { useSelector } from "react-redux"
-import font from '~sections/Shared/font';
+import font from 'sections/Shared/font';
 
 /*
 https://itnext.io/performant-custom-map-markers-for-react-native-maps-ddc8d5a1eeb0

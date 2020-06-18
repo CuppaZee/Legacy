@@ -270,7 +270,7 @@
   {
     "name": "Flaming Arrow",
     "icon": "flamingarrow",
-    "id": "null_flamingarrow",
+    "id": 2503,
     "state": "virtual",
     "scatter": {
       "duration": 2,

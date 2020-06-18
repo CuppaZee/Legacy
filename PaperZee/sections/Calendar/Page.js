@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
 import { useSelector } from 'react-redux';
-import Calendar from '~sections/Calendar/Calendar';
-import Card from '~sections/Shared/Card';
+import Calendar from 'sections/Calendar/Calendar';
+import Card from 'sections/Shared/Card';
 import { IconButton } from 'react-native-paper';
-import useMoment from '~hooks/useMoment';
+import useMoment from 'utils/hooks/useMoment';
 
 export default function CalendarScreen() {
   var moment = useMoment()

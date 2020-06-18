@@ -1,7 +1,7 @@
 import { Platform, AsyncStorage } from 'react-native';
 import stringify from 'fast-json-stable-stringify';
 
-import config from '~sections/Shared/Config';
+import config from 'sections/Shared/Config';
 var login_ = (data) => ({ type: "LOGIN", data: data })
 var login = (data, noUpdate) => async (dispatch, getState) => {
   if (!noUpdate) await AsyncStorage.setItem('CUPPAZEE_TEAKENS', JSON.stringify({ ...getState().logins, ...data }));
@@ -26,7 +26,7 @@ var pagination = {
     }
   }
 }
-import ClanProgressConverter from '~sections/User/Clan/Data';
+import ClanProgressConverter from 'sections/User/Clan/Data';
 var converter = {
   ClanProgress: ClanProgressConverter
 }

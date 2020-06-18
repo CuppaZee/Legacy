@@ -4,7 +4,7 @@ import ClanRequirements from './Cards/Requirements';
 import ClanStats from './Cards/Stats';
 import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from 'react-redux';
-import s from '~store';
+import s from 'utils/store';
 
 function Clan({ item }) {
   return ({

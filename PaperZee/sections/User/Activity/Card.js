@@ -4,11 +4,11 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableRipple } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
-import Card from '~sections/Shared/Card';
+import Card from 'sections/Shared/Card';
 import ActivityOverview from './Overview';
-import useAPIRequest from '~hooks/useAPIRequest';
-import font from '~sections/Shared/font';
-import useMoment from '~hooks/useMoment';
+import useAPIRequest from 'utils/hooks/useAPIRequest';
+import font from 'sections/Shared/font';
+import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next';
 
 export default function UserActivityDash({user_id}) {

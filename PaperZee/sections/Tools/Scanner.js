@@ -5,8 +5,8 @@ import { Camera } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { IconButton } from 'react-native-paper';
 import Slider from 'react-native-slider';
-import font from '~sections/Shared/font';
-import useAPIRequest from '~hooks/useAPIRequest';
+import font from 'sections/Shared/font';
+import useAPIRequest from 'utils/hooks/useAPIRequest';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 

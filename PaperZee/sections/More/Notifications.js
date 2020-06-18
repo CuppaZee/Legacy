@@ -4,8 +4,8 @@ import { Button, IconButton, Switch } from 'react-native-paper';
 import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from "react-redux";
 import Card from '../Shared/Card';
-import s from "~store";
-import font from '~sections/Shared/font';
+import s from "utils/store";
+import font from 'sections/Shared/font';
 import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';

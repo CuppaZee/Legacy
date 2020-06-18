@@ -2,14 +2,14 @@ import * as React from 'react';
 import { Text, View, Image, ScrollView } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { IconButton } from 'react-native-paper'
-import Card from '~sections/Shared/Card';
+import Card from 'sections/Shared/Card';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-import useAPIRequest from '~hooks/useAPIRequest';
+import useAPIRequest from 'utils/hooks/useAPIRequest';
 import { useDimensions } from '@react-native-community/hooks';
-import font from '~sections/Shared/font';
+import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next'
-import useMoment from '~hooks/useMoment';
+import useMoment from 'utils/hooks/useMoment';
 import * as WebBrowser from 'expo-web-browser';
 
 export default function DetailsScreen({ route }) {

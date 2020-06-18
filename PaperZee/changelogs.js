@@ -156,5 +156,12 @@ export default {
       title: 'Updated Munzee Types',
       description: 'More Munzee types now show their points structures'
     }
+  ],
+  136: [
+    {
+      icon: 'translate',
+      title: 'Updated Finnish Translations',
+      description: 'Finnish Translations are now available for almost everything in the app'
+    }
   ]
 }

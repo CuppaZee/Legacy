@@ -5,10 +5,10 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import InventoryItem from './Item'
-import useAPIRequest from '~hooks/useAPIRequest';
+import useAPIRequest from 'utils/hooks/useAPIRequest';
 import InventoryConverter from './Data';
 import { FlatList } from 'react-native-gesture-handler';
-import font from '~sections/Shared/font';
+import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
 
 function InventoryHistoryItem({ i, theme }) {

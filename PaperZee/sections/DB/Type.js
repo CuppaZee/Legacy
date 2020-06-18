@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Text, View, ScrollView, Image } from 'react-native';
 import { useSelector, useDispatch } from "react-redux";
-import types from '~db/types.json';
-import getType from '~db/types';
-import categories from '~db/categories.json';
+import types from 'utils/db/types.json';
+import getType from 'utils/db/types';
+import categories from 'utils/db/categories.json';
 import { TouchableRipple, Chip } from 'react-native-paper';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import font from '~sections/Shared/font';
-import useMoment from '~hooks/useMoment';
+import font from 'sections/Shared/font';
+import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next';
 
 function g(icon) {

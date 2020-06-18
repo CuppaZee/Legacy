@@ -3,11 +3,11 @@ import { Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableRipple } from 'react-native-paper';
 import { useSelector } from 'react-redux';
-import Card from '~sections/Shared/Card';
+import Card from 'sections/Shared/Card';
 import {ClanRequirementsConverter} from '../Data';
-import useAPIRequest from '~hooks/useAPIRequest';
-import useLevelColours from '~hooks/useLevelColours';
-import font from '~sections/Shared/font';
+import useAPIRequest from 'utils/hooks/useAPIRequest';
+import useLevelColours from 'utils/hooks/useLevelColours';
+import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
 
 export default function UserActivityDash({ game_id, scale: s = 1 }) {

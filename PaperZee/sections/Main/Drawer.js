@@ -8,12 +8,12 @@ import { useSelector } from 'react-redux';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { TouchableRipple, IconButton, Menu, Divider } from 'react-native-paper'
-import font from '~sections/Shared/font';
+import font from 'sections/Shared/font';
 
 function DrawerItem(props) {
   return <TouchableRipple onPress={props.onPress} style={{
     marginHorizontal: 8, borderRadius: 20, opacity: props.style?.opacity ?? (props.focused ? 1 : 0.9),
-    marginLeft: 0, marginRight: 4
+    marginLeft: 0, marginRight: 4, borderTopLeftRadius: 0, borderBottomLeftRadius: 0
   }}>
     <View style={{
       padding: 4, paddingHorizontal: 8, borderRadius: 20, backgroundColor: props.focused ? props.activeBackgroundColor : "transparent", flexDirection: "row", alignItems: "center",
