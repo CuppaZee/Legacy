@@ -551,8 +551,8 @@ function App() {
   }
 
   if (!theme || !theme.page || !theme.page.bg) {
-    return <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <ActivityIndicator size="large" />
+    return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: 'white' }}>
+      <ActivityIndicator size="large" color="orange" />
     </View>;
   }
   if (!fontsLoaded) {

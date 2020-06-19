@@ -212,5 +212,19 @@ export default {
       title: 'Updated User Activity',
       description: 'The User Activity overview now shows smaller icons if there are a lot of icons to display'
     }
+  ],
+  144: [
+    {
+      icon: 'bug',
+      title: 'Fixed some Bugs',
+      description: 'Fixed some bugs related to the loading screen'
+    }
+  ],
+  145: [
+    {
+      icon: 'translate',
+      title: 'Updated Czech Translations',
+      description: 'Czech Translations are now available for almost everything in the app'
+    }
   ]
 }

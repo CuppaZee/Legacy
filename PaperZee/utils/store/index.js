@@ -253,7 +253,7 @@ async function getToken(user_id,data) {
   return x;
 }
 async function loadData() {
-  var [clan_bookmarks,user_bookmarks,code,theme,level_select,settingsD,version,teakens] = await Promise.all([
+  var [clan_bookmarks,user_bookmarks,code,theme,level_select,settingsD,version,teakens] = (await Promise.allSettled([
     AsyncStorage.getItem('CLAN_BOOKMARKS'),
     AsyncStorage.getItem('USER_BOOKMARKS'),
     AsyncStorage.getItem('CODE'),
@@ -262,7 +262,7 @@ async function loadData() {
     AsyncStorage.getItem('CUPPAZEE_SETTINGS'),
     AsyncStorage.getItem('CUPPAZEE_VERSION'),
     AsyncStorage.getItem('CUPPAZEE_TEAKENS')
-  ])
+  ])).map(i=>i?.value);
   if(clan_bookmarks) store.dispatch(clanBookmarks(JSON.parse(clan_bookmarks),true));
   if(user_bookmarks) {
     store.dispatch(userBookmarks(JSON.parse(user_bookmarks),true))
