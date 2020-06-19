@@ -140,13 +140,13 @@
     },
     "calendar": {
         "days": {
-            "monday": "",
-            "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
-            "friday": "",
-            "saturday": "",
-            "sunday": ""
+            "monday": "S",
+            "tuesday": "T",
+            "wednesday": "Q",
+            "thursday": "Q",
+            "friday": "S",
+            "saturday": "S",
+            "sunday": "D"
         },
         "off": ""
     },
