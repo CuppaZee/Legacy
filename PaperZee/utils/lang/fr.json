@@ -1,11 +1,11 @@
 {
     "common": {
-        "dashboard": "Tableau de bord",
-        "search": "Rechercher",
-        "map": "Carte",
-        "tools": "Outils",
-        "settings": "Paramètres",
-        "authenticate": "s'authentifier",
+        "dashboard": "",
+        "search": "",
+        "map": "",
+        "tools": "",
+        "settings": "",
+        "authenticate": "",
         "auth_success": "",
         "scanner": "",
         "maps": "",
@@ -39,33 +39,33 @@
         "logging_in": ""
     },
     "activity": {
-        "user_captured": "Captures {user}",
-        "user_deployed": "Déploiements {user}",
-        "you_captured": "Vous avez capturé",
-        "you_deployed": "Vous avez déployé",
-        "by_user": "par {user}",
-        "by_you": "par vous",
+        "user_captured": "",
+        "user_deployed": "",
+        "you_captured": "",
+        "you_deployed": "",
+        "by_user": "",
+        "by_you": "",
         "total_point": {
-            "one": "{count} Point total",
-            "other": "{count} Points totaux"
+            "one": "",
+            "other": ""
         },
         "capture": {
-            "one": "{count} Capture",
-            "other": "{count} Captures"
+            "one": "",
+            "other": ""
         },
         "deploy": {
-            "one": "{count} Déploiement",
-            "other": "{count} Déploiements"
+            "one": "",
+            "other": ""
         },
         "capon": {
-            "one": "{count} Capon",
-            "other": "{count} Capons"
+            "one": "",
+            "other": ""
         },
         "point": {
-            "one": "{count} Point",
-            "other": "{count} Points"
+            "one": "",
+            "other": ""
         },
-        "none": "Aucun",
+        "none": "",
         "user_today": "",
         "user_renovated": "",
         "you_renovated": "",
