@@ -47,7 +47,8 @@ function g(icon) {
   return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'').replace(/munzee$/,'');
 }
 
-function OverviewItem({i}) {
+function OverviewItem({i,total}) {
+  var small = total>25;
   var theme = useSelector(i=>i.themes[i.theme]);
   var [open,setOpen] = React.useState(false);
   var nav = useNavigation();
@@ -57,9 +58,9 @@ function OverviewItem({i}) {
     anchor={
       <TouchableRipple onPress={() => setOpen(true)}>
         <View key={i.icon} style={{ padding: 2, alignItems: "center" }}>
-          <Image style={{ height: 32, width: 32 }} source={{ uri: i[0] }} />
-          <Text allowFontScaling={false} style={{ color: theme.page_content.fg,...font() }}>{i[1].total}</Text>
-          {hostIcon(i[0])&&<Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: 15 }} source={{ uri: hostIcon(i[0]) }} />}
+          <Image style={{ height: small?24:32, width: small?24:32 }} source={{ uri: i[0] }} />
+          <Text allowFontScaling={false} style={{ color: theme.page_content.fg,...font(), fontSize: 12 }}>{i[1].total}</Text>
+          {hostIcon(i[0])&&<Image style={{ height: small?16:24, width: small?16:24, position: "absolute", right: small?-3:-5, bottom: small?18:15 }} source={{ uri: hostIcon(i[0]) }} />}
         </View>
       </TouchableRipple>
     }
@@ -109,7 +110,7 @@ export default function ({user_id,date:dateInput}) {
         {t('activity:capture', { count: data.captures.filter(i => !isRenovation(i)).length })} - {t('activity:point', { count: data.captures.filter(i => !isRenovation(i)).reduce((a, b) => a + Number(b.points), 0) })}
       </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-        {count(data.captures.filter(i => !isRenovation(i)), "pin").map(i=><OverviewItem i={i}/>)}
+        {count(data.captures.filter(i => !isRenovation(i)), "pin").map(i=><OverviewItem total={count(data.captures.filter(i => !isRenovation(i)), "pin").length} i={i}/>)}
       </View>
     </View>
     <View key="deploys" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
@@ -117,7 +118,7 @@ export default function ({user_id,date:dateInput}) {
         {t('activity:deploy', { count: data.deploys.length })} - {t('activity:point', { count: data.deploys.reduce((a, b) => a + Number(b.points), 0) })}
       </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-        {count(data.deploys, "pin").map(i=><OverviewItem i={i}/>)}
+        {count(data.deploys, "pin").map(i=><OverviewItem total={count(data.deploys, "pin").length} i={i}/>)}
       </View>
     </View>
     <View key="capons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
@@ -125,7 +126,7 @@ export default function ({user_id,date:dateInput}) {
         {t('activity:capon', { count: data.captures_on.filter(i => !isRenovation(i)).length })} - {t('activity:point', { count: data.captures_on.filter(i => !isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0) })}
       </Text></View>
       <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-        {count(data.captures_on.filter(i => !isRenovation(i)), "pin").map(i=><OverviewItem i={i}/>)}
+        {count(data.captures_on.filter(i => !isRenovation(i)), "pin").map(i=><OverviewItem total={count(data.captures_on.filter(i => !isRenovation(i)), "pin").length} i={i}/>)}
       </View>
     </View>
     {data.captures.filter(i=>isRenovation(i)).length>0&&<View key="renovations" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>

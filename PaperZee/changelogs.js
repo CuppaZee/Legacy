@@ -205,5 +205,12 @@ export default {
       title: 'Improved Bookmarking',
       description: 'In addition to clans, you can now bookmark users. The functionality to log in as another user still exists on the settings page and must be used to access a player\'s Inventory'
     }
+  ],
+  143: [
+    {
+      icon: 'arrow-collapse',
+      title: 'Updated User Activity',
+      description: 'The User Activity overview now shows smaller icons if there are a lot of icons to display'
+    }
   ]
 }
