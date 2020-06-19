@@ -36,7 +36,7 @@
             "email": "vagy írj emailt a support@cuppazee.app címre."
         },
         "clans": "",
-        "logging_in": ""
+        "logging_in": "Bejelentkezés folyamtban"
     },
     "activity": {
         "user_captured": "{user} megtalálta",
@@ -90,13 +90,13 @@
         "activity": "Aktivitás",
         "clan_stats": "Klán statisztika",
         "clan_progress_desc": "",
-        "clan_info": "",
-        "clan_info_desc": "",
+        "clan_info": "Klán hard információs FB Csoport",
+        "clan_info_desc": "Nagyszerű hely, hogy találj magadnak egy klánt, vagy hogy a kérdéseidre választ kapj.",
         "challenges": "Kihívások",
         "sh_lite": "Vadászat a speciálisokra light verzió",
         "sh_pro": "Vadászat a speciálisokra pro verzió",
-        "your_clan": "",
-        "no_clan": "",
+        "your_clan": "Saját klánod",
+        "no_clan": "Nem vagy klán tagja",
         "no_clan_desc": ""
     },
     "inventory": {
@@ -196,11 +196,11 @@
     "shc": {
         "lite": {
             "tob": "",
-            "nomad": "",
-            "myth_1": "",
+            "nomad": "Nomád vagy yyugdíjs mitológiai",
+            "myth_1": "Eredeti vagy klassikus mitológiai",
             "myth_2": "",
-            "pc_1": "",
-            "pc_2": "",
+            "pc_1": "Zsebszörny S1",
+            "pc_2": "Zsebszörny S2",
             "flat": "",
             "temp": "",
             "scatter": ""
@@ -208,7 +208,7 @@
         "pro": {
             "tob": "",
             "nomad": "Nomád\n",
-            "retire": "",
+            "retire": "Nyugdíjas mitológiai",
             "myth_1": "",
             "myth_2": "Klasszikus mitológiai",
             "myth_3": "",
@@ -231,17 +231,17 @@
     "settings": {
         "add_user": "Felhasználó hozzáadása",
         "update": "",
-        "theme": "",
-        "language": "",
-        "logout": "",
-        "save": ""
+        "theme": "Téma: {name}",
+        "language": "Nyelv: {name}",
+        "logout": "Kijelentkezés",
+        "save": "Beállítások mentése"
     },
     "bouncers": {
         "duration": ""
     },
     "scanner": {
         "scan_new": "",
-        "munzee": "",
+        "munzee": "{name} : {username}",
         "type": "Típus"
     },
     "quest": {
@@ -268,20 +268,20 @@
         "_redirect": "",
         "Map": "Térkép",
         "Tools": "Eszközök",
-        "Settings": "",
-        "Notifications": "",
-        "Info": "",
-        "Scanner": "",
-        "Calendar": "",
-        "Bouncers": "",
+        "Settings": "Beállítások",
+        "Notifications": "Értesítések",
+        "Info": "Infó",
+        "Scanner": "Szkenner",
+        "Calendar": "Naptár",
+        "Bouncers": "Ugrálók",
         "BouncerMap": "",
-        "MunzeeDetails": "",
-        "MunzeeDetailsID": "",
-        "AllClans": "",
+        "MunzeeDetails": "Munzee részletek",
+        "MunzeeDetailsID": "Munzee részletek",
+        "AllClans": "Minden klán",
         "ClanRequirements": "",
         "ClanSearch": "",
         "Clan": "",
-        "UserSearch": "",
+        "UserSearch": "Felhasználó keresés",
         "UserDetails": "",
         "UserActivity": "Aktivitás",
         "UserInventory": "Készletem",
@@ -300,6 +300,6 @@
     "changelog": {
         "build_n": "Build {n}",
         "continue": "",
-        "no_changelog": ""
+        "no_changelog": "Nincsen változás"
     }
 }
