@@ -184,7 +184,7 @@
             "info": "Ikon: {icon} - ID: {id}",
             "evo": "Udviklingsstadier",
             "pouch": "Posevæsen-stadier",
-            "can_host": "Kan være vært",
+            "can_host": "Kan være vært for",
             "lands_on": "Lander på"
         }
     },
@@ -203,10 +203,10 @@
             "pc_2": "Posevæsen S2",
             "flat": "",
             "temp": "",
-            "scatter": ""
+            "scatter": "Strøede"
         },
         "pro": {
-            "tob": "",
+            "tob": "AlternaMyth eller bortløbent posevæsen",
             "nomad": "Nomade",
             "retire": "RetireMyth",
             "myth_1": "Original mytologisk",
