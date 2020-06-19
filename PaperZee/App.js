@@ -525,6 +525,7 @@ function App() {
   var [isReady, setIsReady] = React.useState(false);
   var [initialState, setInitialState] = React.useState();
   var theme = useSelector(i => i.themes[i.theme])
+  var selectedTheme = useSelector(i => i.theme)
 
   React.useEffect(() => {
     Promise.race([

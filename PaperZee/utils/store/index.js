@@ -1,3 +1,4 @@
+import allSettled from '@ungap/promise-all-settled'
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import r from './request';
@@ -117,8 +118,10 @@ var setCode = (data,noUpdate) => async (dispatch, getState) => {
 // Theme Selection
 var setTheme_ = (data) => ({ type: "SET_THEME", data: data })
 var setTheme = (data,noUpdate) => async (dispatch, getState) => {
-  if(!noUpdate) await AsyncStorage.setItem('THEME',data);
-  dispatch(setTheme_(data));
+  if(getState().themes[data]) {
+    if(!noUpdate) await AsyncStorage.setItem('THEME',data);
+    dispatch(setTheme_(data));
+  }
 }
 
 // Clan Level Selections
@@ -247,13 +250,18 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 setInterval(refreshRequests,60000,store);
 
 async function getToken(user_id,data) {
-  var x = Object.assign({},data);
-  var y = await fetch(`https://server.cuppazee.app/auth/get?teaken=${encodeURIComponent(x.teaken)}&user_id=${encodeURIComponent(user_id)}`)
-  x.token = (await y.json()).data;
-  return x;
+  try {
+    var x = Object.assign({},data);
+    var y = await fetch(`https://server.cuppazee.app/auth/get?teaken=${encodeURIComponent(x.teaken)}&user_id=${encodeURIComponent(user_id)}`)
+    x.token = (await y.json()).data;
+    return x;
+  } catch(e) {
+    console.log(e);
+    return data;
+  }
 }
 async function loadData() {
-  var [clan_bookmarks,user_bookmarks,code,theme,level_select,settingsD,version,teakens] = (await Promise.allSettled([
+  var [clan_bookmarks,user_bookmarks,code,theme,level_select,settingsD,version,teakens] = (await allSettled.call(Promise, [
     AsyncStorage.getItem('CLAN_BOOKMARKS'),
     AsyncStorage.getItem('USER_BOOKMARKS'),
     AsyncStorage.getItem('CODE'),
@@ -289,7 +297,6 @@ async function loadData() {
   
   if(teakens) {
     var teakens_data = JSON.parse(teakens)
-    console.log(teakens_data);
     var token_data = await Promise.all(Object.keys(teakens_data).map(async user=>[user,await getToken(user,teakens_data[user])]))
     var final_data = {};
     for(var token of token_data) final_data[token[0]] = token[1];

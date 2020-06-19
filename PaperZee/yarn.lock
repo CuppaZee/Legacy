@@ -1861,6 +1861,11 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@ungap/promise-all-settled@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@ungap/promise-all-settled/-/promise-all-settled-1.1.0.tgz#fcdf6dfed1d74b73ee3b33dec0bfe3c15f3d20db"
+  integrity sha512-EQ02C1hEVfPHYcV0FvLFUY8eVwOJuHPEy6CsQLNINEwZQ8FIBCsJ3b4ixw22Ufp65BK/eXQy9Komxjd/4fwTyw==
+
 "@unimodules/core@~5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@unimodules/core/-/core-5.1.0.tgz#eae3706e1ecc99d4b992ad39970c43d92418d394"

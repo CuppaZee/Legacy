@@ -19,6 +19,7 @@
     "@react-navigation/material-bottom-tabs": "^5.1.9",
     "@react-navigation/native": "^5.1.6",
     "@react-navigation/stack": "^5.2.11",
+    "@ungap/promise-all-settled": "^1.1.0",
     "axios": "^0.19.2",
     "expo": "^37.0.12",
     "expo-auth-session": "^1.2.1",

@@ -226,5 +226,19 @@ export default {
       title: 'Updated Czech Translations',
       description: 'Czech Translations are now available for almost everything in the app'
     }
+  ],
+  146: [
+    {
+      icon: 'bug',
+      title: 'Fixed some Bugs',
+      description: 'Fixed some bugs related to loading theme selection'
+    }
+  ],
+  147: [
+    {
+      icon: 'translate',
+      title: 'Updated Portuguese Translations',
+      description: 'Portuguese Translations are now available for almost everything in the app'
+    }
   ]
 }
