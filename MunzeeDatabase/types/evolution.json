@@ -945,6 +945,15 @@
     "base": "planulalarva"
   },
   {
+    "name": "Polyp with Bulbs",
+    "icon": "polypwithbulbs",
+    "id": 2463,
+    "state": "virtual",
+    "set": "nature",
+    "stage": 3,
+    "base": "planulalarva"
+  },
+  {
     "name": "Ephyra Larva",
     "icon": "ephyralarva",
     "id": 2464,

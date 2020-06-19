@@ -240,5 +240,19 @@ export default {
       title: 'Updated Portuguese Translations',
       description: 'Portuguese Translations are now available for almost everything in the app'
     }
+  ],
+  148: [
+    {
+      image: 'https://munzee.global.ssl.fastly.net/images/pins/summer_card.png',
+      title: 'Updated Munzee Types',
+      description: 'Added Summer and Winter Greetings Cards'
+    }
+  ],
+  149: [
+    {
+      image: 'https://munzee.global.ssl.fastly.net/images/pins/polypwithbulbs.png',
+      title: 'Updated Munzee Types',
+      description: 'Added "Polyp with Bulbs"'
+    }
   ]
 }

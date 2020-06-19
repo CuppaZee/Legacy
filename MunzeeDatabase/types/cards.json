@@ -102,5 +102,17 @@
     "name": "World Ocean Day Card",
     "icon": "worldoceandaycard",
     "id": "null_worldoceandaycard"
+  },
+  {
+    "name": "Summer Card",
+    "icon": "summer_card",
+    "id": "null_summercard",
+    "open": true
+  },
+  {
+    "name": "Winter Card",
+    "icon": "winter_card",
+    "id": "null_wintercard",
+    "open": true
   }
 ]
