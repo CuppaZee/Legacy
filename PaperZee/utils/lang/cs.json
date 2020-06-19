@@ -31,20 +31,20 @@
         "help": "Pomoc",
         "users": "Uživatelé",
         "calendar": "Kalendář",
-        "bouncers": "Bouncers",
+        "bouncers": "Cestovatelé",
         "notifications": "notifikace",
         "contact": {
             "facebook": "Můžete nás kontaktovat přes Facebook",
             "email": "nebo přes email na support@cuppazee.app"
         },
         "clans": "Klany",
-        "logging_in": ""
+        "logging_in": "Přihlašuji ..."
     },
     "activity": {
         "user_captured": "{user} zachytil",
-        "user_deployed": "{user} umístil",
+        "user_deployed": "{user} založil",
         "you_captured": "Zachytil jste",
-        "you_deployed": "Umístil jste",
+        "you_deployed": "Založil jste",
         "by_user": "uživatelem {user}",
         "by_you": "vámi",
         "total_point": {
@@ -58,9 +58,9 @@
             "other": "{count} zachycení"
         },
         "deploy": {
-            "one": "{count} umístění",
-            "few": "{count} umístění",
-            "other": "{count} umístění"
+            "one": "{count} založení",
+            "few": "{count} založení",
+            "other": "{count} založení"
         },
         "capon": {
             "one": "{count} zachycení vlastní",
@@ -104,9 +104,9 @@
         "challenges": "Výzvy",
         "sh_lite": "Speciální lovec (lehká verze)",
         "sh_pro": "Speciální lovec (těžká verze)",
-        "your_clan": "",
-        "no_clan": "",
-        "no_clan_desc": ""
+        "your_clan": "Váš klan",
+        "no_clan": "Nejste v klanu",
+        "no_clan_desc": "Podívejte se na váš postup"
     },
     "inventory": {
         "undeployed": "Neumístěné",
@@ -146,14 +146,14 @@
         },
         "last_captured": "Naposledy zachyceno: {time}",
         "in_limbo": "Odpočívá",
-        "host": ""
+        "host": "Na {munzee} od {username}"
     },
     "calendar": {
         "days": {
             "monday": "Po",
             "tuesday": "Ú",
             "wednesday": "St",
-            "thursday": "C",
+            "thursday": "Č",
             "friday": "Pá",
             "saturday": "So",
             "sunday": "N"
@@ -173,7 +173,7 @@
             "total": "Celkový pohled"
         },
         "share": "Sdílet",
-        "indiv": "Osob",
+        "indiv": "Osobní",
         "group_total": "Celkem na klan",
         "level": {
             "one": "Level",
@@ -206,29 +206,29 @@
     },
     "shc": {
         "lite": {
-            "tob": "",
+            "tob": "AlternaMyth nebo PC na útěku",
             "nomad": "Nomád nebo zombie mytologické",
             "myth_1": "Originální nebo klasicke mytologické",
             "myth_2": "Zrcadlové nebo moderní mytologické",
             "pc_1": "Příšerky z pytlíku S1",
             "pc_2": "Příšerky z pytlíku S2",
             "flat": "Zdobní placáci",
-            "temp": "",
+            "temp": "Evoluční cestovatelé / tPOB",
             "scatter": "Rozprášené"
         },
         "pro": {
-            "tob": "",
+            "tob": "AlternaMyth nebo PC na útěku",
             "nomad": "Nomád",
-            "retire": "zombie mytologické",
-            "myth_1": "Originální mytologické",
+            "retire": "Zombie mytologické",
+            "myth_1": "Původní mytologické",
             "myth_2": "Klasické mytologické",
             "myth_3": "Zrcadlové mytologické",
             "myth_4": "Moderní mytologické",
             "pc_1": "Příšerky z pytlíku S1",
             "pc_2": "Příšerky z pytlíku S2",
-            "pc_fun": "",
+            "pc_fun": "Funfinity kámen",
             "flat": "Zdobní placáci",
-            "temp": "",
+            "temp": "Evoluční cestovatelé / tPOB",
             "pscatter": "Fyzické",
             "vscatter": "Virtuální rozprášené"
         }
@@ -244,8 +244,8 @@
         "update": "Vynutit aktualizaci",
         "theme": "Téma: {name}",
         "language": "Jazyk: {name}",
-        "logout": "",
-        "save": ""
+        "logout": "Odhlásit",
+        "save": "Uložit nastavení"
     },
     "bouncers": {
         "duration": "Doba čekání: {duration}"
@@ -256,14 +256,14 @@
         "type": "Typ: {type}"
     },
     "quest": {
-        "task_1": "",
-        "task_2": "",
-        "task_3": "",
-        "task_4": "",
+        "task_1": "Zachycení/založení mysterek",
+        "task_2": "Zachycení/založení evolucí",
+        "task_3": "Zachycení/založení zbraní",
+        "task_4": "Zachycení/založení drahokamů",
         "task_5": "Chytit /m/XeresDan/1707",
-        "task_6": "",
-        "task_7": "",
-        "task_8": ""
+        "task_6": "Založení placáků",
+        "task_7": "Zachycení/založení ubytování",
+        "task_8": "Zachycení cestovatelů"
     },
     "themes": {
         "black": "Černá",
@@ -276,7 +276,7 @@
         "white": "Bílá"
     },
     "screens": {
-        "_redirect": "",
+        "_redirect": "_přesměrování",
         "Map": "Mapa",
         "Tools": "Nástroje",
         "Settings": "Nastavení",
@@ -284,8 +284,8 @@
         "Info": "Informace",
         "Scanner": "Čtečka",
         "Calendar": "Kalendář",
-        "Bouncers": "",
-        "BouncerMap": "",
+        "Bouncers": "Cestovatelé",
+        "BouncerMap": "Mapa cestovatelů",
         "MunzeeDetails": "Detaily munzee",
         "MunzeeDetailsID": "Detaily munzee",
         "AllClans": "Všechny klany",
@@ -302,7 +302,7 @@
         "UserSHCPro": "SHC Pro",
         "UserSHCLite": "SHC Lite",
         "UserSHC": "SHC Classic",
-        "UserBouncers": "",
+        "UserBouncers": "Cestovatelé uživatele",
         "DBType": "Typ databáze",
         "DBSearch": "Hledání v databázi",
         "DBCategory": "Kategorie databáze",
