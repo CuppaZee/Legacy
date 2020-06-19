@@ -29,14 +29,14 @@
         "help": "Ajuda",
         "users": "Utilizadores",
         "calendar": "Calendário",
-        "bouncers": "",
-        "notifications": "",
+        "bouncers": "Bouncers",
+        "notifications": "Notificações",
         "contact": {
-            "facebook": "",
-            "email": ""
+            "facebook": "Pode contactar-nos via Facebook",
+            "email": "ou enviar-nos um email para support@cuppazee.app"
         },
-        "clans": "",
-        "logging_in": ""
+        "clans": "Clãs",
+        "logging_in": "A iniciar sessão ..."
     },
     "activity": {
         "user_captured": "{user} Capturado",
@@ -67,15 +67,15 @@
         },
         "none": "Nenhum",
         "user_today": "Hoje",
-        "user_renovated": "",
-        "you_renovated": "",
+        "user_renovated": "{user} renovou o seu Motel",
+        "you_renovated": "Voce renovou um Motel",
         "renovation": {
-            "one": "",
-            "other": ""
+            "one": "Renovação",
+            "other": "Renovações"
         },
         "renovon": {
-            "one": "",
-            "other": ""
+            "one": "{count} Renov-ão",
+            "other": "{count} Renov-ões"
         }
     },
     "user": {
@@ -88,22 +88,22 @@
         "special_hunter_challenge": "Desafio Especial Caçador",
         "captured_types": "Tipos Capturados",
         "activity": "Atividade",
-        "clan_stats": "",
-        "clan_progress_desc": "",
-        "clan_info": "",
-        "clan_info_desc": "",
-        "challenges": "",
-        "sh_lite": "",
-        "sh_pro": "",
-        "your_clan": "",
-        "no_clan": "",
-        "no_clan_desc": ""
+        "clan_stats": "Estatísticas Clã",
+        "clan_progress_desc": "Veja qual o nível que você pode alcançar!",
+        "clan_info": "Grupo de FB com informações da Guerra dos Clãs",
+        "clan_info_desc": "Um ótimo lugar para encontrar um clã ou fazer perguntas!",
+        "challenges": "Desafios",
+        "sh_lite": "Caçada Especial - Leve",
+        "sh_pro": "Caçada Especial - Pro",
+        "your_clan": "Vosso Clã",
+        "no_clan": "Voce não está em nenhum Clã",
+        "no_clan_desc": "Veja o seu progresso abaixo"
     },
     "inventory": {
         "undeployed": "Não implantados",
         "credits": "Créditos",
         "history": "Historico",
-        "unknown_name": ""
+        "unknown_name": "Nome desconhecido"
     },
     "app_info": {
         "credits": "Creditos",
@@ -112,21 +112,21 @@
         "database_contributors": "Contribuidores da Base de Dados",
         "patrons_and_supporters": "Patronos e Patrocinadores",
         "build_n": "Contruir {build}",
-        "patreon_donate": "",
-        "paypal_donate": "",
-        "paypal_donate_desc": "",
+        "patreon_donate": "Mensalmente via Patreon",
+        "paypal_donate": "Uma vez via PayPal",
+        "paypal_donate_desc": "Os donativos por PayPal podem ser enviados para donate@cuppazee.app",
         "custom_titles": {
-            "primary_dev": "",
-            "finnish": "",
-            "dutch": "",
-            "german": "",
-            "hungarian": "",
-            "swedish": "",
-            "french": "",
-            "czech": "",
-            "danish": "",
-            "portugese": "",
-            "lithuanian": ""
+            "primary_dev": "Desenvolvedor Principal",
+            "finnish": "Finlandês",
+            "dutch": "Neerlandês",
+            "german": "Alemão",
+            "hungarian": "Húngaro",
+            "swedish": "Sueco",
+            "french": "Francês",
+            "czech": "Checo",
+            "danish": "Dinamarquês",
+            "portugese": "Português",
+            "lithuanian": "Lituano"
         }
     },
     "your_bouncers": {
@@ -136,7 +136,7 @@
         },
         "last_captured": "\nUltimo capturado: {time}",
         "in_limbo": "Descansando",
-        "host": ""
+        "host": "No {munzee} por {username}"
     },
     "calendar": {
         "days": {
@@ -148,158 +148,158 @@
             "saturday": "S",
             "sunday": "D"
         },
-        "off": ""
+        "off": "Desligado"
     },
     "clan": {
-        "requirements": "",
-        "rewards": "",
-        "individual": "",
-        "group": "",
-        "level_n": "",
-        "shadow": "",
-        "goal": "",
+        "requirements": "Requiisitos",
+        "rewards": "Recompensas",
+        "individual": "Individual",
+        "group": "Grupo",
+        "level_n": "Nível {level}",
+        "shadow": "Clã Sombra",
+        "goal": "Objetivo",
         "view": {
-            "subtract": "",
-            "total": ""
+            "subtract": "Retirar visualização",
+            "total": "Vista Global"
         },
-        "share": "",
-        "indiv": "",
-        "group_total": "",
+        "share": "Partilha",
+        "indiv": "Indiv",
+        "group_total": "Total Grupo",
         "level": {
-            "one": "",
-            "other": ""
+            "one": "Nível",
+            "other": "Niveis"
         }
     },
     "search": {
-        "clan": "",
-        "type": "",
-        "empty": "",
-        "user": ""
+        "clan": "Procurar um clã",
+        "type": "Procurar por Tipo de Munzee",
+        "empty": "Sem resultados :(\n",
+        "user": "Procurar por um Utilizador"
     },
     "db": {
-        "go_back": "",
-        "types_search": "",
-        "category": "",
+        "go_back": "Volte atrás",
+        "types_search": "Tipos Procurar",
+        "category": "Categoria",
         "type": {
-            "info": "",
-            "evo": "",
-            "pouch": "",
-            "can_host": "",
-            "lands_on": ""
+            "info": "Icon: {icon} - ID: {id}",
+            "evo": "Fases de Evolução",
+            "pouch": "Fases Pouch",
+            "can_host": "Pode hospedar",
+            "lands_on": "Aterrar"
         }
     },
     "auth": {
-        "add": "",
-        "welcome": "",
-        "tap": ""
+        "add": "Adicionar um novo Utilizador",
+        "welcome": "Bem-vindo ao CuppaZee\n",
+        "tap": "Clique abaixo para fazer login"
     },
     "shc": {
         "lite": {
-            "tob": "",
-            "nomad": "",
-            "myth_1": "",
-            "myth_2": "",
-            "pc_1": "",
-            "pc_2": "",
-            "flat": "",
-            "temp": "",
-            "scatter": ""
+            "tob": "AlternaMyth ou Escaped PC",
+            "nomad": "Nómada ou Mitológico Retirado",
+            "myth_1": "Original or Clássico Mitológico",
+            "myth_2": "Refletido ou Moderno Mitológico",
+            "pc_1": "Pouch Criatura S1",
+            "pc_2": "Pouch Criatura S2",
+            "flat": "Fancy Flat",
+            "temp": "Evo Bouncer / tPOB",
+            "scatter": "Scatter"
         },
         "pro": {
-            "tob": "",
-            "nomad": "",
-            "retire": "",
-            "myth_1": "",
-            "myth_2": "",
-            "myth_3": "",
-            "myth_4": "",
-            "pc_1": "",
-            "pc_2": "",
-            "pc_fun": "",
-            "flat": "",
-            "temp": "",
-            "pscatter": "",
-            "vscatter": ""
+            "tob": "AlternaMyth ou Escaped PC",
+            "nomad": "Nómada",
+            "retire": "Mitológico Retirado ",
+            "myth_1": "Mitológico original",
+            "myth_2": "Mitológico Clássico",
+            "myth_3": "Mitológico Refletido\n",
+            "myth_4": "Mitológico moderno",
+            "pc_1": "Pouch Criatura S1",
+            "pc_2": "Pouch Criatura S2",
+            "pc_fun": "Funfinity Stone",
+            "flat": "Fancy Flat",
+            "temp": "Evo Bouncer / tPOB",
+            "pscatter": "Scatter Físico",
+            "vscatter": "Scatter Virtual"
         }
     },
     "notifications": {
-        "munzee_blog": "",
-        "save": "",
-        "unavailable_web": "",
-        "unavailable_generic": ""
+        "munzee_blog": "Blogue do Munzee",
+        "save": "Guardar",
+        "unavailable_web": "Notificações estão indisponíveis na Internet",
+        "unavailable_generic": "Notificações estão indisponíveis. Você aceitou as permissões?"
     },
     "settings": {
-        "add_user": "",
-        "update": "",
-        "theme": "",
-        "language": "",
-        "logout": "",
-        "save": ""
+        "add_user": "Adicionar Utilizador",
+        "update": "Forçar Atualização.",
+        "theme": "Tema: {name}",
+        "language": "Linguagem: {name}",
+        "logout": "Sair",
+        "save": "Guardar configurações"
     },
     "bouncers": {
-        "duration": ""
+        "duration": "Duração: {duration}"
     },
     "scanner": {
-        "scan_new": "",
-        "munzee": "",
-        "type": ""
+        "scan_new": "Scan novo Munzee",
+        "munzee": "{name} por {username}",
+        "type": "Tipo: {type}"
     },
     "quest": {
-        "task_1": "",
-        "task_2": "",
-        "task_3": "",
-        "task_4": "",
-        "task_5": "",
-        "task_6": "",
-        "task_7": "",
-        "task_8": ""
+        "task_1": "Capturas de Mistérios / Implantações",
+        "task_2": "Evo Caps/Deps",
+        "task_3": "Armas Caps/Deps",
+        "task_4": "Jóias Caps/Deps",
+        "task_5": "Capture /m/XeresDan/1707",
+        "task_6": "Flat Friend Implantações",
+        "task_7": "Destination Caps/Deps",
+        "task_8": "Capturas de Bouncers"
     },
     "themes": {
-        "black": "",
-        "blue": "",
-        "bluegrey": "",
-        "darkblue": "",
-        "green": "",
-        "grey": "",
-        "purple": "",
-        "white": ""
+        "black": "Preto",
+        "blue": "Azul",
+        "bluegrey": "Azul acinzentado",
+        "darkblue": "Azul escuro",
+        "green": "Verde",
+        "grey": "Cinzento",
+        "purple": "Roxo",
+        "white": "Branco"
     },
     "screens": {
-        "_redirect": "",
-        "Map": "",
-        "Tools": "",
-        "Settings": "",
-        "Notifications": "",
-        "Info": "",
-        "Scanner": "",
-        "Calendar": "",
-        "Bouncers": "",
-        "BouncerMap": "",
-        "MunzeeDetails": "",
-        "MunzeeDetailsID": "",
-        "AllClans": "",
-        "ClanRequirements": "",
-        "ClanSearch": "",
-        "Clan": "",
-        "UserSearch": "",
-        "UserDetails": "",
-        "UserActivity": "",
-        "UserInventory": "",
-        "UserClan": "",
-        "UserQuest": "",
-        "UserCapturesCategory": "",
-        "UserSHCPro": "",
-        "UserSHCLite": "",
-        "UserSHC": "",
-        "UserBouncers": "",
-        "DBType": "",
-        "DBSearch": "",
-        "DBCategory": "",
-        "Auth": ""
+        "_redirect": "_redirecionar",
+        "Map": "Mapa",
+        "Tools": "Ferramentas",
+        "Settings": "Configurações",
+        "Notifications": "Notificações",
+        "Info": "Informação",
+        "Scanner": "Scanner",
+        "Calendar": "Calendário",
+        "Bouncers": "Bouncers",
+        "BouncerMap": "Mapa de Bouncers",
+        "MunzeeDetails": "Munzee Detalhes",
+        "MunzeeDetailsID": "Munzee Detalhes",
+        "AllClans": "Todos os Clãs",
+        "ClanRequirements": "Requisitos do Clã",
+        "ClanSearch": "Procurar Clã",
+        "Clan": "Estatísticas do Clã",
+        "UserSearch": "Procurar Utilizador",
+        "UserDetails": "Detalhes do Utilizador",
+        "UserActivity": "Atividade",
+        "UserInventory": "Inventário",
+        "UserClan": "Progresso do Clã",
+        "UserQuest": "Quest Progresso",
+        "UserCapturesCategory": "Capturas Categoria",
+        "UserSHCPro": "SHC Pro",
+        "UserSHCLite": "SHC Lite",
+        "UserSHC": "SHC Clássico",
+        "UserBouncers": "Bouncers do Utilizador",
+        "DBType": "Tipos Base de Dados ",
+        "DBSearch": "Procurar Base de Dados",
+        "DBCategory": "Base de Dados Categoria",
+        "Auth": "Autenticação"
     },
     "changelog": {
-        "build_n": "",
-        "continue": "",
-        "no_changelog": ""
+        "build_n": "Construído {n}",
+        "continue": "Continuar para CuppaZee",
+        "no_changelog": "Sem jornal de alterações"
     }
 }
