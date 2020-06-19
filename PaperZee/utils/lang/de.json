@@ -54,8 +54,8 @@
             "other": "{count} Captures"
         },
         "deploy": {
-            "one": "Deploy",
-            "other": "Deploys"
+            "one": "{count} Deploy",
+            "other": "{count} Deploys"
         },
         "capon": {
             "one": "{count} CapOn",
