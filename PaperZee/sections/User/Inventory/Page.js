@@ -27,11 +27,11 @@ function InventoryHistoryItem({ i, theme }) {
       {i.reason.match(/premium/i) && <MaterialCommunityIcons name="star-outline" size={24} color={theme.page_content.fg} />}
       {i.reason.match(/zeeops/i) && <MaterialCommunityIcons name="briefcase-outline" size={24} color={theme.page_content.fg} />}
 
-      {i.reason.match(/giveaway/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: 'https://munzee.global.ssl.fastly.net/images/pins/theunicorn_full.png' }} />}
-      {i.reason.match(/magnetus/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: 'https://munzee.global.ssl.fastly.net/images/pins/magnetus.png' }} />}
-      {i.reason.match(/prize\s*wheel/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: 'https://munzee.global.ssl.fastly.net/images/pins/prizewheel.png' }} />}
-      {i.reason.match(/pimedus/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: 'https://munzee.global.ssl.fastly.net/images/pins/pimedus.png' }} />}
-      {i.reason.match(/space\s*coast/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: 'https://server.cuppazee.app/spacecoastgeostore.png' }} />}
+      {i.reason.match(/giveaway/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: getIcon('theunicorn_full') }} />}
+      {i.reason.match(/magnetus/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: getIcon('magnetus') }} />}
+      {i.reason.match(/prize\s*wheel/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: getIcon('prizewheel') }} />}
+      {i.reason.match(/pimedus/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: getIcon('pimedus') }} />}
+      {i.reason.match(/space\s*coast/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: getIcon('https://server.cuppazee.app/spacecoastgeostore.png') }} />}
     </View>
   </TouchableRipple>
 }

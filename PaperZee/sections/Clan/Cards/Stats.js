@@ -13,6 +13,7 @@ import useAPIRequest from 'utils/hooks/useAPIRequest';
 import useLevelColours from 'utils/hooks/useLevelColours';
 import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
+import getIcon from 'utils/db/icon';
 var { levelSelect: levelSelectX } = s
 
 var countup = (t) => (a, b) => {
@@ -223,7 +224,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
                   }
                 }}>
                   <View style={{ height: (96 - 19) * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'].bg }}>
-                    <Image source={{ uri: data?.requirements?.[i]?.icon ?? data?.requirements?.[i]?.icons?.[tick % data?.requirements?.[i]?.icons?.length] }} style={{ height: 36 * s, width: 36 * s }} />
+                    <Image source={{ uri: getIcon(data?.requirements?.[i]?.icon ?? data?.requirements?.[i]?.icons?.[tick % data?.requirements?.[i]?.icons?.length]) }} style={{ height: 36 * s, width: 36 * s }} />
                     <View style={{ flexDirection: "row", alignItems: "baseline" }}>
                       <Text allowFontScaling={false} numberOfLines={1} style={{ color: level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'].fg, textAlign: "center", ...font("bold"), fontSize: 12 * s }}>{data?.requirements?.[i]?.top}</Text>
                       <MaterialCommunityIcons color={level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'].fg} name={sortReq === i ? (ascending ? 'menu-up' : 'menu-down') : 'menu-swap'} size={12 * s} />

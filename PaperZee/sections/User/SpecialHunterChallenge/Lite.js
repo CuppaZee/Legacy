@@ -42,7 +42,7 @@ function SHCItem({ i, m }) {
     style={{ marginTop: 61 }}
   >
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
-      <Image style={{ height: 48, width: 48 }} source={{ uri: i.pin }} />
+      <Image style={{ height: 48, width: 48 }} source={{ uri: getIcon(i.pin) }} />
       <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold") }}>{i.friendly_name}</Text>
       <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold") }}>{t('activity:by_user',{user:i.username})}</Text>
     </View>

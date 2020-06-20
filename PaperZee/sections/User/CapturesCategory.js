@@ -72,7 +72,7 @@ export default function SearchScreen({ navigation, route }) {
                 </View>
               </View>)}
             {categories.filter(i => i.parents.includes(category)).filter(i => hasChild(i)).filter(i=>!i.hidden).map(i => <View key={i.id} style={{ padding: 4, flexDirection: "row", alignItems: "center" }}>
-              <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={{ uri: i.custom_icon ?? `https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png` }} />
+              <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={{ uri: i.custom_icon ?? getIcon(i.icon) }} />
               <View style={{ flex: 1 }}>
                 <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{i.name}</Text>
                 <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{i.category ? `#${i.id}` : t(`db:category`)}</Text>

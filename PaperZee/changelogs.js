@@ -288,5 +288,12 @@ export default {
       title: 'Tweaked Settings Page',
       description: 'Input Labels are now more easily readable'
     }
+  ],
+  152: [
+    {
+      image: 'munzee',
+      title: 'Icon System',
+      description: 'The new Icon System is now used across the whole app'
+    }
   ]
 }

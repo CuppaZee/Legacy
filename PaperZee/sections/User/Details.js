@@ -12,6 +12,7 @@ import font from 'sections/Shared/font';
 import categories from 'utils/db/categories.json';
 import { useTranslation } from 'react-i18next'
 import useMoment from 'utils/hooks/useMoment';
+import getIcon from 'utils/db/icon';
 
 const useComponentSize = () => {
   const [size, setSize] = React.useState(null);
@@ -150,7 +151,7 @@ export default function DetailsScreen({ route }) {
               </View>
               {categories.filter(i => i.parents.includes('root') && !i.hidden).map(i => <TouchableRipple onPress={() => nav.navigate('UserCapturesCategory', { userid: user_id, category: i.id })}>
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
-                  <Image style={{ height: 32, width: 32, marginVertical: -4 }} source={{ uri: `https://munzee.global.ssl.fastly.net/images/pins/${i.icon}.png` }} />
+                  <Image style={{ height: 32, width: 32, marginVertical: -4 }} source={{ uri: getIcon(i.icon) }} />
                   {/* <MaterialCommunityIcons name="star" size={24} color={theme.page_content.fg} /> */}
                   <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>{i.name}</Text>
                   <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />

@@ -9,6 +9,7 @@ import font from 'sections/Shared/font';
 import useAPIRequest from 'utils/hooks/useAPIRequest';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
+import getIcon from 'utils/db/icon';
 
 export default function App() {
   var {t} = useTranslation();
@@ -48,7 +49,7 @@ export default function App() {
             }
           }}>
           <View style={{flexDirection:"row",alignItems:"center",padding:8}}>
-            <Image style={{height:48,width:48}} source={{uri:data[index].munzee_logo}} />
+            <Image style={{height:48,width:48}} source={{uri:getIcon(data[index].munzee_logo)}} />
             <View>
               {data[index].munzee&&<Text allowFontScaling={false} style={{color:'blue',fontSize:16,...font("bold")}}>
                 {t('scanner:munzee',{name:data[index].munzee.friendly_name,username:data[index].munzee.creator_username})}

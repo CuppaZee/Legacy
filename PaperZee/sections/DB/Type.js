@@ -53,7 +53,7 @@ export default function SettingsScreen() {
   return (
     <ScrollView style={{ backgroundColor: theme.page_content.bg }} contentContainerStyle={{padding:8}}>
       <View style={{alignItems:"center"}}>
-        <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(munzee.icon)}.png`}} style={{height:48,width:48}} />
+        <Image source={{uri:getIcon(munzee.icon)}} style={{height:48,width:48}} />
         <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>{munzee.name}</Text>
         <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:20,...font("bold")}}>{t('db:type.info',{icon: munzee.icon, id: munzee.id})}</Text>
       </View>
@@ -132,7 +132,7 @@ export default function SettingsScreen() {
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
           {types.filter(i=>i.bouncer?.base===munzee.bouncer.base).sort((a,b)=>a.bouncer?.stage-b.bouncer?.stage).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
             <View style={{alignItems:"center",padding:4,width:100}}>
-              <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} style={{height:32,width:32}} />
+              <Image source={{uri:getIcon(i.icon)}} style={{height:32,width:32}} />
               <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
               <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
             </View>
@@ -149,7 +149,7 @@ export default function SettingsScreen() {
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
           {munzee.can_host.filter(checkCanHost).map(i=>types.find(x=>x.id==i)).filter(i=>!i.hidden).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
             <View style={{alignItems:"center",padding:4,width:100}}>
-              <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} style={{height:32,width:32}} />
+              <Image source={{uri:getIcon(i.icon)}} style={{height:32,width:32}} />
               <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
               <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
             </View>
@@ -166,7 +166,7 @@ export default function SettingsScreen() {
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
           {munzee.bouncer.lands_on.map(i=>types.find(x=>x.id==i)).filter(i=>!i.hidden).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
             <View style={{alignItems:"center",padding:4,width:100}}>
-              <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} style={{height:32,width:32}} />
+              <Image source={{uri:getIcon(i.icon)}} style={{height:32,width:32}} />
               <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
               <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
             </View>

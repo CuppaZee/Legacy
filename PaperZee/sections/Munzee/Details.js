@@ -11,6 +11,7 @@ import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next'
 import useMoment from 'utils/hooks/useMoment';
 import * as WebBrowser from 'expo-web-browser';
+import getIcon from 'utils/db/icon';
 
 export default function DetailsScreen({ route }) {
   var moment = useMoment();
@@ -36,7 +37,7 @@ export default function DetailsScreen({ route }) {
         <View style={{ padding: 4 }}>
           <Card>
             <View style={{flexDirection:"row",alignItems:"center"}}>
-              <Image style={{height:42,width:42,marginRight:8}} source={{uri:data?.pin_icon}}/>
+              <Image style={{height:42,width:42,marginRight:8}} source={{uri:getIcon(data?.pin_icon)}}/>
               <View style={{flexDirection:"column",flex:1}}>
                 <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{data?.friendly_name}</Text>
                 <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>By {data?.creator_username}</Text>

@@ -11,6 +11,7 @@ import useLevelColours from 'utils/hooks/useLevelColours';
 import { ClanRequirementsConverter } from '../../Clan/Data';
 import font from 'sections/Shared/font';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import getIcon from 'utils/db/icon';
 
 function UserIcon({user_id,size}) { 
   return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size-24)/2, marginTop: -(size-24)/2, height: size, width: size }} />
@@ -72,7 +73,7 @@ export default function ClanScreen({ route }) {
             <Card noPad>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <View style={{ padding: 8 }}>
-                  <Image source={{ uri: requirements?.requirements?.[i]?.icon }} style={{ width: 48, height: 48 }} />
+                  <Image source={{ uri: getIcon(requirements?.requirements?.[i]?.icon) }} style={{ width: 48, height: 48 }} />
                 </View>
                 <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
                   <Text allowFontScaling={false} style={{ fontSize: 20, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{requirements?.requirements?.[i]?.top} {requirements?.requirements?.[i]?.bottom}</Text>
