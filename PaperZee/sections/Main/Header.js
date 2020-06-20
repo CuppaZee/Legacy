@@ -43,7 +43,7 @@ export default function Header(props) {
       title={t(`screens:${props.scene?.route?.name}`)}
     />
     <LoadingButton />
-    <TouchableRipple onPress={()=>nav.navigate('Calendar')} style={{width:width>600?80:60}}>
+    <TouchableRipple onPress={()=>nav.navigate('Calendar')} style={{width:width>600?80:60,height:"100%"}}>
       <Tile header={true} theme={theme} date={now.format(width>600?'HH:mm:ss':'HH:mm')} extraText={now.format('DD/MM')} data={CalData?.[now.year()]?.[now.month()]?.[now.date()-1]??''} />
     </TouchableRipple>
     

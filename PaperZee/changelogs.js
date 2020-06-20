@@ -276,5 +276,17 @@ export default {
       title: "Future Plans",
       description: 'I will be continuing to make more pages use CuppaZee\'s icon server in more places in future updates in order to improve performance and lower data usage.'
     }
+  ],
+  151: [
+    {
+      icon: 'calendar',
+      title: 'Tweaked Header',
+      description: 'Fixed a bug with Calendar Display on Firefox'
+    },
+    {
+      icon: 'settings',
+      title: 'Tweaked Settings Page',
+      description: 'Input Labels are now more easily readable'
+    }
   ]
 }

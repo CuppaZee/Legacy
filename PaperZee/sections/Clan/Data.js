@@ -42,7 +42,8 @@ export function ClanRequirementsConverter(req, rewards) {
     }
     output.levels.push(level_data);
   }
-  var reqls = Object.keys(output.requirements).map(Number).sort((a, b) => a - b);
+  var reqls = Object.keys(output.requirements).map(Number);
+  reqls.sort((a, b) => a - b);
   output.order = {
     individual: reqls.filter(i => individual[i]).sort((a, b) => group[a] ? (group[b] ? 0 : 1) : -1),
     group: reqls.filter(i => group[i]).sort((a, b) => individual[a] ? (individual[b] ? 0 : -1) : 1),

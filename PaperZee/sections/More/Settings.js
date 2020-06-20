@@ -193,19 +193,20 @@ export default function SettingsScreen({ navigation }) {
                 ["clan_level_5",   "Level 5"],
                 ["clan_level_null","Empty"]
               ].map(i => <View style={{ padding: 4 }}>
+                <Text allowFontScaling={false} style={{ fontSize: 14, lineHeight: 14, marginBottom: -4, ...font(), color: theme.page_content.fg }}>{i[1]}</Text>
                 <TextInput
                   dense={true}
                   mode="outlined"
                   theme={{
                     dark: theme.dark,
                     colors: {
-                      primary: whiteOrBlack(settings[i[0]]||"")??theme.page_content.fg,
+                      primary: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? whiteOrBlack(settings[i[0]]||"") : theme.page_content.fg,
                       background: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? settings[i[0]] : theme.page_content.bg,
-                      placeholder: whiteOrBlack(settings[i[0]]||"")??theme.page_content.fg,
-                      text: whiteOrBlack(settings[i[0]]||"")??theme.page_content.fg
+                      placeholder: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? whiteOrBlack(settings[i[0]]||"") : theme.page_content.fg,
+                      text: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? whiteOrBlack(settings[i[0]]||"") : theme.page_content.fg
                     }
                   }}
-                  label={i[1]}
+                  placeholder={i[1]}
                   value={settings[i[0]]}
                   onChangeText={text => setSetting(i[0], text)}
                 />
