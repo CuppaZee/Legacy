@@ -3,7 +3,10 @@
     "name": "Greenie",
     "icon": "munzee",
     "id": 0,
-    "state": "physical"
+    "state": "physical",
+    "extra": {
+      "alt_icons": ["greenie","normal","standard"]
+    }
   },
   {
     "name": "Premium",

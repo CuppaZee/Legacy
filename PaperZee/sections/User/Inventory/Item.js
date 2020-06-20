@@ -4,6 +4,7 @@ import { ActivityIndicator, Menu, TouchableRipple } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
+import getIcon from 'utils/db/icon';
 
 export default function InventoryItem({i}) {
   var {t} = useTranslation();
@@ -15,7 +16,7 @@ export default function InventoryItem({i}) {
     anchor={
       <TouchableRipple onPress={() => setOpen(true)}>
         <View key={i.icon} style={{ padding: 2, alignItems: "center", opacity: i.amount ? 1 : 0.2 }}>
-          <Image style={{ height: 36, width: 36 }} source={{ uri: i.icon.replace("https://munzee.global.ssl.fastly.net/images/pins","https://server.cuppazee.app/pins/64").replace(/_/g,'') }} />
+          <Image style={{ height: 36, width: 36 }} source={{ uri: getIcon(i.icon) }} />
           <Text allowFontScaling={false} style={{ ...font(), color: theme.page_content.fg, fontSize: 16 }}>{i.amount}</Text>
         </View>
       </TouchableRipple>
@@ -23,7 +24,7 @@ export default function InventoryItem({i}) {
     style={{ marginTop: 61 }}
   >
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
-      <Image style={{ height: 48, width: 48 }} source={{ uri: i.icon.replace("https://munzee.global.ssl.fastly.net/images/pins","https://server.cuppazee.app/pins/64").replace(/_/g,'') }} />
+      <Image style={{ height: 48, width: 48 }} source={{ uri: getIcon(i.icon) }} />
       <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{i.amount}x {i.name || t('inventory:unknown_name')}</Text>
     </View>
   </Menu>;

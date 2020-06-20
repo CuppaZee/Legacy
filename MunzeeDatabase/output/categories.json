@@ -26,6 +26,33 @@
     "priority": 10
   },
   {
+    "name": "2019 Seasonal Specials",
+    "id": "seasonal_2019",
+    "icon": "switzerlandglobalgrub",
+    "parents": [
+      "seasonal"
+    ],
+    "priority": 9
+  },
+  {
+    "name": "2018 Seasonal Specials",
+    "id": "seasonal_2018",
+    "icon": "flatsanta2018",
+    "parents": [
+      "seasonal"
+    ],
+    "priority": 8
+  },
+  {
+    "name": "2017 Seasonal Specials",
+    "id": "seasonal_2017",
+    "icon": "christmas2017sun",
+    "parents": [
+      "seasonal"
+    ],
+    "priority": 7
+  },
+  {
     "name": "Seasonal Specials",
     "id": "seasonal",
     "icon": "bouncing_specials_filter",
@@ -36,11 +63,29 @@
     "priority": 7
   },
   {
+    "name": "2016 Seasonal Specials",
+    "id": "seasonal_2016",
+    "icon": "firework2016",
+    "parents": [
+      "seasonal"
+    ],
+    "priority": 6
+  },
+  {
     "name": "Bouncers",
     "id": "bouncer",
     "icon": "expiring_specials_filter",
     "parents": [
       "root"
+    ],
+    "priority": 5
+  },
+  {
+    "name": "2015 Seasonal Specials",
+    "id": "seasonal_2015",
+    "icon": "frankensteinbody",
+    "parents": [
+      "seasonal"
     ],
     "priority": 5
   },
@@ -483,20 +528,59 @@
     }
   },
   {
-    "name": "Knight's Armor 2019",
-    "id": "knightsarmor2019",
-    "icon": "knight'shelmet2019",
+    "name": "Global Grub",
+    "id": "globalgrub2019",
+    "icon": "switzerlandglobalgrub",
     "parents": [
       "seasonal_2019"
     ],
     "seasonal": {
       "year": 2019,
-      "starts": 1568955660000,
-      "ends": 1570337940000
+      "starts": null,
+      "ends": null
     }
   },
   {
-    "name": "MH-Qlue 2019",
+    "name": "Christmas 2019",
+    "id": "christmas20192019",
+    "icon": "kringle'scowboyhat",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Ninja-Bread Men 2019",
+    "id": "ninjabread men 20192019",
+    "icon": "shurikenninja-breadman",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Origami Day 2019",
+    "id": "origamiday 20192019",
+    "icon": "origamiboat",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "MH-Qlue",
     "id": "mhqlue2019",
     "icon": "mh-qlue",
     "parents": [
@@ -504,43 +588,698 @@
     ],
     "seasonal": {
       "year": 2019,
-      "starts": 1571720460000,
-      "ends": 1573019940000
+      "starts": null,
+      "ends": null
     }
   },
   {
-    "name": "Monster Nomads 2019",
-    "id": "monsternomad2019",
-    "icon": "mummyhand",
+    "name": "Monster Nomads",
+    "id": "monsternomads2019",
+    "icon": "frankenstein'shand",
     "parents": [
       "seasonal_2019"
     ],
     "seasonal": {
       "year": 2019,
-      "starts": 1571893260000,
-      "ends": 1572847140000
+      "starts": null,
+      "ends": null
     }
   },
   {
-    "name": "Origami Day 2019",
-    "id": "origamiday2019",
-    "icon": "origamicrane",
+    "name": "Knight's Armor",
+    "id": "knights armor2019",
+    "icon": "knight'shelmet2019",
     "parents": [
       "seasonal_2019"
     ],
     "seasonal": {
       "year": 2019,
-      "starts": 1573246800000,
-      "ends": 1574143140000
+      "starts": null,
+      "ends": null
     }
   },
   {
-    "name": "2019 Seasonal Specials",
-    "id": "seasonal_2019",
-    "icon": "origamicrane",
+    "name": "Teeth",
+    "id": "teeth2019",
+    "icon": "whitetooth2019",
     "parents": [
-      "seasonal"
-    ]
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "She Said YES",
+    "id": "shesaid yes2019",
+    "icon": "shesaidyes-physical",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "8 Mate",
+    "id": "8mate2019",
+    "icon": "8mate",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Flat Shuttle",
+    "id": "flatshuttle2019",
+    "icon": "flatshuttle",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Magic 8 Ball",
+    "id": "magic8 ball2019",
+    "icon": "magic8ball-???u00bf??",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Coupe du Munzee",
+    "id": "coupedu munzee2019",
+    "icon": "argentinacoupedumunzee",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Scavenger Hunt Day",
+    "id": "scavengerhunt day2019",
+    "icon": "scavengerhuntdaycompass",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "PinPoints",
+    "id": "pinpoints2019",
+    "icon": "pinpointsphysical",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Alien Day Invasion",
+    "id": "alienday invasion2019",
+    "icon": "ufo",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Zeester Eggs",
+    "id": "zeestereggs2019",
+    "icon": "whiteegg",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Benson",
+    "id": "benson2019",
+    "icon": "bouncingbenson",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "April Fools' Day 2019",
+    "id": "aprilfools' day 20192019",
+    "icon": "flatfish",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Saint Patrick's Day 2019",
+    "id": "saintpatrick's day 20192019",
+    "icon": "poto'gold",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Valentine's Day 2019",
+    "id": "valentines day 20192019",
+    "icon": "heavenlyhammock",
+    "parents": [
+      "seasonal_2019"
+    ],
+    "seasonal": {
+      "year": 2019,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Christmas 2018",
+    "id": "christmas20182018",
+    "icon": "flatsanta2018",
+    "parents": [
+      "seasonal_2018"
+    ],
+    "seasonal": {
+      "year": 2018,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Retro Logos",
+    "id": "retrologos2018",
+    "icon": "2018munzeelogo",
+    "parents": [
+      "seasonal_2018"
+    ],
+    "seasonal": {
+      "year": 2018,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Zombie Outbreak",
+    "id": "zombieoutbreak2018",
+    "icon": "zombieoutbreak2018",
+    "parents": [
+      "seasonal_2018"
+    ],
+    "seasonal": {
+      "year": 2018,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Talk like a Pirate Day 2018",
+    "id": "talklike a pirate day 20182018",
+    "icon": "cargoship",
+    "parents": [
+      "seasonal_2018"
+    ],
+    "seasonal": {
+      "year": 2018,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Bacon Day 2018",
+    "id": "baconday 20182018",
+    "icon": "americanbacon",
+    "parents": [
+      "seasonal_2018"
+    ],
+    "seasonal": {
+      "year": 2018,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "World Photo Day",
+    "id": "worldphoto day2018",
+    "icon": "worldphotoday2018",
+    "parents": [
+      "seasonal_2018"
+    ],
+    "seasonal": {
+      "year": 2018,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "7th Birthday Clowns",
+    "id": "7thbirthday clowns2018",
+    "icon": "clowncar2018",
+    "parents": [
+      "seasonal_2018"
+    ],
+    "seasonal": {
+      "year": 2018,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "International Yoga Day",
+    "id": "internationalyoga day2018",
+    "icon": "cobrayogapose",
+    "parents": [
+      "seasonal_2018"
+    ],
+    "seasonal": {
+      "year": 2018,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Towel Day 2018",
+    "id": "towelday 20182018",
+    "icon": "hitchhiker2018",
+    "parents": [
+      "seasonal_2018"
+    ],
+    "seasonal": {
+      "year": 2018,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Flat Day the 13th Part II",
+    "id": "flatday the 13th part ii2018",
+    "icon": "meanie",
+    "parents": [
+      "seasonal_2018"
+    ],
+    "seasonal": {
+      "year": 2018,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Pi Day 2018",
+    "id": "piday 20182018",
+    "icon": "piday2018",
+    "parents": [
+      "seasonal_2018"
+    ],
+    "seasonal": {
+      "year": 2018,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Valentine's Day 2018",
+    "id": "valentines day 20182018",
+    "icon": "heartcapper1",
+    "parents": [
+      "seasonal_2018"
+    ],
+    "seasonal": {
+      "year": 2018,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "International Thank You Day",
+    "id": "internationalthank you day2018",
+    "icon": "thankyoufromrob2018",
+    "parents": [
+      "seasonal_2018"
+    ],
+    "seasonal": {
+      "year": 2018,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Christmas 2017",
+    "id": "christmas20172017",
+    "icon": "christmas2017sun",
+    "parents": [
+      "seasonal_2017"
+    ],
+    "seasonal": {
+      "year": 2017,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "World Diabetes Day 2017",
+    "id": "worlddiabetes day 20172017",
+    "icon": "worlddiabetesday2017",
+    "parents": [
+      "seasonal_2017"
+    ],
+    "seasonal": {
+      "year": 2017,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "International Left-Handers Day [2017]",
+    "id": "internationalleft-handers day [2017]2017",
+    "icon": "left-handedthumbsup",
+    "parents": [
+      "seasonal_2017"
+    ],
+    "seasonal": {
+      "year": 2017,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "6th Birthday [2017]",
+    "id": "6thbirthday [2017]2017",
+    "icon": "6thbirthdaybang",
+    "parents": [
+      "seasonal_2017"
+    ],
+    "seasonal": {
+      "year": 2017,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "World Turtle Day 2017",
+    "id": "worldturtle day 20172017",
+    "icon": "worldturtleday2017",
+    "parents": [
+      "seasonal_2017"
+    ],
+    "seasonal": {
+      "year": 2017,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "April Fool's Day 2017",
+    "id": "aprilfool's day 20172017",
+    "icon": "theprankster",
+    "parents": [
+      "seasonal_2017"
+    ],
+    "seasonal": {
+      "year": 2017,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "ZeeOps Specials",
+    "id": "zeeopsspecials2017",
+    "icon": "zeeopsspecial",
+    "parents": [
+      "seasonal_2017"
+    ],
+    "seasonal": {
+      "year": 2017,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Valentine's Day 2017",
+    "id": "valentines day 20172017",
+    "icon": "darkchocolate2017",
+    "parents": [
+      "seasonal_2017"
+    ],
+    "seasonal": {
+      "year": 2017,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Groundhog Day 2017",
+    "id": "groundhogday 20172017",
+    "icon": "groundhogday2017",
+    "parents": [
+      "seasonal_2017"
+    ],
+    "seasonal": {
+      "year": 2017,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "New Years Fireworks 2016/17",
+    "id": "newyears fireworks 2016/172016",
+    "icon": "firework2016",
+    "parents": [
+      "seasonal_2016"
+    ],
+    "seasonal": {
+      "year": 2016,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Thanksgiving 2016",
+    "id": "thanksgiving20162016",
+    "icon": "thanksgiving2016",
+    "parents": [
+      "seasonal_2016"
+    ],
+    "seasonal": {
+      "year": 2016,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Remembrance [2016]",
+    "id": "remembrance[2016]2016",
+    "icon": "remembrance",
+    "parents": [
+      "seasonal_2016"
+    ],
+    "seasonal": {
+      "year": 2016,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Back to School 2016",
+    "id": "backto school 20162016",
+    "icon": "backtoschool2016",
+    "parents": [
+      "seasonal_2016"
+    ],
+    "seasonal": {
+      "year": 2016,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "5th Birthday [2016]",
+    "id": "5thbirthday [2016]2016",
+    "icon": "5thbirthday",
+    "parents": [
+      "seasonal_2016"
+    ],
+    "seasonal": {
+      "year": 2016,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Get Outside 2016",
+    "id": "getoutside 20162016",
+    "icon": "getoutside2016",
+    "parents": [
+      "seasonal_2016"
+    ],
+    "seasonal": {
+      "year": 2016,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "April Showers [2016]",
+    "id": "aprilshowers [2016]2016",
+    "icon": "raindrop",
+    "parents": [
+      "seasonal_2016"
+    ],
+    "seasonal": {
+      "year": 2016,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Leap Day 2016",
+    "id": "leapday 20162016",
+    "icon": "leapday2016",
+    "parents": [
+      "seasonal_2016"
+    ],
+    "seasonal": {
+      "year": 2016,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Halloween 2015",
+    "id": "halloween20152015",
+    "icon": "frankensteinbody",
+    "parents": [
+      "seasonal_2015"
+    ],
+    "seasonal": {
+      "year": 2015,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Back to the Future Day [2015]",
+    "id": "backto the future day [2015]2015",
+    "icon": "backtothefutureday",
+    "parents": [
+      "seasonal_2015"
+    ],
+    "seasonal": {
+      "year": 2015,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "4th Birthday [2015]",
+    "id": "4thbirthday [2015]2015",
+    "icon": "4thbirthday",
+    "parents": [
+      "seasonal_2015"
+    ],
+    "seasonal": {
+      "year": 2015,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "May Flowers [2015]",
+    "id": "mayflowers [2015]2015",
+    "icon": "mayflowers",
+    "parents": [
+      "seasonal_2015"
+    ],
+    "seasonal": {
+      "year": 2015,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "April Fool's Day 2015",
+    "id": "aprilfool's day 20152015",
+    "icon": "sillyman",
+    "parents": [
+      "seasonal_2015"
+    ],
+    "seasonal": {
+      "year": 2015,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "Texas Independence Day [2015]",
+    "id": "texasindependence day [2015]2015",
+    "icon": "texasindependence",
+    "parents": [
+      "seasonal_2015"
+    ],
+    "seasonal": {
+      "year": 2015,
+      "starts": null,
+      "ends": null
+    }
+  },
+  {
+    "name": "EventZee Specials [2015]",
+    "id": "eventzeespecials [2015]2015",
+    "icon": "eventzee",
+    "parents": [
+      "seasonal_2015"
+    ],
+    "seasonal": {
+      "year": 2015,
+      "starts": null,
+      "ends": null
+    }
   },
   {
     "name": "Bouncer Hosts",

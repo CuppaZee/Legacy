@@ -10,6 +10,7 @@ import getType from 'utils/db/types';
 import categories from 'utils/db/categories.json';
 import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next';
+import getIcon from 'utils/db/icon';
 
 function g(icon) {
   return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'').replace(/munzee$/,'');
@@ -92,7 +93,7 @@ export default function SearchScreen({ navigation, route }) {
             </>}
             <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
               {types.filter(i => i.category === cdata.id).filter(i=>!i.hidden&&!i.capture_types).map(i => <View key={i.id} style={{ padding: 4, width: 80, alignItems: "center", opacity: get(i.x)>0?1:0.4 }}>
-                <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={{ uri: i.custom_icon ?? `https://server.cuppazee.app/pins/64/${encodeURIComponent(i.icon)}.png` }} />
+                <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={{ uri: i.custom_icon ?? getIcon(i.icon) }} />
                 <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{i.name}</Text>
                 <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{get(i.x).toString()}</Text>
               </View>)}

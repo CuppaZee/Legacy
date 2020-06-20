@@ -10,6 +10,7 @@ import font from 'sections/Shared/font';
 import Card from 'sections/Shared/Card';
 import DatePicker from 'sections/Shared/DatePicker';
 import useMoment from 'utils/hooks/useMoment';
+import getIcon from 'utils/db/icon';
 
 var creatures = {
   'firepouchcreature': 'tuli',
@@ -30,7 +31,7 @@ var creatures = {
 var hostIcon = (icon) => {
   var host = icon.match(/\/([^\/\.]+?)_?(?:virtual|physical)?_?host\./)?.[1];
   if (!host) return null;
-  return `https://munzee.global.ssl.fastly.net/images/pins/${creatures[host] ?? host}.png`;
+  return getIcon(creatures[host] ?? host);
 }
 function isRenovation(act) {
   return !!(act.pin.includes('/renovation.') && act.captured_at);
@@ -48,7 +49,7 @@ function ActivityListItem({ act, userdata }) {
         </View>
       </View>
       <View style={{ position: 'relative' }}>
-        <Image style={{ height: 32, width: 32 }} source={{ uri: act.pin }} />
+        <Image style={{ height: 32, width: 32 }} source={{ uri: getIcon(act.pin) }} />
         {hostIcon(act.pin) && <Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: -8 }} source={{ uri: hostIcon(act.pin) }} />}
       </View>
     </View>

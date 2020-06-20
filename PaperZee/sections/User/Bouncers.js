@@ -9,6 +9,7 @@ import font from 'sections/Shared/font';
 import useMoment from 'utils/hooks/useMoment';
 import MapView from 'sections/Maps/MapView';
 import { useTranslation } from 'react-i18next';
+import getIcon from 'utils/db/icon';
 
 function UserIcon({ user_id, size }) {
   return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size - 24) / 2, marginTop: -(size - 24) / 2, height: size, width: size }} />
@@ -62,7 +63,7 @@ export default function ClanScreen({ route }) {
             <MapView tracksViewChanges={true} markers={bouncers.filter(i => i.bouncer).map(i => ({
               lat: Number(i.bouncer.latitude),
               lng: Number(i.bouncer.longitude),
-              icon: i.pin_icon.replace('https://munzee.global.ssl.fastly.net/images/pins','https://server.cuppazee.app/pins/64')
+              icon: getIcon(i.pin_icon)
             }))} style={{ flex: 1 }} />
           </Card>
         </View>}

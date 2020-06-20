@@ -11,13 +11,10 @@ import Card from 'sections/Shared/Card';
 import DatePicker from 'sections/Shared/DatePicker';
 import useMoment from 'utils/hooks/useMoment';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import getIcon from 'utils/db/icon';
 
 function g(a) {
   return getType(a.pin || a.icon || a.pin_icon);
-}
-
-function s(icon, size = 64) {
-  return icon.replace('https://munzee.global.ssl.fastly.net/images/pins/', `https://server.cuppazee.app/pins/${size}/`)
 }
 // function f(a) {
 //   return a.toString().replace(/_/g, '').replace(/munzee/g, '');
@@ -37,8 +34,8 @@ function SHCItem({ i, m }) {
     anchor={
       <TouchableRipple onPress={() => setOpen(true)}>
         <View key={i.icon} style={{ padding: 2, alignItems: "center", position: "relative" }}>
-          <Image style={{ height: 32, width: 32 }} source={{ uri: s(i.pin) }} />
-          {m && <Image style={{ height: 20, width: 20, position: "absolute", bottom: 0, right: -4 }} source={{ uri: s(m.pin) }} />}
+          <Image style={{ height: 32, width: 32 }} source={{ uri: getIcon(i.pin) }} />
+          {m && <Image style={{ height: 20, width: 20, position: "absolute", bottom: 0, right: -4 }} source={{ uri: getIcon(m.pin) }} />}
         </View>
       </TouchableRipple>
     }
@@ -181,7 +178,7 @@ export default function UserSHCScreen() {
           <Card noPad>
             <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
               <View style={{ padding: 8 }}>
-                <Image source={{ uri: `https://server.cuppazee.app/pins/128/${i?.icon}.png` }} style={{ width: 36, height: 36 }} />
+                <Image source={{ uri: getIcon(i?.icon,128) }} style={{ width: 36, height: 36 }} />
               </View>
               <View style={{ paddingRight: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
                 <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{category_data[i.name].length}x {i?.name}</Text>

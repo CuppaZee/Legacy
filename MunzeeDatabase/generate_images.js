@@ -3,9 +3,15 @@ var path = require('path');
 var axios = require('axios');
 var fs = require('fs');
 
+function g(icon) {
+  var x = icon.replace(/[^a-zA-Z0-9]/g,'');
+  if(x!=="munzee"&&x.endsWith('munzee')) return x.replace(/munzee$/,'')
+  return x;
+}
+
 async function downloadIcon (icon,size) {
   const url = `https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(icon)}.png`
-  const savePath = path.resolve(__dirname, '../FlameZee/public/pins/'+size, `${icon.replace(/_/g,'')}.png`)
+  const savePath = path.resolve(__dirname, '../FlameZee/public/pins/'+size, `${g(icon)}.png`)
   if(fs.existsSync(savePath)) return new Promise((resolve, reject)=>{
     resolve(true);
   });

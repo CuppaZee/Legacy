@@ -254,5 +254,27 @@ export default {
       title: 'Updated Munzee Types',
       description: 'Added "Polyp with Bulbs"'
     }
+  ],
+  150: [
+    {
+      image: 'https://munzee.global.ssl.fastly.net/images/pins/magic8ball-%3F%3F%3Fu00bf%3F%3F.png',
+      title: 'Updated Munzee Types',
+      description: 'Added 2015-2019 Seasonal Specials (currently missing Duration and Lands On info)'
+    },
+    {
+      image: 'summercard',
+      title: 'Revamped Icon System',
+      description: 'Icons on most pages are now requested from CuppaZee\'s servers if possible. This also means that CuppaZee isn\'t affected by Munzee\'s current issues with Summer and Winter Card icons!'
+    },
+    {
+      icon: 'signal-cellular-1',
+      title: 'Lower Data Usage',
+      description: 'The improved icon system also reduces data used as it requests smaller 64x64 or 128x128 images instead of huge 512x512 or larger images from Munzee.'
+    },
+    {
+      icon: "clock-outline",
+      title: "Future Plans",
+      description: 'I will be continuing to make more pages use CuppaZee\'s icon server in more places in future updates in order to improve performance and lower data usage.'
+    }
   ]
 }

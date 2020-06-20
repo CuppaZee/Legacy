@@ -8,6 +8,7 @@ import types from 'utils/db/types.json';
 import categories from 'utils/db/categories.json';
 import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next'
+import getIcon from 'utils/db/icon';
 
 export default function SearchScreen({ navigation, route }) {
   var {t} = useTranslation();
@@ -25,7 +26,7 @@ export default function SearchScreen({ navigation, route }) {
           <View>
             {parent_datas.map(parent_data=>parent_data.id!=="root"?<View style={{padding: 4, flexDirection: "row", alignItems: "center"}}>
               <IconButton size={24} onPress={()=>navigation.push('DBCategory',{category:parent_data.id})} icon="chevron-left" color={theme.page_content.fg} />
-              <Image style={{height:32,width:32,marginHorizontal:8}} source={{uri:parent_data.custom_icon??`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(parent_data.icon)}.png`}} />
+              <Image style={{height:32,width:32,marginHorizontal:8}} source={{uri:parent_data.custom_icon??getIcon(parent_data.icon)}} />
               <View style={{flex:1}}>
                 <Text allowFontScaling={false} style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{parent_data.name}</Text>
                 <Text allowFontScaling={false} style={{...font("bold"),fontSize:12,color:theme.page_content.fg}}>{t(`db:go_back`)}</Text>
@@ -45,7 +46,7 @@ export default function SearchScreen({ navigation, route }) {
               <Text allowFontScaling={false} style={{...font(),textAlign:"center",color:theme.page_content.fg}}>{t('bouncers:duration',{duration:moment.duration(moment(category_data.seasonal.starts).diff(moment(category_data.seasonal.ends))).humanize()})}</Text>
             </>}
             {[...types.filter(i=>i.category===category),...categories.filter(i=>i.parents.includes(category))].filter(i=>!i.hidden).map(i=><View key={i.id} style={{padding: 4, flexDirection: "row", alignItems: "center"}}>
-              <Image style={{height:32,width:32,marginHorizontal:8}} source={{uri:i.custom_icon??`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} />
+              <Image style={{height:32,width:32,marginHorizontal:8}} source={{uri:i.custom_icon??getIcon(i.icon)}} />
               <View style={{flex:1}}>
                 <Text allowFontScaling={false} style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{i.name}</Text>
                 <Text allowFontScaling={false} style={{...font("bold"),fontSize:12,color:theme.page_content.fg}}>{i.category?`#${i.id}`:t(`db:category`)}</Text>

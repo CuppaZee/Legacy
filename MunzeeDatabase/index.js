@@ -840,19 +840,17 @@ categories = categories.concat(require('./types/seasonals').map(c => {
     }
   }
 }));
-categories.push({
-  name: "2020 Seasonal Specials",
-  id: "seasonal_2020",
-  icon: categories.slice().sort((a, b) => (b.seasonal || {}).starts - (a.seasonal || {}).starts).find(i => i.parents.includes("seasonal_2020")).icon,
-  parents: ["seasonal", "root"],
-  priority: 10
-})
-categories.push({
-  name: "2019 Seasonal Specials",
-  id: "seasonal_2019",
-  icon: categories.slice().sort((a, b) => (b.seasonal || {}).starts - (a.seasonal || {}).starts).find(i => i.parents.includes("seasonal_2019")).icon,
-  parents: ["seasonal"]
-})
+var priority = 10;
+for(var year of [2020,2019,2018,2017,2016,2015]) {
+  categories.push({
+    name: year+" Seasonal Specials",
+    id: "seasonal_"+year,
+    icon: categories.slice().sort((a, b) => (b.seasonal || {}).starts - (a.seasonal || {}).starts).find(i => i.parents.includes("seasonal_"+year)).icon,
+    parents: priority==10?["seasonal", "root"]:["seasonal"],
+    priority: priority
+  })
+  priority--;
+}
 categories.push({
   name: "Seasonal Specials",
   id: "seasonal",
@@ -976,12 +974,20 @@ categories.sort((a, b) => (b.priority || 0) - (a.priority || 0));
 
 var typekeys = {};
 
+function g(icon) {
+  if(icon.startsWith('https://munzee.global')) icon = icon.slice(49,-4);
+  var x = decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'');
+  if(x!=="munzee"&&x.endsWith('munzee')) return x.replace(/munzee$/,'')
+  return x;
+}
+
 for (var munzee_index in munzees) {
   var munzee = munzees[munzee_index];
   munzee.cids = []
   munzees[munzee_index].x = Number(munzee_index);
+  munzees[munzee_index].i = g(munzee.icon);
   for (var icon of [munzee.icon, ...munzee.alt_icons || []]) {
-    typekeys[icon.replace(/[^a-zA-Z0-9]/g, '').replace(/munzee$/, '')] = Number(munzee_index);
+    typekeys[g(icon)] = Number(munzee_index);
   }
 }
 

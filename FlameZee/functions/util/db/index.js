@@ -10,8 +10,10 @@ var typekeys = require('./typekeys.json');
 //   }
 // }
 function g(icon) {
-  if(icon.startsWith('https://')) icon = icon.slice(49,-4);
-  return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'').replace(/munzee$/,'');
+  if(icon.startsWith('https://munzee.global')) icon = icon.slice(49,-4);
+  var x = decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'');
+  if(x!=="munzee"&&x.endsWith('munzee')) return x.replace(/munzee$/,'')
+  return x;
 }
 
 module.exports = {

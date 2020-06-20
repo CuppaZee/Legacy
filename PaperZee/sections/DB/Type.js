@@ -10,6 +10,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import font from 'sections/Shared/font';
 import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next';
+import getIcon from 'utils/db/icon';
 
 function g(icon) {
   return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'').replace(/munzee$/,'');
@@ -117,7 +118,7 @@ export default function SettingsScreen() {
         <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
           {types.filter(i=>i.evolution?.base===munzee.evolution.base).sort((a,b)=>a.evolution?.stage-b.evolution?.stage).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
             <View style={{alignItems:"center",padding:4,width:100}}>
-              <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(i.icon)}.png`}} style={{height:32,width:32}} />
+              <Image source={{uri:getIcon(i.icon)}} style={{height:32,width:32}} />
               <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
               <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
             </View>
