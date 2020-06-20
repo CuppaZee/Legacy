@@ -14,8 +14,8 @@
         "donate": "Doneren",
         "build_info": "CuppaZee App Versie {count}",
         "user": {
-            "one": "Gebruiker",
-            "other": "Gebruikers"
+            "one": "Speler",
+            "other": "Spelers"
         },
         "clan": {
             "one": "Clan",
@@ -23,7 +23,7 @@
         },
         "more": "Meer",
         "find_user": "Vind een speler",
-        "munzee_types": "Munzee Soorten",
+        "munzee_types": "Soorten Munzee",
         "show_more": "Laat meer zien",
         "show_less": "Laat minder zien",
         "help": "Help",
@@ -41,8 +41,8 @@
     "activity": {
         "user_captured": "{user} captured",
         "user_deployed": "{user} deployed",
-        "you_captured": "captured",
-        "you_deployed": "deployed",
+        "you_captured": "Je hebt captured",
+        "you_deployed": "Je hebt deployed",
         "by_user": "door {user}",
         "by_you": "door jou",
         "total_point": {
@@ -86,12 +86,12 @@
         "clan_progress": "Clan voortgang",
         "quebec_quest_progress": "Quebec Quest voortgang",
         "special_hunter_challenge": "Special Hunter uitdaging",
-        "captured_types": "Captured soorten",
+        "captured_types": "Soorten Captured",
         "activity": "Activiteit",
         "clan_stats": "Clan Stats",
         "clan_progress_desc": "Bekijk welk niveau je kunt behalen!",
         "clan_info": "Clan War Info FB Groep",
-        "clan_info_desc": "A goede plek om een clan te vinden of om vragen te stellen!",
+        "clan_info_desc": "Een goede plek om een clan te vinden of om vragen te stellen!",
         "challenges": "Uitdagingen",
         "sh_lite": "Special Hunter Lite",
         "sh_pro": "Special Hunter Pro",
@@ -116,7 +116,7 @@
         "paypal_donate": "Eenmalig via PayPal",
         "paypal_donate_desc": "PayPal donaties kunnen naar donate@cuppazee.app worden verzonden",
         "custom_titles": {
-            "primary_dev": "Primaire Ontwikkelaar ",
+            "primary_dev": "Primaire Ontwikkelaar",
             "finnish": "Fins",
             "dutch": "Nederlands",
             "german": "Duits",
@@ -134,7 +134,7 @@
             "one": "{count} Capture",
             "other": "{count} Captures"
         },
-        "last_captured": "Laatst Captured: {time}",
+        "last_captured": "Laatst ge-Captured: {time}",
         "in_limbo": "Doet een dutje",
         "host": "Op {munzee} van {username}"
     },
@@ -174,7 +174,7 @@
         "clan": "Zoek een Clan",
         "type": "Zoek een Munzee Type",
         "empty": "Geen resultaat :(",
-        "user": "Zoek een gebruiker"
+        "user": "Zoek een speler"
     },
     "db": {
         "go_back": "Ga terug",
@@ -189,7 +189,7 @@
         }
     },
     "auth": {
-        "add": "Toevoegen nieuwe gebruiker",
+        "add": "Toevoegen nieuwe speler",
         "welcome": "Welkom bij CuppaZee",
         "tap": "Tik hieronder om in te loggen"
     },
@@ -202,7 +202,7 @@
             "pc_1": "Pouch Creature S1",
             "pc_2": "Pouch Creature S2",
             "flat": "Fancy Flat",
-            "temp": "Evo Bouncer /tPOB",
+            "temp": "Evo Bouncer / tPOB",
             "scatter": "Scatter"
         },
         "pro": {
@@ -229,7 +229,7 @@
         "unavailable_generic": "Notificaties zijn niet beschikbaar. Heb je de toestemmingen geaccepteerd?"
     },
     "settings": {
-        "add_user": "Gebruiker Toevoegen ",
+        "add_user": "Gebruiker Toevoegen",
         "update": "Update forceren",
         "theme": "Thema: {name}",
         "language": "Taal: {name}",
@@ -281,19 +281,19 @@
         "ClanRequirements": "Clan Vereisten",
         "ClanSearch": "Clan Zoeken",
         "Clan": "Clan Statistiek",
-        "UserSearch": "Gebruiker Zoeken",
-        "UserDetails": "Details Gebruiker",
+        "UserSearch": "Speler Zoeken",
+        "UserDetails": "Details Speler",
         "UserActivity": "Activiteit",
         "UserInventory": "Inventaris",
         "UserClan": "Clan Voortgang",
         "UserQuest": "Quest Voortgang",
-        "UserCapturesCategory": "Captures Categorieën",
+        "UserCapturesCategory": "Capture Categorieën",
         "UserSHCPro": "SHC Pro",
         "UserSHCLite": "SHC Lite",
         "UserSHC": "SHC Classic",
-        "UserBouncers": "Bouncers Gebruiker",
+        "UserBouncers": "Bouncers Speler",
         "DBType": "Database Types",
-        "DBSearch": "Database Zoeken",
+        "DBSearch": "Database doorzoeken",
         "DBCategory": "Database Categorie",
         "Auth": "Autoriseren"
     },
