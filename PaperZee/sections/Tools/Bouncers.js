@@ -11,10 +11,6 @@ import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next';
 import getIcon from 'utils/db/icon';
 
-function g(icon) {
-  return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'').replace(/munzee$/,'');
-}
-
 export default function SearchScreen({ navigation }) {
   var {t} = useTranslation();
   var moment = useMoment();

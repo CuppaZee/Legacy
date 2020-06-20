@@ -12,9 +12,6 @@ import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next';
 import getIcon from 'utils/db/icon';
 
-function g(icon) {
-  return decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'').replace(/munzee$/,'');
-}
 function u(str) {
   return str[0].toUpperCase() + str.slice(1)
 }
