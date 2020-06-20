@@ -295,5 +295,12 @@ export default {
       title: 'Icon System',
       description: 'The new Icon System is now used across the whole app'
     }
+  ],
+  153: [
+    {
+      icon: 'finance',
+      title: 'Updated Clan Stats',
+      description: 'The rows for users that have been bookmarked now show in bold'
+    }
   ]
 }

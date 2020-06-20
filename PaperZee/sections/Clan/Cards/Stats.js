@@ -56,6 +56,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
   // var { data: clan_data } = useSelector(i => i.request_data[`clan/details/v1?game_id=${game_id}&clan_id=${clan_id}`] ?? {})
   // var clan = clan_data;
   var tick = useSelector(i => i.tick)
+  var userBookmarks = useSelector(i => i.userBookmarks.map(i=>Number(i.user_id)))
   var ls = useSelector(i => i.clanLevelSelect[clan_id] ?? 4);
   var levelSelect = Number(ls.toString().slice(0, 1));
   var share = !!ls.toString().slice(1, 2);
@@ -240,7 +241,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
                   }
                 </View>
                 {members?.map(u => <View style={{ marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[calculateLevel(true, clan.requirements?.[i]?.users?.[u.user_id], i)].bg }}>
-                  <Text allowFontScaling={false} style={{ flexDirection: "row", textAlign: "center", width: '100%', ...font(), fontSize: 12 * s, color: level_colors[calculateLevel(true, clan.requirements?.[i]?.users?.[u.user_id], i)].fg }}>
+                  <Text allowFontScaling={false} style={{ flexDirection: "row", textAlign: "center", width: '100%', ...font(userBookmarks.includes(Number(u.user_id))?"bold":400), fontSize: 12 * s, color: level_colors[calculateLevel(true, clan.requirements?.[i]?.users?.[u.user_id], i)].fg }}>
                     {levelTable ? num((data?.levels?.[levelSelect]?.individual?.[i] || 0) - clan.requirements?.[i]?.users?.[u.user_id]) : num(clan.requirements?.[i]?.users?.[u.user_id])}
                     {/* <Text allowFontScaling={false} style={{paddingLeft:2,fontSize:12,lineHeight:6,textAlignVertical:'top',color:theme.page_content.fg}}>{calculateLevel(true,clan.requirements?.[i]?.users?.[u.user_id],i)}</Text> */}
                   </Text>
@@ -294,7 +295,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
           {members?.map(i => <TouchableWithoutFeedback onPress={() => nav.navigate('UserDetails', { userid: i.user_id })}>
             <View style={{ backgroundColor: level_colors[calculateLevelT(i.user_id)].bg, padding: 4 * s, height: 24 * s, flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }} key={i.name}>
               {(i.leader || i.ghost) && <MaterialCommunityIcons name={i.ghost ? 'ghost' : 'hammer'} color={level_colors[calculateLevelT(i.user_id)].fg} size={12 * s} />}
-              <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{ fontSize: 12 * s, ...font(), flexShrink: 1, color: level_colors[calculateLevelT(i.user_id)].fg }}>{i.username}</Text>
+              <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{ fontSize: 12 * s, ...font(userBookmarks.includes(Number(i.user_id))?"bold":400), flexShrink: 1, color: level_colors[calculateLevelT(i.user_id)].fg }}>{i.username}</Text>
             </View>
           </TouchableWithoutFeedback>)}
           <View style={{ justifyContent: "center", borderTopWidth: 2 * s, borderTopColor: level_colors.border, backgroundColor: level_colors[calculateLevelT(false)].bg, padding: 4 * s, height: 24 * s }}>
