@@ -21,7 +21,10 @@ i18n
   });
 
   AsyncStorage.getItem('LANG',(e,r)=>{
-    if(r) {
+    if(r==="en-US") {
+      i18n.changeLanguage('en');
+      AsyncStorage.setItem('LANG','en');
+    } else if(r) {
       i18n.changeLanguage(r);
     }
   })

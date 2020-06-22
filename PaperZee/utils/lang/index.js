@@ -15,7 +15,7 @@ var plural_list = ["","_plural"]
 
 function x(obj, key){
     var a = {};
-    if(obj.other) {
+    if(obj.other!==undefined) {
         for(var i = 0;i < Object.keys(obj).length;i++) {
             if(Object.keys(obj).length==2) {
                 if(Object.values(obj)[i]) a[`${key}${plural_list[i]}`] = Object.values(obj)[i].replace(/{([a-z0-9_]+)}/g,'{{$1}}');
@@ -43,7 +43,7 @@ export default {
     da:x(da,"a").a,
     de:x(de,"a").a,
     "en-GB":x(en_gb,"a").a,
-    "en-US":x(en_us,"a").a,
+    "en":x(en_us,"a").a,
     fi:x(fi,"a").a,
     fr:x(fr,"a").a,
     hu:x(hu,"a").a,

@@ -302,5 +302,12 @@ export default {
       title: 'Updated Clan Stats',
       description: 'The rows for users that have been bookmarked now show in bold'
     }
+  ],
+  154: [
+    {
+      icon: 'translate',
+      title: 'Fixed a Crash',
+      description: 'Fixed a Crash caused by selecting "English (US)" as your language on iOS or Android'
+    }
   ]
 }
