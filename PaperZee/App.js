@@ -61,7 +61,7 @@ const AllUsersScreen = loadable(() => import('./sections/User/All'), { fallback:
 const UserDetailsScreen = loadable(() => import('./sections/User/Details'), { fallback: <LoadingPage /> })
 const UserActivityScreen = loadable(() => import('./sections/User/Activity/Page'), { fallback: <LoadingPage x="page_content" /> })
 const UserSearchScreen = loadable(() => import('./sections/User/Search'), { fallback: <LoadingPage /> })
-const UserInventoryScreen = loadable(() => import('./sections/User/Inventory/Page'), { fallback: <LoadingPage x="page_content" /> })
+const UserInventoryScreen = loadable(() => import('./sections/User/Inventory/Page'), { fallback: <LoadingPage /> })
 const UserClanScreen = loadable(() => import('./sections/User/Clan/Page'), { fallback: <LoadingPage /> })
 const UserQuestScreen = loadable(() => import('./sections/User/Quest'), { fallback: <LoadingPage /> })
 const UserBouncersScreen = loadable(() => import('./sections/User/Bouncers'), { fallback: <LoadingPage /> })

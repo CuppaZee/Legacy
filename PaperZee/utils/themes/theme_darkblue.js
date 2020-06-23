@@ -27,16 +27,16 @@ export default {
   },
   activity: {
     capture: {
-      bg: "#aaffaa",
-      fg: "#004400"
+      bg: "#004400",
+      fg: "#aaffaa"
     },
     deploy: {
-      bg: "#a5fffc",
-      fg: "#00403e"
+      bg: "#00403e",
+      fg: "#a5fffc"
     },
     capon: {
-      bg: "#ffbcad",
-      fg: "#401700"
+      bg: "#401700",
+      fg: "#ffbcad"
     }
   },
   mapStyle: darkMapStyle

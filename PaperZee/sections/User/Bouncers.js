@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
 import Card from 'sections/Shared/Card';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { FAB } from 'react-native-paper';
-import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import useAPIRequest from 'utils/hooks/useAPIRequest'
 import font from 'sections/Shared/font';
 import useMoment from 'utils/hooks/useMoment';
@@ -18,26 +18,7 @@ function UserIcon({ user_id, size }) {
 export default function ClanScreen({ route }) {
   var {t} = useTranslation();
   var moment = useMoment();
-  var selected_theme = useSelector(i => i.theme);
   var theme = useSelector(i => i.themes[i.theme]);
-  var dark = false;
-  var level_colors = {
-    ind: "#ffe97f",
-    bot: "#dff77e",
-    gro: "#b0fc8d",
-    0: "#eb0000",
-    1: "#ef6500",
-    2: "#fa9102",
-    3: "#fcd302",
-    4: "#bfe913",
-    5: "#55f40b",
-    null: "#e3e3e3",
-    border: '#000a'
-  }
-  if (theme.dark) {
-    dark = true;
-    level_colors.border = "#fffa"
-  }
   var [FABOpen, setFABOpen] = React.useState(false);
   var nav = useNavigation();
   var logins = useSelector(i => i.logins);

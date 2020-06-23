@@ -323,5 +323,12 @@ export default {
       title: 'Added All Users Page',
       description: 'You can now view the activity of your bookmarked users on one page'
     }
+  ],
+  157: [
+    {
+      icon: 'package',
+      title: 'Revamped Inventory Page',
+      description: 'I\'ve revamped the User Inventory page. Feel free to send feedback on Facebook!'
+    }
   ]
 }
