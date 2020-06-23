@@ -299,5 +299,25 @@
       "duration": 2,
       "standalone": true
     }
+  },
+  {
+    "name": "Peach",
+    "icon": "peach",
+    "id": "null_peach",
+    "state": "virtual",
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    }
+  },
+  {
+    "name": "Pear",
+    "icon": "pear",
+    "id": "null_pear",
+    "state": "virtual",
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    }
   }
 ]

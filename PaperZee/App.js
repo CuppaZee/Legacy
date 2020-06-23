@@ -57,6 +57,7 @@ const BouncerMapScreen = loadable(() => import('./sections/Tools/BouncerMap'), {
 const MapScreen = loadable(() => import('./sections/Maps/Home'), { fallback: <LoadingPage /> })
 
 // User Screens
+const AllUsersScreen = loadable(() => import('./sections/User/All'), { fallback: <LoadingPage /> })
 const UserDetailsScreen = loadable(() => import('./sections/User/Details'), { fallback: <LoadingPage /> })
 const UserActivityScreen = loadable(() => import('./sections/User/Activity/Page'), { fallback: <LoadingPage x="page_content" /> })
 const UserSearchScreen = loadable(() => import('./sections/User/Search'), { fallback: <LoadingPage /> })
@@ -189,6 +190,13 @@ function StackNav() {
       <Stack.Screen
         name="Clan"
         component={ClanDetailsScreen}
+      />
+      <Stack.Screen
+        name="AllUsers"
+        options={{
+          title: 'All Users',
+        }}
+        component={AllUsersScreen}
       />
       <Stack.Screen
         name="UserSearch"
@@ -401,6 +409,7 @@ function App() {
           },
 
           // User
+          AllUsers: 'user/all',
           UserSearch: 'user/search',
           UserActivity: {
             path: 'user/:userid/activity/:date',

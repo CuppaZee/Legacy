@@ -67,16 +67,73 @@ export default function CustomDrawerContent(props) {
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Remember this is a{Platform.OS == "android" ? 'n Early Access' : ' Beta'} build</Text>
         <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Feedback is welcome via Messenger or Email</Text>
       </View> */}
-      {Platform.OS == "web" && globalThis?.navigator?.userAgent?.match?.(/Android/) && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
+      {Platform.OS == "web" && globalThis?.navigator?.userAgent?.match?.(/Android/) && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 8 }}>
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>The CuppaZee App is now on Google Play</Text>
         <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Download it now!</Text>
       </View>}
-      {Platform.OS == "web" && globalThis?.navigator?.userAgent?.match?.(/iPhone|iPad|iPod/) && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
+      {Platform.OS == "web" && globalThis?.navigator?.userAgent?.match?.(/iPhone|iPad|iPod/) && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 8 }}>
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>The CuppaZee App is now on the App Store</Text>
         <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Download it now!</Text>
       </View>}
-      <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
+      <View style={{ paddingTop: 8, paddingLeft: 8 }}>
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t(`common:users`)}</Text>
+      </View>
+      <View style={{ paddingHorizontal: 4, flexDirection: "row", justifyContent: "space-between" }}>
+        <IconButton
+          style={{
+            backgroundColor: route.name == "AllUsers" ? itemProps.activeBackgroundColor : null
+          }}
+          icon="format-list-bulleted"
+          color={itemProps.inactiveTintColor}
+          onPress={() => nav.reset({
+            index: 1,
+            routes: [
+              { name: '__primary', params: { screen: "AllUsers" } },
+            ],
+          })}
+        />
+        <IconButton
+          style={{
+            backgroundColor: route.name == "UserSearch" ? itemProps.activeBackgroundColor : null
+          }}
+          icon="magnify"
+          color={itemProps.inactiveTintColor}
+          onPress={() => nav.reset({
+            index: 1,
+            routes: [
+              { name: '__primary', params: { screen: "UserSearch" } },
+            ],
+          })}
+        />
+        <IconButton
+          disabled={true}
+          style={{
+            backgroundColor: route.name == "UserRankings" ? itemProps.activeBackgroundColor : null
+          }}
+          icon="trophy-outline"
+          color={itemProps.inactiveTintColor}
+          onPress={() => nav.reset({
+            index: 1,
+            routes: [
+              { name: '__primary', params: { screen: "UserRankings" } },
+            ],
+          })}
+        />
+        <IconButton
+          disabled={true}
+          style={{
+            backgroundColor: route.name == "UserBookmarks" ? itemProps.activeBackgroundColor : null
+          }}
+          icon="bookmark-outline"
+          color={itemProps.inactiveTintColor}
+          onPress={() => nav.reset({
+            index: 1,
+            routes: [
+              { name: '__primary', params: { screen: "UserBookmarks" } },
+            ],
+          })
+          }
+        />
       </View>
       {userBookmarks?.slice?.(0, showMoreUser ? Infinity : userBookmarks.length > 6 ? 5 : 6)?.filter?.(i=>i)?.map?.(i => <DrawerItem
         key={`user_${i.user_id}`}
@@ -101,7 +158,7 @@ export default function CustomDrawerContent(props) {
         label={showMoreUser ? t(`common:show_less`) : t(`common:show_more`)}
         onPress={() => setShowMoreUser(!showMoreUser)}
       />}
-      <DrawerItem
+      {/* <DrawerItem
         {...itemProps}
         style={{ marginVertical: 0 }}
         focused={route.name == "UserSearch"}
@@ -114,12 +171,12 @@ export default function CustomDrawerContent(props) {
           ],
         })
         }
-      />
+      /> */}
       <Divider theme={{dark:theme.id!=="white"}}/>
-      <View style={{ paddingTop: 8, paddingLeft: 16 }}>
+      <View style={{ paddingTop: 8, paddingLeft: 8 }}>
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:clan',{count:2})}</Text>
       </View>
-      <View style={{ padding: 4, paddingLeft: 8, paddingRight: 16, flexDirection: "row", justifyContent: "space-between" }}>
+      <View style={{ paddingHorizontal: 4, flexDirection: "row", justifyContent: "space-between" }}>
         <IconButton
           style={{
             backgroundColor: route.name == "AllClans" ? itemProps.activeBackgroundColor : null
@@ -146,7 +203,7 @@ export default function CustomDrawerContent(props) {
             ],
           })}
         />
-        <IconButton
+        {/* <IconButton
           disabled={true}
           style={{
             backgroundColor: route.name == "ClanRequirements" && route.params.gameid < 87 ? itemProps.activeBackgroundColor : null
@@ -160,7 +217,7 @@ export default function CustomDrawerContent(props) {
             ],
           })
           }
-        />
+        /> */}
         <IconButton
           style={{
             backgroundColor: route.name == "ClanRequirements" && route.params.gameid == 88 ? itemProps.activeBackgroundColor : null
@@ -171,6 +228,21 @@ export default function CustomDrawerContent(props) {
             index: 1,
             routes: [
               { name: '__primary', params: { screen: "ClanRequirements", params: { gameid: 88 } } },
+            ],
+          })
+          }
+        />
+        <IconButton
+          disabled={true}
+          style={{
+            backgroundColor: route.name == "ClanBookmarks" ? itemProps.activeBackgroundColor : null
+          }}
+          icon="bookmark-outline"
+          color={itemProps.inactiveTintColor}
+          onPress={() => nav.reset({
+            index: 1,
+            routes: [
+              { name: '__primary', params: { screen: "ClanBookmarks" } },
             ],
           })
           }
@@ -200,7 +272,7 @@ export default function CustomDrawerContent(props) {
         onPress={() => setShowMoreClan(!showMoreClan)}
       />}
       <Divider theme={{dark:theme.id!=="white"}}/>
-      <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
+      <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 8 }}>
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:tools')}</Text>
       </View>
       {pages.map?.(i => <DrawerItem
@@ -219,7 +291,7 @@ export default function CustomDrawerContent(props) {
         }
       />)}
       <Divider theme={{dark:theme.id!=="white"}}/>
-      <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
+      <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 8 }}>
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:more')}</Text>
       </View>
       {more.map?.(i => <DrawerItem

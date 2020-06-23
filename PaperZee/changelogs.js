@@ -309,5 +309,19 @@ export default {
       title: 'Fixed a Crash',
       description: 'Fixed a Crash caused by selecting "English (US)" as your language on iOS or Android'
     }
+  ],
+  155: [
+    {
+      icon: 'database',
+      title: 'Updated Database',
+      description: 'Added Peach and Pear Scatters'
+    }
+  ],
+  156: [
+    {
+      icon: 'format-list-bulleted',
+      title: 'Added All Users Page',
+      description: 'You can now view the activity of your bookmarked users on one page'
+    }
   ]
 }
