@@ -33,7 +33,7 @@ export default function SearchScreen({ navigation }) {
     <ScrollView
       contentContainerStyle={{ width: 800, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4 }}
       style={{ flex: 1, backgroundColor: theme.page.bg }}>
-      {[...categories.filter(i=>i.seasonal&&i.seasonal.starts<Date.now()&&i.seasonal.ends>Date.now()),...categories.filter(i => i.parents.includes('bouncer'))].filter(i => !hasChild(i)).filter(i=>!i.hidden).map(cdata=><View style={{ padding: 4 }}>
+      {[...categories.filter(i=>i.seasonal&&i.seasonal.starts<Date.now()&&i.seasonal.ends>Date.now()),...categories.filter(i => i.parents.includes('bouncer')),...categories.filter(i => i.id=="scatter")].filter(i => !hasChild(i)).filter(i=>!i.hidden&&i.id!="bouncerhost").map(cdata=><View style={{ padding: 4 }}>
         <Card noPad>
           <View>
             <View style={{flexDirection:"row",justifyContent:"center",alignItems:"center"}}>

@@ -330,5 +330,24 @@ export default {
       title: 'Revamped Inventory Page',
       description: 'I\'ve revamped the User Inventory page. Feel free to send feedback on Facebook!'
     }
+  ],
+  158: [
+    {
+      icon: 'account',
+      title: 'Tweaked User Details',
+      description: 'When opening the app, the User Details of the user at the top of your Bookmarks list is shown, rather than an arbitrary logged-in user.'
+    },
+    {
+      icon: 'map-marker',
+      title: 'Tweaked Bouncers Page',
+      description: 'The Bouncers page no longer includes a broken section on Bouncer Hosts, and now has a Scatters section'
+    }
+  ],
+  159: [
+    {
+      icon: 'finance',
+      title: 'Updated Clan Stats',
+      description: 'Fixed an inconsistency between devices with the ordering of Clan Requirements'
+    }
   ]
 }

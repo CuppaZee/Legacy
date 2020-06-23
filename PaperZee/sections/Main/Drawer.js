@@ -75,7 +75,7 @@ export default function CustomDrawerContent(props) {
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>The CuppaZee App is now on the App Store</Text>
         <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Download it now!</Text>
       </View>}
-      <View style={{ paddingTop: 8, paddingLeft: 8 }}>
+      <View style={{ paddingLeft: 8 }}>
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t(`common:users`)}</Text>
       </View>
       <View style={{ paddingHorizontal: 4, flexDirection: "row", justifyContent: "space-between" }}>

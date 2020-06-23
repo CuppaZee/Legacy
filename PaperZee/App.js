@@ -94,9 +94,9 @@ const Stack = createStackNavigator();
 
 function RedirectScreen() {
   var nav = useNavigation();
-  var users = useSelector(i => Object.keys(i.logins ?? {}));
+  var users = useSelector(i => i.userBookmarks);
   if (users && users[0]) {
-    nav.replace('UserDetails', { userid: Number(users[0]) });
+    nav.replace('UserDetails', { userid: Number(users[0].user_id) });
   }
   return <Text>_redirect</Text>;
 }

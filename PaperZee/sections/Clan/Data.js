@@ -45,10 +45,17 @@ export function ClanRequirementsConverter(req, rewards) {
   var reqls = Object.keys(output.requirements).map(Number);
   reqls.sort((a, b) => a - b);
   output.order = {
-    individual: reqls.filter(i => individual[i]).sort((a, b) => group[a] ? (group[b] ? 0 : 1) : -1),
-    group: reqls.filter(i => group[i]).sort((a, b) => individual[a] ? (individual[b] ? 0 : -1) : 1),
+    individual: [
+      ...reqls.filter(i => individual[i] && !group[i]),
+      ...reqls.filter(i => individual[i] && group[i]),
+    ],
+    group: [
+      ...reqls.filter(i => group[i] && !individual[i]),
+      ...reqls.filter(i => group[i] && individual[i]),
+    ],
     requirements: [
-      ...reqls.filter(i => individual[i]).sort((a, b) => group[a] ? (group[b] ? 0 : 1) : -1),
+      ...reqls.filter(i => individual[i] && !group[i]),
+      ...reqls.filter(i => individual[i] && group[i]),
       ...reqls.filter(i => group[i] && !individual[i])
     ],
     rewards: rewards?.order
