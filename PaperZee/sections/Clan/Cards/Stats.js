@@ -292,7 +292,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
               />)}
             </Menu>
           </View>
-          {members?.map(i => <TouchableWithoutFeedback onPress={() => nav.navigate('UserDetails', { userid: i.user_id })}>
+          {members?.map(i => <TouchableWithoutFeedback onPress={() => nav.navigate('UserDetails', { username: i.username })}>
             <View style={{ backgroundColor: level_colors[calculateLevelT(i.user_id)].bg, padding: 4 * s, height: 24 * s, flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }} key={i.name}>
               {(i.leader || i.ghost) && <MaterialCommunityIcons name={i.ghost ? 'ghost' : 'hammer'} color={level_colors[calculateLevelT(i.user_id)].fg} size={12 * s} />}
               <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{ fontSize: 12 * s, ...font(userBookmarks.includes(Number(i.user_id))?"bold":400), flexShrink: 1, color: level_colors[calculateLevelT(i.user_id)].fg }}>{i.username}</Text>

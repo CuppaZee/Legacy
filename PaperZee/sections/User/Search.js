@@ -80,7 +80,7 @@ export default function SearchScreen({ navigation }) {
                 <Text allowFontScaling={false} style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{i.username}</Text>
                 <Text allowFontScaling={false} style={{...font("bold"),fontSize:12,color:theme.page_content.fg}}>#{i.user_id}</Text>
               </View>
-              <IconButton size={24} onPress={()=>navigation.navigate('UserDetails',{userid:i.user_id})} icon="chevron-right" color={theme.page_content.fg} />
+              <IconButton size={24} onPress={()=>navigation.navigate('UserDetails',{ username: i.username })} icon="chevron-right" color={theme.page_content.fg} />
             </View>)}
           </View>
         </Card>

@@ -124,18 +124,17 @@ export default function UserActivityScreen() {
   if (route.params.date) {
     dateString = route.params.date;
   }
-  var user_id = Number(route.params.userid);
-  const [data, userdata] = useAPIRequest([
-    {
-      endpoint: 'user/activity',
-      data: { day: dateString, user_id },
-      cuppazee: true
-    },
-    {
-      endpoint: 'user',
-      data: { user_id }
-    }
-  ])
+  var username = route.params.username
+  var userdata = useAPIRequest({
+    endpoint: 'user',
+    data: { username }
+  })
+  let user_id = userdata?.user_id
+  var data = useAPIRequest(user_id?{
+    endpoint: 'user/activity',
+    data: { day: dateString, user_id },
+    cuppazee: true
+  }:null)
   if (!data || !data.captures) return (
     <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page_content.bg }}>
       <ActivityIndicator size="large" color={theme.page_content.fg} />

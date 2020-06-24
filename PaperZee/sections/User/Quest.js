@@ -1,17 +1,12 @@
 import * as React from 'react';
 import { Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
 import Card from 'sections/Shared/Card';
-import { useSelector, useDispatch } from 'react-redux';
-import { FAB } from 'react-native-paper';
-import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 import useAPIRequest from 'utils/hooks/useAPIRequest'
 import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
 import getIcon from 'utils/db/icon';
-
-function UserIcon({user_id,size}) { 
-  return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size-24)/2, marginTop: -(size-24)/2, height: size, width: size }} />
-}
+import UserFAB from './FAB';
 
 export default function ClanScreen({ route }) {
   var {t} = useTranslation();
@@ -44,10 +39,6 @@ export default function ClanScreen({ route }) {
     {id:7,name:"Destination Caps/Deps",req:8,icon:"https://munzee.global.ssl.fastly.net/images/pins/1starmotel.png"},
     {id:8,name:"Bouncer Caps",req:5,icon:"https://munzee.global.ssl.fastly.net/images/pins/expiring_specials_filter.png"},
   ]
-  var [FABOpen,setFABOpen] = React.useState(false);
-  var dispatch = useDispatch();
-  var nav = useNavigation();
-  var logins = useSelector(i => i.logins);
   var user_id = Number(route.params.userid);
   var data = useAPIRequest({
     endpoint: `user/quest/v1`,
@@ -85,12 +76,7 @@ export default function ClanScreen({ route }) {
           </Card>
         </View>)}
       </ScrollView>
-      <FAB.Group
-        open={FABOpen}
-        icon={()=><UserIcon size={56} user_id={user_id}/>}
-        actions={Object.entries(logins).filter(i=>i[0]!=user_id).slice(0,5).map(i=>({ icon: ()=><UserIcon size={40} user_id={Number(i[0])}/>, label: i[1].username, onPress: () => nav.replace('UserDetails',{userid:Number(i[0])}) }))}
-        onStateChange={({open})=>setFABOpen(open)}
-      />
+      <UserFAB username={username} user_id={user_id} />
     </View>
   );
 }

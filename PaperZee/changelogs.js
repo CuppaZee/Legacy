@@ -377,5 +377,12 @@ export default {
       title: 'Updated Inventory',
       description: 'Fixed icons for more types. If you see a Question Mark icon anywhere on that page, please let me know.'
     }
+  ],
+  164: [
+    {
+      icon: 'account',
+      title: 'Improved User Features',
+      description: 'Links now use Usernames rather than User IDs, and various other improvements.'
+    }
   ]
 }

@@ -96,7 +96,7 @@ function RedirectScreen() {
   var nav = useNavigation();
   var users = useSelector(i => i.userBookmarks);
   if (users && users[0]) {
-    nav.replace('UserDetails', { userid: Number(users[0].user_id) });
+    nav.replace('UserDetails', { username: users[0].username });
   }
   return <Text>_redirect</Text>;
 }
@@ -412,9 +412,9 @@ function App() {
           AllUsers: 'user/all',
           UserSearch: 'user/search',
           UserActivity: {
-            path: 'user/:userid/activity/:date',
+            path: 'user/:username/activity/:date',
             parse: {
-              userid: Number,
+              username: String,
               date: String
             }
           },
@@ -425,33 +425,33 @@ function App() {
           //   }
           // },
           UserInventory: {
-            path: 'user/:userid/inventory',
+            path: 'user/:username/inventory',
             parse: {
-              userid: Number
+              username: String,
             }
           },
           UserClan: {
-            path: 'user/:userid/clan',
+            path: 'user/:username/clan',
             parse: {
-              userid: Number
+              username: String,
             }
           },
           UserQuest: {
-            path: 'user/:userid/quest',
+            path: 'user/:username/quest',
             parse: {
-              userid: Number
+              username: String,
             }
           },
           UserBouncers: {
-            path: 'user/:userid/bouncers',
+            path: 'user/:username/bouncers',
             parse: {
-              userid: Number
+              username: String,
             }
           },
           UserSHCPro: {
-            path: 'user/:userid/shcpro/:date',
+            path: 'user/:username/shcpro/:date',
             parse: {
-              userid: Number,
+              username: String,
               date: String
             }
           },
@@ -462,9 +462,9 @@ function App() {
           //   }
           // },
           UserSHCLite: {
-            path: 'user/:userid/shclite/:date',
+            path: 'user/:username/shclite/:date',
             parse: {
-              userid: Number,
+              username: String,
               date: String
             }
           },
@@ -488,15 +488,15 @@ function App() {
             }
           },
           UserCapturesCategory: {
-            path: 'user/:userid/captures/:category',
+            path: 'user/:username/captures/:category',
             parse: {
-              userid: Number
+              username: String
             }
           },
           UserDetails: {
-            path: 'user/:userid',
+            path: 'user/:username',
             parse: {
-              userid: Number
+              username: String
             }
           },
 

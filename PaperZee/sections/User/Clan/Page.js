@@ -12,31 +12,28 @@ import { ClanRequirementsConverter } from '../../Clan/Data';
 import font from 'sections/Shared/font';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import getIcon from 'utils/db/icon';
-
-function UserIcon({user_id,size}) { 
-  return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size-24)/2, marginTop: -(size-24)/2, height: size, width: size }} />
-}
+import UserFAB from '../FAB';
 
 export default function ClanScreen({ route }) {
-  var selected_theme = useSelector(i=>i.theme);
   var theme = useSelector(i => i.themes[i.theme]);
   var dark = theme.dark;
-  var [cookies,setCookies] = React.useState(0);
   var level_colors = useLevelColours()
-  var [FABOpen,setFABOpen] = React.useState(false);
   var { t } = useTranslation();
-  var nav = useNavigation();
-  var logins = useSelector(i => i.logins);
-  var user_id = Number(route.params.userid)
+  var username = route.params.username;
+  const user_id = useAPIRequest({
+    endpoint: 'user',
+    data: { username },
+    function: i=>i?.user_id
+  })
   var unformatted_requirements = useAPIRequest({
     endpoint: 'clan/v2/requirements',
     data: {clan_id:1349,game_id:87}
   })
-  var data = useAPIRequest({
+  var data = useAPIRequest(user_id?{
     endpoint: 'user/clanprogress',
     data: {user_id},
     cuppazee: true
-  })
+  }:null)
   if (!data) {
     if(data===undefined) {
       return <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg}}>
@@ -92,14 +89,7 @@ export default function ClanScreen({ route }) {
           <RequirementsCard game_id={87}/>
         </View>
       </ScrollView>
-      {/* <Portal> */}
-        <FAB.Group
-          open={FABOpen}
-          icon={()=><UserIcon size={56} user_id={user_id}/>}
-          actions={Object.entries(logins).filter(i=>i[0]!=user_id).slice(0,5).map(i=>({ icon: ()=><UserIcon size={40} user_id={Number(i[0])}/>, label: i[1].username, onPress: () => nav.replace('UserDetails',{userid:Number(i[0])}) }))}
-          onStateChange={({open})=>setFABOpen(open)}
-        />
-      {/* </Portal> */}
+      <UserFAB username={username} user_id={user_id} />
     </View>
   );
 }

@@ -19,14 +19,19 @@ export default function () {
   var { t } = useTranslation()
   var route = useRoute();
   var theme = useSelector(i => i.themes[i.theme]);
-  var user_id = Number(route.params.userid);
-  var data = useAPIRequest({
+  var username = route.params.username;
+  const user_id = useAPIRequest({
+    endpoint: 'user',
+    data: { username },
+    function: i=>i?.user_id
+  })
+  var data = useAPIRequest(user_id?{
     endpoint: 'user/inventory',
     data: {},
     user: user_id,
     cuppazee: true,
     function: ({ credits, boosters, history, undeployed }) => InventoryConverter(credits, boosters, history, undeployed)
-  }) ?? {};
+  }:null) ?? {};
   if (!data?.credits?.length) return (
     <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page.bg }}>
       <ActivityIndicator size="large" color={theme.page_content.fg} />

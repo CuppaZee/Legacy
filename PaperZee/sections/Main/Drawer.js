@@ -139,13 +139,13 @@ export default function CustomDrawerContent(props) {
         key={`user_${i.user_id}`}
         {...itemProps}
         style={{ marginVertical: 0 }}
-        focused={route.name?.startsWith?.('User') && route.params?.userid == Number(i.user_id)}
+        focused={route.name?.startsWith?.('User') && route.params?.username == i.username}
         icon={({ focused, color, size }) => <Image style={{ height: 32, width: 32, borderRadius: 16 }} source={{ uri: i.logo ?? `https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i.user_id || 0).toString(36)}.png` }} />}
         label={i.username}
         onPress={() => nav.reset({
           index: 1,
           routes: [
-            { name: '__primary', params: { screen: "UserDetails", params: { userid: Number(i.user_id) } } },
+            { name: '__primary', params: { screen: "UserDetails", params: { username: i.username } } },
           ],
         })
         }

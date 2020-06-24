@@ -6260,6 +6260,9 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "alt_icons": [
+      "poifaith"
+    ],
     "points": {
       "deploy": 40,
       "capture": 20,

@@ -12,76 +12,24 @@ import DatePicker from 'sections/Shared/DatePicker';
 import useMoment from 'utils/hooks/useMoment';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import getIcon from 'utils/db/icon';
-import UserFAB from '../FAB';
 
 function g(a) {
   return getType(a.pin || a.icon || a.pin_icon);
 }
+// function f(a) {
+//   return a.toString().replace(/_/g, '').replace(/munzee/g, '');
+// }
 
-function SHCItem({ i, m }) {
-  var {t} = useTranslation();
-  var theme = useSelector(i => i.themes[i.theme]);
-  var [open, setOpen] = React.useState(false);
-  return <Menu
-    visible={open}
-    onDismiss={() => setOpen(false)}
-    anchor={
-      <TouchableRipple onPress={() => setOpen(true)}>
-        <View key={i.icon} style={{ padding: 2, alignItems: "center", position: "relative" }}>
-          <Image style={{ height: 32, width: 32 }} source={{ uri: getIcon(i.pin) }} />
-          {m && <Image style={{ height: 20, width: 20, position: "absolute", bottom: 0, right: -4 }} source={{ uri: getIcon(m.pin) }} />}
-        </View>
-      </TouchableRipple>
-    }
-    style={{ marginTop: 61 }}
-  >
-    <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
-      <Image style={{ height: 48, width: 48 }} source={{ uri: getIcon(i.pin) }} />
-      <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold") }}>{i.friendly_name}</Text>
-      <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold") }}>{t('activity:by_user',{user:i.username})}</Text>
-    </View>
-  </Menu>;
-}
-
-function DateSwitcher({ dateString }) {
-  var moment = useMoment();
-  const nav = useNavigation();
-  const theme = useSelector(i=>i.themes[i.theme]);
-  const [datePickerOpen,setDatePickerOpen] = React.useState(false);
-  return <View style={{ padding: 4, width: 400, maxWidth: "100%", alignSelf: "center" }}>
-    <Card cardStyle={{ backgroundColor: (theme.clanCardHeader || theme.navigation).bg }} noPad>
-      <View style={{ flexDirection: "row", alignItems: "center" }}>
-        <Menu
-          visible={datePickerOpen}
-          onDismiss={() => setDatePickerOpen(false)}
-          anchor={
-            <IconButton icon="calendar" color={(theme.clanCardHeader || theme.navigation).fg} onPress={() => setDatePickerOpen(true)} />
-          }
-          contentStyle={{ padding: 0, backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border ? 1 : 0, borderColor: theme.page_content.border }}
-        >
-          <DatePicker noWrap value={moment({
-            year: Number(dateString.split('-')[0]),
-            month: Number(dateString.split('-')[1]) - 1,
-            date: Number(dateString.split('-')[2]),
-          })} onChange={(date) => {
-            nav.setParams({
-              date: `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
-            })
-          }} />
-        </Menu>
-
-        <Text allowFontScaling={false} style={{ flex: 1, ...font("bold"), fontSize: 16, color: (theme.clanCardHeader || theme.navigation).fg }}>{moment({
-          year: Number(dateString.split('-')[0]),
-          month: Number(dateString.split('-')[1]) - 1,
-          date: Number(dateString.split('-')[2]),
-        }).format('L')}</Text>
-      </View>
-    </Card>
-  </View>
+function UserIcon({ user_id, size }) {
+  return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size - 24) / 2, marginTop: -(size - 24) / 2, height: size, width: size }} />
 }
 
 export default function UserSHCScreen() {
   var moment = useMoment();
+  var [FABOpen, setFABOpen] = React.useState(false);
+  var [datePickerOpen, setDatePickerOpen] = React.useState(false);
+  var logins = useSelector(i => i.logins)
+  var nav = useNavigation();
   var { t } = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
   var date = moment().tz('America/Chicago');
@@ -109,12 +57,7 @@ export default function UserSHCScreen() {
   if (route.params.date) {
     dateString = route.params.date;
   }
-  var username = route.params.username;
-  const user_id = useAPIRequest({
-    endpoint: 'user',
-    data: { username },
-    function: i=>i?.user_id
-  })
+  var user_id = Number(route.params.userid);
   var categories = [
     { icon: 'rainbowunicorn', name: t('shc:pro.tob'), function: i => i?.bouncer?.type == "tob" },
     { icon: 'nomad', name: t('shc:pro.nomad'), function: i => i?.bouncer?.type == "nomad" },
@@ -131,45 +74,30 @@ export default function UserSHCScreen() {
     { icon: 'scattered', name: t('shc:pro.pscatter'), function: i => i?.scatter && i.state == "physical" },
     { icon: 'feather', name: t('shc:pro.vscatter'), function: i => i?.scatter && i.state == "virtual" },
   ]
-  const category_data = useAPIRequest(user_id?{
-    endpoint: 'user/activity',
-    data: { day: dateString, user_id },
-    cuppazee: true,
-    function: data=>{
-      if(!data) return data;
-      if(!data.captures) return null;
-      var destinations = data.captures.filter(z => g(z)?.destination?.type == "bouncer")
-      var category_data = {};
-      for (let category of categories) {
-        category_data[category.name] = [];
-      }
-      for (let x of data.captures) {
-        var y = g(x);
-        if(!y?.bouncer && !y?.scatter) continue;
-        for (let category of categories) {
-          if(category.function(y)) {
-            category_data[category.name].push({
-              i: x,
-              m: destinations.find(z => z.captured_at == x.captured_at)
-            })
-            break;
-          };
-        }
-      }
-      return category_data;
+  const data = useAPIRequest([
+    {
+      endpoint: 'statzee/player/captures/types',
+      data: { user_id },
+      function: data=>data
+    },
+    {
+      endpoint: 'statzee/player/deploys/types',
+      data: { user_id },
+      function: data=>data
     }
-  }:null)
-  if (!category_data) {
-    if(category_data===undefined) {
-      return <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg}}>
-        <ActivityIndicator size="large" color={theme.page_content.fg} />
-      </View>
-    } else {
-      return <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor:'#ffaaaa'}}>
-        <MaterialCommunityIcons name="alert" size={48} color="#d00" />
-      </View>;
-    }
-  }
+  ])
+  // if (!category_data) {
+  //   if(category_data===undefined) {
+  //     return <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg}}>
+  //       <ActivityIndicator size="large" color={theme.page_content.fg} />
+  //     </View>
+  //   } else {
+  //     return <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor:'#ffaaaa'}}>
+  //       <MaterialCommunityIcons name="alert" size={48} color="#d00" />
+  //     </View>;
+  //   }
+  // }
+  return <Text>{JSON.stringify(data)}</Text>
   return <View style={{ flex: 1, backgroundColor: theme.page.bg }}>
     <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 8 }}>
       <DateSwitcher dateString={dateString} />
@@ -182,9 +110,7 @@ export default function UserSHCScreen() {
               </View>
               <View style={{ paddingRight: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
                 <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{category_data[i.name].length}x {i?.name}</Text>
-                <View style={{ flexDirection: "row", alignItems: "center", flexWrap: "wrap" }}>
-                  {category_data[i.name].map(x => <SHCItem i={x.i} m={x.m} />)}
-                </View>
+                <Text allowFontScaling={false} style={{ fontSize: 16, color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{category_data[i.name].length} / {i.req}</Text>
               </View>
               <View style={{ alignSelf: "stretch", borderTopRightRadius: 8, borderBottomRightRadius: 8, borderLeftWidth: dark ? 2 : 0, borderLeftColor: dark ? level_colors[category_data[i.name].length > 0 ? 5 : 0] : undefined, backgroundColor: dark ? undefined : level_colors[category_data[i.name].length > 0 ? 5 : 0], width: 50, alignItems: "center", justifyContent: "center" }}>
                 <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 24, ...font("bold") }}>{category_data[i.name].length > 0 ? '✔' : ''}</Text>
@@ -195,6 +121,11 @@ export default function UserSHCScreen() {
       </View>
     </ScrollView>
 
-    <UserFAB username={username} user_id={user_id} />
+    <FAB.Group
+      open={FABOpen}
+      icon={() => <UserIcon size={56} user_id={user_id} />}
+      actions={Object.entries(logins).filter(i => i[0] != user_id).slice(0, 5).map(i => ({ icon: () => <UserIcon size={40} user_id={Number(i[0])} />, label: i[1].username, onPress: () => { nav.popToTop(); nav.replace('UserDetails', { userid: Number(i[0]) }) } }))}
+      onStateChange={({ open }) => setFABOpen(open)}
+    />
   </View>
 }

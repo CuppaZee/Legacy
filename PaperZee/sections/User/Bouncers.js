@@ -2,34 +2,31 @@ import * as React from 'react';
 import { Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
 import Card from 'sections/Shared/Card';
 import { useSelector } from 'react-redux';
-import { FAB } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
 import useAPIRequest from 'utils/hooks/useAPIRequest'
 import font from 'sections/Shared/font';
 import useMoment from 'utils/hooks/useMoment';
 import MapView from 'sections/Maps/MapView';
 import { useTranslation } from 'react-i18next';
 import getIcon from 'utils/db/icon';
-
-function UserIcon({ user_id, size }) {
-  return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size - 24) / 2, marginTop: -(size - 24) / 2, height: size, width: size }} />
-}
+import UserFAB from './FAB';
 
 export default function ClanScreen({ route }) {
   var {t} = useTranslation();
   var moment = useMoment();
   var theme = useSelector(i => i.themes[i.theme]);
-  var [FABOpen, setFABOpen] = React.useState(false);
-  var nav = useNavigation();
-  var logins = useSelector(i => i.logins);
-  var user_id = Number(route.params.userid);
-  var bouncers = useAPIRequest({
+  var username = route.params.username;
+  const user_id = useAPIRequest({
+    endpoint: 'user',
+    data: { username },
+    function: i=>i?.user_id
+  })
+  var bouncers = useAPIRequest(user_id?{
     endpoint: `user/bouncers/v1`,
     data: {
       user_id
     },
     cuppazee: true
-  })
+  }:null)
   if(!bouncers) return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
     <ActivityIndicator size="large" color={theme.page.fg} />
   </View>
@@ -69,12 +66,7 @@ export default function ClanScreen({ route }) {
           </Card>
         </View>)}
       </ScrollView>
-      <FAB.Group
-        open={FABOpen}
-        icon={() => <UserIcon size={56} user_id={user_id} />}
-        actions={Object.entries(logins).filter(i => i[0] != user_id).slice(0, 5).map(i => ({ icon: () => <UserIcon size={40} user_id={Number(i[0])} />, label: i[1].username, onPress: () => nav.replace('UserDetails', { userid: Number(i[0]) }) }))}
-        onStateChange={({ open }) => setFABOpen(open)}
-      />
+      <UserFAB username={username} user_id={user_id} />
     </View>
   );
 }

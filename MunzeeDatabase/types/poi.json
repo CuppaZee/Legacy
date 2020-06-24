@@ -60,7 +60,12 @@
     "icon": "poifaithplace",
     "id": 1342,
     "state": "virtual",
-    "points": "poi_standard"
+    "points": "poi_standard",
+    "extra": {
+      "alt_icons": [
+        "poifaith"
+      ]
+    }
   },
   {
     "name": "POI Hospital",

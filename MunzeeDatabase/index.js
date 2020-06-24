@@ -424,6 +424,8 @@ munzees = munzees.concat(require('./types/poi.json').map(i => ({
   state: "virtual",
   category: "poi",
 
+  ...(i.extra || {}),
+
   points: i.points,
   completion: "complete",
   hidden: i.hidden,

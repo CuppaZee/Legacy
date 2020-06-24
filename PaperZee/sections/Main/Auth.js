@@ -60,11 +60,11 @@ export default function AuthScreen () {
           username: response.params.username
         });
         setLoading(false);
-        setRedirect(response.params.user_id);
+        setRedirect(response.params.username);
       })()
     }
   }, [response]);
-  if(redirect) setTimeout(()=>navigation.replace('UserDetails',{userid:redirect}),500)
+  if(redirect) setTimeout(()=>navigation.replace('UserDetails',{username:redirect}),500)
   return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page_content.bg}}>{
     loading ? <ActivityIndicator size="large" color={theme.page_content.fg} /> : <>
     <Text allowFontScaling={false} style={{color:theme.page_content.fg,fontSize:24}}>{hasLogin?t('auth:add'):t('auth:welcome')}</Text>

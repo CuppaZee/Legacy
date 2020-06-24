@@ -12,16 +12,10 @@ import DatePicker from 'sections/Shared/DatePicker';
 import useMoment from 'utils/hooks/useMoment';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import getIcon from 'utils/db/icon';
+import UserFAB from '../FAB';
 
 function g(a) {
   return getType(a.pin || a.icon || a.pin_icon);
-}
-// function f(a) {
-//   return a.toString().replace(/_/g, '').replace(/munzee/g, '');
-// }
-
-function UserIcon({ user_id, size }) {
-  return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size - 24) / 2, marginTop: -(size - 24) / 2, height: size, width: size }} />
 }
 
 function SHCItem({ i, m }) {
@@ -88,10 +82,6 @@ function DateSwitcher({ dateString }) {
 
 export default function UserSHCScreen() {
   var moment = useMoment();
-  var [FABOpen, setFABOpen] = React.useState(false);
-  var [datePickerOpen, setDatePickerOpen] = React.useState(false);
-  var logins = useSelector(i => i.logins)
-  var nav = useNavigation();
   var { t } = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
   var date = moment().tz('America/Chicago');
@@ -119,7 +109,12 @@ export default function UserSHCScreen() {
   if (route.params.date) {
     dateString = route.params.date;
   }
-  var user_id = Number(route.params.userid);
+  var username = route.params.username;
+  const user_id = useAPIRequest({
+    endpoint: 'user',
+    data: { username },
+    function: i=>i?.user_id
+  })
   var categories = [
     { icon: 'rainbowunicorn', name: t('shc:lite.tob'), function: i => i?.bouncer?.type == "tob" },
     { icon: 'nomad', name: t('shc:lite.nomad'), function: i => i?.bouncer?.type == "nomad" || i?.bouncer?.type == "retiremyth" || i?.bouncer?.type == "zombiepouch" },
@@ -131,7 +126,7 @@ export default function UserSHCScreen() {
     { icon: 'morphobutterfly', name: t('shc:lite.temp'), function: i => i?.bouncer?.type == "temppob" },
     { icon: 'scattered', name: t('shc:lite.scatter'), function: i => i?.scatter },
   ]
-  const category_data = useAPIRequest({
+  const category_data = useAPIRequest(user_id?{
     endpoint: 'user/activity',
     data: { day: dateString, user_id },
     cuppazee: true,
@@ -158,7 +153,7 @@ export default function UserSHCScreen() {
       }
       return category_data;
     }
-  })
+  }:null)
   if (!category_data) {
     if(category_data===undefined) {
       return <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg}}>
@@ -195,11 +190,6 @@ export default function UserSHCScreen() {
       </View>
     </ScrollView>
 
-    <FAB.Group
-      open={FABOpen}
-      icon={() => <UserIcon size={56} user_id={user_id} />}
-      actions={Object.entries(logins).filter(i => i[0] != user_id).slice(0, 5).map(i => ({ icon: () => <UserIcon size={40} user_id={Number(i[0])} />, label: i[1].username, onPress: () => { nav.popToTop(); nav.replace('UserDetails', { userid: Number(i[0]) }) } }))}
-      onStateChange={({ open }) => setFABOpen(open)}
-    />
+    <UserFAB username={username} user_id={user_id} />
   </View>
 }

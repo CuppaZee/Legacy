@@ -23,14 +23,19 @@ export default function SearchScreen({ navigation, route }) {
   var theme = useSelector(i => i.themes[i.theme])
   var category_data = categories.find(i => i.id == category);
   var parent_datas = categories.filter(i => category_data.parents.includes(i.id));
-  var user_id = route.params.userid;
+  var username = route.params.username;
   function hasChild(cat) {
     return !!categories.find(i => i.parents.includes(cat.id));
   }
-  var data = useAPIRequest({
+  const user_id = useAPIRequest({
+    endpoint: 'user',
+    data: { username },
+    function: i=>i?.user_id
+  })
+  var data = useAPIRequest(user_id?{
     endpoint: 'user/specials',
     data: {user_id}
-  })
+  }:null)
   var data_improved = (data??[]).map(i=>({
     logo: i.logo,
     name: i.name,
@@ -63,7 +68,7 @@ export default function SearchScreen({ navigation, route }) {
               </View>
             </View> */
             : <View style={{ padding: 4, flexDirection: "row", alignItems: "center" }}>
-                <IconButton size={24} onPress={() => navigation.push('UserDetails', { userid: user_id })} icon="chevron-left" color={theme.page_content.fg} />
+                <IconButton size={24} onPress={() => navigation.push('UserDetails', { username: username })} icon="chevron-left" color={theme.page_content.fg} />
                 <Image style={{ borderRadius: 16, height: 32, width: 32, marginHorizontal: 8 }} source={{ uri: parent_data.custom_icon ?? `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id || 0).toString(36)}.png` }} />
                 {/* <Image style={{height:32,width:32,marginHorizontal:8}} source={{uri:parent_data.custom_icon??`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(parent_data.icon)}.png`}} /> */}
                 <View style={{ flex: 1 }}>
@@ -77,7 +82,7 @@ export default function SearchScreen({ navigation, route }) {
                 <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{i.name}</Text>
                 <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{i.category ? `#${i.id}` : t(`db:category`)}</Text>
               </View>
-              <IconButton size={24} onPress={() => navigation.push('UserCapturesCategory', { userid: user_id, category: i.id })} icon="chevron-right" color={theme.page_content.fg} />
+              <IconButton size={24} onPress={() => navigation.push('UserCapturesCategory', { username: username, category: i.id })} icon="chevron-right" color={theme.page_content.fg} />
             </View>)}
           </View>
         </Card>

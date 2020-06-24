@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 function User({ item }) {
   return ({
     user_activity: <View style={{ padding: 4, flex: 1 }}>
-      <ActivityCard user_id={item.user_id} username={item.username} />
+      <ActivityCard user_id={item.user_id} username={item.username} displayUsername={true} />
     </View>,
     blankHack: <View style={{ flex: 1, padding: 4 }}></View>
   }[item.type]||null)
