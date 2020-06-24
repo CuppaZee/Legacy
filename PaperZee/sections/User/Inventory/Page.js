@@ -34,7 +34,7 @@ export default function () {
   )
   return <ScrollView style={{flex:1,backgroundColor:theme.page.bg}}>
     <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-      {Object.entries(data?.types || {}).sort((a, b) => b[1].length - a[1].length).map(([label, list]) => <View style={{ padding: 4, width: 400, maxWidth: "100%" }}>
+      {Object.entries(data?.types || {}).sort((a, b) => b[1].length - a[1].length).map(([label, list]) => <View style={{ padding: 4, width: 400, flexGrow: 1, maxWidth: "100%" }}>
         <Card noPad>
           <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
             <View>
@@ -57,7 +57,7 @@ export default function () {
       </Text>
     </View>
     <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-      {data?.historyBatches.map(i => <View style={{ padding: 4, width: 400, maxWidth: "100%" }}>
+      {data?.historyBatches.map(i => <View style={{ padding: 4, width: 400, flexGrow: 1, maxWidth: "100%" }}>
         <Card noPad>
           <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
             <View style={{flexDirection:"row",justifyContent:"center", alignItems: "center"}}>

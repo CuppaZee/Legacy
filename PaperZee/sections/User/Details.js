@@ -61,7 +61,7 @@ export default function DetailsScreen({ route }) {
       <ScrollView
       contentContainerStyle={{padding:4,paddingBottom:92}}
         style={{ flex: 1, backgroundColor: theme.page.bg }}>
-        <View style={{ alignItems: "stretch", flexDirection: "row", flexWrap: "wrap", justifyContent: "center", width: "100%" }}>
+        <View style={{ alignItems: "stretch", alignSelf: "center", flexDirection: "row", flexWrap: "wrap", justifyContent: "center", width: "100%", maxWidth: 1200 }}>
           <View style={{ padding: 4, width: size?.width > 750 ? 1000 : 500, maxWidth: "100%" }}>
             <ActivityCard user_id={user_id} />
           </View>
@@ -88,13 +88,6 @@ export default function DetailsScreen({ route }) {
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                   <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="star" size={24} color={theme.page_content.fg} />
                   <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>{t('user:your_bouncers')}</Text>
-                  <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
-                </View>
-              </TouchableRipple>
-              <TouchableRipple onPress={() => nav.navigate('UserQuest', { userid: user_id })}>
-                <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
-                  <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="run" size={24} color={theme.page_content.fg} />
-                  <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>{t('user:quebec_quest_progress')}</Text>
                   <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
                 </View>
               </TouchableRipple>
@@ -176,6 +169,13 @@ export default function DetailsScreen({ route }) {
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                   <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="star" size={24} color={theme.page_content.fg} />
                   <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>{t('user:sh_pro')}</Text>
+                  <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
+                </View>
+              </TouchableRipple>
+              <TouchableRipple onPress={() => nav.navigate('UserQuest', { userid: user_id })}>
+                <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
+                  <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="run" size={24} color={theme.page_content.fg} />
+                  <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>{t('user:quebec_quest_progress')}</Text>
                   <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
                 </View>
               </TouchableRipple>

@@ -174,7 +174,7 @@ export default function UserSHCScreen() {
     <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 8 }}>
       <DateSwitcher dateString={dateString} />
       <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-        {categories.map(i => <View style={{ padding: 4, width: 400, maxWidth: "100%" }}>
+        {categories.map(i => <View style={{ padding: 4, width: 400, flexGrow: 1, maxWidth: "100%" }}>
           <Card noPad>
             <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
               <View style={{ padding: 8 }}>

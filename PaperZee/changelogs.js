@@ -349,5 +349,12 @@ export default {
       title: 'Updated Clan Stats',
       description: 'Fixed an inconsistency between devices with the ordering of Clan Requirements'
     }
+  ],
+  160: [
+    {
+      icon: 'monitor',
+      title: 'Improved Design',
+      description: 'Improved Responsive Design for larger devices across various pages'
+    }
   ]
 }

@@ -36,10 +36,10 @@ export default function ClanScreen({ route }) {
   return (
     <View style={{ flex: 1 }}>
       <ScrollView
-        contentContainerStyle={{ width: 600, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4, paddingBottom: 92 }}
+        contentContainerStyle={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center", padding: 4, paddingBottom: 92 }}
         style={{ flex: 1, backgroundColor: theme.page.bg }}>
         {!bouncers && <Text allowFontScaling={false} style={{ color: theme.page.fg, ...font() }}>Loading...</Text>}
-        {bouncers && <View style={{ padding: 4, height: 400 }}>
+        {bouncers && <View style={{ padding: 4, height: 400, width: "100%" }}>
           <Card noPad>
             <MapView tracksViewChanges={true} markers={bouncers.filter(i => i.bouncer).map(i => ({
               lat: Number(i.bouncer.latitude),
@@ -48,7 +48,7 @@ export default function ClanScreen({ route }) {
             }))} style={{ flex: 1 }} />
           </Card>
         </View>}
-        {bouncers?.map?.(i => <View style={{ padding: 4 }}>
+        {bouncers?.map?.(i => <View style={{ padding: 4, width: 400, flexGrow: 1, maxWidth: "100%" }}>
           <Card noPad cardStyle={{ opacity: i.bouncer ? 1 : 0.4 }}>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <View style={{ padding: 8 }}>
