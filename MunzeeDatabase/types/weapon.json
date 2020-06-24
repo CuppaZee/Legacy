@@ -53,6 +53,9 @@
     "icon": "nightvisiongoggles",
     "id": 1359,
     "state": "virtual",
-    "weapon": "zeecret"
+    "weapon": "zeecret",
+    "extra": {
+      "alt_icons": ["nvgoggles"]
+    }
   }
 ]

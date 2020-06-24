@@ -6291,6 +6291,9 @@
     "weapon": "zeecret",
     "state": "virtual",
     "category": "zeecret",
+    "alt_icons": [
+      "nvgoggles"
+    ],
     "cids": [],
     "x": 378,
     "i": "nightvisiongoggles"

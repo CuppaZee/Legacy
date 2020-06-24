@@ -470,6 +470,8 @@ munzees = munzees.concat(require('./types/weapon.json').map(i => ({
   state: i.state,
   category: i.weapon,
 
+  ...(i.extra || {}),
+
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
