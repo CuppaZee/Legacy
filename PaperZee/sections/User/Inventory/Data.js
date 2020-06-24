@@ -53,7 +53,7 @@ export default function InventoryConverter(credits={}, boosters=[], history={}, 
   }
   data.history.sort((a, b) => b.time - a.time)
   for (var item of data.history) {
-    if(historyBatchTitle === item.reason && item.time > historyBatchTime - 30000) {
+    if(historyBatchTitle === item.reason && item.time > historyBatchTime - 300000) {
       historyBatchTime = item.time;
       if(data.historyBatches[data.historyBatches.length-1].items.find(i=>i.icon==item.icon)) {
         data.historyBatches[data.historyBatches.length-1].items[data.historyBatches[data.historyBatches.length-1].items.findIndex(i=>i.icon==item.icon)].amount += Number((item.name.match(/^([0-9]+)x /i)||[])[1]||"1")
@@ -103,6 +103,12 @@ export default function InventoryConverter(credits={}, boosters=[], history={}, 
       }
       if(d.title.match(/rewards/i)&&d.title.match(/zeeops/i)) {
         d.short_title = "ZeeOps Rewards"
+      }
+      if(d.title.match(/munzee\s*support/i)) {
+        d.short_title = "Munzee Support"
+      }
+      if(d.title.match(/\btest\b/i)) {
+        d.short_title = "Test"
       }
       data.historyBatches.push(d)
     }

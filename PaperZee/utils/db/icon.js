@@ -9,7 +9,7 @@ function g(icon) {
 }
 export default function get(icon = "mystery", size = 64) {
   var gi = g(icon);
-  if (typekeys[gi] !== undefined && types[typekeys[gi]] && types[typekeys[gi]].event !== "custom") {
+  if (typekeys[gi] !== undefined && types[typekeys[gi]] && !types[typekeys[gi]].missingicon) {
     return `https://server.cuppazee.app/pins/${size}/${types[typekeys[gi]].i}.png`
   } else if (icon.startsWith('https://')) {
     return icon;

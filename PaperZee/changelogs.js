@@ -363,5 +363,12 @@ export default {
       title: 'Updated Inventory',
       description: 'Nearly all types now have icons. If you see a Question Mark icon anywhere on that page, please let me know.'
     }
+  ],
+  162: [
+    {
+      icon: 'package',
+      title: 'Updated Inventory',
+      description: 'Fixed icons for more types. If you see a Question Mark icon anywhere on that page, please let me know.'
+    }
   ]
 }

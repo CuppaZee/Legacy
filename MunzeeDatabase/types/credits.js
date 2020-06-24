@@ -1,7 +1,10 @@
 module.exports = [
   {
     icon: "magnet",
-    name: "Magnet"
+    name: "Magnet",
+    alt_icons: [
+      "physicalmagnet"
+    ]
   },
   {
     icon: "virtual_magnet",
@@ -65,5 +68,21 @@ module.exports = [
     icon: "seasonal",
     name: "Seasonal",
     category: "misc"
+  },
+  {
+    icon: "physicaldeploybooster",
+    name: "Physical Deploy Booster"
+  },
+  {
+    icon: "virtualdeploybooster",
+    name: "Virtual Deploy Booster"
+  },
+  {
+    icon: "physicalcapturebooster",
+    name: "physical Capture Booster"
+  },
+  {
+    icon: "virtualcapturebooster",
+    name: "Virtual Capture Booster"
   }
 ]

@@ -2177,6 +2177,7 @@
   {
     "name": "Gothenburg: Göta Explosion 2016",
     "icon": "gothenburg:götaexplosion2016",
+    "missingicon": true,
     "id": 683
   },
   {
@@ -2772,6 +2773,7 @@
   {
     "name": "DK: Påske i Aarhus",
     "icon": "dk:påskeiaarhus",
+    "missingicon": true,
     "id": 886
   },
   {
@@ -3497,6 +3499,7 @@
   {
     "name": "A\" Munzoween Event",
     "icon": "a\"munzoweenevent",
+    "missingicon": true,
     "id": 1146
   },
   {
@@ -4497,6 +4500,7 @@
   {
     "name": "7th MunzeeBirthday / 7.Munzee Szülinap",
     "icon": "7thmunzeebirthday/7.munzeeszülinap",
+    "missingicon": true,
     "id": 1506
   },
   {

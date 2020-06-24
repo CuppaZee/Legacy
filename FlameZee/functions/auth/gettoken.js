@@ -1,4 +1,5 @@
 var {retrieve} = require("../util");
+var config = require('../config.json');
 
 module.exports = {
   path: "auth/get",
@@ -12,6 +13,9 @@ module.exports = {
         },
       },
       async function({ params: { teaken, user_id, time }, db }) {
+        if(config.bypass_teakens.includes(teaken)) {
+          teaken = false;
+        }
         var got = await retrieve(db, {user_id,teaken}, time?Number(time):7500);
         if(!got) {
           return {

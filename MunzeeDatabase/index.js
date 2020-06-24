@@ -112,6 +112,7 @@ munzees = munzees.concat(require('./types/event.json').map(i => ({
   category: "event",
 
   points: i.points,
+  missingicon: i.missingicon,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/event.json"

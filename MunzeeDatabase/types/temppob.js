@@ -177,6 +177,20 @@ module.exports = [
     "lands_on": ["mace","longsword","battleaxe","thehammer","crossbow","catapult"]
   },
   {
+    "name": "Turtle",
+    "icon": "turtle",
+    "id": "null_turtle",
+    "state": "bouncer",
+    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "extra": {
+      "evolution": {
+        "set": "nature",
+        "stage": 5,
+        "base": "turtleegg"
+      }
+    }
+  },
+  {
     "name": "Sea Turtle",
     "icon": "seaturtle",
     "id": "null_seaturtle",
@@ -215,6 +229,20 @@ module.exports = [
         "set": "nature",
         "stage": 5,
         "base": "turtleegg"
+      }
+    }
+  },
+  {
+    "name": "Jellyfish",
+    "icon": "jellyfish",
+    "id": "null_jellyfish",
+    "state": "bouncer",
+    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "extra": {
+      "evolution": {
+        "set": "nature",
+        "stage": 5,
+        "base": "planulalarva"
       }
     }
   },

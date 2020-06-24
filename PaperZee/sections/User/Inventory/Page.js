@@ -65,6 +65,8 @@ export default function () {
               {i.title.match(/freeze tag store/i) && <MaterialCommunityIcons name="cart-outline" size={24} color={theme.page_content.fg} />}
               {i.title.match(/premium/i) && <MaterialCommunityIcons name="star-outline" size={24} color={theme.page_content.fg} />}
               {i.title.match(/zeeops/i) && <MaterialCommunityIcons name="briefcase-outline" size={24} color={theme.page_content.fg} />}
+              {i.title.match(/munzee\s*support/i) && <MaterialCommunityIcons name="heart-outline" size={24} color={theme.page_content.fg} />}
+              {i.title.match(/\btest\b/i) && <MaterialCommunityIcons name="briefcase-outline" size={24} color={theme.page_content.fg} />}
 
               {i.title.match(/giveaway/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: getIcon('theunicorn_full') }} />}
               {i.title.match(/magnetus/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: getIcon('magnetus') }} />}

@@ -18,13 +18,19 @@ async function downloadIcon (icon,size) {
   const writer = fs.createWriteStream(savePath)
   const resizer = sharp().resize(null,size).png();
 
-  const response = await axios({
-    url,
-    method: 'GET',
-    responseType: 'stream'
-  })
+  var response = null;
+  if(fs.existsSync(path.resolve(__dirname, 'icons/', `${g(icon)}.png`))) {
+    response = fs.createReadStream(path.resolve(__dirname, 'icons/', `${g(icon)}.png`))
+  } else {
+    response = (await axios({
+      url,
+      method: 'GET',
+      responseType: 'stream'
+    })).data
+  }
+  
 
-  response.data
+  response
     .pipe(resizer)
     .pipe(writer)
 
@@ -36,12 +42,12 @@ async function downloadIcon (icon,size) {
 var types = require('./output/types.min.json');
 (async function() {
   var arr = [];
-  for(let type of types.filter(i=>i.event!=="custom")) {
+  for(let type of types.filter(i=>!i.missingicon)) {
     await downloadIcon(type.icon,64).then(()=>{
       console.log(type.icon,64)
     })
   }
-  for(let type of types.filter(i=>i.event!=="custom")) {
+  for(let type of types.filter(i=>!i.missingicon)) {
     await downloadIcon(type.icon,128).then(()=>{
       console.log(type.icon,128)
     })
