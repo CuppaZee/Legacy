@@ -33,10 +33,7 @@ async function downloadIcon (icon,size) {
     writer.on('error', reject)
   })
 }
-var types = [
-  ...require('./output/types.min.json'),
-  ...require('./extraicons.json')
-];
+var types = require('./output/types.min.json');
 (async function() {
   var arr = [];
   for(let type of types.filter(i=>i.event!=="custom")) {

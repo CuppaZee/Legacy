@@ -1282,6 +1282,13 @@
     }
   },
   {
+    "name": "Credits",
+    "id": "credit",
+    "icon": "blast_capture",
+    "parents": [],
+    "hidden": true
+  },
+  {
     "name": "Bouncer Hosts",
     "id": "bouncerhost",
     "icon": "munzee",

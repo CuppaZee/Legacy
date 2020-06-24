@@ -140,7 +140,10 @@
     "id": 1245,
     "state": "virtual",
     "extra": {
-      "temporary": 30
+      "temporary": 30,
+      "alt_icons": [
+        "tempvirt"
+      ]
     }
   },
   {

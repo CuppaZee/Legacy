@@ -195,7 +195,12 @@
     "state": "virtual",
     "set":"farm",
     "stage": 3,
-    "base": "colt"
+    "base": "colt",
+    "extra": {
+      "alt_icons": [
+        "horse"
+      ]
+    }
   },
   {
     "name": "Eggs",

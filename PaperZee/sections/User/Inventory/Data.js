@@ -1,4 +1,3 @@
-import MunzeeTypes from 'utils/db/types.json';
 import moment from 'moment';
 import 'moment-timezone';
 import getType from 'utils/db/types';
@@ -12,86 +11,9 @@ export default function InventoryConverter(credits={}, boosters=[], history={}, 
     types: {},
     historyBatches: []
   }
-  var extras = [
-    {
-      icon: "magnet",
-      name: "Magnet"
-    },
-    {
-      icon: "virtual_magnet",
-      name: "Virtual Magnet"
-    },
-    {
-      icon: "blast_capture",
-      name: "Blast Capture"
-    },
-    {
-      icon: "blast_capture_mini",
-      name: "Mini Blast Capture"
-    },
-    {
-      icon: "blast_capture_mega",
-      name: "MEGA Blast Capture"
-    },
-    {
-      icon: "destination",
-      name: "Destination",
-      category: "destination"
-    },
-    {
-      icon: "secure_social",
-      name: "Secure Social",
-      category: "misc"
-    },
-    {
-      icon: "virtual_colors",
-      name: "Virtual Color",
-      category: "virtual"
-    },
-    {
-      icon: "virtual_colors",
-      name: "Virtual Colors",
-      category: "virtual"
-    },
-    {
-      icon: "upgrade_myth",
-      name: "Bouncer Upgrade"
-    },
-    {
-      icon: "evolution_reset",
-      name: "Evolution Reset"
-    },
-    {
-      icon: "zeds",
-      name: "ZEDS"
-    },
-    {
-      icon: "zeds",
-      name: "Zeds"
-    },
-    {
-      icon: "zodiac",
-      name: "Zodiac",
-      category: "misc"
-    },
-    {
-      icon: "chinese_zodiac",
-      name: "Chinese Zodiac",
-      category: "misc"
-    },
-    {
-      icon: "seasonal",
-      name: "Seasonal",
-      category: "misc"
-    }
-  ]
-  function get(a, b) {
-    // TODO Use new system
-    return (MunzeeTypes.find(i => (i[a] || "").toLowerCase().replace(/_/g,'') === b.toLowerCase().replace(/_/g,'')) || extras.find(i => (i[a] || "").toLowerCase().replace(/_/g,'') === b.toLowerCase().replace(/_/g,''))) || {}
-  }
   for (var credit in credits) {
     data.credits.push({
-      name: get("icon", credit).name,
+      name: getType(credit, "icon")?.name,
       icon: `https://munzee.global.ssl.fastly.net/images/pins/${credit}.png`,
       amount: Number(credits[credit])
     })
@@ -107,16 +29,16 @@ export default function InventoryConverter(credits={}, boosters=[], history={}, 
   }
   for (var munzee of undeployed) {
     data.undeployed.push({
-      name: get("icon", munzee.type).name,
+      name: getType(munzee.type, "icon")?.name,
       icon: `https://munzee.global.ssl.fastly.net/images/pins/${munzee.type}.png`,
       amount: Number(munzee.amount)
     })
   }
   for (var log of history.items??[]) {
     data.history.push({
-      name: log.type,
+      name: getType(log.type.replace(/[0-9]+x /, ''), "icon")?.name||log.type,
       reason: log.log_text,
-      icon: `https://munzee.global.ssl.fastly.net/images/pins/${get("name", log.type.replace(/[0-9]+x /, '')).icon || get("icon", log.type.replace(/[0-9]+x /, '')).icon || 'NA'}.png`,
+      icon: `https://munzee.global.ssl.fastly.net/images/pins/${getType(log.type.replace(/[0-9]+x /, ''), "icon")?.icon || 'NA'}.png`,
       time: moment.tz(log.time_awarded, "America/Chicago").valueOf()
     })
   }
@@ -139,7 +61,7 @@ export default function InventoryConverter(credits={}, boosters=[], history={}, 
         data.historyBatches[data.historyBatches.length-1].items.push({
           amount: Number((item.name.match(/^([0-9]+)x /i)||[])[1]||"1"),
           icon: item.icon,
-          name: item.name
+          name: item.name.replace(/^([0-9]+)x /i,'')
         });
       }
     } else {
@@ -152,7 +74,7 @@ export default function InventoryConverter(credits={}, boosters=[], history={}, 
           {
             amount: Number((item.name.match(/^([0-9]+)x /i)||[])[1]||"1"),
             icon: item.icon,
-            name: item.name
+            name: item.name.replace(/^([0-9]+)x /i,'')
           }
         ]
       };

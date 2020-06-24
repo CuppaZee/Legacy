@@ -356,5 +356,12 @@ export default {
       title: 'Improved Design',
       description: 'Improved Responsive Design for larger devices across various pages'
     }
+  ],
+  161: [
+    {
+      icon: 'package',
+      title: 'Updated Inventory',
+      description: 'Nearly all types now have icons. If you see a Question Mark icon anywhere on that page, please let me know.'
+    }
   ]
 }

@@ -136,6 +136,7 @@ munzees = munzees.concat(require('./types/evolution.json').map(i => ({
     set: i.set,
     base: i.base
   },
+  ...(i.extra || {}),
 
   state: i.state,
   category: "evolution_" + i.set,
@@ -859,6 +860,24 @@ categories.push({
   priority: 7
 })
 
+console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Credits${colors.Reset} from ${colors.fg.Green}./types/credits.js${colors.Reset}`)
+munzees = munzees.concat(require('./types/credits.js').map(i => ({
+  ...i,
+  id: "credit_"+i.icon,
+  category: i.category || "credit",
+
+  completion: "complete",
+  hidden: true,
+  from_file: "./types/credits.js"
+})))
+categories.push({
+  name: "Credits",
+  id: "credit",
+  icon: "blast_capture",
+  parents: [],
+  hidden: true
+})
+
 console.log(`${colors.bg.Green}${colors.fg.Black} Types Generated - Checking... ${colors.Reset}`)
 
 for (var munzee of munzees) {
@@ -961,6 +980,7 @@ for (var munzee of munzees) {
   }
 
   delete munzee.from_file;
+  delete munzee.completion;
 }
 for (var munzee of munzees) {
   munzee.can_host = munzees.filter(i => i.bouncer && (i.bouncer.lands_on || []).includes(munzee.id)).map(i => i.id);
