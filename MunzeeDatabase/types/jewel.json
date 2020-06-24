@@ -32,6 +32,11 @@
       "deploy": 50,
       "capture": 40,
       "capon": 50
+    },
+    "extra": {
+      "alt_icons": [
+        "gardenpin"
+      ]
     }
   },
   {

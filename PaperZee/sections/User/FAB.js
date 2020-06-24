@@ -15,12 +15,29 @@ export default function UserFAB({ username, user_id }) {
   var list = bookmarks.filter(i => i.username != username).slice(0, 5).map(i => ({
     icon: () => <UserIcon size={40} user_id={Number(i.user_id)} />,
     label: i.username,
-    onPress: () => nav.replace('UserDetails', { username: i.username })
+    onPress: () => {
+      var prevState = nav.dangerouslyGetState();
+      nav.reset({
+        index: prevState.index,
+        routes: prevState.routes.map(x=>{
+          if(x.params?.username) {
+            return {
+              ...x,
+              params: {
+                ...x.params,
+                username: i.username
+              }
+            }
+          }
+          return x;
+        })
+      })
+    }
   }));
   if(list.length === 0) return null;
   return <FAB.Group
     open={FABOpen}
-    icon={() => <UserIcon size={56} user_id={user_id} />}
+    icon={() => <UserIcon size={56} user_id={Number(user_id)} />}
     actions={list}
     onStateChange={({ open }) => setFABOpen(open)}
   />;

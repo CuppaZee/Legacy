@@ -1102,6 +1102,9 @@
     "jewel": true,
     "state": "virtual",
     "category": "jewel",
+    "alt_icons": [
+      "gardenpin"
+    ],
     "points": {
       "deploy": 50,
       "capture": 40,
@@ -1721,6 +1724,9 @@
     "jewel": true,
     "state": "physical",
     "category": "jewel",
+    "alt_icons": [
+      "aquamarinemunzee"
+    ],
     "points": {
       "deploy": 30,
       "type": "split",
