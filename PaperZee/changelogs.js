@@ -391,5 +391,12 @@ export default {
       title: 'Updated Inventory',
       description: 'Fixed icons for more types. If you see a Question Mark icon anywhere on that page, please let me know.'
     }
+  ],
+  166: [
+    {
+      icon: 'page-layout-header',
+      title: 'Improved Header',
+      description: 'Titles in the Header are now more detailed'
+    }
   ]
 }

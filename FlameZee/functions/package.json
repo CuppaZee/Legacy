@@ -32,7 +32,8 @@
     "offline-geocoder": "^1.0.0",
     "rss-parser": "^3.7.6",
     "snyk": "^1.339.2",
-    "spherical": "^0.2.0"
+    "spherical": "^0.2.0",
+    "spherical-geometry-js": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^5.12.0",

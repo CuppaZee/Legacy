@@ -8,8 +8,11 @@ import font from 'sections/Shared/font'
 import Tile from 'sections/Calendar/Tile';
 import CalData from 'utils/db/Calendar.json'
 import useMoment from 'utils/hooks/useMoment';
+import useAPIRequest from 'utils/hooks/useAPIRequest';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
+import categories from 'utils/db/categories.json'
+import getType from 'utils/db/types'
 
 export default function Header(props) {
   var {t} = useTranslation();
@@ -25,6 +28,51 @@ export default function Header(props) {
     },100)
     return ()=>clearInterval(x);
   },[])
+  let params = props.scene?.route?.params || {};
+  let name = props.scene?.route?.name;
+  let title;
+  let subtitle;
+  let clanData;
+  if(name === 'DBType') {
+    title = getType(params.munzee)?.name??params.munzee;
+    subtitle = 'screens:'+name;
+  } else if(name === 'DBCategory') {
+    title = categories.find(i=>i.id==params.category)?.name;
+    subtitle = 'screens:'+name;
+  } else if(name.includes('Search')) {
+    title = 'screens:'+name;
+  } else if(name.startsWith('UserCapturesCategory')) {
+    title = params.username;
+    subtitle = 'screens:'+name;
+    params.category_name = categories.find(i=>i.id==params.category)?.name
+  } else if(name.startsWith('User')) {
+    title = params.username;
+    subtitle = 'screens:'+name;
+  } else if(name.startsWith('ClanRequirements')) {
+    title = params.gameid;
+    subtitle = 'screens:'+name;
+    clanData = "requirements"
+  } else if(name.startsWith('Clan')) {
+    title = params.clanid;
+    subtitle = 'screens:'+name;
+    clanData = "clan";
+  } else {
+    title = 'screens:'+name;
+  }
+  var clanName = useAPIRequest({
+    clan: {
+      endpoint: 'clan/v2',
+      data: {clan_id:Number(title)},
+      function: i=>i?.details?.name
+    },
+    requirements: {
+      endpoint: 'clan/rewards/v1',
+      cuppazee: true,
+      data: {clan_id:1349,game_id:title},
+      function: i=>i?.battle?.title?.slice(10)
+    }
+  }[clanData]||null);
+  if(clanName) title = clanName;
   return <Appbar.Header
     statusBarHeight={0}
     style={{
@@ -40,7 +88,9 @@ export default function Header(props) {
     />}
     <Appbar.Content
       titleStyle={{...font()}}
-      title={t(`screens:${props.scene?.route?.name}`)}
+      subtitleStyle={{...font()}}
+      title={t(title,params)}
+      subtitle={subtitle?t(subtitle,params):null}
     />
     <LoadingButton />
     <TouchableRipple onPress={()=>nav.navigate('Calendar')} style={{width:width>600?80:60,height:"100%"}}>
