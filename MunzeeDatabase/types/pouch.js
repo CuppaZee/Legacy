@@ -413,5 +413,14 @@ module.exports = [
     "funfinity": true,
     "lands_on": ["skyland",i=>(i.virtual_colors||[]).includes("green"),"airmystery","virtual_emerald"],
     "set": "funfinity"
+  },
+  {
+    "name": "Akvamariin",
+    "icon": "akvamariin",
+    "id": "null_akvamariin",
+    "state": "bouncer",
+    "funfinity": true,
+    "lands_on": ["treehouse","munzee","earthmystery","aquamarine"],
+    "set": "funfinity"
   }
 ]

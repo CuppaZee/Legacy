@@ -69,6 +69,7 @@ const UserSHCScreen = loadable(() => import('./sections/User/SpecialHunterChalle
 const UserSHCLiteScreen = loadable(() => import('./sections/User/SpecialHunterChallenge/Lite'), { fallback: <LoadingPage /> })
 const UserSHCProScreen = loadable(() => import('./sections/User/SpecialHunterChallenge/Pro'), { fallback: <LoadingPage /> })
 const UserCapturesCategoryScreen = loadable(() => import('./sections/User/CapturesCategory'), { fallback: <LoadingPage /> })
+const UserBlastScreen = loadable(() => import('./sections/User/Blast'), { fallback: <LoadingPage /> })
 
 // Navigation Sections
 import DrawerContent from './sections/Main/Drawer';
@@ -304,6 +305,13 @@ function StackNav() {
         component={UserBouncersScreen}
       />
       <Stack.Screen
+        name="UserBlast"
+        options={{
+          title: 'User Blast',
+        }}
+        component={UserBlastScreen}
+      />
+      <Stack.Screen
         name="DBType"
         options={{
           title: 'Munzee Type',
@@ -444,6 +452,12 @@ function App() {
           },
           UserBouncers: {
             path: 'user/:username/bouncers',
+            parse: {
+              username: String,
+            }
+          },
+          UserBlast: {
+            path: 'user/:username/blast',
             parse: {
               username: String,
             }

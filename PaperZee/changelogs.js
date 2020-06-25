@@ -398,5 +398,31 @@ export default {
       title: 'Improved Header',
       description: 'Titles in the Header are now more detailed'
     }
+  ],
+  167: [
+    {
+      image: 'akvamariin',
+      title: 'Updated Munzee Database',
+      description: 'Added Akvamariin'
+    },
+    {
+      icon: 'map',
+      title: 'Updated Web Maps',
+      description: 'CuppaZee is using a new Maps system on the Web. Please let me know if you find any bugs'
+    }
+  ],
+  168: [
+    {
+      icon: 'map',
+      title: 'Updated Web Maps',
+      description: 'Continued development on the new Maps system for Web. Last update was rushed due to Akvamariin. Again, please let me know if you find any bugs'
+    }
+  ],
+  169: [
+    {
+      icon: 'crosshairs-gps',
+      title: 'Updated Web Maps',
+      description: 'Fixed issue with Locate button on Web Map. Again, please let me know if you find any bugs'
+    }
   ]
 }

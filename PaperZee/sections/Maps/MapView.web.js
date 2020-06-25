@@ -1,68 +1,136 @@
-import React from "react"
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
-import MarkerClusterer from "react-google-maps/lib/components/addons/MarkerClusterer"
+import React from 'react'
+import { GoogleMap, LoadScript, Marker, MarkerClusterer, StandaloneSearchBox } from '@react-google-maps/api';
 import { useSelector } from 'react-redux';
-var Map = withScriptjs(withGoogleMap(function Map(props) {
-  if (props.markerClustering) return (
-    <GoogleMap
-      defaultZoom={2}
-      defaultCenter={{ lat: 0, lng: 0 }}
-      options={{
-        styles: props.mapStyles,
-        streetViewControl: false,
-        zoomControl: true,
-        scaleControl: true,
-        clickableIcons: false,
-        controlSize: 32,
-        gestureHandling: "greedy",
-        mapTypeControlOptions: {
-          mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain', 'styled_map']
-        }
-      }}
-    >
-      <MarkerClusterer
-        // onClick={props.onMarkerClustererClick}
-        averageCenter
-        enableRetinaIcons
-        gridSize={60}
-      >
-        {props.markers.map((i, index) => <Marker key={i.id??`${i.icon}/${i.lat}/${i.lng}`} icon={{ url: i.icon, scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />)}
-      </MarkerClusterer>
-    </GoogleMap>
-  )
-  return (
-    <GoogleMap
-      defaultZoom={0}
-      defaultCenter={{ lat: 0, lng: 0 }}
-      options={{
-        styles: props.mapStyles,
-        streetViewControl: false,
-        zoomControl: true,
-        scaleControl: true,
-        clickableIcons: false,
-        controlSize: 32,
-        gestureHandling: "greedy",
-        mapTypeControlOptions: {
-          mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain', 'styled_map']
-        }
-      }}
-    >
-      {props.markers.map((i, index) => <Marker key={index} icon={{ url: i.icon, scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />)}
-    </GoogleMap>
-  )
-}))
+import { Platform } from 'react-native';
+import { FAB } from 'react-native-paper';
+import * as Location from 'expo-location';
 
-export default function WebMap(props) {
-  var mapStyle = useSelector(i => i.themes[i.theme].mapStyle)
+const key = "AIzaSyADGInCzWshKaZUKmZxMed5BKJ4qdN2UTE"
+const version = "beta&map_ids=1e47783ba0e84c45,f5056005d4606f72";
+const libraries = ["places"];
+
+function MarkerRenderer(props) {
+  if(props.markerClustering) return <MarkerClusterer
+    averageCenter
+    enableRetinaIcons
+    gridSize={60}
+    >
+    {clusterer=>props.markers.map((i, index) => <Marker clusterer={clusterer} key={index} icon={{ url: i.icon, scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />)}
+  </MarkerClusterer>
+  return props.markers.map((i, index) => <Marker key={index} icon={{ url: i.icon, scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />)
+}
+
+function WebMap(props) {
+  var theme = useSelector(i => i.themes[i.theme])
+  var [center,setCenter] = React.useState({lat:0,lng:0});
+  var [map,setMap] = React.useState(null)
+  async function getLocation() {
+    if(Platform.OS!=="web") await Location.getPermissionsAsync();
+    try {
+      var loc = await Location.getCurrentPositionAsync({})
+      map.panTo({
+        lat: loc.coords.latitude,
+        lng: loc.coords.longitude
+      });
+      map.setZoom(10);
+    } catch(e) {
+    }
+  }
   return (
-    <Map
-      markerClustering={props.markerClustering}
-      mapStyles={mapStyle}
-      markers={props.markers}
-      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyADGInCzWshKaZUKmZxMed5BKJ4qdN2UTE&v=3.exp&libraries=geometry,drawing,places"
-      loadingElement={<div style={{ height: `100%` }} />}
-      containerElement={<div style={{ height: `100%` }} />}
-      mapElement={<div style={{ height: `100%` }} />}
-    />
+    <LoadScript
+      googleMapsApiKey={key}
+      version={version}
+      libraries={libraries}
+    >
+      <GoogleMap
+        zoom={1}
+        center={props.center||center}
+        options={{
+          streetViewControl: false,
+          zoomControl: false,
+          scaleControl: true,
+          rotateControl: false,
+          clickableIcons: false,
+          mapTypeControl: false,
+          fullscreenControl: false,
+          controlSize: 32,
+          gestureHandling: "greedy",
+          mapTypeControlOptions: {
+            mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain', 'styled_map']
+          },
+          mapId: theme.dark?'1e47783ba0e84c45':'f5056005d4606f72'
+        }}
+        mapContainerStyle={{flex: 1}}
+        onLoad={(m)=>setMap(m)}
+        onCenterChanged={()=>{
+          if(map) {
+            if(center.lat!==map.center.lat()||center.lng!==map.center.lng()) setCenter({
+              lat: map.center.lat(),
+              lng: map.center.lng()
+            })
+            props.onRegionChange?.({
+              latitude: map.center.lat(),
+              longitude: map.center.lng()
+            })
+          }
+        }}
+      >
+        <FAB
+          style={{position: "absolute", top: 8, left: 8, backgroundColor: theme.navigation.bg}}
+          color={theme.navigation.fg}
+          small
+          icon={true?"crosshairs-gps":"crosshairs"}
+          onPress={getLocation}
+        />
+        <FAB
+          style={{position: "absolute", bottom: 22, right: 8, backgroundColor: theme.navigation.bg}}
+          color={theme.navigation.fg}
+          small
+          icon={"minus"}
+          onPress={()=>map.setZoom(map.getZoom()-1)}
+        />
+        <FAB
+          style={{position: "absolute", bottom: 70, right: 8, backgroundColor: theme.navigation.bg}}
+          color={theme.navigation.fg}
+          small
+          icon={"plus"}
+          onPress={()=>map.setZoom(map.getZoom()+1)}
+        />
+        {/* <StandaloneSearchBox
+          // onLoad={onLoad}
+          // onPlacesChanged={
+          //   onPlacesChanged
+          // }
+        > */}
+          {/* <input
+            type="text"
+            placeholder="Customized your placeholder"
+            style={{
+              boxSizing: `border-box`,
+              border: `1px solid transparent`,
+              width: `240px`,
+              height: `32px`,
+              padding: `0 12px`,
+              borderRadius: `3px`,
+              boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+              fontSize: `14px`,
+              outline: `none`,
+              textOverflow: `ellipses`,
+              position: "absolute",
+              left: "50%",
+              marginLeft: "-120px"
+            }}
+          /> */}
+          {/* <Searchbar
+            placeholder="Search"
+            onChangeText={()=>{}}
+            value={"searchQuery"}
+          /> */}
+        {/* </StandaloneSearchBox> */}
+        <MarkerRenderer {...props} />
+      </GoogleMap>
+    </LoadScript>
   )
 }
+
+export default React.memo(WebMap)

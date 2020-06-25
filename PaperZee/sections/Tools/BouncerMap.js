@@ -21,5 +21,5 @@ export default function MapScreen({ route }) {
     icon: getIcon(data.list[i[2]]),
     id: i[3]
   })):[]
-  return <MapView markerClustering={true} mapStyle={mapStyle} markers={markers} style={{ flex: 1 }} />;
+  return <MapView markerClustering={markers.length>60} mapStyle={mapStyle} markers={markers} style={{ flex: 1 }} />;
 }
