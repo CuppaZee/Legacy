@@ -1,12 +1,13 @@
 import * as React from 'react';
 import MapView from 'sections/Maps/MapView'
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 import useAPIRequest from 'utils/hooks/useAPIRequest'
 import types from 'utils/db/types.json';
 import getIcon from 'utils/db/icon';
+import { View, ActivityIndicator } from 'react-native';
 
 export default function MapScreen({ route }) {
-  var mapStyle = useSelector(i=>i.themes[i.theme].mapStyle)
+  var theme = useSelector(i=>i.themes[i.theme]);
   var list = [].concat(...types.filter(i=>i.icon===route.params.type||i.category===route.params.type||(i.alt_icons&&i.alt_icons.includes(route.params.type))).map(i=>[i.icon,...i.alt_icons||[]]))
   var data = useAPIRequest({
     endpoint: 'bouncers/list/v1',
@@ -21,5 +22,10 @@ export default function MapScreen({ route }) {
     icon: getIcon(data.list[i[2]]),
     id: i[3]
   })):[]
-  return <MapView markerClustering={markers.length>60} mapStyle={mapStyle} markers={markers} style={{ flex: 1 }} />;
+  if(markers.length===0) {
+    return <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page_content.bg }}>
+      <ActivityIndicator size="large" color={theme.page_content.fg} />
+    </View>
+  }
+  return <MapView markers={markers} />;
 }

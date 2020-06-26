@@ -1,8 +1,7 @@
 import React from 'react'
 import { GoogleMap, LoadScript, Marker, MarkerClusterer, StandaloneSearchBox } from '@react-google-maps/api';
 import { useSelector } from 'react-redux';
-import { Platform } from 'react-native';
-import { FAB } from 'react-native-paper';
+import { FAB, Snackbar } from 'react-native-paper';
 import * as Location from 'expo-location';
 
 const key = "AIzaSyADGInCzWshKaZUKmZxMed5BKJ4qdN2UTE"
@@ -24,8 +23,8 @@ function WebMap(props) {
   var theme = useSelector(i => i.themes[i.theme])
   var [center,setCenter] = React.useState({lat:0,lng:0});
   var [map,setMap] = React.useState(null)
+  var [locError, setLocError] = React.useState(false);
   async function getLocation() {
-    if(Platform.OS!=="web") await Location.getPermissionsAsync();
     try {
       var loc = await Location.getCurrentPositionAsync({})
       map.panTo({
@@ -34,6 +33,7 @@ function WebMap(props) {
       });
       map.setZoom(10);
     } catch(e) {
+      setLocError(true);
     }
   }
   return (
@@ -96,37 +96,13 @@ function WebMap(props) {
           icon={"plus"}
           onPress={()=>map.setZoom(map.getZoom()+1)}
         />
-        {/* <StandaloneSearchBox
-          // onLoad={onLoad}
-          // onPlacesChanged={
-          //   onPlacesChanged
-          // }
-        > */}
-          {/* <input
-            type="text"
-            placeholder="Customized your placeholder"
-            style={{
-              boxSizing: `border-box`,
-              border: `1px solid transparent`,
-              width: `240px`,
-              height: `32px`,
-              padding: `0 12px`,
-              borderRadius: `3px`,
-              boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-              fontSize: `14px`,
-              outline: `none`,
-              textOverflow: `ellipses`,
-              position: "absolute",
-              left: "50%",
-              marginLeft: "-120px"
-            }}
-          /> */}
-          {/* <Searchbar
-            placeholder="Search"
-            onChangeText={()=>{}}
-            value={"searchQuery"}
-          /> */}
-        {/* </StandaloneSearchBox> */}
+        <Snackbar
+          visible={locError}
+          onDismiss={()=>setLocError(false)}
+          duration={2000}
+        >
+          Couldn't retrieve location
+        </Snackbar>
         <MarkerRenderer {...props} />
       </GoogleMap>
     </LoadScript>

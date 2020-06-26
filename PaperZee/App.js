@@ -592,35 +592,32 @@ function App() {
     </View>;
   }
   if (version != Math.max(...Object.keys(changelogs).map(Number))) {
-    var arr = [];
-    for (var v = Math.max(
-      Math.max(...Object.keys(changelogs).map(Number)) - 10,
-      version + 1
-    ); v <= Math.max(...Object.keys(changelogs).map(Number)); v++) {
-      arr.push(v);
-    }
+    var arr = Object.keys(changelogs).map(Number).filter(i=>i>version).slice(-10);
     var logs = arr.map(i => [i, changelogs[i]])
-    return <ScrollView
-      style={{ backgroundColor: theme.navigation.bg, height: "100%" }}
-      contentContainerStyle={{ padding: 8, justifyContent: "center", alignItems: "center", flexGrow: 1 }}>
-      {logs.filter(Boolean).map(([build, log]) => <SafeAreaView><View style={{ alignItems: "center" }}>
-        <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 32, ...font("bold") }}>{t('changelog:build_n',{n:build})}</Text>
-      </View>
-        {log?.map(i => <View style={{ flexDirection: "row", alignItems: "center", width: 400, maxWidth: "100%" }}>
-          {i.image && <Image source={{ uri: getIcon(i.image) }} style={{ height: 48, width: 48 }} />}
-          {i.icon && <View style={{ height: 48, width: 48, backgroundColor: theme.page_content.bg, borderRadius: 24, justifyContent: "center", alignItems: "center" }}>
-            <MaterialCommunityIcons size={32} color={theme.page_content.fg} name={i.icon} />
-          </View>}
-          <View style={{ padding: 8, flex: 1 }}>
-            <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 20, ...font("bold") }}>{i.title}</Text>
-            <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 16, ...font() }}>{i.description}</Text>
+    return <SafeAreaView style={{backgroundColor: theme.navigation.bg, height: "100%"}}>
+      <ScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={{ padding: 8, justifyContent: "center", alignItems: "center", flexGrow: 1 }}>
+        {logs.filter(Boolean).map(([build, log]) => <View style={{maxWidth:"100%"}}>
+          <View style={{ alignItems: "center" }}>
+            <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 32, ...font("bold") }}>{t('changelog:build_n',{n:build})}</Text>
           </View>
-        </View>) ?? <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>{t('changelog:no_changelog')}</Text>}
-        {build == Math.max(...Object.keys(changelogs).map(Number)) && <Button mode="contained" style={{ borderWidth: theme.page_content.border ? 2 : 0, borderColor: theme.page_content.border }} color={theme.page_content.bg} onPress={() => {
-          dispatch(cuppazeeVersion(Math.max(...Object.keys(changelogs).map(Number))))
-        }}>{t('changelog:continue')}</Button>}
-      </SafeAreaView>)}
-    </ScrollView>;
+          {log?.map(i => <View style={{ flexDirection: "row", alignItems: "center", width: 400, maxWidth: "100%" }}>
+            {i.image && <Image source={{ uri: getIcon(i.image) }} style={{ height: 48, width: 48 }} />}
+            {i.icon && <View style={{ height: 48, width: 48, backgroundColor: theme.page_content.bg, borderRadius: 24, justifyContent: "center", alignItems: "center" }}>
+              <MaterialCommunityIcons size={32} color={theme.page_content.fg} name={i.icon} />
+            </View>}
+            <View style={{ padding: 8, flex: 1 }}>
+              <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 20, ...font("bold") }}>{i.title}</Text>
+              <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 16, ...font() }}>{i.description}</Text>
+            </View>
+          </View>) ?? <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>{t('changelog:no_changelog')}</Text>}
+          {build == Math.max(...Object.keys(changelogs).map(Number)) && <Button mode="contained" style={{ borderWidth: theme.page_content.border ? 2 : 0, borderColor: theme.page_content.border }} color={theme.page_content.bg} onPress={() => {
+            dispatch(cuppazeeVersion(Math.max(...Object.keys(changelogs).map(Number))))
+          }}>{t('changelog:continue')}</Button>}
+        </View>)}
+      </ScrollView>
+    </SafeAreaView>;
   }
   if (!isReady) {
     return null;
@@ -637,9 +634,11 @@ function App() {
   );
 }
 export default function () { // Setup Providers
-  return <SafeAreaProvider><ReduxProvider store={store}>
-    <PaperProvider>
-      <App />
-    </PaperProvider>
-  </ReduxProvider></SafeAreaProvider>
+  return <SafeAreaProvider>
+    <ReduxProvider store={store}>
+      <PaperProvider>
+        <App />
+      </PaperProvider>
+    </ReduxProvider>
+  </SafeAreaProvider>
 }
