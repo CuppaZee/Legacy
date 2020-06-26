@@ -424,5 +424,68 @@ export default {
       title: 'Updated Web Maps',
       description: 'Fixed issue with Locate button on Web Map. Again, please let me know if you find any bugs'
     }
+  ],
+  169.1: [
+    {
+      icon: 'crosshairs-gps',
+      title: 'V1.2 only - Updated Maps',
+      description: 'Added Locate Button'
+    }
+  ],
+  169.2: [
+    {
+      icon: 'map',
+      title: 'V1.2 only - Updated Maps',
+      description: 'Fixed Bug with Clustering Maps'
+    }
+  ],
+  169.3: [
+    {
+      icon: 'map',
+      title: 'V1.2 only - Fix Bugs',
+      description: 'Fixed some bugs with Maps'
+    }
+  ],
+  169.4: [
+    {
+      icon: 'map',
+      title: 'V1.2 only - Fix Bugs',
+      description: 'Fixed some bugs with Maps'
+    }
+  ],
+  169.5: [
+    {
+      icon: 'map',
+      title: 'V1.2 only - Fix Bugs',
+      description: 'Fixed some bugs with Maps'
+    }
+  ],
+  169.6: [
+    {
+      icon: 'map',
+      title: 'V1.2 only - Fix Bugs',
+      description: 'Fixed some bugs with Maps'
+    }
+  ],
+  169.7: [
+    {
+      icon: 'map',
+      title: 'V1.2 only - Fix Bugs',
+      description: 'Fixed some bugs with Maps'
+    }
+  ],
+  169.8: [
+    {
+      icon: 'map',
+      title: 'V1.2 only - Fix Bugs',
+      description: 'Fixed some bugs with Maps. They should be working now. Locate Button coming soon.'
+    }
+  ],
+  169.9: [
+    {
+      icon: 'crosshairs-gps',
+      title: 'V1.2 only - Updated Maps',
+      description: 'Added Locate Button back, fixed a ton of bugs.'
+    }
   ]
 }

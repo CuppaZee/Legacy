@@ -11,7 +11,7 @@
     ],
     "githubUrl": "https://github.com/CuppaZee/CuppaZee",
     "scheme": "cuppazee",
-    "version": "1.0.1",
+    "version": "1.2.0",
     "orientation": "default",
     "icon": "./assets/CuppaZeeIcon.png",
     "splash": {
@@ -27,12 +27,15 @@
     ],
     "ios": {
       "bundleIdentifier": "uk.cuppazee.paper",
-      "buildNumber": "1.0.2",
+      "buildNumber": "1.2.0",
       "icon": "./assets/CuppaZeeIcon.png",
       "requireFullScreen": false,
       "supportsTablet": true,
       "infoPlist": {
-        "NSCameraUsageDescription": "CuppaZee uses the camera to scan Munzees."
+        "NSCameraUsageDescription": "CuppaZee uses the camera to scan Munzees.",
+        "NSLocationWhenInUseUsageDescription": "CuppaZee uses your location when in use for maps.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "CuppaZee uses your location when in use for maps, and in the background for notifications.",
+        "NSLocationAlwaysUsageDescription": "CuppaZee uses your location when in use for maps, and in the background for notifications."
       },
       "config": {
         "googleMapsApiKey": "AIzaSyAT1J1Z5S02Avk9p4IqUKPtEYOV7gI8-PA"
@@ -48,7 +51,7 @@
         }
       },
       "package": "uk.cuppazee.paper",
-      "versionCode": 7,
+      "versionCode": 8,
       "icon": "./assets/CuppaZeeIcon.png",
       "adaptiveIcon": {
         "backgroundColor": "#00C35B",
@@ -59,6 +62,19 @@
         "ACCESS_FINE_LOCATION",
         "CAMERA",
         "VIBRATE"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": {
+            "scheme": "https",
+            "host": "cuppazee.app"
+          },
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
       ]
     },
     "notification": {
