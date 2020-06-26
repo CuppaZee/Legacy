@@ -5,7 +5,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "dependencies": {
     "@expo-google-fonts/coiny": "^0.1.0",
@@ -57,7 +59,8 @@
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "supercluster": "^7.1.0"
+    "supercluster": "^7.1.0",
+    "snyk": "^1.349.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -65,5 +68,6 @@
     "moment-locales-webpack-plugin": "^1.2.0",
     "webpack-bundle-analyzer": "^3.8.0"
   },
-  "private": true
+  "private": true,
+  "snyk": true
 }
