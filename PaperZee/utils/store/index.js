@@ -252,7 +252,7 @@ setInterval(refreshRequests,60000,store);
 async function getToken(user_id,data) {
   try {
     var x = Object.assign({},data);
-    var y = await fetch(`https://server.cuppazee.app/auth/get?teaken=${encodeURIComponent(x.teaken)}&user_id=${encodeURIComponent(user_id)}`)
+    var y = await fetch(`https://server.cuppazee.app/auth/get/v2?teaken=${encodeURIComponent(x.teaken)}&user_id=${encodeURIComponent(user_id)}`)
     x.token = (await y.json()).data;
     return x;
   } catch(e) {

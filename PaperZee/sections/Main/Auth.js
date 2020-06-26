@@ -52,7 +52,7 @@ export default function AuthScreen () {
           username: response.params.username,
           teaken: response.params.teaken
         }
-        var y = await fetch(`https://server.cuppazee.app/auth/get?teaken=${encodeURIComponent(response.params.teaken)}&user_id=${encodeURIComponent(response.params.user_id)}`)
+        var y = await fetch(`https://server.cuppazee.app/auth/get/v2?teaken=${encodeURIComponent(response.params.teaken)}&user_id=${encodeURIComponent(response.params.user_id)}`)
         x[response.params.user_id].token = (await y.json()).data;
         dispatch(login(x));
         addUser({

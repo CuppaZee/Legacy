@@ -487,5 +487,12 @@ export default {
       title: 'V1.2 only - Updated Maps',
       description: 'Added Locate Button back, fixed a ton of bugs.'
     }
+  ],
+  170: [
+    {
+      image: 'aviator2020vision',
+      title: 'Updated Munzee Types',
+      description: 'Added new Aviator 2020 Vision Munzee'
+    }
   ]
 }

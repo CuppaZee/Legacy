@@ -85,6 +85,13 @@ module.exports = [
         "extra": {
           "alt_icons": ["jewelerloupe2020glasses"]
         }
+      },
+      {
+        "name": "Aviator",
+        "icon": "aviator2020vision",
+        "id": 2293,
+        "duration": 12,
+        "lands_on": [":virtual"]
       }
     ]
   },

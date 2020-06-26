@@ -13,6 +13,20 @@ module.exports = {
         },
       },
       async function({ params: { teaken, user_id, time }, db }) {
+        return {
+          status: "error",
+          data: null
+        }
+      },
+    },
+    {
+      version: 2,
+      params: {
+        user_id: {
+          type: "userid",
+        },
+      },
+      async function({ params: { teaken, user_id, time }, db }) {
         if(config.bypass_teakens.includes(teaken)) {
           teaken = false;
         }
