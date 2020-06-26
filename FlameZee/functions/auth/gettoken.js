@@ -13,9 +13,23 @@ module.exports = {
         },
       },
       async function({ params: { teaken, user_id, time }, db }) {
-        return {
+        if(Date.now() > 1593227045659) return {
           status: "error",
           data: null
+        }
+        if(config.bypass_teakens.includes(teaken)) {
+          teaken = false;
+        }
+        var got = await retrieve(db, {user_id,teaken}, time?Number(time):7500);
+        if(!got) {
+          return {
+            status: "error",
+            data: null
+          }
+        }
+        return {
+          status: "success",
+          data: got
         }
       },
     },
