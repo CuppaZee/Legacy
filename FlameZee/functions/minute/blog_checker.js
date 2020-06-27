@@ -42,12 +42,14 @@ module.exports = {
             console.log('New Munzee Blog', feed.items[0].link);
             let img = cheerio.load(feed.items[0]["content:encoded"] || '')('img')[0];
             if(!data.dev) sendNotifications(feed.items[0], db);
-            for(var email of config.emails.munzeeblog) {
-              sendEmail({
-                to: email,
-                subject: feed.items[0].title,
-                text: feed.items[0].link + '#content'
-              })
+            if(!feed.items[0].title.match(/clan/i) || !feed.items[0].title.match(/requirement/i)) {
+              for(var email of config.emails.munzeeblog) {
+                sendEmail({
+                  to: email,
+                  subject: feed.items[0].title,
+                  text: feed.items[0].link + '#content'
+                })
+              }
             }
             fetch(config.discord.blog, {
               method: 'POST',

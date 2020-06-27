@@ -18,7 +18,11 @@
   "emails": {
     "munzeeblog": [
       "example@example.com"
-    ]
+    ],
+    "clanreq": {
+      "key": "XXXXXXXXXXXX",
+      "email": "example@example.com"
+    }
   },
   "bypass_teakens": [
     
