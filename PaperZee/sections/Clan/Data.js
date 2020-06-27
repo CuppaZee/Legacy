@@ -1,4 +1,183 @@
-import Clan from 'utils/db/clan';
+// import Clan from 'utils/db/clan';
+var Clan = {
+  1: {
+    task_id: 1,
+    top: "Days of",
+    bottom: "Activity",
+    icon: "https://i.ibb.co/K5ZmXqc/Total-1.png",
+    total: "min"
+  },
+  2: {
+    task_id: 2,
+    top: "Total",
+    bottom: "Captures",
+    icon: "captured"
+  },
+  3: {
+    task_id: 3,
+    top: "Total",
+    bottom: "Points",
+    icon: "https://i.ibb.co/K5ZmXqc/Total-1.png"
+  },
+  6: {
+    task_id: 6,
+    top: "Total",
+    bottom: "Deploys",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/owned.png"
+  },
+  7: {
+    task_id: 7,
+    top: "Dest.",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/hotel.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/1starmotel.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/virtualresort.png"
+    ]
+  },
+  10: {
+    task_id: 10,
+    top: "Deploy",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/owned.png"
+  },
+  12: {
+    task_id: 12,
+    top: "Evo",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/evolution.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/evolution.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/evolution_filter_physical.png"
+    ]
+  },
+  13: {
+    task_id: 13,
+    top: "Places",
+    bottom: "Captures",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/poi_filter.png"
+  },
+  14: {
+    task_id: 14,
+    top: "Jewel",
+    bottom: "Activity",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/aquamarine.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/diamond.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/virtualonyx.png"
+    ]
+  },
+  17: {
+    task_id: 17,
+    top: "Evo",
+    bottom: "Activity",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/evolution.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/evolution.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/evolution_filter_physical.png"
+    ]
+  },
+  19: {
+    task_id: 19,
+    top: "Jewel",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/diamond.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/aquamarine.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/virtual_citrine.png"
+    ]
+  },
+  20: {
+    task_id: 20,
+    top: "Weapon",
+    bottom: "Deploys",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/catapult.png"
+    ]
+  },
+  23: {
+    task_id: 23,
+    top: "Weapon",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/catapult.png"
+    ]
+  },
+  24: {
+    task_id: 24,
+    top: "Bouncer",
+    bottom: "Captures",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/expiring_specials_filter.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/expiring_specials_filter.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/theunicorn.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/nomad.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/muru.png"
+    ]
+  },
+  26: {
+    task_id: 26,
+    top: "Weapon",
+    bottom: "Activity",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/crossbow.png"
+    ]
+  },
+  28: {
+    task_id: 28,
+    top: "Flat",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/flatrob.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/flatrob.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/flatlou.png"
+    ]
+  },
+  31: {
+    task_id: 31,
+    top: "Gaming",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/joystickvirtual.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/joystickvirtual.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/prizewheel.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/urbanfit.png"
+    ]
+  },
+  32: {
+    task_id: 32,
+    top: "Gaming",
+    bottom: "Activity",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/joystickvirtual.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/joystickvirtual.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/prizewheel.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/urbanfit.png"
+    ]
+  },
+  33: {
+    task_id: 33,
+    top: "Renovate",
+    bottom: "Motel",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/destination.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/destination.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/2starmotel.png"
+    ]
+  },
+  34: {
+    task_id: 34,
+    top: "Mystery",
+    bottom: "Points",
+    icon: "https://i.ibb.co/YdRQ3Sf/Split-Mystery.png"
+  }
+}
 export function ClanRequirementsConverter(req, rewards) {
   var output = {};
   var individual = {};
@@ -13,7 +192,7 @@ export function ClanRequirementsConverter(req, rewards) {
   }
   output.levels = [];
   output.requirements = {};
-  for (let level in req?.data?.levels) {
+  for (let level of Object.keys(req?.data?.levels??{}).slice(0,5)) {
     let level_d = req?.data?.levels?.[level];
     let level_data = {
       individual: {},
@@ -30,7 +209,7 @@ export function ClanRequirementsConverter(req, rewards) {
           top: rd.top ?? requirement.name.split(' ')[0],
           bottom: rd.bottom ?? requirement.name.split(' ').slice(1).join(' ').replace('Cap/Deploys', 'Activity'),
           description: requirement.description,
-          icon: rd.icon ?? requirement.logo
+          icon: `https://server.cuppazee.app/requirements/${requirement.task_id}.png?cache=${Math.floor(Date.now()/3600000)}` ?? rd.icon ?? requirement.logo
         }
       }
       if (requirement.individual) {

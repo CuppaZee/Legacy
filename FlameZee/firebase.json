@@ -31,6 +31,10 @@
           "destination": "/cuppazeesupport.html"
         },
         {
+          "source": "/requirements/*",
+          "destination": "/missing.png"
+        },
+        {
           "source": "**",
           "function": "api"
         }

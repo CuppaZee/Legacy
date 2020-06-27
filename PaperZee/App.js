@@ -592,13 +592,13 @@ function App() {
     </View>;
   }
   if (version != Math.max(...Object.keys(changelogs).map(Number))) {
-    var arr = Object.keys(changelogs).map(Number).filter(i=>i>version).slice(-10);
+    var arr = Object.keys(changelogs).map(Number).filter(i=>i>version).slice(-10).sort((a,b)=>a-b);
     var logs = arr.map(i => [i, changelogs[i]])
     return <SafeAreaView style={{backgroundColor: theme.navigation.bg, height: "100%"}}>
       <ScrollView
         style={{ flex: 1 }}
         contentContainerStyle={{ padding: 8, justifyContent: "center", alignItems: "center", flexGrow: 1 }}>
-        {logs.filter(Boolean).map(([build, log]) => <View style={{maxWidth:"100%"}}>
+        {logs.map(([build, log]) => <View style={{maxWidth:"100%"}}>
           <View style={{ alignItems: "center" }}>
             <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 32, ...font("bold") }}>{t('changelog:build_n',{n:build})}</Text>
           </View>

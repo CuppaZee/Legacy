@@ -37,6 +37,7 @@ export default function InventoryConverter(credits={}, boosters=[], history={}, 
   for (var log of history.items??[]) {
     data.history.push({
       name: getType(log.type.replace(/[0-9]+x /, ''), "icon")?.name||log.type,
+      origName: log.type,
       reason: log.log_text,
       icon: `https://munzee.global.ssl.fastly.net/images/pins/${getType(log.type.replace(/[0-9]+x /, ''), "icon")?.icon || 'NA'}.png`,
       time: moment.tz(log.time_awarded, "America/Chicago").valueOf()
@@ -56,12 +57,12 @@ export default function InventoryConverter(credits={}, boosters=[], history={}, 
     if(historyBatchTitle === item.reason && item.time > historyBatchTime - 300000) {
       historyBatchTime = item.time;
       if(data.historyBatches[data.historyBatches.length-1].items.find(i=>i.icon==item.icon)) {
-        data.historyBatches[data.historyBatches.length-1].items[data.historyBatches[data.historyBatches.length-1].items.findIndex(i=>i.icon==item.icon)].amount += Number((item.name.match(/^([0-9]+)x /i)||[])[1]||"1")
+        data.historyBatches[data.historyBatches.length-1].items[data.historyBatches[data.historyBatches.length-1].items.findIndex(i=>i.icon==item.icon)].amount += Number((item.origName.match(/^([0-9]+)x /i)||[])[1]||"1")
       } else {
         data.historyBatches[data.historyBatches.length-1].items.push({
-          amount: Number((item.name.match(/^([0-9]+)x /i)||[])[1]||"1"),
+          amount: Number((item.origName.match(/^([0-9]+)x /i)||[])[1]||"1"),
           icon: item.icon,
-          name: item.name.replace(/^([0-9]+)x /i,'')
+          name: item.name
         });
       }
     } else {
@@ -72,9 +73,10 @@ export default function InventoryConverter(credits={}, boosters=[], history={}, 
         time: item.time,
         items: [
           {
-            amount: Number((item.name.match(/^([0-9]+)x /i)||[])[1]||"1"),
+            amount: Number((item.origName.match(/^([0-9]+)x /i)||[])[1]||"1"),
             icon: item.icon,
-            name: item.name.replace(/^([0-9]+)x /i,'')
+            name: item.name,
+            original: item.name
           }
         ]
       };

@@ -494,5 +494,12 @@ export default {
       title: 'Updated Munzee Types',
       description: 'Added new Aviator 2020 Vision Munzee'
     }
+  ],
+  171: [
+    {
+      icon: 'package',
+      title: 'Updated Inventory',
+      description: 'Fixed a bug with incorrect counts in History'
+    }
   ]
 }
