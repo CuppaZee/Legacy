@@ -137,7 +137,7 @@ export default function DetailsScreen({ route }) {
               </View>
               {categories.filter(i => i.parents.includes('root') && !i.hidden).map(i => <TouchableRipple onPress={() => nav.navigate('UserCapturesCategory', { username: username, category: i.id })}>
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
-                  <Image style={{ height: 32, width: 32, marginVertical: -4 }} source={{ uri: getIcon(i.icon) }} />
+                  <Image style={{ height: 32, width: 32, marginVertical: -4 }} source={getIcon(i.icon)} />
                   {/* <MaterialCommunityIcons name="star" size={24} color={theme.page_content.fg} /> */}
                   <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>{i.name}</Text>
                   <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />

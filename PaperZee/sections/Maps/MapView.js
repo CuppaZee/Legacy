@@ -48,7 +48,7 @@ export default function Map(props) {
         tracksViewChanges={!!props.tracksViewChanges}
         coordinate={{ latitude: i.lat, longitude: i.lng }}>
           <Image
-            source={{ uri: getIcon(i.icon) }}
+            source={getIcon(i.icon)}
             style={{ width: 48, height: 48 }}/>
         </Marker>
       )}

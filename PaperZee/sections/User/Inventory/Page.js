@@ -73,11 +73,11 @@ export default function () {
               {i.title.match(/munzee\s*support/i) && <MaterialCommunityIcons name="heart-outline" size={24} color={theme.page_content.fg} />}
               {i.title.match(/\btest\b/i) && <MaterialCommunityIcons name="briefcase-outline" size={24} color={theme.page_content.fg} />}
 
-              {i.title.match(/giveaway/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: getIcon('theunicorn_full') }} />}
-              {i.title.match(/magnetus/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: getIcon('magnetus') }} />}
-              {i.title.match(/prize\s*wheel/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: getIcon('prizewheel') }} />}
-              {i.title.match(/pimedus/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: getIcon('pimedus') }} />}
-              {i.title.match(/space\s*coast/i) && <Image style={{ height: 24, width: 24 }} source={{ uri: getIcon('https://server.cuppazee.app/spacecoastgeostore.png') }} />}
+              {i.title.match(/giveaway/i) && <Image style={{ height: 24, width: 24 }} source={getIcon('theunicorn_full')} />}
+              {i.title.match(/magnetus/i) && <Image style={{ height: 24, width: 24 }} source={getIcon('magnetus')} />}
+              {i.title.match(/prize\s*wheel/i) && <Image style={{ height: 24, width: 24 }} source={getIcon('prizewheel')} />}
+              {i.title.match(/pimedus/i) && <Image style={{ height: 24, width: 24 }} source={getIcon('pimedus')} />}
+              {i.title.match(/space\s*coast/i) && <Image style={{ height: 24, width: 24 }} source={getIcon('https://server.cuppazee.app/spacecoastgeostore.png')} />}
               <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold"), marginLeft: 4 }}>
                 {i.short_title||i.title}
               </Text>

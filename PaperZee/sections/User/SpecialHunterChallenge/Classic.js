@@ -111,7 +111,7 @@ export default function UserSHCScreen() {
           <Card noPad>
             <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
               <View style={{ padding: 8 }}>
-                <Image source={{ uri: getIcon(i?.icon,128) }} style={{ width: 36, height: 36 }} />
+                <Image source={getIcon(i?.icon,128)} style={{ width: 36, height: 36 }} />
               </View>
               <View style={{ paddingRight: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
                 <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{data.captures.filter(x => i.function(g(x))).length}x {i?.name}</Text>

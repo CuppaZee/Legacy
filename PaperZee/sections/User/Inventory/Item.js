@@ -16,7 +16,7 @@ export default function InventoryItem({i}) {
     anchor={
       <TouchableRipple onPress={() => setOpen(true)}>
         <View key={i.icon} style={{ padding: 2, alignItems: "center", opacity: i.amount ? 1 : 0.2 }}>
-          <Image style={{ height: 36, width: 36 }} source={{ uri: i.icon?.includes?.('NA.png') ? 'https://server.cuppazee.app/missing.png' : getIcon(i.icon) }} />
+          <Image style={{ height: 36, width: 36 }} source={getIcon(i.icon?.includes?.('NA.png') ? 'https://server.cuppazee.app/missing.png' : i.icon)} />
           <Text allowFontScaling={false} style={{ ...font(), color: theme.page_content.fg, fontSize: 16 }}>{i.amount}</Text>
         </View>
       </TouchableRipple>
@@ -24,7 +24,7 @@ export default function InventoryItem({i}) {
     style={{ marginTop: 61 }}
   >
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
-      <Image style={{ height: 48, width: 48 }} source={{ uri: i.icon?.includes?.('NA.png') ? 'https://server.cuppazee.app/missing.png' : getIcon(i.icon) }} />
+      <Image style={{ height: 48, width: 48 }} source={getIcon(i.icon?.includes?.('NA.png') ? 'https://server.cuppazee.app/missing.png' : i.icon)} />
       <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{i.amount}x {i.name || t('inventory:unknown_name')}</Text>
     </View>
   </Menu>;

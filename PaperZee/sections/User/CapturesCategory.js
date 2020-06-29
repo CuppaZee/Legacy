@@ -77,7 +77,7 @@ export default function SearchScreen({ navigation, route }) {
                 </View>
               </View>)}
             {categories.filter(i => i.parents.includes(category)).filter(i => hasChild(i)).filter(i=>!i.hidden).map(i => <View key={i.id} style={{ padding: 4, flexDirection: "row", alignItems: "center" }}>
-              <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={{ uri: i.custom_icon ?? getIcon(i.icon) }} />
+              <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={getIcon(i.custom_icon ?? i.icon)} />
               <View style={{ flex: 1 }}>
                 <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{i.name}</Text>
                 <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{i.category ? `#${i.id}` : t(`db:category`)}</Text>
@@ -98,7 +98,7 @@ export default function SearchScreen({ navigation, route }) {
             </>}
             <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
               {types.filter(i => i.category === cdata.id).filter(i=>!i.hidden&&!i.capture_types).map(i => <View key={i.id} style={{ padding: 4, width: 80, alignItems: "center", opacity: get(i.x)>0?1:0.4 }}>
-                <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={{ uri: i.custom_icon ?? getIcon(i.icon) }} />
+                <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={getIcon(i.custom_icon ?? i.icon)} />
                 <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{i.name}</Text>
                 <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{get(i.x).toString()}</Text>
               </View>)}

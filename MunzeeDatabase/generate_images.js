@@ -1,7 +1,7 @@
 var sharp = require('sharp');
 var path = require('path');
 var axios = require('axios');
-var fs = require('fs');
+var fs = require('fs-extra');
 
 function g(icon) {
   var x = icon.replace(/[^a-zA-Z0-9]/g,'');
@@ -42,16 +42,21 @@ async function downloadIcon (icon,size) {
 var types = require('./output/types.min.json');
 (async function() {
   var arr = [];
+  var js = {128:{},64:{}};
   for(let type of types.filter(i=>!i.missingicon)) {
+    js[64][g(type.icon)] = `S%64/${g(type.icon)}%E`;
     await downloadIcon(type.icon,64).then(()=>{
       console.log(type.icon,64)
     })
   }
   for(let type of types.filter(i=>!i.missingicon)) {
+    js[128][g(type.icon)] = `S%128/${g(type.icon)}%E`;
     await downloadIcon(type.icon,128).then(()=>{
       console.log(type.icon,128)
     })
   }
   // await Promise.all(arr);
   console.log('DONE')
+  fs.writeFileSync(path.resolve(__dirname, '../PaperZee/assets/pins.js'), `module.exports = ` + JSON.stringify(js).replace(/"S%/g,'require("./pins/').replace(/%E"/g,'.png")'))
+  fs.copySync(path.resolve(__dirname,'../FlameZee/public/pins'),path.resolve(__dirname,'../PaperZee/assets/pins'))
 })();

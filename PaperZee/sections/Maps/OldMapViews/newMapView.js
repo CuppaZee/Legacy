@@ -67,7 +67,7 @@ function Map(props) {
       // customMapStyle={theme.mapStyle}
       style={{ flex: 1 }}>
       {props.markers.map((i, index) => <Marker key={i.id ?? `${i.icon}/${i.lat}/${i.lng}`} tracksViewChanges={!!props.tracksViewChanges} coordinate={{ latitude: i.lat, longitude: i.lng }}>
-          <Image source={{ uri: getIcon(i.icon) }} style={{ width: 48, height: 48 }} />
+          <Image source={getIcon(i.icon)} style={{ width: 48, height: 48 }} />
         </Marker>
       )}
     </MapView>

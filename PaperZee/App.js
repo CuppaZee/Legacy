@@ -603,7 +603,7 @@ function App() {
             <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 32, ...font("bold") }}>{t('changelog:build_n',{n:build})}</Text>
           </View>
           {log?.map(i => <View style={{ flexDirection: "row", alignItems: "center", width: 400, maxWidth: "100%" }}>
-            {i.image && <Image source={{ uri: getIcon(i.image) }} style={{ height: 48, width: 48 }} />}
+            {i.image && <Image source={getIcon(i.image)} style={{ height: 48, width: 48 }} />}
             {i.icon && <View style={{ height: 48, width: 48, backgroundColor: theme.page_content.bg, borderRadius: 24, justifyContent: "center", alignItems: "center" }}>
               <MaterialCommunityIcons size={32} color={theme.page_content.fg} name={i.icon} />
             </View>}

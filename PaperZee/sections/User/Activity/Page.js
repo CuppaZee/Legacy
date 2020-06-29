@@ -49,8 +49,8 @@ function ActivityListItem({ act, userdata }) {
         </View>
       </View>
       <View style={{ position: 'relative' }}>
-        <Image style={{ height: 32, width: 32 }} source={{ uri: getIcon(act.pin) }} />
-        {hostIcon(act.pin) && <Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: -8 }} source={{ uri: hostIcon(act.pin) }} />}
+        <Image style={{ height: 32, width: 32 }} source={getIcon(act.pin)} />
+        {hostIcon(act.pin) && <Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: -8 }} source={hostIcon(act.pin)} />}
       </View>
     </View>
     <TouchableHighlight style={{ paddingLeft: 8, paddingRight: 8, flexGrow: 1, flexShrink: 1 }} onPress={() => { navigation.navigate('MunzeeDetails', { username: (!act.points_for_creator && act.captured_at) ? act.username : userdata?.username, code: act.code }) }} underlayColor="white">

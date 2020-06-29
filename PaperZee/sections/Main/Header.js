@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Appbar, TouchableRipple } from 'react-native-paper';
-import { Image, View } from 'react-native';
+import { View, Text } from 'react-native';
 import LoadingButton from './LoadingButton';
 import { useSelector } from 'react-redux';
 import { useDimensions } from '@react-native-community/hooks';
@@ -14,20 +14,29 @@ import { useTranslation } from 'react-i18next';
 import categories from 'utils/db/categories.json'
 import getType from 'utils/db/types'
 
-export default function Header(props) {
-  var {t} = useTranslation();
+function MHQTime() {
   var moment = useMoment();
-  var nav = useNavigation();
   var theme = useSelector(i=>i.themes[i.theme]);
-  var loggedIn = useSelector(i=>i.loggedIn);
-  var {width} = useDimensions().window;
   var [now,setNow] = React.useState(moment().tz('America/Chicago'));
+  var {width} = useDimensions().window;
   React.useEffect(()=>{
     var x = setInterval(()=>{
       setNow(moment().tz('America/Chicago'))
     },100)
     return ()=>clearInterval(x);
   },[])
+  return <View style={{alignSelf:"stretch",justifyContent:"center",alignItems:"center",paddingHorizontal:8}}>
+    <Text allowFontScaling={false} style={{color:theme.navigation.fg,fontSize:14,...font("bold")}}>{now.format('DD/MM')}</Text>
+    <Text allowFontScaling={false} style={{color:theme.navigation.fg,fontSize:16,...font("bold")}}>{now.format(width>600?'HH:mm:ss':'HH:mm')}</Text>
+  </View>
+}
+
+export default function Header(props) {
+  var {t} = useTranslation();
+  var nav = useNavigation();
+  var theme = useSelector(i=>i.themes[i.theme]);
+  var loggedIn = useSelector(i=>i.loggedIn);
+  var {width} = useDimensions().window;
   let params = props.scene?.route?.params || {};
   let name = props.scene?.route?.name;
   let title;
@@ -93,9 +102,10 @@ export default function Header(props) {
       subtitle={subtitle?t(subtitle,params):null}
     />
     <LoadingButton />
-    <TouchableRipple onPress={()=>nav.navigate('Calendar')} style={{width:width>600?80:60,height:"100%"}}>
+    <MHQTime />
+    {/* <TouchableRipple onPress={()=>nav.navigate('Calendar')} style={{width:width>600?80:60,height:"100%"}}>
       <Tile header={true} theme={theme} date={now.format(width>600?'HH:mm:ss':'HH:mm')} extraText={now.format('DD/MM')} data={CalData?.[now.year()]?.[now.month()]?.[now.date()-1]??''} />
-    </TouchableRipple>
+    </TouchableRipple> */}
     
     {/* <Appbar.Action icon={()=><Image style={{height:36,width:36,marginTop:-6,marginLeft:-6}} source={{uri:'https://munzee.global.ssl.fastly.net/images/avatars/ua2p5m.png'}} />} onPress={()=>{}} /> */}
   </Appbar.Header>

@@ -64,17 +64,17 @@ export default function UserActivityDash({ game_id, scale: s = 1, list }) {
           <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 24*s }}>{i.name}</Text>
           <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 20*s }}>{t('clan:individual')}</Text>
           {(data?.order?.individual??[]).filter(r=>i.individual[r]).map(r=><View style={{flexDirection:"row",alignItems:"center",paddingVertical:4}}>
-            <Image style={{height:24,width:24,marginRight:4}} source={{uri:getIcon(data.requirements[r].icon)}} />
+            <Image style={{height:24,width:24,marginRight:4}} source={getIcon(data.requirements[r].icon)} />
             <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 16*s }}><Text style={font("bold")}>{i.individual[r].toLocaleString()}</Text> {data.requirements[r].top} {data.requirements[r].bottom}</Text>
           </View>)}
           <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 20*s, marginTop: 4 }}>{t('clan:group')}</Text>
           {(data?.order?.group??[]).filter(r=>i.group[r]).map(r=><View style={{flexDirection:"row",alignItems:"center",paddingVertical:4}}>
-            <Image style={{height:24,width:24,marginRight:4}} source={{uri:getIcon(data.requirements[r].icon)}} />
+            <Image style={{height:24,width:24,marginRight:4}} source={getIcon(data.requirements[r].icon)} />
             <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 16*s }}><Text style={font("bold")}>{i.group[r].toLocaleString()}</Text> {data.requirements[r].top} {data.requirements[r].bottom}</Text>
           </View>)}
           <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 20*s, marginTop: 4 }}>{t('clan:rewards')}</Text>
           {(data?.order?.rewards??[]).filter(r=>i.rewards[r]).map(r=><View style={{flexDirection:"row",alignItems:"center",paddingVertical:4}}>
-            <Image style={{height:24,width:24,marginRight:4}} source={{uri:getIcon(data.rewards[r].logo)}} />
+            <Image style={{height:24,width:24,marginRight:4}} source={getIcon(data.rewards[r].logo)} />
             <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 16*s }}><Text style={font("bold")}>{i.rewards[r].toLocaleString()}x</Text> {data.rewards[r].name}</Text>
           </View>)}
         </View>)}
@@ -101,7 +101,7 @@ export default function UserActivityDash({ game_id, scale: s = 1, list }) {
             <View style={{flexDirection:"row"}}>
               {(data?.order?.individual??[]).map(i=><View key={`Individual${i}`} style={{flexGrow:1}}>
                 <View style={{height:(96-19)*s,borderBottomWidth:2*s,borderBottomColor:level_colors.border,padding:4*s,alignItems:"center"}}>
-                  <Image source={{uri:getIcon(data?.requirements?.[i]?.icon??data?.requirements?.[i]?.icons?.[tick%data?.requirements?.[i]?.icons?.length])}} style={{height:36*s,width:36*s}} />
+                  <Image source={getIcon(data?.requirements?.[i]?.icon??data?.requirements?.[i]?.icons?.[tick%data?.requirements?.[i]?.icons?.length])} style={{height:36*s,width:36*s}} />
                   <Text allowFontScaling={false} numberOfLines={1} style={{color:level_colors.ind.fg,textAlign:"center",...font("bold"),fontSize:12*s}}>{data?.requirements?.[i]?.top}</Text>
                   <Text allowFontScaling={false} numberOfLines={1} style={{color:level_colors.ind.fg,textAlign:"center",...font(),fontSize:12*s}}>{data?.requirements?.[i]?.bottom}</Text>
                 </View>
@@ -117,7 +117,7 @@ export default function UserActivityDash({ game_id, scale: s = 1, list }) {
             <View style={{flexDirection:"row",marginRight:1}}>
               {data?.order?.group?.map((i,index)=><View style={{flexGrow:1}}>
                 <View style={{...(index==0?{borderLeftWidth:2*s,borderLeftColor:level_colors.border}:{}),marginHorizontal:-1*s,height:(96-19)*s,borderBottomWidth:2*s,borderBottomColor:level_colors.border,padding:4*s,alignItems:"center"}}>
-                  <Image source={{uri:getIcon(data?.requirements?.[i]?.icon??data?.requirements?.[i]?.icons?.[tick%data?.requirements?.[i]?.icons?.length])}} style={{height:36*s,width:36*s}} />
+                  <Image source={getIcon(data?.requirements?.[i]?.icon??data?.requirements?.[i]?.icons?.[tick%data?.requirements?.[i]?.icons?.length])} style={{height:36*s,width:36*s}} />
                   <Text allowFontScaling={false} style={{color:level_colors.gro.fg,textAlign:"center",width:'100%',...font("bold"),fontSize:12*s}}>{data?.requirements?.[i]?.top}</Text>
                   <Text allowFontScaling={false} style={{color:level_colors.gro.fg,textAlign:"center",width:'100%',...font(),fontSize:12*s}}>{data?.requirements?.[i]?.bottom}</Text>
                 </View>
@@ -134,7 +134,7 @@ export default function UserActivityDash({ game_id, scale: s = 1, list }) {
             <View style={{flexDirection:"row",marginRight:1}}>
               {(data?.order?.rewards??[]).map(i=><View key={`Reward${i}`} style={{flexGrow:1}}>
                 <View style={{height:60,borderBottomWidth:2,borderBottomColor:level_colors.border,padding:4,alignItems:"center"}}>
-                  <Image source={{uri:getIcon(data?.rewards?.[i]?.logo)}} style={{height:36*s,width:36*s}} />
+                  <Image source={getIcon(data?.rewards?.[i]?.logo)} style={{height:36*s,width:36*s}} />
                   <Text allowFontScaling={false} numberOfLines={1} style={{textAlign:"center",...font("bold"),fontSize:10*s,color:level_colors.ind.fg}}>{data?.rewards?.[i]?.short_name??data?.rewards?.[i]?.name.replace(/Virtual /,'V').replace(/Physical /,'P').replace(/Flat /,'').replace(/ Mystery/,'').replace(/THE /,'').replace(/ Wheel/,'W').replace(/Hammock/,'Hamm')}</Text>
                 </View>
                 {data?.levels?.map(l=><View key={l.id} style={{marginHorizontal:-1*s,height:24*s,padding:4*s,alignItems:"center",backgroundColor:level_colors[l.id].bg}}>

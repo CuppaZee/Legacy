@@ -28,15 +28,15 @@ function SHCItem({ i, m }) {
     anchor={
       <TouchableRipple onPress={() => setOpen(true)}>
         <View key={i.icon} style={{ padding: 2, alignItems: "center", position: "relative" }}>
-          <Image style={{ height: 32, width: 32 }} source={{ uri: getIcon(i.pin) }} />
-          {m && <Image style={{ height: 20, width: 20, position: "absolute", bottom: 0, right: -4 }} source={{ uri: getIcon(m.pin) }} />}
+          <Image style={{ height: 32, width: 32 }} source={getIcon(i.pin)} />
+          {m && <Image style={{ height: 20, width: 20, position: "absolute", bottom: 0, right: -4 }} source={getIcon(m.pin)} />}
         </View>
       </TouchableRipple>
     }
     style={{ marginTop: 61 }}
   >
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
-      <Image style={{ height: 48, width: 48 }} source={{ uri: getIcon(i.pin) }} />
+      <Image style={{ height: 48, width: 48 }} source={getIcon(i.pin)} />
       <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold") }}>{i.friendly_name}</Text>
       <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold") }}>{t('activity:by_user',{user:i.username})}</Text>
     </View>
@@ -173,7 +173,7 @@ export default function UserSHCScreen() {
           <Card noPad>
             <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
               <View style={{ padding: 8 }}>
-                <Image source={{ uri: getIcon(i?.icon,128) }} style={{ width: 36, height: 36 }} />
+                <Image source={getIcon(i?.icon,128)} style={{ width: 36, height: 36 }} />
               </View>
               <View style={{ paddingRight: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
                 <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{category_data[i.name].length}x {i?.name}</Text>

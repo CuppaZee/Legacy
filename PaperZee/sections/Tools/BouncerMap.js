@@ -3,7 +3,6 @@ import MapView from 'sections/Maps/MapView'
 import { useSelector } from 'react-redux';
 import useAPIRequest from 'utils/hooks/useAPIRequest'
 import types from 'utils/db/types.json';
-import getIcon from 'utils/db/icon';
 import { View, ActivityIndicator } from 'react-native';
 
 export default function MapScreen({ route }) {
@@ -19,7 +18,7 @@ export default function MapScreen({ route }) {
   var markers = data?data.data.map(i=>({
     lat: i[0],
     lng: i[1],
-    icon: getIcon(data.list[i[2]]),
+    icon: data.list[i[2]],
     id: i[3]
   })):[]
   if(markers.length===0) {

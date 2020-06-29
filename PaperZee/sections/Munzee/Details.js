@@ -37,7 +37,7 @@ export default function DetailsScreen({ route }) {
         <View style={{ padding: 4 }}>
           <Card>
             <View style={{flexDirection:"row",alignItems:"center"}}>
-              <Image style={{height:42,width:42,marginRight:8}} source={{uri:getIcon(data?.pin_icon)}}/>
+              <Image style={{height:42,width:42,marginRight:8}} source={getIcon(data?.pin_icon)}/>
               <View style={{flexDirection:"column",flex:1}}>
                 <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{data?.friendly_name}</Text>
                 <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>By {data?.creator_username}</Text>

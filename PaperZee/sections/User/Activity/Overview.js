@@ -55,9 +55,9 @@ function OverviewItem({i,total}) {
     anchor={
       <TouchableRipple onPress={() => setOpen(true)}>
         <View key={i.icon} style={{ padding: 2, alignItems: "center" }}>
-          <Image style={{ height: small?24:32, width: small?24:32 }} source={{ uri: getIcon(i[0]) }} />
+          <Image style={{ height: small?24:32, width: small?24:32 }} source={getIcon(i[0])} />
           <Text allowFontScaling={false} style={{ color: theme.page_content.fg,...font(), fontSize: 12 }}>{i[1].total}</Text>
-          {hostIcon(i[0])&&<Image style={{ height: small?16:24, width: small?16:24, position: "absolute", right: small?-3:-5, bottom: small?18:15 }} source={{ uri: hostIcon(i[0]) }} />}
+          {hostIcon(i[0])&&<Image style={{ height: small?16:24, width: small?16:24, position: "absolute", right: small?-3:-5, bottom: small?18:15 }} source={hostIcon(i[0])} />}
         </View>
       </TouchableRipple>
     }
@@ -66,8 +66,8 @@ function OverviewItem({i,total}) {
   >
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
       <View>
-        <Image style={{ height: 48, width: 48 }} source={{ uri: getIcon(i[0]) }} />
-        {hostIcon(i[0])&&<Image style={{ height: 36, width: 36, position: "absolute", right: -7.5, bottom: -7.5 }} source={{ uri: hostIcon(i[0]) }} />}
+        <Image style={{ height: 48, width: 48 }} source={getIcon(i[0])} />
+        {hostIcon(i[0])&&<Image style={{ height: 36, width: 36, position: "absolute", right: -7.5, bottom: -7.5 }} source={hostIcon(i[0])} />}
       </View>
       <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].total}x {(getType(i[0])||{name:i[0].slice(49,-4)}).name}</Text>
       <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].points} Points</Text>

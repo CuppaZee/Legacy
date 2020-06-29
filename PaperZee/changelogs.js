@@ -534,5 +534,17 @@ export default {
       title: 'Updated Quebec Quest Progress',
       description: 'Squashed a bug'
     }
+  ],
+  176: [
+    {
+      icon: 'map-marker',
+      title: 'Updated Munzee Icons System',
+      description: 'Significantly improved performance as icons are now stored within the app. Please let me know if you find anything that isn\'t working'
+    },
+    {
+      icon: 'calendar',
+      title: 'Removed Calendar from Header',
+      description: 'The Calendar shortcut has been removed from the header due to the fact that flats are now on the map permanently.'
+    }
   ]
 }

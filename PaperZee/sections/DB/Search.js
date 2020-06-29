@@ -53,7 +53,7 @@ export default function SearchScreen({ navigation }) {
             {search.length<3&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>{t('search:type')}</Text>}
             {search.length>=3&&list.length===0&&<Text allowFontScaling={false} style={{textAlign:"center",...font("bold"),fontSize:16,color:theme.page_content.fg}}>No Results {":("}</Text>}
             {(search.length<3?categories.filter(i=>i.parents.includes('root')).filter(i=>!i.hidden).map(i=>({item:i})):list.slice(0,20)).map(({item:i})=><View key={i.id} style={{padding: 4, flexDirection: "row", alignItems: "center"}}>
-              <Image style={{height:32,width:32,marginHorizontal:8}} source={{uri:i.custom_icon??getIcon(i.icon)}} />
+              <Image style={{height:32,width:32,marginHorizontal:8}} source={getIcon(i.custom_icon??i.icon)} />
               <View style={{flex:1}}>
                 <Text allowFontScaling={false} style={{...font("bold"),fontSize:16,color:theme.page_content.fg}}>{i.name}</Text>
                 <Text allowFontScaling={false} style={{...font("bold"),fontSize:12,color:theme.page_content.fg}}>{i.category?`#${i.id}`:t(`db:category`)}</Text>

@@ -3,6 +3,7 @@ import { GoogleMap, LoadScript, Marker, MarkerClusterer, StandaloneSearchBox } f
 import { useSelector } from 'react-redux';
 import { FAB, Snackbar } from 'react-native-paper';
 import * as Location from 'expo-location';
+import getIcon from 'utils/db/icon';
 
 const key = "AIzaSyADGInCzWshKaZUKmZxMed5BKJ4qdN2UTE"
 const version = "beta&map_ids=1e47783ba0e84c45,f5056005d4606f72";
@@ -14,9 +15,9 @@ function MarkerRenderer(props) {
     enableRetinaIcons
     gridSize={60}
     >
-    {clusterer=>props.markers.map((i, index) => <Marker clusterer={clusterer} key={index} icon={{ url: i.icon, scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />)}
+    {clusterer=>props.markers.map((i, index) => <Marker clusterer={clusterer} key={index} icon={{ url: getIcon(i.icon), scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />)}
   </MarkerClusterer>
-  return props.markers.map((i, index) => <Marker key={index} icon={{ url: i.icon, scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />)
+  return props.markers.map((i, index) => <Marker key={index} icon={{ url: getIcon(i.icon), scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />)
 }
 
 function WebMap(props) {

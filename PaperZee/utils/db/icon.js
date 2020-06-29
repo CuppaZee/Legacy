@@ -1,5 +1,6 @@
 import types from './types.json';
 import typekeys from './typekeys.json';
+import pins from 'assets/pins';
 
 function g(icon) {
   if (icon.startsWith('https://munzee.global')) icon = icon.slice(49, -4);
@@ -10,8 +11,8 @@ function g(icon) {
 export default function get(icon = "mystery", size = 64) {
   var gi = g(icon);
   if (typekeys[gi] !== undefined && types[typekeys[gi]] && !types[typekeys[gi]].missingicon) {
-    return `https://server.cuppazee.app/pins/${size}/${types[typekeys[gi]].i}.png`
+    return pins[size]?.[types[typekeys[gi]].i] ?? {uri:`https://server.cuppazee.app/pins/${size}/${types[typekeys[gi]].i}.png`}
   } else if (icon.startsWith('https://')) {
     return icon;
-  } return `https://munzee.global.ssl.fastly.net/images/pins/${icon}.png`;
+  } return {uri:`https://munzee.global.ssl.fastly.net/images/pins/${icon}.png`};
 }

@@ -41,7 +41,7 @@ export default function ClanScreen({ route }) {
             <MapView tracksViewChanges={true} markers={bouncers.filter(i => i.bouncer).map(i => ({
               lat: Number(i.bouncer.latitude),
               lng: Number(i.bouncer.longitude),
-              icon: getIcon(i.pin_icon)
+              icon: i.pin_icon
             }))} style={{ flex: 1 }} />
           </Card>
         </View>}
@@ -49,7 +49,7 @@ export default function ClanScreen({ route }) {
           <Card noPad cardStyle={{ opacity: i.bouncer ? 1 : 0.4 }}>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <View style={{ padding: 8 }}>
-                <Image source={{ uri: getIcon(i.pin_icon) }} style={{ width: 48, height: 48 }} />
+                <Image source={getIcon(i.pin_icon)} style={{ width: 48, height: 48 }} />
               </View>
               <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
                 <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{i.friendly_name}</Text>
