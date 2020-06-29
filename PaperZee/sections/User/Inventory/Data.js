@@ -44,7 +44,7 @@ export default function InventoryConverter(credits={}, boosters=[], history={}, 
     })
   }
   for (var item of [...data.credits,...data.undeployed]) {
-    var type = (item.category?item:null)||getType(item.icon)||extras.find(i=>i.icon==item.icon.slice(49,-4))||{category:"other"};
+    var type = (item.category?item:null)||getType(item.icon)||{category:"other"};
     if(!type.category) type.category="other";
     if(type.category=="virtual") type.category="misc";
     if(type.category=="zeecret") type.category="misc";

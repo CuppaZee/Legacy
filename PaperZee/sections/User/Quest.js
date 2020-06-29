@@ -39,7 +39,12 @@ export default function ClanScreen({ route }) {
     {id:7,name:"Destination Caps/Deps",req:8,icon:"https://munzee.global.ssl.fastly.net/images/pins/1starmotel.png"},
     {id:8,name:"Bouncer Caps",req:5,icon:"https://munzee.global.ssl.fastly.net/images/pins/expiring_specials_filter.png"},
   ]
-  var user_id = Number(route.params.userid);
+  var username = route.params.username;
+  const user_id = useAPIRequest({
+    endpoint: 'user',
+    data: { username },
+    function: i=>i?.user_id
+  })
   var data = useAPIRequest({
     endpoint: `user/quest/v1`,
     data: {

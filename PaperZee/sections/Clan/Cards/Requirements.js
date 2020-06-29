@@ -11,7 +11,7 @@ import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
 import getIcon from 'utils/db/icon';
 
-export default function UserActivityDash({ game_id, scale: s = 1 }) {
+export default function UserActivityDash({ game_id, scale: s = 1, list }) {
   var {t} = useTranslation();
   var theme = useSelector(i=>i.themes[i.theme]);
   var [reward,setReward] = React.useState(false);
@@ -47,6 +47,39 @@ export default function UserActivityDash({ game_id, scale: s = 1 }) {
         </Card>
       );
     }
+  }
+  if(list) {
+    return <Card noPad>
+      <View style={{ ...(theme.dark?{borderBottomWidth: 2*s, borderBottomColor: level_colors.border}:{}), backgroundColor: (theme.clanCardHeader||theme.navigation).bg, paddingHorizontal: 8*s, borderTopLeftRadius: 8*s, borderTopRightRadius: 8*s, flexDirection: "row", alignItems: "center" }}>
+        <View style={{flex:1,paddingVertical:8*s}}>
+          <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader||theme.navigation).fg, ...font("bold"), fontSize: 12*s, opacity: 0.7, lineHeight: 12*s }}>{data?.battle.title.slice(10)}</Text>
+          <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader||theme.navigation).fg, ...font("bold"), fontSize: 16*s, lineHeight: 16*s }}>{reward?t('clan:rewards'):t('clan:requirements')}</Text>
+        </View>
+        <TouchableRipple style={{borderRadius:24*s,padding:4*s}} onPress={()=>{setReward(!reward)}}>
+          <MaterialCommunityIcons name="gift" size={24*s} color={(theme.clanCardHeader||theme.navigation).fg} />
+        </TouchableRipple>
+      </View>
+      <View style={{padding:4}}>
+        {data.levels.map(i=><View style={{paddingBottom:16}}>
+          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 24*s }}>{i.name}</Text>
+          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 20*s }}>{t('clan:individual')}</Text>
+          {(data?.order?.individual??[]).filter(r=>i.individual[r]).map(r=><View style={{flexDirection:"row",alignItems:"center",paddingVertical:4}}>
+            <Image style={{height:24,width:24,marginRight:4}} source={{uri:getIcon(data.requirements[r].icon)}} />
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 16*s }}><Text style={font("bold")}>{i.individual[r].toLocaleString()}</Text> {data.requirements[r].top} {data.requirements[r].bottom}</Text>
+          </View>)}
+          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 20*s, marginTop: 4 }}>{t('clan:group')}</Text>
+          {(data?.order?.group??[]).filter(r=>i.group[r]).map(r=><View style={{flexDirection:"row",alignItems:"center",paddingVertical:4}}>
+            <Image style={{height:24,width:24,marginRight:4}} source={{uri:getIcon(data.requirements[r].icon)}} />
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 16*s }}><Text style={font("bold")}>{i.group[r].toLocaleString()}</Text> {data.requirements[r].top} {data.requirements[r].bottom}</Text>
+          </View>)}
+          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 20*s, marginTop: 4 }}>{t('clan:rewards')}</Text>
+          {(data?.order?.rewards??[]).filter(r=>i.rewards[r]).map(r=><View style={{flexDirection:"row",alignItems:"center",paddingVertical:4}}>
+            <Image style={{height:24,width:24,marginRight:4}} source={{uri:getIcon(data.rewards[r].logo)}} />
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 16*s }}><Text style={font("bold")}>{i.rewards[r].toLocaleString()}x</Text> {data.rewards[r].name}</Text>
+          </View>)}
+        </View>)}
+      </View>
+    </Card>
   }
   return (
     // <View style={{ flex: 1, alignItems: "stretch", flexDirection: "column", backgroundColor: "#e9ffdc"??"#e6fcd9", borderRadius: 8 }}>

@@ -11,6 +11,9 @@ export default function ClanScreen({route}) {
       <View style={{ padding: 4 }}>
         <ClanRequirements game_id={game_id} />
       </View>
+      <View style={{ padding: 4 }}>
+        <ClanRequirements list={true} game_id={game_id} />
+      </View>
     </ScrollView>
   );
 }

@@ -114,5 +114,11 @@
     "icon": "winter_card",
     "id": "null_wintercard",
     "open": true
+  },
+  {
+    "name": "Event Card",
+    "icon": "eventcard",
+    "id": "null_eventcard",
+    "open": true
   }
 ]

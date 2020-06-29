@@ -508,5 +508,31 @@ export default {
       title: 'Updated Munzee Types',
       description: 'Added `aviators2020vision` alt icons to Aviator 2020 Vision Munzee'
     }
+  ],
+  173: [
+    {
+      icon: 'format-list-bulleted',
+      title: 'Added Clan Requirements List',
+      description: 'You can now view July 2020 Clan Requirements in a Blog-Style List. Just press the "NEW" icon in the sidebar'
+    }
+  ],
+  174: [
+    {
+      icon: 'package',
+      title: 'Updated Inventory',
+      description: 'Fixed a White Screen bug when you had certain items in your inventory'
+    }
+  ],
+  175: [
+    {
+      image: 'eventcard',
+      title: 'Updated Munzee Database',
+      description: 'Added Event Card'
+    },
+    {
+      icon: 'run',
+      title: 'Updated Quebec Quest Progress',
+      description: 'Squashed a bug'
+    }
   ]
 }
