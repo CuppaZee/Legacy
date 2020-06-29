@@ -501,5 +501,12 @@ export default {
       title: 'Updated Inventory',
       description: 'Fixed a bug with incorrect counts in History'
     }
+  ],
+  172: [
+    {
+      image: 'aviator2020vision',
+      title: 'Updated Munzee Types',
+      description: 'Added `aviators2020vision` alt icons to Aviator 2020 Vision Munzee'
+    }
   ]
 }

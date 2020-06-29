@@ -91,7 +91,10 @@ module.exports = [
         "icon": "aviator2020vision",
         "id": 2293,
         "duration": 12,
-        "lands_on": [":virtual"]
+        "lands_on": [":virtual"],
+        "extra": {
+          "alt_icons": ["aviators2020vision"]
+        }
       }
     ]
   },
