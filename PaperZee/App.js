@@ -585,6 +585,9 @@ function App() {
       <ActivityIndicator size="large" color={theme.page.fg} />
     </View>;
   }
+  return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
+    <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>Please update your app from the {Platform.OS==="ios"?"App Store":"Google Play Store"}</Text>
+  </View>;
   if (loadingLogin) {
     return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
       <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>{t('common:logging_in')}</Text>
