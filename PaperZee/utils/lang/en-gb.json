@@ -156,7 +156,6 @@
         "individual": "Individual",
         "group": "Group",
         "level_n": "Level {level}",
-        "rank": "Rank #{rank}",
         "shadow": "Shadow Clan",
         "goal": "Goal",
         "view": {
@@ -166,23 +165,15 @@
         "share": "Share",
         "indiv": "Indiv",
         "group_total": "Group Total",
-        "players": {
-            "one": "{count} Player",
-            "other": "{count} Players"
-        },
         "level": {
             "one": "Level",
             "other": "Levels"
+        },
+        "rank": "Rank #{rank}",
+        "players": {
+            "one": "{count} Player",
+            "other": "{count} Players"
         }
-    },
-    "clan_req": {
-        "Captures": "Captures",
-        "Points": "Points",
-        "Deploys": "Deploys",
-        "Activity": "Activity",
-        "Days of": "Days of",
-        "Total": "Total",
-        "Renovate": "Renovate"
     },
     "search": {
         "clan": "Search for a Clan",
@@ -194,7 +185,6 @@
         "go_back": "Go Back",
         "types_search": "Types Search",
         "category": "Category",
-        "type_info": "Type Info",
         "type": {
             "info": "Icon: {icon} - ID: {id}",
             "evo": "Evolution Stages",
@@ -205,7 +195,8 @@
             "possible_types": "Possible Types",
             "possible_hosts": "Possible Hosts",
             "host_types": "Hosted By"
-        }
+        },
+        "type_info": "Type Info"
     },
     "auth": {
         "add": "Add a new User",
@@ -322,5 +313,14 @@
         "build_n": "Build {n}",
         "continue": "Continue to CuppaZee",
         "no_changelog": "No Changelog"
+    },
+    "clan_req": {
+        "Captures": "Captures",
+        "Points": "Points",
+        "Deploys": "Deploys",
+        "Activity": "Activity",
+        "Days of": "Days of",
+        "Total": "Total",
+        "Renovate": "Renovate"
     }
 }
