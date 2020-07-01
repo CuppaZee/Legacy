@@ -13,6 +13,6 @@ export default function get(icon = "mystery", size = 64) {
   if (typekeys[gi] !== undefined && types[typekeys[gi]] && !types[typekeys[gi]].missingicon) {
     return pins[size]?.[types[typekeys[gi]].i] ?? {uri:`https://server.cuppazee.app/pins/${size}/${types[typekeys[gi]].i}.png`}
   } else if (icon.startsWith('https://')) {
-    return icon;
+    return {uri:icon};
   } return {uri:`https://munzee.global.ssl.fastly.net/images/pins/${icon}.png`};
 }

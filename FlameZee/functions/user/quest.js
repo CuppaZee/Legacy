@@ -7,7 +7,7 @@ var path = require('path');
 var geocoder = require('offline-geocoder')({ database: path.join(__dirname, '../util/geolocate/db.sqlite') })
 
 function c(i) {
-  return Number((i.captured_at || i.deployed_at).slice(8, 10)) > 2;
+  return Number((i.captured_at || i.deployed_at).slice(8, 10)) > 2 && Number((i.captured_at || i.deployed_at).slice(8, 10)) < 29;
 }
 var games = {
   1: {
@@ -30,6 +30,17 @@ var games = {
       { id: 8, function: ({ cap }) => cap.filter(i => c(i) && g(i).bouncer).length },
     ],
     month: "06",
+    year: "2020"
+  },
+  3: {
+    tasks: [
+      { id: 1, function: ({ cap, dep }) => [...cap, ...dep].filter(i => c(i) && g(i).category === "mystery").length },
+      { id: 2, function: ({ cap, dep }) => [...cap, ...dep].filter(i => c(i) && g(i).evolution).length },
+      { id: 9, function: ({ cap, dep }) => [...cap, ...dep].filter(i => c(i) && g(i).flat && !g(i).unique).length },
+      { id: 7, function: ({ cap, dep }) => [...cap,...dep].filter(i => c(i) && g(i).destination).length },
+      { id: 10, function: ({ cap }) => cap.filter(i => (i.url || "").includes("m/GPSmAQ/1")).length },
+    ],
+    month: "07",
     year: "2020"
   }
 }

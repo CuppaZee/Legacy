@@ -546,5 +546,29 @@ export default {
       title: 'Removed Calendar from Header',
       description: 'The Calendar shortcut has been removed from the header due to the fact that flats are now on the map permanently.'
     }
+  ],
+  177: [
+    {
+      icon: 'map-marker',
+      title: 'Updated Munzee Icons System',
+      description: 'Fixed a bug with Host Icons'
+    }
+  ],
+  178: [
+    {
+      icon: 'shield-half-full',
+      title: 'Updated Clan Stats',
+      description: 'Now ready for July 2020 Clan Wars'
+    },
+    {
+      icon: 'run',
+      title: 'Updated Quebec Quest Progress',
+      description: 'Now ready for July 2020 Quest'
+    },
+    {
+      icon: 'translate',
+      title: 'Updated Translations',
+      description: 'Danish Translations are now complete'
+    }
   ]
 }

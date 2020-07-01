@@ -15,9 +15,9 @@ function MarkerRenderer(props) {
     enableRetinaIcons
     gridSize={60}
     >
-    {clusterer=>props.markers.map((i, index) => <Marker clusterer={clusterer} key={index} icon={{ url: getIcon(i.icon), scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />)}
+    {clusterer=>props.markers.map((i, index) => <Marker clusterer={clusterer} key={index} icon={{ url: getIcon(i.icon)?.uri||getIcon(i.icon), scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />)}
   </MarkerClusterer>
-  return props.markers.map((i, index) => <Marker key={index} icon={{ url: getIcon(i.icon), scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />)
+  return props.markers.map((i, index) => <Marker key={index} icon={{ url: getIcon(i.icon)?.uri||getIcon(i.icon), scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />)
 }
 
 function WebMap(props) {

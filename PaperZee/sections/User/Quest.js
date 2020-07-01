@@ -30,14 +30,16 @@ export default function ClanScreen({ route }) {
     level_colors.border = "#fffa"
   }
   var tasks = [
-    {id:1,name:"Mystery Caps/Deps",req:5,icon:"https://i.ibb.co/YdRQ3Sf/Split-Mystery.png"},
-    {id:2,name:"Evo Caps/Deps",req:5,icon:"https://munzee.global.ssl.fastly.net/images/pins/evolution.png"},
+    {id:1,name:"Mystery Caps/Deps",req:8,icon:"https://i.ibb.co/YdRQ3Sf/Split-Mystery.png"},
+    {id:2,name:"Evo Caps/Deps",req:10,icon:"https://munzee.global.ssl.fastly.net/images/pins/evolution.png"},
     // {id:3,name:"Weapon Caps/Deps",req:5,icon:"https://munzee.global.ssl.fastly.net/images/pins/mace.png"},
     // {id:4,name:"Jewel Caps/Deps",req:3,icon:"https://munzee.global.ssl.fastly.net/images/pins/diamond.png"},
     // {id:5,name:"Capture /m/XeresDan/1707",req:1,icon:"https://munzee.global.ssl.fastly.net/images/pins/social.png"}
-    {id:6,name:"Flat Friend Deps",req:3,icon:"https://munzee.global.ssl.fastly.net/images/pins/flatrob.png"},
-    {id:7,name:"Destination Caps/Deps",req:8,icon:"https://munzee.global.ssl.fastly.net/images/pins/1starmotel.png"},
-    {id:8,name:"Bouncer Caps",req:5,icon:"https://munzee.global.ssl.fastly.net/images/pins/expiring_specials_filter.png"},
+    // {id:6,name:"Flat Friend Deps",req:3,icon:"https://munzee.global.ssl.fastly.net/images/pins/flatrob.png"},
+    {id:9,name:"Flat Friend Caps/Deps",req:10,icon:"https://munzee.global.ssl.fastly.net/images/pins/flatrob.png"},
+    {id:7,name:"Destination Caps/Deps",req:15,icon:"https://munzee.global.ssl.fastly.net/images/pins/1starmotel.png"},
+    // {id:8,name:"Bouncer Caps",req:5,icon:"https://munzee.global.ssl.fastly.net/images/pins/expiring_specials_filter.png"},
+    {id:10,name:"Capture \"/m/GPSmAQ/1\"",req:1,icon:"https://munzee.global.ssl.fastly.net/images/pins/social.png"},
   ]
   var username = route.params.username;
   const user_id = useAPIRequest({
@@ -49,7 +51,7 @@ export default function ClanScreen({ route }) {
     endpoint: `user/quest/v1`,
     data: {
       user_id,
-      game_id: 2
+      game_id: 3
     },
     cuppazee: true
   })
