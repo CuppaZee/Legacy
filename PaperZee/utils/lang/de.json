@@ -168,6 +168,11 @@
         "level": {
             "one": "Level",
             "other": "Level"
+        },
+        "rank": "",
+        "players": {
+            "one": "",
+            "other": ""
         }
     },
     "search": {
@@ -185,8 +190,13 @@
             "evo": "Evolution Stufen",
             "pouch": "Pouch Kreaturen Stufen",
             "can_host": "Kann darauf landen",
-            "lands_on": "Landet auf"
-        }
+            "lands_on": "Landet auf",
+            "hosts": "",
+            "possible_types": "",
+            "possible_hosts": "",
+            "host_types": ""
+        },
+        "type_info": ""
     },
     "auth": {
         "add": "Füge einen neuen Nutzer hinzu",
@@ -303,5 +313,14 @@
         "build_n": "Version {n}",
         "continue": "Weiter zu CuppaZee",
         "no_changelog": "Kein Änderungsprotokoll"
+    },
+    "clan_req": {
+        "Captures": "",
+        "Points": "",
+        "Deploys": "",
+        "Activity": "",
+        "Days of": "",
+        "Total": "",
+        "Renovate": ""
     }
 }
