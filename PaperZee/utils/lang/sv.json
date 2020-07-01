@@ -1,53 +1,53 @@
 {
     "common": {
-        "dashboard": "",
-        "search": "",
-        "map": "",
-        "tools": "",
-        "settings": "",
+        "dashboard": "Instrumentpanel",
+        "search": "Sök\n",
+        "map": "Karta",
+        "tools": "Verktyg",
+        "settings": "Inställningar",
         "authenticate": "",
         "auth_success": "",
         "scanner": "",
-        "maps": "",
-        "credits": "",
-        "app_info": "",
-        "donate": "",
+        "maps": "Kartor",
+        "credits": "Samverkande",
+        "app_info": "App Info",
+        "donate": "Donation",
         "build_info": "",
         "user": {
             "one": "",
             "other": ""
         },
         "clan": {
-            "one": "",
-            "other": ""
+            "one": "Klan\n",
+            "other": "Klaner"
         },
-        "more": "",
+        "more": "Mer\n",
         "find_user": "",
-        "munzee_types": "",
+        "munzee_types": "Munzeetyper",
         "show_more": "",
         "show_less": "",
-        "help": "",
+        "help": "Hjälp",
         "users": "",
-        "calendar": "",
-        "bouncers": "",
+        "calendar": "Kalender",
+        "bouncers": "Hoppare",
         "notifications": "",
         "contact": {
-            "facebook": "",
-            "email": ""
+            "facebook": "Du kan kontakta oss via Facebook",
+            "email": "eller e-postadress support@cuppazee.app"
         },
-        "clans": "",
-        "logging_in": ""
+        "clans": "Klaner",
+        "logging_in": "Logging in..."
     },
     "activity": {
         "user_captured": "",
         "user_deployed": "",
         "you_captured": "",
         "you_deployed": "",
-        "by_user": "",
+        "by_user": "av {user}",
         "by_you": "",
         "total_point": {
-            "one": "",
-            "other": ""
+            "one": "{count} Totalpoäng",
+            "other": "{count} Totalpoäng"
         },
         "capture": {
             "one": "",
@@ -62,11 +62,11 @@
             "other": ""
         },
         "point": {
-            "one": "",
-            "other": ""
+            "one": "Poäng",
+            "other": "Poäng"
         },
-        "none": "",
-        "user_today": "",
+        "none": "Ingen",
+        "user_today": "{user} Idag",
         "user_renovated": "",
         "you_renovated": "",
         "renovation": {
@@ -79,20 +79,20 @@
         }
     },
     "user": {
-        "level_n": "",
-        "rank_n": "",
+        "level_n": "Nivå {level}",
+        "rank_n": "Ranking #{rank}",
         "inventory": "",
         "your_bouncers": "",
-        "clan_progress": "",
+        "clan_progress": "Klanens framsteg",
         "quebec_quest_progress": "",
         "special_hunter_challenge": "",
         "captured_types": "",
-        "activity": "",
-        "clan_stats": "",
+        "activity": "Aktivitet",
+        "clan_stats": "Klanstatistik",
         "clan_progress_desc": "",
-        "clan_info": "",
+        "clan_info": "Klankamp Info FB grupp",
         "clan_info_desc": "",
-        "challenges": "",
+        "challenges": "Utmaningar",
         "sh_lite": "",
         "sh_pro": "",
         "your_clan": "",
@@ -102,8 +102,8 @@
     "inventory": {
         "undeployed": "",
         "credits": "",
-        "history": "",
-        "unknown_name": ""
+        "history": "Historik",
+        "unknown_name": "Okänd namn"
     },
     "app_info": {
         "credits": "",
@@ -117,16 +117,16 @@
         "paypal_donate_desc": "",
         "custom_titles": {
             "primary_dev": "",
-            "finnish": "",
-            "dutch": "",
-            "german": "",
-            "hungarian": "",
-            "swedish": "",
-            "french": "",
-            "czech": "",
-            "danish": "",
-            "portugese": "",
-            "lithuanian": ""
+            "finnish": "Finska\n",
+            "dutch": "Holländska\n",
+            "german": "Tyska",
+            "hungarian": "Ungerska",
+            "swedish": "Svenska",
+            "french": "Franska",
+            "czech": "Tjeckiska",
+            "danish": "Danska",
+            "portugese": "Portugisiska",
+            "lithuanian": "Litauiska"
         }
     },
     "your_bouncers": {
@@ -140,24 +140,24 @@
     },
     "calendar": {
         "days": {
-            "monday": "",
-            "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
-            "friday": "",
-            "saturday": "",
-            "sunday": ""
+            "monday": "M",
+            "tuesday": "Ti\n",
+            "wednesday": "O",
+            "thursday": "To",
+            "friday": "F",
+            "saturday": "L",
+            "sunday": "S"
         },
-        "off": ""
+        "off": "Av"
     },
     "clan": {
         "requirements": "",
-        "rewards": "",
+        "rewards": "Belöningar",
         "individual": "",
-        "group": "",
+        "group": "Grupp",
         "level_n": "",
         "shadow": "",
-        "goal": "",
+        "goal": "Mål",
         "view": {
             "subtract": "",
             "total": ""
@@ -166,23 +166,23 @@
         "indiv": "",
         "group_total": "",
         "level": {
-            "one": "",
-            "other": ""
+            "one": "Nivå",
+            "other": "Nivåer"
         }
     },
     "search": {
-        "clan": "",
+        "clan": "Sök bland en klan",
         "type": "",
         "empty": "",
         "user": ""
     },
     "db": {
-        "go_back": "",
-        "types_search": "",
-        "category": "",
+        "go_back": "Tillbaka",
+        "types_search": "Söktyper",
+        "category": "Category",
         "type": {
-            "info": "",
-            "evo": "",
+            "info": "Ikon: {icon} - ID: {id}",
+            "evo": "Evolution stadier",
             "pouch": "",
             "can_host": "",
             "lands_on": ""
@@ -190,7 +190,7 @@
     },
     "auth": {
         "add": "",
-        "welcome": "",
+        "welcome": "Välkommen till CuppaZee",
         "tap": ""
     },
     "shc": {
@@ -203,11 +203,11 @@
             "pc_2": "",
             "flat": "",
             "temp": "",
-            "scatter": ""
+            "scatter": "Spridda"
         },
         "pro": {
             "tob": "",
-            "nomad": "",
+            "nomad": "Nomad",
             "retire": "",
             "myth_1": "",
             "myth_2": "",
@@ -218,13 +218,13 @@
             "pc_fun": "",
             "flat": "",
             "temp": "",
-            "pscatter": "",
-            "vscatter": ""
+            "pscatter": "Fysisk Spridda",
+            "vscatter": "Virtuell Spridda\n"
         }
     },
     "notifications": {
-        "munzee_blog": "",
-        "save": "",
+        "munzee_blog": "Munzee Blogg",
+        "save": "Spara",
         "unavailable_web": "",
         "unavailable_generic": ""
     },
@@ -232,17 +232,17 @@
         "add_user": "",
         "update": "",
         "theme": "",
-        "language": "",
-        "logout": "",
-        "save": ""
+        "language": "Språk: {namn}",
+        "logout": "Logga ut",
+        "save": "Spara inställningar"
     },
     "bouncers": {
         "duration": ""
     },
     "scanner": {
         "scan_new": "",
-        "munzee": "",
-        "type": ""
+        "munzee": "{name} av {username}",
+        "type": "Typ: {type}"
     },
     "quest": {
         "task_1": "",
@@ -252,45 +252,47 @@
         "task_5": "",
         "task_6": "",
         "task_7": "",
-        "task_8": ""
+        "task_8": "",
+        "task_9": "",
+        "task_10": ""
     },
     "themes": {
-        "black": "",
-        "blue": "",
-        "bluegrey": "",
-        "darkblue": "",
-        "green": "",
-        "grey": "",
-        "purple": "",
-        "white": ""
+        "black": "Svart",
+        "blue": "Blå",
+        "bluegrey": "Blågrå",
+        "darkblue": "Mörkblå",
+        "green": "Grön",
+        "grey": "Grå",
+        "purple": "Lila",
+        "white": "Vit"
     },
     "screens": {
         "_redirect": "",
-        "Map": "",
-        "Tools": "",
-        "Settings": "",
-        "Notifications": "",
-        "Info": "",
+        "Map": "Karta",
+        "Tools": "Verktyg",
+        "Settings": "Inställningar",
+        "Notifications": "Aviseringar",
+        "Info": "Info",
         "Scanner": "",
-        "Calendar": "",
+        "Calendar": "Kalender",
         "Bouncers": "",
         "BouncerMap": "",
-        "MunzeeDetails": "",
-        "MunzeeDetailsID": "",
-        "AllClans": "",
+        "MunzeeDetails": "Munzee Detalj ",
+        "MunzeeDetailsID": "Munzee Detalj",
+        "AllClans": "Alla klaner",
         "ClanRequirements": "",
-        "ClanSearch": "",
-        "Clan": "",
+        "ClanSearch": "Klansök\n",
+        "Clan": "Klanstatistik",
         "UserSearch": "",
         "UserDetails": "",
-        "UserActivity": "",
+        "UserActivity": "Aktivitet",
         "UserInventory": "",
         "UserClan": "",
         "UserQuest": "",
         "UserCapturesCategory": "",
-        "UserSHCPro": "",
-        "UserSHCLite": "",
-        "UserSHC": "",
+        "UserSHCPro": "SHC Pro",
+        "UserSHCLite": "SHC Lite",
+        "UserSHC": "SHC Klassisk",
         "UserBouncers": "",
         "DBType": "",
         "DBSearch": "",
