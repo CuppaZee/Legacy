@@ -18,18 +18,11 @@ function u(str) {
 
 function CustomChip({label,onPress}) {
   return <Chip style={{margin:4}} mode="outlined" textStyle={font()} onPress={onPress}>{label}</Chip>
-  // return <View style={{padding:4,margin:4,borderRadius:4,backgroundColor:'white',borderWidth:1,borderColor:"black"}}>
-  //   <Text allowFontScaling={false} style={{color:'black'}}>{label}</Text>
-  // </View>
 }
 
 function getCategory(id) {
   var cat = categories.find(i=>i.id==id) || {};
-  // if(cat.parent) {
-  //   return `${getCategory(cat.parent)} > ${cat.name}`
-  // } else {
-    return cat.name;
-  // }
+  return cat.name;
 }
 
 function checkCanHost(i) {
@@ -39,6 +32,26 @@ function checkCanHost(i) {
       && categories.find(y=>y.id==types.find(x=>x.id==i)?.category)?.seasonal?.ends>=Date.now()
       && categories.find(y=>y.id==types.find(x=>x.id==i)?.category)?.seasonal?.starts<=Date.now()
     )
+}
+
+function possibleTypes(list) {
+  if(!list) return null;
+  var l = list.map(i=>types.find(x=>x.id==i)).filter(i=>!i.hidden);
+  var hosts = new Set();
+  for(var type of l) {
+    for(var host of type.bouncer?.lands_on||[]) hosts.add(host);
+  }
+  return Array.from(hosts);
+}
+
+function possibleHosts(list) {
+  if(!list) return null;
+  var l = list.map(i=>types.find(x=>x.id==i)).filter(i=>!i.hidden);
+  var hosts = new Set();
+  for(var type of l) {
+    for(var host of types.filter(i=>i.host&&i.host.hosts&&i.host.hosts.includes(type.id))) hosts.add(host.id);
+  }
+  return Array.from(hosts);
 }
 
 export default function SettingsScreen() {
@@ -88,7 +101,7 @@ export default function SettingsScreen() {
           </View>
           {!munzee.points.type&&<>
             <View style={{alignItems:"center",padding:4,width:100}}>
-              <MaterialCommunityIcons name="check-bold" size={32} color={theme.page_content.fg} />
+              <MaterialCommunityIcons name="check" size={32} color={theme.page_content.fg} />
               <Text allowFontScaling={false} numberOfLines={1} style={{color: theme.page_content.fg,lineHeight:16,fontSize:16,...font("bold")}}>{munzee.points.capture}</Text>
               <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>Capture</Text>
             </View>
@@ -173,39 +186,74 @@ export default function SettingsScreen() {
           </TouchableRipple>)}
         </View>
       </>}
-      {/* <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
-      <View style={{alignItems:"center"}}>
-        <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Credits</Text>
-      </View>
-      <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
-        {credits.filter(i=>i.type=="dev").map(i=><TouchableRipple onPress={()=>nav.navigate('UserDetails',{userid:i.user_id})}>
-          <View style={{alignItems:"center",padding:4,width:160}}>
-            <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png`}} style={{backgroundColor:"white",height:48,width:48,borderRadius:24}} />
-            <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:20,...font("bold")}}>{i.username}</Text>
-            <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font()}}>{i.title}</Text>
-          </View>
-        </TouchableRipple>)}
-      </View>
-      <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
-      <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
-        {credits.filter(i=>i.type=="translator").map(i=><TouchableRipple onPress={()=>nav.navigate('UserDetails',{userid:i.user_id})}>
-          <View style={{alignItems:"center",padding:4,width:120}}>
-            <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png`}} style={{backgroundColor:"white",height:48,width:48,borderRadius:24}} />
-            <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.username}</Text>
-            <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>{i.title}</Text>
-          </View>
-        </TouchableRipple>)}
-      </View>
-      <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
-      <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:20,...font("bold"),textAlign:"center"}}>Patrons and Supporters</Text>
-      <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
-        {credits.filter(i=>i.type=="supporter").map(i=><TouchableRipple onPress={()=>nav.navigate('UserDetails',{userid:i.user_id})}>
-          <View style={{alignItems:"center",padding:4,width:100}}>
-            <Image source={{uri:`https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png`}} style={{backgroundColor:"white",height:36,width:36,borderRadius:18}} />
-            <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode='head' style={{color: theme.page_content.fg,fontSize:12,...font("bold")}}>{i.username}</Text>
-          </View>
-        </TouchableRipple>)}
-      </View> */}
+
+      {/* Host Types */}
+      {types.filter(i=>i.host&&i.host.hosts&&i.host.hosts.includes(munzee.id)).length>0&&<>
+        <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
+        <View style={{alignItems:"center"}}>
+          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>{t('db:type.host_types')}</Text>
+        </View>
+        <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
+          {types.filter(i=>i.host&&i.host.hosts&&i.host.hosts.includes(munzee.id)).filter(i=>!i.hidden).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
+            <View style={{alignItems:"center",padding:4,width:100}}>
+              <Image source={getIcon(i.icon)} style={{height:32,width:32}} />
+              <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
+              <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
+            </View>
+          </TouchableRipple>)}
+        </View>
+      </>}
+
+      {/* Hosts */}
+      {munzee?.host?.hosts&&<>
+        <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
+        <View style={{alignItems:"center"}}>
+          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>{t('db:type.hosts')}</Text>
+        </View>
+        <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
+          {munzee.host.hosts.map(i=>types.find(x=>x.id==i)).filter(i=>!i.hidden).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
+            <View style={{alignItems:"center",padding:4,width:100}}>
+              <Image source={getIcon(i.icon)} style={{height:32,width:32}} />
+              <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
+              <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
+            </View>
+          </TouchableRipple>)}
+        </View>
+      </>}
+
+      {/* Possible Types */}
+      {munzee?.host?.hosts&&possibleTypes(munzee?.host?.hosts)&&<>
+        <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
+        <View style={{alignItems:"center"}}>
+          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>{t('db:type.possible_types')}</Text>
+        </View>
+        <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
+          {possibleTypes(munzee?.host?.hosts).map(i=>types.find(x=>x.id==i)).filter(i=>!i.hidden&&i.state==munzee?.state).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
+            <View style={{alignItems:"center",padding:4,width:100}}>
+              <Image source={getIcon(i.icon)} style={{height:32,width:32}} />
+              <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
+              <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
+            </View>
+          </TouchableRipple>)}
+        </View>
+      </>}
+
+      {/* Possible Hosts */}
+      {munzee?.can_host&&possibleHosts(munzee?.can_host)&&<>
+        <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
+        <View style={{alignItems:"center"}}>
+          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>{t('db:type.possible_hosts')}</Text>
+        </View>
+        <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
+          {possibleHosts(munzee.can_host).map(i=>types.find(x=>x.id==i)).filter(i=>!i.hidden&&i.state==munzee?.state).map(i=><TouchableRipple onPress={()=>nav.push('DBType',{munzee:i.icon})}>
+            <View style={{alignItems:"center",padding:4,width:100}}>
+              <Image source={getIcon(i.icon)} style={{height:32,width:32}} />
+              <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{color: theme.page_content.fg,fontSize:16,...font("bold")}}>{i.name}</Text>
+              <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:16,...font()}}>ID: {i.id}</Text>
+            </View>
+          </TouchableRipple>)}
+        </View>
+      </>}
     </ScrollView>
   );
 }

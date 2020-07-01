@@ -49,6 +49,7 @@ function OverviewItem({i,total}) {
   var theme = useSelector(i=>i.themes[i.theme]);
   var [open,setOpen] = React.useState(false);
   var nav = useNavigation();
+  var {t} = useTranslation();
   return <Menu
     visible={open}
     onDismiss={() => setOpen(false)}
@@ -70,12 +71,12 @@ function OverviewItem({i,total}) {
         {hostIcon(i[0])&&<Image style={{ height: 36, width: 36, position: "absolute", right: -7.5, bottom: -7.5 }} source={hostIcon(i[0])} />}
       </View>
       <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].total}x {(getType(i[0])||{name:i[0].slice(49,-4)}).name}</Text>
-      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].points} Points</Text>
+      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{t('activity:point', { count: i[1].points})}</Text>
       <Button
         mode="contained"
         style={{backgroundColor: theme.navigation.bg}}
         onPress={()=>{setOpen(false);nav.push('DBType',{munzee:i[0].slice(49,-4)})}}>
-        Type Info
+        {t('db:type_info')}
       </Button>
     </View>
   </Menu>

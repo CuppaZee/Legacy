@@ -12,7 +12,7 @@ import font from 'sections/Shared/font';
 
 function DrawerItem(props) {
   return <TouchableRipple onPress={props.onPress} style={{
-    marginHorizontal: 8, borderRadius: 20, opacity: props.style?.opacity ?? (props.focused ? 1 : 0.9),
+    marginHorizontal: 8, borderRadius: 20, opacity: 1 ?? props.style?.opacity ?? (props.focused ? 1 : 1),
     marginLeft: 0, marginRight: 4, borderTopLeftRadius: 0, borderBottomLeftRadius: 0
   }}>
     <View style={{
@@ -220,6 +220,20 @@ export default function CustomDrawerContent(props) {
         /> */}
         <IconButton
           style={{
+            backgroundColor: route.name == "ClanRequirements" && route.params.gameid == 88 ? itemProps.activeBackgroundColor : null
+          }}
+          icon="playlist-check"
+          color={itemProps.inactiveTintColor}
+          onPress={() => nav.reset({
+            index: 1,
+            routes: [
+              { name: '__primary', params: { screen: "ClanRequirements", params: { gameid: 88 } } },
+            ],
+          })
+          }
+        />
+        {/* <IconButton
+          style={{
             backgroundColor: route.name == "ClanRequirements" && route.params.gameid == 89 ? itemProps.activeBackgroundColor : null
           }}
           icon="new-box"
@@ -231,7 +245,7 @@ export default function CustomDrawerContent(props) {
             ],
           })
           }
-        />
+        /> */}
         <IconButton
           disabled={true}
           style={{

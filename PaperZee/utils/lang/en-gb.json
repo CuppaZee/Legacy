@@ -156,6 +156,7 @@
         "individual": "Individual",
         "group": "Group",
         "level_n": "Level {level}",
+        "rank": "Rank #{rank}",
         "shadow": "Shadow Clan",
         "goal": "Goal",
         "view": {
@@ -165,10 +166,23 @@
         "share": "Share",
         "indiv": "Indiv",
         "group_total": "Group Total",
+        "players": {
+            "one": "{count} Player",
+            "other": "{count} Players"
+        },
         "level": {
             "one": "Level",
             "other": "Levels"
         }
+    },
+    "clan_req": {
+        "Captures": "Captures",
+        "Points": "Points",
+        "Deploys": "Deploys",
+        "Activity": "Activity",
+        "Days of": "Days of",
+        "Total": "Total",
+        "Renovate": "Renovate"
     },
     "search": {
         "clan": "Search for a Clan",
@@ -180,12 +194,17 @@
         "go_back": "Go Back",
         "types_search": "Types Search",
         "category": "Category",
+        "type_info": "Type Info",
         "type": {
             "info": "Icon: {icon} - ID: {id}",
             "evo": "Evolution Stages",
             "pouch": "Pouch Creature Stages",
             "can_host": "Can Host",
-            "lands_on": "Lands On"
+            "lands_on": "Lands On",
+            "hosts": "Hosts",
+            "possible_types": "Possible Types",
+            "possible_hosts": "Possible Hosts",
+            "host_types": "Hosted By"
         }
     },
     "auth": {

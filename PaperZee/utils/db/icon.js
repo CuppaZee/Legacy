@@ -11,7 +11,7 @@ function g(icon) {
 export default function get(icon = "mystery", size = 64) {
   var gi = g(icon);
   if (typekeys[gi] !== undefined && types[typekeys[gi]] && !types[typekeys[gi]].missingicon) {
-    return pins[size]?.[types[typekeys[gi]].i] ?? {uri:`https://server.cuppazee.app/pins/${size}/${types[typekeys[gi]].i}.png`}
+    return pins[types[typekeys[gi]].i] ?? {uri:`https://server.cuppazee.app/pins/${size}/${types[typekeys[gi]].i}.png`}
   } else if (icon.startsWith('https://')) {
     return {uri:icon};
   } return {uri:`https://munzee.global.ssl.fastly.net/images/pins/${icon}.png`};

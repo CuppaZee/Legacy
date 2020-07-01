@@ -199,6 +199,7 @@ export function ClanRequirementsConverter(req, rewards) {
       group: {},
       rewards: rewards?.levels?.[Number(level) - 1] ?? {},
       name: `Level ${level}`,
+      level: level,
       id: Number(level)
     }
     for (let requirement of [...level_d.individual.map(i => { i.individual = true; return i; }), ...level_d.group]) {
@@ -256,7 +257,8 @@ export function ClanStatsConverter(clan, stats, shadow) {
       creator: clan?.details?.creator_user_id,
       logo: clan?.details?.logo,
       privacy: clan?.details?.privacy,
-      goal: clan?.details?.goal
+      goal: clan?.details?.goal,
+      rank: clan?.result?.rank
     },
     members: [
       ...(shadow?.members||[]).filter(i=>!(clan?.users||[]).find(x=>x.user_id==i)).map(i=>{

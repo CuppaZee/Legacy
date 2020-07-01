@@ -570,5 +570,22 @@ export default {
       title: 'Updated Translations',
       description: 'Danish Translations are now complete'
     }
+  ],
+  179: [
+    {
+      icon: 'trophy',
+      title: 'Updated Clan Stats',
+      description: 'Clan Rank is now shown on Clan Stats'
+    },
+    {
+      icon: 'map-marker',
+      title: 'Updated Munzee Types',
+      description: 'Munzee Types pages now show extra information on Hosts'
+    },
+    {
+      icon: 'translate',
+      title: 'Updated Translations',
+      description: 'More things can now be translated in the app'
+    }
   ]
 }

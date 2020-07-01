@@ -9,7 +9,6 @@ import Tile from 'sections/Calendar/Tile';
 import CalData from 'utils/db/Calendar.json'
 import useMoment from 'utils/hooks/useMoment';
 import useAPIRequest from 'utils/hooks/useAPIRequest';
-import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import categories from 'utils/db/categories.json'
 import getType from 'utils/db/types'
@@ -33,7 +32,7 @@ function MHQTime() {
 
 export default function Header(props) {
   var {t} = useTranslation();
-  var nav = useNavigation();
+  var moment = useMoment();
   var theme = useSelector(i=>i.themes[i.theme]);
   var loggedIn = useSelector(i=>i.loggedIn);
   var {width} = useDimensions().window;
@@ -78,7 +77,7 @@ export default function Header(props) {
       endpoint: 'clan/rewards/v1',
       cuppazee: true,
       data: {clan_id:1349,game_id:title},
-      function: i=>i?.battle?.title?.slice(10)
+      function: i=>moment(i?.battle.title.slice(10)).format('MMMM YYYY')
     }
   }[clanData]||null);
   if(clanName) title = clanName;
