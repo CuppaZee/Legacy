@@ -30,12 +30,12 @@
         "users": "Felhasználók",
         "calendar": "Naptár",
         "bouncers": "Ugrálók",
-        "notifications": "értesítések",
+        "notifications": "Értesítések",
         "contact": {
             "facebook": "Kapcsolatba léphetsz velünk Facebook-on",
             "email": "vagy írj emailt a support@cuppazee.app címre."
         },
-        "clans": "",
+        "clans": "Klánok",
         "logging_in": "Bejelentkezés folyamtban"
     },
     "activity": {
@@ -74,8 +74,8 @@
             "other": "{count} felújítás"
         },
         "renovon": {
-            "one": "",
-            "other": ""
+            "one": "{count} Renov-on",
+            "other": "{count} Renov-on"
         }
     },
     "user": {
@@ -89,7 +89,7 @@
         "captured_types": "Megtalált típusok",
         "activity": "Aktivitás",
         "clan_stats": "Klán statisztika",
-        "clan_progress_desc": "",
+        "clan_progress_desc": "Nézd meg milyen szintet érhetsz el!",
         "clan_info": "Klán hard információs FB Csoport",
         "clan_info_desc": "Nagyszerű hely, hogy találj magadnak egy klánt, vagy hogy a kérdéseidre választ kapj.",
         "challenges": "Kihívások",
@@ -136,7 +136,7 @@
         },
         "last_captured": "Legutoljára megtalálva:",
         "in_limbo": "Pihen",
-        "host": ""
+        "host": "{munzee}-n, telepítette: {username}"
     },
     "calendar": {
         "days": {
@@ -160,7 +160,7 @@
         "goal": "Cél",
         "view": {
             "subtract": "",
-            "total": ""
+            "total": "Teljes nézet"
         },
         "share": "Megosztás",
         "indiv": "Egyéni",
@@ -181,9 +181,9 @@
         "types_search": "Típus keresése",
         "category": "Kategória",
         "type": {
-            "info": "",
+            "info": "Ikon: {icon} - ID: {id}",
             "evo": "Evolúciós szintek",
-            "pouch": "Zsebszörny szintek",
+            "pouch": "Zseb lény szintek",
             "can_host": "",
             "lands_on": ""
         }
@@ -191,7 +191,7 @@
     "auth": {
         "add": "Új felhasználó hozzáadása",
         "welcome": "Üdvözlünk a CuppaZee-n",
-        "tap": ""
+        "tap": "A bejelentkezéshez kattints alább"
     },
     "shc": {
         "lite": {
@@ -199,8 +199,8 @@
             "nomad": "Nomád vagy yyugdíjs mitológiai",
             "myth_1": "Eredeti vagy klassikus mitológiai",
             "myth_2": "",
-            "pc_1": "Zsebszörny S1",
-            "pc_2": "Zsebszörny S2",
+            "pc_1": "Zseb lény S1",
+            "pc_2": "Zseb lény S2",
             "flat": "",
             "temp": "",
             "scatter": ""
@@ -209,12 +209,12 @@
             "tob": "",
             "nomad": "Nomád\n",
             "retire": "Nyugdíjas mitológiai",
-            "myth_1": "",
+            "myth_1": "Eredeti Mitológiai\n",
             "myth_2": "Klasszikus mitológiai",
-            "myth_3": "",
+            "myth_3": "Tükör Mitologóiai",
             "myth_4": "Modern mitológiai",
-            "pc_1": "",
-            "pc_2": "",
+            "pc_1": "Zseb lény S1",
+            "pc_2": "Zseb lény S2",
             "pc_fun": "",
             "flat": "",
             "temp": "",
@@ -226,33 +226,35 @@
         "munzee_blog": "Munzee Blog",
         "save": "Mentés",
         "unavailable_web": "Az értesítések nem érhetők el a Weben.",
-        "unavailable_generic": ""
+        "unavailable_generic": "Az értesítések nem elérhetők. Elfogadtad az engedélyeket?"
     },
     "settings": {
         "add_user": "Felhasználó hozzáadása",
-        "update": "",
+        "update": "Frissítés kényszerítése",
         "theme": "Téma: {name}",
         "language": "Nyelv: {name}",
         "logout": "Kijelentkezés",
         "save": "Beállítások mentése"
     },
     "bouncers": {
-        "duration": ""
+        "duration": "Időtartam: {duration}"
     },
     "scanner": {
-        "scan_new": "",
+        "scan_new": "Új Munzee beolvasása",
         "munzee": "{name} : {username}",
         "type": "Típus"
     },
     "quest": {
         "task_1": "",
-        "task_2": "",
-        "task_3": "",
-        "task_4": "",
+        "task_2": "Evo megtalálás/telepítés",
+        "task_3": "Fegyvert megtalálás/telepítés",
+        "task_4": "Ékszer Beolvasás/Telepítés",
         "task_5": "",
         "task_6": "",
         "task_7": "",
-        "task_8": ""
+        "task_8": "Ugráló megtalálás",
+        "task_9": "",
+        "task_10": ""
     },
     "themes": {
         "black": "Fekete",
@@ -265,7 +267,7 @@
         "white": "Fehér"
     },
     "screens": {
-        "_redirect": "",
+        "_redirect": "_átirányítás",
         "Map": "Térkép",
         "Tools": "Eszközök",
         "Settings": "Beállítások",
@@ -274,32 +276,32 @@
         "Scanner": "Szkenner",
         "Calendar": "Naptár",
         "Bouncers": "Ugrálók",
-        "BouncerMap": "",
+        "BouncerMap": "Ugráló térkép",
         "MunzeeDetails": "Munzee részletek",
         "MunzeeDetailsID": "Munzee részletek",
         "AllClans": "Minden klán",
-        "ClanRequirements": "",
-        "ClanSearch": "",
-        "Clan": "",
+        "ClanRequirements": "Klán követelmények",
+        "ClanSearch": "Klán keresése",
+        "Clan": "Klán statisztika",
         "UserSearch": "Felhasználó keresés",
-        "UserDetails": "",
+        "UserDetails": "Felhasználói adatok",
         "UserActivity": "Aktivitás",
         "UserInventory": "Készletem",
-        "UserClan": "",
+        "UserClan": "Klán haladás",
         "UserQuest": "",
-        "UserCapturesCategory": "",
-        "UserSHCPro": "",
-        "UserSHCLite": "",
-        "UserSHC": "",
-        "UserBouncers": "",
-        "DBType": "",
-        "DBSearch": "",
-        "DBCategory": "",
+        "UserCapturesCategory": "Megtalálás kategória",
+        "UserSHCPro": "SHC Pro",
+        "UserSHCLite": "SHC Lite",
+        "UserSHC": "SHC Klasszikus",
+        "UserBouncers": "Felhasználó ugrálók",
+        "DBType": "Adatbázis típus",
+        "DBSearch": "Adatbázis keresés",
+        "DBCategory": "Adatbázis kategória",
         "Auth": "Hitelesítés"
     },
     "changelog": {
         "build_n": "Build {n}",
-        "continue": "",
+        "continue": "Tovább a CuppaZee-re",
         "no_changelog": "Nincsen változás"
     }
 }
