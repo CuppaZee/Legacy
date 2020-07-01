@@ -179,6 +179,12 @@
             "one": "Level",
             "few": "Levely",
             "other": "Levelů"
+        },
+        "rank": "",
+        "players": {
+            "one": "",
+            "few": "",
+            "other": ""
         }
     },
     "search": {
@@ -196,8 +202,13 @@
             "evo": "Stádia evoluce",
             "pouch": "Stádia příšerek z pytlíku",
             "can_host": "Může hostovat",
-            "lands_on": "Přistává na"
-        }
+            "lands_on": "Přistává na",
+            "hosts": "",
+            "possible_types": "",
+            "possible_hosts": "",
+            "host_types": ""
+        },
+        "type_info": ""
     },
     "auth": {
         "add": "Přidat nového uživatele",
@@ -264,8 +275,8 @@
         "task_6": "Založení placáků",
         "task_7": "Zachycení/založení ubytování",
         "task_8": "Zachycení cestovatelů",
-        "task_9": "",
-        "task_10": ""
+        "task_9": "Zachycení/publikace placáků",
+        "task_10": "Chytit /m/GPSmAQ/1"
     },
     "themes": {
         "black": "Černá",
@@ -314,5 +325,14 @@
         "build_n": "Sestaveni {n}",
         "continue": "Pokračovat do CuppaZee",
         "no_changelog": "Žádné změny"
+    },
+    "clan_req": {
+        "Captures": "",
+        "Points": "",
+        "Deploys": "",
+        "Activity": "",
+        "Days of": "",
+        "Total": "",
+        "Renovate": ""
     }
 }
