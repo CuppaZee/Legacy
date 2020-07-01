@@ -168,6 +168,11 @@
         "level": {
             "one": "Taso",
             "other": "Tasot"
+        },
+        "rank": "",
+        "players": {
+            "one": "",
+            "other": ""
         }
     },
     "search": {
@@ -185,8 +190,13 @@
             "evo": "Evoluutiotasot",
             "pouch": "Pussiotustasot",
             "can_host": "Voi isännöidä",
-            "lands_on": "Alustat"
-        }
+            "lands_on": "Alustat",
+            "hosts": "",
+            "possible_types": "",
+            "possible_hosts": "",
+            "host_types": ""
+        },
+        "type_info": ""
     },
     "auth": {
         "add": "Lisää uusi käyttäjä",
@@ -253,8 +263,8 @@
         "task_6": "Flattien deppaukset",
         "task_7": "Destination-aktiviteetti",
         "task_8": "Pomppijoiden cappaus",
-        "task_9": "",
-        "task_10": ""
+        "task_9": "Flattiaktiviteetti",
+        "task_10": "Cappaa \"/m/GPSmAQ/1\""
     },
     "themes": {
         "black": "Musta",
@@ -303,5 +313,14 @@
         "build_n": "Kooste {n}",
         "continue": "Jatka CuppaZee'hen",
         "no_changelog": "Ei muutoksia"
+    },
+    "clan_req": {
+        "Captures": "",
+        "Points": "",
+        "Deploys": "",
+        "Activity": "",
+        "Days of": "",
+        "Total": "",
+        "Renovate": ""
     }
 }
