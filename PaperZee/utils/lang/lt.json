@@ -179,6 +179,12 @@
             "one": "",
             "few": "",
             "other": ""
+        },
+        "rank": "",
+        "players": {
+            "one": "",
+            "few": "",
+            "other": ""
         }
     },
     "search": {
@@ -196,8 +202,13 @@
             "evo": "",
             "pouch": "",
             "can_host": "",
-            "lands_on": ""
-        }
+            "lands_on": "",
+            "hosts": "",
+            "possible_types": "",
+            "possible_hosts": "",
+            "host_types": ""
+        },
+        "type_info": ""
     },
     "auth": {
         "add": "",
@@ -314,5 +325,14 @@
         "build_n": "",
         "continue": "",
         "no_changelog": ""
+    },
+    "clan_req": {
+        "Captures": "",
+        "Points": "",
+        "Deploys": "",
+        "Activity": "",
+        "Days of": "",
+        "Total": "",
+        "Renovate": ""
     }
 }
