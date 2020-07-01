@@ -1,74 +1,74 @@
 {
     "common": {
-        "dashboard": "",
-        "search": "",
-        "map": "",
-        "tools": "",
-        "settings": "",
-        "authenticate": "",
-        "auth_success": "",
-        "scanner": "",
-        "maps": "",
-        "credits": "",
-        "app_info": "",
-        "donate": "",
-        "build_info": "",
+        "dashboard": "Tableau de bord ",
+        "search": "Recherche",
+        "map": "Carte",
+        "tools": "Outils",
+        "settings": "Paramètres",
+        "authenticate": "Authentifier",
+        "auth_success": "Authentification réussie",
+        "scanner": "Scanner",
+        "maps": "Cartes",
+        "credits": "Crédits",
+        "app_info": "Information sur l'application",
+        "donate": "Dons",
+        "build_info": "Version de l'application CuppaZee",
         "user": {
-            "one": "",
-            "other": ""
+            "one": "Utilisateur",
+            "other": "Utilisateurs"
         },
         "clan": {
-            "one": "",
-            "other": ""
+            "one": "Clan",
+            "other": "Clans"
         },
-        "more": "",
-        "find_user": "",
-        "munzee_types": "",
-        "show_more": "",
-        "show_less": "",
-        "help": "",
-        "users": "",
-        "calendar": "",
+        "more": "Plus",
+        "find_user": "Trouver un Utilisateur",
+        "munzee_types": "Types de Munzees",
+        "show_more": "Montrer plus",
+        "show_less": "Montrer moins",
+        "help": "Aide",
+        "users": "Utilisateurs",
+        "calendar": "Calendrier",
         "bouncers": "",
         "notifications": "",
         "contact": {
             "facebook": "",
-            "email": ""
+            "email": "ou contactez-nous par courriel à support@cuppazee.ap"
         },
-        "clans": "",
+        "clans": "Clans",
         "logging_in": ""
     },
     "activity": {
-        "user_captured": "",
-        "user_deployed": "",
-        "you_captured": "",
-        "you_deployed": "",
-        "by_user": "",
-        "by_you": "",
+        "user_captured": "{user} a capturé",
+        "user_deployed": "{user} a déployé",
+        "you_captured": "Vous avez capturé",
+        "you_deployed": "Vous avez déployé",
+        "by_user": "par {user}",
+        "by_you": "par vous",
         "total_point": {
-            "one": "",
-            "other": ""
+            "one": "{count} point total",
+            "other": "{count} points total"
         },
         "capture": {
-            "one": "",
-            "other": ""
+            "one": "{count} Captures",
+            "other": "{count} Captures"
         },
         "deploy": {
-            "one": "",
-            "other": ""
+            "one": "{count} Déploiement",
+            "other": "{count} Déploiements"
         },
         "capon": {
-            "one": "",
-            "other": ""
+            "one": "{count} Cap-on",
+            "other": "{count} Cap-ons"
         },
         "point": {
-            "one": "",
-            "other": ""
+            "one": "{count} Point",
+            "other": "{count} Points"
         },
-        "none": "",
-        "user_today": "",
+        "none": "Aucun",
+        "user_today": "{user} Aujourd'hui",
         "user_renovated": "",
-        "you_renovated": "",
+        "you_renovated": "Vous avez rénové un Motel",
         "renovation": {
             "one": "",
             "other": ""
@@ -79,15 +79,15 @@
         }
     },
     "user": {
-        "level_n": "",
-        "rank_n": "",
-        "inventory": "",
+        "level_n": "Niveau {level} ",
+        "rank_n": "Rang #{rank}",
+        "inventory": "Inventaire",
         "your_bouncers": "",
-        "clan_progress": "",
-        "quebec_quest_progress": "",
-        "special_hunter_challenge": "",
-        "captured_types": "",
-        "activity": "",
+        "clan_progress": "Progression du clan",
+        "quebec_quest_progress": "Progression de La Quête du Québec",
+        "special_hunter_challenge": "Défi chercheur spécial",
+        "captured_types": "Types capturés",
+        "activity": "Activité",
         "clan_stats": "",
         "clan_progress_desc": "",
         "clan_info": "",
@@ -100,15 +100,15 @@
         "no_clan_desc": ""
     },
     "inventory": {
-        "undeployed": "",
-        "credits": "",
-        "history": "",
+        "undeployed": "Non déployé",
+        "credits": "Crédits",
+        "history": "Historique",
         "unknown_name": ""
     },
     "app_info": {
-        "credits": "",
+        "credits": "Crédits",
         "primary_developer": "",
-        "translators": "",
+        "translators": "Traducteurs",
         "database_contributors": "",
         "patrons_and_supporters": "",
         "build_n": "",
@@ -135,29 +135,29 @@
             "other": ""
         },
         "last_captured": "",
-        "in_limbo": "",
+        "in_limbo": "Se repose",
         "host": ""
     },
     "calendar": {
         "days": {
-            "monday": "",
-            "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
-            "friday": "",
-            "saturday": "",
-            "sunday": ""
+            "monday": "L",
+            "tuesday": "M",
+            "wednesday": "M",
+            "thursday": "J",
+            "friday": "V",
+            "saturday": "S",
+            "sunday": "D"
         },
-        "off": ""
+        "off": "Congé"
     },
     "clan": {
-        "requirements": "",
+        "requirements": "Exigences",
         "rewards": "",
         "individual": "",
-        "group": "",
+        "group": "Groupe",
         "level_n": "",
         "shadow": "",
-        "goal": "",
+        "goal": "But",
         "view": {
             "subtract": "",
             "total": ""
@@ -173,24 +173,24 @@
     "search": {
         "clan": "",
         "type": "",
-        "empty": "",
+        "empty": "Pas de résultats :(",
         "user": ""
     },
     "db": {
         "go_back": "",
         "types_search": "",
-        "category": "",
+        "category": "Catégorie",
         "type": {
             "info": "",
             "evo": "",
             "pouch": "",
-            "can_host": "",
+            "can_host": "Peut accueillir",
             "lands_on": ""
         }
     },
     "auth": {
         "add": "",
-        "welcome": "",
+        "welcome": "Bienvenue sur CuppaZee",
         "tap": ""
     },
     "shc": {
@@ -252,7 +252,9 @@
         "task_5": "",
         "task_6": "",
         "task_7": "",
-        "task_8": ""
+        "task_8": "",
+        "task_9": "",
+        "task_10": ""
     },
     "themes": {
         "black": "",
