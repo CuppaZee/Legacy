@@ -168,6 +168,11 @@
         "level": {
             "one": "Nível",
             "other": "Niveis"
+        },
+        "rank": "",
+        "players": {
+            "one": "",
+            "other": ""
         }
     },
     "search": {
@@ -185,8 +190,13 @@
             "evo": "Fases de Evolução",
             "pouch": "Fases Pouch",
             "can_host": "Pode hospedar",
-            "lands_on": "Aterrar"
-        }
+            "lands_on": "Aterrar",
+            "hosts": "",
+            "possible_types": "",
+            "possible_hosts": "",
+            "host_types": ""
+        },
+        "type_info": ""
     },
     "auth": {
         "add": "Adicionar um novo Utilizador",
@@ -253,8 +263,8 @@
         "task_6": "Flat Friend Implantações",
         "task_7": "Destination Caps/Deps",
         "task_8": "Capturas de Bouncers",
-        "task_9": "",
-        "task_10": ""
+        "task_9": "Flat Friend Caps/Deps",
+        "task_10": "Capturar \"/m/GPSmAQ/1\""
     },
     "themes": {
         "black": "Preto",
@@ -303,5 +313,14 @@
         "build_n": "Construído {n}",
         "continue": "Continuar para CuppaZee",
         "no_changelog": "Sem jornal de alterações"
+    },
+    "clan_req": {
+        "Captures": "",
+        "Points": "",
+        "Deploys": "",
+        "Activity": "",
+        "Days of": "",
+        "Total": "",
+        "Renovate": ""
     }
 }
