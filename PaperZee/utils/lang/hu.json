@@ -168,6 +168,11 @@
         "level": {
             "one": "Szint",
             "other": "Szint"
+        },
+        "rank": "",
+        "players": {
+            "one": "",
+            "other": ""
         }
     },
     "search": {
@@ -185,8 +190,13 @@
             "evo": "Evolúciós szintek",
             "pouch": "Zseb lény szintek",
             "can_host": "",
-            "lands_on": ""
-        }
+            "lands_on": "",
+            "hosts": "",
+            "possible_types": "",
+            "possible_hosts": "",
+            "host_types": ""
+        },
+        "type_info": ""
     },
     "auth": {
         "add": "Új felhasználó hozzáadása",
@@ -303,5 +313,14 @@
         "build_n": "Build {n}",
         "continue": "Tovább a CuppaZee-re",
         "no_changelog": "Nincsen változás"
+    },
+    "clan_req": {
+        "Captures": "",
+        "Points": "",
+        "Deploys": "",
+        "Activity": "",
+        "Days of": "",
+        "Total": "",
+        "Renovate": ""
     }
 }
