@@ -587,5 +587,17 @@ export default {
       title: 'Updated Translations',
       description: 'More things can now be translated in the app'
     }
+  ],
+  180: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Types',
+      description: 'Fixed issue with Cerberus Hydra and now hiding Generic Evo Bouncers'
+    },
+    {
+      icon: 'heart',
+      title: 'Updated Credits',
+      description: 'Added MMarshall, EmeraldAngel, Roman and gdb to Supporters List'
+    }
   ]
 }

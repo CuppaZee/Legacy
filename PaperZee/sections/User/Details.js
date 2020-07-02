@@ -84,6 +84,13 @@ export default function DetailsScreen({ route }) {
                   <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
                 </View>
               </TouchableRipple>
+              {/* <TouchableRipple onPress={() => nav.navigate('UserBlast', { username: username })}>
+                <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
+                  <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="bomb" size={24} color={theme.page_content.fg} />
+                  <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>{t('user:blast_checker')}</Text>
+                  <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
+                </View>
+              </TouchableRipple> */}
             </Card>
           </View>
           <View style={{ padding: 4, width: 500, maxWidth }}>

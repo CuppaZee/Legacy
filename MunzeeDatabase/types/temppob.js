@@ -11,7 +11,8 @@ module.exports = [
         "stage": 5,
         "base": "butterflyegg"
       }
-    }
+    },
+    "hidden": true
   },
   {
     "name": "Morpho Butterfly",
@@ -81,7 +82,8 @@ module.exports = [
         "stage": 5,
         "base": "frogegg"
       }
-    }
+    },
+    "hidden": true
   },
   {
     "name": "Tree Frog",
@@ -188,7 +190,8 @@ module.exports = [
         "stage": 5,
         "base": "turtleegg"
       }
-    }
+    },
+    "hidden": true
   },
   {
     "name": "Sea Turtle",
@@ -244,7 +247,8 @@ module.exports = [
         "stage": 5,
         "base": "planulalarva"
       }
-    }
+    },
+    "hidden": true
   },
   {
     "name": "Box Jellyfish",

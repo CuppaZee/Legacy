@@ -376,7 +376,7 @@ module.exports = [
     "id": 2252,
     "state": "bouncer",
     "type": "classical",
-    "lands_on": ["skyland","treehouse","munzee","watermystery","firemystery"]
+    "lands_on": ["treehouse","munzee","watermystery","firemystery"]
   },
   {
     "name": "Cthulhu Hydra",

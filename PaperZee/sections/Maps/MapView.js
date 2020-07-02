@@ -9,6 +9,12 @@ import * as Location from "expo-location";
 
 export default function Map(props) {
   const theme = useSelector(i => i.themes[i.theme]);
+  const center = {
+    latitude: 0,
+    longitude: 0,
+    latitudeDelta: 90,
+    longitudeDelta: 90
+  }
   const mapRef = React.useRef(null);
   const [locError, setLocError] = React.useState(false);
   async function getLocation() {
@@ -32,16 +38,20 @@ export default function Map(props) {
   return <View style={{ flex: 1 }}>
     <MapView
       ref={mapRef}
-      initialRegion={{
-        latitude: 0,
-        longitude: 0,
-        latitudeDelta: 90,
-        longitudeDelta: 90
-      }}
+      initialRegion={center}
+      region={props.region}
       clusteringEnabled={props.markers?.length>60}
       provider="google"
       customMapStyle={theme.mapStyle}
       style={{ flex: 1 }}
+      onRegionChangeComplete={(region)=>{
+        props.onRegionChange?.({
+          latitude: region.latitude,
+          longitude: region.longitude,
+          latitudeDelta: region.latitudeDelta,
+          longitudeDelta: region.longitudeDelta
+        })
+      }}
     >
       {props.markers?.map(i => <Marker
         key={i.id}

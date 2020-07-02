@@ -12919,7 +12919,6 @@
       "type": "myth",
       "duration": 12,
       "lands_on": [
-        2426,
         2145,
         0,
         1020,
@@ -15408,6 +15407,7 @@
       "stage": 5,
       "base": "butterflyegg"
     },
+    "hidden": true,
     "cids": [],
     "x": 563,
     "i": "butterfly"
@@ -15791,6 +15791,7 @@
       "stage": 5,
       "base": "frogegg"
     },
+    "hidden": true,
     "cids": [],
     "x": 574,
     "i": "frog"
@@ -16195,6 +16196,7 @@
       "stage": 5,
       "base": "turtleegg"
     },
+    "hidden": true,
     "cids": [],
     "x": 584,
     "i": "turtle"
@@ -16371,6 +16373,7 @@
       "stage": 5,
       "base": "planulalarva"
     },
+    "hidden": true,
     "cids": [],
     "x": 588,
     "i": "jellyfish"
@@ -39175,7 +39178,6 @@
       1997,
       1998,
       2118,
-      2252,
       2253,
       2254,
       2255,

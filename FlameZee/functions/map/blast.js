@@ -133,7 +133,7 @@ module.exports = {
           type: "userid",
         },
       },
-      async function({ params: { user_id, lat, lng }, db }) {
+      async function({ params: { user_id, lat, lng, amount }, db }) {
         var token = await retrieve(db, { user_id, teaken: false }, 60);
 
         var boundaries = [
@@ -181,7 +181,7 @@ module.exports = {
           })
           var output = [];
           for(var munzee of munzees) {
-            if(output.length === 0 || output[output.length-1].total === 100) {
+            if(output.length === 0 || output[output.length-1].total === Number(amount||100)) {
               output.push({
                 total: 0,
                 points: {
