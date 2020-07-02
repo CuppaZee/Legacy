@@ -599,5 +599,12 @@ export default {
       title: 'Updated Credits',
       description: 'Added MMarshall, EmeraldAngel, Roman and gdb to Supporters List'
     }
+  ],
+  181: [
+    {
+      icon: 'calendar',
+      title: 'Revamped Date Picker',
+      description: 'Fixed issues with displayed date and selecting months and years'
+    }
   ]
 }

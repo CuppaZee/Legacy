@@ -93,7 +93,9 @@ var data = {
       "tzaruba",
       "lolbot",
       "chipperlarter",
-      "chefmummyyummy"
+      "chefmummyyummy",
+      "goldilox97",
+      "Dorsetknob"
     ],
     1441: [
       "chameleon42",
