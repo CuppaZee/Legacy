@@ -7,7 +7,7 @@ var path = require('path');
 var geocoder = require('offline-geocoder')({ database: path.join(__dirname, '../util/geolocate/db.sqlite') })
 
 function c(i) {
-  return Number((i.captured_at || i.deployed_at).slice(8, 10)) > 2 && Number((i.captured_at || i.deployed_at).slice(8, 10)) < 29;
+  return Number((i.captured_at || i.deployed_at).slice(8, 10)) > 0 && Number((i.captured_at || i.deployed_at).slice(8, 10)) < 29;
 }
 var games = {
   1: {
