@@ -168,6 +168,11 @@
         "level": {
             "one": "Niveau",
             "other": "Niveauer"
+        },
+        "rank": "",
+        "players": {
+            "one": "",
+            "other": ""
         }
     },
     "search": {
@@ -185,8 +190,13 @@
             "evo": "Udviklingsstadier",
             "pouch": "Posevæsen-stadier",
             "can_host": "Kan være vært for",
-            "lands_on": "Lander på"
-        }
+            "lands_on": "Lander på",
+            "hosts": "",
+            "possible_types": "",
+            "possible_hosts": "",
+            "host_types": ""
+        },
+        "type_info": ""
     },
     "auth": {
         "add": "Tilføj en ny bruger",
@@ -253,8 +263,8 @@
         "task_6": "Flad ven placeringer",
         "task_7": "Destination skanninger/placeringer",
         "task_8": "Springerskanninger",
-        "task_9": "",
-        "task_10": ""
+        "task_9": "Flad ven skanninger/placeringer",
+        "task_10": "Skan \"/m/GPSmAQ/1\""
     },
     "themes": {
         "black": "Sort",
@@ -303,5 +313,14 @@
         "build_n": "Build {n}",
         "continue": "Fortsæt til CuppaZee",
         "no_changelog": "Ingen ændringslog"
+    },
+    "clan_req": {
+        "Captures": "",
+        "Points": "",
+        "Deploys": "",
+        "Activity": "",
+        "Days of": "",
+        "Total": "",
+        "Renovate": ""
     }
 }

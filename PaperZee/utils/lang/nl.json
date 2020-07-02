@@ -168,6 +168,11 @@
         "level": {
             "one": "Niveau",
             "other": "Niveaus"
+        },
+        "rank": "",
+        "players": {
+            "one": "",
+            "other": ""
         }
     },
     "search": {
@@ -185,8 +190,13 @@
             "evo": "Stadia Evoluties",
             "pouch": "Stadia Pouch Creature",
             "can_host": "Is Host voor",
-            "lands_on": "Kan landen op"
-        }
+            "lands_on": "Kan landen op",
+            "hosts": "",
+            "possible_types": "",
+            "possible_hosts": "",
+            "host_types": ""
+        },
+        "type_info": ""
     },
     "auth": {
         "add": "Toevoegen nieuwe speler",
@@ -253,8 +263,8 @@
         "task_6": "Flat Friends Deps",
         "task_7": "Destination Caps/Deps",
         "task_8": "Bouncer Caps",
-        "task_9": "",
-        "task_10": ""
+        "task_9": "Flat Friends Caps/Deps",
+        "task_10": "Capture “/m/GPSmAQ/1”"
     },
     "themes": {
         "black": "Zwart",
@@ -303,5 +313,14 @@
         "build_n": "Versie {n}",
         "continue": "Verdergaan naar CuppaZee",
         "no_changelog": "Geen Changelog"
+    },
+    "clan_req": {
+        "Captures": "",
+        "Points": "",
+        "Deploys": "",
+        "Activity": "",
+        "Days of": "",
+        "Total": "",
+        "Renovate": ""
     }
 }
