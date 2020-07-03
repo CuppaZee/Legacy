@@ -5,25 +5,42 @@ var Clan = {
     top: "Days of",
     bottom: "Activity",
     icon: "https://i.ibb.co/K5ZmXqc/Total-1.png",
-    total: "min"
+    total: "min",
+    meta: {
+      activity: ["capture","deploy"],
+      days: true,
+      exclude: i=>["personal","social"].includes(i.icon),
+    }
   },
   2: {
     task_id: 2,
     top: "Total",
     bottom: "Captures",
-    icon: "captured"
+    icon: "captured",
+    meta: {
+      activity: ["capture"]
+    }
   },
   3: {
     task_id: 3,
     top: "Total",
     bottom: "Points",
-    icon: "https://i.ibb.co/K5ZmXqc/Total-1.png"
+    icon: "https://i.ibb.co/K5ZmXqc/Total-1.png",
+    meta: {
+      activity: ["capture","deploy","capon"],
+      points: true
+    }
   },
   6: {
     task_id: 6,
     top: "Total",
     bottom: "Deploys",
-    icon: "https://munzee.global.ssl.fastly.net/images/pins/owned.png"
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/owned.png",
+    meta: {
+      activity: ["deploy"],
+      points: true,
+      exclude: i=>i.icon==="personal",
+    }
   },
   7: {
     task_id: 7,
@@ -33,13 +50,24 @@ var Clan = {
     icons: [
       "https://munzee.global.ssl.fastly.net/images/pins/1starmotel.png",
       "https://munzee.global.ssl.fastly.net/images/pins/virtualresort.png"
-    ]
+    ],
+    meta: {
+      activity: ["capture","deploy","capon"],
+      points: true,
+      types: i=>i.destination,
+      exclude: i=>i.icon==="skyland",
+    }
   },
   10: {
     task_id: 10,
     top: "Deploy",
     bottom: "Points",
-    icon: "https://munzee.global.ssl.fastly.net/images/pins/owned.png"
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/owned.png",
+    meta: {
+      activity: ["deploy"],
+      points: true,
+      exclude: i=>i.icon==="personal",
+    }
   },
   12: {
     task_id: 12,
@@ -49,13 +77,22 @@ var Clan = {
     icons: [
       "https://munzee.global.ssl.fastly.net/images/pins/evolution.png",
       "https://munzee.global.ssl.fastly.net/images/pins/evolution_filter_physical.png"
-    ]
+    ],
+    meta: {
+      activity: ["capture","deploy","capon"],
+      points: true,
+      types: i=>i.evolution
+    }
   },
   13: {
     task_id: 13,
     top: "Places",
     bottom: "Captures",
-    icon: "https://munzee.global.ssl.fastly.net/images/pins/poi_filter.png"
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/poi_filter.png",
+    meta: {
+      activity: ["capture"],
+      types: i=>i.category=="poi"
+    }
   },
   14: {
     task_id: 14,
@@ -65,7 +102,11 @@ var Clan = {
     icons: [
       "https://munzee.global.ssl.fastly.net/images/pins/diamond.png",
       "https://munzee.global.ssl.fastly.net/images/pins/virtualonyx.png"
-    ]
+    ],
+    meta: {
+      activity: ["capture","deploy"],
+      types: i=>i.category=="jewel"
+    }
   },
   17: {
     task_id: 17,
@@ -75,7 +116,11 @@ var Clan = {
     icons: [
       "https://munzee.global.ssl.fastly.net/images/pins/evolution.png",
       "https://munzee.global.ssl.fastly.net/images/pins/evolution_filter_physical.png"
-    ]
+    ],
+    meta: {
+      activity: ["capture","deploy"],
+      types: i=>i.evolution
+    }
   },
   19: {
     task_id: 19,
@@ -85,7 +130,12 @@ var Clan = {
     icons: [
       "https://munzee.global.ssl.fastly.net/images/pins/aquamarine.png",
       "https://munzee.global.ssl.fastly.net/images/pins/virtual_citrine.png"
-    ]
+    ],
+    meta: {
+      activity: ["capture","deploy","capon"],
+      points: true,
+      types: i=>i.category=="jewel"
+    }
   },
   20: {
     task_id: 20,
@@ -95,7 +145,11 @@ var Clan = {
     icons: [
       "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
       "https://munzee.global.ssl.fastly.net/images/pins/catapult.png"
-    ]
+    ],
+    meta: {
+      activity: ["deploy"],
+      types: i=>i.weapon=="clan"
+    }
   },
   23: {
     task_id: 23,
@@ -105,7 +159,12 @@ var Clan = {
     icons: [
       "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
       "https://munzee.global.ssl.fastly.net/images/pins/catapult.png"
-    ]
+    ],
+    meta: {
+      activity: ["capture","deploy","capon"],
+      points: true,
+      types: i=>i.weapon=="clan"
+    }
   },
   24: {
     task_id: 24,
@@ -117,7 +176,11 @@ var Clan = {
       "https://munzee.global.ssl.fastly.net/images/pins/theunicorn.png",
       "https://munzee.global.ssl.fastly.net/images/pins/nomad.png",
       "https://munzee.global.ssl.fastly.net/images/pins/muru.png"
-    ]
+    ],
+    meta: {
+      activity: ["capture"],
+      types: i=>i.bouncer
+    }
   },
   26: {
     task_id: 26,
@@ -127,7 +190,11 @@ var Clan = {
     icons: [
       "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
       "https://munzee.global.ssl.fastly.net/images/pins/crossbow.png"
-    ]
+    ],
+    meta: {
+      activity: ["capture","deploy"],
+      types: i=>i.weapon=="clan"
+    }
   },
   28: {
     task_id: 28,
@@ -137,7 +204,12 @@ var Clan = {
     icons: [
       "https://munzee.global.ssl.fastly.net/images/pins/flatrob.png",
       "https://munzee.global.ssl.fastly.net/images/pins/flatlou.png"
-    ]
+    ],
+    meta: {
+      activity: ["capture","deploy","capon"],
+      points: true,
+      types: i=>i.category=="flat"&&!i.unique
+    }
   },
   31: {
     task_id: 31,
@@ -148,7 +220,12 @@ var Clan = {
       "https://munzee.global.ssl.fastly.net/images/pins/joystickvirtual.png",
       "https://munzee.global.ssl.fastly.net/images/pins/prizewheel.png",
       "https://munzee.global.ssl.fastly.net/images/pins/urbanfit.png"
-    ]
+    ],
+    meta: {
+      activity: ["capture","deploy","capon"],
+      points: true,
+      types: i=>i.category=="gaming"
+    }
   },
   32: {
     task_id: 32,
@@ -159,7 +236,11 @@ var Clan = {
       "https://munzee.global.ssl.fastly.net/images/pins/joystickvirtual.png",
       "https://munzee.global.ssl.fastly.net/images/pins/prizewheel.png",
       "https://munzee.global.ssl.fastly.net/images/pins/urbanfit.png"
-    ]
+    ],
+    meta: {
+      activity: ["capture","deploy"],
+      types: i=>i.category=="gaming"
+    }
   },
   33: {
     task_id: 33,
@@ -169,13 +250,22 @@ var Clan = {
     icons: [
       "https://munzee.global.ssl.fastly.net/images/pins/destination.png",
       "https://munzee.global.ssl.fastly.net/images/pins/2starmotel.png"
-    ]
+    ],
+    meta: {
+      activity: ["capture"],
+      types: i=>i.icon=="renovation"
+    }
   },
   34: {
     task_id: 34,
     top: "Mystery",
     bottom: "Points",
-    icon: "https://i.ibb.co/YdRQ3Sf/Split-Mystery.png"
+    icon: "https://i.ibb.co/YdRQ3Sf/Split-Mystery.png",
+    meta: {
+      activity: ["capture","deploy","capon"],
+      points: true,
+      types: i=>i.category=="mystery"
+    }
   }
 }
 export function ClanRequirementsConverter(req, rewards) {
