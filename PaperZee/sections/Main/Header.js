@@ -77,7 +77,7 @@ export default function Header(props) {
       endpoint: 'clan/rewards/v1',
       cuppazee: true,
       data: {clan_id:1349,game_id:title},
-      function: i=>moment(i?.battle.title.slice(10)).format('MMMM YYYY')
+      function: i=>moment(i?.battle.title.slice(10),'MMMM YYYY','en').format('MMMM YYYY')
     }
   }[clanData]||null);
   if(clanName) title = clanName;

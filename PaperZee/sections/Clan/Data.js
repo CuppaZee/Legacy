@@ -9,7 +9,7 @@ var Clan = {
     meta: {
       activity: ["capture","deploy"],
       days: true,
-      exclude: i=>["personal","social"].includes(i.icon),
+      exclude: i=>["personalmunzee","premiumpersonal","social"].includes(i.icon),
     }
   },
   2: {
@@ -39,7 +39,7 @@ var Clan = {
     meta: {
       activity: ["deploy"],
       points: true,
-      exclude: i=>i.icon==="personal",
+      exclude: i=>["personalmunzee","premiumpersonal"].includes(i.icon),
     }
   },
   7: {
@@ -66,7 +66,7 @@ var Clan = {
     meta: {
       activity: ["deploy"],
       points: true,
-      exclude: i=>i.icon==="personal",
+      exclude: i=>["personalmunzee","premiumpersonal"].includes(i.icon),
     }
   },
   12: {
@@ -300,7 +300,8 @@ export function ClanRequirementsConverter(req, rewards) {
           top: rd.top ?? requirement.name.split(' ')[0],
           bottom: rd.bottom ?? requirement.name.split(' ').slice(1).join(' ').replace('Cap/Deploys', 'Activity'),
           description: requirement.description,
-          icon: `https://server.cuppazee.app/requirements/${requirement.task_id}.png?cache=${Math.floor(Date.now()/3600000)}` ?? rd.icon ?? requirement.logo
+          icon: `https://server.cuppazee.app/requirements/${requirement.task_id}.png?cache=${Math.floor(Date.now()/3600000)}` ?? rd.icon ?? requirement.logo,
+          meta: rd.meta
         }
       }
       if (requirement.individual) {

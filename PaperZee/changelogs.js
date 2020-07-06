@@ -606,5 +606,17 @@ export default {
       title: 'Revamped Date Picker',
       description: 'Fixed issues with displayed date and selecting months and years'
     }
+  ],
+  182: [
+    {
+      icon: 'finance',
+      title: 'Updated Clan Pages',
+      description: 'You can now tap on a requirement on a Clan Requirement Table to view more information on it. Work in progress.'
+    },
+    {
+      image: 'summershades2020vision',
+      title: 'Updated Munzee Types',
+      description: 'Added new 2020 Vision Special'
+    }
   ]
 }

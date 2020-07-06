@@ -95,6 +95,13 @@ module.exports = [
         "extra": {
           "alt_icons": ["aviators2020vision"]
         }
+      },
+      {
+        "name": "Summer Shades",
+        "icon": "summershades2020vision",
+        "id": 2294,
+        "duration": 12,
+        "lands_on": ["munzee"]
       }
     ]
   },
