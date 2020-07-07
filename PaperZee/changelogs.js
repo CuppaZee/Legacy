@@ -618,5 +618,12 @@ export default {
       title: 'Updated Munzee Types',
       description: 'Added new 2020 Vision Special'
     }
+  ],
+  183: [
+    {
+      icon: 'wrench',
+      title: 'Reworked Pages System',
+      description: 'The behind-the-scenes system for how pages are created has been reworked.'
+    }
   ]
 }

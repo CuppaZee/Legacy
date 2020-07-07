@@ -220,14 +220,14 @@ export default function CustomDrawerContent(props) {
         /> */}
         <IconButton
           style={{
-            backgroundColor: route.name == "ClanRequirements" && route.params.gameid == 88 ? itemProps.activeBackgroundColor : null
+            backgroundColor: route.name == "ClanRequirements" && route.params.year == 2020 && route.params.month == 7 ? itemProps.activeBackgroundColor : null
           }}
           icon="playlist-check"
           color={itemProps.inactiveTintColor}
           onPress={() => nav.reset({
             index: 1,
             routes: [
-              { name: '__primary', params: { screen: "ClanRequirements", params: { gameid: 88 } } },
+              { name: '__primary', params: { screen: "ClanRequirements", params: { year: 2020, month: 7 } } },
             ],
           })
           }

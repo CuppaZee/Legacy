@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableRipple, Menu } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import Card from 'sections/Shared/Card';
-import { ClanRequirementsConverter } from '../Data';
+import { ClanRequirementsConverter, dateFromGameID } from '../Data';
 import useAPIRequest from 'utils/hooks/useAPIRequest';
 import useLevelColours from 'utils/hooks/useLevelColours';
 import font from 'sections/Shared/font';
@@ -111,7 +111,7 @@ export default function ClanRequirementsCard({ game_id, scale: s = 1, list }) {
     return <Card noPad>
       <View style={{ ...(theme.dark ? { borderBottomWidth: 2 * s, borderBottomColor: level_colors.border } : {}), backgroundColor: (theme.clanCardHeader || theme.navigation).bg, paddingHorizontal: 8 * s, borderTopLeftRadius: 8 * s, borderTopRightRadius: 8 * s, flexDirection: "row", alignItems: "center" }}>
         <View style={{ flex: 1, paddingVertical: 8 * s }}>
-          <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader || theme.navigation).fg, ...font("bold"), fontSize: 12 * s, opacity: 0.7, lineHeight: 12 * s }}>{moment(data?.battle.title.slice(10),'MMMM YYYY','en').format('MMMM YYYY')}</Text>
+          <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader || theme.navigation).fg, ...font("bold"), fontSize: 12 * s, opacity: 0.7, lineHeight: 12 * s }}>{moment(dateFromGameID(game_id)).format('MMMM YYYY')}</Text>
           <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader || theme.navigation).fg, ...font("bold"), fontSize: 16 * s, lineHeight: 16 * s }}>{reward ? t('clan:rewards') : t('clan:requirements')}</Text>
         </View>
         <TouchableRipple style={{ borderRadius: 24 * s, padding: 4 * s }} onPress={() => { setReward(!reward) }}>
@@ -144,7 +144,7 @@ export default function ClanRequirementsCard({ game_id, scale: s = 1, list }) {
     <Card noPad>
       <View style={{ ...(theme.dark ? { borderBottomWidth: 2 * s, borderBottomColor: level_colors.border } : {}), backgroundColor: (theme.clanCardHeader || theme.navigation).bg, paddingHorizontal: 8 * s, borderTopLeftRadius: 8 * s, borderTopRightRadius: 8 * s, flexDirection: "row", alignItems: "center" }}>
         <View style={{ flex: 1, paddingVertical: 8 * s }}>
-          <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader || theme.navigation).fg, ...font("bold"), fontSize: 12 * s, opacity: 0.7, lineHeight: 12 * s }}>{moment(data?.battle.title.slice(10),'MMMM YYYY','en').format('MMMM YYYY')}</Text>
+          <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader || theme.navigation).fg, ...font("bold"), fontSize: 12 * s, opacity: 0.7, lineHeight: 12 * s }}>{moment(dateFromGameID(game_id)).format('MMMM YYYY')}</Text>
           <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader || theme.navigation).fg, ...font("bold"), fontSize: 16 * s, lineHeight: 16 * s }}>{reward ? t('clan:rewards') : t('clan:requirements')}</Text>
         </View>
         <TouchableRipple style={{ borderRadius: 24 * s, padding: 4 * s }} onPress={() => { setReward(!reward) }}>
@@ -197,7 +197,7 @@ export default function ClanRequirementsCard({ game_id, scale: s = 1, list }) {
 
 
         <View style={{ width: 56 * s, position: "absolute", left: 0, top: 0, borderRightWidth: 2 * s, borderRightColor: level_colors.border }}>
-          <View style={{ height: 24 * s, backgroundColor: level_colors.null.bg, padding: 4 * s }}><Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 12 * s, color: level_colors.null.fg }}>{moment(data?.battle.title.slice(10),'MMMM YYYY','en').format('MMM YY')}</Text></View>
+          <View style={{ height: 24 * s, backgroundColor: level_colors.null.bg, padding: 4 * s }}><Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 12 * s, color: level_colors.null.fg }}>{moment(dateFromGameID(game_id)).format('MMM YY')}</Text></View>
           <View style={{ height: (reward ? 60 : 77) * s, backgroundColor: level_colors.null.bg, flexDirection: "row", alignItems: "center", padding: 4 * s, borderBottomWidth: 2 * s, borderBottomColor: level_colors.border }}>
             <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="head" style={{ fontSize: 12 * s, color: level_colors.null.fg, ...font() }}>{t('clan:level', { count: data?.levels?.length })}</Text>
           </View>

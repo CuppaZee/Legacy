@@ -57,9 +57,8 @@ export default function Header(props) {
     title = params.username;
     subtitle = 'screens:'+name;
   } else if(name.startsWith('ClanRequirements')) {
-    title = params.gameid;
+    title = moment({year:params.year,month:params.month-1}).format('MMMM YYYY');
     subtitle = 'screens:'+name;
-    clanData = "requirements"
   } else if(name.startsWith('Clan')) {
     title = params.clanid;
     subtitle = 'screens:'+name;
@@ -72,12 +71,6 @@ export default function Header(props) {
       endpoint: 'clan/v2',
       data: {clan_id:Number(title)},
       function: i=>i?.details?.name
-    },
-    requirements: {
-      endpoint: 'clan/rewards/v1',
-      cuppazee: true,
-      data: {clan_id:1349,game_id:title},
-      function: i=>moment(i?.battle.title.slice(10),'MMMM YYYY','en').format('MMMM YYYY')
     }
   }[clanData]||null);
   if(clanName) title = clanName;

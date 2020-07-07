@@ -3,8 +3,7 @@ import { View, FlatList } from 'react-native';
 import ClanRequirements from './Cards/Requirements';
 import ClanStats from './Cards/Stats';
 import { useDimensions } from '@react-native-community/hooks'
-import { useSelector, useDispatch } from 'react-redux';
-import s from 'utils/store';
+import { useSelector } from 'react-redux';
 
 function Clan({ item }) {
   return ({
@@ -22,7 +21,6 @@ export default function AllClansScreen() {
   var theme = useSelector(i => i.themes[i.theme]);
   var { width } = useDimensions().window;
   var dash = useSelector(i => i.clanBookmarks);
-  var dispatch = useDispatch();
   return (
     <FlatList
       key={width}

@@ -386,3 +386,9 @@ export function ClanStatsConverter(clan, stats, shadow) {
   }
   return data;
 }
+export function dateFromGameID(game_id) {
+  var gid = game_id + 24158;
+  var year = Math.floor(gid/12);
+  var month = gid%12;
+  return {year,month};
+}
