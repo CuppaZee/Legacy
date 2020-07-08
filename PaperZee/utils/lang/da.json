@@ -316,8 +316,8 @@
     },
     "clan_req": {
         "Captures": "",
-        "Points": "",
-        "Deploys": "",
+        "Points": "Point",
+        "Deploys": "Placeringer",
         "Activity": "",
         "Days of": "",
         "Total": "",
