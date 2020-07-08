@@ -169,10 +169,10 @@
             "one": "Szint",
             "other": "Szint"
         },
-        "rank": "",
+        "rank": "Helyezés #{rank}",
         "players": {
-            "one": "",
-            "other": ""
+            "one": "{count} Játékos",
+            "other": "{count} Játékos"
         }
     },
     "search": {
@@ -315,12 +315,12 @@
         "no_changelog": "Nincsen változás"
     },
     "clan_req": {
-        "Captures": "",
-        "Points": "",
-        "Deploys": "",
-        "Activity": "",
+        "Captures": "Megtalálás",
+        "Points": "Pont",
+        "Deploys": "Telepítés",
+        "Activity": "Aktivitás",
         "Days of": "",
         "Total": "",
-        "Renovate": ""
+        "Renovate": "Renoválás"
     }
 }
