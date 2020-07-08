@@ -169,10 +169,10 @@
             "one": "Niveau",
             "other": "Niveaus"
         },
-        "rank": "",
+        "rank": "Rang #{rank}",
         "players": {
-            "one": "",
-            "other": ""
+            "one": "{count} Speler",
+            "other": "{count} Spelers"
         }
     },
     "search": {
@@ -191,12 +191,12 @@
             "pouch": "Stadia Pouch Creature",
             "can_host": "Is Host voor",
             "lands_on": "Kan landen op",
-            "hosts": "",
-            "possible_types": "",
-            "possible_hosts": "",
-            "host_types": ""
+            "hosts": "Hosts",
+            "possible_types": "Mogelijke Types",
+            "possible_hosts": "Mogelijke Hosts",
+            "host_types": "Hosted door"
         },
-        "type_info": ""
+        "type_info": "Type Info"
     },
     "auth": {
         "add": "Toevoegen nieuwe speler",
@@ -315,12 +315,12 @@
         "no_changelog": "Geen Changelog"
     },
     "clan_req": {
-        "Captures": "",
-        "Points": "",
-        "Deploys": "",
-        "Activity": "",
-        "Days of": "",
-        "Total": "",
-        "Renovate": ""
+        "Captures": "Captures",
+        "Points": "Punten",
+        "Deploys": "Deploys",
+        "Activity": "Activiteit",
+        "Days of": "Dagen met",
+        "Total": "Totaal ",
+        "Renovate": "Renoveren"
     }
 }
