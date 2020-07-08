@@ -39,27 +39,27 @@
         "logging_in": "Kirjaudutaan..."
     },
     "activity": {
-        "user_captured": "{user} cappasi",
-        "user_deployed": "{user} deppasi",
-        "you_captured": "Cappasit",
-        "you_deployed": "Deppasit",
-        "by_user": "{user}",
-        "by_you": "sinä",
+        "user_captured": "{user} nappasi",
+        "user_deployed": "{user} julkaisi",
+        "you_captured": "Nappasit",
+        "you_deployed": "Julkaisit",
+        "by_user": "{user}'n",
+        "by_you": "sinun",
         "total_point": {
             "one": "{count} piste yht.",
             "other": "{count} pistettä yht."
         },
         "capture": {
-            "one": "{count} cappaus",
-            "other": "{count} cappausta"
+            "one": "{count} nappaus",
+            "other": "{count} nappausta"
         },
         "deploy": {
-            "one": "{count} deppaus",
-            "other": "{count} deppausta"
+            "one": "{count} julkaisu",
+            "other": "{count} julkaisua"
         },
         "capon": {
-            "one": "{count} capon",
-            "other": "{count} caponia"
+            "one": "{count} napattu",
+            "other": "{count} napattua"
         },
         "point": {
             "one": "{count} piste",
@@ -86,7 +86,7 @@
         "clan_progress": "Edistymisesi klaanissa",
         "quebec_quest_progress": "Quebec Quest edistyminen",
         "special_hunter_challenge": "Spessun metsästäjän haaste",
-        "captured_types": "Capatut tyypit",
+        "captured_types": "Napatut tyypit",
         "activity": "Aktiviteetit",
         "clan_stats": "Klaanin tilanne",
         "clan_progress_desc": "Mihin klaanisi yltää",
@@ -100,7 +100,7 @@
         "no_clan_desc": "Katso tuloksesi alta"
     },
     "inventory": {
-        "undeployed": "Deppaamattomat",
+        "undeployed": "Julkaisemattomat",
         "credits": "Crediitit",
         "history": "Historia",
         "unknown_name": "Nimi tuntematon"
@@ -131,10 +131,10 @@
     },
     "your_bouncers": {
         "capture": {
-            "one": "{count} cappaus",
-            "other": "{count} cappausta"
+            "one": "{count} nappaus",
+            "other": "{count} nappausta"
         },
-        "last_captured": "Viimeksi capattu {time}",
+        "last_captured": "Viimeksi napattu {time}",
         "in_limbo": "Huilailee",
         "host": "{username}'n {munzee}'lla "
     },
@@ -169,10 +169,10 @@
             "one": "Taso",
             "other": "Tasot"
         },
-        "rank": "",
+        "rank": "Sija #{rank}",
         "players": {
-            "one": "",
-            "other": ""
+            "one": "{count] pelaaja",
+            "other": "{count} pelaajaa"
         }
     },
     "search": {
@@ -191,12 +191,12 @@
             "pouch": "Pussiotustasot",
             "can_host": "Voi isännöidä",
             "lands_on": "Alustat",
-            "hosts": "",
-            "possible_types": "",
-            "possible_hosts": "",
-            "host_types": ""
+            "hosts": "Isännät",
+            "possible_types": "Mahd. tyypit",
+            "possible_hosts": "Mahd. isännät",
+            "host_types": "Kyläilee"
         },
-        "type_info": ""
+        "type_info": "Tietoja"
     },
     "auth": {
         "add": "Lisää uusi käyttäjä",
@@ -259,12 +259,12 @@
         "task_2": "Evoaktiviteetti",
         "task_3": "Aseaktiviteetti",
         "task_4": "Jalokibviaktiviteetti",
-        "task_5": "Kappaa /m/XeresDan/1707",
-        "task_6": "Flattien deppaukset",
+        "task_5": "Nappaa /m/XeresDan/1707",
+        "task_6": "Flattien julkaisut",
         "task_7": "Destination-aktiviteetti",
-        "task_8": "Pomppijoiden cappaus",
+        "task_8": "Pomppijoiden nappaus",
         "task_9": "Flattiaktiviteetti",
-        "task_10": "Cappaa \"/m/GPSmAQ/1\""
+        "task_10": "Nappaa \"/m/GPSmAQ/1\""
     },
     "themes": {
         "black": "Musta",
@@ -299,7 +299,7 @@
         "UserInventory": "Omistus",
         "UserClan": "Klaanin edistyminen",
         "UserQuest": "\"Quest\" edistyminen",
-        "UserCapturesCategory": "Cappauskategoria",
+        "UserCapturesCategory": "Nappauskategoria",
         "UserSHCPro": "SHC Pro",
         "UserSHCLite": "SHC Lite",
         "UserSHC": "SHC klassinen",
@@ -315,12 +315,12 @@
         "no_changelog": "Ei muutoksia"
     },
     "clan_req": {
-        "Captures": "",
-        "Points": "",
-        "Deploys": "",
-        "Activity": "",
-        "Days of": "",
-        "Total": "",
-        "Renovate": ""
+        "Captures": "Nappausta",
+        "Points": "Pistettä",
+        "Deploys": "Julkaisua",
+        "Activity": "Aktiviteetti",
+        "Days of": "Päivät",
+        "Total": "Yht.",
+        "Renovate": "Remppaa"
     }
 }
