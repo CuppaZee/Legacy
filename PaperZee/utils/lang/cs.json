@@ -180,11 +180,11 @@
             "few": "Levely",
             "other": "Levelů"
         },
-        "rank": "",
+        "rank": "Pořadí {rank}.",
         "players": {
-            "one": "",
-            "few": "",
-            "other": ""
+            "one": "{count} Hráč",
+            "few": "{count} Hráči",
+            "other": "{count} Hráčů"
         }
     },
     "search": {
@@ -203,12 +203,12 @@
             "pouch": "Stádia příšerek z pytlíku",
             "can_host": "Může hostovat",
             "lands_on": "Přistává na",
-            "hosts": "",
-            "possible_types": "",
-            "possible_hosts": "",
-            "host_types": ""
+            "hosts": "Hostuje",
+            "possible_types": "Možné typy",
+            "possible_hosts": "Možní hostitelé",
+            "host_types": "Sedící na"
         },
-        "type_info": ""
+        "type_info": "Informace o typu"
     },
     "auth": {
         "add": "Přidat nového uživatele",
@@ -327,12 +327,12 @@
         "no_changelog": "Žádné změny"
     },
     "clan_req": {
-        "Captures": "",
-        "Points": "",
-        "Deploys": "",
-        "Activity": "",
-        "Days of": "",
-        "Total": "",
-        "Renovate": ""
+        "Captures": "Zachycení",
+        "Points": "Bodů",
+        "Deploys": "Založení",
+        "Activity": "Aktivita",
+        "Days of": "Dní",
+        "Total": "Celkem",
+        "Renovate": "Renovace"
     }
 }
