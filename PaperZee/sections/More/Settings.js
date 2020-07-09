@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, Platform, Image, AsyncStorage, ScrollView } from 'react-native';
-import { Button, IconButton, TextInput, Menu } from 'react-native-paper';
+import { Button, IconButton, TextInput, Menu, Switch } from 'react-native-paper';
 import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from "react-redux";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -179,6 +179,10 @@ export default function SettingsScreen({ navigation }) {
                   title={<Text allowFontScaling={false} style={{ fontSize: 14, ...font(), color: theme.page_content.fg }}>{i.name}</Text>}
                 />)}
               </Menu>
+            </View>
+            <View style={{flexDirection:"row",alignItems:"center",padding:4}}>
+              <Switch style={{marginRight: 8}} color={theme.page_content.fg} value={settings.activityV2Beta} onValueChange={(value)=>setSetting("activityV2Beta",!settings.activityV2Beta)} />
+              <Text allowFontScaling={false} style={{color:theme.page_content.fg, flex: 1,...font("bold")}}>User Activity Beta</Text>
             </View>
             <View>
               {[

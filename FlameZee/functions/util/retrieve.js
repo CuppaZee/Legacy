@@ -1,9 +1,15 @@
 var fetch = require("node-fetch");
 var { URLSearchParams } = require("url");
-var config = require('../config.json');
-module.exports = async function (db, {user_id,teaken}, time) {
+var _config = require('../config.json');
+module.exports = async function (db, {user_id,teaken}, time, application = "default") {
   try {
-    var doc = db.collection('auth').doc(user_id.toString());
+    var config;
+    if(application==="default") {
+      config = _config;
+    } else {
+      config = _config[application];
+    }
+    var doc = db.collection(application==="default"?'auth':`auth_${application}`).doc(user_id.toString());
     var data = (await doc.get()).data();
     if(teaken===false||data.teakens.includes(teaken)) {
       var token = data.token;

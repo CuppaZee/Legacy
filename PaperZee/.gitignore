@@ -17,3 +17,5 @@ web-report/
 
 /*.ps1
 yarn-error.log
+
+Private/

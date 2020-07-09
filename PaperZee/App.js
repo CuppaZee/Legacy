@@ -27,13 +27,13 @@ import { Coiny_400Regular } from '@expo-google-fonts/coiny';
 import LoadingPage from './sections/Shared/LoadingPage';
 import font from './sections/Shared/font';
 
-var pages = require('./pages');
+import pages from './pages';
 var pageScreens = {};
 var screens = pages.map(page=>({
+  nologin: page.nologin,
   name: page.name,
   screen: loadable(page.import, { fallback: <LoadingPage x={page.background} /> })
 }));
-console.log(screens);
 for(var page of pages) {
   pageScreens[page.name] = page.path;
 }
@@ -85,7 +85,7 @@ function StackNav() {
         component={RedirectScreen}
       />
       
-      {screens.map(screen=><Stack.Screen
+      {screens.filter(i=>!i.nologin).map(screen=><Stack.Screen
         name={screen.name}
         component={screen.screen}
       />)}
@@ -291,6 +291,11 @@ function StackNav() {
       }}
       component={AuthScreen}
     />
+      
+    {screens.filter(i=>i.nologin).map(screen=><Stack.Screen
+      name={screen.name}
+      component={screen.screen}
+    />)}
   </Stack.Navigator>
 }
 
@@ -334,7 +339,6 @@ function App() {
     prefixes: ['https://cuppazee.app', 'cuppazee://'],
     config: {
       __primary: {
-        path: '__you_should_never_see_this_please_report_it_on_facebook_at_cuppazee_or_via_email_at_mail_at_cuppazee_dot_uk',
         screens: {
           ...pageScreens,
           Auth: 'auth',

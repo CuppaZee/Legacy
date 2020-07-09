@@ -106,6 +106,71 @@ module.exports = [
     ]
   },
   {
+    "name": "Munzee's 9th Birthday",
+    "category": "munzeebirthday2020",
+    "year": 2020,
+    "starts": "2020-07-09T12:00:00-05:00",
+    "ends": "2020-08-09T23:59:00-05:00",
+    "specials": [
+      {
+        "name": "Red Water Balloon",
+        "icon": "redwaterballoon",
+        "id": 2545,
+        "duration": 4,
+        "lands_on": [":virtual"]
+      },
+      {
+        "name": "Green Water Balloon",
+        "icon": "greenwaterballoon",
+        "id": 2546,
+        "duration": 4,
+        "lands_on": [":virtual"]
+      },
+      {
+        "name": "Blue Water Balloon",
+        "icon": "bluewaterballoon",
+        "id": 2547,
+        "duration": 4,
+        "lands_on": [":virtual"]
+      },
+      {
+        "name": "Yellow Water Balloon",
+        "icon": "yellowwaterballoon",
+        "id": 2548,
+        "duration": 4,
+        "lands_on": [":virtual"]
+      },
+      {
+        "name": "Camp Cap-A-Lot Flag",
+        "icon": "campcap-a-lotflag",
+        "id": 2549,
+        "duration": 2,
+        "lands_on": ["munzee","earthmystery","treehouse","skyland",":virtual"]
+      },
+      {
+        "name": "Camp QRantine Flag",
+        "icon": "campqrantineflag",
+        "id": 2550,
+        "duration": 2,
+        "lands_on": ["munzee","earthmystery","treehouse","skyland",":virtual"]
+      },
+      {
+        "name": "Camp FrEEZ Flag",
+        "icon": "campfreezflag",
+        "id": 2551,
+        "duration": 2,
+        "lands_on": ["munzee","earthmystery","treehouse","skyland",":virtual"]
+      },
+      {
+        "name": "Camp KenneZee Flag",
+        "icon": "campkennezeeflag",
+        "id": 2552,
+        "duration": 2,
+        "lands_on": ["munzee","earthmystery","treehouse","skyland",":virtual"]
+      }
+    ]
+  },
+  {
     "name": "World Sushi Day Ingredients",
     "category": "worldsushiday2020",
     "year": 2020,

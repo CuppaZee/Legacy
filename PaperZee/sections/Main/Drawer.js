@@ -40,6 +40,16 @@ export default function CustomDrawerContent(props) {
   var nav = props.navigation;
   var [showMoreClan, setShowMoreClan] = React.useState(false);
   var [showMoreUser, setShowMoreUser] = React.useState(false);
+  var [now, setNow] = React.useState(Date.now());
+  React.useEffect(()=>{
+    var x = setInterval(()=>{
+      setNow(Date.now());
+    },1000);
+    return ()=>clearInterval(x);
+  })
+  var top = [
+    { title: "Camps Leaderboard", icon: "flag", page: "AllCampLeaderboard", hide: now < 1594314000000 },
+  ].filter(i => !i.hide)
   var pages = [
     // { title: t(`common:maps`), icon: "map", page: "Map" },
     { title: t(`common:bouncers`), icon: "map-marker", page: "Bouncers" },
@@ -75,6 +85,21 @@ export default function CustomDrawerContent(props) {
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>The CuppaZee App is now on the App Store</Text>
         <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>Download it now!</Text>
       </View>}
+      {top.map?.(i => <DrawerItem
+        key={i.title}
+        {...itemProps}
+        style={{ marginVertical: 0, opacity: i.disabled ? 0.6 : 1 }}
+        focused={route.name == i.page}
+        icon={({ focused, color, size }) => <MaterialCommunityIcons name={i.icon} color={color} size={24} style={{ margin: 4 }} />}
+        label={i.title}
+        onPress={i.disabled ? null : (i.link ? () => Linking.openURL(i.page) : () => nav.reset({
+          index: 1,
+          routes: [
+            { name: '__primary', params: { screen: i.page } },
+          ],
+        }))
+        }
+      />)}
       <View style={{ paddingLeft: 8 }}>
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t(`common:users`)}</Text>
       </View>

@@ -18,7 +18,7 @@
   {
     "name": "2020 Seasonal Specials",
     "id": "seasonal_2020",
-    "icon": "cucumber",
+    "icon": "redwaterballoon",
     "parents": [
       "seasonal",
       "root"
@@ -382,6 +382,19 @@
       "year": 2020,
       "starts": 1577998800000,
       "ends": 1609480740000
+    }
+  },
+  {
+    "name": "Munzee's 9th Birthday",
+    "id": "munzeebirthday2020",
+    "icon": "redwaterballoon",
+    "parents": [
+      "seasonal_2020"
+    ],
+    "seasonal": {
+      "year": 2020,
+      "starts": 1594314000000,
+      "ends": 1597035540000
     }
   },
   {

@@ -55,7 +55,8 @@ const defaultState = {
     clan_level_3:   "#fcd302",
     clan_level_4:   "#bfe913",
     clan_level_5:   "#55f40b",
-    clan_level_null:"#e3e3e3"
+    clan_level_null:"#e3e3e3",
+    activityV2Beta: false
   }
 };
 

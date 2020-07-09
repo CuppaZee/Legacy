@@ -54,8 +54,8 @@ async function makeRequest(getState, dispatch, pageInput, force) {
 
       for (var loop = 0; loop < 2; loop++) {
         // Get Updated Token
-        var token_data = getState().logins[use_user].token;
-        var token = token_data.access_token;
+        var token_data = getState().logins[use_user]?.token;
+        var token = token_data?.access_token;
 
         // Request Data
         if (page.pagination) {

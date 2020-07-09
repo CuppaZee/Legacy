@@ -158,14 +158,14 @@ export default function DetailsScreen({ route }) {
                 <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="trophy-outline" size={24} color={(theme.clanCardHeader || theme.navigation).fg} />
                 <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: (theme.clanCardHeader || theme.navigation).fg }}>{t('user:challenges')}</Text>
               </View>
-              <TouchableRipple onPress={() => nav.navigate('UserSHCLite', { username: username, date: dateString })}>
+              <TouchableRipple onPress={() => nav.navigate('UserSHCLite', { username: username })}>
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                   <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="star-half" size={24} color={theme.page_content.fg} />
                   <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>{t('user:sh_lite')}</Text>
                   <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
                 </View>
               </TouchableRipple>
-              <TouchableRipple onPress={() => nav.navigate('UserSHCPro', { username: username, date: dateString })}>
+              <TouchableRipple onPress={() => nav.navigate('UserSHCPro', { username: username })}>
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                   <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="star" size={24} color={theme.page_content.fg} />
                   <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>{t('user:sh_pro')}</Text>

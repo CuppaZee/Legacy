@@ -30,6 +30,13 @@ function MHQTime() {
   </View>
 }
 
+const teamNames = {
+  "cap-a-lot": "Camp Cap-A-Lot",
+  "qrantine": "Camp QRantine",
+  "freez": "Camp FrEEZ",
+  "kennezee": "Camp KenneZee",
+}
+
 export default function Header(props) {
   var {t} = useTranslation();
   var moment = useMoment();
@@ -41,7 +48,11 @@ export default function Header(props) {
   let title;
   let subtitle;
   let clanData;
-  if(name === 'DBType') {
+  if(name === 'AllCampLeaderboard') {
+    title = "All Camps";
+  } else if(name === 'CampLeaderboard') {
+    title = teamNames[params.team];
+  } else if(name === 'DBType') {
     title = getType(params.munzee)?.name??params.munzee;
     subtitle = 'screens:'+name;
   } else if(name === 'DBCategory') {
@@ -84,7 +95,7 @@ export default function Header(props) {
     }}
   >
     {width<=1000&&loggedIn&&<Appbar.Action icon="menu" onPress={()=>props.navigation.toggleDrawer()} />}
-    {!(props.route?.name == "Home" || !loggedIn || props.navigation.dangerouslyGetState().index<1)&&<Appbar.BackAction
+    {!(props.route?.name == "Home" || props.navigation.dangerouslyGetState().index<1)&&<Appbar.BackAction
       onPress={()=>props.navigation.pop()}
     />}
     <Appbar.Content

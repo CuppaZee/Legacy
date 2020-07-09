@@ -625,5 +625,29 @@ export default {
       title: 'Reworked Pages System',
       description: 'The behind-the-scenes system for how pages are created has been reworked.'
     }
+  ],
+  184: [
+    {
+      icon: 'account',
+      title: 'User Activity Beta',
+      description: 'Want to try out the User Activity V2 Beta? Head to Settings to check it out.'
+    },
+    {
+      icon: 'translate',
+      title: 'Updated Translations',
+      description: 'Updated various translations'
+    }
+  ],
+  185: [
+    {
+      icon: 'flag',
+      title: 'Added Camps Leaderboard',
+      description: 'Check the Munzee Blog for more information'
+    },
+    {
+      image: 'campcap-a-lotflag',
+      title: 'Updated Munzee Types',
+      description: 'Added Munzee Birthday Specials'
+    }
   ]
 }

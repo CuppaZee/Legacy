@@ -1,6 +1,6 @@
 import React from "react";
 import { ActivityIndicator, View, Platform, Text } from "react-native";
-import { IconButton } from "react-native-paper";
+import { IconButton, Button } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
 import * as AuthSession from 'expo-auth-session';
 import { useNavigation } from '@react-navigation/native';
@@ -24,6 +24,13 @@ export default function AuthScreen () {
   }
   var [loading,setLoading] = React.useState(false);
   var [redirect,setRedirect] = React.useState(false);
+  var [now, setNow] = React.useState(Date.now());
+  React.useEffect(()=>{
+    var x = setInterval(()=>{
+      setNow(Date.now());
+    },1000);
+    return ()=>clearInterval(x);
+  })
   const navigation = useNavigation();
   const discovery = {
     authorizationEndpoint: 'https://api.munzee.com/oauth',
@@ -66,21 +73,24 @@ export default function AuthScreen () {
   }, [response]);
   if(redirect) setTimeout(()=>navigation.replace('UserDetails',{username:redirect}),500)
   return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page_content.bg}}>{
-    loading ? <ActivityIndicator size="large" color={theme.page_content.fg} /> : <>
-    <Text allowFontScaling={false} style={{color:theme.page_content.fg,fontSize:24}}>{hasLogin?t('auth:add'):t('auth:welcome')}</Text>
-      <Text allowFontScaling={false} style={{color:theme.page_content.fg,fontSize:16}}>{t('auth:tap')}</Text>
-      <IconButton
-        size={32}
-        onPress={() => {
-          setLoading(true);
-          promptAsync({
-            useProxy: Oconfig.useProxy,
-            redirectUri: config.redirect_uri
-          });
-        }}
-        color={theme.page_content.fg}
-        icon="login-variant"
-      />
+    loading ? <View style={{flex:1,justifyContent:"center",alignItems:"center"}}><ActivityIndicator size="large" color={theme.page_content.fg} /></View> : <>
+      <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
+      <Text allowFontScaling={false} style={{color:theme.page_content.fg,fontSize:24}}>{hasLogin?t('auth:add'):t('auth:welcome')}</Text>
+        <Text allowFontScaling={false} style={{color:theme.page_content.fg,fontSize:16}}>{t('auth:tap')}</Text>
+        <IconButton
+          size={32}
+          onPress={() => {
+            setLoading(true);
+            promptAsync({
+              useProxy: Oconfig.useProxy,
+              redirectUri: config.redirect_uri
+            });
+          }}
+          color={theme.page_content.fg}
+          icon="login-variant"
+        />
+      </View>
+      {now >= 1594314000000 && <Button icon="flag" mode="contained" style={{backgroundColor:theme.navigation.bg,marginBottom:8}} onPress={()=>navigation.navigate('AllCampLeaderboard')}>Camps Leaderboard</Button>}
     </>
   }</View>
 }
