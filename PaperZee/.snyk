@@ -1,0 +1,20 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.16.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - expo-splash-screen > @expo/configure-splash-screen > @react-native-community/cli-platform-ios > lodash:
+        patched: '2020-06-26T18:28:57.017Z'
+    - expo-splash-screen > @expo/configure-splash-screen > @react-native-community/cli-platform-ios > @react-native-community/cli-tools > lodash:
+        patched: '2020-06-26T18:28:57.017Z'
+    - react-native > @react-native-community/cli > @react-native-community/cli-server-api > @react-native-community/cli-tools > lodash:
+        patched: '2020-06-26T18:28:57.017Z'
+    - '@expo/webpack-config > @expo/config > @expo/babel-preset-cli > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-26T18:28:57.017Z'
+    - '@expo/webpack-config > @expo/config > @expo/babel-preset-cli > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-26T18:28:57.017Z'
+    - '@expo/webpack-config > @expo/config > @expo/babel-preset-cli > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-26T18:28:57.017Z'
+    - '@expo/webpack-config > expo-pwa > @expo/config > @expo/babel-preset-cli > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-26T18:28:57.017Z'
