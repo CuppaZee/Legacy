@@ -29,7 +29,7 @@ export default function ClanScreen({ route }) {
   }
   var nav = useNavigation();
   var teams = useAPIRequest({
-    endpoint: `camps/all/v1`,
+    endpoint: `camps/list/v1`,
     cuppazee: true
   })
   var [value, setValue] = React.useState('');
@@ -39,8 +39,9 @@ export default function ClanScreen({ route }) {
   var allMembers = [];
   for (let team of teams || []) {
     allMembers.push(...team.members.map(i => ({
-      ...i,
-      team: team.name
+      n: i,
+      t: team.name,
+      f: team.icon
     })));
   }
 
@@ -102,11 +103,11 @@ export default function ClanScreen({ route }) {
           <Card noPad>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <View style={{ paddingHorizontal: 8, paddingVertical: 4 }}>
-                <Image source={getIcon(`https://munzee.global.ssl.fastly.net/images/avatars/ua${i?.i?.toString?.(36)}.png`)} style={{ width: 36, height: 36, borderRadius: 18 }} />
+                <Image source={getIcon(i.f)} style={{ width: 36, height: 36, borderRadius: 18 }} />
               </View>
               <View style={{ paddingHorizontal: 8, paddingVertical: 4, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
                 <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{i.n}</Text>
-                <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), opacity: 0.7, color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{i.team}</Text>
+                <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), opacity: 0.7, color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{i.t}</Text>
               </View>
             </View>
           </Card>
@@ -114,6 +115,19 @@ export default function ClanScreen({ route }) {
         {loggedIn&&<View style={{ padding: 4, width: "100%" }}>
           <Button icon="map" mode="contained" style={{backgroundColor:theme.navigation.bg}} onPress={()=>nav.navigate('BouncerMap',{type:'munzeebirthday2020'})}>Birthday Specials Map</Button>
         </View>}
+        <View style={{ padding: 4 }}>
+          <Card noPad>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <View style={{ paddingHorizontal: 8, paddingVertical: 4 }}>
+                <MaterialCommunityIcons size={32} name="clock" color={theme.page_content.fg} />
+              </View>
+              <View style={{ paddingHorizontal: 8, paddingVertical: 4, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
+                <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>Please be patient</Text>
+                <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), opacity: 0.7, color: theme.page_content.fg }}>It may take up to 1.5 hours after you capture a special for the points to come through due to the large amount of players.</Text>
+              </View>
+            </View>
+          </Card>
+        </View>
       </ScrollView>
     </View>
   );

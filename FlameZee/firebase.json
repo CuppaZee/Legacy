@@ -35,6 +35,14 @@
           "destination": "/missing.png"
         },
         {
+          "source": "/camps/all",
+          "function": "api"
+        },
+        {
+          "source": "/camps/all/*",
+          "function": "api"
+        },
+        {
           "source": "**",
           "function": "api"
         }

@@ -3,4 +3,6 @@ module.exports = [
   require('./all'),
   require('./auth_team'),
   require('./generate'),
+  require('./player'),
+  require('./list'),
 ];

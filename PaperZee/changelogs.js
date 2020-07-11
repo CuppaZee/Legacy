@@ -649,5 +649,31 @@ export default {
       title: 'Updated Munzee Types',
       description: 'Added Munzee Birthday Specials'
     }
+  ],
+  186: [
+    {
+      icon: 'flag',
+      title: 'Updated Camps Leaderboard',
+      description: 'Fixed a ton of issues. Thanks for your patience.'
+    }
+  ],
+  187: [
+    {
+      icon: 'flag',
+      title: 'Updated Camps Leaderboard',
+      description: 'Fixed some issues, and made it a lot ⚡ faster.'
+    }
+  ],
+  188: [
+    {
+      icon: 'filter',
+      title: 'Updated User Activity Beta',
+      description: 'Added filtering options to User Activity Beta. You can turn on the Beta on the settings page.'
+    },
+    {
+      icon: 'heart',
+      title: 'Updated Credits',
+      description: 'Added fsafranek, Traverto, coachV and drew637 to Supporters list'
+    }
   ]
 }

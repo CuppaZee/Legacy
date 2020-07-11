@@ -66,7 +66,7 @@ export default [
     path: {
       path: "db/type/:munzee",
       parse: {
-        munzee: Number
+        munzee: String
       }
     }
   },
@@ -76,7 +76,7 @@ export default [
     path: {
       path: "db/category/:category",
       parse: {
-        category: Number
+        category: String
       }
     }
   },

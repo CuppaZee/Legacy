@@ -8,7 +8,7 @@ const cors = require("cors")({
 
 var routes = [...require("./user"), ...require("./auth"), ...require("./minute"), ...require("./clan"), ...require("./munzee"), ...require("./bouncers"), ...require("./notifications"), ...require("./map"), ...require("./camps")];
 
-exports.api = functions.https.onRequest(async (req, res) => {
+var x = async (req, res) => {
   var startTime = process.hrtime();
   function executed_in() {
     let pt = process.hrtime(startTime);
@@ -132,4 +132,10 @@ exports.api = functions.https.onRequest(async (req, res) => {
         });
     }
   });
-});
+};
+
+exports.api = functions.https.onRequest(x);
+
+exports.api2gb = functions.runWith({
+  memory: '2GB',
+}).https.onRequest(x);

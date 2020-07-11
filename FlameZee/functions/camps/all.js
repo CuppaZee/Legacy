@@ -19,8 +19,7 @@ module.exports = {
       version: 1,
       params: {},
       async function({ db }) {
-        var teams = ["cap-a-lot","qrantine","freez","kennezee"];
-        var d = (await Promise.all(teams.map(i=>db.collection(`camps`).doc(i).get()))).map(i=>i.data());
+        var d = (await db.collection('camps').where('_updated_at', ">", 0).get()).docs.map(i=>i.data());
         var data = d.map(team=>{
           var td = {
             total: 0,
@@ -34,10 +33,11 @@ module.exports = {
             td.members.push({
               n: user.username,
               i: user.user_id,
-              c: user.cap||[0,0,0,0,0,0,0,0,0],
+              c: user.cap||[0,0,0,0,0,0,0,0],
               p: user.points||0
             })
           }
+          td.members.sort((a,b)=>[a.n,b.n].sort()[0]===a?1:-1);
           td.members.sort((a,b)=>b.p-a.p);
           return td;
         })
@@ -45,6 +45,73 @@ module.exports = {
         return {
           status: "success",
           data
+        }
+      }
+    },
+    {
+      version: 2,
+      params: {},
+      async function({ db }) {
+        console.log('GETTING CAMP DATA')
+        var d = (await db.collection('camps').where('_updated_at', ">", 0).get()).docs.map(i=>i.data());
+        console.log('FINISHED GETTING CAMP DATA')
+        var data = d.map(team=>{
+          var td = {
+            total: 0,
+            members: [],
+            id: team.id,
+            name: names[team.id],
+            icon: icons[team.id]
+          };
+          for (var user of team.users) {
+            td.total += user.p||user.points||0;
+            td.members.push({
+              n: user.n||user.username,
+              i: user.i||user.user_id,
+              p: user.p||user.points||0
+            })
+          }
+          td.members.sort((a,b)=>[a.n,b.n].sort()[0]===a?1:-1);
+          td.members.sort((a,b)=>b.p-a.p);
+          return td;
+        })
+        data.sort((a,b)=>b.total-a.total);
+        console.log('RETURNING CAMP DATA')
+        return {
+          status: "success",
+          data
+        }
+      }
+    },
+    {
+      version: 3,
+      params: {},
+      async function({ db, params: {team:teamID} }) {
+        var team = (await db.collection('camps').doc(teamID).get()).data();
+        var td = {
+          total: team.total,
+          members: team.users.map(user=>({
+            n: user.n,
+            i: user.i,
+            p: user.p||0
+          })),
+          id: team.id,
+          name: names[team.id],
+          icon: icons[team.id]
+        };
+        // for (var user of team.users) {
+        //   td.total += user.p||user.points||0;
+        //   td.members.push({
+        //     n: user.n||user.username,
+        //     i: user.i||user.user_id,
+        //     p: user.p||user.points||0
+        //   })
+        // }
+        // td.members.sort((a,b)=>[a.n,b.n].sort()[0]===a?1:-1);
+        td.members.sort((a,b)=>b.p-a.p);
+        return {
+          status: "success",
+          data: td
         }
       }
     }

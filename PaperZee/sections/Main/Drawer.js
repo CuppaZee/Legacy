@@ -7,7 +7,7 @@ import {
 import { useSelector } from 'react-redux';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
-import { TouchableRipple, IconButton, Menu, Divider } from 'react-native-paper'
+import { TouchableRipple, IconButton, Menu, Divider, Button } from 'react-native-paper'
 import font from 'sections/Shared/font';
 
 function DrawerItem(props) {
@@ -30,6 +30,8 @@ function DrawerItem(props) {
 
 export default function CustomDrawerContent(props) {
   var [helpOpen, setHelpOpen] = React.useState(false);
+  var [donateOpen, setDonateOpen] = React.useState(false);
+  var [paypalOpen, setPaypalOpen] = React.useState(false);
   var mini = props.mini;
   var { t } = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
@@ -41,11 +43,11 @@ export default function CustomDrawerContent(props) {
   var [showMoreClan, setShowMoreClan] = React.useState(false);
   var [showMoreUser, setShowMoreUser] = React.useState(false);
   var [now, setNow] = React.useState(Date.now());
-  React.useEffect(()=>{
-    var x = setInterval(()=>{
+  React.useEffect(() => {
+    var x = setInterval(() => {
       setNow(Date.now());
-    },1000);
-    return ()=>clearInterval(x);
+    }, 1000);
+    return () => clearInterval(x);
   })
   var top = [
     { title: "Camps Leaderboard", icon: "flag", page: "AllCampLeaderboard", hide: now < 1594314000000 },
@@ -160,7 +162,7 @@ export default function CustomDrawerContent(props) {
           }
         />
       </View>
-      {userBookmarks?.slice?.(0, showMoreUser ? Infinity : userBookmarks.length > 6 ? 5 : 6)?.filter?.(i=>i)?.map?.(i => <DrawerItem
+      {userBookmarks?.slice?.(0, showMoreUser ? Infinity : userBookmarks.length > 6 ? 5 : 6)?.filter?.(i => i)?.map?.(i => <DrawerItem
         key={`user_${i.user_id}`}
         {...itemProps}
         style={{ marginVertical: 0 }}
@@ -197,9 +199,9 @@ export default function CustomDrawerContent(props) {
         })
         }
       /> */}
-      <Divider theme={{dark:theme.id!=="white"}}/>
+      <Divider theme={{ dark: theme.id !== "white" }} />
       <View style={{ paddingTop: 8, paddingLeft: 8 }}>
-        <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:clan',{count:2})}</Text>
+        <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:clan', { count: 2 })}</Text>
       </View>
       <View style={{ paddingHorizontal: 4, flexDirection: "row", justifyContent: "space-between" }}>
         <IconButton
@@ -287,7 +289,7 @@ export default function CustomDrawerContent(props) {
           }
         />
       </View>
-      {clanBookmarks?.slice?.(0, showMoreClan ? Infinity : clanBookmarks.length > 6 ? 5 : 6)?.filter?.(i=>i)?.map?.(i => <DrawerItem
+      {clanBookmarks?.slice?.(0, showMoreClan ? Infinity : clanBookmarks.length > 6 ? 5 : 6)?.filter?.(i => i)?.map?.(i => <DrawerItem
         key={`clan_${i.clan_id}`}
         {...itemProps}
         style={{ marginVertical: 0 }}
@@ -310,7 +312,7 @@ export default function CustomDrawerContent(props) {
         label={showMoreClan ? t(`common:show_less`) : t(`common:show_more`)}
         onPress={() => setShowMoreClan(!showMoreClan)}
       />}
-      <Divider theme={{dark:theme.id!=="white"}}/>
+      <Divider theme={{ dark: theme.id !== "white" }} />
       <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 8 }}>
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:tools')}</Text>
       </View>
@@ -329,7 +331,7 @@ export default function CustomDrawerContent(props) {
         })
         }
       />)}
-      <Divider theme={{dark:theme.id!=="white"}}/>
+      <Divider theme={{ dark: theme.id !== "white" }} />
       <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 8 }}>
         <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.navigation.fg, opacity: 0.8 }}>{t('common:more')}</Text>
       </View>
@@ -348,6 +350,35 @@ export default function CustomDrawerContent(props) {
         }))
         }
       />)}
+      <Menu
+        visible={donateOpen}
+        onDismiss={() => setDonateOpen(false)}
+        anchor={
+          <DrawerItem
+            {...itemProps}
+            style={{ marginVertical: 0 }}
+            icon={({ focused, color, size }) => <MaterialCommunityIcons name="coin" color={color} size={24} style={{ margin: 4 }} />}
+            label={t('common:donate')}
+            onPress={() => setDonateOpen(true)}
+          />
+        }
+        contentStyle={{ backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border ? 1 : 0, borderColor: theme.page_content.border }}
+      >
+        <View style={{ paddingHorizontal: 4, alignItems: "stretch" }}>
+          <Button style={{ marginHorizontal: 4 }} color="#F96854" mode="contained" onPress={() => Linking.openURL('https://patreon.com/CuppaZee')} icon="patreon">{t('app_info:patreon_donate')}</Button>
+          <Menu
+            visible={paypalOpen}
+            onDismiss={() => setPaypalOpen(false)}
+            anchor={
+              <Button style={{ marginHorizontal: 4, marginTop: 4 }} color="#009CDE" mode="contained" onPress={() => setPaypalOpen(true)} icon="paypal">{t('app_info:paypal_donate')}</Button>
+            }
+          >
+            <View style={{ paddingHorizontal: 8 }}>
+              <Text>{t('app_info:paypal_donate_desc')}</Text>
+            </View>
+          </Menu>
+        </View>
+      </Menu>
       <Menu
         visible={helpOpen}
         onDismiss={() => setHelpOpen(false)}

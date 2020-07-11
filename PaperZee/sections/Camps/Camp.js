@@ -27,6 +27,13 @@ const UserTile = React.memo(function ({ i, index }) {
   if (theme.dark) {
     dark = true;
   }
+  var caps = useAPIRequest(open?{
+    endpoint: `camps/player/v1`,
+    data: {
+      user_id: i.i
+    },
+    cuppazee: true
+  }:null)
   return <View style={{ padding: 4 }}>
     <Card noPad>
       <TouchableRipple onPress={() => {
@@ -61,10 +68,10 @@ const UserTile = React.memo(function ({ i, index }) {
             </View>
           </View>
           <View style={{ flexDirection: "row", alignItems: "center", flexWrap: "wrap" }}>
-            {types.map(x => <View key={x.id} style={{ padding: 4, width: 80, flexGrow: 1, alignItems: "center", opacity: i.c[x.id] > 0 ? 1 : 0.4 }}>
+            {types.map(x => <View key={x.id} style={{ padding: 4, width: 80, flexGrow: 1, alignItems: "center", opacity: (caps||[])[x.id]??0 > 0 ? 1 : 0.4 }}>
               <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={getIcon(x.icon)} />
               <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{x.name}</Text>
-              <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{i.c[x.id]}</Text>
+              <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{(caps||[])[x.id]??'?'}</Text>
             </View>)}
           </View>
         </Dialog>
@@ -76,13 +83,16 @@ const UserTile = React.memo(function ({ i, index }) {
 export default function TeamLeaderboardScreen({ route }) {
   var theme = useSelector(i => i.themes[i.theme]);
   var team = route.params.team;
-  var teams = useAPIRequest({
-    endpoint: `camps/all/v1`,
+  var team_data = useAPIRequest({
+    endpoint: `camps/all/v3`,
+    data: {
+      team
+    },
     cuppazee: true
   })
-  var users = (teams || []).find(i => i.id === team)?.members || [];
+  var users = team_data?.members || [];
   users.sort((a, b) => b.p - a.p);
-  if (!teams) return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
+  if (!team_data) return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
     <ActivityIndicator size="large" color={theme.page.fg} />
   </View>
   return <FlatList
@@ -91,7 +101,7 @@ export default function TeamLeaderboardScreen({ route }) {
     )}
     contentContainerStyle={{ width: 400, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4, paddingBottom: 92 }}
     style={{ flex: 1, backgroundColor: theme.page.bg }}
-    data={users}
+    data={users.filter(i=>i.p>0)}
     renderItem={({ item }) => (
       <UserTile i={item} index={users.findIndex(x => x.p === item.p)} />
     )}
