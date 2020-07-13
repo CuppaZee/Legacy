@@ -3,48 +3,97 @@
     "name": "Mystery",
     "icon": "mystery",
     "id": 280,
-    "state": "physical"
+    "state": "physical",
+    "points": {
+      "deploy": 60,
+      "type": "split",
+      "split": 80,
+      "min": 20
+    }
   },
   {
     "name": "Fire Mystery",
     "icon": "firemystery",
     "id": 532,
     "state": "physical",
-    "elemental": true
+    "elemental": true,
+    "points": {
+      "deploy": 50,
+      "type": "split",
+      "split": 60,
+      "min": 10,
+      "interval": 5
+    }
   },
   {
     "name": "Ice Mystery",
     "icon": "icemystery",
     "id": 651,
     "state": "physical",
-    "elemental": true
+    "elemental": true,
+    "points": {
+      "deploy": 50,
+      "type": "split",
+      "split": 60,
+      "min": 5,
+      "interval": 5
+    }
   },
   {
     "name": "Earth Mystery",
     "icon": "earthmystery",
     "id": 851,
     "state": "physical",
-    "elemental": true
+    "elemental": true,
+    "points": {
+      "deploy": 50,
+      "type": "split",
+      "split": 60,
+      "min": 5,
+      "interval": 5
+    }
   },
   {
     "name": "Water Mystery",
     "icon": "watermystery",
     "id": 1020,
     "state": "physical",
-    "elemental": true
+    "elemental": true,
+    "points": {
+      "deploy": 50,
+      "type": "split",
+      "split": 60,
+      "min": 5,
+      "interval": 5
+    }
   },
   {
     "name": "Air Mystery",
     "icon": "airmystery",
     "id": 1086,
     "state": "virtual",
-    "elemental": true
+    "elemental": true,
+    "points": {
+      "deploy": 50,
+      "type": "split",
+      "split": 60,
+      "min": 5,
+      "interval": 5
+    }
   },
   {
     "name": "Electric Mystery",
     "icon": "electricmystery",
     "id": 2391,
     "state": "virtual",
-    "elemental": true
+    "elemental": true,
+    "points": {
+      "deploy": 50,
+      "type": "split",
+      "split": 60,
+      "min": 10,
+      "interval": 5
+    }
+
   }
 ]
