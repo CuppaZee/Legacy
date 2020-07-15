@@ -10,6 +10,11 @@
     ],
     "state": "physical",
     "category": "misc",
+    "points": {
+      "deploy": 19,
+      "capture": 20,
+      "capon": 11
+    },
     "can_host": [
       505,
       508,
@@ -384,6 +389,11 @@
     "id": 13,
     "state": "physical",
     "category": "misc",
+    "points": {
+      "deploy": 200,
+      "capon": 50,
+      "capture": 50
+    },
     "can_host": [
       1752,
       1745,
@@ -1576,6 +1586,12 @@
     "personal": true,
     "state": "personal",
     "category": "misc",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 50,
+      "min": 10
+    },
     "cids": [],
     "x": 96,
     "i": "personal"
@@ -2259,6 +2275,12 @@
     "id": 280,
     "state": "physical",
     "category": "mystery",
+    "points": {
+      "deploy": 60,
+      "type": "split",
+      "split": 80,
+      "min": 20
+    },
     "can_host": [
       1544,
       521,
@@ -2990,6 +3012,13 @@
     "elemental": true,
     "state": "physical",
     "category": "mystery",
+    "points": {
+      "deploy": 50,
+      "type": "split",
+      "split": 60,
+      "min": 10,
+      "interval": 5
+    },
     "can_host": [
       573,
       1603,
@@ -3147,6 +3176,13 @@
     "elemental": true,
     "state": "physical",
     "category": "mystery",
+    "points": {
+      "deploy": 50,
+      "type": "split",
+      "split": 60,
+      "min": 5,
+      "interval": 5
+    },
     "can_host": [
       1705,
       1986,
@@ -4625,6 +4661,13 @@
     "elemental": true,
     "state": "physical",
     "category": "mystery",
+    "points": {
+      "deploy": 50,
+      "type": "split",
+      "split": 60,
+      "min": 5,
+      "interval": 5
+    },
     "can_host": [
       1987,
       853,
@@ -4853,6 +4896,13 @@
     "elemental": true,
     "state": "physical",
     "category": "mystery",
+    "points": {
+      "deploy": 50,
+      "type": "split",
+      "split": 60,
+      "min": 5,
+      "interval": 5
+    },
     "can_host": [
       1706,
       953,
@@ -4965,6 +5015,13 @@
     "elemental": true,
     "state": "virtual",
     "category": "mystery",
+    "points": {
+      "deploy": 50,
+      "type": "split",
+      "split": 60,
+      "min": 5,
+      "interval": 5
+    },
     "can_host": [
       1100,
       1544,
@@ -5116,6 +5173,12 @@
     "personal": true,
     "state": "personal",
     "category": "misc",
+    "points": {
+      "deploy": 25,
+      "type": "split",
+      "split": 100,
+      "min": 20
+    },
     "cids": [],
     "x": 285,
     "i": "premiumpersonal"
@@ -14529,6 +14592,13 @@
     "elemental": true,
     "state": "virtual",
     "category": "mystery",
+    "points": {
+      "deploy": 50,
+      "type": "split",
+      "split": 60,
+      "min": 10,
+      "interval": 5
+    },
     "can_host": [
       1100,
       2478,

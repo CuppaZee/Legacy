@@ -5,14 +5,28 @@
     "id": 0,
     "state": "physical",
     "extra": {
-      "alt_icons": ["greenie","normal","standard"]
+      "alt_icons": [
+        "greenie",
+        "normal",
+        "standard"
+      ]
+    },
+    "points": {
+      "deploy": 19,
+      "capture": 20,
+      "capon": 11
     }
   },
   {
     "name": "Premium",
     "icon": "premium",
     "id": 13,
-    "state": "physical"
+    "state": "physical",
+    "points": {
+      "deploy": 200,
+      "capon": 50,
+      "capture": 50
+    }
   },
   {
     "name": "Social",
@@ -42,6 +56,12 @@
     "state": "personal",
     "extra": {
       "personal": true
+    },
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 50,
+      "min": 10
     }
   },
   {
@@ -87,6 +107,12 @@
     "state": "personal",
     "extra": {
       "personal": true
+    },
+    "points": {
+      "deploy": 25,
+      "type": "split",
+      "split": 100,
+      "min": 20
     }
   },
   {
