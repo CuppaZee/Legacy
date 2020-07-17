@@ -18,7 +18,7 @@
     "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
     "expo-server-sdk": "^3.5.0",
-    "firebase-admin": "^8.0.0",
+    "firebase-admin": "^8.12.1",
     "firebase-functions": "^3.0.0",
     "fuse.js": "^5.2.3",
     "geo-tz": "^6.0.0",
