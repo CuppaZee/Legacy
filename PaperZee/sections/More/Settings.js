@@ -180,10 +180,10 @@ export default function SettingsScreen({ navigation }) {
                 />)}
               </Menu>
             </View>
-            <View style={{flexDirection:"row",alignItems:"center",padding:4}}>
+            {/* <View style={{flexDirection:"row",alignItems:"center",padding:4}}>
               <Switch style={{marginRight: 8}} color={theme.page_content.fg} value={settings.activityV2Beta} onValueChange={(value)=>setSetting("activityV2Beta",!settings.activityV2Beta)} />
               <Text allowFontScaling={false} style={{color:theme.page_content.fg, flex: 1,...font("bold")}}>User Activity Beta</Text>
-            </View>
+            </View> */}
             <View>
               {[
                 ["clan_level_ind", "Individual"],

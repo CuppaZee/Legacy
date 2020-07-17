@@ -142,7 +142,7 @@ export default function DetailsScreen({ route }) {
                 <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="check" size={24} color={(theme.clanCardHeader || theme.navigation).fg} />
                 <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: (theme.clanCardHeader || theme.navigation).fg }}>{t('user:captured_types')}</Text>
               </View>
-              {categories.filter(i => i.parents.includes('root') && !i.hidden).map(i => <TouchableRipple onPress={() => nav.navigate('UserCapturesCategory', { username: username, category: i.id })}>
+              {categories.filter(i => i.parents.includes('root') && !i.hidden).map(i => <TouchableRipple key={i.id} onPress={() => nav.navigate('UserCapturesCategory', { username: username, category: i.id })}>
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                   <Image style={{ height: 32, width: 32, marginVertical: -4 }} source={getIcon(i.icon)} />
                   {/* <MaterialCommunityIcons name="star" size={24} color={theme.page_content.fg} /> */}

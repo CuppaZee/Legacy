@@ -10,6 +10,8 @@ import Card from 'sections/Shared/Card';
 
 import getIcon from 'utils/db/icon';
 
+import useMoment from 'utils/hooks/useMoment';
+
 var creatures = {
   'firepouchcreature': 'tuli',
   'waterpouchcreature': 'vesi',
@@ -35,18 +37,19 @@ function isRenovation(act) {
   return !!(act.pin.includes('/renovation.') && act.captured_at);
 }
 
-export default function ActivityListItem({ act, userdata }) {
+export default function ActivityListItem({ act: acti, userdata }) {
+  var moment = useMoment();
   var { t } = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
   var navigation = useNavigation();
   return <View style={{ padding: 4 }}>
     <Card noPad>
-      <TouchableRipple onPress={() => { navigation.navigate('MunzeeDetails', { username: act.activity === "capture" ? act.username : userdata?.username, code: act.code }) }}>
+      {[acti,...acti.subCaptures||[]].map((act,index,list)=><TouchableRipple key={act.key} onPress={() => { navigation.navigate('MunzeeDetails', { username: act.activity === "capture" ? act.username : userdata?.username, code: act.code }) }}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <View style={{ width: 60, paddingVertical: 4, marginRight: 4, borderTopLeftRadius: 8, borderBottomLeftRadius: 8, backgroundColor: theme.dark ? null : theme.activity[act.activity].bg, borderRightWidth: theme.dark ? 2 : 0, borderRightColor: theme.activity[act.activity].fg, position: "relative", alignContent: 'center', alignItems: "center", flexGrow: 0 }}>
+          <View style={{ width: 60, paddingVertical: 4, marginRight: 4, borderTopLeftRadius: index===0?8:0, borderBottomLeftRadius: index===list.length-1?8:0, backgroundColor: theme.dark ? null : theme.activity[act.type]?.bg, borderRightWidth: theme.dark ? 2 : 0, borderRightColor: theme.activity[act.type]?.fg, position: "relative", alignContent: 'center', alignItems: "center", flexGrow: 0 }}>
             <View style={{ justifyContent: 'center', flexDirection: "row", flexWrap: "wrap", flexGrow: 0 }}>
               <View style={{ paddingHorizontal: 8, borderRadius: 9.5 }}>
-                <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "center", color: theme.activity[act.activity].fg, ...font("bold") }}>{(act.points_for_creator ?? act.points) > 0 && '+'}{(Number(act.points_for_creator ?? act.points)) || t('activity:none')}</Text>
+                <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "center", color: theme.activity[act.type]?.fg, ...font("bold") }}>{(act.points) > 0 && '+'}{(Number(act.points)) || t('activity:none')}</Text>
               </View>
             </View>
             <View style={{ position: 'relative' }}>
@@ -55,29 +58,29 @@ export default function ActivityListItem({ act, userdata }) {
             </View>
           </View>
           <View style={{ flex: 1 }}>
-            <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ color: theme.page_content.fg, ...font() }}>
+            {index===0&&<Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ color: theme.page_content.fg, ...font() }}>
               {({
-                capon_reno: () => t('activity:user_renovated', { user: act.username }),
-                capon: () => act.username === userdata?.username ? t('activity:you_captured') : t('activity:user_captured', { user: act.username }),
+                capon_reno: () => t('activity:user_renovated', { user: act.capper }),
+                capon: () => t('activity:user_captured', { user: act.capper }),
                 capture_reno: () => t('activity:you_renovated'),
                 capture: () => t('activity:you_captured'),
                 deploy: () => t('activity:you_deployed')
-              })[act.activity + (isRenovation(act) ? "_reno" : "")]?.() || "What"}
-            </Text>
-            {!isRenovation(act) && <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ color: theme.page_content.fg, ...font("bold") }}>{act.friendly_name}</Text>}
+              })[act.type + (isRenovation(act) ? "_reno" : "")]?.() || "What"}
+            </Text>}
+            {!isRenovation(act) && <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ color: theme.page_content.fg, ...font("bold") }}>{act.name}</Text>}
             {!isRenovation(act) && <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ color: theme.page_content.fg, opacity: 0.8, ...font() }}>
               {({
                 capon: () => t('activity:by_you'),
-                capture: () => act.username === userdata?.username ? t('activity:by_you') : t('activity:by_user', { user: act.username }),
+                capture: () => act.creator === userdata?.username ? t('activity:by_you') : t('activity:by_user', { user: act.creator }),
                 deploy: () => t('activity:by_you')
-              })[act.activity]?.() || "What"}
+              })[act.type]?.() || "What"}
             </Text>}
           </View>
           <View style={{ padding: 8, flexGrow: 0, paddingLeft: 16, alignContent: 'center', position: "relative", alignItems: "flex-end" }}>
-            <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "right", color: theme.page_content.fg, ...font("bold") }}>{new Date(act.captured_at ?? act.deployed_at).getHours().toString().padStart(2, "0")}:{new Date(act.captured_at ?? act.deployed_at).getMinutes().toString().padStart(2, "0")}</Text>
+            <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "right", color: theme.page_content.fg, ...font("bold") }}>{moment(act.time).format('LT')}</Text>
           </View>
         </View>
-      </TouchableRipple>
+      </TouchableRipple>)}
     </Card>
   </View>
 }

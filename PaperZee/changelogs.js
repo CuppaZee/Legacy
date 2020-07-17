@@ -720,5 +720,17 @@ export default {
       title: 'Updated Web Maps',
       description: 'Fixed Filtering'
     }
+  ],
+  194: [
+    {
+      icon: 'account',
+      title: 'User Activity V2',
+      description: 'Improved design, new filtering and much more!'
+    },
+    {
+      icon: 'bug',
+      title: 'Squashed Bugs',
+      description: 'Squashed a ton of bugs'
+    }
   ]
 }

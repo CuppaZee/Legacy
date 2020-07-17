@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { Text, View, Image, ScrollView, FlatList, TouchableHighlight } from 'react-native';
-import { ActivityIndicator, Menu, TouchableRipple } from 'react-native-paper';
+import { Text, View, Image } from 'react-native';
+import { Menu, TouchableRipple } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
 import getIcon from 'utils/db/icon';
 
-export default function InventoryItem({i}) {
-  var {t} = useTranslation();
-  var theme = useSelector(i=>i.themes[i.theme]);
-  var [open,setOpen] = React.useState(false);
+export default function InventoryItem({ i }) {
+  var { t } = useTranslation();
+  var theme = useSelector(i => i.themes[i.theme]);
+  var [open, setOpen] = React.useState(false);
   return <Menu
     visible={open}
     onDismiss={() => setOpen(false)}

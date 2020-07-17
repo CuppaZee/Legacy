@@ -26,7 +26,7 @@ function UserActivityFilterSection({ filter, onFilterChange, options, title }) {
     <View style={{ paddingTop: 4, paddingLeft: 8 }}>
       <Text allowFontScaling={false} style={{ flex: 1, ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{title}</Text>
     </View>
-    {options.map(i => <View style={{ flexDirection: "row", paddingLeft: 8, alignItems: "center" }}>
+    {options.map(i => <View key={i.id} style={{ flexDirection: "row", paddingLeft: 8, alignItems: "center" }}>
       <Checkbox
         color={theme.page_content.fg}
         uncheckedColor={theme.page_content.fg}

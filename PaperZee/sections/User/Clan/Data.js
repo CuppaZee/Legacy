@@ -24,7 +24,6 @@ export default function ClanProgressConverter(data={}) {
     dep: count(data.deploys||[]),
     con: count(data.captures_on||[])
   }
-  // return {};
   var output = {};
   for(var task in Clan) {
     var task_data = Clan[task];

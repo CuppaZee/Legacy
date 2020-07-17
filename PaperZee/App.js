@@ -86,6 +86,7 @@ function StackNav() {
         component={RedirectScreen}
       />
       {screens.filter(i => !i.nologin).map(screen => <Stack.Screen
+        key={screen.name}
         name={screen.name}
         component={screen.screen}
       />)}
@@ -98,6 +99,7 @@ function StackNav() {
       component={AuthScreen}
     />
     {screens.filter(i => i.nologin).map(screen => <Stack.Screen
+      key={screen.name}
       name={screen.name}
       component={screen.screen}
     />)}
