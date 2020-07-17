@@ -4,12 +4,15 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableRipple } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
-import Card from 'sections/Shared/Card';
-import ActivityOverview from './Overview';
-import useAPIRequest from 'utils/hooks/useAPIRequest';
-import font from 'sections/Shared/font';
-import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next';
+
+import Card from 'sections/Shared/Card';
+import font from 'sections/Shared/font';
+
+import useAPIRequest from 'utils/hooks/useAPIRequest';
+import useMoment from 'utils/hooks/useMoment';
+
+import ActivityOverview from './Overview';
 
 export default function UserActivityDash({ user_id, username, displayUsername }) {
   var { t } = useTranslation();
@@ -23,25 +26,6 @@ export default function UserActivityDash({ user_id, username, displayUsername })
     data: { day: dateString, user_id },
     cuppazee: true
   })
-  // if (!data) {
-  //   if(data===undefined) {
-  //     return (
-  //       <Card>
-  //         <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-  //           <ActivityIndicator size="large" color={theme.page_content.fg} />
-  //         </View>
-  //       </Card>
-  //     )
-  //   } else {
-  //     return (
-  //       <Card cardStyle={{backgroundColor:'#ffaaaa'}}>
-  //         <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-  //           <MaterialCommunityIcons name="alert" size={48} color="#d00" />
-  //         </View>
-  //       </Card>
-  //     );
-  //   }
-  // }
   return (
     <Card noPad>
       <TouchableRipple onPress={displayUsername ? () => nav.navigate('UserDetails', { username: username }) : () => nav.navigate('UserActivity', { username: username })}>

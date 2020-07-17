@@ -10,7 +10,7 @@ const version = "beta&map_ids=1e47783ba0e84c45,f5056005d4606f72";
 const libraries = ["places"];
 
 function MarkerRenderer(props) {
-  if(props.markerClustering) return <MarkerClusterer
+  if(props.markers?.length>60) return <MarkerClusterer
     averageCenter
     enableRetinaIcons
     gridSize={60}

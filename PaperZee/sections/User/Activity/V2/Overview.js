@@ -1,14 +1,17 @@
 import * as React from 'react';
 import { Text, View, Image } from 'react-native';
 import { Menu, TouchableRipple, Button } from 'react-native-paper';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import useAPIRequest from 'utils/hooks/useAPIRequest';
-import getType from 'utils/db/types';
+
 import font from 'sections/Shared/font';
-import useMoment from 'utils/hooks/useMoment';
+
+import getType from 'utils/db/types';
 import getIcon from 'utils/db/icon';
+
+import useMoment from 'utils/hooks/useMoment';
+import useAPIRequest from 'utils/hooks/useAPIRequest';
 
 var count = (array, t) => {
   return Object.entries(array.reduce((a, b) => {
@@ -19,7 +22,7 @@ var count = (array, t) => {
     a[b[t]].points += Number(b.points_for_creator ?? b.points);
     a[b[t]].total++;
     return a;
-  }, {}))//.sort((a, b) => b[1].total - a[1].total)
+  }, {}))
 }
 
 var creatures = {

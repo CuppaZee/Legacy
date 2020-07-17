@@ -708,5 +708,17 @@ export default {
       title: 'Updated User Activity Beta',
       description: 'Squashed some bugs with filtering. You can enable the User Activity Beta in the settings.'
     }
+  ],
+  193: [
+    {
+      icon: 'account',
+      title: 'Updated User Activity Beta',
+      description: 'Improved Dark Mode design, cleaned up code, tweaked capping your own munzee. You can enable the User Activity Beta in the settings.'
+    },
+    {
+      icon: 'map',
+      title: 'Updated Web Maps',
+      description: 'Fixed Filtering'
+    }
   ]
 }
