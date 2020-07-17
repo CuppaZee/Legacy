@@ -97,9 +97,8 @@ export default function ({ user_id, date: dateInput, filters }) {
     if (!filters) return true;
     if (filters.activity.size != 0 && !filters.activity.has(s)) return false;
     let g = getType(i.pin);
-    if (!g) return true;
-    if (filters.state.size != 0 && !filters.state.has(g.state)) return false;
-    if (filters.category.size != 0 && !filters.category.has(g.category)) return false;
+    if (filters.state.size != 0 && !filters.state.has(g?.state||"N/A")) return false;
+    if (filters.category.size != 0 && !filters.category.has(g?.category||"N/A")) return false;
     return true;
   }
   var data = {

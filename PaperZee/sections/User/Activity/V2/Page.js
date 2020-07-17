@@ -117,7 +117,9 @@ function UserIcon({ user_id, size }) {
 const stateNames = {
   physical: "Physical",
   virtual: "Virtual",
-  bouncer: "Bouncer"
+  bouncer: "Bouncer",
+  locationless: "Locationless",
+  "N/A": "N/A"
 }
 
 function UserActivitySidebar({ filters: filterinput, onFiltersChange }) {
@@ -147,7 +149,7 @@ function UserActivitySidebar({ filters: filterinput, onFiltersChange }) {
   var all = data ? [...data.captures, ...data.deploys, ...data.captures_on] : [];
   var allTypes = all.map(i => getType(i.pin));
   var stateOptions = Array.from(new Set(allTypes.map(i => i?.state || "N/A"))).map(i => ({
-    title: stateNames[i],
+    title: stateNames[i] ?? i,
     id: i
   }));
   var categoryOptions = Array.from(new Set(allTypes.map(i => i?.category || "N/A"))).map(i => ({
@@ -256,9 +258,8 @@ function UserActivityPage({ toggleDrawer, filters }) {
     if (!filters) return true;
     if (filters.activity.size != 0 && !filters.activity.has(s)) return false;
     let g = getType(i.pin);
-    if (!g) return true;
-    if (filters.state.size != 0 && !filters.state.has(g.state)) return false;
-    if (filters.category.size != 0 && !filters.category.has(g.category)) return false;
+    if (filters.state.size != 0 && !filters.state.has(g?.state||"N/A")) return false;
+    if (filters.category.size != 0 && !filters.category.has(g?.category||"N/A")) return false;
     return true;
   }
   var data = {
@@ -293,7 +294,7 @@ function UserActivityPage({ toggleDrawer, filters }) {
         ...data.captures_on
       ].sort((a, b) => new Date(b.captured_at ?? b.deployed_at) - new Date(a.captured_at ?? a.deployed_at))}
       renderItem={({ item: act }) => <ActivityListItem act={act} userdata={userdata} />}
-      keyExtractor={(item, index) => `${item.username}/${item.code}/${item.captured_at ?? item.deployed_at}/${item.pin}`}
+      keyExtractor={(item, index) => item.key}
     />
     <FAB.Group
       open={FABOpen}

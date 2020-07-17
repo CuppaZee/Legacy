@@ -701,5 +701,12 @@ export default {
       title: 'Updated Database',
       description: 'Added Rovers and ZeeCred'
     }
+  ],
+  192: [
+    {
+      icon: 'account',
+      title: 'Updated User Activity Beta',
+      description: 'Squashed some bugs with filtering. You can enable the User Activity Beta in the settings.'
+    }
   ]
 }
