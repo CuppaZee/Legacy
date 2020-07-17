@@ -40804,5 +40804,25 @@
     "cids": [],
     "x": 2186,
     "i": "virtualcapturebooster"
+  },
+  {
+    "icon": "zeecred",
+    "name": "ZeeCred",
+    "id": "credit_zeecred",
+    "category": "credit",
+    "hidden": true,
+    "cids": [],
+    "x": 2187,
+    "i": "zeecred"
+  },
+  {
+    "icon": "rover",
+    "name": "Rover",
+    "id": "credit_rover",
+    "category": "credit",
+    "hidden": true,
+    "cids": [],
+    "x": 2188,
+    "i": "rover"
   }
 ]

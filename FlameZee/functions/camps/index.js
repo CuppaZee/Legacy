@@ -1,8 +1,16 @@
 module.exports = [
-  require('./minute'),
-  require('./all'),
   require('./auth_team'),
-  require('./generate'),
-  require('./player'),
+  require('./generate/addusers'),
+  require('./raw'),
+
+  require('./minute'),
+  // require('./all'),
+
+  require('./status'),
+  require('./search'),
+
   require('./list'),
+
+  require('./team'),
+  require('./player'),
 ];

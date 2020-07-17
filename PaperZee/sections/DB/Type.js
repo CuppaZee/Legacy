@@ -12,8 +12,8 @@ import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next';
 import getIcon from 'utils/db/icon';
 
-function u(str) {
-  return str[0].toUpperCase() + str.slice(1)
+function u(str = "") {
+  return (str[0]||"").toUpperCase() + str.slice(1)
 }
 
 function CustomChip({label,onPress}) {

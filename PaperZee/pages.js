@@ -225,16 +225,22 @@ export default [
     }
   },
   {
+    name: "AllCampWeeks",
+    import: () => import("sections/Camps/Weeks"),
+    path: "camps/all",
+    nologin: true
+  },
+  {
     name: "AllCampLeaderboard",
     import: () => import("/sections/Camps/All.js"),
-    path: "camps/all",
+    path: "camps/:week/all",
     nologin: true
   },
   {
     name: "CampLeaderboard",
     import: () => import("/sections/Camps/Camp.js"),
     path: {
-      path: "camps/:team",
+      path: "camps/:week/:team",
       parse: {
         team: String
       }

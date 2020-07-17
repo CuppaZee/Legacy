@@ -50,7 +50,7 @@ export default function CustomDrawerContent(props) {
     return () => clearInterval(x);
   })
   var top = [
-    { title: "Camps Leaderboard", icon: "flag", page: "AllCampLeaderboard", hide: now < 1594314000000 },
+    { title: "Camps Leaderboard", icon: "flag", page: "AllCampWeeks", hide: now < 1594314000000 },
   ].filter(i => !i.hide)
   var pages = [
     // { title: t(`common:maps`), icon: "map", page: "Map" },

@@ -87,7 +87,7 @@ module.exports = {
       version: 3,
       params: {},
       async function({ db, params: {team:teamID} }) {
-        var team = (await db.collection('camps').doc(teamID).get()).data();
+        var team = (await db.collection('campsv2').doc(teamID).get()).data();
         var td = {
           total: team.total,
           members: team.users.map(user=>({
@@ -99,15 +99,6 @@ module.exports = {
           name: names[team.id],
           icon: icons[team.id]
         };
-        // for (var user of team.users) {
-        //   td.total += user.p||user.points||0;
-        //   td.members.push({
-        //     n: user.n||user.username,
-        //     i: user.i||user.user_id,
-        //     p: user.p||user.points||0
-        //   })
-        // }
-        // td.members.sort((a,b)=>[a.n,b.n].sort()[0]===a?1:-1);
         td.members.sort((a,b)=>b.p-a.p);
         return {
           status: "success",

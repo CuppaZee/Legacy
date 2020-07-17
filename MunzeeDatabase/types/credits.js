@@ -84,5 +84,13 @@ module.exports = [
   {
     icon: "virtualcapturebooster",
     name: "Virtual Capture Booster"
+  },
+  {
+    icon: "zeecred",
+    name: "ZeeCred"
+  },
+  {
+    icon: "rover",
+    name: "Rover"
   }
 ]

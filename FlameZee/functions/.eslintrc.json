@@ -2,7 +2,7 @@
   "parserOptions": {
     "fix": true,
     // Required for certain syntax usages
-    "ecmaVersion": 2017
+    "ecmaVersion": 2018
   },
   "plugins": [
     "promise"

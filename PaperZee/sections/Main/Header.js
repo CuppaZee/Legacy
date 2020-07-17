@@ -36,6 +36,13 @@ const teamNames = {
   "freez": "Camp FrEEZ",
   "kennezee": "Camp KenneZee",
 }
+const weekNames = {
+  overall: "Overall",
+  week1: "Week 1",
+  week2: "Week 2",
+  week3: "Week 3",
+  week4: "Week 4",
+}
 
 export default function Header(props) {
   var {t} = useTranslation();
@@ -48,8 +55,10 @@ export default function Header(props) {
   let title;
   let subtitle;
   let clanData;
-  if(name === 'AllCampLeaderboard') {
-    title = "All Camps";
+  if(name === 'AllCampWeeks') {
+    title = "Camps Leaderboard";
+  } else if(name === 'AllCampLeaderboard') {
+    title = weekNames[params.week] + " Leaderboard";
   } else if(name === 'CampLeaderboard') {
     title = teamNames[params.team];
   } else if(name === 'DBType') {

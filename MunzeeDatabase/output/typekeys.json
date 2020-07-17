@@ -2211,5 +2211,7 @@
   "physicaldeploybooster": 2183,
   "virtualdeploybooster": 2184,
   "physicalcapturebooster": 2185,
-  "virtualcapturebooster": 2186
+  "virtualcapturebooster": 2186,
+  "zeecred": 2187,
+  "rover": 2188
 }

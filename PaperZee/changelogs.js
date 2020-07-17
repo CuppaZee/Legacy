@@ -675,5 +675,31 @@ export default {
       title: 'Updated Credits',
       description: 'Added fsafranek, Traverto, coachV and drew637 to Supporters list'
     }
+  ],
+  189: [
+    {
+      icon: 'flag',
+      title: 'Updated Camps Leaderboard',
+      description: 'Now separated into Weeks, whilst keeping the overall leaderboard.'
+    },
+    {
+      icon: 'database',
+      title: 'Updated Database',
+      description: 'Added Points for more Munzee Types'
+    }
+  ],
+  190: [
+    {
+      icon: 'flag',
+      title: 'Updated Camps Leaderboard',
+      description: 'Fixed a bug with Searching'
+    }
+  ],
+  191: [
+    {
+      image: 'zeecred',
+      title: 'Updated Database',
+      description: 'Added Rovers and ZeeCred'
+    }
   ]
 }
