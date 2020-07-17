@@ -23,6 +23,7 @@ export function ActivityConverter(dataraw, filters, userdata) {
     activityList.push({
       type: "capture",
       creator: capture.username,
+      capper: userdata?.username,
       code: capture.code,
       name: capture.friendly_name,
       pin: capture.pin,
@@ -37,6 +38,7 @@ export function ActivityConverter(dataraw, filters, userdata) {
     activityList.push({
       type: "capture",
       creator: capture.username,
+      capper: userdata?.username,
       code: capture.code,
       name: capture.friendly_name,
       pin: capture.pin,
@@ -53,6 +55,7 @@ export function ActivityConverter(dataraw, filters, userdata) {
       activityList[bouncerHost].subCaptures.push({
         type: "capture",
         creator: capture.username,
+        capper: userdata?.username,
         code: capture.code,
         name: capture.friendly_name,
         pin: capture.pin,
@@ -64,6 +67,7 @@ export function ActivityConverter(dataraw, filters, userdata) {
       activityList.push({
         type: "capture",
         creator: capture.username,
+        capper: userdata?.username,
         code: capture.code,
         name: capture.friendly_name,
         pin: capture.pin,

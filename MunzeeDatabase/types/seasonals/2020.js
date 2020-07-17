@@ -102,6 +102,13 @@ module.exports = [
         "id": 2294,
         "duration": 12,
         "lands_on": ["munzee"]
+      },
+      {
+        "name": "Party Glasses",
+        "icon": "partyglasses2020vision",
+        "id": 2295,
+        "duration": 12,
+        "lands_on": [":virtual"]
       }
     ]
   },

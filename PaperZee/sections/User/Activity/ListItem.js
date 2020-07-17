@@ -44,7 +44,7 @@ export default function ActivityListItem({ act: acti, userdata }) {
   var navigation = useNavigation();
   return <View style={{ padding: 4 }}>
     <Card noPad>
-      {[acti,...acti.subCaptures||[]].map((act,index,list)=><TouchableRipple key={act.key} onPress={() => { navigation.navigate('MunzeeDetails', { username: act.activity === "capture" ? act.username : userdata?.username, code: act.code }) }}>
+      {[acti,...acti.subCaptures||[]].map((act,index,list)=><TouchableRipple key={act.key} onPress={() => { navigation.navigate('MunzeeDetails', { username: act.creator, code: act.code }) }}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <View style={{ width: 60, paddingVertical: 4, marginRight: 4, borderTopLeftRadius: index===0?8:0, borderBottomLeftRadius: index===list.length-1?8:0, backgroundColor: theme.dark ? null : theme.activity[act.type]?.bg, borderRightWidth: theme.dark ? 2 : 0, borderRightColor: theme.activity[act.type]?.fg, position: "relative", alignContent: 'center', alignItems: "center", flexGrow: 0 }}>
             <View style={{ justifyContent: 'center', flexDirection: "row", flexWrap: "wrap", flexGrow: 0 }}>

@@ -732,5 +732,26 @@ export default {
       title: 'Squashed Bugs',
       description: 'Squashed a ton of bugs'
     }
-  ]
+  ],
+  195: [
+    {
+      icon: 'bug',
+      title: 'Squashed Bugs',
+      description: 'Squashed a few bugs'
+    }
+  ],
+  196: [
+    {
+      image: 'partyglasses2020vision',
+      title: 'Updated Database',
+      description: 'Added Party Glasses 2020 Vision special'
+    }
+  ],
+  197: [
+    {
+      icon: 'bug',
+      title: 'Squashed Bugs',
+      description: 'Squashed a few bugs'
+    }
+  ],
 }

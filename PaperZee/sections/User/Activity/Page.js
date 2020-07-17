@@ -96,9 +96,9 @@ function UserActivityPage({ toggleDrawer, filters }) {
           </Card>
         </View>
       </View>}
-      getItemLayout={(data, index) => (
-        { length: data.height||0, offset: data.offset||0, index }
-      )}
+      // getItemLayout={(data, index) => (
+      //   { length: data.height||0, offset: data.offset||0, index }
+      // )}
       data={activityList.sort((a, b) => new Date(b.time) - new Date(a.time))}
       renderItem={({ item: act }) => <ListItem act={act} userdata={userdata} />}
       keyExtractor={(item, index) => item.key}
