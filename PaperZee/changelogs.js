@@ -766,4 +766,11 @@ export default {
       description: 'Another feature ported over from Legacy CuppaZee, and made better than ever.'
     }
   ],
+  199: [
+    {
+      icon: 'bug',
+      title: 'Squashed Bugs',
+      description: 'Squashed a bug with the Evolution Planner'
+    }
+  ],
 }

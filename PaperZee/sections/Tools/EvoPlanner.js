@@ -137,7 +137,7 @@ export default function EvoPlannerScreen({ navigation }) {
               <Image source={getIcon(i.icon)} style={{ width: 48, height: 48 }} />
             </View>
             <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
-              <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{moment().add(i.days, "days").format('L')}</Text>
+              <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{moment(date).add(i.days, "days").format('L')}</Text>
               <Text allowFontScaling={false} style={{ fontSize: 14, ...font(400), color: theme.page_content.fg, opacity: 1 }}>{i.days} Days</Text>
               <Text allowFontScaling={false} style={{ fontSize: 14, ...font(400), color: theme.page_content.fg, opacity: 1 }}>Stage {index + 1}</Text>
             </View>
