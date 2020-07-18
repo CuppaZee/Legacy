@@ -98,6 +98,11 @@ export default [
     path: "tools/calendar"
   },
   {
+    name: "EvoPlanner",
+    import: () => import('sections/Tools/EvoPlanner'),
+    path: "tools/evoplanner"
+  },
+  {
     name: "Bouncers",
     import: () => import('sections/Tools/Bouncers'),
     path: "tools/bouncers"

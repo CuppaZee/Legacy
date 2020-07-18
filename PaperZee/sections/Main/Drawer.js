@@ -57,6 +57,7 @@ export default function CustomDrawerContent(props) {
     { title: t(`common:bouncers`), icon: "map-marker", page: "Bouncers" },
     { title: t(`common:munzee_types`), icon: "database", page: "DBSearch" },
     { title: t(`common:calendar`), icon: "calendar", page: "Calendar" },
+    { title: "Evo Planner", icon: "dna", page: "EvoPlanner" },
     { title: t(`common:scanner`), icon: "qrcode", page: "Scanner", hide: Platform.OS === "web" },
     // {title:t(`common:tools`),icon:"wrench",page:"Tools"},
   ].filter(i => !i.hide)

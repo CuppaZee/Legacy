@@ -14,11 +14,11 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 function Wrapper({ noWrap, children, t }) {
   const theme = useSelector(i => i.themes[t || i.theme]);
   if (noWrap === undefined) {
-    return <Card cardStyle={{ width: 300, backgroundColor: theme.page_content.bg, alignItems: "stretch" }}>
+    return <Card cardStyle={{ backgroundColor: theme.page_content.bg, minWidth: 300, flex: 1, alignItems: "stretch" }}>
       {children}
     </Card>
   }
-  return <View style={{ padding: 8, width: 300, backgroundColor: theme.page_content.bg, alignItems: "stretch" }}>
+  return <View style={{ padding: 8, minWidth: 300, flex: 1, backgroundColor: theme.page_content.bg, alignItems: "stretch" }}>
     {children}
   </View>
 }
@@ -63,7 +63,7 @@ export default function ({ t, noWrap, onChange, onSelect, value }) {
       <TouchableRipple onPress={() => setSelect(select == "month" ? "date" : "month")}>
         <Text allowFontScaling={false} style={{ fontSize: 20, lineHeight: 20, ...font("bold"), color: theme.page_content.fg }}>{value.format('Do MMMM YYYY')}</Text>
       </TouchableRipple>
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row", width: 400, maxWidth: "100%", alignSelf: "center" }}>
         <View style={{ flex: 6, height: 32, alignItems: "center", flexDirection: "row" }}>
           <IconButton size={16} icon="chevron-left" onPress={()=>{
             if(shownMonth==0) {
@@ -94,16 +94,18 @@ export default function ({ t, noWrap, onChange, onSelect, value }) {
         </View>
       </View>
       {select == "date" && <View style={{ flexDirection: "row", justifyContent: "space-evenly" }}>
-        {["06", "07", "08", "09", "10", "11", "12"].map(i => <View style={{ marginTop: 8, width: 36, justifyContent: "center", alignItems: "center" }}>
+        {["06", "07", "08", "09", "10", "11", "12"].map(i => <View style={{ marginTop: 8, width: 36,flexGrow:1, justifyContent: "center", alignItems: "center" }}>
           <Text allowFontScaling={false} style={{ color: theme.page_content.fg, opacity: 0.8, ...font("bold"), fontSize: 12 }}>{moment('2020-07-' + i).format('ddd')}</Text>
         </View>)}
       </View>}
       {select == "date" && grid.map(row => <View style={{ flexDirection: "row", justifyContent: "space-evenly" }}>
-        {row.map(i => <TouchableRipple style={{ borderRadius: 18 }} onPress={i ? () => { setDate(i); setYear(shownYear); setMonth(shownMonth) } : null}>
-          <View style={{ borderColor: theme.page_content.border, borderWidth: theme.page_content.border && (i == date && month == shownMonth && year == shownYear) ? 2 : 0, height: 36, width: 36, borderRadius: 18, backgroundColor: (i == date && month == shownMonth && year == shownYear) ? theme.navigation.bg : null, justifyContent: "center", alignItems: "center" }}>
-            <Text allowFontScaling={false} style={{ color: (i == date && month == shownMonth && year == shownYear) ? theme.navigation.fg : theme.page_content.fg, ...font((i == date && month == shownMonth && year == shownYear) ? "bold" : null), fontSize: (i == date && month == shownMonth && year == shownYear) ? 16 : 14 }}>{i}</Text>
-          </View>
-        </TouchableRipple>)}
+        {row.map(i => <View style={{width:"14%",flexGrow:1,alignItems:"center"}}>
+          <TouchableRipple style={{ borderRadius: 18 }} onPress={i ? () => { setDate(i); setYear(shownYear); setMonth(shownMonth) } : null}>
+            <View style={{ borderColor: theme.page_content.border, borderWidth: theme.page_content.border && (i == date && month == shownMonth && year == shownYear) ? 2 : 0, height: 36, width: 36, borderRadius: 18, backgroundColor: (i == date && month == shownMonth && year == shownYear) ? theme.navigation.bg : null, justifyContent: "center", alignItems: "center" }}>
+              <Text allowFontScaling={false} style={{ color: (i == date && month == shownMonth && year == shownYear) ? theme.navigation.fg : theme.page_content.fg, ...font((i == date && month == shownMonth && year == shownYear) ? "bold" : null), fontSize: (i == date && month == shownMonth && year == shownYear) ? 16 : 14 }}>{i}</Text>
+            </View>
+          </TouchableRipple>
+        </View>)}
       </View>)}
       {select == "year" && <ScrollView style={{ maxHeight: 200 }} contentContainerStyle={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly" }}>
         {yearList.map(i => <TouchableRipple style={{ borderRadius: 8 }} onPress={() => { setShownYear(i); setSelect("date") }}>

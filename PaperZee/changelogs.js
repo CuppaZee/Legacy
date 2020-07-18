@@ -754,4 +754,16 @@ export default {
       description: 'Squashed a few bugs'
     }
   ],
+  198: [
+    {
+      icon: 'translate',
+      title: 'Added French Translations',
+      description: 'Added French Translations, and updated other translations'
+    },
+    {
+      icon: 'dna',
+      title: 'Added Evolution Planner',
+      description: 'Another feature ported over from Legacy CuppaZee, and made better than ever.'
+    }
+  ],
 }

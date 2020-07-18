@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, Platform, Image, AsyncStorage, ScrollView } from 'react-native';
-import { Button, IconButton, TextInput, Menu, Switch } from 'react-native-paper';
+import { Button, TextInput, Menu } from 'react-native-paper';
 import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from "react-redux";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -66,7 +66,7 @@ export default function SettingsScreen({ navigation }) {
     { code: 'en-GB', name: 'English' },
     { code: 'en', name: 'English (US)' },
     { code: 'fi', name: 'Suomi' },
-    // {code:'fr',name:'Français'},
+    {code:'fr',name:'Français'},
     { code: 'hu', name: 'Magyar' },
     // {code:'lt',name:'Lietuvių Kalba'},
     { code: 'nl', name: 'Nederlands' },

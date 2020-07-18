@@ -57,7 +57,7 @@ function DateSwitcher({ dateString }) {
           anchor={
             <IconButton icon="calendar" color={(theme.clanCardHeader || theme.navigation).fg} onPress={() => setDatePickerOpen(true)} />
           }
-          contentStyle={{ padding: 0, backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border ? 1 : 0, borderColor: theme.page_content.border }}
+          contentStyle={{ padding: 0, backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border ? 1 : 0, borderColor: theme.page_content.border, width: 300 }}
         >
           <DatePicker noWrap value={moment({
             year: Number(dateString.split('-')[0]),
