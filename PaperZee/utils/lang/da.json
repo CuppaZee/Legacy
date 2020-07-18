@@ -30,7 +30,7 @@
         "users": "Brugere",
         "calendar": "Kalender",
         "bouncers": "Springere",
-        "notifications": "notifikationer",
+        "notifications": "Notifikationer",
         "contact": {
             "facebook": "Du kan kontakte os via Facebook",
             "email": "eller emaile os på support@cuppazee.app"
@@ -169,10 +169,10 @@
             "one": "Niveau",
             "other": "Niveauer"
         },
-        "rank": "",
+        "rank": "Rang #{rank}",
         "players": {
-            "one": "",
-            "other": ""
+            "one": "{count} spiller",
+            "other": "{count} spillere"
         }
     },
     "search": {
@@ -191,12 +191,12 @@
             "pouch": "Posevæsen-stadier",
             "can_host": "Kan være vært for",
             "lands_on": "Lander på",
-            "hosts": "",
-            "possible_types": "",
-            "possible_hosts": "",
-            "host_types": ""
+            "hosts": "Er vært for",
+            "possible_types": "Mulige typer",
+            "possible_hosts": "Mulige værter",
+            "host_types": "Mulige værter"
         },
-        "type_info": ""
+        "type_info": "Typeinformation"
     },
     "auth": {
         "add": "Tilføj en ny bruger",
@@ -315,12 +315,12 @@
         "no_changelog": "Ingen ændringslog"
     },
     "clan_req": {
-        "Captures": "",
+        "Captures": "Skanninger",
         "Points": "Point",
         "Deploys": "Placeringer",
-        "Activity": "",
-        "Days of": "",
-        "Total": "",
-        "Renovate": ""
+        "Activity": "Aktivitet",
+        "Days of": "Dage med",
+        "Total": "Total",
+        "Renovate": "Renovering"
     }
 }
