@@ -169,10 +169,10 @@
             "one": "Level",
             "other": "Level"
         },
-        "rank": "",
+        "rank": "Rang #{rank}",
         "players": {
-            "one": "",
-            "other": ""
+            "one": "{count} Spieler",
+            "other": "{count} Spieler"
         }
     },
     "search": {
@@ -191,12 +191,12 @@
             "pouch": "Pouch Kreaturen Stufen",
             "can_host": "Kann darauf landen",
             "lands_on": "Landet auf",
-            "hosts": "",
-            "possible_types": "",
-            "possible_hosts": "",
-            "host_types": ""
+            "hosts": "Gastgeber",
+            "possible_types": "mögliche Typen",
+            "possible_hosts": "mögliche Gastgeber",
+            "host_types": "gelandet auf"
         },
-        "type_info": ""
+        "type_info": "Typ Info"
     },
     "auth": {
         "add": "Füge einen neuen Nutzer hinzu",
@@ -263,8 +263,8 @@
         "task_6": "Flat Friend Deps",
         "task_7": "Destination Caps/Deps",
         "task_8": "Bouncer Caps",
-        "task_9": "",
-        "task_10": ""
+        "task_9": "Flat Friend Caps/Deps",
+        "task_10": "Erfasse \"m/GPSmAQ/1\""
     },
     "themes": {
         "black": "schwarz",
@@ -315,12 +315,12 @@
         "no_changelog": "Kein Änderungsprotokoll"
     },
     "clan_req": {
-        "Captures": "",
-        "Points": "",
-        "Deploys": "",
-        "Activity": "",
-        "Days of": "",
-        "Total": "",
-        "Renovate": ""
+        "Captures": "Captures",
+        "Points": "Punkte",
+        "Deploys": "Deploys",
+        "Activity": "Aktivitäten",
+        "Days of": "Tage von",
+        "Total": "Gesamt",
+        "Renovate": "Renovieren"
     }
 }
