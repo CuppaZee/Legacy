@@ -10,6 +10,7 @@
   "dependencies": {
     "@expo-google-fonts/coiny": "^0.1.0",
     "@expo-google-fonts/roboto": "^0.1.0",
+    "@expo/vector-icons": "^10.2.0",
     "@expo/webpack-config": "^0.12.16",
     "@loadable/component": "^5.12.0",
     "@react-google-maps/api": "^1.9.7",

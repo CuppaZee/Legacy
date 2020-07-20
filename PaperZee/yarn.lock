@@ -1216,6 +1216,13 @@
   dependencies:
     lodash "^4.17.4"
 
+"@expo/vector-icons@^10.2.0":
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-10.2.0.tgz#3c70656683a6a873e18efc00bc61fc160a80dc55"
+  integrity sha512-dYe0SW/xbzWRtWG7i1pc3QPMGMbdReVgP02XlwMkS4srAAjF0cZQVa3ZgZ6qzxI+OzKudpDXZRmENNth/b263g==
+  dependencies:
+    lodash "^4.17.4"
+
 "@expo/webpack-config@^0.12.16":
   version "0.12.16"
   resolved "https://registry.yarnpkg.com/@expo/webpack-config/-/webpack-config-0.12.16.tgz#5acf3a677498e982cf27a97c13e19016dcf6c172"

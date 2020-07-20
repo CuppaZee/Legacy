@@ -790,4 +790,11 @@ export default {
       description: 'All Legacy CuppaZee versions are going to be shut down over the next few days.'
     }
   ],
+  201: [
+    {
+      icon: 'hammer',
+      title: 'Update QRew/ZeeQRew Checker',
+      description: 'Improved Design and added Total Points and Recent Capture/Deploy checks'
+    }
+  ],
 }
