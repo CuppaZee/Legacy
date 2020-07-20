@@ -18,5 +18,68 @@
     "deploy": 40,
     "capture": 20,
     "capon": 10
+  },
+  "virtual": {
+    "deploy": 10,
+    "type": "split",
+    "split": 80,
+    "min": 10
+  },
+  "evo_original_1": {
+    "capture": 20,
+    "deploy": 0,
+    "capon": 10
+  },
+  "evo_original_2": {
+    "capture": 35,
+    "capon": 20
+  },
+  "evo_original_3": {
+    "capture": 50,
+    "capon": 30
+  },
+
+  "evo_flower_1": {
+    "capture": 20,
+    "deploy": 100,
+    "capon": 60
+  },
+  "evo_flower_2": {
+    "capture": 30,
+    "capon": 50
+  },
+  "evo_flower_3": {
+    "capture": 45,
+    "capon": 45
+  },
+  "evo_flower_4": {
+    "capture": 60,
+    "capon": 35
+  },
+  "evo_flower_5": {
+    "capture": 75,
+    "capon": 25
+  },
+
+  "evo_animal_1": {
+    "capture": 50,
+    "deploy": 100,
+    "capon": 30
+  },
+  "evo_animal_2": {
+    "capture": 40,
+    "capon": 20
+  },
+  "evo_animal_3": {
+    "capture": 45,
+    "capon": 25
+  },
+  "evo_animal_4": {
+    "capture": 40,
+    "capon": 30
+  },
+  "evo_animal_5": {
+    "capture": 150,
+    "capon": 50
   }
 }

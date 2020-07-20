@@ -187,8 +187,31 @@ export default [
     }
   },
   {
+    name: "UserQRew",
+    import: () => import('sections/User/QRew'),
+    path: {
+      path: "user/:username/qrew",
+      parse: {
+        username: String,
+      }
+    }
+  },
+  {
     name: "UserBlast",
-    import: () => import('sections/User/Blast'),
+    import: () => import('sections/User/Blast/Blast'),
+    path: {
+      path: "user/:username/blast/:lat/:lon/:size",
+      parse: {
+        username: String,
+        lat: Number,
+        lon: Number,
+        size: Number
+      }
+    }
+  },
+  {
+    name: "UserBlastMap",
+    import: () => import('sections/User/Blast/Map'),
     path: {
       path: "user/:username/blast",
       parse: {

@@ -773,4 +773,21 @@ export default {
       description: 'Squashed a bug with the Evolution Planner'
     }
   ],
+  200: [
+    {
+      icon: 'hammer',
+      title: 'Added QRew/ZeeQRew Checker',
+      description: 'A feature brought over from Legacy CuppaZee, and made more accurate.'
+    },
+    {
+      icon: 'bomb',
+      title: 'Added Blast Checker',
+      description: 'Another feature ported over from Legacy CuppaZee, and made better than ever.'
+    },
+    {
+      icon: 'lock',
+      title: 'Goodbye Legacy CuppaZee',
+      description: 'All Legacy CuppaZee versions are going to be shut down over the next few days.'
+    }
+  ],
 }

@@ -9,7 +9,7 @@ import MapView from 'sections/Maps/MapView';
 import { useTranslation } from 'react-i18next';
 import getIcon from 'utils/db/icon';
 import getType from 'utils/db/types';
-import UserFAB from './FAB';
+import UserFAB from '../FAB';
 
 function BlastType({ data, icon }) {
   var { t } = useTranslation();
@@ -31,6 +31,7 @@ function BlastType({ data, icon }) {
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
       <Image style={{ height: 48, width: 48 }} source={getIcon(icon)} />
       <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{data.total}x {getType(icon)?.name || icon}</Text>
+      <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{data.points.min}-{data.points.max} (Avg. {data.points.avg}) Points</Text>
     </View>
   </Menu>;
 }
@@ -39,15 +40,11 @@ export default function ClanScreen({ route }) {
   var { t } = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
   var username = route.params.username;
-  var [location, setLocation] = React.useState({
-    lat: 0,
-    lng: 0
-  })
-  var [storedLocation, setStoredLocation] = React.useState({
-    lat: 0,
-    lng: 0
-  })
-  var [blastSize, setBlastSize] = React.useState(0)
+  var location = {
+    lat: route.params.lat,
+    lng: route.params.lon
+  }
+  var blastSize = route.params.size;
   const user_id = useAPIRequest({
     endpoint: 'user',
     data: { username },
@@ -67,76 +64,7 @@ export default function ClanScreen({ route }) {
       <ScrollView
         contentContainerStyle={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center", padding: 4, paddingBottom: 92 }}
         style={{ flex: 1, backgroundColor: theme.page.bg }}>
-        {(location.lat !== 0 || location.lng !== 0) ? <View style={{ flexDirection: "row", width: "100%" }}>
-          <View style={{ padding: 4, flex: 1 }}>
-            <Button
-              mode="contained"
-              backgroundColor={theme.navigation.fg}
-              style={theme.page_content.border ? { borderColor: "white", borderWidth: 1 } : {}}
-              color={theme.navigation.bg}
-              onPress={() => {
-                setLocation({ lat: 0, lng: 0 });
-              }}>
-              Close
-              </Button>
-          </View>
-        </View> : <>
-            <View style={{ padding: 4, height: 400, width: "100%" }}>
-              <Card noPad>
-                <MapView center={storedLocation} onRegionChange={({ latitude, longitude }) => {
-                  if (storedLocation.lat !== latitude || storedLocation.lng !== longitude) setStoredLocation({
-                    lat: latitude,
-                    lng: longitude
-                  })
-                }} tracksViewChanges={true} markers={[{
-                  ...storedLocation,
-                  icon: "blastcapture"
-                }]} style={{ flex: 1 }} />
-              </Card>
-            </View>
-            <View style={{ flexDirection: "row", width: "100%" }}>
-              <View style={{ padding: 4, flex: 1 }}>
-                <Button
-                  mode="contained"
-                  backgroundColor={theme.navigation.fg}
-                  style={theme.page_content.border ? { borderColor: "white", borderWidth: 1 } : {}}
-                  color={theme.navigation.bg}
-                  onPress={() => {
-                    setBlastSize(50);
-                    setLocation(storedLocation);
-                  }}>
-                  Mini
-                </Button>
-              </View>
-              <View style={{ padding: 4, flex: 1 }}>
-                <Button
-                  mode="contained"
-                  backgroundColor={theme.navigation.fg}
-                  style={theme.page_content.border ? { borderColor: "white", borderWidth: 1 } : {}}
-                  color={theme.navigation.bg}
-                  onPress={() => {
-                    setBlastSize(100);
-                    setLocation(storedLocation);
-                  }}>
-                  Normal
-              </Button>
-              </View>
-              <View style={{ padding: 4, flex: 1 }}>
-                <Button
-                  mode="contained"
-                  backgroundColor={theme.navigation.fg}
-                  style={theme.page_content.border ? { borderColor: "white", borderWidth: 1 } : {}}
-                  color={theme.navigation.bg}
-                  onPress={() => {
-                    setBlastSize(500);
-                    setLocation(storedLocation);
-                  }}>
-                  Mega
-                </Button>
-              </View>
-            </View>
-          </>}
-        {!blastData && (location.lat !== 0 || location.lng !== 0) && <View style={{ flex: 1, padding: 8, justifyContent: "center", alignItems: "center" }}>
+        {!blastData && <View style={{ flex: 1, padding: 8, justifyContent: "center", alignItems: "center" }}>
           <ActivityIndicator size="large" color={theme.page.fg} />
         </View>}
         {blastData?.map?.((i, index) => <View style={{ padding: 4, width: 400, maxWidth: "100%", flexGrow: 1 }}>

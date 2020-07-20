@@ -32,7 +32,12 @@
     "icon": "crossbow",
     "id": 998,
     "state": "virtual",
-    "weapon": "clan"
+    "weapon": "clan",
+    "points": {
+      "deploy": 25,
+      "capture": 20,
+      "capon": 20
+    }
   },
   {
     "name": "Briefcase",
@@ -46,7 +51,12 @@
     "icon": "catapult",
     "id": 1248,
     "state": "virtual",
-    "weapon": "clan"
+    "weapon": "clan",
+    "points": {
+      "deploy": 30,
+      "capture": 35,
+      "capon": 35
+    }
   },
   {
     "name": "Night Vision Goggles",

@@ -94,11 +94,11 @@ export default function SettingsScreen() {
           <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Points</Text>
         </View>
         <View style={{flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
-          <View style={{alignItems:"center",padding:4,width:100}}>
+          {munzee.points.deploy!==undefined&&<View style={{alignItems:"center",padding:4,width:100}}>
             <MaterialCommunityIcons name="account" size={32} color={theme.page_content.fg} />
             <Text allowFontScaling={false} numberOfLines={1} style={{color: theme.page_content.fg,lineHeight:16,fontSize:16,...font("bold")}}>{munzee.points.deploy}</Text>
             <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>Deploy</Text>
-          </View>
+          </View>}
           {!munzee.points.type&&<>
             <View style={{alignItems:"center",padding:4,width:100}}>
               <MaterialCommunityIcons name="check" size={32} color={theme.page_content.fg} />

@@ -3212,6 +3212,10 @@
       "set": "farm",
       "base": "tomatoseed"
     },
+    "points": {
+      "capture": 50,
+      "capon": 30
+    },
     "state": "physical",
     "category": "evolution_farm",
     "can_host": [
@@ -3231,6 +3235,10 @@
       "set": "farm",
       "base": "cornseed"
     },
+    "points": {
+      "capture": 50,
+      "capon": 30
+    },
     "state": "physical",
     "category": "evolution_farm",
     "can_host": [
@@ -3248,6 +3256,10 @@
       "stage": 3,
       "set": "farm",
       "base": "carrotseed"
+    },
+    "points": {
+      "capture": 50,
+      "capon": 30
     },
     "state": "virtual",
     "category": "evolution_farm",
@@ -3267,6 +3279,10 @@
       "set": "farm",
       "base": "peasseed"
     },
+    "points": {
+      "capture": 50,
+      "capon": 30
+    },
     "state": "virtual",
     "category": "evolution_farm",
     "can_host": [
@@ -3284,6 +3300,11 @@
       "stage": 1,
       "set": "farm",
       "base": "tomatoseed"
+    },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
     },
     "state": "physical",
     "category": "evolution_farm",
@@ -3304,6 +3325,11 @@
       "set": "farm",
       "base": "cornseed"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
+    },
     "state": "physical",
     "category": "evolution_farm",
     "can_host": [
@@ -3322,6 +3348,11 @@
       "stage": 1,
       "set": "farm",
       "base": "carrotseed"
+    },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
     },
     "state": "virtual",
     "category": "evolution_farm",
@@ -3342,6 +3373,11 @@
       "set": "farm",
       "base": "peasseed"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
+    },
     "state": "virtual",
     "category": "evolution_farm",
     "can_host": [
@@ -3360,6 +3396,10 @@
       "stage": 2,
       "set": "farm",
       "base": "tomatoseed"
+    },
+    "points": {
+      "capture": 35,
+      "capon": 20
     },
     "state": "physical",
     "category": "evolution_farm",
@@ -3383,6 +3423,10 @@
       "set": "farm",
       "base": "cornseed"
     },
+    "points": {
+      "capture": 35,
+      "capon": 20
+    },
     "state": "physical",
     "category": "evolution_farm",
     "can_host": [
@@ -3404,6 +3448,10 @@
       "stage": 2,
       "set": "farm",
       "base": "carrotseed"
+    },
+    "points": {
+      "capture": 35,
+      "capon": 20
     },
     "state": "virtual",
     "category": "evolution_farm",
@@ -3427,6 +3475,10 @@
       "set": "farm",
       "base": "peasseed"
     },
+    "points": {
+      "capture": 35,
+      "capon": 20
+    },
     "state": "virtual",
     "category": "evolution_farm",
     "can_host": [
@@ -3449,6 +3501,10 @@
       "set": "farm",
       "base": "goldencarrotseed"
     },
+    "points": {
+      "capture": 50,
+      "capon": 30
+    },
     "state": "physical",
     "category": "evolution_farm",
     "can_host": [
@@ -3466,6 +3522,11 @@
       "stage": 1,
       "set": "farm",
       "base": "goldencarrotseed"
+    },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
     },
     "state": "physical",
     "category": "evolution_farm",
@@ -3485,6 +3546,10 @@
       "stage": 2,
       "set": "farm",
       "base": "goldencarrotplant"
+    },
+    "points": {
+      "capture": 35,
+      "capon": 20
     },
     "state": "physical",
     "category": "evolution_farm",
@@ -3553,6 +3618,10 @@
       "set": "farm",
       "base": "calf"
     },
+    "points": {
+      "capture": 50,
+      "capon": 30
+    },
     "state": "physical",
     "category": "evolution_farm",
     "cids": [],
@@ -3567,6 +3636,10 @@
       "stage": 3,
       "set": "farm",
       "base": "piglet"
+    },
+    "points": {
+      "capture": 50,
+      "capon": 30
     },
     "state": "physical",
     "category": "evolution_farm",
@@ -3604,6 +3677,11 @@
       "set": "farm",
       "base": "calf"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
+    },
     "state": "physical",
     "category": "evolution_farm",
     "can_host": [
@@ -3621,6 +3699,11 @@
       "stage": 1,
       "set": "farm",
       "base": "piglet"
+    },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
     },
     "state": "physical",
     "category": "evolution_farm",
@@ -3640,6 +3723,10 @@
       "set": "farm",
       "base": "calf"
     },
+    "points": {
+      "capture": 35,
+      "capon": 20
+    },
     "state": "physical",
     "category": "evolution_farm",
     "cids": [],
@@ -3654,6 +3741,10 @@
       "stage": 2,
       "set": "farm",
       "base": "piglet"
+    },
+    "points": {
+      "capture": 35,
+      "capon": 20
     },
     "state": "physical",
     "category": "evolution_farm",
@@ -3673,6 +3764,10 @@
     "alt_icons": [
       "horse"
     ],
+    "points": {
+      "capture": 50,
+      "capon": 30
+    },
     "state": "virtual",
     "category": "evolution_farm",
     "cids": [],
@@ -3687,6 +3782,10 @@
       "stage": 3,
       "set": "farm",
       "base": "chick"
+    },
+    "points": {
+      "capture": 50,
+      "capon": 30
     },
     "state": "virtual",
     "category": "evolution_farm",
@@ -3714,6 +3813,11 @@
       "set": "farm",
       "base": "colt"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
+    },
     "state": "virtual",
     "category": "evolution_farm",
     "can_host": [
@@ -3731,6 +3835,11 @@
       "stage": 1,
       "set": "farm",
       "base": "chick"
+    },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
     },
     "state": "virtual",
     "category": "evolution_farm",
@@ -3750,6 +3859,10 @@
       "set": "farm",
       "base": "colt"
     },
+    "points": {
+      "capture": 35,
+      "capon": 20
+    },
     "state": "virtual",
     "category": "evolution_farm",
     "cids": [],
@@ -3764,6 +3877,10 @@
       "stage": 2,
       "set": "farm",
       "base": "chick"
+    },
+    "points": {
+      "capture": 35,
+      "capon": 20
     },
     "state": "virtual",
     "category": "evolution_farm",
@@ -3780,6 +3897,10 @@
       "set": "farm",
       "base": "lean-toshed"
     },
+    "points": {
+      "capture": 50,
+      "capon": 30
+    },
     "state": "physical",
     "category": "evolution_farm",
     "cids": [],
@@ -3794,6 +3915,10 @@
       "stage": 3,
       "set": "farm",
       "base": "hoe"
+    },
+    "points": {
+      "capture": 50,
+      "capon": 30
     },
     "state": "physical",
     "category": "evolution_farm",
@@ -3846,6 +3971,11 @@
       "set": "farm",
       "base": "lean-toshed"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
+    },
     "state": "physical",
     "category": "evolution_farm",
     "can_host": [
@@ -3864,6 +3994,10 @@
       "set": "farm",
       "base": "lean-toshed"
     },
+    "points": {
+      "capture": 35,
+      "capon": 20
+    },
     "state": "physical",
     "category": "evolution_farm",
     "cids": [],
@@ -3878,6 +4012,11 @@
       "stage": 1,
       "set": "farm",
       "base": "hoe"
+    },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
     },
     "state": "physical",
     "category": "evolution_farm",
@@ -3897,6 +4036,10 @@
       "set": "farm",
       "base": "plow"
     },
+    "points": {
+      "capture": 35,
+      "capon": 20
+    },
     "state": "physical",
     "category": "evolution_farm",
     "cids": [],
@@ -3911,6 +4054,10 @@
       "stage": 3,
       "set": "farm",
       "base": "farmer"
+    },
+    "points": {
+      "capture": 50,
+      "capon": 30
     },
     "state": "virtual",
     "category": "evolution_farm",
@@ -3945,6 +4092,10 @@
       "set": "farm",
       "base": "pottedplant"
     },
+    "points": {
+      "capture": 50,
+      "capon": 30
+    },
     "state": "virtual",
     "category": "evolution_farm",
     "can_host": [
@@ -3965,6 +4116,11 @@
       "stage": 1,
       "set": "farm",
       "base": "farmer"
+    },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
     },
     "state": "virtual",
     "category": "evolution_farm",
@@ -4000,6 +4156,10 @@
       "set": "farm",
       "base": "farmer"
     },
+    "points": {
+      "capture": 35,
+      "capon": 20
+    },
     "state": "virtual",
     "category": "evolution_farm",
     "can_host": [
@@ -4033,6 +4193,11 @@
       "set": "farm",
       "base": "pottedplant"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
+    },
     "state": "virtual",
     "category": "evolution_farm",
     "can_host": [
@@ -4055,6 +4220,10 @@
       "set": "farm",
       "base": "pottedplant"
     },
+    "points": {
+      "capture": 35,
+      "capon": 20
+    },
     "state": "virtual",
     "category": "evolution_farm",
     "can_host": [
@@ -4075,6 +4244,10 @@
       "stage": 3,
       "set": "education",
       "base": "seaweed"
+    },
+    "points": {
+      "capture": 50,
+      "capon": 30
     },
     "state": "physical",
     "category": "evolution_education",
@@ -4109,6 +4282,11 @@
       "set": "education",
       "base": "seaweed"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
+    },
     "state": "physical",
     "category": "evolution_education",
     "can_host": [
@@ -4139,6 +4317,10 @@
       "set": "education",
       "base": "seaweed"
     },
+    "points": {
+      "capture": 35,
+      "capon": 20
+    },
     "state": "physical",
     "category": "evolution_education",
     "can_host": [
@@ -4167,6 +4349,10 @@
       "stage": 3,
       "set": "education",
       "base": "canoe"
+    },
+    "points": {
+      "capture": 50,
+      "capon": 30
     },
     "state": "virtual",
     "category": "evolution_education",
@@ -4201,6 +4387,11 @@
       "set": "education",
       "base": "canoe"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
+    },
     "state": "virtual",
     "category": "evolution_education",
     "can_host": [
@@ -4230,6 +4421,10 @@
       "stage": 2,
       "set": "education",
       "base": "canoe"
+    },
+    "points": {
+      "capture": 35,
+      "capon": 20
     },
     "state": "virtual",
     "category": "evolution_education",
@@ -4358,6 +4553,11 @@
       "set": "education",
       "base": "egg"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
+    },
     "state": "physical",
     "category": "evolution_education",
     "can_host": [
@@ -4376,6 +4576,10 @@
       "set": "education",
       "base": "egg"
     },
+    "points": {
+      "capture": 35,
+      "capon": 20
+    },
     "state": "physical",
     "category": "evolution_education",
     "cids": [],
@@ -4391,6 +4595,10 @@
       "set": "education",
       "base": "egg"
     },
+    "points": {
+      "capture": 50,
+      "capon": 30
+    },
     "state": "physical",
     "category": "evolution_education",
     "cids": [],
@@ -4405,6 +4613,10 @@
       "stage": 3,
       "set": "education",
       "base": "firstwheel"
+    },
+    "points": {
+      "capture": 50,
+      "capon": 30
     },
     "state": "virtual",
     "category": "evolution_education",
@@ -4427,6 +4639,11 @@
       "set": "education",
       "base": "firstwheel"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
+    },
     "state": "virtual",
     "category": "evolution_education",
     "can_host": [
@@ -4444,6 +4661,10 @@
       "stage": 2,
       "set": "education",
       "base": "firstwheel"
+    },
+    "points": {
+      "capture": 35,
+      "capon": 20
     },
     "state": "virtual",
     "category": "evolution_education",
@@ -4528,6 +4749,10 @@
       "set": "education",
       "base": "lioncub"
     },
+    "points": {
+      "capture": 50,
+      "capon": 30
+    },
     "state": "physical",
     "category": "evolution_education",
     "can_host": [
@@ -4545,6 +4770,11 @@
       "stage": 1,
       "set": "education",
       "base": "lioncub"
+    },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
     },
     "state": "physical",
     "category": "evolution_education",
@@ -4565,6 +4795,10 @@
       "set": "education",
       "base": "lioncub"
     },
+    "points": {
+      "capture": 35,
+      "capon": 20
+    },
     "state": "physical",
     "category": "evolution_education",
     "can_host": [
@@ -4582,6 +4816,10 @@
       "stage": 3,
       "set": "education",
       "base": "safaritruck"
+    },
+    "points": {
+      "capture": 50,
+      "capon": 30
     },
     "state": "virtual",
     "category": "evolution_education",
@@ -4612,6 +4850,11 @@
       "set": "education",
       "base": "safaritruck"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
+    },
     "state": "virtual",
     "category": "evolution_education",
     "can_host": [
@@ -4637,6 +4880,10 @@
       "stage": 2,
       "set": "education",
       "base": "safaritruck"
+    },
+    "points": {
+      "capture": 35,
+      "capon": 20
     },
     "state": "virtual",
     "category": "evolution_education",
@@ -4808,6 +5055,11 @@
     "weapon": "clan",
     "state": "virtual",
     "category": "clan",
+    "points": {
+      "deploy": 25,
+      "capture": 20,
+      "capon": 20
+    },
     "can_host": [
       1646,
       1997,
@@ -4962,6 +5214,11 @@
       "set": "reseller",
       "base": "coin"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 0,
+      "capon": 10
+    },
     "state": "physical",
     "category": "evolution_reseller",
     "can_host": [
@@ -4981,6 +5238,10 @@
       "set": "reseller",
       "base": "coin"
     },
+    "points": {
+      "capture": 35,
+      "capon": 20
+    },
     "state": "physical",
     "category": "evolution_reseller",
     "can_host": [
@@ -4998,6 +5259,10 @@
       "stage": 3,
       "set": "reseller",
       "base": "coin"
+    },
+    "points": {
+      "capture": 50,
+      "capon": 30
     },
     "state": "physical",
     "category": "evolution_reseller",
@@ -5368,6 +5633,11 @@
     "weapon": "clan",
     "state": "virtual",
     "category": "clan",
+    "points": {
+      "deploy": 30,
+      "capture": 35,
+      "capon": 35
+    },
     "can_host": [
       1646,
       1997,
@@ -5738,6 +6008,12 @@
     "id": 1409,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -5819,6 +6095,12 @@
     "id": 1410,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -5906,6 +6188,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1827,
@@ -5989,6 +6277,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1827,
@@ -6072,6 +6366,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1827,
@@ -6155,6 +6455,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1827,
@@ -6235,6 +6541,12 @@
     "id": 1415,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -6315,6 +6627,12 @@
     "id": 1416,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -6395,6 +6713,12 @@
     "id": 1417,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -6475,6 +6799,12 @@
     "id": 1418,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -6555,6 +6885,12 @@
     "id": 1419,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -6638,6 +6974,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -6727,6 +7069,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -6816,6 +7164,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -6905,6 +7259,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -6994,6 +7354,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -7083,6 +7449,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -7172,6 +7544,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -7261,6 +7639,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -7350,6 +7734,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -7439,6 +7829,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -7528,6 +7924,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -7617,6 +8019,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1705,
       1706,
@@ -7722,6 +8130,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1705,
       1706,
@@ -7827,6 +8241,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1705,
       1706,
@@ -7932,6 +8352,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1705,
       1706,
@@ -8037,6 +8463,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1705,
       1706,
@@ -8142,6 +8574,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1705,
       1706,
@@ -8247,6 +8685,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1705,
       1706,
@@ -8352,6 +8796,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1705,
       1706,
@@ -8457,6 +8907,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1705,
       1706,
@@ -8559,6 +9015,12 @@
     "id": 1441,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -8640,6 +9102,12 @@
     "id": 1442,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -8722,6 +9190,12 @@
     "id": 1443,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -8804,6 +9278,12 @@
     "id": 1444,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -8886,6 +9366,12 @@
     "id": 1445,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -8966,6 +9452,12 @@
     "id": 1446,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -9046,6 +9538,12 @@
     "id": 1448,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -9126,6 +9624,12 @@
     "id": 1449,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -9206,6 +9710,12 @@
     "id": 1450,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -9286,6 +9796,12 @@
     "id": 1451,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -9366,6 +9882,12 @@
     "id": 1452,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -9446,6 +9968,12 @@
     "id": 1453,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -9526,6 +10054,12 @@
     "id": 1454,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -9606,6 +10140,12 @@
     "id": 1455,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -9686,6 +10226,12 @@
     "id": 1456,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -9766,6 +10312,12 @@
     "id": 1457,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -9846,6 +10398,12 @@
     "id": 1458,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -9926,6 +10484,12 @@
     "id": 1459,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -10006,6 +10570,12 @@
     "id": 1460,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -10086,6 +10656,12 @@
     "id": 1461,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -10166,6 +10742,12 @@
     "id": 1462,
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -10249,6 +10831,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1985,
       1986,
@@ -10337,6 +10925,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1985,
       1986,
@@ -10425,6 +11019,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1985,
       1986,
@@ -10513,6 +11113,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1985,
       1986,
@@ -10601,6 +11207,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1985,
       1986,
@@ -10690,6 +11302,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1985,
       1986,
@@ -10780,6 +11398,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -10865,6 +11489,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -10950,6 +11580,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -11035,6 +11671,12 @@
     ],
     "state": "virtual",
     "category": "virtual",
+    "points": {
+      "deploy": 10,
+      "type": "split",
+      "split": 80,
+      "min": 10
+    },
     "can_host": [
       1100,
       1996,
@@ -11951,6 +12593,10 @@
       "set": "nature",
       "base": "roseseed"
     },
+    "points": {
+      "capture": 75,
+      "capon": 25
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -11972,6 +12618,10 @@
       "stage": 5,
       "set": "nature",
       "base": "tulipseed"
+    },
+    "points": {
+      "capture": 75,
+      "capon": 25
     },
     "state": "physical",
     "category": "evolution_nature",
@@ -12036,6 +12686,10 @@
       "set": "nature",
       "base": "lilyseed"
     },
+    "points": {
+      "capture": 75,
+      "capon": 25
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12058,6 +12712,11 @@
       "set": "nature",
       "base": "tulipseed"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 100,
+      "capon": 60
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12077,6 +12736,10 @@
       "set": "nature",
       "base": "tulipseed"
     },
+    "points": {
+      "capture": 30,
+      "capon": 50
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12094,6 +12757,10 @@
       "stage": 3,
       "set": "nature",
       "base": "tulipseed"
+    },
+    "points": {
+      "capture": 45,
+      "capon": 45
     },
     "state": "physical",
     "category": "evolution_nature",
@@ -12117,6 +12784,10 @@
       "set": "nature",
       "base": "tulipseed"
     },
+    "points": {
+      "capture": 60,
+      "capon": 35
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12138,6 +12809,10 @@
       "stage": 5,
       "set": "nature",
       "base": "tulipseed"
+    },
+    "points": {
+      "capture": 75,
+      "capon": 25
     },
     "state": "physical",
     "category": "evolution_nature",
@@ -12161,6 +12836,10 @@
       "set": "nature",
       "base": "tulipseed"
     },
+    "points": {
+      "capture": 75,
+      "capon": 25
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12182,6 +12861,10 @@
       "stage": 5,
       "set": "nature",
       "base": "tulipseed"
+    },
+    "points": {
+      "capture": 75,
+      "capon": 25
     },
     "state": "physical",
     "category": "evolution_nature",
@@ -12205,6 +12888,11 @@
       "set": "nature",
       "base": "roseseed"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 100,
+      "capon": 60
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12224,6 +12912,10 @@
       "set": "nature",
       "base": "roseseed"
     },
+    "points": {
+      "capture": 30,
+      "capon": 50
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12241,6 +12933,10 @@
       "stage": 3,
       "set": "nature",
       "base": "roseseed"
+    },
+    "points": {
+      "capture": 45,
+      "capon": 45
     },
     "state": "physical",
     "category": "evolution_nature",
@@ -12264,6 +12960,10 @@
       "set": "nature",
       "base": "roseseed"
     },
+    "points": {
+      "capture": 60,
+      "capon": 35
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12285,6 +12985,10 @@
       "stage": 5,
       "set": "nature",
       "base": "roseseed"
+    },
+    "points": {
+      "capture": 75,
+      "capon": 25
     },
     "state": "physical",
     "category": "evolution_nature",
@@ -12308,6 +13012,10 @@
       "set": "nature",
       "base": "roseseed"
     },
+    "points": {
+      "capture": 75,
+      "capon": 25
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12329,6 +13037,10 @@
       "stage": 5,
       "set": "nature",
       "base": "roseseed"
+    },
+    "points": {
+      "capture": 75,
+      "capon": 25
     },
     "state": "physical",
     "category": "evolution_nature",
@@ -12352,6 +13064,10 @@
       "set": "nature",
       "base": "roseseed"
     },
+    "points": {
+      "capture": 75,
+      "capon": 25
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12374,6 +13090,11 @@
       "set": "nature",
       "base": "lilyseed"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 100,
+      "capon": 60
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12393,6 +13114,10 @@
       "set": "nature",
       "base": "lilyseed"
     },
+    "points": {
+      "capture": 30,
+      "capon": 50
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12410,6 +13135,10 @@
       "stage": 3,
       "set": "nature",
       "base": "lilyseed"
+    },
+    "points": {
+      "capture": 45,
+      "capon": 45
     },
     "state": "physical",
     "category": "evolution_nature",
@@ -12433,6 +13162,10 @@
       "set": "nature",
       "base": "lilyseed"
     },
+    "points": {
+      "capture": 60,
+      "capon": 35
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12454,6 +13187,10 @@
       "stage": 5,
       "set": "nature",
       "base": "lilyseed"
+    },
+    "points": {
+      "capture": 75,
+      "capon": 25
     },
     "state": "physical",
     "category": "evolution_nature",
@@ -12477,6 +13214,10 @@
       "set": "nature",
       "base": "lilyseed"
     },
+    "points": {
+      "capture": 75,
+      "capon": 25
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12498,6 +13239,10 @@
       "stage": 5,
       "set": "nature",
       "base": "lilyseed"
+    },
+    "points": {
+      "capture": 75,
+      "capon": 25
     },
     "state": "physical",
     "category": "evolution_nature",
@@ -12521,6 +13266,10 @@
       "set": "nature",
       "base": "carnationseed"
     },
+    "points": {
+      "capture": 75,
+      "capon": 25
+    },
     "state": "virtual",
     "category": "evolution_nature",
     "can_host": [
@@ -12543,6 +13292,11 @@
       "set": "nature",
       "base": "carnationseed"
     },
+    "points": {
+      "capture": 20,
+      "deploy": 100,
+      "capon": 60
+    },
     "state": "virtual",
     "category": "evolution_nature",
     "can_host": [
@@ -12562,6 +13316,10 @@
       "set": "nature",
       "base": "carnationseed"
     },
+    "points": {
+      "capture": 30,
+      "capon": 50
+    },
     "state": "virtual",
     "category": "evolution_nature",
     "can_host": [
@@ -12579,6 +13337,10 @@
       "stage": 3,
       "set": "nature",
       "base": "carnationseed"
+    },
+    "points": {
+      "capture": 45,
+      "capon": 45
     },
     "state": "virtual",
     "category": "evolution_nature",
@@ -12602,6 +13364,10 @@
       "set": "nature",
       "base": "carnationseed"
     },
+    "points": {
+      "capture": 60,
+      "capon": 35
+    },
     "state": "virtual",
     "category": "evolution_nature",
     "can_host": [
@@ -12623,6 +13389,10 @@
       "stage": 5,
       "set": "nature",
       "base": "carnationseed"
+    },
+    "points": {
+      "capture": 75,
+      "capon": 25
     },
     "state": "virtual",
     "category": "evolution_nature",
@@ -12646,6 +13416,10 @@
       "set": "nature",
       "base": "carnationseed"
     },
+    "points": {
+      "capture": 75,
+      "capon": 25
+    },
     "state": "virtual",
     "category": "evolution_nature",
     "can_host": [
@@ -12667,6 +13441,10 @@
       "stage": 5,
       "set": "nature",
       "base": "carnationseed"
+    },
+    "points": {
+      "capture": 75,
+      "capon": 25
     },
     "state": "virtual",
     "category": "evolution_nature",
@@ -12690,6 +13468,10 @@
       "set": "nature",
       "base": "carnationseed"
     },
+    "points": {
+      "capture": 75,
+      "capon": 25
+    },
     "state": "virtual",
     "category": "evolution_nature",
     "can_host": [
@@ -12711,6 +13493,10 @@
       "stage": 5,
       "set": "nature",
       "base": "carnationseed"
+    },
+    "points": {
+      "capture": 75,
+      "capon": 25
     },
     "state": "virtual",
     "category": "evolution_nature",
@@ -12827,6 +13613,11 @@
       "set": "nature",
       "base": "butterflyegg"
     },
+    "points": {
+      "capture": 50,
+      "deploy": 100,
+      "capon": 30
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -12845,6 +13636,10 @@
       "set": "nature",
       "base": "butterflyegg"
     },
+    "points": {
+      "capture": 40,
+      "capon": 20
+    },
     "state": "physical",
     "category": "evolution_nature",
     "cids": [],
@@ -12860,6 +13655,10 @@
       "set": "nature",
       "base": "butterflyegg"
     },
+    "points": {
+      "capture": 45,
+      "capon": 25
+    },
     "state": "physical",
     "category": "evolution_nature",
     "cids": [],
@@ -12874,6 +13673,10 @@
       "stage": 4,
       "set": "nature",
       "base": "butterflyegg"
+    },
+    "points": {
+      "capture": 40,
+      "capon": 30
     },
     "state": "physical",
     "category": "evolution_nature",
@@ -13713,6 +14516,11 @@
       "set": "nature",
       "base": "frogegg"
     },
+    "points": {
+      "capture": 50,
+      "deploy": 100,
+      "capon": 30
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -13731,6 +14539,10 @@
       "set": "nature",
       "base": "frogegg"
     },
+    "points": {
+      "capture": 40,
+      "capon": 20
+    },
     "state": "physical",
     "category": "evolution_nature",
     "cids": [],
@@ -13746,6 +14558,10 @@
       "set": "nature",
       "base": "frogegg"
     },
+    "points": {
+      "capture": 45,
+      "capon": 25
+    },
     "state": "physical",
     "category": "evolution_nature",
     "cids": [],
@@ -13760,6 +14576,10 @@
       "stage": 4,
       "set": "nature",
       "base": "frogegg"
+    },
+    "points": {
+      "capture": 40,
+      "capon": 30
     },
     "state": "physical",
     "category": "evolution_nature",
@@ -15236,6 +16056,11 @@
       "set": "nature",
       "base": "turtleegg"
     },
+    "points": {
+      "capture": 50,
+      "deploy": 100,
+      "capon": 30
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -15255,6 +16080,10 @@
       "set": "nature",
       "base": "turtleegg"
     },
+    "points": {
+      "capture": 40,
+      "capon": 20
+    },
     "state": "physical",
     "category": "evolution_nature",
     "can_host": [
@@ -15272,6 +16101,10 @@
       "stage": 3,
       "set": "nature",
       "base": "turtleegg"
+    },
+    "points": {
+      "capture": 45,
+      "capon": 25
     },
     "state": "physical",
     "category": "evolution_nature",
@@ -15291,6 +16124,10 @@
       "set": "nature",
       "base": "turtleegg"
     },
+    "points": {
+      "capture": 40,
+      "capon": 30
+    },
     "state": "physical",
     "category": "evolution_nature",
     "cids": [],
@@ -15305,6 +16142,11 @@
       "stage": 1,
       "set": "nature",
       "base": "planulalarva"
+    },
+    "points": {
+      "capture": 50,
+      "deploy": 100,
+      "capon": 30
     },
     "state": "virtual",
     "category": "evolution_nature",
@@ -15328,6 +16170,10 @@
       "set": "nature",
       "base": "planulalarva"
     },
+    "points": {
+      "capture": 40,
+      "capon": 20
+    },
     "state": "virtual",
     "category": "evolution_nature",
     "can_host": [
@@ -15348,6 +16194,10 @@
       "stage": 3,
       "set": "nature",
       "base": "planulalarva"
+    },
+    "points": {
+      "capture": 45,
+      "capon": 25
     },
     "state": "virtual",
     "category": "evolution_nature",
@@ -16351,6 +17201,10 @@
       "stage": 4,
       "set": "nature",
       "base": "planulalarva"
+    },
+    "points": {
+      "capture": 40,
+      "capon": 30
     },
     "state": "virtual",
     "category": "evolution_nature",

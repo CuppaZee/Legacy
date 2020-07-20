@@ -9,6 +9,12 @@ const cors = require("cors")({
 var routes = [...require("./user"), ...require("./auth"), ...require("./minute"), ...require("./clan"), ...require("./munzee"), ...require("./bouncers"), ...require("./notifications"), ...require("./map"), ...require("./camps")];
 
 var x = async (req, res) => {
+  const cns = {
+    function: '?',
+    log(){console.log(this.function,...arguments)},
+    error(){console.error(this.function,...arguments)},
+    warn(){console.warn(this.function,...arguments)},
+  }
   var startTime = process.hrtime();
   function executed_in() {
     let pt = process.hrtime(startTime);
@@ -16,6 +22,7 @@ var x = async (req, res) => {
   }
   return cors(req, res, async () => {
     try {
+      cns.function = req.path;
       var path = req.path.split("/").filter(Boolean);
       var version = null;
       var route = path.join("/");
@@ -30,6 +37,7 @@ var x = async (req, res) => {
         raw: path.join("/"),
         params: null,
       };
+      cns.function = `E: ${routeDetails.route} V: ${routeDetails.version} R: ${routeDetails.raw}`;
       var use_route = routes.find((i) => i.path === route);
       if (!use_route) {
         return res.send({
@@ -45,6 +53,7 @@ var x = async (req, res) => {
       }
       var use_version = version || use_route.latest;
       routeDetails.version = use_version;
+      cns.function = `E: ${routeDetails.route} V: ${routeDetails.version} R: ${routeDetails.raw}`;
       if (!use_route.versions.find((i) => i.version === use_version)) {
         return res.send({
           data: null,
@@ -79,13 +88,14 @@ var x = async (req, res) => {
           body = req.body;
         }
       } catch (e) {
-        console.log(e);
+        cns.error(e);
       }
       var params = Object.assign({}, req.query || {}, body || {});
       var response = await use.function({
         params: params,
         res,
-        db
+        db,
+        cns
       });
       if (response.norespond) return;
       return res
@@ -117,7 +127,7 @@ var x = async (req, res) => {
           executed_in: executed_in(),
         });
     } catch (e) {
-      console.log(e);
+      cns.error(e);
       return res
         .status(500)
         .send({

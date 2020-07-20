@@ -139,10 +139,15 @@ munzees = munzees.concat(require('./types/evolution.json').map(i => ({
   },
   ...(i.extra || {}),
 
+  points: i.points || `evo_${{
+    farm: "original",
+    education: "original",
+    reseller: "original",
+    nature: i.base.includes('seed')?"flower":"animal"
+  }[i.set]}_${i.stage}`,
   state: i.state,
   category: "evolution_" + i.set,
 
-  points: i.points,
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/evolution.json"
@@ -302,7 +307,7 @@ munzees = munzees.concat(require('./types/virtual.json').map(i => ({
   state: i.state,
   category: "virtual",
 
-  points: i.points,
+  points: "virtual",
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/virtual.json"
@@ -1000,6 +1005,7 @@ munzees.sort((a, b) => (a.id || 0) - (b.id || 0));
 categories.sort((a, b) => (b.priority || 0) - (a.priority || 0));
 
 var typekeys = {};
+var idkeys = {};
 
 function g(icon) {
   if(icon.startsWith('https://munzee.global')) icon = icon.slice(49,-4);
@@ -1013,6 +1019,7 @@ for (var munzee_index in munzees) {
   munzee.cids = []
   munzees[munzee_index].x = Number(munzee_index);
   munzees[munzee_index].i = g(munzee.icon);
+  idkeys[munzee.id] = Number(munzee_index);
   for (var icon of [munzee.icon, ...munzee.alt_icons || []]) {
     typekeys[g(icon)] = Number(munzee_index);
   }
@@ -1031,6 +1038,13 @@ fs.writeFileSync('output/typekeys.json', JSON.stringify(typekeys, null, 2))
 fs.writeFileSync('output/typekeys.min.json', JSON.stringify(typekeys))
 fs.writeFileSync('../PaperZee/utils/db/typekeys.json', JSON.stringify(typekeys))
 fs.writeFileSync('../FlameZee/functions/util/db/typekeys.json', JSON.stringify(typekeys))
+
+console.log(`${colors.bg.Green}${colors.fg.Black} Types Written to Files - Writing ID Keys to Files... ${colors.Reset}`)
+
+fs.writeFileSync('output/idkeys.json', JSON.stringify(idkeys, null, 2))
+fs.writeFileSync('output/idkeys.min.json', JSON.stringify(idkeys))
+// fs.writeFileSync('../PaperZee/utils/db/typekeys.json', JSON.stringify(idkeys))
+fs.writeFileSync('../FlameZee/functions/util/db/idkeys.json', JSON.stringify(idkeys))
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Type Keys Written to Files - Writing Categories to JSON... ${colors.Reset}`)
 

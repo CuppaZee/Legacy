@@ -1,4 +1,5 @@
 var { retrieve, request } = require("../util");
+var { get } = require("../util/db");
 var spherical = require('spherical-geometry-js');
 
 const pointsForBlast = {
@@ -162,7 +163,6 @@ module.exports = {
 
         if (data) {
           let munzees = data[0].munzees;
-          console.log(data);
           munzees = munzees.filter(i => !i.unicorn).filter(i => spherical.computeDistanceBetween({ lat: i.latitude, lng: i.longitude }, { lat, lng }) * 0.0006213712 <= 1).sort((a, b) => {
             return spherical.computeDistanceBetween({ lat: a.latitude, lng: a.longitude }, { lat, lng }) - spherical.computeDistanceBetween({ lat: b.latitude, lng: b.longitude }, { lat, lng })
           }).map(i => {
@@ -181,6 +181,18 @@ module.exports = {
           })
           var output = [];
           for(var munzee of munzees) {
+            var type = (get("icon",munzee.original_pin_image)||{}).points||{capture:0};
+            var typePoints = {
+              split: {
+                min: type.min,
+                avg: type.split / 2,
+                max: type.split - type.min
+              }
+            }[type.type]||{
+              min: type.capture,
+              avg: type.capture,
+              max: type.capture
+            }
             if(output.length === 0 || output[output.length-1].total === Number(amount||100)) {
               output.push({
                 total: 0,
@@ -194,9 +206,9 @@ module.exports = {
             }
             output[output.length-1].total += 1;
             output[output.length-1].points = {
-              min: output[output.length-1].points.min,
-              max: output[output.length-1].points.max,
-              avg: output[output.length-1].points.avg
+              min: output[output.length-1].points.min + typePoints.min,
+              max: output[output.length-1].points.max + typePoints.max,
+              avg: output[output.length-1].points.avg + typePoints.avg
             }
             if(!output[output.length-1].types[munzee.original_pin_image.slice(49,-4)]) output[output.length-1].types[munzee.original_pin_image.slice(49,-4)] = {
               total: 0,
@@ -209,9 +221,9 @@ module.exports = {
             output[output.length-1].types[munzee.original_pin_image.slice(49,-4)] = {
               total: output[output.length-1].types[munzee.original_pin_image.slice(49,-4)].total + 1,
               points: {
-                min: output[output.length-1].types[munzee.original_pin_image.slice(49,-4)].points.min,
-                max: output[output.length-1].types[munzee.original_pin_image.slice(49,-4)].points.max,
-                avg: output[output.length-1].types[munzee.original_pin_image.slice(49,-4)].points.avg,
+                min: output[output.length-1].types[munzee.original_pin_image.slice(49,-4)].points.min + typePoints.min,
+                max: output[output.length-1].types[munzee.original_pin_image.slice(49,-4)].points.max + typePoints.max,
+                avg: output[output.length-1].types[munzee.original_pin_image.slice(49,-4)].points.avg + typePoints.avg,
               }
             }
           }

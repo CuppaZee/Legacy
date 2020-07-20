@@ -4,5 +4,6 @@ module.exports = [
   require('./clanprogress'),
   require('./quest'),
   require('./bouncers'),
-  require('./list')
+  require('./list'),
+  require('./qrew')
 ]
