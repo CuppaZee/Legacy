@@ -797,4 +797,18 @@ export default {
       description: 'Improved Design and added Total Points and Recent Capture/Deploy checks'
     }
   ],
+  202: [
+    {
+      icon: 'check-bold',
+      title: 'Reduced API Request Usage',
+      description: 'CuppaZee now sends less unnecessary Munzee API Requests (eg. when you have the tab open in the background).'
+    }
+  ],
+  203: [
+    {
+      icon: 'bug',
+      title: 'Squashed Bugs',
+      description: 'Fixed some issues with delays in sending requests after tab becoming active.'
+    }
+  ],
 }

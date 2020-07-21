@@ -2,7 +2,7 @@ import allSettled from '@ungap/promise-all-settled'
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import r from './request';
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, AppState } from 'react-native';
 import stringify from 'fast-json-stable-stringify';
 import themes from 'utils/themes'
 import changelogs from 'changelogs'
@@ -248,7 +248,23 @@ var rootReducer = (state = defaultState, action) => {
 
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
-setInterval(refreshRequests,60000,store);
+var intervalID = null;
+function startLoop() {
+  if(intervalID!==null) clearInterval(intervalID);
+  intervalID = setInterval(refreshRequests,60000,store);
+}
+function stopLoop() {
+  if(intervalID!==null) clearInterval(intervalID);
+}
+startLoop();
+AppState.addEventListener('change',function(state) {
+  if(state==="active") {
+    refreshRequests(store);
+    startLoop();
+  } else {
+    stopLoop();
+  };
+})
 
 async function getToken(user_id,data) {
   try {

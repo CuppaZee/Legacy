@@ -52,7 +52,7 @@ async function makeRequest(getState, dispatch, pageInput, force) {
         use_user = Object.keys(getState().logins)[0]
       }
 
-      for (var loop = 0; loop < 2; loop++) {
+      for (var loop = 0; loop < 1; loop++) {
         // Get Updated Token
         var token_data = getState().logins[use_user]?.token;
         var token = token_data?.access_token;
