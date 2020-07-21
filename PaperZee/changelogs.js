@@ -811,4 +811,11 @@ export default {
       description: 'Fixed some issues with delays in sending requests after tab becoming active.'
     }
   ],
+  204: [
+    {
+      icon: 'bomb',
+      title: 'Updated Blast Checker',
+      description: 'A circle now shows on the Location Picker map to allow you to see how large the blast radius is.'
+    }
+  ],
 }

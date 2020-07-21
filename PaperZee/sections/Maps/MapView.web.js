@@ -1,5 +1,5 @@
 import React from 'react'
-import { GoogleMap, LoadScript, Marker, MarkerClusterer, StandaloneSearchBox } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker, MarkerClusterer, StandaloneSearchBox, Circle } from '@react-google-maps/api';
 import { useSelector } from 'react-redux';
 import { FAB, Snackbar } from 'react-native-paper';
 import * as Location from 'expo-location';
@@ -105,6 +105,16 @@ function WebMap(props) {
           Couldn't retrieve location
         </Snackbar>
         <MarkerRenderer {...props} />
+        {props.circles?.map(i=><Circle
+          radius={i.radius}
+          center={{ lat: i.lat, lng: i.lng }}
+          options={{
+            fillColor: i.fill,
+            fillOpacity: 1,
+            strokeColor: i.stroke,
+            strokeOpacity: 1,
+          }}
+        />)}
       </GoogleMap>
     </LoadScript>
   )

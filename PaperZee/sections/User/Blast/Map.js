@@ -57,15 +57,27 @@ export default function ClanScreen({ route }) {
         style={{ flex: 1, backgroundColor: theme.page.bg }}>
         <View style={{ padding: 4, height: 400, width: "100%" }}>
           <Card noPad>
-            <MapView center={storedLocation} onRegionChange={({ latitude, longitude }) => {
-              if (storedLocation.lat !== latitude || storedLocation.lng !== longitude) setStoredLocation({
-                lat: latitude,
-                lng: longitude
-              })
-            }} tracksViewChanges={true} markers={[{
-              ...storedLocation,
-              icon: "blastcapture"
-            }]} style={{ flex: 1 }} />
+            <MapView
+              center={storedLocation}
+              onRegionChange={({ latitude, longitude }) => {
+                if (storedLocation.lat !== latitude || storedLocation.lng !== longitude) setStoredLocation({
+                  lat: latitude,
+                  lng: longitude
+                })
+              }}
+              tracksViewChanges={true}
+              markers={[{
+                ...storedLocation,
+                icon: "blastcapture"
+              }]}
+              circles={[{
+                ...storedLocation,
+                fill: theme.navigation.bg + '33',
+                stroke: theme.navigation.bg,
+                radius: 1609.344
+              }]}
+              style={{ flex: 1 }}
+            />
           </Card>
         </View>
         <View style={{ flexDirection: "row", width: "100%" }}>
@@ -82,7 +94,7 @@ export default function ClanScreen({ route }) {
                 lon: storedLocation.lng
               })}>
               Mini
-                </Button>
+            </Button>
           </View>
           <View style={{ padding: 4, flex: 1 }}>
             <Button
@@ -97,7 +109,7 @@ export default function ClanScreen({ route }) {
                 lon: storedLocation.lng
               })}>
               Normal
-              </Button>
+            </Button>
           </View>
           <View style={{ padding: 4, flex: 1 }}>
             <Button
@@ -112,7 +124,7 @@ export default function ClanScreen({ route }) {
                 lon: storedLocation.lng
               })}>
               Mega
-                </Button>
+            </Button>
           </View>
         </View>
       </ScrollView>

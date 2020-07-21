@@ -1,5 +1,5 @@
 import React from "react";
-import { Marker } from "react-native-maps";
+import { Marker, Circle } from "react-native-maps";
 import MapView from "react-native-map-clustering";
 import { useSelector } from "react-redux";
 import { View, Image } from "react-native";
@@ -53,6 +53,13 @@ export default function Map(props) {
         })
       }}
     >
+      {props.circles?.map(i => <Circle
+        key={i.id}
+        center={{ latitude: i.lat, longitude: i.lng }}
+        radius={i.radius}
+        fillColor={i.fill}
+        strokeColor={i.stroke}
+      />)}
       {props.markers?.map(i => <Marker
         key={i.id}
         tracksViewChanges={!!props.tracksViewChanges}
