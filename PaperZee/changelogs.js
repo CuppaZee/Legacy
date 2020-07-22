@@ -818,4 +818,23 @@ export default {
       description: 'A circle now shows on the Location Picker map to allow you to see how large the blast radius is.'
     }
   ],
+  205: [
+    {
+      icon: 'bug',
+      title: 'Squashed a Bug',
+      description: 'Fixed an issue with Maps on Android'
+    }
+  ],
+  206: [
+    {
+      icon: 'coffee',
+      title: 'Added Ko-Fi Donate Link',
+      description: 'Added a new Donate via Ko-Fi button in case people want to buy me a coffee instead of donating via Patreon or PayPal.'
+    },
+    {
+      icon: 'heart',
+      title: 'Updated Credits',
+      description: 'Added coolant, GateGeek, Neta and AgentHop'
+    }
+  ],
 }

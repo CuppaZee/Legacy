@@ -72,6 +72,7 @@ export default function SettingsScreen() {
       <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold"), textAlign: "center" }}>{t('app_info:patrons_and_supporters')}</Text>
       <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
         <Button style={{ marginHorizontal: 4 }} color="#F96854" mode="contained" onPress={() => Linking.openURL('https://patreon.com/CuppaZee')} icon="patreon">{t('app_info:patreon_donate')}</Button>
+        <Button style={{ marginHorizontal: 4 }} color="#29abe0" mode="contained" onPress={() => Linking.openURL('https://ko-fi.com/sohcah')} icon="coffee">One-Time via Ko-Fi</Button>
         <Menu
           visible={open}
           onDismiss={() => setOpen(false)}

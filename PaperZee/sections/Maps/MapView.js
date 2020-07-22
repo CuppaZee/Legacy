@@ -53,7 +53,7 @@ export default function Map(props) {
         })
       }}
     >
-      {props.circles?.map(i => <Circle
+      {(props.circles||[]).map(i => <Circle
         key={i.id}
         center={{ latitude: i.lat, longitude: i.lng }}
         radius={i.radius}

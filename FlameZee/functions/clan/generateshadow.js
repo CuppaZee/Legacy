@@ -98,6 +98,7 @@ var data = {
       "founditwherenext",
       "clair21",
       "tzaruba",
+      "boomgal8",
       "lolbot",
       "unicornpink"
     ],
@@ -113,7 +114,6 @@ var data = {
     1902: [
       "mankybadger",
       "mlec",
-      "boomgal8",
       "bingbonglong",
       "amyjoy",
       "terryd",

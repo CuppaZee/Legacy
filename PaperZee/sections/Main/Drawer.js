@@ -367,6 +367,7 @@ export default function CustomDrawerContent(props) {
       >
         <View style={{ paddingHorizontal: 4, alignItems: "stretch" }}>
           <Button style={{ marginHorizontal: 4 }} color="#F96854" mode="contained" onPress={() => Linking.openURL('https://patreon.com/CuppaZee')} icon="patreon">{t('app_info:patreon_donate')}</Button>
+          <Button style={{ marginHorizontal: 4, marginTop: 4 }} color="#29abe0" mode="contained" onPress={() => Linking.openURL('https://ko-fi.com/sohcah')} icon="coffee">One-Time via Ko-Fi</Button>
           <Menu
             visible={paypalOpen}
             onDismiss={() => setPaypalOpen(false)}
