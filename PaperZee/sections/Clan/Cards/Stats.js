@@ -190,7 +190,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
         <MainScrollView scroll={scroll} s={s}>
           <View style={{ flexDirection: "column", flexGrow: 1, alignItems: "stretch", backgroundColor: level_colors.null.bg }}>
             <View style={{ flexDirection: "row", marginRight: 1 }}>
-              {(data?.order?.requirements ?? []).map(i => <View style={{ flexGrow: 1 }}>
+              {(data?.order?.requirements ?? []).map((i,reqIndex) => <View style={{ flexGrow: 1 }}>
                 <TouchableRipple onPress={() => {
                   if (sortReq !== i) {
                     setSortReq(i);
@@ -199,7 +199,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
                     setAscending(!ascending);
                   }
                 }}>
-                  <View style={{ height: (96 - 19) * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'].bg }}>
+                  <View style={{ ...((reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&data.order.individual.includes(i))||reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&!data.order.individual.includes(i)))?{ borderLeftWidth: 2 * s, borderLeftColor: level_colors.border }:{}), marginHorizontal: -1 * s, height: (96 - 19) * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'].bg }}>
                     <Image source={getIcon(data?.requirements?.[i]?.icon ?? data?.requirements?.[i]?.icons?.[tick % data?.requirements?.[i]?.icons?.length])} style={{ height: 36 * s, width: 36 * s }} />
                     <View style={{ flexDirection: "row", alignItems: "baseline" }}>
                       <Text allowFontScaling={false} numberOfLines={1} style={{ color: level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'].fg, textAlign: "center", ...font("bold"), fontSize: 12 * s }}>{t('clan_req:'+data?.requirements?.[i]?.top)}</Text>
@@ -208,24 +208,24 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
                     <Text allowFontScaling={false} numberOfLines={1} style={{ color: level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'].fg, textAlign: "center", ...font(), fontSize: 12 * s }}>{t('clan_req:'+data?.requirements?.[i]?.bottom)}</Text>
                   </View>
                 </TouchableRipple>
-                <View style={{ borderBottomWidth: 2 * s, borderBottomColor: level_colors.border, marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[levelSelect + 1].bg }}>
+                <View style={{ ...((reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&data.order.individual.includes(i))||reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&!data.order.individual.includes(i)))?{ borderLeftWidth: 2 * s, borderLeftColor: level_colors.border }:{}), borderBottomWidth: 2 * s, borderBottomColor: level_colors.border, marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[levelSelect + 1].bg }}>
                   {
                     share ?
                       <Text allowFontScaling={false} style={{ textAlign: "center", ...font(), width: '100%', fontSize: 12 * s, color: level_colors[levelSelect + 1].fg }}>{num(Math.max(data?.levels?.[levelSelect]?.individual?.[i] || 0, Math.ceil((data?.levels?.[levelSelect]?.group?.[i] || 0) / (clan?.members?.length || 100)), 0), true)}</Text>
                       : <Text allowFontScaling={false} style={{ textAlign: "center", ...font(), width: '100%', fontSize: 12 * s, color: level_colors[levelSelect + 1].fg }}>{num(data?.levels?.[levelSelect]?.individual?.[i] || 0, true)}</Text>
                   }
                 </View>
-                {members?.map(u => <View style={{ marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[calculateLevel(true, clan.requirements?.[i]?.users?.[u.user_id], i)].bg }}>
+                {members?.map(u => <View style={{ ...((reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&data.order.individual.includes(i))||reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&!data.order.individual.includes(i)))?{ borderLeftWidth: 2 * s, borderLeftColor: level_colors.border }:{}), marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[calculateLevel(true, clan.requirements?.[i]?.users?.[u.user_id], i)].bg }}>
                   <Text allowFontScaling={false} style={{ flexDirection: "row", textAlign: "center", width: '100%', ...font(userBookmarks.includes(Number(u.user_id)) ? "bold" : 400), fontSize: 12 * s, color: level_colors[calculateLevel(true, clan.requirements?.[i]?.users?.[u.user_id], i)].fg }}>
                     {levelTable ? num((data?.levels?.[levelSelect]?.individual?.[i] || 0) - clan.requirements?.[i]?.users?.[u.user_id]) : num(clan.requirements?.[i]?.users?.[u.user_id])}
                   </Text>
                 </View>)}
-                <View style={{ borderTopWidth: 2 * s, borderTopColor: level_colors.border, marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[calculateLevel(false, clan.requirements?.[i]?.total, i)].bg }}>
+                <View style={{ ...((reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&data.order.individual.includes(i))||reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&!data.order.individual.includes(i)))?{ borderLeftWidth: 2 * s, borderLeftColor: level_colors.border }:{}), borderTopWidth: 2 * s, borderTopColor: level_colors.border, marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[calculateLevel(false, clan.requirements?.[i]?.total, i)].bg }}>
                   <Text allowFontScaling={false} style={{ textAlign: "center", width: '100%', ...font(), fontSize: 12 * s, color: level_colors[calculateLevel(false, clan.requirements?.[i]?.total, i)].fg }}>
                     {levelTable ? num((data?.levels?.[levelSelect]?.group?.[i] || 0) - clan.requirements?.[i]?.total) : num(clan.requirements?.[i]?.total)}
                   </Text>
                 </View>
-                <View style={{ marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[levelSelect + 1].bg }}>
+                <View style={{ ...((reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&data.order.individual.includes(i))||reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&!data.order.individual.includes(i)))?{ borderLeftWidth: 2 * s, borderLeftColor: level_colors.border }:{}), marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[levelSelect + 1].bg }}>
                   <Text allowFontScaling={false} style={{ textAlign: "center", width: '100%', ...font(), fontSize: 12 * s, color: level_colors[levelSelect + 1].fg }}>{num(data?.levels?.[levelSelect]?.group?.[i] || 0, true)}</Text>
                 </View>
               </View>)}

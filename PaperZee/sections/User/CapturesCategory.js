@@ -58,19 +58,9 @@ export default function SearchScreen({ navigation, route }) {
               <Text allowFontScaling={false} style={{ ...font(), textAlign: "center", color: theme.page_content.fg }}>{moment(category_data.seasonal.starts).format('L LT')} - {moment(category_data.seasonal.ends).format('L LT')}</Text>
               <Text allowFontScaling={false} style={{ ...font(), textAlign: "center", color: theme.page_content.fg }}>{t('bouncers:duration',{duration:moment.duration(moment(category_data.seasonal.starts).diff(moment(category_data.seasonal.ends))).humanize()})}</Text>
             </>}
-            {parent_datas.map(parent_data => parent_data.id !== "root" ? null
-            /*<View style={{ padding: 4, flexDirection: "row", alignItems: "center" }}>
-              <IconButton size={24} onPress={() => navigation.push('UserCapturesCategory', { userid: user_id, category: parent_data.id })} icon="chevron-left" color={theme.page_content.fg} />
-              <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={{ uri: parent_data.custom_icon ?? `https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(parent_data.icon)}.png` }} />
-              <View style={{ flex: 1 }}>
-                <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{parent_data.name}</Text>
-                <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{`Go Back`}</Text>
-              </View>
-            </View> */
-            : <View style={{ padding: 4, flexDirection: "row", alignItems: "center" }}>
+            {parent_datas.map(parent_data => parent_data.id !== "root" ? null : <View style={{ padding: 4, flexDirection: "row", alignItems: "center" }}>
                 <IconButton size={24} onPress={() => navigation.push('UserDetails', { username: username })} icon="chevron-left" color={theme.page_content.fg} />
                 <Image style={{ borderRadius: 16, height: 32, width: 32, marginHorizontal: 8 }} source={{ uri: parent_data.custom_icon ?? `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id || 0).toString(36)}.png` }} />
-                {/* <Image style={{height:32,width:32,marginHorizontal:8}} source={{uri:parent_data.custom_icon??`https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(parent_data.icon)}.png`}} /> */}
                 <View style={{ flex: 1 }}>
                   <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{t('screens:UserDetails')}</Text>
                   <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{t(`db:go_back`)}</Text>

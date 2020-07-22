@@ -22,30 +22,34 @@ export default function SettingsScreen({ navigation }) {
   var [push,setPush] = React.useState(null);
   var [data,setData] = React.useState(false);
   async function enableNotifications() {
-    if (Constants.isDevice && Platform.OS !== "web") {
-      const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
-      let finalStatus = existingStatus;
-      if (existingStatus !== 'granted') {
-        const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
-        finalStatus = status;
+    try {
+      if (Constants.isDevice && Platform.OS !== "web") {
+        const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+        let finalStatus = existingStatus;
+        if (existingStatus !== 'granted') {
+          const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+          finalStatus = status;
+        }
+        if (finalStatus !== 'granted') {
+          alert('Failed to get push token for push notification!');
+          return;
+        }
+        token = await Notifications.getExpoPushTokenAsync();
+        setPush(token);
+      } else {
+        setPush(false);
       }
-      if (finalStatus !== 'granted') {
-        alert('Failed to get push token for push notification!');
-        return;
-      }
-      token = await Notifications.getExpoPushTokenAsync();
-      setPush(token);
-    } else {
-      setPush(false);
-    }
 
-    if (Platform.OS === 'android') {
-      Notifications.createChannelAndroidAsync('default', {
-        name: 'default',
-        sound: true,
-        priority: 'max',
-        vibrate: [0, 250, 250, 250],
-      });
+      if (Platform.OS === 'android') {
+        Notifications.createChannelAndroidAsync('default', {
+          name: 'default',
+          sound: true,
+          priority: 'max',
+          vibrate: [0, 250, 250, 250],
+        });
+      }
+    } catch(e) {
+      setToken(false);
     }
   }
   async function getCurrentOptions() {

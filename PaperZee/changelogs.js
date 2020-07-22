@@ -834,7 +834,19 @@ export default {
     {
       icon: 'heart',
       title: 'Updated Credits',
-      description: 'Added coolant, GateGeek, Neta and AgentHop'
+      description: 'Added coolant, GateGeek, Neta and AgentHop to Supporters List'
+    }
+  ],
+  207: [
+    {
+      icon: 'brush',
+      title: 'Tweaked Design',
+      description: 'Improved various bits of design across the app'
+    },
+    {
+      icon: 'heart',
+      title: 'Updated Credits',
+      description: 'Added zip61348 to Supporters List'
     }
   ],
 }

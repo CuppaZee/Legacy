@@ -26,7 +26,7 @@ function DateSwitcher({ dateString, toggleDrawer }) {
   const nav = useNavigation();
   const theme = useSelector(i => i.themes[i.theme]);
   const [datePickerOpen, setDatePickerOpen] = React.useState(false);
-  return <View style={{ borderTopLeftRadius: 8, borderTopRightRadius: 8, backgroundColor: (theme.clanCardHeader || theme.navigation).bg }}>
+  return <View style={{ ...(theme.page_content.border ? { borderBottomWidth: 1, borderBottomColor: theme.page_content.border } : {}), borderTopLeftRadius: 8, borderTopRightRadius: 8, backgroundColor: (theme.clanCardHeader || theme.navigation).bg }}>
     <View style={{ flexDirection: "row", alignItems: "center" }}>
       <Menu
         visible={datePickerOpen}
@@ -78,8 +78,8 @@ function UserActivityPage({ toggleDrawer, filters }) {
     cuppazee: true
   } : null)
   if (!dataraw) return (
-    <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page_content.bg }}>
-      <ActivityIndicator size="large" color={theme.page_content.fg} />
+    <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page.bg }}>
+      <ActivityIndicator size="large" color={theme.page.fg} />
     </View>
   )
   var activityList = ActivityConverter(dataraw, filters, userdata);

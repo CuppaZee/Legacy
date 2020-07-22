@@ -39,8 +39,8 @@ export default function UserActivityDash({ user_id, username, displayUsername })
       </TouchableRipple>
       {data ?
         <View style={{ paddingBottom: 4 }}><ActivityOverview username={username} user_id={user_id} /></View> :
-        (data === undefined ? <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <ActivityIndicator size="large" color="#000" />
+        (data === undefined ? <View style={{ flex: 1, justifyContent: "center", alignItems: "center", padding: 8 }}>
+          <ActivityIndicator size="large" color={theme.page_content.fg} />
         </View> : <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: '#ffaaaa' }}>
             <MaterialCommunityIcons name="alert" size={48} color="#d00" />
           </View>)}
