@@ -849,4 +849,11 @@ export default {
       description: 'Added zip61348 to Supporters List'
     }
   ],
+  208: [
+    {
+      icon: 'heart',
+      title: 'Updated Credits',
+      description: 'Added nzseries1 to Supporters List'
+    }
+  ],
 }
