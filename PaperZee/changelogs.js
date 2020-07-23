@@ -856,4 +856,11 @@ export default {
       description: 'Added nzseries1 to Supporters List'
     }
   ],
+  209: [
+    {
+      icon: 'heart',
+      title: 'Updated Credits',
+      description: 'Added Rhaegal to Supporters List'
+    }
+  ],
 }
