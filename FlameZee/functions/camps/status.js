@@ -11,8 +11,8 @@ module.exports = {
           data: [
             {id:"overall",title:"Overall",status:"ongoing"},
             {id:"week1",title:"Week 1",status:"finalresults"},
-            {id:"week2",title:"Week 2",status:"ongoing"},
-            {id:"week3",title:"Week 3",status:"comingsoon"},
+            {id:"week2",title:"Week 2",status:"finalresults"},
+            {id:"week3",title:"Week 3",status:"ongoing"},
             {id:"week4",title:"Week 4",status:"comingsoon"},
           ],
         }
