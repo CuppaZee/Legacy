@@ -863,4 +863,11 @@ export default {
       description: 'Added Rhaegal to Supporters List'
     }
   ],
+  210: [
+    {
+      icon: 'heart',
+      title: 'Updated Credits',
+      description: 'Added Marc54140 to Supporters List'
+    }
+  ],
 }
