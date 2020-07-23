@@ -45,7 +45,7 @@ module.exports = {
               user.cap = [];
               let data = await request('user/specials', { user_id: user.i }, token.access_token);
               for (var type of types) {
-                user.cap.push(((data||[]).find(i => i.logo === type) || {}).count || 0)
+                user.cap.push((data.find(i => i.logo === type) || {}).count || 0)
               }
               user.p = user.cap.slice(0, 4).reduce((a, b) => a + b, 0);
               user.p += (user.cap.slice(4).reduce((a, b) => a + b, 0)) * 5;
