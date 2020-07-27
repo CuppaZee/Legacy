@@ -870,4 +870,11 @@ export default {
       description: 'Added Marc54140 to Supporters List'
     }
   ],
+  211: [
+    {
+      icon: 'bug',
+      title: 'Squashed Bugs',
+      description: 'Squashed some bugs'
+    }
+  ],
 }

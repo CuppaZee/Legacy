@@ -10,6 +10,7 @@ import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
 import { useTranslation } from 'react-i18next';
+import FROM from 'from';
 
 export default function SettingsScreen({ navigation }) {
   var {t} = useTranslation();
@@ -57,6 +58,7 @@ export default function SettingsScreen({ navigation }) {
       method: 'POST',
       body: JSON.stringify({
         token: push,
+        from: FROM,
         access_token: token
       })
     })
@@ -73,6 +75,7 @@ export default function SettingsScreen({ navigation }) {
       method: 'POST',
       body: JSON.stringify({
         data: JSON.stringify(data),
+        from: FROM,
         access_token: token
       })
     })

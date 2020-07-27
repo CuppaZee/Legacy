@@ -6,6 +6,32 @@ const cors = require("cors")({
   origin: true,
 });
 
+function checkFrom(from,route) {
+  if(route==="auth/auth") {
+    return true;
+  } else if(from===undefined) {
+    return true;
+  } else if(from.match(/^cuppazee_([a-z]+)_([0-9.]+)_([0-9.]+)$/)) {
+    const [fullMatch,platform,version,build] = from.match(/^cuppazee_([a-z]+)_([0-9.]+)_([0-9.]+)$/);
+    if(["android","ios","web"].includes(platform)) {
+      if(version==="1.2") {
+        if(Number(build)>=210) {
+          return true;
+        }
+      }
+    }
+  } else if(from.match(/^zeetreehouses_([0-9]{4})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})([0-9]{2})([αßΩ]?)$/)) {
+    const [fullMatch,year,month,day,hour,minute,type] = from.match(/^zeetreehouses_([0-9]{4})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})([0-9]{2})([αßΩ]?)$/);
+    return true;
+  } else if(from.match(/^destination_expiry_([0-9.]+)$/)) {
+    const [fullMatch,version] = from.match(/^destination_expiry_([0-9.]+)$/);
+    return true;
+  } else if(from==="human") {
+    return true;
+  }
+  return false;
+}
+
 var routes = [...require("./user"), ...require("./auth"), ...require("./minute"), ...require("./clan"), ...require("./munzee"), ...require("./bouncers"), ...require("./notifications"), ...require("./map"), ...require("./camps")];
 
 var x = async (req, res) => {
@@ -91,12 +117,28 @@ var x = async (req, res) => {
         cns.error(e);
       }
       var params = Object.assign({}, req.query || {}, body || {});
+      if(!checkFrom(params.from,routeDetails.route)) {
+        return res
+          .status(403)
+          .send({
+            data: null,
+            status: {
+              text: "Blocked FROM",
+              id: "blocked_from",
+              code: 403,
+            },
+            route: null,
+            executed_in: executed_in(),
+          });
+      }
+      cns.log('Running')
       var response = await use.function({
         params: params,
         res,
         db,
         cns
       });
+      cns.log('Finished')
       if (response.norespond) return;
       return res
         .status(

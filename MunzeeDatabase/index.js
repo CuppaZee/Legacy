@@ -143,7 +143,7 @@ munzees = munzees.concat(require('./types/evolution.json').map(i => ({
     farm: "original",
     education: "original",
     reseller: "original",
-    nature: i.base.includes('seed')?"flower":"animal"
+    nature: i.base.includes('seed') ? "flower" : "animal"
   }[i.set]}_${i.stage}`,
   state: i.state,
   category: "evolution_" + i.set,
@@ -854,12 +854,12 @@ categories = categories.concat(require('./types/seasonals').map(c => {
   }
 }));
 var priority = 10;
-for(var year of [2020,2019,2018,2017,2016,2015]) {
+for (var year of [2020, 2019, 2018, 2017, 2016, 2015]) {
   categories.push({
-    name: year+" Seasonal Specials",
-    id: "seasonal_"+year,
-    icon: categories.slice().sort((a, b) => (b.seasonal || {}).starts - (a.seasonal || {}).starts).find(i => i.parents.includes("seasonal_"+year)).icon,
-    parents: priority==10?["seasonal", "root"]:["seasonal"],
+    name: year + " Seasonal Specials",
+    id: "seasonal_" + year,
+    icon: categories.slice().sort((a, b) => (b.seasonal || {}).starts - (a.seasonal || {}).starts).find(i => i.parents.includes("seasonal_" + year)).icon,
+    parents: priority == 10 ? ["seasonal", "root"] : ["seasonal"],
     priority: priority
   })
   priority--;
@@ -875,7 +875,7 @@ categories.push({
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Credits${colors.Reset} from ${colors.fg.Green}./types/credits.js${colors.Reset}`)
 munzees = munzees.concat(require('./types/credits.js').map(i => ({
   ...i,
-  id: "credit_"+i.icon,
+  id: "credit_" + i.icon,
   category: i.category || "credit",
 
   completion: "complete",
@@ -1008,15 +1008,14 @@ var typekeys = {};
 var idkeys = {};
 
 function g(icon) {
-  if(icon.startsWith('https://munzee.global')) icon = icon.slice(49,-4);
-  var x = decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g,'');
-  if(x!=="munzee"&&x.endsWith('munzee')) return x.replace(/munzee$/,'')
+  if (icon.startsWith('https://munzee.global')) icon = icon.slice(49, -4);
+  var x = decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g, '');
+  if (x !== "munzee" && x.endsWith('munzee')) return x.replace(/munzee$/, '')
   return x;
 }
 
 for (var munzee_index in munzees) {
   var munzee = munzees[munzee_index];
-  munzee.cids = []
   munzees[munzee_index].x = Number(munzee_index);
   munzees[munzee_index].i = g(munzee.icon);
   idkeys[munzee.id] = Number(munzee_index);
@@ -1029,6 +1028,15 @@ console.log(`${colors.bg.Green}${colors.fg.Black} Types Checked - Writing Types 
 
 fs.writeFileSync('output/types.json', JSON.stringify(munzees, null, 2))
 fs.writeFileSync('output/types.min.json', JSON.stringify(munzees))
+fs.writeFileSync('output/types.supermin.json', JSON.stringify(munzees.map(i => (i.event === "custom" ? [i.name,i.icon,i.id,i.x,i.i] : i))))
+// {
+//   name: i.name,
+//   icon: i.icon,
+//   id: i.id,
+//   e: 1,
+//   x: i.x,
+//   i: i.i
+// }
 fs.writeFileSync('../PaperZee/utils/db/types.json', JSON.stringify(munzees))
 fs.writeFileSync('../FlameZee/functions/util/db/types.json', JSON.stringify(munzees))
 

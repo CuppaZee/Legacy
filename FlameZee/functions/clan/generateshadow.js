@@ -106,7 +106,6 @@ var data = {
       "chameleon42",
       "moppett85",
       "armchair",
-      "ajb777",
       "godzilla73",
       "reart",
       "chipperlarter"
@@ -115,6 +114,8 @@ var data = {
       "mankybadger",
       "mlec",
       "bingbonglong",
+      "ujio",
+      "ajb777",
       "amyjoy",
       "terryd",
       "tia67uk",
@@ -131,11 +132,10 @@ var data = {
       "chefmummyyummy"
     ],
     "-1": [
-      "kcat",
-      "ujio",
-      "beanieflump",
-      "shaunem",
-      "signal77"
+      "kcat", //Level 1
+      "beanieflump", //Level 2
+      "shaunem", //Level 1?
+      "signal77" //Level 1
     ]
   }
 }

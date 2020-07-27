@@ -6,6 +6,7 @@ import { AsyncStorage, AppState } from 'react-native';
 import stringify from 'fast-json-stable-stringify';
 import themes from 'utils/themes'
 import changelogs from 'changelogs'
+import FROM from 'from';
 var {makeRequest} = r;
 const defaultState = {
   // Requests
@@ -269,7 +270,7 @@ AppState.addEventListener('change',function(state) {
 async function getToken(user_id,data) {
   try {
     var x = Object.assign({},data);
-    var y = await fetch(`https://server.cuppazee.app/auth/get/v2?teaken=${encodeURIComponent(x.teaken)}&user_id=${encodeURIComponent(user_id)}`)
+    var y = await fetch(`https://server.cuppazee.app/auth/get/v2?teaken=${encodeURIComponent(x.teaken)}&user_id=${encodeURIComponent(user_id)}&from=${encodeURIComponent(FROM)}`)
     x.token = (await y.json()).data;
     return x;
   } catch(e) {

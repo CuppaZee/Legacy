@@ -1,7 +1,8 @@
-import { Platform, AsyncStorage } from 'react-native';
+import { AsyncStorage } from 'react-native';
 import stringify from 'fast-json-stable-stringify';
 
-import config from 'sections/Shared/Config';
+import FROM from 'from';
+
 var login_ = (data) => ({ type: "LOGIN", data: data })
 var login = (data, noUpdate) => async (dispatch, getState) => {
   if (!noUpdate) await AsyncStorage.setItem('CUPPAZEE_TEAKENS', JSON.stringify({ ...getState().logins, ...data }));
@@ -66,7 +67,7 @@ async function makeRequest(getState, dispatch, pageInput, force) {
             reqformData.append('access_token', token)
             var d = await fetch(`${page.cuppazee?'https://server.cuppazee.app':'https://api.munzee.com'}/${page.endpoint}`, {
               method: 'POST',
-              body: page.cuppazee?stringify({ ...page.data, page: i, access_token: token }):reqformData
+              body: page.cuppazee?stringify({ ...page.data, page: i, access_token: token, from: FROM }):reqformData
             })
             var da = await d.json();
             if(da?.data) loop = 10;
@@ -79,7 +80,7 @@ async function makeRequest(getState, dispatch, pageInput, force) {
           reqformData.append('access_token', token)
           var d = await fetch(`${page.cuppazee?'https://server.cuppazee.app':'https://api.munzee.com'}/${page.endpoint}`, {
             method: 'POST',
-            body: page.cuppazee?stringify({ ...page.data, access_token: token }):reqformData
+            body: page.cuppazee?stringify({ ...page.data, access_token: token, from: FROM }):reqformData
           })
           data = await d.json();
           if(data?.data) loop = 10;
