@@ -422,5 +422,14 @@ module.exports = [
     "funfinity": true,
     "lands_on": ["treehouse","munzee","earthmystery","aquamarine"],
     "set": "funfinity"
+  },
+  {
+    "name": "Rubiiin",
+    "icon": "rubiin",
+    "id": "null_rubiin",
+    "state": "bouncer",
+    "funfinity": true,
+    "lands_on": ["treehouse","munzee","firemystery","ruby"],
+    "set": "funfinity"
   }
 ]

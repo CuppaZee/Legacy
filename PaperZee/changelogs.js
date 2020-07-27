@@ -877,4 +877,11 @@ export default {
       description: 'Squashed some bugs'
     }
   ],
+  212: [
+    {
+      image: 'rubiin',
+      title: 'Added Rubiin',
+      description: 'Added Rubiin to Munzee Database'
+    }
+  ],
 }
