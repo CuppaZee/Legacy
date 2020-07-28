@@ -13,6 +13,76 @@ import getIcon from 'utils/db/icon';
 import useMoment from 'utils/hooks/useMoment';
 import types from 'utils/db/types.json';
 
+function ClanCountdown({time}) {
+  const moment = useMoment();
+  const [now,setNow] = React.useState(moment());
+  React.useEffect(()=>{
+    const interval = setInterval(()=>{
+      setNow(moment())
+    },500)
+    return ()=>clearInterval(interval);
+  })
+  const dur = moment.duration(moment(time).diff(now))
+  const theme = useSelector(i=>i.themes[i.theme])
+  if(dur.valueOf() < 0) {
+    return <View>
+      <View style={{flexDirection:"row",justifyContent:"center",flexWrap:"wrap",padding:4}}>
+        <View style={{padding:4}}>
+          <View style={{backgroundColor:theme.page.bg,height:64,width:64,borderRadius:8,justifyContent:"center",alignItems:"center"}}>
+            <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font("bold"), fontSize: 24 }}>0</Text>
+            <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font(), fontSize: 12 }}>Days</Text>
+          </View>
+        </View>
+        <View style={{padding:4}}>
+          <View style={{backgroundColor:theme.page.bg,height:64,width:64,borderRadius:8,justifyContent:"center",alignItems:"center"}}>
+            <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font("bold"), fontSize: 24 }}>0</Text>
+            <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font(), fontSize: 12 }}>Hours</Text>
+          </View>
+        </View>
+        <View style={{padding:4}}>
+          <View style={{backgroundColor:theme.page.bg,height:64,width:64,borderRadius:8,justifyContent:"center",alignItems:"center"}}>
+            <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font("bold"), fontSize: 24 }}>0</Text>
+            <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font(), fontSize: 12 }}>Minutes</Text>
+          </View>
+        </View>
+        <View style={{padding:4}}>
+          <View style={{backgroundColor:theme.page.bg,height:64,width:64,borderRadius:8,justifyContent:"center",alignItems:"center"}}>
+            <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font("bold"), fontSize: 24 }}>0</Text>
+            <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font(), fontSize: 12 }}>Seconds</Text>
+          </View>
+        </View>
+      </View>
+      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, textAlign: "center", padding: 4 }}>Clan Requirements are now out! Press the Refresh icon in the header to view them!</Text>
+    </View>
+  }
+  return <View style={{flexDirection:"row",justifyContent:"center",flexWrap:"wrap",padding:4}}>
+    <View style={{padding:4}}>
+      <View style={{backgroundColor:theme.page.bg,height:64,width:64,borderRadius:8,justifyContent:"center",alignItems:"center"}}>
+        <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font("bold"), fontSize: 24 }}>{dur.days()}</Text>
+        <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font(), fontSize: 12 }}>Days</Text>
+      </View>
+    </View>
+    <View style={{padding:4}}>
+      <View style={{backgroundColor:theme.page.bg,height:64,width:64,borderRadius:8,justifyContent:"center",alignItems:"center"}}>
+        <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font("bold"), fontSize: 24 }}>{dur.hours()}</Text>
+        <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font(), fontSize: 12 }}>Hours</Text>
+      </View>
+    </View>
+    <View style={{padding:4}}>
+      <View style={{backgroundColor:theme.page.bg,height:64,width:64,borderRadius:8,justifyContent:"center",alignItems:"center"}}>
+        <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font("bold"), fontSize: 24 }}>{dur.minutes()}</Text>
+        <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font(), fontSize: 12 }}>Minutes</Text>
+      </View>
+    </View>
+    <View style={{padding:4}}>
+      <View style={{backgroundColor:theme.page.bg,height:64,width:64,borderRadius:8,justifyContent:"center",alignItems:"center"}}>
+        <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font("bold"), fontSize: 24 }}>{dur.seconds()}</Text>
+        <Text allowFontScaling={false} numberOfLines={1} style={{ color: theme.page.fg, ...font(), fontSize: 12 }}>Seconds</Text>
+      </View>
+    </View>
+  </View>
+}
+
 function ClanRequirement({ i, data, level_colors, s, t: ty, index }) {
   var theme = useSelector(i => i.themes[i.theme]);
   var [open, setOpen] = React.useState(false);
@@ -87,7 +157,6 @@ export default function ClanRequirementsCard({ game_id, scale: s = 1, list }) {
     cuppazee: true
   })
   var data = ClanRequirementsConverter(unformatted_requirements, unformatted_rewards);
-  var tick = useSelector(i => i.tick)
   if (!unformatted_requirements?.battle) {
     if (!unformatted_requirements) {
       return (
@@ -108,15 +177,13 @@ export default function ClanRequirementsCard({ game_id, scale: s = 1, list }) {
     }
   }
   if (list) {
+    if(unformatted_requirements && data?.levels?.length === 0) return null;
     return <Card noPad>
       <View style={{ ...(theme.dark ? { borderBottomWidth: 2 * s, borderBottomColor: level_colors.border } : {}), backgroundColor: (theme.clanCardHeader || theme.navigation).bg, paddingHorizontal: 8 * s, borderTopLeftRadius: 8 * s, borderTopRightRadius: 8 * s, flexDirection: "row", alignItems: "center" }}>
         <View style={{ flex: 1, paddingVertical: 8 * s }}>
           <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader || theme.navigation).fg, ...font("bold"), fontSize: 12 * s, opacity: 0.7, lineHeight: 12 * s }}>{moment(dateFromGameID(game_id)).format('MMMM YYYY')}</Text>
           <Text allowFontScaling={false} style={{ color: (theme.clanCardHeader || theme.navigation).fg, ...font("bold"), fontSize: 16 * s, lineHeight: 16 * s }}>{reward ? t('clan:rewards') : t('clan:requirements')}</Text>
         </View>
-        <TouchableRipple style={{ borderRadius: 24 * s, padding: 4 * s }} onPress={() => { setReward(!reward) }}>
-          <MaterialCommunityIcons name="gift" size={24 * s} color={(theme.clanCardHeader || theme.navigation).fg} />
-        </TouchableRipple>
       </View>
       <View style={{ padding: 4 }}>
         {data.levels.map(i => <View style={{ paddingBottom: 16 }}>
@@ -206,7 +273,7 @@ export default function ClanRequirementsCard({ game_id, scale: s = 1, list }) {
           </View>)}
         </View>
       </View>}
-      {unformatted_requirements && data?.levels?.length === 0 && <Text allowFontScaling={false} style={{ color: theme.page_content.fg, padding: 8 * s }}>These Clan Requirements are not out yet... wait until {data?.battle?.reveal_at?.toLocaleString?.()} and then press the refresh button in the top-right corner</Text>}
+      {unformatted_requirements && data?.levels?.length === 0 && <ClanCountdown time={data?.battle?.reveal_at} />}
     </Card>
     // </View>
   );

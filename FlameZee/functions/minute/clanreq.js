@@ -17,8 +17,8 @@ module.exports = {
         }
         sendEmail({
           to: config.emails.clanreq.email,
-          subject: "https://server.cuppazee.app/clan/88.png",
-          text: `July 2020 Clan Requirements are out now on CuppaZee at https://cuppazee.app/clan/requirements/88 and in the Munzee App. Coming soon to the Munzee Blog.`
+          subject: "https://server.cuppazee.app/clan/89.png",
+          text: `August 2020 Clan Requirements are out now on CuppaZee at https://cuppazee.app/clan/requirements/2020/08 and in the Munzee App. Coming soon to the Munzee Blog.`
         })
         return {
           status: "success",

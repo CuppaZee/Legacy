@@ -884,4 +884,11 @@ export default {
       description: 'Added Rubiin to Munzee Database'
     }
   ],
+  213: [
+    {
+      icon: 'star',
+      title: 'August 2020 Clan Requirements',
+      description: 'Added Star Icon in the Sidebar to access August 2020 Clan Requirements'
+    }
+  ],
 }
