@@ -891,4 +891,46 @@ export default {
       description: 'Added Star Icon in the Sidebar to access August 2020 Clan Requirements'
     }
   ],
+  214: [
+    {
+      image: 'qrewzee',
+      title: 'Clan Requirement Icons',
+      description: 'Added Icon for new QRewZee Captures Clan Requirements'
+    }
+  ],
+  215: [
+    {
+      image: 'qrewzee',
+      title: 'Clan Requirement Meta',
+      description: 'Added Meta for new QRewZee Captures Clan Requirements'
+    }
+  ],
+  216: [
+    {
+      image: 'qrewzee',
+      title: 'Updated CuppaZee Calendar for July 2020',
+      description: 'A little bit late, but better than never, right?'
+    }
+  ],
+  217: [
+    {
+      icon: 'magnify',
+      title: 'Fix issue with Clan Search',
+      description: 'Fixed an issue with the Clan Search page sometimes showing Clan NaN\'s stats'
+    }
+  ],
+  218: [
+    {
+      icon: 'wrench',
+      title: 'Fix issue with QRew Checker',
+      description: 'Fixed an issue with the QRew Checker when using a dark theme'
+    }
+  ],
+  219: [
+    {
+      image: 'rubiin',
+      title: 'Fixed spelling of Rubiin',
+      description: 'I mistyped it as "Rubiiin" original. It is now correctly spelt as "Rubiin".'
+    }
+  ],
 }

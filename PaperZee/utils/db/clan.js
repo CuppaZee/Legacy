@@ -198,5 +198,12 @@ export default {
     bottom: "Points",
     icon: "https://i.ibb.co/YdRQ3Sf/Split-Mystery.png",
     function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i)?.category=="mystery").reduce(points,0)
+  },
+  35: {
+    task_id: 35,
+    top: "QRewZee",
+    bottom: "Captures",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/qrewzee.png",
+    function: ({ cap }) => cap.filter(i => g(i)?.icon=="qrewzee").reduce(total,0)
   }
 }

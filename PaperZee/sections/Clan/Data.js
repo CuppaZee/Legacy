@@ -266,6 +266,16 @@ var Clan = {
       points: true,
       types: i=>i.category=="mystery"
     }
+  },
+  35: {
+    task_id: 35,
+    top: "QRewZee",
+    bottom: "Captures",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/qrewzee.png",
+    meta: {
+      activity: ["capture"],
+      types: i=>i.icon=="qrewzee"
+    }
   }
 }
 export function ClanRequirementsConverter(req, rewards) {

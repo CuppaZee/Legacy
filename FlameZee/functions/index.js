@@ -9,8 +9,10 @@ const cors = require("cors")({
 function checkFrom(from,route) {
   if(route==="auth/auth") {
     return true;
-  } else if(from===undefined) {
+  } else if(route.includes("minute")) {
     return true;
+  } else if(from===undefined) {
+    return false;
   } else if(from.match(/^cuppazee_([a-z]+)_([0-9.]+)_([0-9.]+)$/)) {
     const [fullMatch,platform,version,build] = from.match(/^cuppazee_([a-z]+)_([0-9.]+)_([0-9.]+)$/);
     if(["android","ios","web"].includes(platform)) {

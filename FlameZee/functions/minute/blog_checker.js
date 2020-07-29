@@ -35,11 +35,11 @@ module.exports = {
         async function check(x) {
           // Munzee
           var feed = await parser.parseURL('https://www.munzeeblog.com/feed/')
-          if (feed.items[0].link !== data.munzee_blog) {
-            data.munzee_blog = feed.items[0].link;
-            update.munzee_blog = feed.items[0].link;
+          if (feed.items[0].guid !== data.munzee_blog) {
+            data.munzee_blog = feed.items[0].guid;
+            update.munzee_blog = feed.items[0].guid;
 
-            console.log('New Munzee Blog', feed.items[0].link);
+            console.log('New Munzee Blog', feed.items[0].guid);
             let img = cheerio.load(feed.items[0]["content:encoded"] || '')('img')[0];
             if(!data.dev) sendNotifications(feed.items[0], db);
             if(!feed.items[0].title.match(/clan/i) || !feed.items[0].title.match(/requirement/i)) {
@@ -70,7 +70,7 @@ module.exports = {
               })
             })
           } else {
-            console.log('Same Munzee Blog', feed.items[0].link);
+            console.log('Same Munzee Blog', feed.items[0].guid);
           }
 
           if (x && Object.keys(update).length > 0) {

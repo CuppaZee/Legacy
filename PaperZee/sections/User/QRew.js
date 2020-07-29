@@ -82,7 +82,7 @@ export default function ClanScreen({ route }) {
                 {/* <Text allowFontScaling={false} style={{fontSize:16,opacity:0.8}}><MaterialCommunityIcons name="sword-cross" size={16}/> The Cup of Coffee Clan</Text> */}
                 <Text allowFontScaling={false} style={{ fontSize: 16,...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{i.req!==1?`${i.amount?.toLocaleString?.()}/${i.req.toLocaleString?.()}`:(i.amount===true?'Yes':(i.amount===false?'No':i.amount))}</Text>
               </View>
-              <View style={{alignSelf:"stretch",borderTopRightRadius:8,borderBottomRightRadius:8,borderLeftWidth:dark?2:0,borderLeftColor:dark?level_colors[i.amount>=i.req?5:0]:undefined,backgroundColor:dark?undefined:level_colors[(i.amount>=i.req||(i.amount&&i.req===1))?5:0],width:60,alignItems:"center",justifyContent:"center"}}>
+              <View style={{alignSelf:"stretch",borderTopRightRadius:8,borderBottomRightRadius:8,borderLeftWidth:dark?2:0,borderLeftColor:dark?level_colors[(i.amount>=i.req||(i.amount&&i.req===1))?5:0]:undefined,backgroundColor:dark?undefined:level_colors[(i.amount>=i.req||(i.amount&&i.req===1))?5:0],width:60,alignItems:"center",justifyContent:"center"}}>
                 {/* <Text allowFontScaling={false} style={{color:theme.page_content.fg}}>Level</Text> */}
                 <Text allowFontScaling={false} style={{color:theme.page_content.fg,fontSize:24,...font("bold")}}>{(i.amount>=i.req||(i.amount&&i.req===1))?'✔':''}</Text>
               </View>

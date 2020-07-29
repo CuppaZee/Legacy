@@ -424,7 +424,7 @@ module.exports = [
     "set": "funfinity"
   },
   {
-    "name": "Rubiiin",
+    "name": "Rubiin",
     "icon": "rubiin",
     "id": "null_rubiin",
     "state": "bouncer",

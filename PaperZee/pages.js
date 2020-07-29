@@ -11,6 +11,11 @@ export default [
     }
   },
   {
+    name: "ClanSearch",
+    import: () => import("/sections/Clan/Search"),
+    path: "clan/search"
+  },
+  {
     name: "AllClans",
     import: () => import("/sections/Clan/All"),
     path: {
@@ -37,11 +42,6 @@ export default [
         clanid: Number
       }
     }
-  },
-  {
-    name: "ClanSearch",
-    import: () => import("/sections/Clan/Search"),
-    path: "clan/search"
   },
 
   {
