@@ -25,6 +25,9 @@ function checkFrom(from,route) {
   } else if(from.match(/^zeetreehouses_([0-9]{4})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})([0-9]{2})([αßΩ]?)$/)) {
     const [fullMatch,year,month,day,hour,minute,type] = from.match(/^zeetreehouses_([0-9]{4})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})([0-9]{2})([αßΩ]?)$/);
     return true;
+  } else if(from.match(/^zeetreehouses_([0-9]{4})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})([0-9]{2})([αßΩ]?)_rabe85_([0-9.]+)$/)) {
+    const [fullMatch,year,month,day,hour,minute,type,rabeVersion] = from.match(/^zeetreehouses_([0-9]{4})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})([0-9]{2})([αßΩ]?)_rabe85_([0-9.]+)$/);
+    return true;
   } else if(from.match(/^destination_expiry_([0-9.]+)$/)) {
     const [fullMatch,version] = from.match(/^destination_expiry_([0-9.]+)$/);
     return true;
