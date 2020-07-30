@@ -18,7 +18,7 @@
   {
     "name": "2020 Seasonal Specials",
     "id": "seasonal_2020",
-    "icon": "redwaterballoon",
+    "icon": "campcap-a-lotcounselor",
     "parents": [
       "seasonal",
       "root"
@@ -382,6 +382,19 @@
       "year": 2020,
       "starts": 1577998800000,
       "ends": 1609480740000
+    }
+  },
+  {
+    "name": "Camp Counselors",
+    "id": "campcounselors2020",
+    "icon": "campcap-a-lotcounselor",
+    "parents": [
+      "seasonal_2020"
+    ],
+    "seasonal": {
+      "year": 2020,
+      "starts": 1596042000000,
+      "ends": 1599713940000
     }
   },
   {

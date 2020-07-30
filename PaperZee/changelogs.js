@@ -933,4 +933,11 @@ export default {
       description: 'I mistyped it as "Rubiiin" original. It is now correctly spelt as "Rubiin".'
     }
   ],
+  220: [
+    {
+      image: 'campkennezeecounselor',
+      title: 'Added Camp Counselors',
+      description: 'Added Camp Counselors to Munzee Types Database'
+    }
+  ],
 }

@@ -113,6 +113,43 @@ module.exports = [
     ]
   },
   {
+    "name": "Camp Counselors",
+    "category": "campcounselors2020",
+    "year": 2020,
+    "starts": "2020-07-29T12:00:00-05:00",
+    "ends": "2020-09-09T23:59:00-05:00",
+    "specials": [
+      {
+        "name": "Counselor Cap-A-Lot",
+        "icon": "campcap-a-lotcounselor",
+        "id": "null_campcap-a-lotcounselor",
+        "duration": 6,
+        "lands_on": ["treehouse","skyland",":mystery","munzee",":virtual"]
+      },
+      {
+        "name": "Counselor QRantine",
+        "icon": "campqrantinecounselor",
+        "id": "null_campqrantinecounselor",
+        "duration": 6,
+        "lands_on": ["treehouse","skyland",":mystery","munzee",":virtual"]
+      },
+      {
+        "name": "Counselor FrEEZ",
+        "icon": "campfreezcounselor",
+        "id": "null_campfreezcounselor",
+        "duration": 6,
+        "lands_on": ["treehouse","skyland",":mystery","munzee",":virtual"]
+      },
+      {
+        "name": "Counselor KenneZee",
+        "icon": "campkennezeecounselor",
+        "id": "null_campkennezeecounselor",
+        "duration": 6,
+        "lands_on": ["treehouse","skyland",":mystery","munzee",":virtual"]
+      },
+    ]
+  },
+  {
     "name": "Munzee's 9th Birthday",
     "category": "munzeebirthday2020",
     "year": 2020,
