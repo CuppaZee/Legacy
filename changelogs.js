@@ -947,4 +947,11 @@ export default {
       description: 'There is a new design too, as Flats functionality is no longer needed!'
     }
   ],
+  222: [
+    {
+      icon: 'bug',
+      title: 'Bug Fixes and Tweaks',
+      description: 'Squashed a couple of small bugs, and refactored some code.'
+    }
+  ],
 }

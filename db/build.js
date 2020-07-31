@@ -1,4 +1,5 @@
 var fs = require('fs');
+var path = require('path');
 var points = require('./points');
 
 const colors = {
@@ -1026,9 +1027,9 @@ for (var munzee_index in munzees) {
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Types Checked - Writing Types to Files... ${colors.Reset}`)
 
-fs.writeFileSync('output/types.json', JSON.stringify(munzees, null, 2))
-fs.writeFileSync('output/types.min.json', JSON.stringify(munzees))
-fs.writeFileSync('output/types.supermin.json', JSON.stringify(munzees.map(i => (i.event === "custom" ? [i.name,i.icon,i.id,i.x,i.i] : i))))
+fs.writeFileSync(path.resolve(__dirname,'output/types.json'), JSON.stringify(munzees, null, 2))
+fs.writeFileSync(path.resolve(__dirname,'output/types.min.json'), JSON.stringify(munzees))
+fs.writeFileSync(path.resolve(__dirname,'output/types.supermin.json'), JSON.stringify(munzees.map(i => (i.event === "custom" ? [i.name,i.icon,i.id,i.x,i.i] : i))))
 // {
 //   name: i.name,
 //   icon: i.icon,
@@ -1037,29 +1038,29 @@ fs.writeFileSync('output/types.supermin.json', JSON.stringify(munzees.map(i => (
 //   x: i.x,
 //   i: i.i
 // }
-fs.writeFileSync('../PaperZee/utils/db/types.json', JSON.stringify(munzees))
-fs.writeFileSync('../FlameZee/functions/util/db/types.json', JSON.stringify(munzees))
+fs.writeFileSync(path.resolve(__dirname,'../utils/db/types.json'), JSON.stringify(munzees))
+fs.writeFileSync(path.resolve(__dirname,'../functions/util/db/types.json'), JSON.stringify(munzees))
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Types Written to Files - Writing Type Keys to Files... ${colors.Reset}`)
 
-fs.writeFileSync('output/typekeys.json', JSON.stringify(typekeys, null, 2))
-fs.writeFileSync('output/typekeys.min.json', JSON.stringify(typekeys))
-fs.writeFileSync('../PaperZee/utils/db/typekeys.json', JSON.stringify(typekeys))
-fs.writeFileSync('../FlameZee/functions/util/db/typekeys.json', JSON.stringify(typekeys))
+fs.writeFileSync(path.resolve(__dirname,'./output/typekeys.json'), JSON.stringify(typekeys, null, 2))
+fs.writeFileSync(path.resolve(__dirname,'./output/typekeys.min.json'), JSON.stringify(typekeys))
+fs.writeFileSync(path.resolve(__dirname,'../utils/db/typekeys.json'), JSON.stringify(typekeys))
+fs.writeFileSync(path.resolve(__dirname,'../functions/util/db/typekeys.json'), JSON.stringify(typekeys))
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Types Written to Files - Writing ID Keys to Files... ${colors.Reset}`)
 
-fs.writeFileSync('output/idkeys.json', JSON.stringify(idkeys, null, 2))
-fs.writeFileSync('output/idkeys.min.json', JSON.stringify(idkeys))
+fs.writeFileSync(path.resolve(__dirname,'./output/idkeys.json'), JSON.stringify(idkeys, null, 2))
+fs.writeFileSync(path.resolve(__dirname,'./output/idkeys.min.json'), JSON.stringify(idkeys))
 // fs.writeFileSync('../PaperZee/utils/db/typekeys.json', JSON.stringify(idkeys))
-fs.writeFileSync('../FlameZee/functions/util/db/idkeys.json', JSON.stringify(idkeys))
+fs.writeFileSync(path.resolve(__dirname,'../functions/util/db/idkeys.json'), JSON.stringify(idkeys))
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Type Keys Written to Files - Writing Categories to JSON... ${colors.Reset}`)
 
-fs.writeFileSync('output/categories.json', JSON.stringify(categories, null, 2))
-fs.writeFileSync('output/categories.min.json', JSON.stringify(categories))
-fs.writeFileSync('../PaperZee/utils/db/categories.json', JSON.stringify(categories))
-fs.writeFileSync('../FlameZee/functions/util/db/categories.json', JSON.stringify(categories))
+fs.writeFileSync(path.resolve(__dirname,'./output/categories.json'), JSON.stringify(categories, null, 2))
+fs.writeFileSync(path.resolve(__dirname,'./output/categories.min.json'), JSON.stringify(categories))
+fs.writeFileSync(path.resolve(__dirname,'../utils/db/categories.json'), JSON.stringify(categories))
+fs.writeFileSync(path.resolve(__dirname,'../functions/util/db/categories.json'), JSON.stringify(categories))
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Categories Written to Files ${colors.Reset}`)
 

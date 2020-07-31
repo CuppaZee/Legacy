@@ -11,7 +11,7 @@ function g(icon) {
 
 async function downloadIcon (icon,size) {
   const url = `https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(icon)}.png`
-  const savePath = path.resolve(__dirname, '../FlameZee/public/pins/'+size, `${g(icon)}.png`)
+  const savePath = path.resolve(__dirname, '../public/pins/'+size, `${g(icon)}.png`)
   if(fs.existsSync(savePath)) return new Promise((resolve, reject)=>{
     resolve(true);
   });
@@ -53,9 +53,9 @@ var types = require('./output/types.min.json');
     console.log(type.icon,128)
     if(type.event!=="custom") {
       js[g(type.icon)] = `S%${g(type.icon)}%E`;
-      fs.copySync(path.resolve(__dirname, '../FlameZee/public/pins/128', `${g(type.icon)}.png`),path.resolve(__dirname,'../PaperZee/assets/pins', `${g(type.icon)}.png`))
+      fs.copySync(path.resolve(__dirname, '../public/pins/128', `${g(type.icon)}.png`),path.resolve(__dirname,'../assets/pins', `${g(type.icon)}.png`))
     }
   }
   console.log('DONE')
-  fs.writeFileSync(path.resolve(__dirname, '../PaperZee/assets/pins.js'), `module.exports = ` + JSON.stringify(js).replace(/"S%/g,'require("./pins/').replace(/%E"/g,'.png")'))
+  fs.writeFileSync(path.resolve(__dirname, '../assets/pins.js'), `module.exports = ` + JSON.stringify(js).replace(/"S%/g,'require("./pins/').replace(/%E"/g,'.png")'))
 })();

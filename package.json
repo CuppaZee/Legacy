@@ -5,7 +5,21 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+
+    "deploy-firebase-app": "npm-delay 5000 && firebase deploy --only hosting:app && echo > firebase-debug.log",
+    "deploy-firebase": "npm-delay 5000 && firebase deploy --only hosting,functions:api && echo > firebase-debug.log",
+
+    "db-build": "node db/build",
+    "db-images": "node db/images",
+    "db": "yarn db-build && yarn db-images",
+    
+    "deploy-web": "expo build:web && firebase deploy --only hosting:app",
+    "deploy-mobile": "expo publish --release-channel v1.2",
+    "deploy-server": "firebase deploy --only functions:api",
+    
+    "deploy-app": "expo build:web && concurrently -n fire,expo \"npm:deploy-firebase-app\" \"expo publish --release-channel v1.2\"",
+    "deploy": "yarn db && expo build:web && concurrently -n fire,expo \"npm:deploy-firebase\" \"expo publish --release-channel v1.2\""
   },
   "dependencies": {
     "@expo-google-fonts/coiny": "^0.1.0",
@@ -58,6 +72,7 @@
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "babel-preset-expo": "^8.2.3",
+    "concurrently": "^5.2.0",
     "moment-locales-webpack-plugin": "^1.2.0",
     "webpack-bundle-analyzer": "^3.8.0"
   },
