@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text, Image } from 'react-native';
-import Tile from './Tile';
+import OldTile, {NewTile} from './Tile';
 import CalData from 'utils/db/Calendar.json';
 import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next';
@@ -12,6 +12,8 @@ export default function Calendar({style,month,year,theme,type="default"}) {
   const now = moment();
   const monthStart = moment({date:1,month:month??now.month(),year:year??now.year()}).day();
   const monthEnd = moment({date:1,month:month??now.month(),year:year??now.year()}).add(1,"month").subtract(1,'day').date();
+  const newDesign = (month > 5 && year === 2020) || year > 2020;
+  const Tile = newDesign?NewTile:OldTile
 
   var grid = []
   var finishedGrid = false;
@@ -35,7 +37,7 @@ export default function Calendar({style,month,year,theme,type="default"}) {
   ]
 
   return <View style={style}>
-    {type=="default"&&<View style={{flexDirection:"row"}}>
+    {type=="default"&&!newDesign&&<View style={{flexDirection:"row"}}>
       {types.map(i=><View style={{flex:1,borderWidth:1,borderColor:'#d3d3d3',backgroundColor:i.color,justifyContent:"center",alignItems:"center",height:60}}>
         <Image source={getIcon(i.type)} style={{height:32,width:32}}/>
         <Text allowFontScaling={false} style={{fontSize:12,color:"white"}}>{i.label}</Text>

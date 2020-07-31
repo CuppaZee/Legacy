@@ -940,4 +940,11 @@ export default {
       description: 'Added Camp Counselors to Munzee Types Database'
     }
   ],
+  221: [
+    {
+      image: 'qrewzee',
+      title: 'Updated CuppaZee Calendar for August 2020',
+      description: 'There is a new design too, as Flats functionality is no longer needed!'
+    }
+  ],
 }
