@@ -295,9 +295,9 @@ module.exports = [
   {
     "name": "Baby Fox",
     "icon": "babyfox",
-    "id": "null_babyfox",
+    "id": 2561,
     "state": "bouncer",
-    "lands_on": [],
+    "lands_on": ["skyland",":virtual","airmystery","poicampground"],
     "extra": {
       "baby_animal": true,
       "alt_icons": [
@@ -310,7 +310,7 @@ module.exports = [
     "icon": "babymoose",
     "id": "null_babymoose",
     "state": "bouncer",
-    "lands_on": [],
+    "lands_on": ["treehouse","munzee","earthmystery","watermystery"],
     "extra": {
       "baby_animal": true
     }
@@ -320,7 +320,7 @@ module.exports = [
     "icon": "babysquirrel",
     "id": "null_babysquirrel",
     "state": "bouncer",
-    "lands_on": [],
+    "lands_on": ["treehouse","munzee","earthmystery","watermystery","skyland",":virtual","airmystery","poicampground"],
     "extra": {
       "baby_animal": true
     }

@@ -978,4 +978,11 @@ export default {
       description: 'CuppaZee Users on iOS can now use Apple Maps! Head to the settings to turn it on!'
     }
   ],
+  225: [
+    {
+      image: 'babyfox',
+      title: 'Added Camp Critters',
+      description: 'Added Baby Fox, Baby Moose and Baby Squirrel to Munzee Types Database'
+    }
+  ],
 }
