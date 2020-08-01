@@ -9,6 +9,7 @@ import * as Location from "expo-location";
 
 export default function Map(props) {
   const theme = useSelector(i => i.themes[i.theme]);
+  const appleMaps = useSelector(i => i.settings.appleMaps);
   const center = {
     latitude: 0,
     longitude: 0,
@@ -41,7 +42,7 @@ export default function Map(props) {
       initialRegion={center}
       region={props.region}
       clusteringEnabled={props.markers?.length>60}
-      provider="google"
+      provider={appleMaps?null:"google"}
       customMapStyle={theme.mapStyle}
       style={{ flex: 1 }}
       onRegionChangeComplete={(region)=>{

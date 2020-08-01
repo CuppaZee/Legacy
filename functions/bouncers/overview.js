@@ -19,7 +19,7 @@ module.exports = {
         ]);
         var body = [].concat(...data);
         var overview = body.reduce((a,b)=>{
-          a[b.mythological_munzee ? b.mythological_munzee.munzee_logo : b.logo] = (a[b.mythological_munzee ? b.mythological_munzee.munzee_logo : b.logo]||0) + 1;
+          a[(b.mythological_munzee ? b.mythological_munzee.munzee_logo : b.logo)||"https://munzee.global.ssl.fastly.net/images/pins/undefined.png"] = (a[(b.mythological_munzee ? b.mythological_munzee.munzee_logo : b.logo)||"https://munzee.global.ssl.fastly.net/images/pins/undefined.png"]||0) + 1;
           return a;
         },{})
         return {

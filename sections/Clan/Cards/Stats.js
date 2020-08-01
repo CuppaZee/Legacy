@@ -237,7 +237,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
         <View style={{ width: 101 * s, position: "absolute", left: 0, top: 0, borderRightWidth: 2 * s, borderRightColor: level_colors.border }}>
           <View style={{ height: (96 - 19) * s, backgroundColor: level_colors.null.bg, justifyContent: "center", alignItems: "center", padding: 4 * s }}>
             <Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors.null.fg }}>{t('clan:players', { count: clan?.members?.length })}</Text>
-            {clan?.details?.rank&&<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors.null.fg }}>{t('clan:rank', { rank: clan?.details?.rank })}</Text>}
+            {clan?.details?.rank>0&&<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors.null.fg }}>{t('clan:rank', { rank: clan?.details?.rank })}</Text>}
           </View>
           <View style={{ borderBottomWidth: 2 * s, borderBottomColor: level_colors.border, height: 24 * s, justifyContent: "center", backgroundColor: level_colors[levelSelect + 1].bg }}>
             <Menu

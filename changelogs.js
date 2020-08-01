@@ -966,4 +966,16 @@ export default {
       description: 'You can now see counts of types that haven\'t been added to CuppaZee\'s database yet.'
     }
   ],
+  224: [
+    {
+      icon: 'bug',
+      title: 'Bug Fixes and Tweaks',
+      description: 'Fixed some major bugs caused by invalid data responses from the Munzee API.'
+    },
+    {
+      icon: 'apple',
+      title: 'Apple Maps',
+      description: 'CuppaZee Users on iOS can now use Apple Maps! Head to the settings to turn it on!'
+    }
+  ],
 }

@@ -291,5 +291,38 @@ module.exports = [
         "base": "planulalarva"
       }
     }
+  },
+  {
+    "name": "Baby Fox",
+    "icon": "babyfox",
+    "id": "null_babyfox",
+    "state": "bouncer",
+    "lands_on": [],
+    "extra": {
+      "baby_animal": true,
+      "alt_icons": [
+        "undefined"
+      ]
+    }
+  },
+  {
+    "name": "Baby Moose",
+    "icon": "babymoose",
+    "id": "null_babymoose",
+    "state": "bouncer",
+    "lands_on": [],
+    "extra": {
+      "baby_animal": true
+    }
+  },
+  {
+    "name": "Baby Squirrel",
+    "icon": "babysquirrel",
+    "id": "null_babysquirrel",
+    "state": "bouncer",
+    "lands_on": [],
+    "extra": {
+      "baby_animal": true
+    }
   }
 ]

@@ -18,10 +18,10 @@ module.exports = {
           request('munzee/specials/retired', {}, token.access_token)
         ]);
         var body = [].concat(...data);
-        var output = body.filter(i => list.split(',').includes((i.mythological_munzee ? i.mythological_munzee.munzee_logo : i.logo).slice(49, -4))).map(i => [
+        var output = body.filter(i => list.split(',').includes(((i.mythological_munzee ? i.mythological_munzee.munzee_logo : i.logo)||"https://munzee.global.ssl.fastly.net/images/pins/undefined.png").slice(49, -4))).map(i => [
           Number(i.latitude),
           Number(i.longitude),
-          list.split(',').indexOf((i.mythological_munzee ? i.mythological_munzee.munzee_logo : i.logo).slice(49, -4)),
+          list.split(',').indexOf(((i.mythological_munzee ? i.mythological_munzee.munzee_logo : i.logo)||"https://munzee.global.ssl.fastly.net/images/pins/undefined.png").slice(49, -4)),
           Number(i.munzee_id)
         ])
         return {

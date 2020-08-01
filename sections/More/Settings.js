@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, Platform, Image, AsyncStorage, ScrollView } from 'react-native';
-import { Button, TextInput, Menu } from 'react-native-paper';
+import { Button, TextInput, Menu, Switch } from 'react-native-paper';
 import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from "react-redux";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -184,6 +184,10 @@ export default function SettingsScreen({ navigation }) {
               <Switch style={{marginRight: 8}} color={theme.page_content.fg} value={settings.activityV2Beta} onValueChange={(value)=>setSetting("activityV2Beta",!settings.activityV2Beta)} />
               <Text allowFontScaling={false} style={{color:theme.page_content.fg, flex: 1,...font("bold")}}>User Activity Beta</Text>
             </View> */}
+            {Platform.OS==="ios"&&<View style={{flexDirection:"row",alignItems:"center",padding:4}}>
+              <Switch style={{marginRight: 8}} color={theme.page_content.fg} value={settings.appleMaps} onValueChange={(value)=>setSetting("appleMaps",!settings.appleMaps)} />
+              <Text allowFontScaling={false} style={{color:theme.page_content.fg, flex: 1,...font("bold")}}>Apple Maps</Text>
+            </View>}
             <View>
               {[
                 ["clan_level_ind", "Individual"],
