@@ -248,21 +248,21 @@ export default function CustomDrawerContent(props) {
         /> */}
         <IconButton
           style={{
-            backgroundColor: route.name == "ClanRequirements" && route.params.year == 2020 && route.params.month == 7 ? itemProps.activeBackgroundColor : null
+            backgroundColor: route.name == "ClanRequirements" && route.params.year == 2020 && route.params.month == 8 ? itemProps.activeBackgroundColor : null
           }}
           icon="playlist-check"
           color={itemProps.inactiveTintColor}
           onPress={() => nav.reset({
             index: 1,
             routes: [
-              { name: '__primary', params: { screen: "ClanRequirements", params: { year: 2020, month: 7 } } },
+              { name: '__primary', params: { screen: "ClanRequirements", params: { year: 2020, month: 8 } } },
             ],
           })
           }
         />
         <IconButton
           style={{
-            backgroundColor: route.name == "ClanRequirements" && route.params.year == 2020 && route.params.month == 8 ? itemProps.activeBackgroundColor : null,
+            backgroundColor: route.name == "ClanRequirements" && route.params.year == 2020 && route.params.month == 9 ? itemProps.activeBackgroundColor : null,
             borderWidth: 1,
             borderColor: theme.navigation.fg
           }}
@@ -271,7 +271,7 @@ export default function CustomDrawerContent(props) {
           onPress={() => nav.reset({
             index: 1,
             routes: [
-              { name: '__primary', params: { screen: "ClanRequirements", params: { year: 2020, month: 8 } } },
+              { name: '__primary', params: { screen: "ClanRequirements", params: { year: 2020, month: 9 } } },
             ],
           })
           }

@@ -954,4 +954,16 @@ export default {
       description: 'Squashed a couple of small bugs, and refactored some code.'
     }
   ],
+  223: [
+    {
+      icon: 'shield-outline',
+      title: 'August 2020 Clan Wars',
+      description: 'CuppaZee has been updated for August 2020 Clan Wars'
+    },
+    {
+      icon: 'map-marker',
+      title: 'Updated Bouncers Page',
+      description: 'You can now see counts of types that haven\'t been added to CuppaZee\'s database yet.'
+    }
+  ],
 }

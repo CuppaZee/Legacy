@@ -18,8 +18,8 @@
     "deploy-mobile": "expo publish --release-channel v1.2",
     "deploy-server": "firebase deploy --only functions:api",
     
-    "deploy-app": "expo build:web && concurrently -n fire,expo \"npm:deploy-firebase-app\" \"expo publish --release-channel v1.2\"",
-    "deploy": "yarn db && expo build:web && concurrently -n fire,expo \"npm:deploy-firebase\" \"expo publish --release-channel v1.2\""
+    "deploy-app": "yarn deploy-mobile & yarn deploy-web",
+    "deploy": "yarn db && yarn deploy-mobile && expo build:web && firebase deploy --only hosting,functions:api"
   },
   "dependencies": {
     "@expo-google-fonts/coiny": "^0.1.0",

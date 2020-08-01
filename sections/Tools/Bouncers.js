@@ -10,6 +10,7 @@ import categories from 'utils/db/categories.json';
 import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next';
 import getIcon from 'utils/db/icon';
+import getType from 'utils/db/types';
 
 export default function SearchScreen({ navigation }) {
   var {t} = useTranslation();
@@ -33,6 +34,25 @@ export default function SearchScreen({ navigation }) {
     <ScrollView
       contentContainerStyle={{ width: 800, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4 }}
       style={{ flex: 1, backgroundColor: theme.page.bg }}>
+      {Object.entries(data||{}).filter(i=>!getType(i[0])).length>0&&<View style={{ padding: 4 }}>
+        <Card noPad>
+          <View>
+            <View style={{flexDirection:"row",justifyContent:"center",alignItems:"center"}}>
+              <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 24, color: theme.page_content.fg, paddingVertical: 4, textAlign: "center" }}>Uncategorised</Text>
+              {/* <IconButton icon="map" color={theme.page_content.fg} onPress={()=>navigation.navigate("BouncerMap",{type:cdata.id})} /> */}
+            </View>
+            <View style={{flexDirection:"row",flexWrap:"wrap",justifyContent:"center"}}>
+              {Object.entries(data||{}).filter(i=>!getType(i[0])).map(i => <TouchableRipple>
+                <View key={i.id} style={{ padding: 4, width: 80, alignItems: "center", opacity: i[1]>0?1:0.4 }}>
+                  <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={getIcon(i[0])} />
+                  <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{i[0].replace(/https:\/\/munzee.global.ssl.fastly.net\/images\/pins\/(.+)\.png/,'$1')}</Text>
+                  <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{i[1].toString()}</Text>
+                </View>
+              </TouchableRipple>)}
+            </View>
+          </View>
+        </Card>
+      </View>}
       {[...categories.filter(i=>i.seasonal&&i.seasonal.starts<Date.now()&&i.seasonal.ends>Date.now()),...categories.filter(i => i.parents.includes('bouncer')),...categories.filter(i => i.id=="scatter")].filter(i => !hasChild(i)).filter(i=>!i.hidden&&i.id!="bouncerhost").map(cdata=><View style={{ padding: 4 }}>
         <Card noPad>
           <View>
