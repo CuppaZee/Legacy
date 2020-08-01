@@ -232,7 +232,7 @@ export default [
   },
   {
     name: "UserSHCLite",
-    import: () => import('sections/User/SpecialHunterChallenge/Lite'),
+    import: () => import('sections/User/Challenges/SHCLite'),
     path: {
       path: "user/:username/shc/lite/:date?",
       parse: {
@@ -243,9 +243,20 @@ export default [
   },
   {
     name: "UserSHCPro",
-    import: () => import('sections/User/SpecialHunterChallenge/Pro'),
+    import: () => import('sections/User/Challenges/SHCPro'),
     path: {
       path: "user/:username/shc/pro/:date?",
+      parse: {
+        username: String,
+        date: String,
+      }
+    }
+  },
+  {
+    name: "UserPOI",
+    import: () => import('sections/User/Challenges/POI'),
+    path: {
+      path: "user/:username/poi/:date?",
       parse: {
         username: String,
         date: String,

@@ -985,4 +985,11 @@ export default {
       description: 'Added Baby Fox, Baby Moose and Baby Squirrel to Munzee Types Database'
     }
   ],
+  226: [
+    {
+      icon: 'map-marker-check',
+      title: 'Added POI Challenge',
+      description: 'Can you capture all 21 POI Types in a single day? Suggested by c-bn!'
+    }
+  ],
 }
