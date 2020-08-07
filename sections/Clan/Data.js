@@ -29,7 +29,8 @@ var Clan = {
     meta: {
       activity: ["capture","deploy","capon"],
       points: true
-    }
+    },
+    hidden: ["u89"]
   },
   6: {
     task_id: 6,
@@ -314,12 +315,13 @@ export function ClanRequirementsConverter(req, rewards) {
           meta: rd.meta
         }
       }
-      if (requirement.individual) {
+      if (requirement.individual && !Clan[requirement.task_id]?.hidden?.includes(`u${req?.battle?.game_id}`)) {
         individual[requirement.task_id] = 1;
-      } else {
+        level_data["individual"][requirement.task_id] = requirement.amount;
+      } else if(!requirement.individual && !Clan[requirement.task_id]?.hidden?.includes(`g${req?.battle?.game_id}`)) {
         group[requirement.task_id] = 1;
+        level_data["group"][requirement.task_id] = requirement.amount;
       }
-      level_data[requirement.individual ? "individual" : "group"][requirement.task_id] = requirement.amount;
     }
     output.levels.push(level_data);
   }

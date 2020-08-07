@@ -324,5 +324,15 @@ module.exports = [
     "extra": {
       "baby_animal": true
     }
+  },
+  {
+    "name": "Bear Cub",
+    "icon": "bearcub",
+    "id": "null_bearcub",
+    "state": "bouncer",
+    "lands_on": ["treehouse","munzee","earthmystery","watermystery","skyland",":virtual","airmystery","poicampground"],
+    "extra": {
+      "baby_animal": true
+    }
   }
 ]

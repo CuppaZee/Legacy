@@ -13,7 +13,7 @@ module.exports = {
             {id:"week1",title:"Week 1",status:"finalresults"},
             {id:"week2",title:"Week 2",status:"finalresults"},
             {id:"week3",title:"Week 3",status:"finalresults"},
-            {id:"week4",title:"Week 4",status:"ongoing"},
+            {id:"week4",title:"Week 4",status:"finalresults"},
           ],
         }
       }

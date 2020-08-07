@@ -992,4 +992,18 @@ export default {
       description: 'Can you capture all 21 POI Types in a single day? Suggested by c-bn!'
     }
   ],
+  227: [
+    {
+      icon: 'eye-off',
+      title: 'Hidden Individual Total Points',
+      description: 'The Individual Total Points requirement is no longer displaying on August 2020 Clan Requirements.'
+    }
+  ],
+  228: [
+    {
+      image: 'bearcub',
+      title: 'Added Bear Cub',
+      description: 'Added Bear Cub to Munzee Types Database'
+    }
+  ],
 }
