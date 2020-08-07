@@ -186,6 +186,13 @@ export default function DetailsScreen({ route }) {
                   <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
                 </View>
               </TouchableRipple>
+              <TouchableRipple onPress={() => nav.navigate('UserColour', { username: username })}>
+                <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
+                  <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="palette" size={24} color={theme.page_content.fg} />
+                  <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Colour Challenge</Text>
+                  <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
+                </View>
+              </TouchableRipple>
               <TouchableRipple onPress={() => nav.navigate('UserQuest', { username: username })}>
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                   <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="run" size={24} color={theme.page_content.fg} />

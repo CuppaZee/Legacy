@@ -878,6 +878,7 @@ munzees = munzees.concat(require('./types/credits.js').map(i => ({
   ...i,
   id: "credit_" + i.icon,
   category: i.category || "credit",
+  credit: true,
 
   completion: "complete",
   hidden: true,

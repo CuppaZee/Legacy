@@ -1006,4 +1006,11 @@ export default {
       description: 'Added Bear Cub to Munzee Types Database'
     }
   ],
+  229: [
+    {
+      image: 'virtual_rainbow',
+      title: 'Added Colour Challenge',
+      description: 'Can you capture all 62 Virtual Colours in a single day? Suggested by IanZ!'
+    }
+  ],
 }

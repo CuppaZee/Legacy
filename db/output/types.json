@@ -40464,6 +40464,7 @@
     ],
     "id": "credit_magnet",
     "category": "credit",
+    "credit": true,
     "hidden": true,
     "x": 2178,
     "i": "magnet"
@@ -40473,6 +40474,7 @@
     "name": "Virtual Magnet",
     "id": "credit_virtual_magnet",
     "category": "credit",
+    "credit": true,
     "hidden": true,
     "x": 2179,
     "i": "virtualmagnet"
@@ -40482,6 +40484,7 @@
     "name": "Blast Capture",
     "id": "credit_blast_capture",
     "category": "credit",
+    "credit": true,
     "hidden": true,
     "x": 2180,
     "i": "blastcapture"
@@ -40491,6 +40494,7 @@
     "name": "Mini Blast Capture",
     "id": "credit_blast_capture_mini",
     "category": "credit",
+    "credit": true,
     "hidden": true,
     "x": 2181,
     "i": "blastcapturemini"
@@ -40500,6 +40504,7 @@
     "name": "MEGA Blast Capture",
     "id": "credit_blast_capture_mega",
     "category": "credit",
+    "credit": true,
     "hidden": true,
     "x": 2182,
     "i": "blastcapturemega"
@@ -40509,6 +40514,7 @@
     "name": "Destination",
     "category": "destination",
     "id": "credit_destination",
+    "credit": true,
     "hidden": true,
     "x": 2183,
     "i": "destination"
@@ -40518,6 +40524,7 @@
     "name": "Secure Social",
     "category": "misc",
     "id": "credit_secure_social",
+    "credit": true,
     "hidden": true,
     "x": 2184,
     "i": "securesocial"
@@ -40527,6 +40534,7 @@
     "name": "Virtual Color",
     "category": "virtual",
     "id": "credit_virtual_colors",
+    "credit": true,
     "hidden": true,
     "can_host": [
       1100,
@@ -40613,6 +40621,7 @@
     "name": "Virtual Colors",
     "category": "virtual",
     "id": "credit_virtual_colors",
+    "credit": true,
     "hidden": true,
     "can_host": [
       1100,
@@ -40699,6 +40708,7 @@
     "name": "Bouncer Upgrade",
     "id": "credit_upgrade_myth",
     "category": "credit",
+    "credit": true,
     "hidden": true,
     "x": 2187,
     "i": "upgrademyth"
@@ -40708,6 +40718,7 @@
     "name": "Evolution Reset",
     "id": "credit_evolution_reset",
     "category": "credit",
+    "credit": true,
     "hidden": true,
     "x": 2188,
     "i": "evolutionreset"
@@ -40717,6 +40728,7 @@
     "name": "ZEDS",
     "id": "credit_zeds",
     "category": "credit",
+    "credit": true,
     "hidden": true,
     "x": 2189,
     "i": "zeds"
@@ -40726,6 +40738,7 @@
     "name": "Zodiac",
     "category": "misc",
     "id": "credit_zodiac",
+    "credit": true,
     "hidden": true,
     "x": 2190,
     "i": "zodiac"
@@ -40735,6 +40748,7 @@
     "name": "Chinese Zodiac",
     "category": "misc",
     "id": "credit_chinese_zodiac",
+    "credit": true,
     "hidden": true,
     "x": 2191,
     "i": "chinesezodiac"
@@ -40744,6 +40758,7 @@
     "name": "Seasonal",
     "category": "misc",
     "id": "credit_seasonal",
+    "credit": true,
     "hidden": true,
     "x": 2192,
     "i": "seasonal"
@@ -40753,6 +40768,7 @@
     "name": "Physical Deploy Booster",
     "id": "credit_physicaldeploybooster",
     "category": "credit",
+    "credit": true,
     "hidden": true,
     "x": 2193,
     "i": "physicaldeploybooster"
@@ -40762,6 +40778,7 @@
     "name": "Virtual Deploy Booster",
     "id": "credit_virtualdeploybooster",
     "category": "credit",
+    "credit": true,
     "hidden": true,
     "x": 2194,
     "i": "virtualdeploybooster"
@@ -40771,6 +40788,7 @@
     "name": "physical Capture Booster",
     "id": "credit_physicalcapturebooster",
     "category": "credit",
+    "credit": true,
     "hidden": true,
     "x": 2195,
     "i": "physicalcapturebooster"
@@ -40780,6 +40798,7 @@
     "name": "Virtual Capture Booster",
     "id": "credit_virtualcapturebooster",
     "category": "credit",
+    "credit": true,
     "hidden": true,
     "x": 2196,
     "i": "virtualcapturebooster"
@@ -40789,6 +40808,7 @@
     "name": "ZeeCred",
     "id": "credit_zeecred",
     "category": "credit",
+    "credit": true,
     "hidden": true,
     "x": 2197,
     "i": "zeecred"
@@ -40798,6 +40818,7 @@
     "name": "Rover",
     "id": "credit_rover",
     "category": "credit",
+    "credit": true,
     "hidden": true,
     "x": 2198,
     "i": "rover"

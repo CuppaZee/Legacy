@@ -264,6 +264,17 @@ export default [
     }
   },
   {
+    name: "UserColour",
+    import: () => import('sections/User/Challenges/Colour'),
+    path: {
+      path: "user/:username/colour/:date?",
+      parse: {
+        username: String,
+        date: String,
+      }
+    }
+  },
+  {
     name: "AllCampWeeks",
     import: () => import("sections/Camps/Weeks"),
     path: "camps/all",
