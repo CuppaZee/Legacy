@@ -1013,4 +1013,11 @@ export default {
       description: 'Can you capture all 62 Virtual Colours in a single day? Suggested by IanZ!'
     }
   ],
+  230: [
+    {
+      image: 'brokenglasses2020vision',
+      title: 'Updated Munzee Database',
+      description: 'Added Broken Glasses 2020 Vision special to CuppaZee\'s Munzee Types Database'
+    }
+  ],
 }

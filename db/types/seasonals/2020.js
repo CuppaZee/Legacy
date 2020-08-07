@@ -109,7 +109,14 @@ module.exports = [
         "id": 2295,
         "duration": 12,
         "lands_on": [":virtual"]
-      }
+      },
+      {
+        "name": "Broken Glasses",
+        "icon": "brokenglasses2020vision",
+        "id": 2296,
+        "duration": 12,
+        "lands_on": ["munzee"]
+      },
     ]
   },
   {
