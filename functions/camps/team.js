@@ -30,8 +30,8 @@ module.exports = {
           p: f(user, week)
         }));
         var td = {
-          total: members.reduce((a,b)=>a+b.p,0),
-          members: members.filter(i=>i.p>0),
+          total: Date.now()>1597035599000?0:members.reduce((a,b)=>a+b.p,0),
+          members: Date.now()>1597035599000?[]:members.filter(i=>i.p>0),
           id: team.id,
           name: names[team.id],
           icon: icons[team.id]

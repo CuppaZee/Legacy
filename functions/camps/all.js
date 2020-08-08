@@ -44,7 +44,7 @@ module.exports = {
         data.sort((a,b)=>b.total-a.total);
         return {
           status: "success",
-          data
+          data: Date.now()>1597035599000?null:data
         }
       }
     },
@@ -79,7 +79,7 @@ module.exports = {
         console.log('RETURNING CAMP DATA')
         return {
           status: "success",
-          data
+          data: Date.now()>1597035599000?null:data
         }
       }
     },
@@ -89,8 +89,8 @@ module.exports = {
       async function({ db, params: {team:teamID} }) {
         var team = (await db.collection('campsv2').doc(teamID).get()).data();
         var td = {
-          total: team.total,
-          members: team.users.map(user=>({
+          total: Date.now()>1597035599000?0:team.total,
+          members: Date.now()>1597035599000?[]:team.users.map(user=>({
             n: user.n,
             i: user.i,
             p: user.p||0

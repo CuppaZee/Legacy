@@ -8,7 +8,7 @@ module.exports = {
       async function() {
         return {
           status: "success",
-          data: [
+          data: Date.now()>1597035599000?[]:[
             {id:"overall",title:"Overall",status:"ongoing"},
             {id:"week1",title:"Week 1",status:"finalresults"},
             {id:"week2",title:"Week 2",status:"finalresults"},

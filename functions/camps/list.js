@@ -56,7 +56,7 @@ module.exports = {
         teamList.sort((a,b)=>b.total-a.total);
         return {
           status: "success",
-          data: teamList
+          data: Date.now()>1597035599000?[]:teamList
         }
       }
     }
