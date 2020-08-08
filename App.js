@@ -43,7 +43,7 @@ import DrawerContent from './sections/Main/Drawer';
 
 import { Platform, View, Text, StatusBar, ActivityIndicator, ScrollView, Image } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Provider as PaperProvider, Button, Appbar } from 'react-native-paper'
+import { Provider as PaperProvider, Button, Appbar, DefaultTheme, DarkTheme } from 'react-native-paper'
 
 import { useDimensions } from '@react-native-community/hooks';
 import * as WebBrowser from 'expo-web-browser';
@@ -239,12 +239,28 @@ function App() {
     </NavigationContainer>
   );
 }
+
+function ThemeWrapper () {
+  const theme = useSelector(i=>i.themes[i.theme]);
+  const paperTheme = {
+    ...(theme.dark?DarkTheme:DefaultTheme),
+    dark: theme.dark,
+    colors: {
+      ...(theme.dark?DarkTheme:DefaultTheme).colors,
+      primary: theme.navigation.bg,
+      accent: theme.navigation_selected.bg,
+      text: theme.page_content.fg,
+    }
+  }
+  return <PaperProvider theme={paperTheme}>
+    <App />
+  </PaperProvider>
+}
+
 export default function () { // Setup Providers
   return <SafeAreaProvider>
     <ReduxProvider store={store}>
-      <PaperProvider>
-        <App />
-      </PaperProvider>
+      <ThemeWrapper />
     </ReduxProvider>
   </SafeAreaProvider>
 }

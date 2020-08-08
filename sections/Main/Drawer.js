@@ -19,7 +19,9 @@ function DrawerItem(props) {
       padding: 4, paddingHorizontal: 8, borderRadius: 20, backgroundColor: props.focused ? props.activeBackgroundColor : "transparent", flexDirection: "row", alignItems: "center",
       borderTopLeftRadius: 0, borderBottomLeftRadius: 0
     }}>
-      <props.icon color={props.focused ? props.activeTintColor : props.inactiveTintColor} />
+      <View style={{height:32,width:32}}>
+        <props.icon color={props.focused ? props.activeTintColor : props.inactiveTintColor} />
+      </View>
       {!props.mini && <>
         <View style={{ width: 4 }}></View>
         {typeof props.label == "string" ? <Text numberOfLines={1} ellipsizeMode="tail" allowFontScaling={false} style={{ color: props.focused ? props.activeTintColor : props.inactiveTintColor, fontSize: 14, ...font("500") }}>{props.label}</Text> : <props.label color={props.focused ? props.activeTintColor : props.inactiveTintColor} />}
@@ -37,7 +39,6 @@ export default function CustomDrawerContent(props) {
   var theme = useSelector(i => i.themes[i.theme]);
   var clanBookmarks = useSelector(i => i.clanBookmarks);
   var userBookmarks = useSelector(i => i.userBookmarks);
-  var users = useSelector(i => Object.entries(i.logins));
   var route = useSelector(i => i.route);
   var nav = props.navigation;
   var [showMoreClan, setShowMoreClan] = React.useState(false);
@@ -50,7 +51,7 @@ export default function CustomDrawerContent(props) {
     return () => clearInterval(x);
   })
   var top = [
-    { title: "Camps Leaderboard", icon: "flag", page: "AllCampWeeks", hide: now < 1594314000000 },
+    { title: "Camps Leaderboard", icon: "flag", page: "AllCampWeeks", hide: now > 1597035599000 },
   ].filter(i => !i.hide)
   var pages = [
     // { title: t(`common:maps`), icon: "map", page: "Map" },

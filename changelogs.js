@@ -1020,4 +1020,11 @@ export default {
       description: 'Added Broken Glasses 2020 Vision special to CuppaZee\'s Munzee Types Database'
     }
   ],
+  231: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Squashed a few bugs, and tweaked a few things'
+    }
+  ],
 }

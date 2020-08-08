@@ -9,11 +9,13 @@ function UserIcon({ user_id, size }) {
 }
 
 export default function UserFAB({ username, user_id }) {
+  var theme = useSelector(i=>i.themes[i.theme]);
   var [FABOpen, setFABOpen] = React.useState(false);
   var nav = useNavigation();
   var bookmarks = useSelector(i => i.userBookmarks);
   var list = bookmarks.filter(i => i.username != username).slice(0, 5).map(i => ({
-    icon: () => <UserIcon size={40} user_id={Number(i.user_id)} />,
+    icon: () => <UserIcon theme={theme} size={40} user_id={Number(i.user_id)} />,
+    style: {backgroundColor:theme.page_content.bg},
     label: i.username,
     onPress: () => {
       var prevState = nav.dangerouslyGetState();
@@ -36,8 +38,10 @@ export default function UserFAB({ username, user_id }) {
   }));
   if(list.length === 0) return null;
   return <FAB.Group
+    theme={{dark:theme.dark}}
     open={FABOpen}
-    icon={() => <UserIcon size={56} user_id={Number(user_id)} />}
+    fabStyle={{backgroundColor:theme.page_content.bg}}
+    icon={() => <UserIcon theme={theme} size={56} user_id={Number(user_id)} />}
     actions={list}
     onStateChange={({ open }) => setFABOpen(open)}
   />;
