@@ -567,6 +567,8 @@ munzees = munzees.concat(require('./types/cards.json').map(i => ({
   card: i.open ? "open" : "limited",
   temporary: 7,
 
+  ...(i.extra || {}),
+
   state: "virtual",
   category: "card",
 

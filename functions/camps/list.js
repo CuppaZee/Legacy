@@ -41,7 +41,7 @@ module.exports = {
     {
       version: 2,
       params: {},
-      async function({ db, params: { week } }) {
+      async function({ db, params: { week, __hidden } }) {
         var d = (await db.collection('campsv2').doc('_total').get()).data();
         var teamList = [];
         for(var teamI in d) {
@@ -56,7 +56,7 @@ module.exports = {
         teamList.sort((a,b)=>b.total-a.total);
         return {
           status: "success",
-          data: Date.now()>1597035599000?[]:teamList
+          data: (!__hidden && Date.now()>1597035599000)?[]:teamList
         }
       }
     }

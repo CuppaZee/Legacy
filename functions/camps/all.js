@@ -86,11 +86,11 @@ module.exports = {
     {
       version: 3,
       params: {},
-      async function({ db, params: {team:teamID} }) {
+      async function({ db, params: {team:teamID, __hidden} }) {
         var team = (await db.collection('campsv2').doc(teamID).get()).data();
         var td = {
-          total: Date.now()>1597035599000?0:team.total,
-          members: Date.now()>1597035599000?[]:team.users.map(user=>({
+          total: (!__hidden && Date.now()>1597035599000)?0:team.total,
+          members: (!__hidden && Date.now()>1597035599000)?[]:team.users.map(user=>({
             n: user.n,
             i: user.i,
             p: user.p||0

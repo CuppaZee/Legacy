@@ -1027,4 +1027,18 @@ export default {
       description: 'Squashed a few bugs, and tweaked a few things'
     }
   ],
+  232: [
+    {
+      image: 'campfreezflag',
+      title: 'Goodbye Camps',
+      description: 'Removed Camps Leaderboard'
+    }
+  ],
+  233: [
+    {
+      image: 'couchpotatocard',
+      title: 'Add Couch Potato Card',
+      description: 'Add the new Couch Potato Card to CuppaZee\'s Munzee Types Database'
+    }
+  ],
 }

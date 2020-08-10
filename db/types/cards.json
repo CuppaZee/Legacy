@@ -120,5 +120,15 @@
     "icon": "eventcard",
     "id": "null_eventcard",
     "open": true
+  },
+  {
+    "name": "Couch Potato Card",
+    "icon": "couch_potato_card",
+    "id": "null_eventcard",
+    "extra": {
+      "alt_icons": [
+        "couchpotatocard"
+      ]
+    }
   }
 ]
