@@ -1,3 +1,4 @@
 module.exports = [
-  require('./bouncers')
+  require('./bouncers'),
+  require('./deploytime')
 ]

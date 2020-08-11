@@ -11,6 +11,8 @@ function checkFrom(from,route) {
     return true;
   } else if(route.includes("minute")) {
     return true;
+  } else if(route.includes("deploytime")) {
+    return true;
   } else if(from===undefined) {
     return false;
   } else if(from.match(/^cuppazee_([a-z]+)_([0-9.]+)_([0-9.]+)$/)) {
