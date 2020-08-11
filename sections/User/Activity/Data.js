@@ -80,7 +80,7 @@ export function ActivityConverter(dataraw, filters, userdata) {
   }
   
   for (const capture of data.captures_on) {
-    const ownCapture = activityList.findIndex(i => i.time === capture.captured_at && i.creator === userdata?.username && i.code === capture.code && i.pin === capture.pin);
+    const ownCapture = activityList.findIndex(i => i.type === "capture" && i.time === capture.captured_at && i.creator === userdata?.username && i.code === capture.code && i.pin === capture.pin);
     if (ownCapture !== -1) {
       activityList[ownCapture].points += Number(capture.points_for_creator);
     } else {

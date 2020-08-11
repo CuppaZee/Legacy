@@ -1041,4 +1041,11 @@ export default {
       description: 'Add the new Couch Potato Card to CuppaZee\'s Munzee Types Database'
     }
   ],
+  234: [
+    {
+      icon: 'account',
+      title: 'Updated User Activity',
+      description: 'Fixed a bug with Capons being merged when they were at the exact same time.'
+    }
+  ],
 }
