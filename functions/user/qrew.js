@@ -55,8 +55,8 @@ module.exports = {
         })
         var recent_cap = Object.entries(capture_dates).sort((a,b)=>new Date(b[0])-new Date(a[0]))[0][0];
         var recent_dep = Object.entries(deploy_dates).sort((a,b)=>new Date(b[0])-new Date(a[0]))[0][0];
-        var this_month = moment().date()<15;
-        var next_check = moment().add(this_month?0:1,"month").date(this_month?15:1).hour(0).minute(0).second(0).millisecond(0);
+        var this_month = moment().tz('America/Chicago').date()<15;
+        var next_check = moment().tz('America/Chicago').add(this_month?0:1,"month").date(this_month?15:1).hour(0).minute(0).second(0).millisecond(0);
         var earliest = moment(next_check).add(-14,"day")
         return {
           status: "success",
@@ -67,8 +67,8 @@ module.exports = {
             recent_dep: moment(recent_dep)>=earliest?recent_dep:null,
             recent_capt: recent_cap,
             recent_depl: recent_dep,
-            next_check,
-            earliest
+            next_check: next_check.format(),
+            earliest: earliest.format()
           }
         }
       },

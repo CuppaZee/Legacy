@@ -1,5 +1,5 @@
 module.exports = [
-  require('./auth_team'),
+  // require('./auth_team'),
   require('./generate/addusers'),
   require('./raw'),
 

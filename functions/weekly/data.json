@@ -1,0 +1,76 @@
+[
+  {
+    "id": "week_1",
+    "week": 1,
+    "description": "Camp FrEEZ Bouncers",
+    "icon": "campfreezcounselor",
+    "requirements": [
+      {
+        "type": "campfreezcounselor",
+        "points": 4
+      },
+      {
+        "type": "dragon",
+        "points": 1
+      },
+      {
+        "type": "chinesedragon",
+        "points": 2
+      },
+      {
+        "type": "wyverndragon",
+        "points": 2
+      },
+      {
+        "type": "icedragon",
+        "points": 5
+      },
+      {
+        "type": "pegasus",
+        "points": 1
+      },
+      {
+        "type": "griffinpegasus",
+        "points": 2
+      },
+      {
+        "type": "alicornpegasus",
+        "points": 2
+      },
+      {
+        "type": "banshee",
+        "points": 1
+      },
+      {
+        "type": "harpybanshee",
+        "points": 2
+      },
+      {
+        "type": "witchbanshee",
+        "points": 2
+      }
+    ],
+    "reveal":   "2020-08-12T11:30:00-05:00",
+    "prestart": "2020-08-12T11:15:00-05:00",
+    "start":    "2020-08-12T12:00:00-05:00",
+    "end":      "2020-08-19T09:00:00-05:00",
+    "finalend": "2020-08-19T09:45:00-05:00"
+  },
+  {
+    "id": "week_2",
+    "week": 2,
+    "description": "QRewZees",
+    "icon": "qrewzee",
+    "requirements": [
+      {
+        "type": "qrewzee",
+        "points": 1
+      }
+    ],
+    "reveal":   "2020-08-19T09:00:00-05:00",
+    "prestart": "2020-08-20T11:15:00-05:00",
+    "start":    "2020-08-20T12:00:00-05:00",
+    "end":      "2020-08-27T09:00:00-05:00",
+    "finalend": "2020-08-27T09:45:00-05:00"
+  }
+]

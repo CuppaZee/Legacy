@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Text, View, Platform, Image, AsyncStorage, ScrollView } from 'react-native';
-import { Button, TextInput, Menu, Switch } from 'react-native-paper';
+import { Button, TextInput, Switch } from 'react-native-paper';
+import DropDown from 'react-native-paper-dropdown';
 import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from "react-redux";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Card from '../Shared/Card';
 import s from "utils/store";
 import { useTranslation } from 'react-i18next';
@@ -60,19 +60,24 @@ export default function SettingsScreen({ navigation }) {
   }
 
   var languages = [
-    { code: 'cs', name: 'Čeština', flag: "CZ" },
-    { code: 'da', name: 'Dansk' },
-    { code: 'de', name: 'Deutsch' },
-    { code: 'en-GB', name: 'English' },
-    { code: 'en', name: 'English (US)' },
-    { code: 'fi', name: 'Suomi' },
-    {code:'fr',name:'Français'},
-    { code: 'hu', name: 'Magyar' },
-    // {code:'lt',name:'Lietuvių Kalba'},
-    { code: 'nl', name: 'Nederlands' },
-    { code: 'pt', name: 'Português' },
-    // {code:'sv',name:'Svenska'}
+    { value: 'cs', label: 'Čeština', flag: "CZ" },
+    { value: 'da', label: 'Dansk' },
+    { value: 'de', label: 'Deutsch' },
+    { value: 'en-GB', label: 'English' },
+    { value: 'en', label: 'English (US)' },
+    { value: 'fi', label: 'Suomi' },
+    { value: 'fr', label: 'Français' },
+    { value: 'hu', label: 'Magyar' },
+    // {value:'lt',label:'Lietuvių Kalba'},
+    { value: 'nl', label: 'Nederlands' },
+    { value: 'pt', label: 'Português' },
+    // {value:'sv',label:'Svenska'}
   ]
+
+  var themeslist = Object.entries(themes).filter(i => !i[0].startsWith('_')).reverse().map(i=>({
+    value: i[1].id,
+    label: t(`themes:${i[1].id}`)
+  }))
 
   var baseSettings = useSelector(i => i.settings)
   var [settings, setSettings] = React.useState({});
@@ -124,82 +129,58 @@ export default function SettingsScreen({ navigation }) {
             </View>
 
             <View style={{ padding: 4 }}>
-              <Menu
+              <Text allowFontScaling={false} style={{ fontSize: 14, lineHeight: 14, marginBottom: -4, ...font(), color: theme.page_content.fg }}>Theme</Text>
+              <DropDown
+                mode="outlined"
+                value={theme.id}
+                setValue={setTheme}
+                list={themeslist}
                 visible={themeDropdown}
+                showDropDown={() => setThemeDropdown(true)}
                 onDismiss={() => setThemeDropdown(false)}
-                position="bottom"
-                anchor={
-                  <Button
-                    mode="contained"
-                    icon="brush"
-                    style={theme.page_content.border ? { borderColor: "white", borderWidth: 1 } : {}}
-                    labelStyle={{ flexDirection: "row" }}
-                    color={theme.navigation.bg}
-                    onPress={() => setThemeDropdown(true)}
-                  >
-                    <Text allowFontScaling={false} style={{ fontSize: 14, color: theme.navigation.fg, ...font(), flex: 1, textAlign: "left" }}>{t('settings:theme',{name: t(`themes:${theme.id}`)})}</Text>
-                    <MaterialCommunityIcons color={theme.navigation.fg} name="chevron-down" size={16} />
-                  </Button>
-                }
-                contentStyle={{ backgroundColor: theme.page_content.bg, padding: 0 }}
-              >
-                {Object.entries(themes).filter(i => !i[0].startsWith('_')).reverse().map((i, index) => <Menu.Item
-                  key={index}
-                  style={{ padding: 4, paddingVertical: 0, fontSize: 14, backgroundColor: i[1].navigation.bg }}
-                  onPress={() => { dispatch(setTheme(i[0])); setThemeDropdown(false) }}
-                  title={<Text allowFontScaling={false} style={{ fontSize: 14, ...font(), color: i[1].navigation.fg }}>{t(`themes:${i[1].id}`)}</Text>}
-                />)}
-              </Menu>
+                inputProps={{
+                  dense: true,
+                  right: <TextInput.Icon name={'menu-down'} />,
+                }}
+              />
             </View>
 
             <View style={{ padding: 4 }}>
-              <Menu
+              <Text allowFontScaling={false} style={{ fontSize: 14, lineHeight: 14, marginBottom: -4, ...font(), color: theme.page_content.fg }}>Language</Text>
+              <DropDown
+                mode="outlined"
+                value={i18n.language}
+                setValue={setLang}
+                list={languages}
                 visible={langDropdown}
+                showDropDown={() => setLangDropdown(true)}
                 onDismiss={() => setLangDropdown(false)}
-                position="bottom"
-                anchor={
-                  <Button
-                    mode="contained"
-                    icon="translate"
-                    style={theme.page_content.border ? { borderColor: "white", borderWidth: 1 } : {}}
-                    labelStyle={{ flexDirection: "row" }}
-                    color={theme.navigation.bg}
-                    onPress={() => setLangDropdown(true)}
-                  >
-                    <Text allowFontScaling={false} style={{ fontSize: 14, color: theme.navigation.fg, ...font(), flex: 1, textAlign: "left" }}>{t('settings:language',{name:languages.find(i => i.code == i18n.language)?.name ?? i18n.language})}</Text>
-                    <MaterialCommunityIcons color={theme.navigation.fg} name="chevron-down" size={16} />
-                  </Button>
-                }
-                contentStyle={{ backgroundColor: theme.page_content.bg, padding: 0 }}
-              >
-                {languages.map((i, index) => <Menu.Item
-                  key={index}
-                  style={{ padding: 4, paddingVertical: 0, fontSize: 14, backgroundColor: theme.page_content.bg }}
-                  onPress={() => { setLang(i.code); setLangDropdown(false) }}
-                  title={<Text allowFontScaling={false} style={{ fontSize: 14, ...font(), color: theme.page_content.fg }}>{i.name}</Text>}
-                />)}
-              </Menu>
+                inputProps={{
+                  dense: true,
+                  right: <TextInput.Icon name={'menu-down'} />,
+                }}
+              />
             </View>
             {/* <View style={{flexDirection:"row",alignItems:"center",padding:4}}>
               <Switch style={{marginRight: 8}} color={theme.page_content.fg} value={settings.activityV2Beta} onValueChange={(value)=>setSetting("activityV2Beta",!settings.activityV2Beta)} />
               <Text allowFontScaling={false} style={{color:theme.page_content.fg, flex: 1,...font("bold")}}>User Activity Beta</Text>
             </View> */}
-            {Platform.OS==="ios"&&<View style={{flexDirection:"row",alignItems:"center",padding:4}}>
-              <Switch style={{marginRight: 8}} color={theme.page_content.fg} value={settings.appleMaps} onValueChange={(value)=>setSetting("appleMaps",!settings.appleMaps)} />
-              <Text allowFontScaling={false} style={{color:theme.page_content.fg, flex: 1,...font("bold")}}>Apple Maps</Text>
+            {Platform.OS === "ios" && <View style={{ flexDirection: "row", alignItems: "center", padding: 4 }}>
+              <Switch style={{ marginRight: 8 }} color={theme.page_content.fg} value={settings.appleMaps} onValueChange={(value) => setSetting("appleMaps", !settings.appleMaps)} />
+              <Text allowFontScaling={false} style={{ color: theme.page_content.fg, flex: 1, ...font("bold") }}>Apple Maps</Text>
             </View>}
             <View>
               {[
                 ["clan_level_ind", "Individual"],
                 ["clan_level_bot", "Both"],
                 ["clan_level_gro", "Group"],
-                ["clan_level_0",   "No Level"],
-                ["clan_level_1",   "Level 1"],
-                ["clan_level_2",   "Level 2"],
-                ["clan_level_3",   "Level 3"],
-                ["clan_level_4",   "Level 4"],
-                ["clan_level_5",   "Level 5"],
-                ["clan_level_null","Empty"]
+                ["clan_level_0", "No Level"],
+                ["clan_level_1", "Level 1"],
+                ["clan_level_2", "Level 2"],
+                ["clan_level_3", "Level 3"],
+                ["clan_level_4", "Level 4"],
+                ["clan_level_5", "Level 5"],
+                ["clan_level_null", "Empty"]
               ].map(i => <View style={{ padding: 4 }}>
                 <Text allowFontScaling={false} style={{ fontSize: 14, lineHeight: 14, marginBottom: -4, ...font(), color: theme.page_content.fg }}>{i[1]}</Text>
                 <TextInput
@@ -208,10 +189,10 @@ export default function SettingsScreen({ navigation }) {
                   theme={{
                     dark: theme.dark,
                     colors: {
-                      primary: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? whiteOrBlack(settings[i[0]]||"") : theme.page_content.fg,
+                      primary: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? whiteOrBlack(settings[i[0]] || "") : theme.page_content.fg,
                       background: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? settings[i[0]] : theme.page_content.bg,
-                      placeholder: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? whiteOrBlack(settings[i[0]]||"") : theme.page_content.fg,
-                      text: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? whiteOrBlack(settings[i[0]]||"") : theme.page_content.fg
+                      placeholder: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? whiteOrBlack(settings[i[0]] || "") : theme.page_content.fg,
+                      text: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? whiteOrBlack(settings[i[0]] || "") : theme.page_content.fg
                     }
                   }}
                   placeholder={i[1]}

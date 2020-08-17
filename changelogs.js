@@ -1048,4 +1048,49 @@ export default {
       description: 'Fixed a bug with Capons being merged when they were at the exact same time.'
     }
   ],
+  235: [
+    {
+      image: 'freezflagcard',
+      title: 'Add FrEEZ Flag Card',
+      description: 'Add the new FrEEZ Flag Card to CuppaZee\'s Munzee Types Database'
+    },
+    {
+      image: 'campfreezflag',
+      title: 'Well done Camp FrEEZ',
+      description: 'Brought back Camps Leaderboard temporarily'
+    }
+  ],
+  236: [
+    {
+      icon: 'calendar',
+      title: 'Introducing: The CuppaZee Weekly Challenge',
+      description: 'Check our Facebook Page @CuppaZee for more info!'
+    }
+  ],
+  237: [
+    {
+      icon: 'calendar',
+      title: 'Improved Weekly Challenge',
+      description: 'Added more information to the Weekly Challenge week list'
+    }
+  ],
+  238: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Squashed a few bugs, and tweaked a few things'
+    }
+  ],
+  239: [
+    {
+      icon: 'hammer',
+      title: 'Updated QRew/ZeeQRew Checker',
+      description: 'Added something to show when it\'s checking eligibility for, and made "Recent Capture" and "Recent Deploy" clearer.'
+    },
+    {
+      icon: 'account',
+      title: 'Updated User Details',
+      description: 'You can now easily see if someone is QRew, ZeeQRew or Premium at a glance.'
+    },
+  ]
 }

@@ -130,5 +130,15 @@
         "couchpotatocard"
       ]
     }
+  },
+  {
+    "name": "FrEEZ Flag Card",
+    "icon": "freezflagcard",
+    "id": "null_freezflagcard",
+    "extra": {
+      "alt_icons": [
+        "freez_flag_card"
+      ]
+    }
   }
 ]
