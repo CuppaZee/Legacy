@@ -8,6 +8,7 @@ import useLevelColours from 'utils/hooks/useLevelColours';
 import font from 'sections/Shared/font';
 import getIcon from 'utils/db/icon';
 import { useRoute } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
 const UserTile = React.memo(function ({ i, index }) {
   var theme = useSelector(i => i.themes[i.theme]);
@@ -77,6 +78,7 @@ const UserTile = React.memo(function ({ i, index }) {
 
 export default function TeamLeaderboardScreen({ route }) {
   var theme = useSelector(i => i.themes[i.theme]);
+  const {t} = useTranslation();
   var types = useAPIRequest({
     endpoint: `weekly/weeks/v1`,
     cuppazee: true
@@ -116,7 +118,7 @@ export default function TeamLeaderboardScreen({ route }) {
           <View style={{ flexDirection: "row", alignItems: "center", flexWrap: "wrap" }}>
             {types.map((x,xi) => <View key={x.id} style={{ padding: 4, width: 60, flexGrow: 1, alignItems: "center" }}>
               <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={getIcon(x.type)} />
-              <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{x.points} Pts</Text>
+              <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{t('weekly:points',{count:x.points})}</Text>
             </View>)}
           </View>
         </Card>
@@ -129,7 +131,7 @@ export default function TeamLeaderboardScreen({ route }) {
             onChangeText={onValue}
             value={value}
             returnKeyType="search"
-            placeholder="Search"
+            placeholder={t('common:search')}
           />
         </Card>
       </View>

@@ -12,30 +12,6 @@ import getType from 'utils/db/types';
 import UserFAB from '../FAB';
 import { useNavigation } from '@react-navigation/native';
 
-function BlastType({ data, icon }) {
-  var { t } = useTranslation();
-  var theme = useSelector(i => i.themes[i.theme]);
-  var [open, setOpen] = React.useState(false);
-  return <Menu
-    visible={open}
-    onDismiss={() => setOpen(false)}
-    anchor={
-      <TouchableRipple onPress={() => setOpen(true)}>
-        <View key={icon} style={{ padding: 2, alignItems: "center" }}>
-          <Image style={{ height: 36, width: 36 }} source={getIcon(icon)} />
-          <Text allowFontScaling={false} style={{ ...font(), color: theme.page_content.fg, fontSize: 16 }}>{data.total}</Text>
-        </View>
-      </TouchableRipple>
-    }
-    style={{ marginTop: 61 }}
-  >
-    <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
-      <Image style={{ height: 48, width: 48 }} source={getIcon(icon)} />
-      <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{data.total}x {getType(icon)?.name || icon}</Text>
-    </View>
-  </Menu>;
-}
-
 export default function ClanScreen({ route }) {
   var { t } = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
@@ -93,7 +69,7 @@ export default function ClanScreen({ route }) {
                 lat: storedLocation.lat,
                 lon: storedLocation.lng
               })}>
-              Mini
+              {t('blast_checker:types.mini')}
             </Button>
           </View>
           <View style={{ padding: 4, flex: 1 }}>
@@ -108,7 +84,7 @@ export default function ClanScreen({ route }) {
                 lat: storedLocation.lat,
                 lon: storedLocation.lng
               })}>
-              Normal
+              {t('blast_checker:types.normal')}
             </Button>
           </View>
           <View style={{ padding: 4, flex: 1 }}>
@@ -123,7 +99,7 @@ export default function ClanScreen({ route }) {
                 lat: storedLocation.lat,
                 lon: storedLocation.lng
               })}>
-              Mega
+              {t('blast_checker:types.mega')}
             </Button>
           </View>
         </View>

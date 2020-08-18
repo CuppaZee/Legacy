@@ -116,7 +116,7 @@ export default function EvoPlannerScreen({ navigation }) {
               color={theme.navigation.bg}
               onPress={() => setPickerOpen(true)}
             >
-              <Text allowFontScaling={false} style={{ fontSize: 14, textTransform: "none", color: theme.navigation.fg, ...font(), flex: 1, textAlign: "left" }}>{options.find(i => i.id == option)?.name}</Text>
+              <Text allowFontScaling={false} style={{ fontSize: 14, textTransform: "none", color: theme.navigation.fg, ...font(), flex: 1, textAlign: "left" }}>{t('evo_planner:types.'+option)}</Text>
               <MaterialCommunityIcons color={theme.navigation.fg} name="chevron-down" size={16} />
             </Button>
           }
@@ -126,7 +126,7 @@ export default function EvoPlannerScreen({ navigation }) {
             key={index}
             style={{ padding: 4, paddingVertical: 0, fontSize: 14, backgroundColor: theme.page_content.bg }}
             onPress={() => { setOption(i.id); setPickerOpen(false) }}
-            title={<Text allowFontScaling={false} style={{ fontSize: 14, ...font(), color: theme.page_content.fg }}>{i.name}</Text>}
+            title={<Text allowFontScaling={false} style={{ fontSize: 14, ...font(), color: theme.page_content.fg }}>{t(`evo_planner:types.${i.id}`)}</Text>}
           />)}
         </Menu>
       </View>
@@ -138,8 +138,8 @@ export default function EvoPlannerScreen({ navigation }) {
             </View>
             <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
               <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{moment(date).add(i.days, "days").format('L')}</Text>
-              <Text allowFontScaling={false} style={{ fontSize: 14, ...font(400), color: theme.page_content.fg, opacity: 1 }}>{i.days} Days</Text>
-              <Text allowFontScaling={false} style={{ fontSize: 14, ...font(400), color: theme.page_content.fg, opacity: 1 }}>Stage {index + 1}</Text>
+              <Text allowFontScaling={false} style={{ fontSize: 14, ...font(400), color: theme.page_content.fg, opacity: 1 }}>{t('evo_planner:days',{count:i.days})}</Text>
+              <Text allowFontScaling={false} style={{ fontSize: 14, ...font(400), color: theme.page_content.fg, opacity: 1 }}>{t('evo_planner:stage',{n:index+1})}</Text>
             </View>
           </View>
         </Card>

@@ -91,30 +91,30 @@ export default function SettingsScreen() {
       {munzee.points&&<>
         <View style={{height:1,backgroundColor:theme.page_content.fg,opacity:0.5,margin:8}}></View>
         <View style={{alignItems:"center"}}>
-          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>Points</Text>
+          <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:24,...font("bold")}}>{t('db:type.points')}</Text>
         </View>
         <View style={{flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
           {munzee.points.deploy!==undefined&&<View style={{alignItems:"center",padding:4,width:100}}>
             <MaterialCommunityIcons name="account" size={32} color={theme.page_content.fg} />
             <Text allowFontScaling={false} numberOfLines={1} style={{color: theme.page_content.fg,lineHeight:16,fontSize:16,...font("bold")}}>{munzee.points.deploy}</Text>
-            <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>Deploy</Text>
+            <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>{t('db:type.deploy')}</Text>
           </View>}
           {!munzee.points.type&&<>
             <View style={{alignItems:"center",padding:4,width:100}}>
               <MaterialCommunityIcons name="check" size={32} color={theme.page_content.fg} />
               <Text allowFontScaling={false} numberOfLines={1} style={{color: theme.page_content.fg,lineHeight:16,fontSize:16,...font("bold")}}>{munzee.points.capture}</Text>
-              <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>Capture</Text>
+              <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>{t('db:type.capture')}</Text>
             </View>
             <View style={{alignItems:"center",padding:4,width:100}}>
               <MaterialCommunityIcons name="open-in-app" size={32} color={theme.page_content.fg} />
               <Text allowFontScaling={false} numberOfLines={1} style={{color: theme.page_content.fg,lineHeight:16,fontSize:16,...font("bold")}}>{munzee.points.capon}</Text>
-              <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>Capon</Text>
+              <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>{t('db:type.capon')}</Text>
             </View>
           </>}
           {munzee.points.type=="split"&&<View style={{alignItems:"center",padding:4,width:100}}>
             <MaterialCommunityIcons name="call-split" size={32} color={theme.page_content.fg} />
-            <Text allowFontScaling={false} numberOfLines={1} style={{color: theme.page_content.fg,lineHeight:16,fontSize:16,...font("bold")}}>{munzee.points.split} (Min {munzee.points.min})</Text>
-            <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>Cap/Capon Split</Text>
+            <Text allowFontScaling={false} numberOfLines={1} style={{color: theme.page_content.fg,lineHeight:16,fontSize:16,...font("bold")}}>{t('db:type.split_val',munzee.points)}</Text>
+            <Text allowFontScaling={false} style={{color: theme.page_content.fg,fontSize:12,...font()}}>{t('db:type.split')}</Text>
           </View>}
         </View>
       </>}

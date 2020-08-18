@@ -11,6 +11,7 @@ import categories from 'utils/db/categories.json';
 
 import useAPIRequest from 'utils/hooks/useAPIRequest';
 import useMoment from 'utils/hooks/useMoment';
+import { useTranslation } from 'react-i18next';
 
 const stateNames = {
   physical: "Physical",
@@ -53,6 +54,7 @@ export default function UserActivitySidebar({ filters: filterinput, onFiltersCha
   }, [filterinput]);
   var moment = useMoment();
   var theme = useSelector(i => i.themes[i.theme]);
+  const {t} = useTranslation();
   var date = moment().tz('America/Chicago');
   var dateString = `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
   var route = useRoute();
@@ -96,7 +98,7 @@ export default function UserActivitySidebar({ filters: filterinput, onFiltersCha
   ]
   return <ScrollView style={{ flex: 1 }}>
     <View style={{ padding: 4 }}>
-      <Button icon="check" mode="contained" color={theme.navigation.bg} onPress={() => onFiltersChange?.(filters)}>Update Filters</Button>
+      <Button icon="check" mode="contained" color={theme.navigation.bg} onPress={() => onFiltersChange?.(filters)}>{t('activity:filters.update')}</Button>
     </View>
     <UserActivityFilterSection
       filter={filters.activity}
@@ -104,7 +106,7 @@ export default function UserActivitySidebar({ filters: filterinput, onFiltersCha
         ...filters,
         activity: filter
       })}
-      title="Activity"
+      title={t('activity:filters.activity')}
       options={activityOptions}
     />
     <UserActivityFilterSection
@@ -113,7 +115,7 @@ export default function UserActivitySidebar({ filters: filterinput, onFiltersCha
         ...filters,
         state: filter
       })}
-      title="State"
+      title={t('activity:filters.state')}
       options={stateOptions}
     />
     <UserActivityFilterSection
@@ -122,7 +124,7 @@ export default function UserActivitySidebar({ filters: filterinput, onFiltersCha
         ...filters,
         category: filter
       })}
-      title="Category"
+      title={t('activity:filters.category')}
       options={categoryOptions}
     />
   </ScrollView>

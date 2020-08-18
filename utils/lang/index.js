@@ -13,14 +13,18 @@ import sv from './sv.json'
 
 var plural_list = ["","_plural"]
 
-function x(obj, key){
+function s(a) {
+    return a.replace(/\w/g,()=>Math.floor(Math.random()*36).toString(36));
+}
+
+function x(obj, key, scramble){
     var a = {};
     if(obj.other!==undefined) {
         for(var i = 0;i < Object.keys(obj).length;i++) {
             if(Object.keys(obj).length==2) {
-                if(Object.values(obj)[i]) a[`${key}${plural_list[i]}`] = Object.values(obj)[i].replace(/{([a-z0-9_]+)}/g,'{{$1}}');
+                if(Object.values(obj)[i]) a[`${key}${plural_list[i]}`] = scramble?s(Object.values(obj)[i]):Object.values(obj)[i].replace(/{([a-z0-9_]+)}/g,'{{$1}}');
             } else {
-                if(Object.values(obj)[i]) a[`${key}_${i}`] = Object.values(obj)[i].replace(/{([a-z0-9_]+)}/g,'{{$1}}');
+                if(Object.values(obj)[i]) a[`${key}_${i}`] = scramble?s(Object.values(obj)[i]):Object.values(obj)[i].replace(/{([a-z0-9_]+)}/g,'{{$1}}');
             }
         }
     } else {
@@ -28,9 +32,9 @@ function x(obj, key){
         for(var i = 0;i < Object.keys(obj).length;i++) {
             let k = Object.keys(obj)[i];
             if(typeof obj[k] == "string") {
-                if(obj[k]) a[key][k] = obj[k].replace(/{([a-z0-9_]+)}/g,'{{$1}}');
+                if(obj[k]) a[key][k] = scramble?s(obj[k]):obj[k].replace(/{([a-z0-9_]+)}/g,'{{$1}}');
             } else {
-                Object.assign(a[key],x(obj[k],k))
+                Object.assign(a[key],x(obj[k],k,scramble))
             }
         }
     }

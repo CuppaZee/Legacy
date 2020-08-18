@@ -50,14 +50,14 @@ export default function ClanScreen({ route }) {
     <ActivityIndicator size="large" color={theme.page.fg} />
   </View>
   var tasksLS = [
-    {amount:!!user_data?.premium,name:"Premium",qrew:true,zeeqrew:true,req:1,icon:"star"},
-    {amount:data.cap.reduce((a,b)=>a+b.amount,0),name:"Captures",qrew:true,req:1000,icon:"check"},
-    {amount:data.dep.reduce((a,b)=>a+b.amount,0),name:"Deploys",qrew:true,req:100,icon:"account"},
-    {amount:data.cap.filter(i=>i.state=="physical").reduce((a,b)=>a+b.amount,0),zeeqrew:true,name:"Physical Captures",req:500,icon:"checkbox-marked"},
-    {amount:data.dep.filter(i=>i.state=="physical").reduce((a,b)=>a+b.amount,0),zeeqrew:true,name:"Physical Deploys",req:250,icon:"account-box"},
-    {amount:user_data?.points,name:"Total Points",zeeqrew:true,req:100000,icon:"arrow-up-bold-box"},
-    {amount:data.recent_cap?moment(data.recent_cap).format('L'):false,notext:`No Capture from ${moment(data.earliest).tz('America/Chicago').format('L')} to ${moment(data.next_check).add(-1,'second').tz('America/Chicago').format('L')}`,name:"Recent Capture",qrew:true,zeeqrew:true,req:1,icon:"calendar-check"},
-    {amount:data.recent_dep?moment(data.recent_dep).format('L'):false,notext:`No Deploy from ${moment(data.earliest).tz('America/Chicago').format('L')} to ${moment(data.next_check).add(-1,'second').tz('America/Chicago').format('L')}`,name:"Recent Deploy",qrew:true,zeeqrew:true,req:1,icon:"calendar-account"},
+    {amount:!!user_data?.premium,name:t('qrew:premium'),qrew:true,zeeqrew:true,req:1,icon:"star"},
+    {amount:data.cap.reduce((a,b)=>a+b.amount,0),name:t('qrew:captures'),qrew:true,req:1000,icon:"check"},
+    {amount:data.dep.reduce((a,b)=>a+b.amount,0),name:t('qrew:deploys'),qrew:true,req:100,icon:"account"},
+    {amount:data.cap.filter(i=>i.state=="physical").reduce((a,b)=>a+b.amount,0),zeeqrew:true,name:t('qrew:physical_captures'),req:500,icon:"checkbox-marked"},
+    {amount:data.dep.filter(i=>i.state=="physical").reduce((a,b)=>a+b.amount,0),zeeqrew:true,name:t('qrew:physical_deploys'),req:250,icon:"account-box"},
+    {amount:user_data?.points,name:t('qrew:total_points'),zeeqrew:true,req:100000,icon:"arrow-up-bold-box"},
+    {amount:data.recent_cap?moment(data.recent_cap).format('L'):false,notext:t(`qrew:no_capture`,{from:moment(data.earliest).tz('America/Chicago').format('L'),to:moment(data.next_check).add(-1,'second').tz('America/Chicago').format('L')}),name:t('qrew:recent_capture'),qrew:true,zeeqrew:true,req:1,icon:"calendar-check"},
+    {amount:data.recent_dep?moment(data.recent_dep).format('L'):false,notext:t(`qrew:no_deploy`,{from:moment(data.earliest).tz('America/Chicago').format('L'),to:moment(data.next_check).add(-1,'second').tz('America/Chicago').format('L')}),name:t('qrew:recent_deploy'),qrew:true,zeeqrew:true,req:1,icon:"calendar-account"},
   ]
   var tasks = [
     {amount:tasksLS.filter(i=>i.qrew&&(i.amount>=i.req||(i.amount&&i.req===1))).length,name:"QRew",pd:true,req:tasksLS.filter(i=>i.qrew).length,icon:"hammer",m:true},
@@ -77,7 +77,7 @@ export default function ClanScreen({ route }) {
                 <MaterialCommunityIcons name="clock" size={32} color={theme.page_content.fg} />
               </View>
               <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
-                <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>Checking Eligiblity for Next Check</Text>
+                <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{t('qrew:check_time')}</Text>
                 {/* <Text allowFontScaling={false} style={{fontSize:16,opacity:0.8}}><MaterialCommunityIcons name="sword-cross" size={16}/> The Cup of Coffee Clan</Text> */}
                 <Text allowFontScaling={false} style={{ fontSize: 16,...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{moment(data.next_check).format('L')} - {moment(data.next_check).fromNow()}</Text>
               </View>

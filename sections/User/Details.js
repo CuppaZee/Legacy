@@ -68,19 +68,19 @@ export default function DetailsScreen({ route }) {
                 <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <Text allowFontScaling={false} style={{ fontSize: 20, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{data?.username}</Text>
-                    {data?.premium && <MaterialCommunityIcons name="star" size={20} />}
+                    {!!data?.premium && <MaterialCommunityIcons name="star" size={20} />}
                     {data?.titles.includes('QRew') && <MaterialCommunityIcons name="hammer" size={20} />}
                     {data?.titles.includes('ZeeQRew') && <MaterialCommunityIcons name="wrench" size={20} />}
                   </View>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <MaterialCommunityIcons name="arrow-up-bold-hexagon-outline" size={16} style={{marginRight: 4}} />
-                    <Text allowFontScaling={false} style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{t('user:level_n', { level: data?.level })} - {data?.points.toLocaleString()} Points</Text>
+                    <Text allowFontScaling={false} style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{t('user:level_n', { level: data?.level })} - {t('user:points',{count:data?.points,n:data?.points.toLocaleString()})}</Text>
                   </View>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <MaterialCommunityIcons name="trophy-outline" size={16} style={{marginRight: 4}} />
                     <Text allowFontScaling={false} style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{t('user:rank_n', { rank: data?.rank })}</Text>
                   </View>
-                  {data?.titles && <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  {data?.titles?.length > 0 && <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <MaterialCommunityIcons name="format-list-bulleted" size={16} style={{marginRight: 4}} />
                     <Text allowFontScaling={false} style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{data?.titles.join(', ')}</Text>
                   </View>}
@@ -103,14 +103,14 @@ export default function DetailsScreen({ route }) {
               <TouchableRipple onPress={() => nav.navigate('UserBlastMap', { username: username })}>
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                   <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="bomb" size={24} color={theme.page_content.fg} />
-                  <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Blast Checker</Text>
+                  <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>{t('user:blast_checker')}</Text>
                   <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
                 </View>
               </TouchableRipple>
               <TouchableRipple onPress={() => nav.navigate('UserQRew', { username: username })}>
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                   <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="hammer" size={24} color={theme.page_content.fg} />
-                  <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>QRew Checker</Text>
+                  <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>{t('user:qrew_checker')}</Text>
                   <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
                 </View>
               </TouchableRipple>
@@ -205,24 +205,24 @@ export default function DetailsScreen({ route }) {
                 <TouchableRipple onPress={() => nav.navigate('UserPOI', { username: username })}>
                   <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                     <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="map-marker-check" size={24} color={theme.page_content.fg} />
-                    <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>POI Challenge</Text>
+                    <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>{t('user:poi_challenge')}</Text>
                     <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
                   </View>
                 </TouchableRipple>
                 <TouchableRipple onPress={() => nav.navigate('UserColour', { username: username })}>
                   <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                     <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="palette" size={24} color={theme.page_content.fg} />
-                    <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Colour Challenge</Text>
+                    <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>{t('user:colour_challenge')}</Text>
                     <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
                   </View>
                 </TouchableRipple>
-                <TouchableRipple onPress={() => nav.navigate('UserQuest', { username: username })}>
+                {/* <TouchableRipple onPress={() => nav.navigate('UserQuest', { username: username })}> */}
                   <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                     <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="run" size={24} color={theme.page_content.fg} />
                     <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>{t('user:quebec_quest_progress')}</Text>
                     <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
                   </View>
-                </TouchableRipple>
+                {/* </TouchableRipple> */}
               </>}
             </Card>
           </View>

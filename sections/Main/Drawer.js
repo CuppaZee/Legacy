@@ -52,14 +52,14 @@ export default function CustomDrawerContent(props) {
   })
   var top = [
     { title: "Camps Leaderboard", icon: "flag", page: "AllCampWeeks" },
-    { title: "Weekly Challenge", icon: "calendar", page: "WeeklyWeeks" },
+    { title: t(`common:weekly_challenge`), icon: "calendar", page: "WeeklyWeeks" },
   ].filter(i => !i.hide)
   var pages = [
     // { title: t(`common:maps`), icon: "map", page: "Map" },
     { title: t(`common:bouncers`), icon: "map-marker", page: "Bouncers" },
     { title: t(`common:munzee_types`), icon: "database", page: "DBSearch" },
     { title: t(`common:calendar`), icon: "calendar", page: "Calendar" },
-    { title: "Evo Planner", icon: "dna", page: "EvoPlanner" },
+    { title: t(`common:evo_planner`), icon: "dna", page: "EvoPlanner" },
     { title: t(`common:scanner`), icon: "qrcode", page: "Scanner", hide: Platform.OS === "web" },
     // {title:t(`common:tools`),icon:"wrench",page:"Tools"},
   ].filter(i => !i.hide)
@@ -385,7 +385,7 @@ export default function CustomDrawerContent(props) {
       >
         <View style={{ paddingHorizontal: 4, alignItems: "stretch" }}>
           <Button style={{ marginHorizontal: 4 }} color="#F96854" mode="contained" onPress={() => Linking.openURL('https://patreon.com/CuppaZee')} icon="patreon">{t('app_info:patreon_donate')}</Button>
-          <Button style={{ marginHorizontal: 4, marginTop: 4 }} color="#29abe0" mode="contained" onPress={() => Linking.openURL('https://ko-fi.com/sohcah')} icon="coffee">One-Time via Ko-Fi</Button>
+          <Button style={{ marginHorizontal: 4, marginTop: 4 }} color="#29abe0" mode="contained" onPress={() => Linking.openURL('https://ko-fi.com/sohcah')} icon="coffee">{t('app_info:kofi_donate')}</Button>
           <Menu
             visible={paypalOpen}
             onDismiss={() => setPaypalOpen(false)}

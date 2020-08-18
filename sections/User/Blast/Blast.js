@@ -31,7 +31,7 @@ function BlastType({ data, icon }) {
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
       <Image style={{ height: 48, width: 48 }} source={getIcon(icon)} />
       <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{data.total}x {getType(icon)?.name || icon}</Text>
-      <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{data.points.min}-{data.points.max} (Avg. {data.points.avg}) Points</Text>
+      <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{t('blast_checker:type_points',data.points)}</Text>
     </View>
   </Menu>;
 }
@@ -70,8 +70,8 @@ export default function ClanScreen({ route }) {
         {blastData?.map?.((i, index) => <View style={{ padding: 4, width: 400, maxWidth: "100%", flexGrow: 1 }}>
           <Card noPad>
             <View>
-              <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page_content.fg, padding: 4, textAlign: "center", lineHeight: 20 }}>Blast {index + 1} - {i.total} Munzees</Text>
-              <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg, padding: 4, textAlign: "center", lineHeight: 16 }}>{i.points.min} - {i.points.max} Points (Avg. {i.points.avg})</Text>
+              <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page_content.fg, padding: 4, textAlign: "center", lineHeight: 20 }}>{t('blast_checker:blast',{n:index + 1})} - {t('blast_checker:munzees',{count:i.total})}</Text>
+              <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg, padding: 4, textAlign: "center", lineHeight: 16 }}>{t('blast_checker:points',i.points)} ({t('blast_checker:average',{avg:i.points.avg})})</Text>
               <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
                 {Object.entries(i.types).map(([icon, data]) => <BlastType icon={icon} data={data} />)}
               </View>

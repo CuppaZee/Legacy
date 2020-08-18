@@ -36,7 +36,9 @@
             "email": "or email us at support@cuppazee.app"
         },
         "clans": "Clans",
-        "logging_in": "Logging in..."
+        "logging_in": "Logging in...",
+        "evo_planner": "Evo Planner",
+        "weekly_challenge": "Weekly Challenge"
     },
     "activity": {
         "user_captured": "{user} captured",
@@ -76,11 +78,21 @@
         "renovon": {
             "one": "{count} Renov-on",
             "other": "{count} Renov-ons"
+        },
+        "filters": {
+            "update": "Update Filters",
+            "activity": "Activity",
+            "state": "State",
+            "category": "Category"
         }
     },
     "user": {
         "level_n": "Level {level}",
         "rank_n": "Rank #{rank}",
+        "points": {
+            "one":"{n} Point",
+            "other":"{n} Points"
+        },
         "inventory": "Inventory",
         "your_bouncers": "Your Bouncers",
         "clan_progress": "Clan Progress",
@@ -95,6 +107,10 @@
         "challenges": "Challenges",
         "sh_lite": "Special Hunter Lite",
         "sh_pro": "Special Hunter Pro",
+        "blast_checker": "Blast Checker",
+        "qrew_checker": "QRew Checker",
+        "poi_challenge": "POI Challenge",
+        "colour_challenge": "Colour Challenge",
         "your_clan": "Your Clan",
         "no_clan": "You're not in a Clan",
         "no_clan_desc": "View your Progress Below"
@@ -114,6 +130,7 @@
         "build_n": "Build {build}",
         "patreon_donate": "Monthly via Patreon",
         "paypal_donate": "One-Time via PayPal",
+        "kofi_donate": "One-Time via Ko-Fi",
         "paypal_donate_desc": "PayPal donations can be sent to donate@cuppazee.app",
         "custom_titles": {
             "primary_dev": "Primary Developer",
@@ -194,7 +211,13 @@
             "hosts": "Hosts",
             "possible_types": "Possible Types",
             "possible_hosts": "Possible Hosts",
-            "host_types": "Hosted By"
+            "host_types": "Hosted By",
+            "points": "Points",
+            "capture": "Capture",
+            "capon": "Capon",
+            "deploy": "Deploy",
+            "split": "Cap/Capon Split",
+            "split_val": "{split} (Min {min})"
         },
         "type_info": "Type Info"
     },
@@ -303,11 +326,19 @@
         "UserSHCPro": "SHC Pro",
         "UserSHCLite": "SHC Lite",
         "UserSHC": "SHC Classic",
+        "UserPOI": "POI Challenge",
+        "UserColour": "Colour Challenge",
         "UserBouncers": "User Bouncers",
+        "UserQRew": "QRew Checker",
+        "UserBlast": "Blast Checker",
+        "UserBlastMap": "Blast Checker",
         "DBType": "Database Type",
         "DBSearch": "Database Search",
         "DBCategory": "Database Category",
-        "Auth": "Authenticate"
+        "Auth": "Authenticate",
+        "WeeklyWeeks": "Weekly Challenge",
+        "WeeklyLeaderboard": "Weekly Leaderboard",
+        "AllUsers": "All Users"
     },
     "changelog": {
         "build_n": "Build {n}",
@@ -322,5 +353,63 @@
         "Days of": "Days of",
         "Total": "Total",
         "Renovate": "Renovate"
+    },
+    "weekly": {
+        "ended_at": "Ended at {time}",
+        "starts_at": "Starts at {time}",
+        "ends_at": "Ends at {time}",
+        "results_at": "Results at {time}",
+        "points": {
+            "one": "{count} Pt",
+            "other": "{count} Pts"
+        },
+        "week": "Week {n}",
+        "status": {
+            "comingsoon": "Not Started Yet",
+            "preparing": "Preparing",
+            "ongoing": "Ongoing",
+            "resultssoon": "Calculating Results",
+            "finalresults": "Final Results"
+        }
+    },
+    "qrew": {
+        "check_time": "Checking Eligibility for Next Check",
+        "captures": "Captures",
+        "deploys": "Deploys",
+        "premium": "Premium",
+        "physical_captures": "Physical Captures",
+        "physical_deploys": "Physical Deploys",
+        "total_points": "Total Points",
+        "recent_capture": "Recent Capture",
+        "recent_deploy": "Recent Deploy",
+        "no_capture": "No Capture from {from} to {to}",
+        "no_deploy": "No Deploy from {from} to {to}"
+    },
+    "evo_planner": {
+        "days": {
+            "one": "{count} Day",
+            "other": "{count} Days"
+        },
+        "stage": "Stage {n}",
+        "types": {
+            "original": "3 Stages (eg. Farm, Education)",
+            "nature": "5 Stages (eg. Carnation, Rose)",
+            "bouncer": "5 Stages (eg. Butterfly, Turtle)"
+        }
+    },
+    "blast_checker": {
+        "types": {
+            "mini": "Mini",
+            "normal": "Normal",
+            "mega": "Mega"
+        },
+        "blast": "Blast {n}",
+        "munzees": {
+            "one": "{count} Munzee",
+            "other": "{count} Munzees"
+        },
+        "points": "{min} - {max} Points",
+        "average": "Avg. {avg}",
+        "type_points": "{min} - {max} (Avg. {avg}) Points"
     }
 }

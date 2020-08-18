@@ -1092,5 +1092,12 @@ export default {
       title: 'Updated User Details',
       description: 'You can now easily see if someone is QRew, ZeeQRew or Premium at a glance.'
     },
+  ],
+  240: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Squashed a few bugs, and tweaked a few things.'
+    }
   ]
 }
