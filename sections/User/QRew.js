@@ -38,16 +38,21 @@ export default function ClanScreen({ route }) {
     data: { username }
   })
   const user_id = user_data?.user_id;
-  var data = useAPIRequest(user_id?{
+  var {data,status} = useAPIRequest(user_id?{
     endpoint: `user/qrew/v1`,
     data: {
       username,
       user_id
     },
     cuppazee: true
-  }:null)
-  if(!data) return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
+  }:null,true)
+  if(status === "loading") return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
     <ActivityIndicator size="large" color={theme.page.fg} />
+    <Text>{JSON.stringify(status)}</Text>
+  </View>
+  if(status) return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
+    <MaterialCommunityIcons name="alert" color={theme.page.fg} size={48} />
+    <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{t('error:'+status)}</Text>
   </View>
   var tasksLS = [
     {amount:!!user_data?.premium,name:t('qrew:premium'),qrew:true,zeeqrew:true,req:1,icon:"star"},

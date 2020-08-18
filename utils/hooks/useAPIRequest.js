@@ -4,7 +4,7 @@ import { useFocusEffect } from '@react-navigation/native'
 import request from 'utils/store/request';
 import stringify from 'fast-json-stable-stringify';
 
-export default function useAPIRequest (reqData) {
+export default function useAPIRequest (reqData, includeStatus) {
   // Convert to Array if not already
   const isArray = Array.isArray(reqData);
   if(!isArray) reqData = [reqData];
@@ -41,6 +41,26 @@ export default function useAPIRequest (reqData) {
     }
     setData(d);
   },raw_data.map(i=>i?.id))
+
+  if(includeStatus) {
+    // If Input is not array, return first element of Array
+    if(!isArray) return data[0] ? {
+      data: data[0]?.data,
+      status: data[0]?.status
+    } : {
+      data: undefined,
+      status: "loading"
+    };
+  
+    // Return Array
+    return data.map(i=>i?({
+      data: i?.data,
+      status: i?.status
+    }):({
+      data: undefined,
+      status: "loading"
+    }));
+  }
 
   // If Input is not array, return first element of Array
   if(!isArray) return data[0]?.data;

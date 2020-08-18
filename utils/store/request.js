@@ -42,6 +42,7 @@ async function makeRequest(getState, dispatch, pageInput, force) {
   if (!force && getState().requests.find(i => i.page == stringify(page))?.expires > Date.now()) return;
   dispatch(loading(1))
   try {
+    let status = 500, responseStatus;
     var data;
     if (page.flameZee) {
       var d = await fetch(`https://server.cuppazee.app/${page.endpoint}`)
@@ -82,6 +83,8 @@ async function makeRequest(getState, dispatch, pageInput, force) {
             method: 'POST',
             body: page.cuppazee?stringify({ ...page.data, access_token: token, from: FROM }):reqformData
           })
+          console.log(d, status);
+          status = d.status;
           data = await d.json();
           if(data?.data) loop = 10;
         }
@@ -89,13 +92,38 @@ async function makeRequest(getState, dispatch, pageInput, force) {
           data = { data: converter[page.converter](data?.data) };
         }
         data.id = Math.floor(Math.random()*10000)
+        console.log(data, status);
+        if(page.cuppazee) {
+          if(status === 200) {
+            responseStatus = null;
+          } else if(Math.floor(status/100) === 5 && data?.error_message) {
+            responseStatus = data?.error_message;
+          } else if(Math.floor(status/100) === 5) {
+            responseStatus = "cuppazee_5xx";
+          } else if(status === 404) {
+            responseStatus = "cuppazee_404";
+          } else {
+            responseStatus = "cuppazee_generic";
+          }
+        } else {
+          if(status === 200) {
+            responseStatus = null;
+          } else if(Math.floor(status/100) === 5) {
+            responseStatus = "munzee_api_5xx";
+          } else if(status === 404) {
+            responseStatus = "munzee_api_404";
+          } else {
+            responseStatus = "munzee_api_generic";
+          }
+        }
       }
     }
 
     // Store Data
-    dispatch(setRequestData(stringify(page), data, page));
+    dispatch(setRequestData(stringify(page), { ...data, status: responseStatus }, page));
   } catch (e) {
-    dispatch(setRequestData(stringify(page), { data: "error", error: "failed_loading" }, page));
+    console.log('e', e);
+    dispatch(setRequestData(stringify(page), page.cuppazee ? { data: null, status: "cuppazee_generic", id: Math.floor(Math.random()*10000) } : { data: null, status: "munzee_api_generic", id: Math.floor(Math.random()*10000) }, page));
   }
   dispatch(loading(-1))
 }

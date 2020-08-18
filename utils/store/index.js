@@ -189,9 +189,10 @@ var rootReducer = (state = defaultState, action) => {
     case 'SET_REQUEST_DATA':
       var data = {};
       data[action.page] = action.data;
+      console.log(data);
       return {
         ...state,
-        requests: state.requests.map(i=>i.page==action.originalpage?{...i,expires:Date.now()+(20*60000)}:i),
+        requests: state.requests.map(i=>stringify(i.page)===action.page?{...i,expires:Date.now()+(20*60000)}:i),
         request_data: {
           ...state.request_data,
           ...data

@@ -140,5 +140,15 @@
         "freez_flag_card"
       ]
     }
+  },
+  {
+    "name": "Camp Munzee Card",
+    "icon": "campmunzeecard",
+    "id": "null_campmunzeecard",
+    "extra": {
+      "alt_icons": [
+        "camp_munzee_card"
+      ]
+    }
   }
 ]

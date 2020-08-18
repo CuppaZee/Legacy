@@ -155,6 +155,7 @@ var x = async (req, res) => {
         )
         .send({
           data: response.data,
+          error_message: response.error_message,
           status: {
             success: {
               text: "Success",
@@ -193,7 +194,9 @@ var x = async (req, res) => {
   });
 };
 
-exports.api = functions.https.onRequest(x);
+exports.api = functions.runWith({
+  timeoutSeconds: 540
+}).https.onRequest(x);
 
 exports.api2gb = functions.runWith({
   memory: '2GB',

@@ -1099,5 +1099,17 @@ export default {
       title: 'Fixed Bugs',
       description: 'Squashed a few bugs, and tweaked a few things.'
     }
+  ],
+  241: [
+    {
+      icon: 'hammer',
+      title: 'Updated QRew/ZeeQRew Checker',
+      description: 'Added better error messages.'
+    },
+    {
+      image: 'campmunzeecard',
+      title: 'Added Camp Munzee Card',
+      description: 'Added Camp Munzee Card to CuppaZee\'s Munzee Types Database.'
+    }
   ]
 }
