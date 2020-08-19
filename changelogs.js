@@ -1111,5 +1111,12 @@ export default {
       title: 'Added Camp Munzee Card',
       description: 'Added Camp Munzee Card to CuppaZee\'s Munzee Types Database.'
     }
-  ]
+  ],
+  242: [
+    {
+      icon: 'translate',
+      title: 'Updated Czech Translations',
+      description: 'Czech Translations are now available for more features.'
+    }
+  ],
 }
