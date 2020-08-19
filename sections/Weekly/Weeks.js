@@ -76,7 +76,7 @@ export default function ClanScreen() {
         style={{ flex: 1, backgroundColor: theme.page.bg }}>
         {weeks.map(i => <View style={{ padding: 4 }}>
           <Card noPad>
-            <TouchableRipple onPress={(status(i) !== "ongoing" && status(i) !== "finalresults") ? null : () => {
+            <TouchableRipple onPress={(status(i) !== "ongoing" && status(i) !== "resultssoon" && status(i) !== "finalresults") ? null : () => {
               nav.navigate('WeeklyLeaderboard', { week: i.id })
             }}>
               <View>
@@ -84,7 +84,7 @@ export default function ClanScreen() {
                   <View style={{ padding: 8 }}>
                     <Image source={getIcon(i.icon || i.id)} style={{ width: 48, height: 48 }} />
                   </View>
-                  <View style={{ padding: 8, flex: 1, justifyContent: "center" }}>
+                  <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
                     <Text allowFontScaling={false} style={{ fontSize: 20, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{t('weekly:week',{n:i.week})}</Text>
                     <View style={{flexDirection: "row", alignItems: "center"}}><MaterialCommunityIcons name="information-outline" size={16} /><Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg, opacity: 0.8, textAlignVertical: "center" }}> {i.description}</Text></View>
                     <View style={{flexDirection: "row", alignItems: "center"}}><MaterialCommunityIcons name="calendar" size={16} /><Text allowFontScaling={false} style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8, textAlignVertical: "center" }}> {t(`weekly:${statusKeys[status(i)]}_at`,{time:moment(i[statusTimeKeys[status(i)]]).format('L LT')})}</Text></View>
@@ -93,12 +93,12 @@ export default function ClanScreen() {
                     <Text allowFontScaling={false} numberOfLines={3} style={{ textAlign: "center", color: level_colors[statusColor[status(i)]]?.fg, fontSize: 16, ...font("bold") }}>{t(`weekly:status.${status(i)}`)}</Text>
                   </View>
                 </View>
-                  {status(i)!=="finalresults"&&<View style={{ flexDirection: "row", alignItems: "center", flexWrap: "wrap" }}>
-                    {i.requirements.map(x => <View key={x.id} style={{ padding: 4, width: 60, flexGrow: 1, alignItems: "center" }}>
-                      <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={getIcon(x.type)} />
-                      <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{t('weekly:points',{count:x.points})}</Text>
-                    </View>)}
-                  </View>}
+                {status(i)!=="finalresults"&&<View style={{ flexDirection: "row", alignItems: "center", flexWrap: "wrap" }}>
+                  {i.requirements.map(x => <View key={x.id} style={{ padding: 4, width: 60, flexGrow: 1, alignItems: "center" }}>
+                    <Image style={{ height: 32, width: 32, marginHorizontal: 8 }} source={getIcon(x.type)} />
+                    <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>{t('weekly:points',{count:x.points})}</Text>
+                  </View>)}
+                </View>}
               </View>
             </TouchableRipple>
           </Card>

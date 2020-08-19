@@ -70,8 +70,8 @@ module.exports = {
           data: {
             cap,
             dep,
-            recent_cap: moment(recent_cap) >= earliest ? recent_cap : null,
-            recent_dep: moment(recent_dep) >= earliest ? recent_dep : null,
+            recent_cap: moment(recent_cap+"T00:00:00-05:00").tz('America/Chicago') >= earliest ? recent_cap : null,
+            recent_dep: moment(recent_dep+"T00:00:00-05:00").tz('America/Chicago') >= earliest ? recent_dep : null,
             recent_capt: recent_cap,
             recent_depl: recent_dep,
             next_check: next_check.format(),

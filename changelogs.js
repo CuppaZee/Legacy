@@ -1119,4 +1119,16 @@ export default {
       description: 'Czech Translations are now available for more features.'
     }
   ],
+  243: [
+    {
+      icon: 'translate',
+      title: 'Updated Dutch, Finnish and Portugese Translations',
+      description: 'Dutch, Finnish and Portugese Translations are now available for more features.'
+    },
+    {
+      image: 'qrewzee',
+      title: 'Weekly Challenge #2 - QRewZees',
+      description: 'Check our Facebook Page @CuppaZee for more info!'
+    }
+  ],
 }
