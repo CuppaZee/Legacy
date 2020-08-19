@@ -36,7 +36,9 @@
             "email": "of mail ons via support@cuppazee.app"
         },
         "clans": "Clans",
-        "logging_in": "Inloggen..."
+        "logging_in": "Inloggen...",
+        "evo_planner": "Evo Planner",
+        "weekly_challenge": "Wekelijkse Challenge"
     },
     "activity": {
         "user_captured": "{user} captured",
@@ -76,6 +78,12 @@
         "renovon": {
             "one": "{count} Renov-on",
             "other": "{count} Renov-ons"
+        },
+        "filters": {
+            "update": "Update Filters",
+            "activity": "Activiteit",
+            "state": "Status",
+            "category": "Categorie"
         }
     },
     "user": {
@@ -97,7 +105,15 @@
         "sh_pro": "Special Hunter Pro",
         "your_clan": "Jouw Clan",
         "no_clan": "Je zit niet in een Clan",
-        "no_clan_desc": "Bekijk jouw voortgang hier beneden"
+        "no_clan_desc": "Bekijk jouw voortgang hier beneden",
+        "points": {
+            "one": "Punt",
+            "other": "Punten"
+        },
+        "blast_checker": "Blast Checker",
+        "qrew_checker": "QRew Checker",
+        "poi_challenge": "POI Challenge",
+        "colour_challenge": "Kleur Challenge"
     },
     "inventory": {
         "undeployed": "Niet gedeployed",
@@ -127,7 +143,8 @@
             "danish": "Deens",
             "portugese": "Portugees",
             "lithuanian": "Lithuanian"
-        }
+        },
+        "kofi_donate": "Eenmalig via Ko-Fi"
     },
     "your_bouncers": {
         "capture": {
@@ -194,7 +211,13 @@
             "hosts": "Hosts",
             "possible_types": "Mogelijke Types",
             "possible_hosts": "Mogelijke Hosts",
-            "host_types": "Hosted door"
+            "host_types": "Hosted door",
+            "points": "Punten",
+            "capture": "Capture",
+            "capon": "Capon",
+            "deploy": "Deploy",
+            "split": "Cap/Capon Splitsing",
+            "split_val": "{splitsing} (Min {min})"
         },
         "type_info": "Type Info"
     },
@@ -307,7 +330,15 @@
         "DBType": "Database Types",
         "DBSearch": "Database doorzoeken",
         "DBCategory": "Database Categorie",
-        "Auth": "Autoriseren"
+        "Auth": "Autoriseren",
+        "UserPOI": "POI Challenge",
+        "UserColour": "Kleur Challenge",
+        "UserQRew": "QRew Checker",
+        "UserBlast": "Blast Checker",
+        "UserBlastMap": "Blast Checker",
+        "WeeklyWeeks": "Wekelijkse Challange",
+        "WeeklyLeaderboard": "Wekelijkse Leaderboard",
+        "AllUsers": "Alle gebruikers"
     },
     "changelog": {
         "build_n": "Versie {n}",
@@ -322,5 +353,72 @@
         "Days of": "Dagen met",
         "Total": "Totaal ",
         "Renovate": "Renoveren"
+    },
+    "weekly": {
+        "ended_at": "Eindigde op {time}",
+        "starts_at": "Start op {time}",
+        "ends_at": "Eindige op {time}",
+        "results_at": "Resultaten komen om {time}",
+        "points": {
+            "one": "{count} Pnt",
+            "other": "{count} Pntn"
+        },
+        "week": "Week",
+        "status": {
+            "comingsoon": "Nog niet gestart",
+            "preparing": "Aan het voorbereiden",
+            "ongoing": "Lopend",
+            "resultssoon": "Berekenen resultaten",
+            "finalresults": "Eindresultaat"
+        }
+    },
+    "qrew": {
+        "check_time": "Controleren mogelijkheden voor de volgende check",
+        "captures": "Captures",
+        "deploys": "Deploys",
+        "premium": "Premium",
+        "physical_captures": "Fysieke Captures",
+        "physical_deploys": "Fysieke Deploys",
+        "total_points": "Totale Punten",
+        "recent_capture": "Recente Capture",
+        "recent_deploy": "Recente Deploy",
+        "no_capture": "Geen captures van {from} tot {to}",
+        "no_deploy": "Geen Deploy van {from} tot {to}"
+    },
+    "evo_planner": {
+        "days": {
+            "one": "{count} Dag",
+            "other": "{count} Dagen"
+        },
+        "stage": "Stage {n}",
+        "types": {
+            "original": "3 Stages (bijv. Farm, Education)",
+            "nature": "5 Stages (bijv. Carnation, Roos)",
+            "bouncer": "5 Stages (bijv. Butterfly, Turtle)"
+        }
+    },
+    "blast_checker": {
+        "types": {
+            "mini": "Mini",
+            "normal": "Normaal",
+            "mega": "Mega"
+        },
+        "blast": "Blast {n}",
+        "munzees": {
+            "one": "{count} Munzee",
+            "other": "{count} Munzee"
+        },
+        "points": "{min} - {max} Punten",
+        "average": "Gem. {avg}",
+        "type_points": "{min} - {max} (Gem. {avg}) Punten"
+    },
+    "error": {
+        "cuppazee_5xx": "Oeps, CuppaZee servers reageren met een error. Probeer het later nogmaals.",
+        "cuppazee_404": "Oeps, CuppaZee servers begrijpen niet wat je wilde. Probeer het later nogmaals.",
+        "cuppazee_generic": "Oeps, iets ging verkeerd met het opvragen van de data uit de CuppaZee servers. Probeer het later nogmaals.",
+        "munzee_api_5xx": "Oeps, Munzee’s severs reageren met een error. Probeer het later nogmaals.",
+        "munzee_api_404": "Oeps, Munzee’s servers begrijpen niet wat je wilde. Probeer het later nogmaals.",
+        "munzee_api_generic": "Oeps, iets ging verkeerd bij het opvragen dan data bij de Munzee servers. Probeer het later nogmaals.",
+        "missing_login": "Oeps, deze gebruiker moet inloggen bij CuppaZee om deze functie te laten werken."
     }
 }
