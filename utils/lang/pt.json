@@ -36,7 +36,9 @@
             "email": "ou enviar-nos um email para support@cuppazee.app"
         },
         "clans": "Clãs",
-        "logging_in": "A iniciar sessão ..."
+        "logging_in": "A iniciar sessão ...",
+        "evo_planner": "Evolução Planificador",
+        "weekly_challenge": "Desafio Semanal"
     },
     "activity": {
         "user_captured": "{user} Capturado",
@@ -76,6 +78,12 @@
         "renovon": {
             "one": "{count} Renov-ão",
             "other": "{count} Renov-ões"
+        },
+        "filters": {
+            "update": "Atualização de Filtros",
+            "activity": "Atividade",
+            "state": "Estado",
+            "category": "Categoria"
         }
     },
     "user": {
@@ -97,7 +105,15 @@
         "sh_pro": "Caçada Especial - Pro",
         "your_clan": "Vosso Clã",
         "no_clan": "Voce não está em nenhum Clã",
-        "no_clan_desc": "Veja o seu progresso abaixo"
+        "no_clan_desc": "Veja o seu progresso abaixo",
+        "points": {
+            "one": "{n} Ponto",
+            "other": "{n} Pontos"
+        },
+        "blast_checker": "Verificador de Blast",
+        "qrew_checker": "Verificar QRew",
+        "poi_challenge": "POI Desafio",
+        "colour_challenge": "Desafio de Cor"
     },
     "inventory": {
         "undeployed": "Não implantados",
@@ -127,7 +143,8 @@
             "danish": "Dinamarquês",
             "portugese": "Português",
             "lithuanian": "Lituano"
-        }
+        },
+        "kofi_donate": "Uma única vez via Ko-Fi"
     },
     "your_bouncers": {
         "capture": {
@@ -169,10 +186,10 @@
             "one": "Nível",
             "other": "Niveis"
         },
-        "rank": "",
+        "rank": "Rank #{rank}",
         "players": {
-            "one": "",
-            "other": ""
+            "one": "{count} Jogador",
+            "other": "{count} Jogadores"
         }
     },
     "search": {
@@ -191,12 +208,18 @@
             "pouch": "Fases Pouch",
             "can_host": "Pode hospedar",
             "lands_on": "Aterrar",
-            "hosts": "",
-            "possible_types": "",
-            "possible_hosts": "",
-            "host_types": ""
+            "hosts": "Anfitriões",
+            "possible_types": "Possíveis Tipos",
+            "possible_hosts": "Possíveis Anfitriões",
+            "host_types": "Hospedado por",
+            "points": "Pontos",
+            "capture": "Captura",
+            "capon": "Capon",
+            "deploy": "Implantação",
+            "split": "Cap/Capon Split",
+            "split_val": "{split} (Min {min})"
         },
-        "type_info": ""
+        "type_info": "Tipo Informação"
     },
     "auth": {
         "add": "Adicionar um novo Utilizador",
@@ -307,7 +330,15 @@
         "DBType": "Tipos Base de Dados ",
         "DBSearch": "Procurar Base de Dados",
         "DBCategory": "Base de Dados Categoria",
-        "Auth": "Autenticação"
+        "Auth": "Autenticação",
+        "UserPOI": "POI Desafio",
+        "UserColour": "Cor Desafio",
+        "UserQRew": "QRew Verificador",
+        "UserBlast": "Blast Verificador",
+        "UserBlastMap": "Blast Verificador",
+        "WeeklyWeeks": "Desafio Semanal",
+        "WeeklyLeaderboard": "Tabela de Liderança Semanal",
+        "AllUsers": "Todos os utilizadores"
     },
     "changelog": {
         "build_n": "Construído {n}",
@@ -315,12 +346,79 @@
         "no_changelog": "Sem jornal de alterações"
     },
     "clan_req": {
-        "Captures": "",
-        "Points": "",
-        "Deploys": "",
-        "Activity": "",
-        "Days of": "",
-        "Total": "",
-        "Renovate": ""
+        "Captures": "Capturas",
+        "Points": "Pontos",
+        "Deploys": "Implantações",
+        "Activity": "Atividade",
+        "Days of": "Dias de",
+        "Total": "Total",
+        "Renovate": "Renovação"
+    },
+    "weekly": {
+        "ended_at": "Finalizado âs {time}",
+        "starts_at": "Começa a {time}",
+        "ends_at": "Termina às {time}",
+        "results_at": "Resultados às",
+        "points": {
+            "one": "{count} Pt",
+            "other": "{count} Pts"
+        },
+        "week": "Semana {n}",
+        "status": {
+            "comingsoon": "Não iniciado ainda",
+            "preparing": "Em preparação",
+            "ongoing": "Em andamento",
+            "resultssoon": "Calculando Resultados",
+            "finalresults": "Resultados Finais"
+        }
+    },
+    "qrew": {
+        "check_time": "Verificando Elegibilidade para a Próxima Verificação",
+        "captures": "Capturas",
+        "deploys": "Implantações",
+        "premium": "Premium",
+        "physical_captures": "Capturas Físicas",
+        "physical_deploys": "Implantações Físicas",
+        "total_points": "Pontos Totais",
+        "recent_capture": "Recente Captura",
+        "recent_deploy": "Recente Implantação",
+        "no_capture": "Nenhuma Captura desde {from} até {to}\n",
+        "no_deploy": "Nenhuma implantação desde {from} até {to}"
+    },
+    "evo_planner": {
+        "days": {
+            "one": "{count} Dia",
+            "other": "{count} Dias"
+        },
+        "stage": "Fase {n}",
+        "types": {
+            "original": "3 Fases (Por exemplo Farm, Education)",
+            "nature": "5 Fases (Por exemplo Carnation, Rose)",
+            "bouncer": "5 Fases (Por exemplo Butterfly, Turtle)"
+        }
+    },
+    "blast_checker": {
+        "types": {
+            "mini": "Mini",
+            "normal": "Normal",
+            "mega": "Mega"
+        },
+        "blast": "Blast {n}",
+        "munzees": {
+            "one": "{count} Munzee",
+            "other": "{count} Munzees"
+        },
+        "points": "{min} - {max} Pontos",
+        "average": "Média {avg}",
+        "type_points": "{min} - {max} (Média {avg}) Pontos"
+    },
+    "error": {
+        "cuppazee_5xx": "Oops, Servidores CuppaZee responderam com erro. Tente novamente mais tarde.",
+        "cuppazee_404": "Oops, Servidores CuppaZee não conseguiram verificar o que voce pretendia. Tente novamente mais tarde.",
+        "cuppazee_generic": "Oops, algo deu errado ao solicitar dados dos servidores da CuppaZee. Tente novamente mais tarde.",
+        "munzee_api_5xx": "Oops, Os servidores Munzee responderam com um erro. Tente novamente mais tarde.",
+        "munzee_api_404": "Oops, Servidores Munzee não conseguiram verificar o que voce pretendia. Tente novamente mais tarde.",
+        "munzee_api_generic": "Ops, algo deu errado ao solicitar dados dos servidores de Munzee. Tente mais tarde.",
+        "missing_login": "Ops, este utilizador precisa fazer login no CuppaZee para que este recurso funcione!"
     }
 }
