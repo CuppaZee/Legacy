@@ -36,7 +36,9 @@
             "email": "tai viestillä support@cuppazee.app"
         },
         "clans": "Klaanit",
-        "logging_in": "Kirjaudutaan..."
+        "logging_in": "Kirjaudutaan...",
+        "evo_planner": "Evojen kehitys",
+        "weekly_challenge": "Viikkohaaste"
     },
     "activity": {
         "user_captured": "{user} nappasi",
@@ -76,6 +78,12 @@
         "renovon": {
             "one": "{count} saatu remppa",
             "other": "{count} saatua remppaa"
+        },
+        "filters": {
+            "update": "Päivitä filtterit",
+            "activity": "Tapahtuma",
+            "state": "Tyyppi",
+            "category": "Luokka"
         }
     },
     "user": {
@@ -97,7 +105,15 @@
         "sh_pro": "Spessun metsästäjä (SHC), pro",
         "your_clan": "Klaanisi",
         "no_clan": "Et kuulu klaaniin",
-        "no_clan_desc": "Katso tuloksesi alta"
+        "no_clan_desc": "Katso tuloksesi alta",
+        "points": {
+            "one": "{n} piste",
+            "other": "{n} pistettä"
+        },
+        "blast_checker": "Pommitarkastin",
+        "qrew_checker": "QRew-tarkastin",
+        "poi_challenge": "POI-haaste",
+        "colour_challenge": "Värihaaste"
     },
     "inventory": {
         "undeployed": "Julkaisemattomat",
@@ -127,7 +143,8 @@
             "danish": "Tanska",
             "portugese": "Portugali",
             "lithuanian": "Liettua"
-        }
+        },
+        "kofi_donate": "Kerran Ko-Fi'lla"
     },
     "your_bouncers": {
         "capture": {
@@ -194,7 +211,13 @@
             "hosts": "Isännät",
             "possible_types": "Mahd. tyypit",
             "possible_hosts": "Mahd. isännät",
-            "host_types": "Kyläilee"
+            "host_types": "Kyläilee",
+            "points": "Pisteet",
+            "capture": "Nappaus",
+            "capon": "Napattu",
+            "deploy": "Julkaisu",
+            "split": "Pistejako",
+            "split_val": "{split} (Väh. {min})"
         },
         "type_info": "Tietoja"
     },
@@ -263,8 +286,8 @@
         "task_6": "Flattien julkaisut",
         "task_7": "Destination-aktiviteetti",
         "task_8": "Pomppijoiden nappaus",
-        "task_9": "Flattiaktiviteetti",
-        "task_10": "Nappaa \"/m/GPSmAQ/1\""
+        "task_9": "",
+        "task_10": ""
     },
     "themes": {
         "black": "Musta",
@@ -307,7 +330,15 @@
         "DBType": "Tietokantatyyppi",
         "DBSearch": "Tietokantahaku",
         "DBCategory": "Tietokantaluokka",
-        "Auth": "Autentikoidu"
+        "Auth": "Autentikoidu",
+        "UserPOI": "POI-haaste",
+        "UserColour": "Värihaaste",
+        "UserQRew": "QRew tarkistin",
+        "UserBlast": "Pommitarkistin",
+        "UserBlastMap": "Pommitarkistin",
+        "WeeklyWeeks": "Viikkohaaste",
+        "WeeklyLeaderboard": "Viikon tulokset",
+        "AllUsers": "Kaikki käyttäjät"
     },
     "changelog": {
         "build_n": "Kooste {n}",
@@ -322,5 +353,72 @@
         "Days of": "Päivät",
         "Total": "Yht.",
         "Renovate": "Remppaa"
+    },
+    "weekly": {
+        "ended_at": "Päättyi {time}",
+        "starts_at": "Alkaa {time}",
+        "ends_at": "Päättyy {time}",
+        "results_at": "Tulokset {time}",
+        "points": {
+            "one": "{count} p.",
+            "other": "{count} p."
+        },
+        "week": "Viikko {n}",
+        "status": {
+            "comingsoon": "Ei vielä alkanut",
+            "preparing": "Laatii",
+            "ongoing": "Käynnissä",
+            "resultssoon": "Laskee tuloksia",
+            "finalresults": "Lopputulokset"
+        }
+    },
+    "qrew": {
+        "check_time": "Tarkastaa kelpoisuuden seuraavaan jaksoon",
+        "captures": "Nappaukset",
+        "deploys": "Julkaisut",
+        "premium": "Premium",
+        "physical_captures": "Fyysiset nappaukset",
+        "physical_deploys": "Fyysiset julkaisut",
+        "total_points": "Kokonaispisteet",
+        "recent_capture": "Viimeisin nappaus",
+        "recent_deploy": "Viimeisin julkaisu\n",
+        "no_capture": "Ei nappauksia välillä {from} - {to}",
+        "no_deploy": "Ei julkaisuja välillä {from} - {to}"
+    },
+    "evo_planner": {
+        "days": {
+            "one": "{count} päivä",
+            "other": "{count} päivää"
+        },
+        "stage": "Vaihe {n}",
+        "types": {
+            "original": "3 vaihetta (esim. Farm, Education)",
+            "nature": "5 vaihetta (esim. Carnation, Rose)",
+            "bouncer": "5 vaihetta (esim Butterfly, Turtle)"
+        }
+    },
+    "blast_checker": {
+        "types": {
+            "mini": "Mini",
+            "normal": "Normi",
+            "mega": "Mega"
+        },
+        "blast": "Pommi {n}",
+        "munzees": {
+            "one": "{cnt} munzee",
+            "other": "{cnt} munzeeta"
+        },
+        "points": "{min} - {max} pistettä",
+        "average": "Kaskim. {avg}",
+        "type_points": "{min} - {max} (keskim. {avg}) pistettä"
+    },
+    "error": {
+        "cuppazee_5xx": "Hups, CuppaZeen serveri valittaa virhettä. Yritä myöhemmin uudelleen.",
+        "cuppazee_404": "Hups, CuppaZeen serveri ei ymmärrä sinua. Yritä myöhemmin uudelleen.",
+        "cuppazee_generic": "Hups, jotain meni pieleen tietojen haussa CuppaZeen serveriltä. Yritä myöhemmin uudelleen.",
+        "munzee_api_5xx": "Hups, Munzeen serveri valittaa virhettä. Yritä myöhemmin uudelleen.",
+        "munzee_api_404": "Hups, Munzeen serveri ei ymmärrä sinua. Yritä myöhemmin uudelleen.",
+        "munzee_api_generic": "Hups, jotain meni pieleen tietojen haussa Munzeen serveriltä. Yritä myöhemmin uudelleen.",
+        "missing_login": "Hups, tämän käyttäjän on kirjauduttava CuppaZee'hen, jotta tämä toimisi."
     }
 }
