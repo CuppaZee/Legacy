@@ -1131,4 +1131,11 @@ export default {
       description: 'Check our Facebook Page @CuppaZee for more info!'
     }
   ],
+  244: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Squashed a few bugs, and tweaked a few things.'
+    }
+  ],
 }

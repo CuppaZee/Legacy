@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { FAB } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 
-function UserIcon({ user_id, size }) {
+function UserIcon ({ user_id, size }) {
   return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size - 24) / 2, marginTop: -(size - 24) / 2, height: size, width: size }} />
 }
 
@@ -41,7 +41,8 @@ export default function UserFAB({ username, user_id }) {
     theme={{dark:theme.dark}}
     open={FABOpen}
     fabStyle={{backgroundColor:theme.page_content.bg}}
-    icon={() => <UserIcon theme={theme} size={56} user_id={Number(user_id)} />}
+    icon={FABOpen ? 'close' : () => <UserIcon size={56} user_id={Number(user_id)} />}
+    
     actions={list}
     onStateChange={({ open }) => setFABOpen(open)}
   />;
