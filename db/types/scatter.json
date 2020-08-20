@@ -319,5 +319,25 @@
       "duration": 1,
       "standalone": true
     }
+  },
+  {
+    "name": "Glasses",
+    "icon": "glasses",
+    "id": "null_glasses",
+    "state": "virtual",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    }
+  },
+  {
+    "name": "Shell-Phone",
+    "icon": "shell-phone",
+    "id": "null_shell-phone",
+    "state": "virtual",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    }
   }
 ]

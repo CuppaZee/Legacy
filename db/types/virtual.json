@@ -43,7 +43,8 @@
     "name": "Virtual Orchid",
     "icon": "virtual_orchid",
     "id": 1415,
-    "state": "virtual"
+    "state": "virtual",
+    "virtual_colors": ["pink"]
   },
   {
     "name": "Virtual Wisteria",
@@ -249,61 +250,71 @@
     "name": "Virtual Melon",
     "icon": "virtual_melon",
     "id": 1448,
-    "state": "virtual"
+    "state": "virtual",
+    "virtual_colors": ["pink"]
   },
   {
     "name": "Virtual Pink",
     "icon": "virtual_pink",
     "id": 1449,
-    "state": "virtual"
+    "state": "virtual",
+    "virtual_colors": ["pink"]
   },
   {
     "name": "Virtual Carnation Pink",
     "icon": "virtual_carnation_pink",
     "id": 1450,
-    "state": "virtual"
+    "state": "virtual",
+    "virtual_colors": ["pink"]
   },
   {
     "name": "Virtual Mauvelous",
     "icon": "virtual_mauvelous",
     "id": 1451,
-    "state": "virtual"
+    "state": "virtual",
+    "virtual_colors": ["pink"]
   },
   {
     "name": "Virtual Salmon",
     "icon": "virtual_salmon",
     "id": 1452,
-    "state": "virtual"
+    "state": "virtual",
+    "virtual_colors": ["pink"]
   },
   {
     "name": "Virtual Tickle Me Pink",
     "icon": "virtual_tickle_me_pink",
     "id": 1453,
-    "state": "virtual"
+    "state": "virtual",
+    "virtual_colors": ["pink"]
   },
   {
     "name": "Virtual Magenta",
     "icon": "virtual_magenta",
     "id": 1454,
-    "state": "virtual"
+    "state": "virtual",
+    "virtual_colors": ["pink"]
   },
   {
     "name": "Virtual Wild Strawberry",
     "icon": "virtual_wild_strawberry",
     "id": 1455,
-    "state": "virtual"
+    "state": "virtual",
+    "virtual_colors": ["pink"]
   },
   {
     "name": "Virtual Violet Red",
     "icon": "virtual_violet_red",
     "id": 1456,
-    "state": "virtual"
+    "state": "virtual",
+    "virtual_colors": ["pink"]
   },
   {
     "name": "Virtual Red Violet",
     "icon": "virtual_red_violet",
     "id": 1457,
-    "state": "virtual"
+    "state": "virtual",
+    "virtual_colors": ["pink"]
   },
   {
     "name": "Virtual Apricot",

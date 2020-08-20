@@ -1138,4 +1138,16 @@ export default {
       description: 'Squashed a few bugs, and tweaked a few things.'
     }
   ],
+  245: [
+    {
+      image: 'qrewzee',
+      title: 'Weekly Challenge #2 - QRewZees',
+      description: 'Weekly Challenge #2 has begun! Get out there, cap some QRewZees and repair some damaged munzees!'
+    },
+    {
+      image: 'aphrodite',
+      title: 'Added Aphrodite and Scatters',
+      description: 'Added Aphrodite and Scatters to CuppaZee\'s Munzee Types Database.'
+    }
+  ],
 }

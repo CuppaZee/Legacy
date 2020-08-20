@@ -449,5 +449,21 @@ module.exports = [
         "max": 3
       }
     }
+  },
+  {
+    "name": "Aphrodite",
+    "icon": "aphrodite",
+    "id": "null_aphrodite",
+    "state": "bouncer",
+    "type": "modern",
+    "lands_on": ["skyland","treehouse","munzee","airmystery",i=>(i.virtual_colors||[]).includes("pink"),"pinkdiamond"],
+    "extra": {
+      "scatters": {
+        "radius": 1000,
+        "types": ["null_glasses","null_shell-phone"],
+        "min": 3,
+        "max": 3
+      }
+    }
   }
 ]
