@@ -177,7 +177,7 @@
     "icon": "qrewzee",
     "id": 1880,
     "state": "bouncer",
-    "lands_on": [i=>(i.category=="jewel"&&i.state=="physical"),i=>(i.category=="weapon"&&i.state=="physical"),"munzee","mystery","firemystery","earthmystery","watermystery","icemystery","premium"]
+    "lands_on": [i=>(i.category=="jewel"&&i.state=="physical"),i=>(i.category=="weapon"&&i.state=="physical"),"munzee",i=>(i.category=="mystery"&&i.state=="physical"),"premium"]
   },
   {
     "name": "InternationElles",
