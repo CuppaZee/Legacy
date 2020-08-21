@@ -64,9 +64,10 @@ module.exports = {
           }))
         } else if (Date.now() < new Date(week.end).valueOf()) {
           batch.players = await Promise.all(batch.players.map(async player => {
+            if(!player.i) return player;
             try {
               let player_specials = await request('user/specials', { user_id: player.i }, token.access_token)
-              if (!player.fpre || (!player.fix && (player.b || player.fpre.join()!==player.pre.join()))) {
+              if (!player.fpre || (!player.fixb && player.b)) {
                 player.fpre = [];
                 for (const req of week.requirements) {
                   let count = Number((player_specials.find(i => i.logo === req.type) || {}).count || 0);
@@ -83,7 +84,7 @@ module.exports = {
                   }
                   player.fpre.push(count);
                 }
-                player.fix = true;
+                player.fixb = true;
               }
               player.p = 0;
               player.d = [];

@@ -1150,4 +1150,11 @@ export default {
       description: 'Added Aphrodite and Scatters to CuppaZee\'s Munzee Types Database.'
     }
   ],
+  246: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Squashed a few bugs with Your Bouncers.'
+    }
+  ],
 }

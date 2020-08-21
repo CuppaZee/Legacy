@@ -57,10 +57,11 @@ export default function ClanScreen({ route }) {
                 {i.bouncer ? <>
                   <Text allowFontScaling={false} style={{ fontSize: 14, ...font(400), color: theme.page_content.fg, opacity: 1 }}>At <Text allowFontScaling={false} style={font(700)}>{i.bouncer.friendly_name}</Text> by <Text allowFontScaling={false} style={font(700)}>{i.bouncer.full_url.match(/\/m\/([^/]+)\/[0-9]+/)[1]}</Text></Text>
                   <Text allowFontScaling={false} style={{ fontSize: 14, ...font(400), color: theme.page_content.fg, opacity: 0.8 }}>{i.location.formatted} [{i.timezone.map(i=>moment().tz(i).format('LT')).join(' / ')}]</Text>
-                  <Text allowFontScaling={false} style={{ fontSize: 12, ...font(400), color: theme.page_content.fg, opacity: 0.8 }}>{t('your_bouncers:capture',{count:i.number_of_captures})} - {t('your_bouncers:last_captured',{time:moment(i.last_captured_at).format('L LTS')})}</Text>
+                  <Text allowFontScaling={false} style={{ fontSize: 12, ...font(400), color: theme.page_content.fg, opacity: 0.8 }}>{t('your_bouncers:capture',{count:i.number_of_captures})}{i.number_of_captures>0 && ` - ${t('your_bouncers:last_captured',{time:moment(i.last_captured_at).format('L LTS')})}`}</Text>
                 </> : <>
-                    <Text allowFontScaling={false} style={{ fontSize: 14, ...font(500), color: theme.page_content.fg, opacity: 1 }}>{t('your_bouncers:in_limbo')}</Text>
-                  </>}
+                  <Text allowFontScaling={false} style={{ fontSize: 14, ...font(500), color: theme.page_content.fg, opacity: 1 }}>{t('your_bouncers:in_limbo')}</Text>
+                  <Text allowFontScaling={false} style={{ fontSize: 12, ...font(400), color: theme.page_content.fg, opacity: 0.8 }}>{t('your_bouncers:capture',{count:i.number_of_captures})}{i.number_of_captures>0 && ` - ${t('your_bouncers:last_captured',{time:moment(i.last_captured_at).format('L LTS')})}`}</Text>
+                </>}
               </View>
             </View>
           </Card>
