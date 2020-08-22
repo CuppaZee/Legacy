@@ -51,7 +51,7 @@ function status(i) {
   }
 }
 
-const UserTile = React.memo(function ({ i, index }) {
+const UserTile = React.memo(function ({ i, index, week }) {
   var theme = useSelector(i => i.themes[i.theme]);
   var [open, setOpen] = React.useState(false);
   var dark = false;
@@ -60,10 +60,6 @@ const UserTile = React.memo(function ({ i, index }) {
   if (theme.dark) {
     dark = true;
   }
-  var week = useAPIRequest({
-    endpoint: `weekly/weeks/v1`,
-    cuppazee: true
-  })?.find(i => i.id == route.params.week);
   const types = week?.requirements ?? []
   var user = useAPIRequest(open ? {
     endpoint: `weekly/player/v1`,
@@ -130,7 +126,7 @@ export default function TeamLeaderboardScreen({ route }) {
   })?.find(i => i.id == route.params.week);
   const types = week?.requirements ?? []
   var data = useAPIRequest({
-    endpoint: `weekly/leaderboard/v1`,
+    endpoint: `weekly/leaderboard/v2`,
     data: {
       week_id: route.params.week
     },
@@ -148,6 +144,7 @@ export default function TeamLeaderboardScreen({ route }) {
     }, 500))
   }
   users.sort((a, b) => b.p - a.p);
+  if(!week) return null;
   if (!data) return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
     <ActivityIndicator size="large" color={theme.page.fg} />
   </View>
@@ -196,7 +193,7 @@ export default function TeamLeaderboardScreen({ route }) {
       </View>
     </View>}
     renderItem={({ item }) => (
-      <UserTile i={item} index={users.findIndex(x => x.p === item.p)} />
+      <UserTile i={item} week={week} index={users.findIndex(x => x.p === item.p)} />
     )}
     keyExtractor={item => item.i}
     windowSize={5}

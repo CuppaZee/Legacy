@@ -1157,4 +1157,11 @@ export default {
       description: 'Squashed a few bugs with Your Bouncers.'
     }
   ],
+  247: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Squashed a few bugs.'
+    }
+  ],
 }
