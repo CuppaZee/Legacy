@@ -72,5 +72,34 @@
     "start":    "2020-08-20T12:00:00-05:00",
     "end":      "2020-08-27T09:00:00-05:00",
     "finalend": "2020-08-27T09:45:00-05:00"
+  },
+  {
+    "id": "week_3",
+    "week": 3,
+    "description": "Camp Critters",
+    "icon": "babyfox",
+    "requirements": [
+      {
+        "type": "bearcub",
+        "points": 1
+      },
+      {
+        "type": "babyfox",
+        "points": 2
+      },
+      {
+        "type": "babymoose",
+        "points": 3
+      },
+      {
+        "type": "babysquirrel",
+        "points": 3
+      }
+    ],
+    "reveal":   "2020-08-26T09:00:00-05:00",
+    "prestart": "2020-08-27T11:15:00-05:00",
+    "start":    "2020-08-27T12:00:00-05:00",
+    "end":      "2020-09-03T09:00:00-05:00",
+    "finalend": "2020-09-03T09:45:00-05:00"
   }
 ]
