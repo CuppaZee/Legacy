@@ -1164,4 +1164,11 @@ export default {
       description: 'Squashed a few bugs.'
     }
   ],
+  248: [
+    {
+      image: 'stroopwafel',
+      title: 'Add Waffle Day Specials',
+      description: 'Add the new Belgian Waffle and Stroopwafel specials to CuppaZee\'s Munzee Types Database'
+    }
+  ]
 }

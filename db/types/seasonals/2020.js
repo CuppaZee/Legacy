@@ -120,6 +120,29 @@ module.exports = [
     ]
   },
   {
+    "name": "National Waffle Day",
+    "category": "waffleday2020",
+    "year": 2020,
+    "starts": "2020-08-24T12:00:00-05:00",
+    "ends": "2020-09-14T23:59:00-05:00",
+    "specials": [
+      {
+        "name": "Belgian Waffle",
+        "icon": "belgianwaffle",
+        "id": "null_belgianwaffle",
+        "duration": 4,
+        "lands_on": ["munzee","calf","cow","milk","piglet","pig","bacon"]
+      },
+      {
+        "name": "Stroopwafel",
+        "icon": "stroopwafel",
+        "id": "null_stroopwafel",
+        "duration": 4,
+        "lands_on": [":virtual","chick","chicken","egg"]
+      },
+    ]
+  },
+  {
     "name": "Camp Counselors",
     "category": "campcounselors2020",
     "year": 2020,
