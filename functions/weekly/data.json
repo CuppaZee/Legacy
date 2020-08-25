@@ -76,24 +76,16 @@
   {
     "id": "week_3",
     "week": 3,
-    "description": "Camp Critters",
-    "icon": "babyfox",
+    "description": "Waffles!",
+    "icon": "stroopwafel",
     "requirements": [
       {
-        "type": "bearcub",
+        "type": "stroopwafel",
         "points": 1
       },
       {
-        "type": "babyfox",
+        "type": "belgianwaffle",
         "points": 2
-      },
-      {
-        "type": "babymoose",
-        "points": 3
-      },
-      {
-        "type": "babysquirrel",
-        "points": 3
       }
     ],
     "reveal":   "2020-08-26T09:00:00-05:00",
