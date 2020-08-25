@@ -1170,5 +1170,12 @@ export default {
       title: 'Add Waffle Day Specials',
       description: 'Add the new Belgian Waffle and Stroopwafel specials to CuppaZee\'s Munzee Types Database'
     }
-  ]
+  ],
+  249: [
+    {
+      image: 'emeraldcityglasses2020vision',
+      title: 'Updated Munzee Database',
+      description: 'Added Emerald City Glasses 2020 Vision special to CuppaZee\'s Munzee Types Database'
+    }
+  ],
 }

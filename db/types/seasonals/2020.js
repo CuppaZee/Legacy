@@ -117,6 +117,13 @@ module.exports = [
         "duration": 12,
         "lands_on": ["munzee"]
       },
+      {
+        "name": "Emerald City Glasses",
+        "icon": "emeraldcityglasses2020vision",
+        "id": 2297,
+        "duration": 12,
+        "lands_on": [":virtual"]
+      },
     ]
   },
   {
