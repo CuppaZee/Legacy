@@ -92,5 +92,9 @@ module.exports = [
   {
     icon: "rover",
     name: "Rover"
+  },
+  {
+    icon: "cuppazee__wafflephoto",
+    name: "cuppazee__wafflephoto"
   }
 ]

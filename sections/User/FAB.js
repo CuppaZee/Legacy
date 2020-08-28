@@ -42,7 +42,6 @@ export default function UserFAB({ username, user_id }) {
     open={FABOpen}
     fabStyle={{backgroundColor:theme.page_content.bg}}
     icon={FABOpen ? 'close' : () => <UserIcon size={56} user_id={Number(user_id)} />}
-    
     actions={list}
     onStateChange={({ open }) => setFABOpen(open)}
   />;

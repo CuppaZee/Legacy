@@ -41334,5 +41334,15 @@
     "hidden": true,
     "x": 2208,
     "i": "rover"
+  },
+  {
+    "icon": "cuppazee__wafflephoto",
+    "name": "cuppazee__wafflephoto",
+    "id": "credit_cuppazee__wafflephoto",
+    "category": "credit",
+    "credit": true,
+    "hidden": true,
+    "x": 2209,
+    "i": "cuppazeewafflephoto"
   }
 ]

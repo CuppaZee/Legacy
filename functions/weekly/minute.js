@@ -22,6 +22,7 @@ module.exports = {
           const data = (await db.collection('weekly').doc(week.id).get()).data().players;
           const batchDoc = (await db.collection('weekly').doc(week.id).collection('batches').orderBy('_updated_at').limit(1).get()).docs[0];
           const batch = batchDoc.data();
+          const customCounts = (await db.collection('weekly_custom').doc(week.id).get()).data() || {}
   
           var token = await retrieve(db, { user_id: 455935, teaken: false }, 180, "team");
   
@@ -45,8 +46,12 @@ module.exports = {
                   const player_specials = await request('user/specials', { user_id: player.i }, token.access_token)
                   player.pre = [];
                   for (const req of week.requirements) {
-                    let count = (player_specials.find(i => i.logo === req.type) || {}).count || 0;
-                    player.pre.push(count);
+                    if(req.custom_value) {
+                      player.pre.push(0)
+                    } else {
+                      let count = (player_specials.find(i => i.logo === req.type) || {}).count || 0;
+                      player.pre.push(count);
+                    }
                   }
                 }
                 data[player.i] = {
@@ -73,34 +78,44 @@ module.exports = {
                   console.log('Weeklyboard FPre', player.n, player.i);
                   player.fpre = [];
                   for (const req of week.requirements) {
-                    let count = Number((player_specials.find(i => i.logo === req.type) || {}).count || 0);
-                    if((player.pre||[])[player.fpre.length] !== count) {
-                      for(let page = 0;page < 10;page++) {
-                        const player_type_captures = await request('user/captures/special',{
-                          user_id: player.i,
-                          type: req.type,
-                          page
-                        }, token.access_token)
-                        for(const capture of player_type_captures.munzees) {
-                          if(new Date(capture.captured_at).valueOf() > new Date(week.start).valueOf()) {
-                            count -= 1;
-                          } else {
-                            page = 100;
+                    if(req.custom_value) {
+                      player.fpre.push(0)
+                    } else {
+                      let count = Number((player_specials.find(i => i.logo === req.type) || {}).count || 0);
+                      if((player.pre||[])[player.fpre.length] !== count) {
+                        for(let page = 0;page < 10;page++) {
+                          const player_type_captures = await request('user/captures/special',{
+                            user_id: player.i,
+                            type: req.type,
+                            page
+                          }, token.access_token)
+                          for(const capture of player_type_captures.munzees) {
+                            if(new Date(capture.captured_at).valueOf() > new Date(week.start).valueOf()) {
+                              count -= 1;
+                            } else {
+                              page = 100;
+                            }
                           }
                         }
                       }
+                      player.fpre.push(count);
                     }
-                    player.fpre.push(count);
                   }
                   player.fixb = true;
                 }
                 player.p = 0;
                 player.d = [];
                 for (const req of week.requirements) {
-                  let count = Number((player_specials.find(i => i.logo === req.type) || {}).count || 0);
-                  count = (count || 0) - (player.fpre[player.d.length] || 0);
-                  player.d.push(count);
-                  player.p += count * req.points;
+                  if(req.custom_value) {
+                    let count = (customCounts[req.type]||{})[player.n] || 0;
+                    player.d.push(count);
+                    player.p += count * req.points;
+                  } else {
+                    let count = Number((player_specials.find(i => i.logo === req.type) || {}).count || 0);
+                    count = (count || 0) - (player.fpre[player.d.length] || 0);
+                    player.d.push(count);
+                    player.p += count * req.points;
+                  }
                 }
                 data[player.i] = {
                   n: player.n,
@@ -123,21 +138,27 @@ module.exports = {
                   player.fp = 0;
                   player.fd = [];
                   for (const req of week.requirements) {
-                    let count = Number((player_specials.find(i => i.logo === req.type) || {}).count || 0);
-                    count -= player.fpre[player.fd.length];
-                    if(player.d[player.fd.length] !== count) {
-                      const player_type_captures = await request('user/captures/special',{
-                        user_id: player.i,
-                        type: req.type
-                      }, token.access_token)
-                      for(const capture of player_type_captures.munzees) {
-                        if(new Date(capture.captured_at).valueOf() < new Date(week.end).valueOf()) {
-                          count -= 1;
+                    if(req.custom_value) {
+                      let count = (customCounts[req.type]||{})[player.n] || 0;
+                      player.fd.push(count);
+                      player.fp += count * req.points;
+                    } else {
+                      let count = Number((player_specials.find(i => i.logo === req.type) || {}).count || 0);
+                      count -= player.fpre[player.fd.length];
+                      if(player.d[player.fd.length] !== count) {
+                        const player_type_captures = await request('user/captures/special',{
+                          user_id: player.i,
+                          type: req.type
+                        }, token.access_token)
+                        for(const capture of player_type_captures.munzees) {
+                          if(new Date(capture.captured_at).valueOf() < new Date(week.end).valueOf()) {
+                            count -= 1;
+                          }
                         }
                       }
+                      player.fd.push(count);
+                      player.fp += count * req.points;
                     }
-                    player.fd.push(count);
-                    player.fp += count * req.points;
                   }
                 }
               } catch (e) {

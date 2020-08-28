@@ -1178,4 +1178,11 @@ export default {
       description: 'Added Emerald City Glasses 2020 Vision special to CuppaZee\'s Munzee Types Database'
     }
   ],
+  250: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Squashed a few bugs.'
+    }
+  ],
 }
