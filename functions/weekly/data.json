@@ -93,6 +93,14 @@
         "points": 7
       }
     ],
+    "messages": [
+      {
+        "icon": "cuppazee__wafflephoto",
+        "title": "Bonus Photo Points",
+        "description": "You can earn 7 bonus points by submitting a photo of you eating a waffle! Click here for more info.",
+        "link": "https://www.facebook.com/CuppaZee/posts/1722184741265824"
+      }
+    ],
     "reveal":   "2020-08-26T09:00:00-05:00",
     "prestart": "2020-08-27T11:15:00-05:00",
     "start":    "2020-08-27T12:00:00-05:00",

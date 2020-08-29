@@ -1197,4 +1197,21 @@ export default {
       description: 'Moved Scatters and Scattered Munzee Types to Gaming Category'
     }
   ],
+  252: [
+    {
+      icon: 'calendar',
+      title: 'September 2020 QRewzdays',
+      description: 'Updated the CuppaZee Calendar for September 2020'
+    },
+    {
+      image: 'cuppazeewafflephoto',
+      title: 'Bonus Waffle Photo Points',
+      description: 'Added information on getting bonus points for Weekly Challenge #3'
+    },
+    {
+      icon: 'flag',
+      title: 'Removed Camps Leaderboard',
+      description: 'Thanks for playing! This was just taking up room in the sidebar now, so I\'ve removed the link.'
+    }
+  ],
 }

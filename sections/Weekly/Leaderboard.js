@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, Image, ActivityIndicator, FlatList, TextInput } from 'react-native';
+import { Text, View, Image, ActivityIndicator, FlatList, TextInput, Linking } from 'react-native';
 import { TouchableRipple, Portal, Dialog } from 'react-native-paper';
 import Card from 'sections/Shared/Card';
 import { useSelector } from 'react-redux';
@@ -179,6 +179,21 @@ export default function TeamLeaderboardScreen({ route }) {
           </View>
         </Card>
       </View>
+      {week.messages?.map(message=><TouchableRipple onPress={message.link?()=>Linking.openURL(message.link):undefined}>
+        <View style={{ padding: 4, width: "100%" }}>
+          <Card noPad>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <View style={{ padding: 8 }}>
+                <Image source={getIcon(message.icon)} style={{ width: 48, height: 48 }} />
+              </View>
+              <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
+                <Text allowFontScaling={false} style={{ fontSize: 20, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{message.title}</Text>
+                <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg, opacity: 0.8, textAlignVertical: "center" }}>{message.description}</Text>
+              </View>
+            </View>
+          </Card>
+        </View>
+      </TouchableRipple>)}
       <View style={{ padding: 4, width: "100%" }}>
         <Card noPad cardStyle={{ flexDirection: "row", backgroundColor: "#fff", alignItems: "stretch" }}>
           <TextInput
