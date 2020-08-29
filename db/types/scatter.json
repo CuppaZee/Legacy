@@ -7,6 +7,9 @@
     "scatter": {
       "duration": 2,
       "lands_on": ["munzee"]
+    },
+    "extra": {
+      "gaming": true
     }
   },
   {

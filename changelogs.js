@@ -1185,4 +1185,16 @@ export default {
       description: 'Squashed a few bugs.'
     }
   ],
+  251: [
+    {
+      icon: 'star',
+      title: 'September 2020 Clan Requirements',
+      description: 'Added Meta for September 2020 Clan Requirements. You can view them by pressing the Star in the sidebar.'
+    },
+    {
+      image: 'scatter',
+      title: 'Updated Munzee Database',
+      description: 'Moved Scatters and Scattered Munzee Types to Gaming Category'
+    }
+  ],
 }

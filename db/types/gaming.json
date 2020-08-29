@@ -12,6 +12,12 @@
     "state": "physical"
   },
   {
+    "name": "Scatter",
+    "icon": "scatter",
+    "id": 500,
+    "state": "physical"
+  },
+  {
     "name": "Rock Paper Scissors",
     "icon": "rockpaperscissors",
     "id": 522,

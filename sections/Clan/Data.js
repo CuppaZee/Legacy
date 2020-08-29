@@ -183,6 +183,20 @@ var Clan = {
       types: i=>i.bouncer
     }
   },
+  25: {
+    task_id: 25,
+    top: "Mystery",
+    bottom: "Activity",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/mystery.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/mystery.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/airmystery.png"
+    ],
+    meta: {
+      activity: ["capture","deploy"],
+      types: i=>i.category==="mystery"
+    }
+  },
   26: {
     task_id: 26,
     top: "Weapon",
@@ -225,7 +239,7 @@ var Clan = {
     meta: {
       activity: ["capture","deploy","capon"],
       points: true,
-      types: i=>i.category=="gaming"
+      types: i=>i.gaming
     }
   },
   32: {
@@ -240,7 +254,7 @@ var Clan = {
     ],
     meta: {
       activity: ["capture","deploy"],
-      types: i=>i.category=="gaming"
+      types: i=>i.gaming
     }
   },
   33: {

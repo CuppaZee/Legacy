@@ -1958,8 +1958,9 @@
     "name": "Scatter",
     "icon": "scatter",
     "id": 500,
+    "gaming": true,
     "state": "physical",
-    "category": "misc",
+    "category": "gaming",
     "can_host": [
       1752
     ],
@@ -18430,6 +18431,7 @@
         0
       ]
     },
+    "gaming": true,
     "state": "physical",
     "category": "scatter",
     "x": 615,

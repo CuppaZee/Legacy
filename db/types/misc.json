@@ -89,12 +89,6 @@
     "state": "physical"
   },
   {
-    "name": "Scatter",
-    "icon": "scatter",
-    "id": 500,
-    "state": "physical"
-  },
-  {
     "name": "Event Trail",
     "icon": "eventtrail",
     "id": 600,

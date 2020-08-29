@@ -138,6 +138,17 @@ var tasks = {
     ],
     function: ({ cap }) => cap.filter(i => g(i).bouncer).length
   },
+  25: {
+    task_id: 25,
+    top: "Mystery",
+    bottom: "Activity",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/mystery.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/mystery.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/airmystery.png"
+    ],
+    function: ({ cap, dep }) => [...cap, ...dep].filter(i => g(i).category === "mystery").length
+  },
   26: {
     task_id: 26,
     top: "Weapon",
