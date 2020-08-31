@@ -1221,4 +1221,11 @@ export default {
       description: 'Fixed a few bugs, and added a User Switcher'
     }
   ],
+  254: [
+    {
+      icon: 'account',
+      title: 'Updated User Activity',
+      description: 'Added improved error messages'
+    }
+  ],
 }

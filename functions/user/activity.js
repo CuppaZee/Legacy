@@ -20,11 +20,17 @@ module.exports = {
       },
       async function({ params: { user_id, day }, db }) {
         var token = await retrieve(db, { user_id, teaken: false }, 60);
-        var data = await request('statzee/player/day', { day }, token.access_token)
-        if (!token || !data) {
+        if (!token) {
           return {
             status: "error",
-            data: null
+            error_message: "missing_login"
+          }
+        }
+        var data = await request('statzee/player/day', { day }, token.access_token)
+        if (!data) {
+          return {
+            status: "error",
+            error_message: "munzee+api_5xx"
           }
         }
         return {

@@ -21,11 +21,11 @@ export default function UserActivityDash({ user_id, username, displayUsername })
   var moment = useMoment();
   var date = moment().tz('America/Chicago');
   var dateString = `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
-  const data = useAPIRequest({
+  const { data, status } = useAPIRequest({
     endpoint: 'user/activity',
     data: { day: dateString, user_id },
     cuppazee: true
-  })
+  }, true)
   return (
     <Card noPad>
       <TouchableRipple onPress={displayUsername ? () => nav.navigate('UserDetails', { username: username }) : () => nav.navigate('UserActivity', { username: username })}>
@@ -37,12 +37,13 @@ export default function UserActivityDash({ user_id, username, displayUsername })
           <MaterialCommunityIcons name="chevron-right" size={24} color={(theme.clanCardHeader || theme.navigation).fg} />
         </View>
       </TouchableRipple>
-      {data ?
+      {!status ?
         <View style={{ paddingBottom: 4 }}><ActivityOverview username={username} user_id={user_id} /></View> :
-        (data === undefined ? <View style={{ flex: 1, justifyContent: "center", alignItems: "center", padding: 8 }}>
+        (status === "loading" ? <View style={{ flex: 1, justifyContent: "center", alignItems: "center", padding: 8 }}>
           <ActivityIndicator size="large" color={theme.page_content.fg} />
-        </View> : <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: '#ffaaaa' }}>
-            <MaterialCommunityIcons name="alert" size={48} color="#d00" />
+        </View> : <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+            <MaterialCommunityIcons name="alert" color={theme.page.fg} size={48} />
+            <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), textAlign: "center", color: theme.page_content.fg }}>{t('error:' + status)}</Text>
           </View>)}
     </Card>
   );
