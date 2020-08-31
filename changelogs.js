@@ -1214,4 +1214,11 @@ export default {
       description: 'Thanks for playing! This was just taking up room in the sidebar now, so I\'ve removed the link.'
     }
   ],
+  253: [
+    {
+      icon: 'package',
+      title: 'Updated Inventory',
+      description: 'Fixed a few bugs, and added a User Switcher'
+    }
+  ],
 }

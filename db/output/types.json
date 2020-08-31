@@ -15869,6 +15869,9 @@
     "poi": true,
     "state": "virtual",
     "category": "poi",
+    "alt_icons": [
+      "poihistorical"
+    ],
     "points": {
       "deploy": 40,
       "capture": 20,

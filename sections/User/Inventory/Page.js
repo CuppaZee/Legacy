@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import categories from 'utils/db/categories.json';
 
 import ListItem from './ListItem';
+import UserFAB from '../FAB';
 
 export default function () {
   var { t } = useTranslation()
@@ -34,32 +35,35 @@ export default function () {
       <ActivityIndicator size="large" color={theme.page_content.fg} />
     </View>
   )
-  return <ScrollView style={{ flex: 1, backgroundColor: theme.page.bg }} contentContainerStyle={{ padding: 4 }}>
-    <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-      {Object.entries(data?.types || {}).sort((a, b) => b[1].length - a[1].length).map(([label, list]) => <View style={{ padding: 4, width: 400, flexGrow: 1, maxWidth: "100%" }}>
-        <Card noPad>
-          <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
-            <View>
-              <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
-                {categories.find(i => i.id == label)?.name ?? label}
-              </Text>
+  return <View style={{ flex: 1 }}>
+    <ScrollView style={{ flex: 1, backgroundColor: theme.page.bg }} contentContainerStyle={{ padding: 4, paddingBottom: 92 }}>
+      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
+        {Object.entries(data?.types || {}).sort((a, b) => b[1].length - a[1].length).map(([label, list]) => <View style={{ padding: 4, width: 400, flexGrow: 1, maxWidth: "100%" }}>
+          <Card noPad>
+            <View style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
+              <View>
+                <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
+                  {categories.find(i => i.id == label)?.name ?? label}
+                </Text>
+              </View>
+              <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
+                {
+                  list?.map(i => <InventoryItem key={i.icon} i={i} />)
+                }
+              </View>
             </View>
-            <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-              {
-                list?.map(i => <InventoryItem key={i.icon} i={i} />)
-              }
-            </View>
-          </View>
-        </Card>
-      </View>)}
-    </View>
-    <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 24, ...font("bold"), marginLeft: 4 }}>
-        {t('inventory:history')}
-      </Text>
-    </View>
-    <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-      {data?.historyBatches.map(i => <ListItem i={i} />)}
-    </View>
-  </ScrollView>
+          </Card>
+        </View>)}
+      </View>
+      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
+        <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 24, ...font("bold"), marginLeft: 4 }}>
+          {t('inventory:history')}
+        </Text>
+      </View>
+      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
+        {data?.historyBatches.map(i => <ListItem i={i} />)}
+      </View>
+    </ScrollView>
+    <UserFAB username={username} user_id={user_id} />
+  </View>
 }

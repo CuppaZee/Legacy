@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, Platform, Image, AsyncStorage, ScrollView } from 'react-native';
-import { Button, TextInput, Switch } from 'react-native-paper';
+import { Button, TextInput, Switch, DefaultTheme, DarkTheme } from 'react-native-paper';
 import DropDown from 'react-native-paper-dropdown';
 import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from "react-redux";
@@ -131,9 +131,10 @@ export default function SettingsScreen({ navigation }) {
             <View style={{ padding: 4 }}>
               <Text allowFontScaling={false} style={{ fontSize: 14, lineHeight: 14, marginBottom: -4, ...font(), color: theme.page_content.fg }}>Theme</Text>
               <DropDown
+                theme={DefaultTheme}
                 mode="outlined"
                 value={theme.id}
-                setValue={setTheme}
+                setValue={i=>dispatch(setTheme(i))}
                 list={themeslist}
                 visible={themeDropdown}
                 showDropDown={() => setThemeDropdown(true)}
@@ -148,6 +149,7 @@ export default function SettingsScreen({ navigation }) {
             <View style={{ padding: 4 }}>
               <Text allowFontScaling={false} style={{ fontSize: 14, lineHeight: 14, marginBottom: -4, ...font(), color: theme.page_content.fg }}>Language</Text>
               <DropDown
+                theme={DefaultTheme}
                 mode="outlined"
                 value={i18n.language}
                 setValue={setLang}

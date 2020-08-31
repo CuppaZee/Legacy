@@ -22,10 +22,11 @@ export default function InventoryItem({ i }) {
       </TouchableRipple>
     }
     style={{ marginTop: 61 }}
+    contentStyle={{backgroundColor:theme.page_content.bg}}
   >
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
       <Image style={{ height: 48, width: 48 }} source={getIcon(i.icon?.includes?.('NA.png') ? 'https://server.cuppazee.app/missing.png' : i.icon)} />
-      <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{i.amount}x {i.name || t('inventory:unknown_name')}</Text>
+      <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }}>{i.amount}x {i.name || t('inventory:unknown_name')}</Text>
     </View>
   </Menu>;
 }

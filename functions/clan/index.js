@@ -3,5 +3,6 @@ module.exports = [
   require('./rewards'),
   require('./requirements'),
   require('./shadow'),
-  require('./generateshadow')
+  require('./generateshadow'),
+  require('./checkrewards')
 ];

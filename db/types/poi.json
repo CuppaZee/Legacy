@@ -39,7 +39,12 @@
     "icon": "poihistoricalplace",
     "id": 1339,
     "state": "virtual",
-    "points": "poi_standard"
+    "points": "poi_standard",
+    "extra": {
+      "alt_icons": [
+        "poihistorical"
+      ]
+    }
   },
   {
     "name": "POI Library",
