@@ -10,7 +10,9 @@ module.exports = [
         "set": "nature",
         "stage": 5,
         "base": "butterflyegg"
-      }
+      },
+      "inventory": true,
+      "generic": true
     },
     "hidden": true
   },
@@ -81,7 +83,9 @@ module.exports = [
         "set": "nature",
         "stage": 5,
         "base": "frogegg"
-      }
+      },
+      "inventory": true,
+      "generic": true
     },
     "hidden": true
   },
@@ -189,7 +193,9 @@ module.exports = [
         "set": "nature",
         "stage": 5,
         "base": "turtleegg"
-      }
+      },
+      "inventory": true,
+      "generic": true
     },
     "hidden": true
   },
@@ -246,7 +252,8 @@ module.exports = [
         "set": "nature",
         "stage": 5,
         "base": "planulalarva"
-      }
+      },
+      "generic": true
     },
     "hidden": true
   },

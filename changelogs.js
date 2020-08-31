@@ -1235,4 +1235,11 @@ export default {
       description: 'Added Grouping Options, Changed Sorting System'
     }
   ],
+  256: [
+    {
+      icon: 'package',
+      title: 'Updated Inventory',
+      description: 'Don\'t know what types you are missing? No problem! CuppaZee now shows 0 of types that you don\'t have, rather than hiding it entirely.'
+    }
+  ],
 }

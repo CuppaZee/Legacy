@@ -79,7 +79,8 @@ munzees = munzees.concat(require('./types/destination.json').map(i => ({
     type: i.type,
     temporary: i.temp,
     max_rooms: i.rooms,
-    room_of: i.room_of
+    room_of: i.room_of,
+    star_level: i.star_level,
   },
 
   can_swap: i.state == "physical" || undefined,
@@ -136,8 +137,9 @@ munzees = munzees.concat(require('./types/evolution.json').map(i => ({
   evolution: {
     stage: i.stage,
     set: i.set,
-    base: i.base
+    base: i.base,
   },
+  inventory: i.inventory,
   ...(i.extra || {}),
 
   points: i.points || `evo_${{

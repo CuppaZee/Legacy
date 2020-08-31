@@ -751,7 +751,8 @@
     "id": 70,
     "destination": {
       "type": "destination",
-      "max_rooms": 5
+      "max_rooms": 5,
+      "star_level": 1
     },
     "can_swap": true,
     "state": "physical",
@@ -768,7 +769,8 @@
     "id": 71,
     "destination": {
       "type": "room",
-      "room_of": 70
+      "room_of": 70,
+      "star_level": 1
     },
     "can_swap": true,
     "state": "physical",
@@ -2400,6 +2402,7 @@
       "set": "farm",
       "base": "tomatoseed"
     },
+    "inventory": true,
     "points": {
       "capture": 50,
       "capon": 30
@@ -2422,6 +2425,7 @@
       "set": "farm",
       "base": "cornseed"
     },
+    "inventory": true,
     "points": {
       "capture": 50,
       "capon": 30
@@ -2531,6 +2535,7 @@
       "set": "farm",
       "base": "carrotseed"
     },
+    "inventory": true,
     "points": {
       "capture": 20,
       "deploy": 0,
@@ -2554,6 +2559,7 @@
       "set": "farm",
       "base": "peasseed"
     },
+    "inventory": true,
     "points": {
       "capture": 20,
       "deploy": 0,
@@ -2677,6 +2683,7 @@
       "set": "farm",
       "base": "goldencarrotseed"
     },
+    "inventory": true,
     "points": {
       "capture": 50,
       "capon": 30
@@ -2789,6 +2796,7 @@
       "set": "farm",
       "base": "calf"
     },
+    "inventory": true,
     "points": {
       "capture": 50,
       "capon": 30
@@ -2810,6 +2818,7 @@
       "set": "farm",
       "base": "piglet"
     },
+    "inventory": true,
     "points": {
       "capture": 50,
       "capon": 30
@@ -2989,6 +2998,7 @@
       "set": "farm",
       "base": "colt"
     },
+    "inventory": true,
     "points": {
       "capture": 20,
       "deploy": 0,
@@ -3011,6 +3021,7 @@
       "set": "farm",
       "base": "chick"
     },
+    "inventory": true,
     "points": {
       "capture": 20,
       "deploy": 0,
@@ -3073,6 +3084,7 @@
       "set": "farm",
       "base": "lean-toshed"
     },
+    "inventory": true,
     "points": {
       "capture": 50,
       "capon": 30
@@ -3091,6 +3103,7 @@
       "set": "farm",
       "base": "hoe"
     },
+    "inventory": true,
     "points": {
       "capture": 50,
       "capon": 30
@@ -3283,6 +3296,7 @@
       "set": "farm",
       "base": "farmer"
     },
+    "inventory": true,
     "points": {
       "capture": 20,
       "deploy": 0,
@@ -3357,6 +3371,7 @@
       "set": "farm",
       "base": "pottedplant"
     },
+    "inventory": true,
     "points": {
       "capture": 20,
       "deploy": 0,
@@ -3407,6 +3422,7 @@
       "set": "education",
       "base": "seaweed"
     },
+    "inventory": true,
     "points": {
       "capture": 50,
       "capon": 30
@@ -3545,6 +3561,7 @@
       "set": "education",
       "base": "canoe"
     },
+    "inventory": true,
     "points": {
       "capture": 20,
       "deploy": 0,
@@ -3652,6 +3669,7 @@
       "set": "education",
       "base": "egg"
     },
+    "inventory": true,
     "points": {
       "capture": 50,
       "capon": 30
@@ -3694,6 +3712,7 @@
       "set": "education",
       "base": "firstwheel"
     },
+    "inventory": true,
     "points": {
       "capture": 20,
       "deploy": 0,
@@ -3734,6 +3753,7 @@
       "set": "education",
       "base": "lioncub"
     },
+    "inventory": true,
     "points": {
       "capture": 50,
       "capon": 30
@@ -3831,6 +3851,7 @@
       "set": "education",
       "base": "safaritruck"
     },
+    "inventory": true,
     "points": {
       "capture": 20,
       "deploy": 0,
@@ -4221,6 +4242,7 @@
       "set": "reseller",
       "base": "coin"
     },
+    "inventory": true,
     "points": {
       "capture": 50,
       "capon": 30
@@ -12248,6 +12270,7 @@
       "set": "nature",
       "base": "roseseed"
     },
+    "inventory": true,
     "points": {
       "capture": 75,
       "capon": 25
@@ -12273,6 +12296,7 @@
       "set": "nature",
       "base": "tulipseed"
     },
+    "inventory": true,
     "points": {
       "capture": 75,
       "capon": 25
@@ -12318,6 +12342,7 @@
       "set": "nature",
       "base": "lilyseed"
     },
+    "inventory": true,
     "points": {
       "capture": 75,
       "capon": 25
@@ -12900,6 +12925,7 @@
       "set": "nature",
       "base": "carnationseed"
     },
+    "inventory": true,
     "points": {
       "capture": 20,
       "deploy": 100,
@@ -15419,6 +15445,7 @@
       "set": "nature",
       "base": "planulalarva"
     },
+    "inventory": true,
     "points": {
       "capture": 50,
       "deploy": 100,
@@ -17350,6 +17377,8 @@
       "stage": 5,
       "base": "butterflyegg"
     },
+    "inventory": true,
+    "generic": true,
     "hidden": true,
     "x": 586,
     "i": "butterfly"
@@ -17723,6 +17752,8 @@
       "stage": 5,
       "base": "frogegg"
     },
+    "inventory": true,
+    "generic": true,
     "hidden": true,
     "x": 597,
     "i": "frog"
@@ -18118,6 +18149,8 @@
       "stage": 5,
       "base": "turtleegg"
     },
+    "inventory": true,
+    "generic": true,
     "hidden": true,
     "x": 607,
     "i": "turtle"
@@ -18291,6 +18324,7 @@
       "stage": 5,
       "base": "planulalarva"
     },
+    "generic": true,
     "hidden": true,
     "x": 611,
     "i": "jellyfish"
@@ -40822,7 +40856,8 @@
     "id": 2356,
     "destination": {
       "type": "destination",
-      "max_rooms": 10
+      "max_rooms": 10,
+      "star_level": 2
     },
     "can_swap": true,
     "state": "physical",
@@ -40839,7 +40874,8 @@
     "id": 2357,
     "destination": {
       "type": "room",
-      "room_of": 2356
+      "room_of": 2356,
+      "star_level": 2
     },
     "can_swap": true,
     "state": "physical",
@@ -40853,7 +40889,8 @@
     "id": 2358,
     "destination": {
       "type": "destination",
-      "max_rooms": 15
+      "max_rooms": 15,
+      "star_level": 3
     },
     "can_swap": true,
     "state": "physical",
@@ -40870,7 +40907,8 @@
     "id": 2359,
     "destination": {
       "type": "room",
-      "room_of": 2358
+      "room_of": 2358,
+      "star_level": 3
     },
     "can_swap": true,
     "state": "physical",

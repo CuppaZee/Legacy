@@ -6,7 +6,8 @@
     "state": "physical",
     "set":"farm",
     "stage": 3,
-    "base": "tomatoseed"
+    "base": "tomatoseed",
+    "inventory": true
   },
   {
     "name": "Ear of Corn",
@@ -15,7 +16,8 @@
     "state": "physical",
     "set":"farm",
     "stage": 3,
-    "base": "cornseed"
+    "base": "cornseed",
+    "inventory": true
   },
   {
     "name": "Carrot",
@@ -60,7 +62,8 @@
     "state": "virtual",
     "set":"farm",
     "stage": 1,
-    "base": "carrotseed"
+    "base": "carrotseed",
+    "inventory": true
   },
   {
     "name": "Peas Seed",
@@ -69,7 +72,8 @@
     "state": "virtual",
     "set":"farm",
     "stage": 1,
-    "base": "peasseed"
+    "base": "peasseed",
+    "inventory": true
   },
   {
     "name": "Tomato Plant",
@@ -114,7 +118,8 @@
     "state": "physical",
     "set":"farm",
     "stage": 3,
-    "base": "goldencarrotseed"
+    "base": "goldencarrotseed",
+    "inventory": true
   },
   {
     "name": "Golden Carrot Seed",
@@ -141,7 +146,8 @@
     "state": "physical",
     "set":"farm",
     "stage": 3,
-    "base": "calf"
+    "base": "calf",
+    "inventory": true
   },
   {
     "name": "Bacon",
@@ -150,7 +156,8 @@
     "state": "physical",
     "set":"farm",
     "stage": 3,
-    "base": "piglet"
+    "base": "piglet",
+    "inventory": true
   },
   {
     "name": "Calf",
@@ -218,7 +225,8 @@
     "state": "virtual",
     "set":"farm",
     "stage": 1,
-    "base": "colt"
+    "base": "colt",
+    "inventory": true
   },
   {
     "name": "Chick",
@@ -227,7 +235,8 @@
     "state": "virtual",
     "set":"farm",
     "stage": 1,
-    "base": "chick"
+    "base": "chick",
+    "inventory": true
   },
   {
     "name": "Racehorse",
@@ -254,7 +263,8 @@
     "state": "physical",
     "set":"farm",
     "stage": 3,
-    "base": "lean-toshed"
+    "base": "lean-toshed",
+    "inventory": true
   },
   {
     "name": "Tractor",
@@ -263,7 +273,8 @@
     "state": "physical",
     "set":"farm",
     "stage": 3,
-    "base": "hoe"
+    "base": "hoe",
+    "inventory": true
   },
   {
     "name": "Lean-To Shed",
@@ -326,7 +337,8 @@
     "state": "virtual",
     "set":"farm",
     "stage": 1,
-    "base": "farmer"
+    "base": "farmer",
+    "inventory": true
   },
   {
     "name": "Farmer and Wife",
@@ -344,7 +356,8 @@
     "state": "virtual",
     "set":"farm",
     "stage": 1,
-    "base": "pottedplant"
+    "base": "pottedplant",
+    "inventory": true
   },
   {
     "name": "Garden",
@@ -362,7 +375,8 @@
     "state": "physical",
     "set": "education",
     "stage": 3,
-    "base": "seaweed"
+    "base": "seaweed",
+    "inventory": true
   },
   {
     "name": "Seaweed",
@@ -398,7 +412,8 @@
     "state": "virtual",
     "set": "education",
     "stage": 1,
-    "base": "canoe"
+    "base": "canoe",
+    "inventory": true
   },
   {
     "name": "Motorboat",
@@ -434,7 +449,8 @@
     "state": "physical",
     "set": "education",
     "stage": 3,
-    "base": "egg"
+    "base": "egg",
+    "inventory": true
   },
   {
     "name": "Muscle Car",
@@ -452,7 +468,8 @@
     "state": "virtual",
     "set": "education",
     "stage": 1,
-    "base": "firstwheel"
+    "base": "firstwheel",
+    "inventory": true
   },
   {
     "name": "Penny-Farthing Bike",
@@ -470,7 +487,8 @@
     "state": "physical",
     "set": "education",
     "stage": 3,
-    "base": "lioncub"
+    "base": "lioncub",
+    "inventory": true
   },
   {
     "name": "Lion Cub",
@@ -506,7 +524,8 @@
     "state": "virtual",
     "set": "education",
     "stage": 1,
-    "base": "safaritruck"
+    "base": "safaritruck",
+    "inventory": true
   },
   {
     "name": "Safari Van",
@@ -524,7 +543,8 @@
     "state": "physical",
     "set": "nature",
     "stage": 5,
-    "base": "roseseed"
+    "base": "roseseed",
+    "inventory": true
   },
   {
     "name": "Tulip",
@@ -533,7 +553,8 @@
     "state": "physical",
     "set": "nature",
     "stage": 5,
-    "base": "tulipseed"
+    "base": "tulipseed",
+    "inventory": true
   },
   {
     "name": "Lily",
@@ -542,7 +563,8 @@
     "state": "physical",
     "set": "nature",
     "stage": 5,
-    "base": "lilyseed"
+    "base": "lilyseed",
+    "inventory": true
   },
   {
     "name": "Tulip Seed",
@@ -758,7 +780,8 @@
     "state": "virtual",
     "set": "nature",
     "stage": 1,
-    "base": "carnationseed"
+    "base": "carnationseed",
+    "inventory": true
   },
   {
     "name": "Carnation Germination",
@@ -929,7 +952,8 @@
     "state": "physical",
     "set": "reseller",
     "stage": 3,
-    "base": "coin"
+    "base": "coin",
+    "inventory": true
   },
   {
     "name": "Planula Larva",
@@ -938,7 +962,8 @@
     "state": "virtual",
     "set": "nature",
     "stage": 1,
-    "base": "planulalarva"
+    "base": "planulalarva",
+    "inventory": true
   },
   {
     "name": "Polyp",

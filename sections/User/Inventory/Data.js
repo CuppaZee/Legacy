@@ -1,7 +1,8 @@
 import moment from 'moment';
 import 'moment-timezone';
 import getType from 'utils/db/types';
-export default function InventoryConverter(credits = {}, boosters = [], history = {}, undeployed = [], mode = "category") {
+import types from 'utils/db/types.json';
+export default function InventoryConverter(credits = {}, boosters = [], history = {}, undeployed = [], mode = "category", includeZeros = "all") {
   var historyBatchTitle = "";
   var historyBatchTime = Infinity;
   var data = {
@@ -15,7 +16,7 @@ export default function InventoryConverter(credits = {}, boosters = [], history 
   for (var credit in credits) {
     data.credits.push({
       name: getType(credit, "icon")?.name,
-      icon: `https://munzee.global.ssl.fastly.net/images/pins/${credit}.png`,
+      icon: `https://munzee.global.ssl.fastly.net/images/pins/${getType(credit, "icon")?.icon??credit}.png`,
       amount: Number(credits[credit]),
       c: 1
     })
@@ -24,7 +25,8 @@ export default function InventoryConverter(credits = {}, boosters = [], history 
     var booster = boosters[b];
     data.credits.push({
       name: booster.name,
-      icon: `https://server.cuppazee.app/boosters/${booster.type_id}.png`,
+      icon: `https://munzee.global.ssl.fastly.net/images/pins/${getType(booster.name, "icon")?.icon}.png`,
+      // icon: `https://server.cuppazee.app/boosters/${booster.type_id}.png`,
       amount: Number(booster.credits),
       category: "Boosters",
       b: 1
@@ -33,7 +35,7 @@ export default function InventoryConverter(credits = {}, boosters = [], history 
   for (var munzee of undeployed) {
     data.undeployed.push({
       name: getType(munzee.type, "icon")?.name,
-      icon: `https://munzee.global.ssl.fastly.net/images/pins/${munzee.type}.png`,
+      icon: `https://munzee.global.ssl.fastly.net/images/pins/${getType(munzee.type, "icon")?.icon ?? munzee.type}.png`,
       amount: Number(munzee.amount),
       u: 1
     })
@@ -49,6 +51,7 @@ export default function InventoryConverter(credits = {}, boosters = [], history 
   }
   for (var item of [...data.credits, ...data.undeployed]) {
     var type = (item.category ? item : null) || getType(item.icon) || { category: "other" };
+    if(item.amount === 0 && includeZeros !== "default") continue;
     if(mode === "state") {
       if(!type.state) type.state = "other";
       type.state = {
@@ -70,6 +73,19 @@ export default function InventoryConverter(credits = {}, boosters = [], history 
       if (type.evolution) type.category = "evolution";
       if (!data.types[type.category]) data.types[type.category] = [];
       data.types[type.category].push(item);
+    }
+  }
+  if(includeZeros === "all" && (mode === "category" || mode === "state")) {
+    for(let type of types.filter(i=>i.inventory || (!i.icon.startsWith('cuppazee__')&&!i.evolution&&!i.event&&!(i.bouncer&&!i.generic)&&!i.scatter&&!i.host&&!i.unique&&!(i.hidden&&i.category!=="credit"&&!i.generic)&&i.destination?.type!=="room"&&!i.destination?.star_level&&i.category!=="virtual"&&i.category!=="tourism"&&i.category!=="reseller"&&!i.category.includes('zodiac')&&!["qrewzee","renovation","eventtrail","event","eventpin","eventindicator","personalmunzee","premiumpersonal","springseasonalmunzee","summerseasonalmunzee","fallseasonalmunzee","winterseasonalmunzee","social","rover","zeecred"].includes(i.icon)))) {
+      if (type.category == "zeecret") type.category = "misc";
+      if (type.evolution) type.category = "evolution";
+      if (type.icon.endsWith('booster')) type.category = "Boosters";
+      if (!data.types[type.category]) data.types[type.category] = [];
+      if (!data.types[type.category].some(i=>i.icon === `https://munzee.global.ssl.fastly.net/images/pins/${type.icon}.png`)) data.types[type.category].push({
+        name: type.name,
+        icon: `https://munzee.global.ssl.fastly.net/images/pins/${type.icon}.png`,
+        amount: 0,
+      });
     }
   }
   data.history.sort((a, b) => b.time - a.time)
