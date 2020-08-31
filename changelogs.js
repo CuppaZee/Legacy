@@ -1228,4 +1228,11 @@ export default {
       description: 'Added improved error messages'
     }
   ],
+  255: [
+    {
+      icon: 'package',
+      title: 'Updated Inventory',
+      description: 'Added Grouping Options, Changed Sorting System'
+    }
+  ],
 }

@@ -90,6 +90,87 @@
     "priority": 5
   },
   {
+    "name": "Flats",
+    "id": "flat",
+    "icon": "flatrob",
+    "parents": [
+      "other"
+    ],
+    "priority": 2
+  },
+  {
+    "name": "Virtuals",
+    "id": "virtual",
+    "icon": "virtual",
+    "parents": [
+      "other"
+    ],
+    "priority": 2
+  },
+  {
+    "name": "Zeecret Weapons",
+    "id": "zeecret",
+    "icon": "briefcase",
+    "parents": [
+      "other"
+    ],
+    "priority": 2
+  },
+  {
+    "name": "Evolutions",
+    "id": "evolution",
+    "icon": "evolution",
+    "parents": [
+      "other"
+    ],
+    "priority": 1
+  },
+  {
+    "name": "Farm Evolutions",
+    "id": "evolution_farm",
+    "icon": "tomato",
+    "parents": [
+      "evolution"
+    ],
+    "priority": 1
+  },
+  {
+    "name": "Education Evolutions",
+    "id": "evolution_education",
+    "icon": "shark",
+    "parents": [
+      "evolution"
+    ],
+    "priority": 1
+  },
+  {
+    "name": "Nature Evolutions",
+    "id": "evolution_nature",
+    "icon": "rose",
+    "parents": [
+      "evolution"
+    ],
+    "priority": 1
+  },
+  {
+    "name": "Reseller Evolutions",
+    "id": "evolution_reseller",
+    "icon": "treasurechest",
+    "parents": [
+      "evolution"
+    ],
+    "priority": 1
+  },
+  {
+    "name": "Places of Interest",
+    "id": "poi",
+    "icon": "poi_filter",
+    "parents": [
+      "other"
+    ],
+    "priority": 1
+  },
+  {
     "name": "TempPOBs",
     "id": "temppob",
     "icon": "butterfly",
@@ -116,59 +197,11 @@
     ]
   },
   {
-    "name": "Evolutions",
-    "id": "evolution",
-    "icon": "evolution",
-    "parents": [
-      "other"
-    ]
-  },
-  {
-    "name": "Farm Evolutions",
-    "id": "evolution_farm",
-    "icon": "tomato",
-    "parents": [
-      "evolution"
-    ]
-  },
-  {
-    "name": "Education Evolutions",
-    "id": "evolution_education",
-    "icon": "shark",
-    "parents": [
-      "evolution"
-    ]
-  },
-  {
-    "name": "Nature Evolutions",
-    "id": "evolution_nature",
-    "icon": "rose",
-    "parents": [
-      "evolution"
-    ]
-  },
-  {
-    "name": "Reseller Evolutions",
-    "id": "evolution_reseller",
-    "icon": "treasurechest",
-    "parents": [
-      "evolution"
-    ]
-  },
-  {
     "name": "Fancy Flats",
     "id": "fancyflat",
     "icon": "tuxflatrob",
     "parents": [
       "bouncer"
-    ]
-  },
-  {
-    "name": "Flats",
-    "id": "flat",
-    "icon": "flatrob",
-    "parents": [
-      "other"
     ]
   },
   {
@@ -183,14 +216,6 @@
     "name": "Jewels",
     "id": "jewel",
     "icon": "diamond",
-    "parents": [
-      "other"
-    ]
-  },
-  {
-    "name": "Virtuals",
-    "id": "virtual",
-    "icon": "virtual",
     "parents": [
       "other"
     ]
@@ -244,14 +269,6 @@
     ]
   },
   {
-    "name": "Places of Interest",
-    "id": "poi",
-    "icon": "poi_filter",
-    "parents": [
-      "other"
-    ]
-  },
-  {
     "name": "Resellers",
     "id": "reseller",
     "icon": "reseller",
@@ -263,14 +280,6 @@
     "name": "Clan Weapons",
     "id": "clan",
     "icon": "mace",
-    "parents": [
-      "other"
-    ]
-  },
-  {
-    "name": "Zeecret Weapons",
-    "id": "zeecret",
-    "icon": "briefcase",
     "parents": [
       "other"
     ]

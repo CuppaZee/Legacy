@@ -157,31 +157,36 @@ categories.push({
   name: "Evolutions",
   id: "evolution",
   icon: "evolution",
-  parents: ["other"]
+  parents: ["other"],
+  priority: 1
 })
 categories.push({
   name: "Farm Evolutions",
   id: "evolution_farm",
   icon: "tomato",
-  parents: ["evolution"]
+  parents: ["evolution"],
+  priority: 1
 })
 categories.push({
   name: "Education Evolutions",
   id: "evolution_education",
   icon: "shark",
-  parents: ["evolution"]
+  parents: ["evolution"],
+  priority: 1
 })
 categories.push({
   name: "Nature Evolutions",
   id: "evolution_nature",
   icon: "rose",
-  parents: ["evolution"]
+  parents: ["evolution"],
+  priority: 1
 })
 categories.push({
   name: "Reseller Evolutions",
   id: "evolution_reseller",
   icon: "treasurechest",
-  parents: ["evolution"]
+  parents: ["evolution"],
+  priority: 1
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Fancy Flats${colors.Reset} from ${colors.fg.Green}./types/fancyflat.json${colors.Reset}`)
@@ -246,7 +251,8 @@ categories.push({
   name: "Flats",
   id: "flat",
   icon: "flatrob",
-  parents: ["other"]
+  parents: ["other"],
+  priority: 2
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Gaming${colors.Reset} from ${colors.fg.Green}./types/gaming.json${colors.Reset}`)
@@ -317,7 +323,8 @@ categories.push({
   name: "Virtuals",
   id: "virtual",
   icon: "virtual",
-  parents: ["other"]
+  parents: ["other"],
+  priority: 2
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Misc${colors.Reset} from ${colors.fg.Green}./types/misc.json${colors.Reset}`)
@@ -443,7 +450,8 @@ categories.push({
   name: "Places of Interest",
   id: "poi",
   icon: "poi_filter",
-  parents: ["other"]
+  parents: ["other"],
+  priority: 1
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Resellers${colors.Reset} from ${colors.fg.Green}./types/reseller.json${colors.Reset}`)
@@ -497,7 +505,8 @@ categories.push({
   name: "Zeecret Weapons",
   id: "zeecret",
   icon: "briefcase",
-  parents: ["other"]
+  parents: ["other"],
+  priority: 2
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Zodiacs${colors.Reset} from ${colors.fg.Green}./types/zodiac.json${colors.Reset}`)

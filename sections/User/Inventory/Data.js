@@ -1,7 +1,7 @@
 import moment from 'moment';
 import 'moment-timezone';
 import getType from 'utils/db/types';
-export default function InventoryConverter(credits = {}, boosters = [], history = {}, undeployed = []) {
+export default function InventoryConverter(credits = {}, boosters = [], history = {}, undeployed = [], mode = "category") {
   var historyBatchTitle = "";
   var historyBatchTime = Infinity;
   var data = {
@@ -9,13 +9,15 @@ export default function InventoryConverter(credits = {}, boosters = [], history 
     credits: [],
     history: [],
     types: {},
-    historyBatches: []
+    historyBatches: [],
+    mode
   }
   for (var credit in credits) {
     data.credits.push({
       name: getType(credit, "icon")?.name,
       icon: `https://munzee.global.ssl.fastly.net/images/pins/${credit}.png`,
-      amount: Number(credits[credit])
+      amount: Number(credits[credit]),
+      c: 1
     })
   }
   for (var b in boosters) {
@@ -24,14 +26,16 @@ export default function InventoryConverter(credits = {}, boosters = [], history 
       name: booster.name,
       icon: `https://server.cuppazee.app/boosters/${booster.type_id}.png`,
       amount: Number(booster.credits),
-      category: "Boosters"
+      category: "Boosters",
+      b: 1
     })
   }
   for (var munzee of undeployed) {
     data.undeployed.push({
       name: getType(munzee.type, "icon")?.name,
       icon: `https://munzee.global.ssl.fastly.net/images/pins/${munzee.type}.png`,
-      amount: Number(munzee.amount)
+      amount: Number(munzee.amount),
+      u: 1
     })
   }
   for (var log of history.items ?? []) {
@@ -45,12 +49,28 @@ export default function InventoryConverter(credits = {}, boosters = [], history 
   }
   for (var item of [...data.credits, ...data.undeployed]) {
     var type = (item.category ? item : null) || getType(item.icon) || { category: "other" };
-    if (!type.category) type.category = "other";
-    if (type.category == "virtual") type.category = "misc";
-    if (type.category == "zeecret") type.category = "misc";
-    if (type.evolution) type.category = "evolution";
-    if (!data.types[type.category]) data.types[type.category] = [];
-    data.types[type.category].push(item);
+    if(mode === "state") {
+      if(!type.state) type.state = "other";
+      type.state = {
+        bouncer: "Bouncers",
+        virtual: "Virtuals",
+        physical: "Physicals",
+        other: "Credits"
+      }[type.state] || type.state;
+      if (!data.types[type.state]) data.types[type.state] = [];
+      data.types[type.state].push(item);
+    } else if(mode === "type") {
+      type.type = item.c ? "Credits" : (item.b ? "Boosters" : "Undeployed");
+      if (!data.types[type.type]) data.types[type.type] = [];
+      data.types[type.type].push(item);
+    } else {
+      if (!type.category) type.category = "other";
+      if (type.category == "virtual") type.category = "misc";
+      if (type.category == "zeecret") type.category = "misc";
+      if (type.evolution) type.category = "evolution";
+      if (!data.types[type.category]) data.types[type.category] = [];
+      data.types[type.category].push(item);
+    }
   }
   data.history.sort((a, b) => b.time - a.time)
   for (var item of data.history) {

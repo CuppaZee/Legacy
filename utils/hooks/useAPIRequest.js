@@ -9,19 +9,22 @@ export default function useAPIRequest (reqData, includeStatus) {
   const isArray = Array.isArray(reqData);
   if(!isArray) reqData = [reqData];
 
+  // Stringify RequestData
+  const stringifiedData = reqData.map(i=>i?stringify({...i,extraData:undefined}):i);
+
   // Add Requests
   const dispatch = useDispatch();
   useFocusEffect(
     useCallback(() => {
-      for(let req of reqData.filter(i=>i)) dispatch(request.add(req));
+      for(let req of reqData.filter(i=>i)) dispatch(request.add({...req,extraData:undefined}));
       return () => {
-        for(let req of reqData.filter(i=>i)) dispatch(request.remove(req));
+        for(let req of reqData.filter(i=>i)) dispatch(request.remove({...req,extraData:undefined}));
       };
     },[stringify(reqData)])
   )
   
   // Get Request Responses
-  const raw_data = useSelector(i => reqData.map(req=>req?i.request_data[stringify(req)]:undefined));
+  const raw_data = useSelector(i => stringifiedData.map(req=>req?i.request_data[req]:undefined));
   const [data,setData] = useState([]);
 
   useEffect(()=>{
@@ -40,7 +43,7 @@ export default function useAPIRequest (reqData, includeStatus) {
       i++;
     }
     setData(d);
-  },raw_data.map(i=>i?.id))
+  },[...raw_data.map(i=>i?.id),...reqData.map(i=>stringify(i?.extraData))])
 
   if(includeStatus) {
     // If Input is not array, return first element of Array
