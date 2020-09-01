@@ -1256,4 +1256,11 @@ export default {
       description: 'CuppaZee is ready for September 2020 Clan Wars'
     }
   ],
+  259: [
+    {
+      icon: 'trophy',
+      title: 'Added Sept 2020 POTM Checker',
+      description: 'Added a progress checker for September 2020 Player of the Month'
+    }
+  ],
 }

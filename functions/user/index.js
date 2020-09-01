@@ -5,5 +5,6 @@ module.exports = [
   require('./quest'),
   require('./bouncers'),
   require('./list'),
-  require('./qrew')
+  require('./qrew'),
+  require('./potmsept2020')
 ]

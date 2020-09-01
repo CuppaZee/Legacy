@@ -220,6 +220,16 @@ export default [
     }
   },
   {
+    name: "UserPOTMSept2020",
+    import: () => import('sections/User/POTMSept2020'),
+    path: {
+      path: "user/:username/potm/sept2020",
+      parse: {
+        username: String,
+      }
+    }
+  },
+  {
     name: "UserCapturesCategory",
     import: () => import('sections/User/CapturesCategory'),
     path: {
