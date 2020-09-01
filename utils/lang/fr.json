@@ -33,10 +33,12 @@
         "notifications": "Notifications",
         "contact": {
             "facebook": "Vous pouvez nous contacter via Facebook",
-            "email": "ou contactez-nous par courriel à support@cuppazee.ap"
+            "email": "ou contactez-nous par courriel à support@cuppazee.app"
         },
         "clans": "Clans",
-        "logging_in": "Connexion en cours..."
+        "logging_in": "Connexion en cours...",
+        "evo_planner": "",
+        "weekly_challenge": ""
     },
     "activity": {
         "user_captured": "{user} a capturé",
@@ -50,7 +52,7 @@
             "other": "{count} points total"
         },
         "capture": {
-            "one": "{count} Captures",
+            "one": "{count} Capture",
             "other": "{count} Captures"
         },
         "deploy": {
@@ -76,6 +78,12 @@
         "renovon": {
             "one": "{count} Rénovation",
             "other": "{count} Rénovations"
+        },
+        "filters": {
+            "update": "",
+            "activity": "",
+            "state": "",
+            "category": ""
         }
     },
     "user": {
@@ -85,7 +93,7 @@
         "your_bouncers": "Vos Bouncers",
         "clan_progress": "Progression du clan",
         "quebec_quest_progress": "Progression de La Quête du Québec",
-        "special_hunter_challenge": "Défi chercheur spécial",
+        "special_hunter_challenge": "Défi chasseur spécial",
         "captured_types": "Types capturés",
         "activity": "Activité",
         "clan_stats": "Statistiques de Clan",
@@ -97,7 +105,15 @@
         "sh_pro": "Chasseur Spécial Pro",
         "your_clan": "Votre Clan",
         "no_clan": "Vous n'êtes pas dans un Clan",
-        "no_clan_desc": "Voir votre progression ci-dessous"
+        "no_clan_desc": "Voir votre progression ci-dessous",
+        "points": {
+            "one": "",
+            "other": ""
+        },
+        "blast_checker": "",
+        "qrew_checker": "",
+        "poi_challenge": "",
+        "colour_challenge": ""
     },
     "inventory": {
         "undeployed": "Non déployé",
@@ -127,7 +143,8 @@
             "danish": "Danois",
             "portugese": "Portugais",
             "lithuanian": "Lituanien"
-        }
+        },
+        "kofi_donate": ""
     },
     "your_bouncers": {
         "capture": {
@@ -188,13 +205,19 @@
         "type": {
             "info": "Icône {icon} - ID: {id}",
             "evo": "Étapes d'évolution",
-            "pouch": "Étapes de Créatures de Poche",
+            "pouch": "Étapes de Pouch Creatures",
             "can_host": "Peut accueillir",
-            "lands_on": "Atterri sur",
+            "lands_on": "Atterrit sur",
             "hosts": "Hôte",
             "possible_types": "Types possibles",
             "possible_hosts": "Hôtes possibles",
-            "host_types": "Hébergé par"
+            "host_types": "Hébergé par",
+            "points": "",
+            "capture": "",
+            "capon": "",
+            "deploy": "",
+            "split": "",
+            "split_val": ""
         },
         "type_info": "Information sur le type"
     },
@@ -205,31 +228,31 @@
     },
     "shc": {
         "lite": {
-            "tob": "AlternaMyth ou Créature de Poche Évadée",
-            "nomad": "Nomade ou RetireMyth",
-            "myth_1": "Original ou Mythologique Classique",
-            "myth_2": "Mythologique Mirroir ou Moderne",
-            "pc_1": "Créature de Poche S1",
-            "pc_2": "Créature de Poche S2",
+            "tob": "AlternaMyth ou Escaped PC",
+            "nomad": "Nomad ou RetireMyth",
+            "myth_1": "Original ou Classical Myth",
+            "myth_2": "Mirror Myth ou Modern Myth",
+            "pc_1": "Pouch Creature S1",
+            "pc_2": "Pouch Creature S2",
             "flat": "Fancy Flat",
-            "temp": "Bouncer Évo / tPOB",
-            "scatter": "Dispersion"
+            "temp": "Evo Bouncer / tPOB",
+            "scatter": "Scatter"
         },
         "pro": {
-            "tob": "AlternaMyth ou Créature de Poche Évadée",
-            "nomad": "Nomade",
+            "tob": "AlternaMyth ou Escaped PC",
+            "nomad": "Nomad",
             "retire": "RetireMyth",
-            "myth_1": "Mythologique Original",
-            "myth_2": "Mythologique Classique",
+            "myth_1": "Original Myth",
+            "myth_2": "Classical Myth",
             "myth_3": "Mythologique Mirroir",
-            "myth_4": "Mythologique Moderne",
-            "pc_1": "Créature de Poche S1",
-            "pc_2": "Créature de Poche S2",
-            "pc_fun": "Pierre de Funfinity",
+            "myth_4": "Modern Myth",
+            "pc_1": "Pouch Creature S1",
+            "pc_2": "Pouch Creature S2",
+            "pc_fun": "Funfinity Stone",
             "flat": "Fancy Flat",
-            "temp": "Bouner EVO / tPOB",
-            "pscatter": "Dispersion Physique",
-            "vscatter": "Dispersion Virtuelle"
+            "temp": "Evo Bouncer / tPOB",
+            "pscatter": "Scatter Physique",
+            "vscatter": "Scatter Virtuel"
         }
     },
     "notifications": {
@@ -255,16 +278,16 @@
         "type": "Type: {type}"
     },
     "quest": {
-        "task_1": "Captures/Déploiements de Mystères",
-        "task_2": "Captures/Déploiements de Évolutions",
-        "task_3": "Captures/Déploiements d'Armes",
-        "task_4": "Captures/Déploiements de Bijoux",
+        "task_1": "Captures/Déploiements de Mystery",
+        "task_2": "Captures/Déploiements d'Evo",
+        "task_3": "Captures/Déploiements de Weapons",
+        "task_4": "Captures/Déploiements de Jewels",
         "task_5": "Capture /m/XeresDan/1707",
         "task_6": "Déploiements de Flat Friends",
         "task_7": "Captures/Déploiements de Destinations",
         "task_8": "Captures de Bouncers",
-        "task_9": "Captures/Déploiements de Flat Friends",
-        "task_10": "Capture \"m/GPSmAQ/1\""
+        "task_9": "",
+        "task_10": ""
     },
     "themes": {
         "black": "Noir",
@@ -307,7 +330,15 @@
         "DBType": "Type de base de données",
         "DBSearch": "Recherche dans la base de données",
         "DBCategory": "Catégorie de base de données",
-        "Auth": "Authentification"
+        "Auth": "Authentification",
+        "UserPOI": "",
+        "UserColour": "",
+        "UserQRew": "",
+        "UserBlast": "",
+        "UserBlastMap": "",
+        "WeeklyWeeks": "",
+        "WeeklyLeaderboard": "",
+        "AllUsers": ""
     },
     "changelog": {
         "build_n": "Version {n}",
@@ -322,5 +353,72 @@
         "Days of": "Jours de ",
         "Total": "Total",
         "Renovate": "Rénover"
+    },
+    "weekly": {
+        "ended_at": "",
+        "starts_at": "",
+        "ends_at": "",
+        "results_at": "",
+        "points": {
+            "one": "",
+            "other": ""
+        },
+        "week": "",
+        "status": {
+            "comingsoon": "",
+            "preparing": "",
+            "ongoing": "",
+            "resultssoon": "",
+            "finalresults": ""
+        }
+    },
+    "qrew": {
+        "check_time": "",
+        "captures": "",
+        "deploys": "",
+        "premium": "",
+        "physical_captures": "",
+        "physical_deploys": "",
+        "total_points": "",
+        "recent_capture": "",
+        "recent_deploy": "",
+        "no_capture": "",
+        "no_deploy": ""
+    },
+    "evo_planner": {
+        "days": {
+            "one": "",
+            "other": ""
+        },
+        "stage": "",
+        "types": {
+            "original": "",
+            "nature": "",
+            "bouncer": ""
+        }
+    },
+    "blast_checker": {
+        "types": {
+            "mini": "",
+            "normal": "",
+            "mega": ""
+        },
+        "blast": "",
+        "munzees": {
+            "one": "",
+            "other": ""
+        },
+        "points": "",
+        "average": "",
+        "type_points": ""
+    },
+    "error": {
+        "cuppazee_5xx": "",
+        "cuppazee_404": "",
+        "cuppazee_generic": "",
+        "munzee_api_5xx": "",
+        "munzee_api_404": "",
+        "munzee_api_generic": "",
+        "missing_login": ""
     }
 }
