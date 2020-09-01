@@ -41,12 +41,13 @@ for (var page of pages) {
 // Navigation Sections
 import DrawerContent from './sections/Main/Drawer';
 
-import { Platform, View, Text, StatusBar, ActivityIndicator, ScrollView, Image } from 'react-native';
+import { Platform, View, Text, StatusBar, ActivityIndicator, ScrollView, Image, Linking } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Provider as PaperProvider, Button, Appbar, DefaultTheme, DarkTheme } from 'react-native-paper'
 
 import { useDimensions } from '@react-native-community/hooks';
 import * as WebBrowser from 'expo-web-browser';
+import * as Notifications from 'expo-notifications';
 import Header from './sections/Main/Header';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
@@ -54,6 +55,15 @@ import { useTranslation } from 'react-i18next';
 WebBrowser?.maybeCompleteAuthSession?.({
   skipRedirectCheck: true
 });
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  }),
+});
+
 
 const Drawer = createDrawerNavigator();
 
@@ -258,6 +268,13 @@ function ThemeWrapper () {
 }
 
 export default function () { // Setup Providers
+  React.useEffect(() => {
+    const subscription = Notifications.addNotificationResponseReceivedListener(response => {
+      const link = response.notification.request.content.data?.body?.link;
+      if(link) Linking.openURL(link);
+    });
+    return () => subscription.remove();
+  }, []);
   return <SafeAreaProvider>
     <ReduxProvider store={store}>
       <ThemeWrapper />

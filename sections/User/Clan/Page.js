@@ -27,7 +27,7 @@ export default function ClanScreen({ route }) {
   })
   var unformatted_requirements = useAPIRequest({
     endpoint: 'clan/v2/requirements',
-    data: {clan_id:1349,game_id:89}
+    data: {clan_id:1349,game_id:90}
   })
   var data = useAPIRequest(user_id?{
     endpoint: 'user/clanprogress',
@@ -86,7 +86,7 @@ export default function ClanScreen({ route }) {
           </View>}
         />
         <View style={{padding:4,flex:1}}>
-          <RequirementsCard game_id={89}/>
+          <RequirementsCard game_id={90}/>
         </View>
       </ScrollView>
       <UserFAB username={username} user_id={user_id} />

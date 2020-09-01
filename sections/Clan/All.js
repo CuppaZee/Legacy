@@ -8,10 +8,10 @@ import { useSelector } from 'react-redux';
 function Clan({ item }) {
   return ({
     clan_stats: <View style={{ padding: 4, flex: 1 }}>
-      <ClanStats clan_id={item.clan_id} game_id={89} />
+      <ClanStats clan_id={item.clan_id} game_id={90} />
     </View>,
     clan_requirements: <View style={{ padding: 4, flex: 1 }}>
-      <ClanRequirements game_id={89} />
+      <ClanRequirements game_id={90} />
     </View>,
     blankHack: <View style={{ flex: 1, padding: 4 }}></View>
   }[item.type]||null)

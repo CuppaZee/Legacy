@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
+import { Text, View, Image, ScrollView, ActivityIndicator, TouchableWithoutFeedback } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableRipple, Menu } from 'react-native-paper';
 import { useSelector } from 'react-redux';
@@ -264,7 +264,7 @@ export default function ClanRequirementsCard({ game_id, scale: s = 1, list }) {
 
 
         <View style={{ width: 56 * s, position: "absolute", left: 0, top: 0, borderRightWidth: 2 * s, borderRightColor: level_colors.border }}>
-          <View style={{ height: 24 * s, backgroundColor: level_colors.null.bg, padding: 4 * s }}><Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 12 * s, color: level_colors.null.fg }}>{moment(dateFromGameID(game_id)).format('MMM YY')}</Text></View>
+          <TouchableWithoutFeedback onPress={()=>console.log(JSON.stringify(data?.order?.requirements))}><View style={{ height: 24 * s, backgroundColor: level_colors.null.bg, padding: 4 * s }}><Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 12 * s, color: level_colors.null.fg }}>{moment(dateFromGameID(game_id)).format('MMM YY')}</Text></View></TouchableWithoutFeedback>
           <View style={{ height: (reward ? 60 : 77) * s, backgroundColor: level_colors.null.bg, flexDirection: "row", alignItems: "center", padding: 4 * s, borderBottomWidth: 2 * s, borderBottomColor: level_colors.border }}>
             <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="head" style={{ fontSize: 12 * s, color: level_colors.null.fg, ...font() }}>{t('clan:level', { count: data?.levels?.length })}</Text>
           </View>

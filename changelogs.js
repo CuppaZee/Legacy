@@ -1242,4 +1242,18 @@ export default {
       description: 'Don\'t know what types you are missing? No problem! CuppaZee now shows 0 of types that you don\'t have, rather than hiding it entirely.'
     }
   ],
+  257: [
+    {
+      icon: 'package',
+      title: 'Updated Inventory',
+      description: 'Fixed a bug with Grouping by State'
+    }
+  ],
+  258: [
+    {
+      icon: 'shield-half-full',
+      title: 'September 2020 Clan Wars',
+      description: 'CuppaZee is ready for September 2020 Clan Wars'
+    }
+  ],
 }

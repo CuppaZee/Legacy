@@ -11,10 +11,10 @@ export default function ClanScreen({route}) {
   return (
     <ScrollView style={{backgroundColor:theme.page.bg,flex: 1}} contentContainerStyle={{padding:4}}>
       <View style={{ padding: 4*scale }}>
-        <ClanStats clan_id={clan_id} game_id={89} />
+        <ClanStats clan_id={clan_id} game_id={90} />
       </View>
       <View style={{ padding: 4*scale }}>
-        <ClanRequirements scale={scale} zoom={true} game_id={89} />
+        <ClanRequirements scale={scale} zoom={true} game_id={90} />
       </View>
     </ScrollView>
   );
@@ -22,10 +22,10 @@ export default function ClanScreen({route}) {
     <ScrollView horizontal={true} style={{backgroundColor:theme.page.bg,flex:1}}>
       <ScrollView style={{backgroundColor:"green"??theme.page.bg,flex:1}} contentContainerStyle={{backgroundColor:"red",justifyContent:"flex-start",alignItems:"flex-start"}}>
         <View style={{ padding: 4*scale, flex: 1 }}>
-          <ClanStats clan_id={clan_id} game_id={89} />
+          <ClanStats clan_id={clan_id} game_id={90} />
         </View>
         <View style={{ padding: 4*scale, flex: 1 }}>
-          <ClanRequirements scale={scale} zoom={true} game_id={89} />
+          <ClanRequirements scale={scale} zoom={true} game_id={90} />
         </View>
       </ScrollView>
     </ScrollView>

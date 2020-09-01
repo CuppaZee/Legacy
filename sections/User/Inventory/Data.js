@@ -55,7 +55,7 @@ export default function InventoryConverter(credits = {}, boosters = [], history 
     if(mode === "state") {
       if(!type.state) type.state = "other";
       type.state = {
-        bouncer: "Bouncers",
+        bouncer: "Physicals",
         virtual: "Virtuals",
         physical: "Physicals",
         other: "Credits"
@@ -77,15 +77,31 @@ export default function InventoryConverter(credits = {}, boosters = [], history 
   }
   if(includeZeros === "all" && (mode === "category" || mode === "state")) {
     for(let type of types.filter(i=>i.inventory || (!i.icon.startsWith('cuppazee__')&&!i.evolution&&!i.event&&!(i.bouncer&&!i.generic)&&!i.scatter&&!i.host&&!i.unique&&!(i.hidden&&i.category!=="credit"&&!i.generic)&&i.destination?.type!=="room"&&!i.destination?.star_level&&i.category!=="virtual"&&i.category!=="tourism"&&i.category!=="reseller"&&!i.category.includes('zodiac')&&!["qrewzee","renovation","eventtrail","event","eventpin","eventindicator","personalmunzee","premiumpersonal","springseasonalmunzee","summerseasonalmunzee","fallseasonalmunzee","winterseasonalmunzee","social","rover","zeecred"].includes(i.icon)))) {
-      if (type.category == "zeecret") type.category = "misc";
-      if (type.evolution) type.category = "evolution";
-      if (type.icon.endsWith('booster')) type.category = "Boosters";
-      if (!data.types[type.category]) data.types[type.category] = [];
-      if (!data.types[type.category].some(i=>i.icon === `https://munzee.global.ssl.fastly.net/images/pins/${type.icon}.png`)) data.types[type.category].push({
-        name: type.name,
-        icon: `https://munzee.global.ssl.fastly.net/images/pins/${type.icon}.png`,
-        amount: 0,
-      });
+      if(mode === "state") {
+        if(!type.state) type.state = "other";
+        type.state = {
+          bouncer: "Physicals",
+          virtual: "Virtuals",
+          physical: "Physicals",
+          other: "Credits"
+        }[type.state] || type.state;
+        if (!data.types[type.state]) data.types[type.state] = [];
+        if (!data.types[type.state].some(i=>i.icon === `https://munzee.global.ssl.fastly.net/images/pins/${type.icon}.png`)) data.types[type.state].push({
+          name: type.name,
+          icon: `https://munzee.global.ssl.fastly.net/images/pins/${type.icon}.png`,
+          amount: 0,
+        });
+      } else {
+        if (type.category == "zeecret") type.category = "misc";
+        if (type.evolution) type.category = "evolution";
+        if (type.icon.endsWith('booster')) type.category = "Boosters";
+        if (!data.types[type.category]) data.types[type.category] = [];
+        if (!data.types[type.category].some(i=>i.icon === `https://munzee.global.ssl.fastly.net/images/pins/${type.icon}.png`)) data.types[type.category].push({
+          name: type.name,
+          icon: `https://munzee.global.ssl.fastly.net/images/pins/${type.icon}.png`,
+          amount: 0,
+        });
+      }
     }
   }
   data.history.sort((a, b) => b.time - a.time)
