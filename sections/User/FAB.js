@@ -13,7 +13,8 @@ export default function UserFAB({ username, user_id }) {
   var [FABOpen, setFABOpen] = React.useState(false);
   var nav = useNavigation();
   var bookmarks = useSelector(i => i.userBookmarks);
-  var list = bookmarks.filter(i => i.username != username).slice(0, 5).map(i => ({
+  var list = bookmarks.filter(i => i.username != username).slice(0, 5);
+  var actions = React.useMemo(() => list.map(i => ({
     icon: () => <UserIcon theme={theme} size={40} user_id={Number(i.user_id)} />,
     style: {backgroundColor:theme.page_content.bg},
     label: i.username,
@@ -35,14 +36,16 @@ export default function UserFAB({ username, user_id }) {
         })
       })
     }
-  }));
+  })), [list.map(i=>i.user_id).join(',')]);
+  const userAvatar = React.useMemo(() => () => <UserIcon size={56} user_id={Number(user_id)} />, [user_id]);
   if(list.length === 0) return null;
   return <FAB.Group
+    animated={false}
     theme={{dark:theme.dark}}
     open={FABOpen}
     fabStyle={{backgroundColor:theme.page_content.bg}}
-    icon={FABOpen ? 'close' : () => <UserIcon size={56} user_id={Number(user_id)} />}
-    actions={list}
+    icon={FABOpen ? 'close' : userAvatar}
+    actions={actions}
     onStateChange={({ open }) => setFABOpen(open)}
   />;
 }

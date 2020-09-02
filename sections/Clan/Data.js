@@ -375,7 +375,8 @@ export function ClanStatsConverter(clan, stats, shadow) {
       logo: clan?.details?.logo,
       privacy: clan?.details?.privacy,
       goal: clan?.details?.goal,
-      rank: clan?.result?.rank
+      rank: clan?.result?.rank,
+      shadow: shadow?.details
     },
     members: [
       ...(shadow?.members||[]).filter(i=>!(clan?.users||[]).find(x=>x.user_id==i)).map(i=>{

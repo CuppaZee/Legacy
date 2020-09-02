@@ -39,7 +39,7 @@ function checkFrom(from,route) {
   return false;
 }
 
-var routes = [...require("./user"), ...require("./auth"), ...require("./minute"), ...require("./clan"), ...require("./munzee"), ...require("./bouncers"), ...require("./notifications"), ...require("./map"), ...require("./weekly"), ...require("./camps")];
+var routes = [...require("./user"), ...require("./auth"), ...require("./minute"), ...require("./clan"), ...require("./munzee"), ...require("./bouncers"), ...require("./notifications"), ...require("./map"), ...require("./weekly")];
 
 var x = async (req, res) => {
   const cns = {

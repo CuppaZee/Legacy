@@ -83,7 +83,6 @@ async function makeRequest(getState, dispatch, pageInput, force) {
             method: 'POST',
             body: page.cuppazee?stringify({ ...page.data, access_token: token, from: FROM }):reqformData
           })
-          console.log(d, status);
           status = d.status;
           data = await d.json();
           if(data?.data) loop = 10;
@@ -92,7 +91,6 @@ async function makeRequest(getState, dispatch, pageInput, force) {
           data = { data: converter[page.converter](data?.data) };
         }
         data.id = Math.floor(Math.random()*10000)
-        console.log(data, status);
         if(page.cuppazee) {
           if(status === 200) {
             responseStatus = null;

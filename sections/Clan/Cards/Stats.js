@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { TouchableRipple, Menu } from 'react-native-paper';
+import { TouchableRipple, Menu, Button } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from 'sections/Shared/Card';
@@ -24,6 +24,34 @@ function MainScrollView({ scroll, children, s }) {
   </View>
 }
 
+function SyncButton ({group, game_id}) {
+  const [pressed,setPressed] = React.useState(false);
+  const theme = useSelector(i=>i.themes[i.theme]);
+  const data = useAPIRequest(pressed?{
+    cuppazee: true,
+    endpoint: "clan/shadow/generate/v2",
+    data: {
+      game_id,
+      group
+    }
+  }:null);
+  if(pressed && !data) {
+    return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", minHeight: 64 }}>
+      <ActivityIndicator size="large" color={theme.page_content.fg} />
+    </View>
+  }
+  if(pressed) {
+    return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", minHeight: 64}}>
+      <MaterialCommunityIcons name="check-bold" size={32} color={theme.page_content.fg} />
+    </View>
+  }
+  return <View style={{padding: 4}}>
+    <Button color={(theme.clan_header||theme.navigation).bg} mode="contained" onPress={()=>setPressed(true)}>
+      Sync Shadow Players in {group}
+    </Button>
+  </View>
+}
+
 export default function UserActivityDash({ game_id, clan_id, scale: s }) {
   var scroll = false;
   if (s === undefined) {
@@ -34,6 +62,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
   var theme = useSelector(i => i.themes[i.theme]);
   var level_colors = useLevelColours();
 
+  const logins = useSelector(i=>i.logins);
   var [levelTable, setLevelTable] = React.useState(false);
   var nav = useNavigation();
   var dispatch = useDispatch();
@@ -56,7 +85,9 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
     1441,
     1870,
     1902,
-    2042
+    2042,
+    1064,
+    2049
   ]
   var [unformatted_clan, unformatted_stats, unformatted_shadow] = useAPIRequest([
     Number(clan_id) >= 0 ? {
@@ -302,6 +333,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
           </View>
         </View>
       </View>
+      {clan.details.shadow?.group_admins?.some(i=>logins[i]) && <SyncButton game_id={game_id} group={clan.details.shadow?.group}/>}
     </Card>
   );
 }

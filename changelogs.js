@@ -1263,4 +1263,18 @@ export default {
       description: 'Added a progress checker for September 2020 Player of the Month'
     }
   ],
+  260: [
+    {
+      icon: 'translate',
+      title: 'Updated French Translations',
+      description: 'Updated various French Translations'
+    }
+  ],
+  261: [
+    {
+      icon: 'account',
+      title: 'Fixed a bug',
+      description: 'Fixed a bug with the User Switcher image spinning on every render'
+    }
+  ],
 }
