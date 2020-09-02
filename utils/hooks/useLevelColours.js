@@ -24,6 +24,7 @@ function a(x,d) {
   }
 }
 import { useSelector } from 'react-redux';
+import stringify from 'fast-json-stable-stringify';
 
 
 
@@ -44,5 +45,8 @@ export default function useLevelColours() {
     null:a(settings.clan_level_null,d),
     border: d?'#fffa':'#000a'
   }
-  return levelColours;
+  return {
+    ...levelColours,
+    check: stringify(levelColours)
+  };
 }

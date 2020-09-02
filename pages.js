@@ -55,6 +55,11 @@ export default [
     path: "more/notifications"
   },
   {
+    name: "Bookmarks",
+    import: () => import('sections/More/Bookmarks'),
+    path: "more/bookmarks"
+  },
+  {
     name: "Info",
     import: () => import('sections/More/Info'),
     path: "more/info"

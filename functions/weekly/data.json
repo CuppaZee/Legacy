@@ -106,5 +106,134 @@
     "start":    "2020-08-27T12:00:00-05:00",
     "end":      "2020-09-03T09:00:00-05:00",
     "finalend": "2020-09-03T09:45:00-05:00"
+  },
+  {
+    "id": "week_4",
+    "week": 4,
+    "description": "Scatters!",
+    "icon": "scattered",
+    "requirements": [
+      {
+        "type": "feather",
+        "points": 1
+      },
+      {
+        "type": "scattered",
+        "points": 2
+      },
+      {
+        "type": "fire",
+        "points": 2
+      },
+      {
+        "type": "frozengreenie",
+        "points": 2
+      },
+      {
+        "type": "waterdroplet",
+        "points": 2
+      },
+      {
+        "type": "goldenfeather",
+        "points": 1
+      },
+      {
+        "type": "dossier",
+        "points": 2
+      },
+      {
+        "type": "boulder",
+        "points": 2
+      },
+      {
+        "type": "infraredvirtual",
+        "points": 1
+      },
+      {
+        "type": "runzeerob",
+        "points": 2
+      },
+      {
+        "type": "goldcoin",
+        "points": 1
+      },
+      {
+        "type": "leapfrog",
+        "points": 2
+      },
+      {
+        "type": "fly",
+        "points": 1
+      },
+      {
+        "type": "munch-man",
+        "points": 2
+      },
+      {
+        "type": "ghostzee",
+        "points": 1
+      },
+      {
+        "type": "bowling-1stroll",
+        "points": 1
+      },
+      {
+        "type": "bowling-2ndroll",
+        "points": 1
+      },
+      {
+        "type": "tree",
+        "points": 2
+      },
+      {
+        "type": "charge",
+        "points": 1
+      },
+      {
+        "type": "redapple",
+        "points": 1
+      },
+      {
+        "type": "cherryblossom",
+        "points": 1
+      },
+      {
+        "type": "flamingarrow",
+        "points": 1
+      },
+      {
+        "type": "trident",
+        "points": 1
+      },
+      {
+        "type": "trident",
+        "points": 1
+      },
+      {
+        "type": "lifebuoy",
+        "points": 1
+      },
+      {
+        "type": "peach",
+        "points": 1
+      },
+      {
+        "type": "pear",
+        "points": 1
+      },
+      {
+        "type": "glasses",
+        "points": 1
+      },
+      {
+        "type": "shell-phone",
+        "points": 1
+      }
+    ],
+    "reveal":   "2020-09-02T06:00:00-05:00",
+    "prestart": "2020-09-03T11:15:00-05:00",
+    "start":    "2020-09-03T12:00:00-05:00",
+    "end":      "2020-09-10T09:00:00-05:00",
+    "finalend": "2020-09-10T09:45:00-05:00"
   }
 ]

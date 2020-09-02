@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
+import { Text, View, Image, ScrollView, ActivityIndicator, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableRipple, Menu, Button } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
@@ -61,6 +61,20 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
   var { t } = useTranslation();
   var theme = useSelector(i => i.themes[i.theme]);
   var level_colors = useLevelColours();
+  var coloredStyles = React.useMemo(() => StyleSheet.create({
+    cell_borderLeft: {
+      borderLeftWidth: 2,
+      borderLeftColor: level_colors.border
+    },
+    cell_borderTop: {
+      borderTopWidth: 2,
+      borderTopColor: level_colors.border
+    },
+    cell_borderBottom: {
+      borderBottomWidth: 2,
+      borderBottomColor: level_colors.border
+    }
+  }),[level_colors.check])
 
   const logins = useSelector(i=>i.logins);
   var [levelTable, setLevelTable] = React.useState(false);
@@ -239,25 +253,52 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
                     <Text allowFontScaling={false} numberOfLines={1} style={{ color: level_colors[data?.order.individual.includes(i) ? (data?.order.group.includes(i) ? 'bot' : 'ind') : 'gro'].fg, textAlign: "center", ...font(), fontSize: 12 * s }}>{t('clan_req:'+data?.requirements?.[i]?.bottom)}</Text>
                   </View>
                 </TouchableRipple>
-                <View style={{ ...((reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&data.order.individual.includes(i))||reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&!data.order.individual.includes(i)))?{ borderLeftWidth: 2 * s, borderLeftColor: level_colors.border }:{}), borderBottomWidth: 2 * s, borderBottomColor: level_colors.border, marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[levelSelect + 1].bg }}>
+                <View style={[
+                  ((reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&data.order.individual.includes(i))||reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&!data.order.individual.includes(i)))?{ borderLeftWidth: 2 * s, borderLeftColor: level_colors.border }:{}),
+                  coloredStyles.cell_borderBottom,
+                  styles.cell,
+                  { backgroundColor: level_colors[levelSelect + 1].bg }
+                ]}>
                   {
                     share ?
                       <Text allowFontScaling={false} style={{ textAlign: "center", ...font(), width: '100%', fontSize: 12 * s, color: level_colors[levelSelect + 1].fg }}>{num(Math.max(data?.levels?.[levelSelect]?.individual?.[i] || 0, Math.ceil((data?.levels?.[levelSelect]?.group?.[i] || 0) / (clan?.members?.length || 100)), 0), true)}</Text>
                       : <Text allowFontScaling={false} style={{ textAlign: "center", ...font(), width: '100%', fontSize: 12 * s, color: level_colors[levelSelect + 1].fg }}>{num(data?.levels?.[levelSelect]?.individual?.[i] || 0, true)}</Text>
                   }
                 </View>
-                {members?.map(u => <View style={{ ...((reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&data.order.individual.includes(i))||reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&!data.order.individual.includes(i)))?{ borderLeftWidth: 2 * s, borderLeftColor: level_colors.border }:{}), marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[calculateLevel(true, clan.requirements?.[i]?.users?.[u.user_id], i)].bg }}>
-                  <Text allowFontScaling={false} style={{ flexDirection: "row", textAlign: "center", width: '100%', ...font(userBookmarks.includes(Number(u.user_id)) ? "bold" : 400), fontSize: 12 * s, color: level_colors[calculateLevel(true, clan.requirements?.[i]?.users?.[u.user_id], i)].fg }}>
+                {members?.map(u => <View style={[
+                  ((reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&data.order.individual.includes(i))||reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&!data.order.individual.includes(i)))?coloredStyles.cell_borderLeft:null),
+                  styles.cell,
+                  { backgroundColor: level_colors[calculateLevel(true, clan.requirements?.[i]?.users?.[u.user_id], i)].bg }
+                ]}>
+                  {/* WORKING HERE */}
+                  <Text allowFontScaling={false} style={[
+                    styles.cell_text,
+                    font(userBookmarks.includes(Number(u.user_id)) ? "bold" : 400),
+                    { color: level_colors[calculateLevel(true, clan.requirements?.[i]?.users?.[u.user_id], i)].fg }
+                  ]}>
                     {levelTable ? num((data?.levels?.[levelSelect]?.individual?.[i] || 0) - clan.requirements?.[i]?.users?.[u.user_id]) : num(clan.requirements?.[i]?.users?.[u.user_id])}
                   </Text>
                 </View>)}
-                <View style={{ ...((reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&data.order.individual.includes(i))||reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&!data.order.individual.includes(i)))?{ borderLeftWidth: 2 * s, borderLeftColor: level_colors.border }:{}), borderTopWidth: 2 * s, borderTopColor: level_colors.border, marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[calculateLevel(false, clan.requirements?.[i]?.total, i)].bg }}>
-                  <Text allowFontScaling={false} style={{ textAlign: "center", width: '100%', ...font(), fontSize: 12 * s, color: level_colors[calculateLevel(false, clan.requirements?.[i]?.total, i)].fg }}>
+                <View style={[
+                  ((reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&data.order.individual.includes(i))||reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&!data.order.individual.includes(i)))?coloredStyles.cell_borderLeft:null),
+                  coloredStyles.cell_borderTop,
+                  styles.cell,
+                  { backgroundColor: level_colors[calculateLevel(false, clan.requirements?.[i]?.total, i)].bg }
+                ]}>
+                  <Text allowFontScaling={false} style={[styles.cell_text, font(), { color: level_colors[calculateLevel(false, clan.requirements?.[i]?.total, i)].fg }]}>
                     {levelTable ? num((data?.levels?.[levelSelect]?.group?.[i] || 0) - clan.requirements?.[i]?.total) : num(clan.requirements?.[i]?.total)}
                   </Text>
                 </View>
-                <View style={{ ...((reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&data.order.individual.includes(i))||reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&!data.order.individual.includes(i)))?{ borderLeftWidth: 2 * s, borderLeftColor: level_colors.border }:{}), marginHorizontal: -1 * s, height: 24 * s, padding: 4 * s, alignItems: "center", backgroundColor: level_colors[levelSelect + 1].bg }}>
-                  <Text allowFontScaling={false} style={{ textAlign: "center", width: '100%', ...font(), fontSize: 12 * s, color: level_colors[levelSelect + 1].fg }}>{num(data?.levels?.[levelSelect]?.group?.[i] || 0, true)}</Text>
+                <View style={[
+                  ((reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&data.order.individual.includes(i))||reqIndex===data.order.requirements.findIndex(i=>data.order.group.includes(i)&&!data.order.individual.includes(i)))?coloredStyles.cell_borderLeft:null),
+                  styles.cell,
+                  { backgroundColor: level_colors[levelSelect + 1].bg }
+                ]}>
+                  <Text allowFontScaling={false} style={[
+                    styles.cell_text,
+                    font(), 
+                    { color: level_colors[levelSelect + 1].fg }
+                  ]}>{num(data?.levels?.[levelSelect]?.group?.[i] || 0, true)}</Text>
                 </View>
               </View>)}
             </View>
@@ -287,13 +328,13 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
             >
               {data?.levels?.map((i, index) => <Menu.Item
                 key={index}
-                style={{ padding: 4 * s, paddingVertical: 0, backgroundColor: level_colors[index + 1].bg }}
+                style={[styles.levelSelect_menuItem,{ backgroundColor: level_colors[index + 1].bg }]}
                 onPress={() => { setLevelSelect(index); setUserLevelSelect(false) }}
                 title={<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors[index + 1].fg }}>{t('clan:level_n',{level:i.level})} {t('clan:indiv')}</Text>}
               />)}
               {data?.levels?.map((i, index) => <Menu.Item
                 key={index + 's'}
-                style={{ padding: 4 * s, paddingVertical: 0, backgroundColor: level_colors[index + 1].bg }}
+                style={[styles.levelSelect_menuItem,{ backgroundColor: level_colors[index + 1].bg }]}
                 onPress={() => { setLevelSelect(index + 's'); setUserLevelSelect(false) }}
                 title={<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors[index + 1].fg }}>{t('clan:level_n',{level:i.level})} {t('clan:share')}</Text>}
               />)}
@@ -325,7 +366,7 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
             >
               {data?.levels?.map((i, index) => <Menu.Item
                 key={index}
-                style={{ padding: 4 * s, paddingVertical: 0, fontSize: 12 * s, backgroundColor: level_colors[index + 1].bg }}
+                style={[styles.levelSelect_menuItem,{ backgroundColor: level_colors[index + 1].bg }]}
                 onPress={() => { setLevelSelect(index + ((ls || "")?.endsWith?.('s') ? 's' : '')); setClanLevelSelect(false) }}
                 title={<Text allowFontScaling={false} style={{ fontSize: 12 * s, ...font(), color: level_colors[index + 1].fg }}>{t('clan:level_n',{level:i.level})}</Text>}
               />)}
@@ -337,3 +378,23 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
     </Card>
   );
 }
+
+const styles = StyleSheet.create({
+  levelSelect_menuItem: {
+    padding: 4,
+    paddingVertical: 0,
+    fontSize: 12,
+  },
+  cell: {
+    marginHorizontal: -1,
+    height: 24,
+    padding: 4,
+    alignItems: "center"
+  },
+  cell_text: {
+    flexDirection: "row",
+    textAlign: "center",
+    width: '100%',
+    fontSize: 12
+  }
+});

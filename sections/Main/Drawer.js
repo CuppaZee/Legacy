@@ -61,7 +61,7 @@ export default function CustomDrawerContent(props) {
     { title: t(`common:calendar`), icon: "calendar", page: "Calendar" },
     { title: t(`common:evo_planner`), icon: "dna", page: "EvoPlanner" },
     { title: t(`common:scanner`), icon: "qrcode", page: "Scanner", hide: Platform.OS === "web" },
-    // {title:t(`common:tools`),icon:"wrench",page:"Tools"},
+    { title: "Bookmark Manager", icon:"bookmark", page:"Bookmarks" },
   ].filter(i => !i.hide)
   var more = [
     { title: t(`common:notifications`), icon: "bell", page: "Notifications", hide: Platform.OS === "web" },
@@ -149,7 +149,7 @@ export default function CustomDrawerContent(props) {
             ],
           })}
         />
-        <IconButton
+        {/* <IconButton
           disabled={true}
           style={{
             backgroundColor: route.name == "UserBookmarks" ? itemProps.activeBackgroundColor : null
@@ -163,7 +163,7 @@ export default function CustomDrawerContent(props) {
             ],
           })
           }
-        />
+        /> */}
       </View>
       {userBookmarks?.slice?.(0, showMoreUser ? Infinity : userBookmarks.length > 6 ? 5 : 6)?.filter?.(i => i)?.map?.(i => <DrawerItem
         key={`user_${i.user_id}`}

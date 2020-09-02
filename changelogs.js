@@ -1277,4 +1277,11 @@ export default {
       description: 'Fixed a bug with the User Switcher image spinning on every render'
     }
   ],
+  262: [
+    {
+      icon: 'bookmark',
+      title: 'Added Bookmark Manager',
+      description: 'Need to remove from, re-order or add to your bookmarks? That is now much easier with the new Bookmark Manager!'
+    }
+  ],
 }

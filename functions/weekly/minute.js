@@ -151,7 +151,7 @@ module.exports = {
                           type: req.type
                         }, token.access_token)
                         for(const capture of player_type_captures.munzees) {
-                          if(new Date(capture.captured_at).valueOf() < new Date(week.end).valueOf()) {
+                          if(new Date(capture.captured_at).valueOf() > new Date(week.end).valueOf()) {
                             count -= 1;
                           }
                         }
