@@ -68,7 +68,8 @@
     "react-native-webview": "9.4.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sentry-expo": "^3.0.0-rc3"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

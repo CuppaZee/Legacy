@@ -431,5 +431,14 @@ module.exports = [
     "funfinity": true,
     "lands_on": ["treehouse","munzee","firemystery","ruby"],
     "set": "funfinity"
+  },
+  {
+    "name": "Safiir",
+    "icon": "safiir",
+    "id": "null_safiir",
+    "state": "bouncer",
+    "funfinity": true,
+    "lands_on": ["skyland",":virtual","airmystery","virtual_sapphire"],
+    "set": "funfinity"
   }
 ]

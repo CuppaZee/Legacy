@@ -1,13 +1,9 @@
 import * as React from 'react';
 import { Text, View, Image, ScrollView } from 'react-native';
 import Card from 'sections/Shared/Card';
-import { Button, IconButton, TextInput, Menu, Switch } from 'react-native-paper';
-import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { useSelector } from 'react-redux';
 import font from 'sections/Shared/font';
-import useAPIRequest from 'utils/hooks/useAPIRequest';
-import types from 'utils/db/types.json';
-import categories from 'utils/db/categories.json';
+import { Dropdown, DropdownItem } from '../More/Dropdown';
 import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next';
 import getIcon from 'utils/db/icon';
@@ -93,7 +89,6 @@ export default function EvoPlannerScreen({ navigation }) {
   var theme = useSelector(i => i.themes[i.theme])
   var [date, setDate] = React.useState(moment());
   var [option, setOption] = React.useState(options[0].id);
-  var [pickerOpen, setPickerOpen] = React.useState(false);
   return (
     <ScrollView
       contentContainerStyle={{ width: 400, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4 }}
@@ -103,32 +98,9 @@ export default function EvoPlannerScreen({ navigation }) {
       </View>
 
       <View style={{ padding: 4 }}>
-        <Menu
-          visible={pickerOpen}
-          onDismiss={() => setPickerOpen(false)}
-          position="bottom"
-          anchor={
-            <Button
-              mode="contained"
-              icon="dna"
-              style={theme.page_content.border ? { borderColor: "white", borderWidth: 1 } : {}}
-              labelStyle={{ flexDirection: "row" }}
-              color={theme.navigation.bg}
-              onPress={() => setPickerOpen(true)}
-            >
-              <Text allowFontScaling={false} style={{ fontSize: 14, textTransform: "none", color: theme.navigation.fg, ...font(), flex: 1, textAlign: "left" }}>{t('evo_planner:types.'+option)}</Text>
-              <MaterialCommunityIcons color={theme.navigation.fg} name="chevron-down" size={16} />
-            </Button>
-          }
-          contentStyle={{ backgroundColor: theme.page_content.bg, padding: 0 }}
-        >
-          {options.map((i, index) => <Menu.Item
-            key={index}
-            style={{ padding: 4, paddingVertical: 0, fontSize: 14, backgroundColor: theme.page_content.bg }}
-            onPress={() => { setOption(i.id); setPickerOpen(false) }}
-            title={<Text allowFontScaling={false} style={{ fontSize: 14, ...font(), color: theme.page_content.fg }}>{t(`evo_planner:types.${i.id}`)}</Text>}
-          />)}
-        </Menu>
+        <Dropdown dense={true} mode="outlined" selectedValue={option} onValueChange={setOption}>
+          {options.map(i=><DropdownItem label={t(`evo_planner:types.${i.id}`)} value={i.id} />)}
+        </Dropdown>
       </View>
       {options.find(i => i.id === option).stages.map((i, index) => <View style={{ padding: 4 }}>
         <Card noPad>

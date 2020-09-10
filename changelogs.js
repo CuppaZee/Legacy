@@ -1284,4 +1284,98 @@ export default {
       description: 'Need to remove from, re-order or add to your bookmarks? That is now much easier with the new Bookmark Manager!'
     }
   ],
+  263: [
+    {
+      icon: 'account',
+      title: 'Updated User Details',
+      description: 'Added better error messages.'
+    },
+  ],
+  264: [
+    {
+      icon: 'account',
+      title: 'Updated User Details',
+      description: 'Added "Missing User" error message.'
+    },
+  ],
+  265: [
+    {
+      icon: 'chevron-down',
+      title: 'Updated Dropdown Menus',
+      description: 'Implemented a custom cross-platform Dropdown component across the app to fix various issues and design inconsistencies'
+    },
+    {
+      icon: 'package',
+      title: 'Improved User Inventory',
+      description: 'Added an "Include Zeros" option to User Inventory, to allow you to pick whether or not to show items you do not have.'
+    },
+  ],
+  266: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Squashed a few bugs.'
+    }
+  ],
+  267: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Squashed a few bugs.'
+    }
+  ],
+  268: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Squashed a few bugs with the inventory page.'
+    }
+  ],
+  269: [
+    {
+      icon: 'bug',
+      title: 'Improved Error Tracking',
+      description: 'Added Sentry error logging for me to track crashes in CuppaZee'
+    },
+    {
+      icon: 'file-document-box-outline',
+      title: 'Updated Terms and Conditions',
+      privacy: true,
+      description: 'Updated CuppaZee\'s Terms and Conditions at https://server.cuppazee.app/terms'
+    },
+    {
+      icon: 'lock',
+      title: 'Updated Privacy Policy',
+      privacy: true,
+      description: 'Updated CuppaZee\'s Privacy Policy at https://server.cuppazee.app/privacy'
+    }
+  ],
+  270: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Squashed a few bugs.'
+    }
+  ],
+  271: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Squashed a few bugs.'
+    }
+  ],
+  272: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Squashed a few bugs.'
+    }
+  ],
+  273: [
+    {
+      image: 'safiir',
+      title: 'Added Safiir',
+      description: 'Added Safiir to Munzee Database'
+    }
+  ],
 }

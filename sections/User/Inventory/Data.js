@@ -11,8 +11,10 @@ export default function InventoryConverter(credits = {}, boosters = [], history 
     history: [],
     types: {},
     historyBatches: [],
-    mode
+    mode,
+    includeZeros,
   }
+  if(!credits || !boosters || !history || !undeployed) return null;
   for (var credit in credits) {
     data.credits.push({
       name: getType(credit, "icon")?.name,
@@ -60,6 +62,9 @@ export default function InventoryConverter(credits = {}, boosters = [], history 
         physical: "Physicals",
         other: "Credits"
       }[type.state] || type.state;
+      if(type.icon==="prizewheel") {
+        console.log(type);
+      }
       if (!data.types[type.state]) data.types[type.state] = [];
       data.types[type.state].push(item);
     } else if(mode === "type") {

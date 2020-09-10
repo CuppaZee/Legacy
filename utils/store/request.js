@@ -98,6 +98,8 @@ async function makeRequest(getState, dispatch, pageInput, force) {
             responseStatus = data?.error_message;
           } else if(Math.floor(status/100) === 5) {
             responseStatus = "cuppazee_5xx";
+          } else if(status === 401) {
+            responseStatus = "need_reauth";
           } else if(status === 404) {
             responseStatus = "cuppazee_404";
           } else {
@@ -108,6 +110,8 @@ async function makeRequest(getState, dispatch, pageInput, force) {
             responseStatus = null;
           } else if(Math.floor(status/100) === 5) {
             responseStatus = "munzee_api_5xx";
+          } else if(status === 401) {
+            responseStatus = "need_reauth";
           } else if(status === 404) {
             responseStatus = "munzee_api_404";
           } else {

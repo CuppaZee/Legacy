@@ -15,6 +15,7 @@ web-report/
 
 *.backup.js
 
+/private.config.js
 /*.ps1
 yarn-error.log
 

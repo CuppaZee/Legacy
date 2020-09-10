@@ -343,6 +343,7 @@
     "changelog": {
         "build_n": "Build {n}",
         "continue": "Continue to CuppaZee",
+        "continue_and_agree": "Agree and Continue to CuppaZee",
         "no_changelog": "No Changelog"
     },
     "clan_req": {
@@ -419,6 +420,11 @@
         "munzee_api_5xx": "Oops, Munzee's servers responsed with an error. Try again later.",
         "munzee_api_404": "Oops, Munzee's servers couldn't figure out what you wanted. Try again later.",
         "munzee_api_generic": "Oops, something went wrong when requesting data from Munzee's servers. Try again later.",
-        "missing_login": "Oops, this user needs to log into CuppaZee for this feature to work!"
+        "need_reauth": "Oops, It looks like your authentication may have expired. Please login in again by pressing \"Add User\" on the settings page.",
+        "missing_login": "Oops, this user needs to log into CuppaZee for this feature to work!",
+        "missing_data": {
+            "user": "Oops, it looks like this user doesn't exist.",
+            "locked": "Oops, you need to log in as this user to access this feature."
+        }
     }
 }

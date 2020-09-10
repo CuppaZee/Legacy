@@ -36,10 +36,10 @@ export default function DetailsScreen({ route }) {
   var dateString = `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
   var [size, onLayout] = useComponentSize();
   var maxWidth = size?.width > 750 ? "50%" : "100%"
-  const data = useAPIRequest({
+  const {data,status} = useAPIRequest({
     endpoint: 'user',
     data: { username }
-  })
+  }, true);
   let user_id = data?.user_id
   useAPIRequest(user_id ? {
     endpoint: 'user/activity',
@@ -47,9 +47,23 @@ export default function DetailsScreen({ route }) {
     cuppazee: true
   } : [null])
   const [menu, setMenu] = React.useState(null);
-  if (!data || !size?.width) return <View onLayout={onLayout} style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
-    <ActivityIndicator size="large" color={theme.page.fg} />
+  if (status || !size?.width) {
+    if(status === "loading") {
+      return <View onLayout={onLayout} style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
+        <ActivityIndicator size="large" color={theme.page.fg} />
+      </View>
+    } else {
+      return <View onLayout={onLayout} style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
+      <MaterialCommunityIcons name="alert" color={theme.page.fg} size={48} />
+      <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), textAlign: "center", color: theme.page_content.fg }}>{t('error:' + status)}</Text>
+    </View>
+    }
+  } else if (data === null) {
+    return <View onLayout={onLayout} style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
+    <MaterialCommunityIcons name="alert" color={theme.page.fg} size={48} />
+    <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), textAlign: "center", color: theme.page_content.fg }}>{t('error:missing_data.user')}</Text>
   </View>
+  }
   return (
     <View style={{ flex: 1 }} onLayout={onLayout}>
       <ScrollView

@@ -27,6 +27,14 @@ import { Coiny_400Regular } from '@expo-google-fonts/coiny';
 import LoadingPage from './sections/Shared/LoadingPage';
 import font from './sections/Shared/font';
 
+import * as Sentry from './sentry';
+import privateConfig from './private.config';
+Sentry.init({
+  dsn: privateConfig.sentry_dsn,
+  enableInExpoDevelopment: true,
+  debug: true,
+});
+
 import pages from './pages';
 var pageScreens = {};
 var screens = pages.map(page => ({
@@ -230,7 +238,7 @@ function App() {
           </View>) ?? <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>{t('changelog:no_changelog')}</Text>}
           {build == Math.max(...Object.keys(changelogs).map(Number)) && <Button mode="contained" style={{ borderWidth: theme.page_content.border ? 2 : 0, borderColor: theme.page_content.border }} color={theme.page_content.bg} onPress={() => {
             dispatch(cuppazeeVersion(Math.max(...Object.keys(changelogs).map(Number))))
-          }}>{t('changelog:continue')}</Button>}
+          }}>{logs.some(i=>i[1].some(x=>x.privacy))?t('changelog:continue_and_agree'):t('changelog:continue')}</Button>}
         </View>)}
       </ScrollView>
     </SafeAreaView>;

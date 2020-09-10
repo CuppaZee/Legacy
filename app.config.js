@@ -1,4 +1,6 @@
-{
+var config = require('./private.config.js');
+
+module.exports = {
   "expo": {
     "name": "CuppaZee",
     "owner": "sohcah",
@@ -9,6 +11,18 @@
       "android",
       "web"
     ],
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "sohcah",
+            "project": "cuppazee",
+            "authToken": config.sentry_token
+          }
+        }
+      ]
+    },
     "githubUrl": "https://github.com/CuppaZee/CuppaZee",
     "scheme": "cuppazee",
     "version": "1.2.0",

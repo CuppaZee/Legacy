@@ -91,7 +91,7 @@ export default function AuthScreen () {
           icon="login-variant"
         />
       </View>
-      {now >= 1594314000000 && <Button icon="flag" mode="contained" style={{backgroundColor:theme.navigation.bg,marginBottom:8}} onPress={()=>navigation.navigate('AllCampLeaderboard')}>Camps Leaderboard</Button>}
+      {/* {now >= 1594314000000 && <Button icon="flag" mode="contained" style={{backgroundColor:theme.navigation.bg,marginBottom:8}} onPress={()=>navigation.navigate('AllCampLeaderboard')}>Camps Leaderboard</Button>} */}
     </>
   }</View>
 }

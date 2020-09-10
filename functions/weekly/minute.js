@@ -105,6 +105,7 @@ module.exports = {
                 }
                 player.p = 0;
                 player.d = [];
+                let fpre = player.fpre.length < player.pre.length ? player.pre : player.fpre;
                 for (const req of week.requirements) {
                   if(req.custom_value) {
                     let count = (customCounts[req.type]||{})[player.n] || 0;
@@ -112,7 +113,7 @@ module.exports = {
                     player.p += count * req.points;
                   } else {
                     let count = Number((player_specials.find(i => i.logo === req.type) || {}).count || 0);
-                    count = (count || 0) - (player.fpre[player.d.length] || 0);
+                    count = (count || 0) - (fpre[player.d.length] || 0);
                     player.d.push(count);
                     player.p += count * req.points;
                   }
@@ -137,6 +138,7 @@ module.exports = {
                   const player_specials = await request('user/specials', { user_id: player.i }, token.access_token)
                   player.fp = 0;
                   player.fd = [];
+                  let fpre = player.fpre.length < player.pre.length ? player.pre : player.fpre;
                   for (const req of week.requirements) {
                     if(req.custom_value) {
                       let count = (customCounts[req.type]||{})[player.n] || 0;
@@ -144,7 +146,7 @@ module.exports = {
                       player.fp += count * req.points;
                     } else {
                       let count = Number((player_specials.find(i => i.logo === req.type) || {}).count || 0);
-                      count -= player.fpre[player.fd.length];
+                      count -= fpre[player.fd.length];
                       if(player.d[player.fd.length] !== count) {
                         const player_type_captures = await request('user/captures/special',{
                           user_id: player.i,

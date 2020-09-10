@@ -50,7 +50,7 @@ export default function SettingsScreen({ navigation }) {
         });
       }
     } catch(e) {
-      setToken(false);
+      setPush(false);
     }
   }
   async function getCurrentOptions() {

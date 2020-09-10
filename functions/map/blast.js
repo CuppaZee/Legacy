@@ -148,7 +148,7 @@ module.exports = {
         var lng1 = Math.min(...boundaries.map(i => i.lng()))
         var lng2 = Math.max(...boundaries.map(i => i.lng()))
         var data = await request('map/boundingbox/v4', {
-          filters: '12, 105, 76, 34, 139, 140, 98, 93, 51, 686',
+          filters: '12, 105, 76, 34, 139, 140, 143, 98, 93, 51, 686',
           points: {
             box1: {
               lat1,

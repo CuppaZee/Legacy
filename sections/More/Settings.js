@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, Platform, Image, AsyncStorage, ScrollView } from 'react-native';
-import { Button, TextInput, Switch, DefaultTheme, DarkTheme } from 'react-native-paper';
-import DropDown from 'react-native-paper-dropdown';
+import { Button, TextInput, Switch } from 'react-native-paper';
+import { Dropdown, DropdownItem } from './Dropdown';
 import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from "react-redux";
 import Card from '../Shared/Card';
@@ -45,10 +45,8 @@ export default function SettingsScreen({ navigation }) {
   var logins = useSelector(i => i.logins);
   var themes = useSelector(i => i.themes);
   var theme = useSelector(i => i.themes[i.theme]);
-  var [themeDropdown, setThemeDropdown] = React.useState(false);
-  var [langDropdown, setLangDropdown] = React.useState(false);
   var dispatch = useDispatch();
-  var { width, height } = useDimensions().window;
+  var { width } = useDimensions().window;
 
   function setLang(lang) {
     i18n.changeLanguage(lang);
@@ -130,38 +128,16 @@ export default function SettingsScreen({ navigation }) {
 
             <View style={{ padding: 4 }}>
               <Text allowFontScaling={false} style={{ fontSize: 14, lineHeight: 14, marginBottom: -4, ...font(), color: theme.page_content.fg }}>Theme</Text>
-              <DropDown
-                theme={DefaultTheme}
-                mode="outlined"
-                value={theme.id}
-                setValue={i=>dispatch(setTheme(i))}
-                list={themeslist}
-                visible={themeDropdown}
-                showDropDown={() => setThemeDropdown(true)}
-                onDismiss={() => setThemeDropdown(false)}
-                inputProps={{
-                  dense: true,
-                  right: <TextInput.Icon name={'menu-down'} />,
-                }}
-              />
+              <Dropdown dense={true} mode="outlined" selectedValue={theme.id} onValueChange={i=>dispatch(setTheme(i))}>
+                {themeslist.map(i=><DropdownItem label={i.label} value={i.value} />)}
+              </Dropdown>
             </View>
 
             <View style={{ padding: 4 }}>
               <Text allowFontScaling={false} style={{ fontSize: 14, lineHeight: 14, marginBottom: -4, ...font(), color: theme.page_content.fg }}>Language</Text>
-              <DropDown
-                theme={DefaultTheme}
-                mode="outlined"
-                value={i18n.language}
-                setValue={setLang}
-                list={languages}
-                visible={langDropdown}
-                showDropDown={() => setLangDropdown(true)}
-                onDismiss={() => setLangDropdown(false)}
-                inputProps={{
-                  dense: true,
-                  right: <TextInput.Icon name={'menu-down'} />,
-                }}
-              />
+              <Dropdown dense={true} mode="outlined" selectedValue={i18n.language} onValueChange={setLang}>
+                {languages.map(i=><DropdownItem label={i.label} value={i.value} />)}
+              </Dropdown>
             </View>
             {/* <View style={{flexDirection:"row",alignItems:"center",padding:4}}>
               <Switch style={{marginRight: 8}} color={theme.page_content.fg} value={settings.activityV2Beta} onValueChange={(value)=>setSetting("activityV2Beta",!settings.activityV2Beta)} />
