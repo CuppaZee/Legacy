@@ -1,12 +1,10 @@
 import * as React from 'react';
-import { Appbar, TouchableRipple } from 'react-native-paper';
+import { Appbar } from 'react-native-paper';
 import { View, Text } from 'react-native';
 import LoadingButton from './LoadingButton';
 import { useSelector } from 'react-redux';
 import { useDimensions } from '@react-native-community/hooks';
 import font from 'sections/Shared/font'
-import Tile from 'sections/Calendar/Tile';
-import CalData from 'utils/db/Calendar.json'
 import useMoment from 'utils/hooks/useMoment';
 import useAPIRequest from 'utils/hooks/useAPIRequest';
 import { useTranslation } from 'react-i18next';

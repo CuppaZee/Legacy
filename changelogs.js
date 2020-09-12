@@ -1378,4 +1378,16 @@ export default {
       description: 'Added Safiir to Munzee Database'
     }
   ],
+  274: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Squashed a few bugs.'
+    },
+    {
+      icon: 'package',
+      title: 'Improved User Inventory',
+      description: 'Settings are now saved between sessions.'
+    },
+  ],
 }

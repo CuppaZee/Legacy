@@ -29,9 +29,9 @@ import font from './sections/Shared/font';
 
 import * as Sentry from './sentry';
 import privateConfig from './private.config';
-Sentry.init({
+if(!__DEV__) Sentry.init({
   dsn: privateConfig.sentry_dsn,
-  enableInExpoDevelopment: true,
+  enableInExpoDevelopment: false,
   debug: true,
 });
 
@@ -40,7 +40,13 @@ var pageScreens = {};
 var screens = pages.map(page => ({
   nologin: page.nologin,
   name: page.name,
-  screen: loadable(page.import, { fallback: <LoadingPage x={page.background} /> })
+  screen: loadable(async ()=>{
+    try {
+      return await page.import();
+    } catch(e) {
+      return () => <LoadingPage error={true} x={page.background} />
+    }
+  }, { fallback: <LoadingPage x={page.background} /> })
 }));
 for (var page of pages) {
   pageScreens[page.name] = page.path;

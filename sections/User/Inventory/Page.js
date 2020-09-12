@@ -4,6 +4,7 @@ import { useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import InventoryItem from './Item'
 import useAPIRequest from 'utils/hooks/useAPIRequest';
+import useSetting from 'utils/hooks/useSetting';
 import InventoryConverter from './Data';
 import font from 'sections/Shared/font';
 import Card from 'sections/Shared/Card';
@@ -31,8 +32,8 @@ const modes = [
 ]
 
 export default function () {
-  const [mode, setMode] = React.useState('category');
-  const [zeros, setZeros] = React.useState('all');
+  const [mode, setMode] = useSetting('inventory_group_by','category');
+  const [zeros, setZeros] = useSetting('inventory_include_zeros','all');
   var { t } = useTranslation()
   var route = useRoute();
   var theme = useSelector(i => i.themes[i.theme]);
@@ -76,7 +77,7 @@ export default function () {
           </Dropdown>
         </View>
         <View style={{flexGrow: 1, width: 400, maxWidth: "100%", padding: 4}}>
-          <Dropdown dense={true} mode="outlined" selectedValue={zeros} onValueChange={setZeros}>
+          <Dropdown enabled={mode!=="type"} dense={true} mode="outlined" selectedValue={zeros} onValueChange={setZeros}>
             <DropdownItem label={`Include Zeros: Yes`} value="all" />
             <DropdownItem label={`Include Zeros: No`} value="none" />
           </Dropdown>

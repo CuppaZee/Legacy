@@ -425,6 +425,7 @@
         "missing_data": {
             "user": "Oops, it looks like this user doesn't exist.",
             "locked": "Oops, you need to log in as this user to access this feature."
-        }
+        },
+        "page_load": "Oops, it looks like this page failed to load. Try reloading the app/webpage."
     }
 }

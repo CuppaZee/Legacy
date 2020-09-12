@@ -82,20 +82,20 @@ export default function DetailsScreen({ route }) {
                 <View style={{ padding: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <Text allowFontScaling={false} style={{ fontSize: 20, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{data?.username}</Text>
-                    {!!data?.premium && <MaterialCommunityIcons name="star" size={20} />}
-                    {data?.titles.includes('QRew') && <MaterialCommunityIcons name="hammer" size={20} />}
-                    {data?.titles.includes('ZeeQRew') && <MaterialCommunityIcons name="wrench" size={20} />}
+                    {!!data?.premium && <MaterialCommunityIcons color={theme.page_content.fg} name="star" size={20} />}
+                    {data?.titles.includes('QRew') && <MaterialCommunityIcons color={theme.page_content.fg} name="hammer" size={20} />}
+                    {data?.titles.includes('ZeeQRew') && <MaterialCommunityIcons color={theme.page_content.fg} name="wrench" size={20} />}
                   </View>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <MaterialCommunityIcons name="arrow-up-bold-hexagon-outline" size={16} style={{marginRight: 4}} />
+                    <MaterialCommunityIcons color={theme.page_content.fg} name="arrow-up-bold-hexagon-outline" size={16} style={{marginRight: 4}} />
                     <Text allowFontScaling={false} style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{t('user:level_n', { level: data?.level })} - {t('user:points',{count:data?.points,n:data?.points.toLocaleString()})}</Text>
                   </View>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <MaterialCommunityIcons name="trophy-outline" size={16} style={{marginRight: 4}} />
+                    <MaterialCommunityIcons color={theme.page_content.fg} name="trophy-outline" size={16} style={{marginRight: 4}} />
                     <Text allowFontScaling={false} style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{t('user:rank_n', { rank: data?.rank })}</Text>
                   </View>
                   {data?.titles?.length > 0 && <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <MaterialCommunityIcons name="format-list-bulleted" size={16} style={{marginRight: 4}} />
+                    <MaterialCommunityIcons color={theme.page_content.fg} name="format-list-bulleted" size={16} style={{marginRight: 4}} />
                     <Text allowFontScaling={false} style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{data?.titles.join(', ')}</Text>
                   </View>}
                 </View>
