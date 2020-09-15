@@ -1,5 +1,9 @@
 import * as React from 'react';
-import { NavigationContainer, useLinking, useNavigation, useRoute } from '@react-navigation/native';
+import {
+  NavigationContainer, useLinking, useNavigation, useRoute,
+  DefaultTheme as NavigationDefaultTheme,
+  DarkTheme as NavigationDarkTheme,
+} from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import { enableScreens } from 'react-native-screens';
@@ -29,7 +33,7 @@ import font from './sections/Shared/font';
 
 import * as Sentry from './sentry';
 import privateConfig from './private.config';
-if(!__DEV__) Sentry.init({
+if (!__DEV__) Sentry.init({
   dsn: privateConfig.sentry_dsn,
   enableInExpoDevelopment: false,
   debug: true,
@@ -40,10 +44,10 @@ var pageScreens = {};
 var screens = pages.map(page => ({
   nologin: page.nologin,
   name: page.name,
-  screen: loadable(async ()=>{
+  screen: loadable(async () => {
     try {
       return await page.import();
-    } catch(e) {
+    } catch (e) {
       return () => <LoadingPage error={true} x={page.background} />
     }
   }, { fallback: <LoadingPage x={page.background} /> })
@@ -57,7 +61,7 @@ import DrawerContent from './sections/Main/Drawer';
 
 import { Platform, View, Text, StatusBar, ActivityIndicator, ScrollView, Image, Linking } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Provider as PaperProvider, Button, Appbar, DefaultTheme, DarkTheme } from 'react-native-paper'
+import { Provider as PaperProvider, Button, DefaultTheme, DarkTheme, useTheme } from 'react-native-paper';
 
 import { useDimensions } from '@react-native-community/hooks';
 import * as WebBrowser from 'expo-web-browser';
@@ -180,6 +184,7 @@ function App() {
   var [isReady, setIsReady] = React.useState(false);
   var [initialState, setInitialState] = React.useState();
   var theme = useSelector(i => i.themes[i.theme])
+  var paperTheme = useTheme();
 
   React.useEffect(() => {
     Promise.race([
@@ -244,7 +249,7 @@ function App() {
           </View>) ?? <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>{t('changelog:no_changelog')}</Text>}
           {build == Math.max(...Object.keys(changelogs).map(Number)) && <Button mode="contained" style={{ borderWidth: theme.page_content.border ? 2 : 0, borderColor: theme.page_content.border }} color={theme.page_content.bg} onPress={() => {
             dispatch(cuppazeeVersion(Math.max(...Object.keys(changelogs).map(Number))))
-          }}>{logs.some(i=>i[1].some(x=>x.privacy))?t('changelog:continue_and_agree'):t('changelog:continue')}</Button>}
+          }}>{logs.some(i => i[1].some(x => x.privacy)) ? t('changelog:continue_and_agree') : t('changelog:continue')}</Button>}
         </View>)}
       </ScrollView>
     </SafeAreaView>;
@@ -254,7 +259,7 @@ function App() {
   }
   var navWidth = 400;
   return (
-    <NavigationContainer independent={true} onStateChange={handleStateChange} initialState={initialState} ref={ref}>
+    <NavigationContainer theme={paperTheme.nav} independent={true} onStateChange={handleStateChange} initialState={initialState} ref={ref}>
       <StatusBar translucent={true} backgroundColor={theme.navigation.bg + 'cc'} barStyle="light-content" />
       <View style={{ flex: 1 }}>
         <DrawerNav />
@@ -264,18 +269,32 @@ function App() {
   );
 }
 
-function ThemeWrapper () {
-  const theme = useSelector(i=>i.themes[i.theme]);
-  const paperTheme = {
-    ...(theme.dark?DarkTheme:DefaultTheme),
-    dark: theme.dark,
-    colors: {
-      ...(theme.dark?DarkTheme:DefaultTheme).colors,
-      primary: theme.navigation.bg,
-      accent: theme.navigation_selected.bg,
-      text: theme.page_content.fg,
-    }
-  }
+function ThemeWrapper() {
+  const paperTheme = useSelector(i => i.themes.blue);
+  // const paperTheme = {
+  //   ...(theme.dark ? DarkTheme : DefaultTheme),
+  //   dark: theme.dark,
+  //   colors: {
+  //     ...(theme.dark ? DarkTheme : DefaultTheme).colors,
+  //     primary: theme.navigation.bg,
+  //     accent: theme.navigation_selected.bg,
+  //     text: theme.page_content.fg,
+  //     surface: theme.dark ? theme.page.bg : theme.page_content.bg,
+  //     background: theme.page.bg,
+  //     onSurface: theme.page_content.fg,
+  //     onBackground: theme.page.fg,
+  //   },
+  //   nav: {
+  //     ...(theme.dark ? NavigationDarkTheme : NavigationDefaultTheme),
+  //     colors: {
+  //       ...(theme.dark ? NavigationDarkTheme : NavigationDefaultTheme).colors,
+  //       background: theme.page.bg,
+  //       card: theme.dark ? theme.page.bg : theme.page_content.bg,
+  //       text: theme.page_content.fg,
+  //       border: theme.page_content.fg
+  //     }
+  //   }
+  // }
   return <PaperProvider theme={paperTheme}>
     <App />
   </PaperProvider>
@@ -285,7 +304,7 @@ export default function () { // Setup Providers
   React.useEffect(() => {
     const subscription = Notifications.addNotificationResponseReceivedListener(response => {
       const link = response.notification.request.content.data?.body?.link;
-      if(link) Linking.openURL(link);
+      if (link) Linking.openURL(link);
     });
     return () => subscription.remove();
   }, []);

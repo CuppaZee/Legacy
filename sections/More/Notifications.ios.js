@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, Platform, Image, AsyncStorage, ScrollView, ActivityIndicator } from 'react-native';
-import { Button, IconButton, Switch } from 'react-native-paper';
+import { Button, Checkbox, IconButton, Switch } from 'react-native-paper';
 import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from "react-redux";
 import Card from '../Shared/Card';
@@ -13,16 +13,16 @@ import { useTranslation } from 'react-i18next';
 import FROM from 'from';
 
 export default function SettingsScreen({ navigation }) {
-  var {t} = useTranslation();
-  var logins = useSelector(i=>i.logins);
-  var themes = useSelector(i=>i.themes);
-  var theme = useSelector(i=>i.themes[i.theme]);
+  var { t } = useTranslation();
+  var logins = useSelector(i => i.logins);
+  var themes = useSelector(i => i.themes);
+  var theme = useSelector(i => i.themes[i.theme]);
   var dispatch = useDispatch();
-  var {width,height} = useDimensions().window;
+  var { width, height } = useDimensions().window;
 
-  var [push,setPush] = React.useState(null);
-  var [data,setData] = React.useState(false);
-  React.useEffect(()=>{
+  var [push, setPush] = React.useState(null);
+  var [data, setData] = React.useState(false);
+  React.useEffect(() => {
     registerForPushNotificationsAsync().then(token => setPush(token));
   }, [])
   async function getCurrentOptions() {
@@ -34,11 +34,11 @@ export default function SettingsScreen({ navigation }) {
         access_token: Object.values(logins)[0].token.access_token
       })
     })
-    var {data:da} = await d.json();
+    var { data: da } = await d.json();
     setData(Object.assign({
       token: push,
       munzee_blog: false,
-      ...(da||{})
+      ...(da || {})
     }));
   }
   async function saveCurrentOptions() {
@@ -55,42 +55,47 @@ export default function SettingsScreen({ navigation }) {
     console.log(da);
     setData(da.data);
   }
-  React.useEffect(()=>{
+  React.useEffect(() => {
     console.log(push)
-    if(push) {
+    if (push) {
       getCurrentOptions();
     }
-  },[push]);
+  }, [push]);
 
-  if(Platform.OS==="web") return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
+  if (Platform.OS === "web") return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
     <Text>{t('notifications:unavailable_web')}</Text>
   </View>
 
-  if(push===false||data===null) return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
+  if (push === false || data === null) return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
     <Text>{t('notifications:unavailable_generic')}</Text>
   </View>
 
-  if(push===null||data===false) return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
+  if (push === null || data === false) return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
     <ActivityIndicator size="large" color={theme.page.fg} />
   </View>
   return (
-    <View style={{ flex: 1, backgroundColor: theme.page.bg, justifyContent: 'center', alignItems: 'center' }}>
-      <View style={{flex: 1, width:width>800?"50%":"100%",padding:4}}>
+    <ScrollView
+      contentContainerStyle={{ width: 600, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4 }}
+      style={{ flex: 1, backgroundColor: theme.page.bg }}>
+      <View style={{ flex: 1, width: width > 800 ? "50%" : "100%", padding: 4 }}>
         <Card noPad>
-          <ScrollView contentContainerStyle={{padding:8}}>
-            <Text allowFontScaling={false} style={{color:theme.page_content.fg,...font()}}>Push: {push||'Disabled'}</Text>
-            <View style={{flexDirection:"row",alignItems:"center"}}>
-              <Text allowFontScaling={false} style={{color:theme.page_content.fg,...font("bold")}}>{t('notifications:munzee_blog')}</Text>
-              <Switch color={theme.page_content.fg} value={data.munzee_blog} onValueChange={(value)=>setData({
-                ...data,
-                munzee_blog: value
-              })} />
-            </View>
-            <Button mode="contained" color="green" onPress={saveCurrentOptions}>{t('notifications:save')}</Button>
-          </ScrollView>
+          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font() }}>Push: {push || 'Disabled'}</Text>
+          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font("bold"), fontSize: 16 }}>Blog Posts</Text>
+          <View style={{ flexDirection: "row", alignItems: "center", padding: 8 }}>
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font("bold"), flex: 1 }}>{t('notifications:munzee_blog')}</Text>
+            {/* <Switch color={theme.page_content.fg} value={data.munzee_blog} onValueChange={(value) => setData({
+              ...data,
+              munzee_blog: value
+            })} /> */}
+            <CheckboxAndroid color={theme.page_content.fg} value={data.munzee_blog} onValueChange={(value) => setData({
+              ...data,
+              munzee_blog: value
+            })} />
+          </View>
+          <Button mode="contained" color="green" onPress={saveCurrentOptions}>{t('notifications:save')}</Button>
         </Card>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -122,7 +127,7 @@ async function registerForPushNotificationsAsync() {
     });
   }
 
-  console.log('got',token)
+  console.log('got', token)
 
   return token;
 }

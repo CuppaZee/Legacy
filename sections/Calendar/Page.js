@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
 import Calendar from 'sections/Calendar/Calendar';
-import Card from 'sections/Shared/Card';
-import { IconButton } from 'react-native-paper';
+import { IconButton, Surface, Text } from 'react-native-paper';
 import useMoment from 'utils/hooks/useMoment';
 
 export default function CalendarScreen() {
@@ -32,20 +31,38 @@ export default function CalendarScreen() {
   var [type,setType] = React.useState('default');
 
   return (
-    <View style={{backgroundColor:theme.page.bg,flex:1,padding:4,justifyContent:"center",alignItems:"center"}}>
-      <View style={{width:"100%",maxWidth:400}}>
-        <Card noFlex noPad={true}>
-          <View style={{flexDirection:"column"}}>
-            <View style={{borderTopLeftRadius:8,borderTopRightRadius:8,flexDirection:"row",alignItems:"center",backgroundColor:(theme.clanCardHeader||theme.navigation).bg}}>
-              <IconButton icon={type=="default"?"format-text":"view-grid"} color={(theme.clanCardHeader||theme.navigation).fg} onPress={()=>setType(type=="default"?"alt":"default")}/>
-              <IconButton icon="chevron-left" color={(theme.clanCardHeader||theme.navigation).fg} onPress={remove}/>
-              <Text allowFontScaling={false} style={{flex:1,textAlign:"center",color:(theme.clanCardHeader||theme.navigation).fg}}>{moment({month,year}).format('MMMM YYYY')}</Text>
-              <IconButton icon="chevron-right" color={(theme.clanCardHeader||theme.navigation).fg} onPress={add}/>
-            </View>
-            <Calendar month={month} year={year} theme={theme} type={type}/>
+    <ScrollView style={styles.page} contentContainerStyle={styles.pageContent}>
+      <View style={styles.cardWrapper}>
+        <Surface style={styles.card}>
+          <View style={{borderTopLeftRadius:4,borderTopRightRadius:4,flexDirection:"row",alignItems:"center"}}>
+            <IconButton icon={type=="default"?"format-text":"view-grid"} onPress={()=>setType(type=="default"?"alt":"default")}/>
+            <IconButton icon="chevron-left" onPress={remove}/>
+            <Text allowFontScaling={false} style={{flex:1,textAlign:"center"}}>{moment({month,year}).format('MMMM YYYY')}</Text>
+            <IconButton icon="chevron-right" onPress={add}/>
           </View>
-        </Card>
+          <Calendar month={month} year={year} theme={theme} type={type}/>
+        </Surface>
       </View>
-    </View>
+    </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  page: {
+    flex: 1,
+  },
+  pageContent: {
+    flex: 1,
+    padding: 4,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  cardWrapper: {
+    width: "100%",
+    maxWidth: 400,
+  },
+  card: {
+    borderRadius: 4,
+    flexDirection: "column",
+  }
+})
