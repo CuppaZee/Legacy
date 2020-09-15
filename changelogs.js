@@ -1390,4 +1390,11 @@ export default {
       description: 'Settings are now saved between sessions.'
     },
   ],
+  275: [
+    {
+      icon: 'database',
+      title: 'Fixed Navigation on Munzee Types',
+      description: 'The back button now works correctly when navigating on the Munzee Types pages'
+    },
+  ],
 }
