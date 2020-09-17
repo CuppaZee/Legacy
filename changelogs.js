@@ -1397,4 +1397,11 @@ export default {
       description: 'The back button now works correctly when navigating on the Munzee Types pages'
     },
   ],
+  276: [
+    {
+      image: 'minnesotaiconiclocation',
+      title: 'Updated Munzee Database',
+      description: 'Added Minnesota Iconic Location Munzee to CuppaZee\'s Munzee Types Database'
+    },
+  ],
 }

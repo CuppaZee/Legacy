@@ -378,7 +378,84 @@
     "reveal":   "2020-09-10T00:00:00-05:00",
     "prestart": "2020-09-10T11:15:00-05:00",
     "start":    "2020-09-10T12:00:00-05:00",
-    "end":      "2020-09-17T09:00:00-05:00",
-    "finalend": "2020-09-17T09:45:00-05:00"
+    "end":      "2020-09-18T09:00:00-05:00",
+    "finalend": "2020-09-18T09:45:00-05:00"
+  },
+  {
+    "id": "week_6",
+    "week": 6,
+    "description": "Gaming Munzees",
+    "icon": "joystickvirtual",
+    "requirements": [
+      {
+        "type": "surprise",
+        "points": 2
+      },
+      {
+        "type": "prizewheel",
+        "points": 3
+      },
+      {
+        "type": "scatter",
+        "points": 3
+      },
+      {
+        "type": "rockpaperscissors",
+        "points": 3
+      },
+      {
+        "type": "bowlingball",
+        "points": 3
+      },
+      {
+        "type": "bowling-1stroll",
+        "points": 1
+      },
+      {
+        "type": "bowling-2ndroll",
+        "points": 1
+      },
+      {
+        "type": "urbanfit",
+        "points": 3
+      },
+      {
+        "type": "joystickphysical",
+        "points": 3
+      },
+      {
+        "type": "joystickvirtual",
+        "points": 2
+      },
+      {
+        "type": "runzeerob",
+        "points": 2
+      },
+      {
+        "type": "goldcoin",
+        "points": 1
+      },
+      {
+        "type": "munch-man",
+        "points": 2
+      },
+      {
+        "type": "ghostzee",
+        "points": 1
+      },
+      {
+        "type": "leapfrog",
+        "points": 2
+      },
+      {
+        "type": "fly",
+        "points": 1
+      }
+    ],
+    "reveal":   "2020-09-17T00:00:00-05:00",
+    "prestart": "2020-09-18T11:15:00-05:00",
+    "start":    "2020-09-18T12:00:00-05:00",
+    "end":      "2020-09-25T09:00:00-05:00",
+    "finalend": "2020-09-25T09:45:00-05:00"
   }
 ]

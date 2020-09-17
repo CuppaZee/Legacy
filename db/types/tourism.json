@@ -58,5 +58,11 @@
     "icon": "newmexicoiconiclocation",
     "id": 2197,
     "state": "virtual"
+  },
+  {
+    "name": "Minnesota Historical Location",
+    "icon": "minnesotaiconiclocation",
+    "id": "null_minnesotaiconiclocation",
+    "state": "virtual"
   }
 ]
