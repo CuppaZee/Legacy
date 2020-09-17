@@ -59,7 +59,9 @@ const defaultState = {
     clan_level_null:"#e3e3e3",
     activityV2Beta: false,
     appleMaps: false
-  }
+  },
+
+  mini: false
 };
 
 
@@ -140,6 +142,9 @@ var settings = (data,noUpdate) => async (dispatch, getState) => {
   if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_SETTINGS',stringify({...getState().settings,...data}));
   dispatch(settings_(data));
 }
+
+// Mini Sidebar
+var mini = (data) => ({ type: "MINI", data: data })
 
 var rootReducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -235,6 +240,11 @@ var rootReducer = (state = defaultState, action) => {
           ...action.data
         }
       }
+    case 'MINI':
+      return {
+        ...state,
+        mini: action.data
+      }
     case 'LEVEL_SELECT':
       return {
         ...state,
@@ -326,4 +336,4 @@ async function loadData() {
 }
 loadData();
 
-export default {store,refresh,login,setCode,clanBookmarks,userBookmarks,levelSelect,setCurrentRoute,setTheme,removeLogin,cuppazeeVersion,settings};
+export default {store,refresh,login,setCode,clanBookmarks,userBookmarks,levelSelect,setCurrentRoute,setTheme,removeLogin,cuppazeeVersion,settings,mini};
