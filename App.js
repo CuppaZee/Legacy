@@ -69,6 +69,7 @@ import * as Notifications from 'expo-notifications';
 import Header from './sections/Main/Header';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
+import useSetting from './utils/hooks/useSetting';
 
 WebBrowser?.maybeCompleteAuthSession?.({
   skipRedirectCheck: true
@@ -135,13 +136,14 @@ function StackNav() {
 }
 
 function DrawerNav() {
+  var [mini] = useSetting('mini_drawer',false);
   var { width } = useDimensions().window;
   var loggedIn = useSelector(i => i.loggedIn);
-  var mini = useSelector(i => i.mini);
+  var [userDrawer, setUserDrawer] = React.useState(false);
   return <Drawer.Navigator
     drawerPosition="left"
-    drawerStyle={{ width: width > 1000 ? (mini ? 48 : 280) : Math.min(320, width) }}
-    drawerContent={props => <DrawerContent mini={width > 1000 ? mini : false} side="left" {...props} />}
+    drawerStyle={{ width: width > 1000 ? (mini ? (userDrawer ? 96 : 48) : 280) : Math.min(320, width) }}
+    drawerContent={props => <DrawerContent updateUserDrawer={(val)=>setUserDrawer(val)} mini={width > 1000 ? mini : false} side="left" {...props} />}
     drawerType={(width > 1000 && loggedIn) ? "permanent" : "front"}
     edgeWidth={loggedIn ? 100 : 0}
   >

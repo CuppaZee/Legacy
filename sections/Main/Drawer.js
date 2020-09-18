@@ -1,16 +1,25 @@
 import * as React from 'react'
 import { View, Platform, Linking, Image } from 'react-native';
 import { DrawerContentScrollView } from '@react-navigation/drawer';
-import categories from 'utils/db/categories.json';
 import getIcon from 'utils/db/icon';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Text, TouchableRipple, Avatar, IconButton, Menu, Divider, Button, Surface, useTheme, Provider as PaperProvider, TextInput } from 'react-native-paper'
-import s from 'utils/store';
+import { Text, TouchableRipple, Avatar, Menu, Divider, Button, Surface, useTheme, Provider as PaperProvider, TextInput } from 'react-native-paper'
 import useSearch from 'utils/hooks/useSearch';
 import { useDimensions } from '@react-native-community/hooks';
 import { useAPIRequestWithoutNav } from 'utils/hooks/useAPIRequest';
-var { mini: miniDispatch } = s;
+
+
+import Fuse from 'fuse.js'
+import types from 'utils/db/types.json';
+import categories from 'utils/db/categories.json';
+import useSetting from '../../utils/hooks/useSetting';
+
+const options = {
+  includeScore: true,
+  keys: ['name', 'id', 'category']
+}
+const fuse = new Fuse([...types.filter(i => !i.hidden), ...categories.filter(i => !i.hidden)], options)
 
 function DrawerItem(props) {
   const SurfaceOrView = props.focused ? Surface : View;
@@ -25,17 +34,58 @@ function DrawerItem(props) {
       {props.image ? (props.noAvatar ? <Image style={{ height: 32, width: 32 }} source={props.image} /> : <Avatar.Image size={32} source={props.image} />) : <Avatar.Icon size={32} icon={props.icon} />}
       {!props.mini && <>
         <View style={{ width: 4 }}></View>
-        {typeof props.label == "string" ? <Text numberOfLines={1} ellipsizeMode="tail" allowFontScaling={false} style={{ fontSize: 14, fontWeight: "500" }}>{props.label}</Text> : <props.label color={theme.colors.text} />}
+        {typeof props.label == "string" ? <View>
+          <Text numberOfLines={1} ellipsizeMode="tail" allowFontScaling={false} style={{ fontSize: 14, fontWeight: "500" }}>{props.label}</Text>
+          {props.subtitle && <Text numberOfLines={1} ellipsizeMode="tail" allowFontScaling={false} style={{ fontSize: 12, fontWeight: "500", opacity: 0.8 }}>{props.subtitle}</Text>}
+        </View> : <props.label color={theme.colors.text} />}
       </>}
+      {props.right && <props.right />}
     </SurfaceOrView>
   </TouchableRipple>
 }
-function UserDrawerContent({ userDrawer, setUserDrawer, ...props }) {
+
+function SearchView({ query, ...props }) {
   var { t } = useTranslation();
   var route = useSelector(i => i.route);
   var nav = props.navigation;
   var userMini = props.mini;
-  const {data,status} = useAPIRequestWithoutNav({
+  const list = fuse.search(query);
+  // const { data, status } = useAPIRequestWithoutNav({
+  //   endpoint: 'user',
+  //   data: { username: userDrawer.username }
+  // }, true);
+  var userItemProps = {
+    side: props.side,
+    mini: userMini
+  }
+  const theme = useTheme();
+  return <View style={{ flex: 1, borderLeftWidth: 1, borderLeftColor: theme.colors.disabled }}>
+    {list.slice(0, 20).map?.(({item:i}) => <DrawerItem
+      key={i.name??"Hello"}
+      {...userItemProps}
+      style={{ marginVertical: 0 }}
+      noAvatar={i.icon ? true : false}
+      focused={(route.name == "DBType" && route.params?.munzee === i.id) || (route.name == "DBCategory" && route.params?.category === i.id)}
+      image={getIcon(i.icon)}
+      label={i.name??"Hello"}
+      subtitle={i.category ? "Munzee Type" : (i.icon ? "Category" : (i.user_id ? "User" : "Clan"))}
+      onPress={() => nav.reset({
+        index: 1,
+        routes: [
+          { name: '__primary', params: i.category ? { screen: "DBType", params: { munzee: i.icon } } : { screen: "DBCategory", params: { category: i.id } } },
+        ],
+      })
+      }
+    />)}
+  </View>;
+}
+
+function UserDrawerContent({ userDrawer, setUserDrawer, ...props }) {
+  var { t } = useTranslation();
+  var route = useSelector(i => i.route);
+  var nav = props.navigation;
+  var [userMini] = useSetting('mini_drawer', false);
+  const { data, status } = useAPIRequestWithoutNav({
     endpoint: 'user',
     data: { username: userDrawer.username }
   }, true);
@@ -150,10 +200,7 @@ export default function CustomDrawerContent(props) {
   var [helpOpen, setHelpOpen] = React.useState(false);
   var [donateOpen, setDonateOpen] = React.useState(false);
   var [paypalOpen, setPaypalOpen] = React.useState(false);
-  var dispatch = useDispatch();
-  function setMini(value) {
-    dispatch(miniDispatch(value));
-  }
+  var [miniProp, setMini] = useSetting('mini_drawer', false);
   var { t } = useTranslation();
   var clanBookmarks = useSelector(i => i.clanBookmarks);
   var userBookmarks = useSelector(i => i.userBookmarks);
@@ -163,11 +210,12 @@ export default function CustomDrawerContent(props) {
   var [showMoreUser, setShowMoreUser] = React.useState(false);
   var [userDrawerOpen, setUserDrawer] = React.useState(true);
   var userDrawer = (route.params?.username && userDrawerOpen) ? { username: route.params?.username } : false;
-  var mini = userDrawer || props.mini;
-  var userMini = props.mini;
+  var mini = userDrawer || miniProp;
+  var userMini = miniProp;
   var [search, query, setSearch] = useSearch(300);
 
   React.useEffect(() => setUserDrawer(true), [route.params?.username]);
+  React.useEffect(() => props.updateUserDrawer(userDrawer), [userDrawer]);
 
   var top = [
     { title: t(`common:weekly_challenge`), icon: "calendar", page: "WeeklyWeeks" },
@@ -202,7 +250,7 @@ export default function CustomDrawerContent(props) {
           {!userMini && <View style={{ paddingVertical: 4, paddingHorizontal: 8 }}>
             <TextInput value={search} mode="outlined" dense={true} left={<TextInput.Icon icon="magnify" />} onChangeText={(val) => setSearch(val)} label="Search" returnKeyLabel="Search" returnKeyType="search" />
           </View>}
-          {query.length > 3 ? <SearchView query={query} /> : <View style={{ flexDirection: "row", flexGrow: 1 }}>
+          {query.length > 3 ? <SearchView query={query} {...props} /> : <View style={{ flexDirection: "row", flexGrow: 1 }}>
             {(!userDrawer || width >= 320) && <View style={userDrawer ? { width: 48 } : { flex: 1 }}>
               {!mini && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
                 <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", opacity: 0.8 }}>Remember this is a Beta build</Text>
@@ -232,66 +280,18 @@ export default function CustomDrawerContent(props) {
                 }
               />)}
               <Divider style={{ marginVertical: 4 }} />
-              {/* {!mini && <View style={{ paddingLeft: 8 }}>
-                <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", opacity: 0.8 }}>{t(`common:users`)}</Text>
-              </View>} */}
-              {!mini && <View style={{ paddingHorizontal: 4, flexDirection: "row", justifyContent: "space-between" }}>
-                <IconButton
-                  style={{
-                    backgroundColor: route.name == "AllUsers" ? itemProps.activeBackgroundColor : null
-                  }}
-                  icon="format-list-bulleted"
-                  color={itemProps.inactiveTintColor}
-                  onPress={() => nav.reset({
-                    index: 1,
-                    routes: [
-                      { name: '__primary', params: { screen: "AllUsers" } },
-                    ],
-                  })}
-                />
-                <IconButton
-                  style={{
-                    backgroundColor: route.name == "UserSearch" ? itemProps.activeBackgroundColor : null
-                  }}
-                  icon="magnify"
-                  color={itemProps.inactiveTintColor}
-                  onPress={() => nav.reset({
-                    index: 1,
-                    routes: [
-                      { name: '__primary', params: { screen: "UserSearch" } },
-                    ],
-                  })}
-                />
-                <IconButton
-                  disabled={true}
-                  style={{
-                    backgroundColor: route.name == "UserRankings" ? itemProps.activeBackgroundColor : null
-                  }}
-                  icon="trophy-outline"
-                  color={itemProps.inactiveTintColor}
-                  onPress={() => nav.reset({
-                    index: 1,
-                    routes: [
-                      { name: '__primary', params: { screen: "UserRankings" } },
-                    ],
-                  })}
-                />
-                {/* <IconButton
-                  disabled={true}
-                  style={{
-                    backgroundColor: route.name == "UserBookmarks" ? itemProps.activeBackgroundColor : null
-                  }}
-                  icon="bookmark-outline"
-                  color={itemProps.inactiveTintColor}
-                  onPress={() => nav.reset({
-                    index: 1,
-                    routes: [
-                      { name: '__primary', params: { screen: "UserBookmarks" } },
-                    ],
-                  })
-                  }
-                /> */}
-              </View>}
+              <DrawerItem
+                {...itemProps}
+                icon="format-list-bulleted"
+                label="All Users"
+                focused={route.name == "AllUsers"}
+                onPress={() => nav.reset({
+                  index: 1,
+                  routes: [
+                    { name: '__primary', params: { screen: "AllUsers" } },
+                  ],
+                })}
+              />
               {userBookmarks?.slice?.(0, showMoreUser ? Infinity : userBookmarks.length > 6 ? 5 : 6)?.filter?.(i => i)?.map?.((i, index) => <>
                 <DrawerItem
                   key={`user_${i.user_id}`}
@@ -311,22 +311,6 @@ export default function CustomDrawerContent(props) {
                     setUserDrawer(true);
                   }}
                 />
-                {/* {(!mini && width > 1000 && index === 0) && userPages.map?.(p => <DrawerItem
-                  key={p.title}
-                  {...itemProps}
-                  style={{ marginVertical: 0 }}
-                  focused={route.name == p.page}
-                  indent={1}
-                  icon={p.icon}
-                  label={p.title}
-                  onPress={() => nav.reset({
-                    index: 1,
-                    routes: [
-                      { name: '__primary', params: { screen: p.page, params: { username: i.username } } },
-                    ],
-                  })
-                  }
-                />)} */}
               </>)}
               {userBookmarks.length > 6 && <DrawerItem
                 {...itemProps}
@@ -336,126 +320,31 @@ export default function CustomDrawerContent(props) {
                 label={showMoreUser ? t(`common:show_less`) : t(`common:show_more`)}
                 onPress={() => setShowMoreUser(!showMoreUser)}
               />}
-              {/* <DrawerItem
+              <Divider style={{ marginVertical: 4 }} />
+              <DrawerItem
                 {...itemProps}
-                style={{ marginVertical: 0 }}
-                focused={route.name == "UserSearch"}
-                icon={({ focused, color, size }) => <MaterialCommunityIcons name="magnify" color={color} size={24} style={{ margin: 4 }} />}
-                label={t(`common:find_user`)}
+                icon="format-list-bulleted"
+                label="All Clans"
+                focused={route.name == "AllClans"}
                 onPress={() => nav.reset({
                   index: 1,
                   routes: [
-                    { name: '__primary', params: { screen: "UserSearch" } },
+                    { name: '__primary', params: { screen: "AllClans" } },
                   ],
-                })
-                }
-              /> */}
-              <Divider style={{ marginVertical: 4 }} />
-              {/* {!mini && <View style={{ paddingTop: 8, paddingLeft: 8 }}>
-                <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", opacity: 0.8 }}>{t('common:clan', { count: 2 })}</Text>
-              </View>} */}
-              {!mini && <View style={{ paddingHorizontal: 4, flexDirection: "row", justifyContent: "space-between" }}>
-                <IconButton
-                  style={{
-                    backgroundColor: route.name == "AllClans" ? itemProps.activeBackgroundColor : null
-                  }}
-                  icon="format-list-bulleted"
-                  color={itemProps.inactiveTintColor}
-                  onPress={() => nav.reset({
-                    index: 1,
-                    routes: [
-                      { name: '__primary', params: { screen: "AllClans" } },
-                    ],
-                  })}
-                />
-                <IconButton
-                  style={{
-                    backgroundColor: route.name == "ClanSearch" ? itemProps.activeBackgroundColor : null
-                  }}
-                  icon="magnify"
-                  color={itemProps.inactiveTintColor}
-                  onPress={() => nav.reset({
-                    index: 1,
-                    routes: [
-                      { name: '__primary', params: { screen: "ClanSearch" } },
-                    ],
-                  })}
-                />
-                {/* <IconButton
-                  disabled={true}
-                  style={{
-                    backgroundColor: route.name == "ClanRequirements" && route.params.gameid < 87 ? itemProps.activeBackgroundColor : null
-                  }}
-                  icon="history"
-                  color={itemProps.inactiveTintColor}
-                  onPress={() => nav.reset({
-                    index: 1,
-                    routes: [
-                      { name: '__primary', params: { screen: "ClanRequirements", params: { gameid: 87 } } },
-                    ],
-                  })
-                  }
-                /> */}
-                <IconButton
-                  style={{
-                    backgroundColor: route.name == "ClanRequirements" && route.params.year == 2020 && route.params.month == 9 ? itemProps.activeBackgroundColor : null
-                  }}
-                  icon="playlist-check"
-                  color={itemProps.inactiveTintColor}
-                  onPress={() => nav.reset({
-                    index: 1,
-                    routes: [
-                      { name: '__primary', params: { screen: "ClanRequirements", params: { year: 2020, month: 9 } } },
-                    ],
-                  })
-                  }
-                />
-                <IconButton
-                  style={{
-                    backgroundColor: route.name == "ClanRequirements" && route.params.year == 2020 && route.params.month == 10 ? itemProps.activeBackgroundColor : null,
-                    borderWidth: 1,
-                    borderColor: theme.colors.text
-                  }}
-                  icon="star"
-                  color={itemProps.inactiveTintColor}
-                  onPress={() => nav.reset({
-                    index: 1,
-                    routes: [
-                      { name: '__primary', params: { screen: "ClanRequirements", params: { year: 2020, month: 10 } } },
-                    ],
-                  })
-                  }
-                />
-                {/* <IconButton
-                  style={{
-                    backgroundColor: route.name == "ClanRequirements" && route.params.gameid == 89 ? itemProps.activeBackgroundColor : null
-                  }}
-                  icon="new-box"
-                  color={itemProps.inactiveTintColor}
-                  onPress={() => nav.reset({
-                    index: 1,
-                    routes: [
-                      { name: '__primary', params: { screen: "ClanRequirements", params: { gameid: 89 } } },
-                    ],
-                  })
-                  }
-                /> */}
-                {/* <IconButton
-                  disabled={true}
-                  style={{
-                    backgroundColor: route.name == "ClanBookmarks" ? itemProps.activeBackgroundColor : null
-                  }}
-                  icon="bookmark-outline"
-                  color={itemProps.inactiveTintColor}
-                  onPress={() => nav.reset({
-                    index: 1,
-                    routes: [
-                      { name: '__primary', params: { screen: "ClanBookmarks" } },
-                    ],
-                  })
-                  }
-                /> */}
-              </View>}
+                })}
+              />
+              <DrawerItem
+                {...itemProps}
+                icon="playlist-check"
+                label="Clan Requirements"
+                focused={route.name == "ClanRequirements"}
+                onPress={() => nav.reset({
+                  index: 1,
+                  routes: [
+                    { name: '__primary', params: { screen: "ClanRequirements", params: { year: new Date().getFullYear(), month: new Date().getMonth() + 1 } } },
+                  ],
+                })}
+              />
               {clanBookmarks?.slice?.(0, showMoreClan ? Infinity : clanBookmarks.length > 6 ? 5 : 6)?.filter?.(i => i)?.map?.(i => <DrawerItem
                 key={`clan_${i.clan_id}`}
                 {...itemProps}
@@ -480,9 +369,6 @@ export default function CustomDrawerContent(props) {
                 onPress={() => setShowMoreClan(!showMoreClan)}
               />}
               <Divider style={{ marginVertical: 4 }} />
-              {/* {!mini && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 8 }}>
-                <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", opacity: 0.8 }}>{t('common:tools')}</Text>
-              </View>} */}
               {pages.map?.(i => <DrawerItem
                 key={i.title}
                 {...itemProps}
@@ -499,9 +385,6 @@ export default function CustomDrawerContent(props) {
                 }
               />)}
               <Divider style={{ marginVertical: 4 }} />
-              {/* {!mini && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 8 }}>
-                <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", opacity: 0.8 }}>{t('common:more')}</Text>
-              </View>} */}
               {more.map?.(i => <DrawerItem
                 key={i.title}
                 {...itemProps}
@@ -568,7 +451,7 @@ export default function CustomDrawerContent(props) {
                 </View>
               </Menu>
             </View>}
-            {userDrawer && !userMini && <UserDrawerContent userDrawer={userDrawer} setUserDrawer={setUserDrawer} {...props} />}
+            {userDrawer && <UserDrawerContent userDrawer={userDrawer} setUserDrawer={setUserDrawer} {...props} />}
           </View>}
         </DrawerContentScrollView>
         {width > 1000 && <>
