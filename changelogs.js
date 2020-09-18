@@ -1404,4 +1404,11 @@ export default {
       description: 'Added Minnesota Iconic Location Munzee to CuppaZee\'s Munzee Types Database'
     },
   ],
+  277: [
+    {
+      image: 'universal_bash',
+      title: 'Added Support for Universal Munzees',
+      description: 'Replaced "Locationless" state with "Universal", and added the Universal Bash Munzee'
+    },
+  ],
 }

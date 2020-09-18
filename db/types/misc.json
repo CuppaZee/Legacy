@@ -32,7 +32,7 @@
     "name": "Social",
     "icon": "social",
     "id": 32,
-    "state": "locationless",
+    "state": "universal",
     "extra": {
       "social": true
     }
