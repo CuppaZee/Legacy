@@ -140,7 +140,7 @@ function DrawerNav() {
   var mini = useSelector(i => i.mini);
   return <Drawer.Navigator
     drawerPosition="left"
-    drawerStyle={{ width: width > 1000 ? (mini ? 48 : 256) : Math.min(320, width) }}
+    drawerStyle={{ width: width > 1000 ? (mini ? 48 : 280) : Math.min(320, width) }}
     drawerContent={props => <DrawerContent mini={width > 1000 ? mini : false} side="left" {...props} />}
     drawerType={(width > 1000 && loggedIn) ? "permanent" : "front"}
     edgeWidth={loggedIn ? 100 : 0}
@@ -271,7 +271,7 @@ function App() {
 }
 
 function ThemeWrapper() {
-  const paperTheme = useSelector(i => i.themes.blue);
+  const paperTheme = useSelector(i => i.themes.purple);
   // const paperTheme = {
   //   ...(theme.dark ? DarkTheme : DefaultTheme),
   //   dark: theme.dark,

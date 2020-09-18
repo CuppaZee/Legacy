@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Appbar, ProgressBar } from 'react-native-paper';
-import { View, Text } from 'react-native';
+import { Appbar, Text, useTheme, Provider as PaperProvider } from 'react-native-paper';
+import { View } from 'react-native';
 import LoadingButton, { LoadingBar } from './LoadingButton';
 import { useSelector } from 'react-redux';
 import { useDimensions } from '@react-native-community/hooks';
@@ -13,7 +13,6 @@ import getType from 'utils/db/types'
 
 function MHQTime() {
   var moment = useMoment();
-  var theme = useSelector(i => i.themes[i.theme]);
   var [now, setNow] = React.useState(moment().tz('America/Chicago'));
   var { width } = useDimensions().window;
   React.useEffect(() => {
@@ -23,8 +22,8 @@ function MHQTime() {
     return () => clearInterval(x);
   }, [])
   return <View style={{ alignSelf: "stretch", justifyContent: "center", alignItems: "center", paddingHorizontal: 8 }}>
-    <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 14, ...font("bold") }}>{now.format('DD/MM')}</Text>
-    <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 16, ...font("bold") }}>{now.format(width > 600 ? 'HH:mm:ss' : 'HH:mm')}</Text>
+    <Text allowFontScaling={false} style={{ fontSize: 14, ...font("bold") }}>{now.format('DD/MM')}</Text>
+    <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{now.format(width > 600 ? 'HH:mm:ss' : 'HH:mm')}</Text>
   </View>
 }
 
@@ -45,7 +44,7 @@ const weekNames = {
 export default function Header(props) {
   var { t } = useTranslation();
   var moment = useMoment();
-  var theme = useSelector(i => i.themes[i.theme]);
+  var theme = useTheme();
   var loggedIn = useSelector(i => i.loggedIn);
   var { width } = useDimensions().window;
   let params = props.scene?.route?.params || {};
@@ -92,34 +91,34 @@ export default function Header(props) {
     }
   }[clanData] || null);
   if (clanName) title = clanName;
-  return <View style={{ flex: 1 }}>
-    <Appbar.Header
-      statusBarHeight={0}
-      style={{
-        elevation: 0,
-        marginTop: props.insets.top,
-        paddingLeft: props.insets.left,
-        paddingRight: props.insets.right,
-      }}
-    >
-      {width <= 1000 && loggedIn && <Appbar.Action icon="menu" onPress={() => props.navigation.toggleDrawer()} />}
-      {!(props.route?.name == "Home" || props.navigation.dangerouslyGetState().index < 1) && <Appbar.BackAction
-        onPress={() => props.navigation.pop()}
-      />}
-      <Appbar.Content
-        titleStyle={{ ...font() }}
-        subtitleStyle={{ ...font() }}
-        title={t(title, params)}
-        subtitle={subtitle ? t(subtitle, params) : null}
-      />
-      <LoadingButton />
-      <MHQTime />
-      {/* <TouchableRipple onPress={()=>nav.navigate('Calendar')} style={{width:width>600?80:60,height:"100%"}}>
+  return <PaperProvider theme={theme.drawer}>
+    <View style={{ flex: 1 }}>
+      <Appbar.Header
+        statusBarHeight={0}
+        style={{
+          elevation: 0,
+          marginTop: props.insets.top,
+          paddingLeft: props.insets.left,
+          paddingRight: props.insets.right,
+        }}
+      >
+        {width <= 1000 && loggedIn && <Appbar.Action icon="menu" onPress={() => props.navigation.toggleDrawer()} />}
+        {!(props.route?.name == "Home" || props.navigation.dangerouslyGetState().index < 1) && <Appbar.BackAction
+          onPress={() => props.navigation.pop()}
+        />}
+        <Appbar.Content
+          title={t(title, params)}
+          subtitle={subtitle ? t(subtitle, params) : null}
+        />
+        <LoadingButton />
+        <MHQTime />
+        {/* <TouchableRipple onPress={()=>nav.navigate('Calendar')} style={{width:width>600?80:60,height:"100%"}}>
       <Tile header={true} theme={theme} date={now.format(width>600?'HH:mm:ss':'HH:mm')} extraText={now.format('DD/MM')} data={CalData?.[now.year()]?.[now.month()]?.[now.date()-1]??''} />
     </TouchableRipple> */}
 
-      {/* <Appbar.Action icon={()=><Image style={{height:36,width:36,marginTop:-6,marginLeft:-6}} source={{uri:'https://munzee.global.ssl.fastly.net/images/avatars/ua2p5m.png'}} />} onPress={()=>{}} /> */}
-    </Appbar.Header>
-    <LoadingBar />
-  </View>
+        {/* <Appbar.Action icon={()=><Image style={{height:36,width:36,marginTop:-6,marginLeft:-6}} source={{uri:'https://munzee.global.ssl.fastly.net/images/avatars/ua2p5m.png'}} />} onPress={()=>{}} /> */}
+      </Appbar.Header>
+      <LoadingBar />
+    </View>
+  </PaperProvider>
 }

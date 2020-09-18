@@ -1,38 +1,36 @@
+import { DefaultTheme as PaperTheme, DarkTheme as PaperThemeDark } from 'react-native-paper';
+import { DefaultTheme as NavTheme } from '@react-navigation/native';
+
 export default {
-  id: "purple",
-  name: "Purple",
-  error: {
-    bg: '#ffaaaa',
-    fg: '#000000'
+  ...PaperTheme,
+  mode: "adaptive",
+  colors: {
+    ...PaperTheme.colors,
+    primary: "#440169",
+    accent: "#600578",
+    text: "#000000",
+    surface: "#dcb8db",
+    background: "#c68ac4",
   },
-  navigation: {
-    bg: "#440169",
-    fg: "#ffffff"
-  },
-  navigation_selected: {
-    bg: "#600578",
-    fg: "#ffffff"
-  },
-  page: {
-    bg: "#c68ac4",
-    fg: "#000000"
-  },
-  page_content: {
-    bg: "#dcb8db",
-    fg: "#000000"
-  },
-  activity: {
-    capture: {
-      bg: "#aaffaa",
-      fg: "#004400"
-    },
-    deploy: {
-      bg: "#a5fffc",
-      fg: "#00403e"
-    },
-    capon: {
-      bg: "#ffbcad",
-      fg: "#401700"
+  nav: {
+    ...NavTheme,
+    colors: {
+      ...NavTheme.colors,
+      background: "#c68ac4",
+      card: "#b3ebf6",
+      text: "#000000"
     }
+  },
+  drawer: {
+    ...PaperThemeDark,
+    mode: "adaptive",
+    colors: {
+      ...PaperThemeDark.colors,
+      primary: "#440169",
+      accent: "#600578",
+      text: "#ffffff",
+      surface: "#440169",
+      background: "#440169",
+    },
   }
-};
+}

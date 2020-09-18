@@ -15,7 +15,7 @@ function whiteOrBlack(bgColor) {
 }
 function a(x,d) {
   if(d) return {
-    bg: d,
+    bg: null,
     fg: x
   }
   return {
@@ -25,13 +25,14 @@ function a(x,d) {
 }
 import { useSelector } from 'react-redux';
 import stringify from 'fast-json-stable-stringify';
+import { useTheme } from 'react-native-paper';
 
 
 
 export default function useLevelColours() {
-  var theme = useSelector(i=>i.themes[i.theme]);
+  var theme = useTheme();
   var settings = useSelector(i=>i.settings)||{};
-  var d = (settings.alt_clan_design ? !theme.dark : theme.dark)?theme.page_content.bg:false
+  var d = (settings.alt_clan_design ? !theme.dark : theme.dark)
   var levelColours = {
     ind: a(settings.clan_level_ind,d),
     bot: a(settings.clan_level_bot,d),
