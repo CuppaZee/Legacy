@@ -17,7 +17,7 @@ const stateNames = {
   physical: "Physical",
   virtual: "Virtual",
   bouncer: "Bouncer",
-  locationless: "Locationless",
+  universal: "Universal",
   "N/A": "N/A"
 }
 

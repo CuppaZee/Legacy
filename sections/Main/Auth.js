@@ -8,10 +8,19 @@ import s from 'utils/store';
 import Oconfig from 'sections/Shared/Config';
 import { useTranslation } from "react-i18next";
 import FROM from 'from';
-var config = {
+var config_main = {
   redirect_uri: 'https://server.cuppazee.app/auth/auth/v1',
   client_id: '91714935879f433364bff187bda66183'
 }
+var config_team = {
+  client_id: "c983d59354542f8d15e11924ed61bae6",
+  redirect_uri: "https://server.cuppazee.app/auth/auth/team/v1"
+}
+var config_universal = {
+  client_id: "64f148f57d1d7c62e44a90e5f3661432",
+  redirect_uri: "https://server.cuppazee.app/auth/auth/universal/v1"
+}
+var config = config_main;
 const {login,userBookmarks: userBookmarksR} = s;
 
 export default function AuthScreen () {

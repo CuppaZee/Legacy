@@ -815,6 +815,28 @@ categories.push({
   parents: ["other"]
 })
 
+console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Universals${colors.Reset} from ${colors.fg.Green}./types/universal.json${colors.Reset}`)
+munzees = munzees.concat(require('./types/universal.json').map(i => ({
+  name: i.name,
+  icon: i.icon,
+  id: i.id,
+  ...(i.extra || {}),
+
+  state: "universal",
+  category: "universal",
+  points: i.points,
+
+  completion: "complete",
+  hidden: i.hidden,
+  from_file: "./types/universal.json"
+})))
+categories.push({
+  name: "Universals",
+  id: "universal",
+  icon: "universal_bash",
+  parents: ["root"]
+})
+
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Seasonals${colors.Reset} from ${colors.fg.Green}./types/seasonals/*.js${colors.Reset}`)
 categories = categories.concat(require('./types/seasonals').map(c => {
   munzees = munzees.concat((c.scatters || []).map(i => ({

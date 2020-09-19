@@ -381,6 +381,14 @@
     ]
   },
   {
+    "name": "Universals",
+    "id": "universal",
+    "icon": "universal_bash",
+    "parents": [
+      "root"
+    ]
+  },
+  {
     "name": "20/20 Vision",
     "id": "vision2020",
     "icon": "spectacularspectacles2020vision",
