@@ -84,7 +84,7 @@ function UserDrawerContent({ userDrawer, setUserDrawer, ...props }) {
   var { t } = useTranslation();
   var route = useSelector(i => i.route);
   var nav = props.navigation;
-  var [userMini] = useSetting('mini_drawer', false);
+  var userMini = props.mini;
   const { data, status } = useAPIRequestWithoutNav({
     endpoint: 'user',
     data: { username: userDrawer.username }
@@ -96,6 +96,7 @@ function UserDrawerContent({ userDrawer, setUserDrawer, ...props }) {
     { title: t(`user:your_bouncers`), icon: "star", page: "UserBouncers" },
     { title: t(`user:blast_checker`), icon: "bomb", page: "UserBlastMap" },
     { title: t(`user:qrew_checker`), icon: "hammer", page: "UserQRew" },
+    { title: t(`user:universal_capper`), icon: "earth", page: "UserUniversal" },
     { title: t(`user:clan_progress`), icon: "shield-half-full", page: "UserClan", hide: status === "loading" || data?.clan },
   ].filter(i => !i.hide)
   var userChallenges = [
@@ -215,7 +216,7 @@ export default function CustomDrawerContent(props) {
   var [search, query, setSearch] = useSearch(300);
 
   React.useEffect(() => setUserDrawer(true), [route.params?.username]);
-  React.useEffect(() => props.updateUserDrawer(userDrawer), [userDrawer]);
+  React.useEffect(() => props.updateUserDrawer(userDrawer), [userDrawer?.username]);
 
   var top = [
     { title: t(`common:weekly_challenge`), icon: "calendar", page: "WeeklyWeeks" },
