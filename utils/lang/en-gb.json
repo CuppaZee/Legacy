@@ -414,6 +414,7 @@
         "type_points": "{min} - {max} (Avg. {avg}) Points"
     },
     "error": {
+        "cuppazee_503": "Sorry, this feature is temporarily disabled. Check back later.",
         "cuppazee_5xx": "Oops, CuppaZee's servers responsed with an error. Try again later.",
         "cuppazee_404": "Oops, CuppaZee's servers couldn't figure out what you wanted. Try again later.",
         "cuppazee_generic": "Oops, something went wrong when requesting data from CuppaZee's servers. Try again later.",

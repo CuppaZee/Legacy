@@ -1445,5 +1445,12 @@ export default {
       title: 'Updated Universal Capper',
       description: 'Added Counter to show how many Universals you have left to capture, and added a button to report invalid Universals.'
     },
+  ],
+  283: [
+    {
+      icon: 'alert',
+      title: 'Improved Error Messaging',
+      description: 'CuppaZee now shows better error messages in certain cases.'
+    },
   ]
 }

@@ -94,6 +94,8 @@ async function makeRequest(getState, dispatch, pageInput, force) {
         if(page.cuppazee) {
           if(status === 200) {
             responseStatus = null;
+          } else if(status === 503) {
+            responseStatus = "cuppazee_503";
           } else if(Math.floor(status/100) === 5 && data?.error_message) {
             responseStatus = data?.error_message;
           } else if(Math.floor(status/100) === 5) {
