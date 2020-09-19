@@ -7,7 +7,7 @@ const cors = require("cors")({
 });
 
 function checkFrom(from,route) {
-  if(route==="auth/auth") {
+  if((route||"").includes("auth/auth")) {
     return true;
   } else if(route.includes("minute")) {
     return true;

@@ -1411,4 +1411,39 @@ export default {
       description: 'Replaced "Locationless" state with "Universal", and added the Universal Bash Munzee'
     },
   ],
+  278: [
+    {
+      image: 'universal_bash',
+      title: 'Added Universal Capper',
+      description: 'An easy way to find and capture other people\'s Universal Munzees, or share your own!'
+    },
+  ],
+  279: [
+    {
+      icon: 'bug',
+      title: 'Fixed a Bug',
+      description: 'QR Codes should now correctly display on all browsers and platforms.'
+    },
+  ],
+  280: [
+    {
+      image: 'universal_bash',
+      title: 'Updated Universal Capper',
+      description: 'QR Codes now generate faster and it now shows what type the Universal is!'
+    },
+  ],
+  281: [
+    {
+      icon: 'run-fast',
+      title: 'Updated Universal Capper',
+      description: 'No need to press Next! CuppaZee now automatically goes to the next QR Code once you\'ve captured the munzee!'
+    },
+  ],
+  282: [
+    {
+      icon: 'earth',
+      title: 'Updated Universal Capper',
+      description: 'Added Counter to show how many Universals you have left to capture, and added a button to report invalid Universals.'
+    },
+  ]
 }

@@ -7,9 +7,9 @@ var Clan = {
     icon: "https://i.ibb.co/K5ZmXqc/Total-1.png",
     total: "min",
     meta: {
-      activity: ["capture","deploy"],
+      activity: ["capture", "deploy"],
       days: true,
-      exclude: i=>["personalmunzee","premiumpersonal","social"].includes(i.icon),
+      exclude: i => (["personalmunzee", "premiumpersonal", "social"].includes(i.icon) || i.category === "universal"),
     }
   },
   2: {
@@ -27,7 +27,7 @@ var Clan = {
     bottom: "Points",
     icon: "https://i.ibb.co/K5ZmXqc/Total-1.png",
     meta: {
-      activity: ["capture","deploy","capon"],
+      activity: ["capture", "deploy", "capon"],
       points: true
     },
     hidden: ["u89"]
@@ -40,7 +40,7 @@ var Clan = {
     meta: {
       activity: ["deploy"],
       points: true,
-      exclude: i=>["personalmunzee","premiumpersonal"].includes(i.icon),
+      exclude: i => ["personalmunzee", "premiumpersonal"].includes(i.icon),
     }
   },
   7: {
@@ -53,10 +53,10 @@ var Clan = {
       "https://munzee.global.ssl.fastly.net/images/pins/virtualresort.png"
     ],
     meta: {
-      activity: ["capture","deploy","capon"],
+      activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i=>i.destination,
-      exclude: i=>i.icon==="skyland",
+      types: i => i.destination,
+      exclude: i => i.icon === "skyland",
     }
   },
   10: {
@@ -67,7 +67,7 @@ var Clan = {
     meta: {
       activity: ["deploy"],
       points: true,
-      exclude: i=>["personalmunzee","premiumpersonal"].includes(i.icon),
+      exclude: i => ["personalmunzee", "premiumpersonal"].includes(i.icon),
     }
   },
   12: {
@@ -80,9 +80,9 @@ var Clan = {
       "https://munzee.global.ssl.fastly.net/images/pins/evolution_filter_physical.png"
     ],
     meta: {
-      activity: ["capture","deploy","capon"],
+      activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i=>i.evolution
+      types: i => i.evolution
     }
   },
   13: {
@@ -92,7 +92,7 @@ var Clan = {
     icon: "https://munzee.global.ssl.fastly.net/images/pins/poi_filter.png",
     meta: {
       activity: ["capture"],
-      types: i=>i.category=="poi"
+      types: i => i.category == "poi"
     }
   },
   14: {
@@ -105,8 +105,8 @@ var Clan = {
       "https://munzee.global.ssl.fastly.net/images/pins/virtualonyx.png"
     ],
     meta: {
-      activity: ["capture","deploy"],
-      types: i=>i.category=="jewel"
+      activity: ["capture", "deploy"],
+      types: i => i.category == "jewel"
     }
   },
   17: {
@@ -119,8 +119,8 @@ var Clan = {
       "https://munzee.global.ssl.fastly.net/images/pins/evolution_filter_physical.png"
     ],
     meta: {
-      activity: ["capture","deploy"],
-      types: i=>i.evolution
+      activity: ["capture", "deploy"],
+      types: i => i.evolution
     }
   },
   19: {
@@ -133,9 +133,9 @@ var Clan = {
       "https://munzee.global.ssl.fastly.net/images/pins/virtual_citrine.png"
     ],
     meta: {
-      activity: ["capture","deploy","capon"],
+      activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i=>i.category=="jewel"
+      types: i => i.category == "jewel"
     }
   },
   20: {
@@ -149,7 +149,7 @@ var Clan = {
     ],
     meta: {
       activity: ["deploy"],
-      types: i=>i.weapon=="clan"
+      types: i => i.weapon == "clan"
     }
   },
   23: {
@@ -162,9 +162,9 @@ var Clan = {
       "https://munzee.global.ssl.fastly.net/images/pins/catapult.png"
     ],
     meta: {
-      activity: ["capture","deploy","capon"],
+      activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i=>i.weapon=="clan"
+      types: i => i.weapon == "clan"
     }
   },
   24: {
@@ -180,7 +180,7 @@ var Clan = {
     ],
     meta: {
       activity: ["capture"],
-      types: i=>i.bouncer
+      types: i => i.bouncer
     }
   },
   25: {
@@ -193,8 +193,8 @@ var Clan = {
       "https://munzee.global.ssl.fastly.net/images/pins/airmystery.png"
     ],
     meta: {
-      activity: ["capture","deploy"],
-      types: i=>i.category==="mystery"
+      activity: ["capture", "deploy"],
+      types: i => i.category === "mystery"
     }
   },
   26: {
@@ -207,8 +207,8 @@ var Clan = {
       "https://munzee.global.ssl.fastly.net/images/pins/crossbow.png"
     ],
     meta: {
-      activity: ["capture","deploy"],
-      types: i=>i.weapon=="clan"
+      activity: ["capture", "deploy"],
+      types: i => i.weapon == "clan"
     }
   },
   28: {
@@ -221,9 +221,9 @@ var Clan = {
       "https://munzee.global.ssl.fastly.net/images/pins/flatlou.png"
     ],
     meta: {
-      activity: ["capture","deploy","capon"],
+      activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i=>i.category=="flat"&&!i.unique
+      types: i => i.category == "flat" && !i.unique
     }
   },
   31: {
@@ -237,9 +237,9 @@ var Clan = {
       "https://munzee.global.ssl.fastly.net/images/pins/urbanfit.png"
     ],
     meta: {
-      activity: ["capture","deploy","capon"],
+      activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i=>i.gaming
+      types: i => i.gaming
     }
   },
   32: {
@@ -253,8 +253,8 @@ var Clan = {
       "https://munzee.global.ssl.fastly.net/images/pins/urbanfit.png"
     ],
     meta: {
-      activity: ["capture","deploy"],
-      types: i=>i.gaming
+      activity: ["capture", "deploy"],
+      types: i => i.gaming
     }
   },
   33: {
@@ -268,7 +268,7 @@ var Clan = {
     ],
     meta: {
       activity: ["capture"],
-      types: i=>i.icon=="renovation"
+      types: i => i.icon == "renovation"
     }
   },
   34: {
@@ -277,9 +277,9 @@ var Clan = {
     bottom: "Points",
     icon: "https://i.ibb.co/YdRQ3Sf/Split-Mystery.png",
     meta: {
-      activity: ["capture","deploy","capon"],
+      activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i=>i.category=="mystery"
+      types: i => i.category == "mystery"
     }
   },
   35: {
@@ -289,7 +289,7 @@ var Clan = {
     icon: "https://munzee.global.ssl.fastly.net/images/pins/qrewzee.png",
     meta: {
       activity: ["capture"],
-      types: i=>i.icon=="qrewzee"
+      types: i => i.icon == "qrewzee"
     }
   }
 }
@@ -307,7 +307,7 @@ export function ClanRequirementsConverter(req, rewards) {
   }
   output.levels = [];
   output.requirements = {};
-  for (let level of Object.keys(req?.data?.levels??{}).slice(0,5)) {
+  for (let level of Object.keys(req?.data?.levels ?? {}).slice(0, 5)) {
     let level_d = req?.data?.levels?.[level];
     let level_data = {
       individual: {},
@@ -325,14 +325,14 @@ export function ClanRequirementsConverter(req, rewards) {
           top: rd.top ?? requirement.name.split(' ')[0],
           bottom: rd.bottom ?? requirement.name.split(' ').slice(1).join(' ').replace('Cap/Deploys', 'Activity'),
           description: requirement.description,
-          icon: `https://server.cuppazee.app/requirements/${requirement.task_id}.png?cache=${Math.floor(Date.now()/3600000)}` ?? rd.icon ?? requirement.logo,
+          icon: `https://server.cuppazee.app/requirements/${requirement.task_id}.png?cache=${Math.floor(Date.now() / 3600000)}` ?? rd.icon ?? requirement.logo,
           meta: rd.meta
         }
       }
       if (requirement.individual && !Clan[requirement.task_id]?.hidden?.includes(`u${req?.battle?.game_id}`)) {
         individual[requirement.task_id] = 1;
         level_data["individual"][requirement.task_id] = requirement.amount;
-      } else if(!requirement.individual && !Clan[requirement.task_id]?.hidden?.includes(`g${req?.battle?.game_id}`)) {
+      } else if (!requirement.individual && !Clan[requirement.task_id]?.hidden?.includes(`g${req?.battle?.game_id}`)) {
         group[requirement.task_id] = 1;
         level_data["group"][requirement.task_id] = requirement.amount;
       }
@@ -362,13 +362,13 @@ export function ClanRequirementsConverter(req, rewards) {
 }
 
 export function ClanStatsConverter(clan, stats, shadow) {
-  if(!stats||!clan||(clan.shadow&&!shadow)) {
+  if (!stats || !clan || (clan.shadow && !shadow)) {
     return;
   }
   var data = {
     details: {
       clan_id: clan?.details?.clan_id,
-      name: shadow?.details?.name??clan?.details?.name,
+      name: shadow?.details?.name ?? clan?.details?.name,
       simple_name: clan?.details?.simple_name,
       tagline: clan?.details?.tagline,
       creator: clan?.details?.creator_user_id,
@@ -379,7 +379,7 @@ export function ClanStatsConverter(clan, stats, shadow) {
       shadow: shadow?.details
     },
     members: [
-      ...(shadow?.members||[]).filter(i=>!(clan?.users||[]).find(x=>x.user_id==i)).map(i=>{
+      ...(shadow?.members || []).filter(i => !(clan?.users || []).find(x => x.user_id == i)).map(i => {
         return {
           username: shadow?.usernames?.[i],
           user_id: Number(i),
@@ -387,27 +387,27 @@ export function ClanStatsConverter(clan, stats, shadow) {
           leader: false
         }
       }),
-      ...(clan?.users||[]).map(i=>{
+      ...(clan?.users || []).map(i => {
         return {
           username: i.username,
           user_id: Number(i.user_id),
           ghost: false,
-          leader: i.is_admin=="1"
+          leader: i.is_admin == "1"
         }
       }),
     ],
     requirements: {}
   }
-  for(var requirement of [...stats?.data?.levels?.[5]?.individual,...stats?.data?.levels?.[5]?.group]) {
+  for (var requirement of [...stats?.data?.levels?.[5]?.individual, ...stats?.data?.levels?.[5]?.group]) {
     data.requirements[requirement.task_id] = {
       users: {
-        ...(shadow?.data?.[requirement.task_id]||{}),
-        ...(clan.shadow?{}:requirement.data)
+        ...(shadow?.data?.[requirement.task_id] || {}),
+        ...(clan.shadow ? {} : requirement.data)
       },
       total: Object.values({
-        ...(shadow?.data?.[requirement.task_id]||{}),
-        ...(clan.shadow?{}:requirement.data)
-      }).reduce(Clan[requirement.task_id].total=="min"?(a,b)=>Math.min(a,b):(a,b)=>a+b,Clan[requirement.task_id].total=="min"?Infinity:0),
+        ...(shadow?.data?.[requirement.task_id] || {}),
+        ...(clan.shadow ? {} : requirement.data)
+      }).reduce(Clan[requirement.task_id].total == "min" ? (a, b) => Math.min(a, b) : (a, b) => a + b, Clan[requirement.task_id].total == "min" ? Infinity : 0),
       task_id: requirement.task_id
     }
   }
@@ -415,7 +415,7 @@ export function ClanStatsConverter(clan, stats, shadow) {
 }
 export function dateFromGameID(game_id) {
   var gid = game_id + 24158;
-  var year = Math.floor(gid/12);
-  var month = gid%12;
-  return {year,month};
+  var year = Math.floor(gid / 12);
+  var month = gid % 12;
+  return { year, month };
 }

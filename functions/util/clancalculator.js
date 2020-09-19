@@ -13,7 +13,7 @@ var tasks = {
     bottom: "Activity",
     icon: "https://i.ibb.co/K5ZmXqc/Total-1.png",
     total: "min",
-    function: ({ cap, dep }) => [...cap, ...dep].filter(i => !g(i).personal).reduce((a, b) => {
+    function: ({ cap, dep }) => [...cap, ...dep].filter(i => !g(i).personal && g(i).category !== "universal").reduce((a, b) => {
       a[(b.captured_at || b.deployed_at).slice(8, 10)] = true;
       return a;
     }, {})

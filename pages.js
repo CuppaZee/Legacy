@@ -152,6 +152,16 @@ export default [
     }
   },
   {
+    name: "UserUniversal",
+    import: () => import('sections/User/Universal'),
+    path: {
+      path: "user/:username/universal",
+      parse: {
+        username: String,
+      }
+    }
+  },
+  {
     name: "UserInventory",
     import: () => import('sections/User/Inventory/Page'),
     path: {
