@@ -32655,8 +32655,8 @@
     "i": "timeshare"
   },
   {
-    "name": "Time Share",
-    "icon": "timeshare",
+    "name": "Time Share Room",
+    "icon": "timeshareroom",
     "id": 971,
     "destination": {
       "type": "room",
@@ -32667,7 +32667,7 @@
     "state": "physical",
     "category": "destination",
     "x": 1396,
-    "i": "timeshare"
+    "i": "timeshareroom"
   },
   {
     "name": "AL - A Catfish Easter",

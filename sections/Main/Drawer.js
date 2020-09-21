@@ -60,7 +60,7 @@ export default function CustomDrawerContent(props) {
     { title: t(`common:munzee_types`), icon: "database", page: "DBSearch" },
     { title: t(`common:calendar`), icon: "calendar", page: "Calendar" },
     { title: t(`common:evo_planner`), icon: "dna", page: "EvoPlanner" },
-    { title: t(`common:scanner`), icon: "qrcode", page: "Scanner", hide: Platform.OS === "web" },
+    // { title: t(`common:scanner`), icon: "qrcode", page: "Scanner", hide: Platform.OS === "web" },
     { title: "Bookmark Manager", icon:"bookmark", page:"Bookmarks" },
   ].filter(i => !i.hide)
   var more = [

@@ -1452,5 +1452,17 @@ export default {
       title: 'Improved Error Messaging',
       description: 'CuppaZee now shows better error messages in certain cases.'
     },
-  ]
+  ],
+  284: [
+    {
+      icon: 'earth',
+      title: 'Updated Universal/Social Capper',
+      description: 'Better support for socials, improved report button, more Munzee Details.'
+    },
+    {
+      icon: 'heart',
+      title: 'Updated Credits (Sorry for the delay)',
+      description: 'Added HtV, jnorval, Aniara, poppejoppe, dreiengel, Norballe, reej, G1Enter, joroma80 and Megachip to Credits'
+    },
+  ],
 }
