@@ -60,7 +60,7 @@
   },
   {
     "name": "Time Share Room",
-    "icon": "timeshare",
+    "icon": "timeshareroom",
     "id": 971,
     "room_of": 970,
     "temp": true,
