@@ -59,8 +59,8 @@
     "state": "physical"
   },
   {
-    "name": "Time Share",
-    "icon": "timeshare",
+    "name": "Time Share Room",
+    "icon": "timeshareroom",
     "id": 971,
     "room_of": 970,
     "temp": true,
