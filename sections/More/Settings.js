@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Text, View, Platform, Image, AsyncStorage, ScrollView } from 'react-native';
+import { Text, View, Platform, Image, ScrollView } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { Button, TextInput, Switch } from 'react-native-paper';
 import { Dropdown, DropdownItem } from './Dropdown';
 import { useDimensions } from '@react-native-community/hooks'

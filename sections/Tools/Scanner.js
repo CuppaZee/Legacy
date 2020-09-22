@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TouchableOpacity, Button, Vibration, Image } from 'react-native';
+import { Text, View, TouchableOpacity, Button, Vibration, Image, Platform } from 'react-native';
 import * as WebBrowser from 'expo-web-browser';
 import { Camera } from 'expo-camera';
+import * as Permissions from 'expo-permissions';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { IconButton } from 'react-native-paper';
-import Slider from 'react-native-slider';
+import Slider from './Slider';
 import font from 'sections/Shared/font';
 import useAPIRequest from 'utils/hooks/useAPIRequest';
 import { useNavigation } from '@react-navigation/native';
@@ -22,7 +23,8 @@ export default function App() {
   const [type, setType] = useState(Camera.Constants.Type.back);
   useEffect(() => {
     (async () => {
-      const { status } = await Camera.requestPermissionsAsync();
+      const { status } = await Permissions.askAsync(Permissions.CAMERA)
+      // const { status } = await Camera.requestPermissionsAsync();
       setHasPermission(status === 'granted');
     })();
   }, []);
@@ -32,7 +34,7 @@ export default function App() {
     data: {barcode: i}
   })));
   if (hasPermission === null) {
-    return <View />;
+    return <Text>waiting</Text>;
   }
   if (hasPermission === false) {
     return <Text>No access to camera</Text>;
@@ -41,6 +43,7 @@ export default function App() {
     <View style={{ flex: 1 }}>
       {scanned&&<View>
         <Button title={t('scanner:scan_new')} onPress={()=>setScanned(false)} />
+        <Text>{JSON.stringify(data)}</Text>
         {list.slice().reverse().map((i,index)=>data[index]?.valid?<TouchableOpacity style={{borderBottomWidth: 1}} onPress={()=>{
             if(data[index].munzee) {
               WebBrowser.openBrowserAsync(i)
@@ -71,6 +74,7 @@ export default function App() {
         style={{ flex: 1 }}
         zoom={zoom}
         type={type}
+        focusDepth={1}
         flashMode={flash?Camera.Constants.FlashMode.torch:Camera.Constants.FlashMode.off}
         barCodeScannerSettings={{
           barCodeTypes: [BarCodeScanner.Constants.BarCodeType.qr],
@@ -104,11 +108,11 @@ export default function App() {
                     : Camera.Constants.Type.back
                 )}
               />
-              <Slider
+              {Platform.OS !== "web" && <Slider
                 style={{flex:1,marginHorizontal:8}}
                 color="#016930"
                 value={zoom}
-                onValueChange={(value) => setZoom(value)} />
+                onValueChange={(value) => setZoom(value)} />}
               <IconButton
                 disabled={type === Camera.Constants.Type.front}
                 style={{backgroundColor:"white"}}

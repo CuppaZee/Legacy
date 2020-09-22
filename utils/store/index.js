@@ -2,7 +2,8 @@ import allSettled from '@ungap/promise-all-settled'
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import r from './request';
-import { AsyncStorage, AppState } from 'react-native';
+import { AppState } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import stringify from 'fast-json-stable-stringify';
 import themes from 'utils/themes'
 import changelogs from 'changelogs'

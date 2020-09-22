@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import categories from 'utils/db/categories.json'
 import getType from 'utils/db/types'
 
-function MHQTime() {
+function MHQTime({theme}) {
   var moment = useMoment();
   var [now, setNow] = React.useState(moment().tz('America/Chicago'));
   var { width } = useDimensions().window;
@@ -22,8 +22,8 @@ function MHQTime() {
     return () => clearInterval(x);
   }, [])
   return <View style={{ alignSelf: "stretch", justifyContent: "center", alignItems: "center", paddingHorizontal: 8 }}>
-    <Text allowFontScaling={false} style={{ fontSize: 14, ...font("bold") }}>{now.format('DD/MM')}</Text>
-    <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{now.format(width > 600 ? 'HH:mm:ss' : 'HH:mm')}</Text>
+    <Text theme={theme} allowFontScaling={false} style={{ fontSize: 14, ...font("bold") }}>{now.format('DD/MM')}</Text>
+    <Text theme={theme} allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{now.format(width > 600 ? 'HH:mm:ss' : 'HH:mm')}</Text>
   </View>
 }
 
@@ -91,34 +91,30 @@ export default function Header(props) {
     }
   }[clanData] || null);
   if (clanName) title = clanName;
-  return <PaperProvider theme={theme.drawer}>
-    <View style={{ flex: 1 }}>
-      <Appbar.Header
-        statusBarHeight={0}
-        style={{
-          elevation: 0,
-          marginTop: props.insets.top,
-          paddingLeft: props.insets.left,
-          paddingRight: props.insets.right,
-        }}
-      >
-        {width <= 1000 && loggedIn && <Appbar.Action icon="menu" onPress={() => props.navigation.toggleDrawer()} />}
-        {!(props.route?.name == "Home" || props.navigation.dangerouslyGetState().index < 1) && <Appbar.BackAction
+  React.useEffect(()=>{
+    props.navigation.setOptions({
+      title: subtitle ? `${t(title, params)} - ${t(subtitle, params)} - CuppaZee` : `${t(title, params)} - CuppaZee`
+    })
+  }, [title,subtitle]);
+  return <View>
+      <Appbar.Header theme={theme.drawer}>
+        {width <= 1000 && loggedIn && <Appbar.Action theme={theme.drawer} icon="menu" onPress={() => props.navigation.toggleDrawer()} />}
+        {!(props.route?.name == "Home" || props.navigation.dangerouslyGetState().index < 1) && <Appbar.BackAction theme={theme.drawer}
           onPress={() => props.navigation.pop()}
         />}
-        <Appbar.Content
+        <Appbar.Content theme={theme.drawer}
           title={t(title, params)}
           subtitle={subtitle ? t(subtitle, params) : null}
         />
-        <LoadingButton />
-        <MHQTime />
+        <LoadingButton theme={theme.drawer} />
+        <MHQTime theme={theme.drawer} />
         {/* <TouchableRipple onPress={()=>nav.navigate('Calendar')} style={{width:width>600?80:60,height:"100%"}}>
       <Tile header={true} theme={theme} date={now.format(width>600?'HH:mm:ss':'HH:mm')} extraText={now.format('DD/MM')} data={CalData?.[now.year()]?.[now.month()]?.[now.date()-1]??''} />
     </TouchableRipple> */}
 
         {/* <Appbar.Action icon={()=><Image style={{height:36,width:36,marginTop:-6,marginLeft:-6}} source={{uri:'https://munzee.global.ssl.fastly.net/images/avatars/ua2p5m.png'}} />} onPress={()=>{}} /> */}
       </Appbar.Header>
-      <LoadingBar />
-    </View>
-  </PaperProvider>
+      <LoadingBar theme={theme.drawer} />
+  </View>
+  {/* </PaperProvider> */}
 }

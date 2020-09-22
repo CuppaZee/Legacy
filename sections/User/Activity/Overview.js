@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Text, View, Image } from 'react-native';
-import { Menu, TouchableRipple, Button } from 'react-native-paper';
+import { View, Image } from 'react-native';
+import { Menu, TouchableRipple, Button, Text } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -49,7 +49,6 @@ var hostIcon = (icon) => {
 
 function OverviewItem({ i, total }) {
   var small = total > 25;
-  var theme = useSelector(i => i.themes[i.theme]);
   var [open, setOpen] = React.useState(false);
   var nav = useNavigation();
   var { t } = useTranslation();
@@ -60,24 +59,21 @@ function OverviewItem({ i, total }) {
       <TouchableRipple onPress={() => setOpen(true)}>
         <View key={i.icon} style={{ padding: 2, alignItems: "center" }}>
           <Image style={{ height: small ? 24 : 32, width: small ? 24 : 32 }} source={getIcon(i[0])} />
-          <Text allowFontScaling={false} style={{ color: theme.page_content.fg, ...font(), fontSize: 12 }}>{i[1].total}</Text>
+          <Text style={{ fontSize: 12 }}>{i[1].total}</Text>
           {hostIcon(i[0]) && <Image style={{ height: small ? 16 : 24, width: small ? 16 : 24, position: "absolute", right: small ? -3 : -5, bottom: small ? 18 : 15 }} source={hostIcon(i[0])} />}
         </View>
       </TouchableRipple>
     }
-    style={{ marginTop: 61 }}
-    contentStyle={{ backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border ? 1 : 0, borderColor: theme.page_content.border }}
   >
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
       <View>
         <Image style={{ height: 48, width: 48 }} source={getIcon(i[0])} />
         {hostIcon(i[0]) && <Image style={{ height: 36, width: 36, position: "absolute", right: -7.5, bottom: -7.5 }} source={hostIcon(i[0])} />}
       </View>
-      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{i[1].total}x {(getType(i[0]) || { name: i[0].slice(49, -4) }).name}</Text>
-      <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font("bold") }}>{t('activity:point', { count: i[1].points })}</Text>
+      <Text style={{ fontSize: 16, fontWeight: "bold" }}>{i[1].total}x {(getType(i[0]) || { name: i[0].slice(49, -4) }).name}</Text>
+      <Text style={{ fontSize: 16, fontWeight: "bold" }}>{t('activity:point', { count: i[1].points })}</Text>
       <Button
         mode="contained"
-        style={{ backgroundColor: theme.navigation.bg }}
         onPress={() => { setOpen(false); nav.push('DBType', { munzee: i[0].slice(49, -4) }) }}>
         {t('db:type_info')}
       </Button>

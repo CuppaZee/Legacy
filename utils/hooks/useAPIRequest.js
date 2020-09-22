@@ -43,7 +43,7 @@ export default function useAPIRequest (reqData, includeStatus) {
       i++;
     }
     setData(d);
-  },[...raw_data.map(i=>i?.id),...reqData.map(i=>stringify(i?.extraData))])
+  },[[...raw_data.map(i=>i?.id),...reqData.map(i=>stringify(i?.extraData))].join(',')])
 
   if(includeStatus) {
     // If Input is not array, return first element of Array
@@ -109,7 +109,7 @@ export function useAPIRequestWithoutNav (reqData, includeStatus) {
       i++;
     }
     setData(d);
-  },[...raw_data.map(i=>i?.id),...reqData.map(i=>stringify(i?.extraData))])
+  },[[...raw_data.map(i=>i?.id),...reqData.map(i=>stringify(i?.extraData))].join(',')])
 
   if(includeStatus) {
     // If Input is not array, return first element of Array

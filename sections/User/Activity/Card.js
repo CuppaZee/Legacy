@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Text, View, ActivityIndicator, Image } from 'react-native';
+import { View, ActivityIndicator, Image } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { TouchableRipple } from 'react-native-paper';
+import { TouchableRipple, Surface, Text } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -27,7 +27,7 @@ export default function UserActivityDash({ user_id, username, displayUsername })
     cuppazee: true
   }, true)
   return (
-    <Card noPad>
+    <Surface>
       <TouchableRipple onPress={displayUsername ? () => nav.navigate('UserDetails', { username: username }) : () => nav.navigate('UserActivity', { username: username })}>
         <View style={{ ...(theme.page_content.border ? { borderBottomWidth: 1, borderBottomColor: theme.page_content.border } : {}), backgroundColor: (theme.clanCardHeader || theme.navigation).bg, padding: 8, borderTopLeftRadius: 8, borderTopRightRadius: 8, flexDirection: "row", alignItems: "center" }}>
           {displayUsername ?
@@ -45,6 +45,6 @@ export default function UserActivityDash({ user_id, username, displayUsername })
             <MaterialCommunityIcons name="alert" color={theme.page.fg} size={48} />
             <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), textAlign: "center", color: theme.page_content.fg }}>{t('error:' + status)}</Text>
           </View>)}
-    </Card>
+    </Surface>
   );
 }

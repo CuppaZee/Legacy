@@ -104,11 +104,16 @@ function StackNav() {
   const loggedIn = useSelector(i => i.loggedIn);
   return <Stack.Navigator
     screenOptions={({ navigation, route }) => ({
-      gestureEnabled: Platform.OS == 'ios',
+      // gestureEnabled: Platform.OS == 'ios',
       // animationEnabled: false,
+      // headerShown: true,
       header: (props) => <Header {...(props || {})} />,
+      // headerStyle: {
+      //   height: 80, // Specify the height of your custom header
+      // }
 
-    })}>
+    })}
+  >
     {loggedIn && <>
       <Stack.Screen
         name="_redirect"
@@ -150,6 +155,9 @@ function DrawerNav() {
     <Drawer.Screen
       name="__primary"
       label="__primary"
+      options={{
+        title: "CuppaZee",
+      }}
       component={StackNav}
     />
   </Drawer.Navigator>
@@ -263,41 +271,17 @@ function App() {
   var navWidth = 400;
   return (
     <NavigationContainer theme={paperTheme.nav} independent={true} onStateChange={handleStateChange} initialState={initialState} ref={ref}>
-      <StatusBar translucent={true} backgroundColor={theme.navigation.bg + 'cc'} barStyle="light-content" />
-      <View style={{ flex: 1 }}>
+      {/* <StatusBar backgroundColor={paperTheme.nav.colors.background} barStyle="light-content" /> */}
+      {/* <View style={{ flex: 1 }}> */}
         <DrawerNav />
         {/* <View style={{position:"absolute",bottom:-0.5*navWidth,right:-0.5*navWidth,width:navWidth,height:navWidth,borderRadius:navWidth/2,paddingBottom:navWidth/2,paddingRight:navWidth/2,backgroundColor:"white"}}><Text>Hello</Text></View> */}
-      </View>
+      {/* </View> */}
     </NavigationContainer>
   );
 }
 
 function ThemeWrapper() {
   const paperTheme = useSelector(i => i.themes.purple);
-  // const paperTheme = {
-  //   ...(theme.dark ? DarkTheme : DefaultTheme),
-  //   dark: theme.dark,
-  //   colors: {
-  //     ...(theme.dark ? DarkTheme : DefaultTheme).colors,
-  //     primary: theme.navigation.bg,
-  //     accent: theme.navigation_selected.bg,
-  //     text: theme.page_content.fg,
-  //     surface: theme.dark ? theme.page.bg : theme.page_content.bg,
-  //     background: theme.page.bg,
-  //     onSurface: theme.page_content.fg,
-  //     onBackground: theme.page.fg,
-  //   },
-  //   nav: {
-  //     ...(theme.dark ? NavigationDarkTheme : NavigationDefaultTheme),
-  //     colors: {
-  //       ...(theme.dark ? NavigationDarkTheme : NavigationDefaultTheme).colors,
-  //       background: theme.page.bg,
-  //       card: theme.dark ? theme.page.bg : theme.page_content.bg,
-  //       text: theme.page_content.fg,
-  //       border: theme.page_content.fg
-  //     }
-  //   }
-  // }
   return <PaperProvider theme={paperTheme}>
     <App />
   </PaperProvider>
