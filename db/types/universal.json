@@ -8,7 +8,7 @@
       "deploy": 100,
       "type": "split",
       "split": 50,
-      "min": 5,
+      "min": 10,
       "interval": 5
     }
   }
