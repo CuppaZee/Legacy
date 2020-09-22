@@ -40,10 +40,10 @@ export default function SettingsScreen() {
       </View>
       <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
         {credits.filter(i => i.type == "dev").map(i => <TouchableRipple onPress={() => nav.navigate('UserDetails', { username: i.username })}>
-          <View style={{ alignItems: "center", padding: 4, width: 160 }}>
-            <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png` }} style={{ backgroundColor: "white", height: 48, width: 48, borderRadius: 24 }} />
-            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>{i.username}</Text>
-            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16, ...font() }}>{t('app_info:custom_titles.' + i.title)}</Text>
+          <View style={{ alignItems: "center", padding: 4, width: i.large ? 160 : 120 }}>
+            <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${i.user_id.toString(36)}.png` }} style={{ backgroundColor: "white", height: i.large ? 48 : 36, width: i.large ? 48 : 36, borderRadius: i.large ? 24 : 18 }} />
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: i.large ? 20 : 16, ...font("bold") }}>{i.username}</Text>
+            <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: i.large ? 16 : 12, ...font() }}>{t('app_info:custom_titles.' + i.title)}</Text>
           </View>
         </TouchableRipple>)}
       </View>

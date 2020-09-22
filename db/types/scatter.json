@@ -342,5 +342,25 @@
       "duration": 2,
       "standalone": true
     }
+  },
+  {
+    "name": "Pecan",
+    "icon": "pecan",
+    "id": "null_pecan",
+    "state": "virtual",
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    }
+  },
+  {
+    "name": "Acorn",
+    "icon": "acorn",
+    "id": "null_acorn",
+    "state": "virtual",
+    "scatter": {
+      "duration": 1,
+      "standalone": true
+    }
   }
 ]
