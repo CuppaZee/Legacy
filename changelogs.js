@@ -1465,4 +1465,11 @@ export default {
       description: 'Added HtV, jnorval, Aniara, poppejoppe, dreiengel, Norballe, reej, G1Enter, joroma80 and Megachip to Credits'
     },
   ],
+  285: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Peace Glasses and Beet Boot to CuppaZee\'s Munzee Types Database'
+    },
+  ],
 }

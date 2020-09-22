@@ -18,7 +18,7 @@
   {
     "name": "2020 Seasonal Specials",
     "id": "seasonal_2020",
-    "icon": "belgianwaffle",
+    "icon": "oktoberfestbash-beerboot",
     "parents": [
       "seasonal",
       "root"
@@ -399,6 +399,19 @@
       "year": 2020,
       "starts": 1577998800000,
       "ends": 1609480740000
+    }
+  },
+  {
+    "name": "Bash from the Past",
+    "id": "bash2020",
+    "icon": "oktoberfestbash-beerboot",
+    "parents": [
+      "seasonal_2020"
+    ],
+    "seasonal": {
+      "year": 2020,
+      "starts": 1600716600000,
+      "ends": 1602478740000
     }
   },
   {

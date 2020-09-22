@@ -124,6 +124,29 @@ module.exports = [
         "duration": 12,
         "lands_on": [":virtual"]
       },
+      {
+        "name": "Peace Glasses",
+        "icon": "peaceglasses2020vision",
+        "id": 2298,
+        "duration": 12,
+        "lands_on": ["munzee"]
+      },
+    ]
+  },
+  {
+    "name": "Bash from the Past",
+    "category": "bash2020",
+    "year": 2020,
+    "starts": "2020-09-21T14:30:00-05:00",
+    "ends": "2020-10-11T23:59:00-05:00",
+    "specials": [
+      {
+        "name": "Beer Boot",
+        "icon": "oktoberfestbash-beerboot",
+        "id": "null_oktoberfestbash-beerboot",
+        "duration": 6,
+        "lands_on": [":virtual"]
+      },
     ]
   },
   {
