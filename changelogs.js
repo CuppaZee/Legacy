@@ -1496,4 +1496,11 @@ export default {
       description: 'Added Megachip as a Code Contributor, and PeterandGloria as a Supporter'
     },
   ],
+  288: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Paint Palette to CuppaZee\'s Munzee Types Database'
+    },
+  ],
 }
