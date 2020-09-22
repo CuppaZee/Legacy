@@ -24,7 +24,7 @@ module.exports = {
           }
         }
         await db.collection('data').doc('universal').update({
-          munzees: admin.firestore.FieldValue.arrayUnion(`${codeData[1]}/${codeData[2]}/${codeData[3].toString()}/${munzee.munzee_id}/${type.id}`)
+          munzees: admin.firestore.FieldValue.arrayUnion(`${codeData[1]}/${codeData[2]}/${codeData[3].toUpperCase()}/${munzee.munzee_id}/${type.id}`)
         });
         return {
           status: "success",

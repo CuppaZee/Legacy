@@ -1445,5 +1445,31 @@ export default {
       title: 'Updated Universal Capper',
       description: 'Added Counter to show how many Universals you have left to capture, and added a button to report invalid Universals.'
     },
-  ]
+  ],
+  283: [
+    {
+      icon: 'alert',
+      title: 'Improved Error Messaging',
+      description: 'CuppaZee now shows better error messages in certain cases.'
+    },
+  ],
+  284: [
+    {
+      icon: 'earth',
+      title: 'Updated Universal/Social Capper',
+      description: 'Better support for socials, improved report button, more Munzee Details.'
+    },
+    {
+      icon: 'heart',
+      title: 'Updated Credits (Sorry for the delay)',
+      description: 'Added HtV, jnorval, Aniara, poppejoppe, dreiengel, Norballe, reej, G1Enter, joroma80 and Megachip to Credits'
+    },
+  ],
+  285: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Peace Glasses and Beet Boot to CuppaZee\'s Munzee Types Database'
+    },
+  ],
 }

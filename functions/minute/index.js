@@ -3,5 +3,6 @@ module.exports = [
   require('./shadow_clans'),
   require('./blog_checker'),
   require('./notifications'),
-  require('./clanreq')
+  require('./clanreq'),
+  require('./bouncers')
 ];

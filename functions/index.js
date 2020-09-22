@@ -5,6 +5,11 @@ const db = admin.firestore();
 const cors = require("cors")({
   origin: true,
 });
+var disabled = {
+  needsLoad: true,
+  paths: [],
+}
+db.collection('status').doc('disabled').onSnapshot(docSnapshot => {disabled = docSnapshot.data()})
 
 function checkFrom(from,route) {
   if((route||"").includes("auth/auth")) {
@@ -42,6 +47,9 @@ function checkFrom(from,route) {
 var routes = [...require("./user"), ...require("./auth"), ...require("./minute"), ...require("./clan"), ...require("./munzee"), ...require("./bouncers"), ...require("./notifications"), ...require("./map"), ...require("./weekly")];
 
 var x = async (req, res) => {
+  if (disabled.needsLoad) {
+    disabled = (await db.collection('status').doc('disabled').get()).data()
+  }
   const cns = {
     function: '?',
     log(){console.log(this.function,...arguments)},
@@ -83,6 +91,20 @@ var x = async (req, res) => {
           route: routeDetails,
           executed_in: executed_in(),
         });
+      }
+      if(disabled.paths.includes(use_route.path)) {
+        return res
+          .status(503)
+          .send({
+            data: null,
+            status: {
+              text: "Feature Disabled",
+              id: "feature_disabled",
+              code: 503,
+            },
+            route: null,
+            executed_in: executed_in(),
+          });
       }
       var use_version = version || use_route.latest;
       routeDetails.version = use_version;

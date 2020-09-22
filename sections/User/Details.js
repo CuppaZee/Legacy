@@ -60,9 +60,9 @@ export default function DetailsScreen({ route }) {
     }
   } else if (data === null) {
     return <View onLayout={onLayout} style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
-    <MaterialCommunityIcons name="alert" color={theme.page.fg} size={48} />
-    <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), textAlign: "center", color: theme.page_content.fg }}>{t('error:missing_data.user')}</Text>
-  </View>
+      <MaterialCommunityIcons name="alert" color={theme.page.fg} size={48} />
+      <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), textAlign: "center", color: theme.page_content.fg }}>{t('error:missing_data.user')}</Text>
+    </View>
   }
   return (
     <View style={{ flex: 1 }} onLayout={onLayout}>
@@ -131,7 +131,7 @@ export default function DetailsScreen({ route }) {
               <TouchableRipple onPress={() => nav.navigate('UserUniversal', { username: username })}>
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                   <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="earth" size={24} color={theme.page_content.fg} />
-                  <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Universal Capper - NEW</Text>
+                  <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Universal/Social Capper</Text>
                   <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
                 </View>
               </TouchableRipple>

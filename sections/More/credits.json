@@ -26,6 +26,11 @@
     "type": "db"
   },
   {
+    "username": "Megachip",
+    "user_id": 93331,
+    "type": "db"
+  },
+  {
     "": "Add yourself here if you contribute to the Munzee Database!"
   },
 
@@ -559,5 +564,50 @@
     "username": "Marc54140",
     "type": "supporter",
     "user_id": 435586
+  },
+  {
+    "username": "HtV",
+    "type": "supporter",
+    "user_id": 95937
+  },
+  {
+    "username": "jnorval",
+    "type": "supporter",
+    "user_id": 9579
+  },
+  {
+    "username": "Aniara",
+    "type": "supporter",
+    "user_id": 207317
+  },
+  {
+    "username": "poppejoppe",
+    "type": "supporter",
+    "user_id": 60079
+  },
+  {
+    "username": "dreiengel",
+    "type": "supporter",
+    "user_id": 58248
+  },
+  {
+    "username": "Norballe",
+    "type": "supporter",
+    "user_id": 110373
+  },
+  {
+    "username": "reej",
+    "type": "supporter",
+    "user_id": 83272
+  },
+  {
+    "username": "G1enter",
+    "type": "supporter",
+    "user_id": 190897
+  },
+  {
+    "username": "joroma80",
+    "type": "supporter",
+    "user_id": 204667
   }
 ]
