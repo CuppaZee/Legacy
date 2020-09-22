@@ -2,6 +2,14 @@
   {
     "name": "Universal Bash",
     "icon": "universal_bash",
-    "id": "null_universalbash"
+    "id": "null_universalbash",
+    "state": "universal",
+    "points": {
+      "deploy": 100,
+      "type": "split",
+      "split": 50,
+      "min": 10,
+      "interval": 5
+    }
   }
 ]

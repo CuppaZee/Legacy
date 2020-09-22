@@ -1472,4 +1472,35 @@ export default {
       description: 'Added new Peace Glasses and Beet Boot to CuppaZee\'s Munzee Types Database'
     },
   ],
+  286: [
+    {
+      image: 'acorn',
+      title: 'Updated Munzee Database',
+      description: 'Added Pecans, Acorns, Fall (AUTUMN!) Cards and Spring Cards to CuppaZee\'s Munzee Types Database'
+    },
+  ],
+  287: [
+    {
+      icon: 'bug',
+      title: 'Fixed a Bug',
+      description: 'The Universal/Social Capper button now shows a lock icon for users you aren\'t logged in as. Thanks Megachip.'
+    },
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Add points values for Universal Bash Munzees'
+    },
+    {
+      icon: 'heart',
+      title: 'Updated Credits',
+      description: 'Added Megachip as a Code Contributor, and PeterandGloria as a Supporter'
+    },
+  ],
+  288: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Paint Palette to CuppaZee\'s Munzee Types Database'
+    },
+  ],
 }

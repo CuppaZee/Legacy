@@ -133,6 +133,7 @@
         "kofi_donate": "One-Time via Ko-Fi",
         "paypal_donate_desc": "PayPal donations can be sent to donate@cuppazee.app",
         "custom_titles": {
+            "code": "Code Contributor",
             "primary_dev": "Primary Developer",
             "finnish": "Finnish",
             "dutch": "Dutch",

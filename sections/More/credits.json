@@ -3,7 +3,14 @@
     "username": "sohcah",
     "user_id": 125914,
     "type": "dev",
-    "title": "primary_dev"
+    "title": "primary_dev",
+    "large": true
+  },
+  {
+    "username": "Megachip",
+    "user_id": 93331,
+    "type": "dev",
+    "title": "code"
   },
   {
     "": "Add yourself here if you contribute to CuppaZee!"
@@ -609,5 +616,10 @@
     "username": "joroma80",
     "type": "supporter",
     "user_id": 204667
+  },
+  {
+    "username": "PeterandGloria",
+    "type": "supporter",
+    "user_id": 50530
   }
 ]

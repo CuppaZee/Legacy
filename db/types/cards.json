@@ -150,5 +150,17 @@
         "camp_munzee_card"
       ]
     }
+  },
+  {
+    "name": "Fall Card",
+    "icon": "fall_card",
+    "id": "null_fallcard",
+    "open": true
+  },
+  {
+    "name": "Spring Card",
+    "icon": "spring_card",
+    "id": "null_springcard",
+    "open": true
   }
 ]

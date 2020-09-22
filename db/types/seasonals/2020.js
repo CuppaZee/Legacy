@@ -147,6 +147,13 @@ module.exports = [
         "duration": 6,
         "lands_on": [":virtual"]
       },
+      {
+        "name": "Paint Pallette",
+        "icon": "artwalkbash-paintpalette",
+        "id": "null_artwalkbash-paintpalette",
+        "duration": 6,
+        "lands_on": ["munzee"]
+      },
     ]
   },
   {
