@@ -91,9 +91,22 @@
     "capture": 300,
     "capon": 200
   },
-    "bouncer_pc_3": {
+  "bouncer_pc_3": {
     "capture": 500,
     "capon": 300
+  },
+  "bouncer_gpc_1": {
+    "capture": 400,
+    "deploy": 500,
+    "capon": 200
+  },
+  "bouncer_gpc_2": {
+    "capture": 600,
+    "capon": 400
+  },
+  "bouncer_gpc_3": {
+    "capture": 1000,
+    "capon": 600
   },
   "gen_megu": {
     "capture": 400,
