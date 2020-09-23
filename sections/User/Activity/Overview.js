@@ -1,11 +1,8 @@
 import * as React from 'react';
-import { View, Image } from 'react-native';
-import { Menu, TouchableRipple, Button, Text } from 'react-native-paper';
+import { View, Image, StyleSheet } from 'react-native';
+import { Menu, TouchableRipple, Button, Text, Title, Subheading } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-
-import font from 'sections/Shared/font';
 
 import getType from 'utils/db/types';
 import getIcon from 'utils/db/icon';
@@ -81,9 +78,10 @@ function OverviewItem({ i, total }) {
   </Menu>
 }
 
+const sumPoints = (a, b) => a + Number(b.points_for_creator ?? b.points);
+
 export default function ({ user_id, date: dateInput, filters }) {
   var { t } = useTranslation();
-  var theme = useSelector(i => i.themes[i.theme]);
   var moment = useMoment();
   var date = moment().tz('America/Chicago');
   var dateString = `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
@@ -96,62 +94,57 @@ export default function ({ user_id, date: dateInput, filters }) {
     if (!filters) return true;
     if (filters.activity.size != 0 && !filters.activity.has(s)) return false;
     let g = getType(i.pin);
-    if (filters.state.size != 0 && !filters.state.has(g?.state||"N/A")) return false;
-    if (filters.category.size != 0 && !filters.category.has(g?.category||"N/A")) return false;
+    if (filters.state.size != 0 && !filters.state.has(g?.state || "N/A")) return false;
+    if (filters.category.size != 0 && !filters.category.has(g?.category || "N/A")) return false;
     return true;
   }
   var data = {
-    captures: dataraw?.captures.filter(i=>filter(i,"captures")),
-    deploys: dataraw?.deploys.filter(i=>filter(i,"deploys")),
-    captures_on: dataraw?.captures_on.filter(i=>filter(i,"captures_on")),
+    captures: dataraw?.captures.filter(i => filter(i, "captures")),
+    deploys: dataraw?.deploys.filter(i => filter(i, "deploys")),
+    captures_on: dataraw?.captures_on.filter(i => filter(i, "captures_on")),
   }
   function isRenovation(act) {
     return !!(act.pin.includes('/renovation.') && act.captured_at);
   }
   if (!data || !data.captures) return null;
   return <View>
-    <View key="total" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-      <View style={{ alignSelf: "stretch" }}><Text allowFontScaling={false} style={{ textAlign: "center", fontSize: 24, ...font("bold"), color: theme.page_content.fg }}>
-        {t('activity:point', { count: [...data.captures, ...data.deploys, ...data.captures_on].reduce((a, b) => a + Number(b.points_for_creator ?? b.points), 0) })}
-      </Text></View>
+    <Title style={styles.center}>
+      {t('activity:point', { count: [...data.captures, ...data.deploys, ...data.captures_on].reduce(sumPoints, 0) })}
+    </Title>
+    <Subheading style={styles.center}>
+      {t('activity:capture', { count: data.captures.filter(i => !isRenovation(i)).length })} - {t('activity:point', { count: data.captures.filter(i => !isRenovation(i)).reduce(sumPoints, 0) })}
+    </Subheading>
+    <View style={styles.row}>
+      {count(data.captures.filter(i => !isRenovation(i)), "pin").map(i => <OverviewItem key={i[0]} total={count(data.captures.filter(i => !isRenovation(i)), "pin").length} i={i} />)}
     </View>
-    <View key="captures" style={{ flexDirection: "column", width: "100%", alignItems: "center", paddingLeft: 8, paddingRight: 8, borderRadius: 0 }}>
-      <View style={{ alignSelf: "stretch" }}><Text allowFontScaling={false} style={{ textAlign: "center", color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
-        {t('activity:capture', { count: data.captures.filter(i => !isRenovation(i)).length })} - {t('activity:point', { count: data.captures.filter(i => !isRenovation(i)).reduce((a, b) => a + Number(b.points), 0) })}
-      </Text></View>
-      <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-        {count(data.captures.filter(i => !isRenovation(i)), "pin").map(i => <OverviewItem key={i[0]} total={count(data.captures.filter(i => !isRenovation(i)), "pin").length} i={i} />)}
-      </View>
+    <Subheading style={styles.center}>
+      {t('activity:deploy', { count: data.deploys.length })} - {t('activity:point', { count: data.deploys.reduce(sumPoints, 0) })}
+    </Subheading>
+    <View style={styles.row}>
+      {count(data.deploys, "pin").map(i => <OverviewItem key={i[0]} total={count(data.deploys, "pin").length} i={i} />)}
     </View>
-    <View key="deploys" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-      <View style={{ alignSelf: "stretch", paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#a5fffc', borderRadius: 0 }}><Text allowFontScaling={false} style={{ textAlign: "center", color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
-        {t('activity:deploy', { count: data.deploys.length })} - {t('activity:point', { count: data.deploys.reduce((a, b) => a + Number(b.points), 0) })}
-      </Text></View>
-      <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-        {count(data.deploys, "pin").map(i => <OverviewItem key={i[0]} total={count(data.deploys, "pin").length} i={i} />)}
-      </View>
+    <Subheading style={styles.center}>
+      {t('activity:capon', { count: data.captures_on.filter(i => !isRenovation(i)).length })} - {t('activity:point', { count: data.captures_on.filter(i => !isRenovation(i)).reduce(sumPoints, 0) })}
+    </Subheading>
+    <View style={styles.row}>
+      {count(data.captures_on.filter(i => !isRenovation(i)), "pin").map(i => <OverviewItem key={i[0]} total={count(data.captures_on.filter(i => !isRenovation(i)), "pin").length} i={i} />)}
     </View>
-    <View key="capons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-      <View style={{ alignSelf: "stretch", paddingLeft: 8, paddingRight: 8, borderRadius: 8 }}><Text allowFontScaling={false} style={{ textAlign: "center", color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
-        {t('activity:capon', { count: data.captures_on.filter(i => !isRenovation(i)).length })} - {t('activity:point', { count: data.captures_on.filter(i => !isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0) })}
-      </Text></View>
-      <View style={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "center" }}>
-        {count(data.captures_on.filter(i => !isRenovation(i)), "pin").map(i => <OverviewItem key={i[0]} total={count(data.captures_on.filter(i => !isRenovation(i)), "pin").length} i={i} />)}
-      </View>
-    </View>
-    {data.captures.filter(i => isRenovation(i)).length > 0 && <View key="renovations" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-      <View style={{ alignSelf: "stretch", paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#ffbcad', borderRadius: 8 }}>
-        <Text allowFontScaling={false} style={{ textAlign: "center", color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
-          {t('activity:renovation', { count: data.captures.filter(i => isRenovation(i)).length })} - {t('activity:point', { count: data.captures.filter(i => isRenovation(i)).reduce((a, b) => a + Number(b.points), 0) })}
-        </Text>
-      </View>
-    </View>}
-    {data.captures_on.filter(i => isRenovation(i)).length > 0 && <View key="renons" style={{ flexDirection: "column", width: "100%", alignItems: "center" }}>
-      <View style={{ alignSelf: "stretch", paddingLeft: 8, paddingRight: 8, backgroundColor: 'transparent' ?? '#ffbcad', borderRadius: 8 }}>
-        <Text allowFontScaling={false} style={{ textAlign: "center", color: theme.page_content.fg, fontSize: 20, ...font("bold") }}>
-          {t('activity:renovon', { count: data.captures_on.filter(i => isRenovation(i)).length })} - {t('activity:point', { count: data.captures_on.filter(i => isRenovation(i)).reduce((a, b) => a + Number(b.points_for_creator), 0) })}
-        </Text>
-      </View>
-    </View>}
+    {data.captures.filter(i => isRenovation(i)).length > 0 && <Subheading style={styles.center}>
+      {t('activity:renovation', { count: data.captures.filter(i => isRenovation(i)).length })} - {t('activity:point', { count: data.captures.filter(i => isRenovation(i)).reduce(sumPoints, 0) })}
+    </Subheading>}
+    {data.captures_on.filter(i => isRenovation(i)).length > 0 && <Subheading style={styles.center}>
+      {t('activity:renovon', { count: data.captures_on.filter(i => isRenovation(i)).length })} - {t('activity:point', { count: data.captures_on.filter(i => isRenovation(i)).reduce(sumPoints, 0) })}
+    </Subheading>}
   </View>
 }
+
+var styles = StyleSheet.create({
+  row: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+  },
+  center: {
+    textAlign: "center",
+  }
+})

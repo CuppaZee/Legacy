@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Image } from 'react-native';
+import { Text } from 'react-native-paper';
 import OldTile, {NewTile} from './Tile';
 import CalData from 'utils/db/Calendar.json';
 import useMoment from 'utils/hooks/useMoment';
 import { useTranslation } from 'react-i18next';
 import getIcon from 'utils/db/icon';
 
-export default function Calendar({style,month,year,theme,type="default"}) {
+export default function Calendar({style,month,year,type="default"}) {
   const {t} = useTranslation();
   const moment = useMoment();
   const now = moment();
@@ -53,11 +54,11 @@ export default function Calendar({style,month,year,theme,type="default"}) {
         t("calendar:days.saturday"),
         t("calendar:days.sunday")
       ].map(i=><View style={{flex:1,borderWidth:1,borderColor:'#d3d3d3',justifyContent:"center",alignItems:"center",height:40}}>
-        <Text allowFontScaling={false} style={{fontSize:16,color:theme.page_content.fg}}>{i}</Text>
+        <Text allowFontScaling={false} style={{fontSize:16}}>{i}</Text>
       </View>)}
     </View>
     {grid.map(row=><View style={{flexDirection:"row"}}>
-      {row.map(day=>day?<Tile theme={theme} type={type} data={CalData?.[year??now.year()]?.[month??now.month()]?.[day-1]??''} date={day}/>:<View style={{flex:1,borderWidth:1,borderColor:'#d3d3d3'}}/>)}
+      {row.map(day=>day?<Tile type={type} data={CalData?.[year??now.year()]?.[month??now.month()]?.[day-1]??''} date={day}/>:<View style={{flex:1,borderWidth:1,borderColor:'#d3d3d3'}}/>)}
     </View>)}
   </View>
 }

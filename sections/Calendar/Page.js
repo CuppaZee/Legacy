@@ -40,7 +40,7 @@ export default function CalendarScreen() {
             <Text allowFontScaling={false} style={{flex:1,textAlign:"center"}}>{moment({month,year}).format('MMMM YYYY')}</Text>
             <IconButton icon="chevron-right" onPress={add}/>
           </View>
-          <Calendar month={month} year={year} theme={theme} type={type}/>
+          <Calendar month={month} year={year} type={type}/>
         </Surface>
       </View>
     </ScrollView>

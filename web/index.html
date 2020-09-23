@@ -29,7 +29,7 @@
         /* Allows content to fill the viewport and go beyond the bottom */
         min-height: 100%;
         height: 100vh;
-        overflow: hidden;
+        overflow: visible;
       }
       #root {
         flex-shrink: 0;
@@ -49,7 +49,7 @@
       body {
         display: flex;
         /* Allows you to scroll below the viewport; default value is visible */
-        /* overflow-y: auto; */
+        overflow-y: auto;
         overscroll-behavior-y: none;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;

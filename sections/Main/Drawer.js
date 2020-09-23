@@ -24,24 +24,30 @@ const fuse = new Fuse([...types.filter(i => !i.hidden), ...categories.filter(i =
 function DrawerItem(props) {
   const SurfaceOrView = props.focused ? Surface : View;
   const theme = useTheme();
-  return <TouchableRipple onPress={props.onPress} style={{
-    marginRight: props.mini ? 4 : 8, borderRadius: props.mini ? 48 : 4, opacity: 1 ?? props.style?.opacity ?? (props.focused ? 1 : 1),
-    marginLeft: (props.mini ? 4 : 8) + ((props.indent || 0) * 4)
-  }}>
-    <SurfaceOrView style={{
-      padding: 4, borderRadius: props.mini ? 48 : 4, elevation: props.focused ? 8 : 0, flexDirection: "row", alignItems: "center", justifyContent: props.mini ? "center" : "flex-start"
+  const [isHovered, setIsHovered] = React.useState(false);
+  return <View
+    onMouseEnter={() => setIsHovered(true)}
+    onMouseLeave={() => setIsHovered(false)}
+    style={props.onPress ? { transitionDuration: '150ms', opacity: isHovered ? 0.5 : 1, cursor: "pointer" } : {}}>
+    <TouchableRipple onPress={props.onPress} style={{
+      marginRight: props.mini ? 4 : 8, borderRadius: props.mini ? 48 : 4, opacity: 1 ?? props.style?.opacity ?? (props.focused ? 1 : 1),
+      marginLeft: (props.mini ? 4 : 8) + ((props.indent || 0) * 4)
     }}>
-      {props.image ? (props.noAvatar ? <Image style={{ height: 32, width: 32 }} source={props.image} /> : <Avatar.Image size={32} source={props.image} />) : <Avatar.Icon size={32} icon={props.icon} />}
-      {!props.mini && <>
-        <View style={{ width: 4 }}></View>
-        {typeof props.label == "string" ? <View>
-          <Text numberOfLines={1} ellipsizeMode="tail" allowFontScaling={false} style={{ fontSize: 14, fontWeight: "500" }}>{props.label}</Text>
-          {props.subtitle && <Text numberOfLines={1} ellipsizeMode="tail" allowFontScaling={false} style={{ fontSize: 12, fontWeight: "500", opacity: 0.8 }}>{props.subtitle}</Text>}
-        </View> : <props.label color={theme.colors.text} />}
-      </>}
-      {props.right && <props.right />}
-    </SurfaceOrView>
-  </TouchableRipple>
+      <SurfaceOrView style={{
+        padding: 4, borderRadius: props.mini ? 48 : 4, elevation: props.focused ? 8 : 0, flexDirection: "row", alignItems: "center", justifyContent: props.mini ? "center" : "flex-start"
+      }}>
+        {props.image ? (props.noAvatar ? <Image style={{ height: 32, width: 32 }} source={props.image} /> : <Avatar.Image size={32} source={props.image} />) : <Avatar.Icon size={32} icon={props.icon} />}
+        {!props.mini && <>
+          <View style={{ width: 4 }}></View>
+          {typeof props.label == "string" ? <View>
+            <Text numberOfLines={1} ellipsizeMode="tail" allowFontScaling={false} style={{ fontSize: 14, fontWeight: "500" }}>{props.label}</Text>
+            {props.subtitle && <Text numberOfLines={1} ellipsizeMode="tail" allowFontScaling={false} style={{ fontSize: 12, fontWeight: "500", opacity: 0.8 }}>{props.subtitle}</Text>}
+          </View> : <props.label color={theme.colors.text} />}
+        </>}
+        {props.right && <props.right />}
+      </SurfaceOrView>
+    </TouchableRipple>
+  </View>
 }
 
 function SearchView({ query, ...props }) {
@@ -211,12 +217,12 @@ export default function CustomDrawerContent(props) {
   var [showMoreUser, setShowMoreUser] = React.useState(false);
   var [userDrawerOpen, setUserDrawer] = React.useState(true);
   var userDrawer = (route.params?.username && userDrawerOpen) ? { username: route.params?.username } : false;
-  var mini = userDrawer || miniProp;
-  var userMini = miniProp;
+  var mini = userDrawer || (width > 1000 ? miniProp : false);
+  var w = width > 1000 ? (miniProp ? (userDrawer ? 96 : 48) : 280) : Math.min(320, width);
+  var userMini = (width > 1000 ? miniProp : false);
   var [search, query, setSearch] = useSearch(300);
 
   React.useEffect(() => setUserDrawer(true), [route.params?.username]);
-  React.useEffect(() => props.updateUserDrawer(userDrawer), [userDrawer?.username]);
 
   var top = [
     { title: t(`common:weekly_challenge`), icon: "calendar", page: "WeeklyWeeks" },
@@ -243,10 +249,10 @@ export default function CustomDrawerContent(props) {
     side: props.side,
     mini: userMini
   }
-  const theme = useTheme().drawer;
+  const theme = useTheme();
   return (
     <PaperProvider theme={theme}>
-      <Surface style={{ flex: 1, elevation: 0 }}>
+      <Surface style={{ backgroundColor: theme.colors.background, flex: 1, elevation: 0, width: w }}>
         <DrawerContentScrollView showsVerticalScrollIndicator={!mini} {...props}>
           {!userMini && <View style={{ paddingVertical: 4, paddingHorizontal: 8 }}>
             <TextInput value={search} mode="outlined" dense={true} left={<TextInput.Icon icon="magnify" />} onChangeText={(val) => setSearch(val)} label="Search" returnKeyLabel="Search" returnKeyType="search" />
@@ -452,7 +458,7 @@ export default function CustomDrawerContent(props) {
                 </View>
               </Menu>
             </View>}
-            {userDrawer && <UserDrawerContent userDrawer={userDrawer} setUserDrawer={setUserDrawer} {...props} />}
+            {userDrawer && <UserDrawerContent userDrawer={userDrawer} setUserDrawer={setUserDrawer} mini={miniProp} {...props} />}
           </View>}
         </DrawerContentScrollView>
         {width > 1000 && <>

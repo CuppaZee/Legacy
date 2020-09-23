@@ -1,14 +1,16 @@
 import * as React from 'react';
-import { View, Text, ImageBackground, ActivityIndicator } from 'react-native';
+import { View, ImageBackground, ActivityIndicator } from 'react-native';
 import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
+import { Text, useTheme } from 'react-native-paper';
 
 function u(a) {
   return {uri:`https://server.cuppazee.app/Cal/${a||"_"}.png`}
 }
 
-export function NewTile({data,date,type,theme,header,extraText}) {
+export function NewTile({data,date,type,header,extraText}) {
   var {t} = useTranslation();
+  var theme = useTheme();
   // var types = [
   //   {label:"R",type:"flatrob",color:"rgb(0, 148, 68)"},
   //   {label:"M",type:"flatmatt",color:"rgb(237, 32, 36)"},
@@ -17,9 +19,9 @@ export function NewTile({data,date,type,theme,header,extraText}) {
   // ]
   // {label:"QRewZee",type:"qrewzee",color:"rgb(235, 105, 42)"},
   if(type=="alt") {
-    return <View style={{flex:1,backgroundColor:theme.page_content.bg,borderWidth:1,borderColor:'#d3d3d3',height:60,justifyContent:"center",alignItems:"center",paddingBottom:2}}>
+    return <View style={{flex:1,backgroundColor:theme.colors.surface,borderWidth:1,borderColor:'#d3d3d3',height:60,justifyContent:"center",alignItems:"center",paddingBottom:2}}>
       <View style={{flexDirection:"row"}}>
-        <Text allowFontScaling={false} style={{color:theme.page_content.fg,...font("bold"),fontSize:12,textAlignVertical:"center"}}>{(date||1).toString()}</Text>
+        <Text allowFontScaling={false} style={{...font("bold"),fontSize:12,textAlignVertical:"center"}}>{(date||1).toString()}</Text>
       </View>
       {/* <View style={{flexDirection:"row"}}>
         {types.map(i=>data.includes(i.label)?<Text allowFontScaling={false} style={{color:i.color,...font("bold"),fontSize:12,textAlignVertical:"center",letterSpacing:1}}>{i.label}</Text>:null)}

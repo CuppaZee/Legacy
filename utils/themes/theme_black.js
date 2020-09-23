@@ -1,44 +1,36 @@
-import darkMapStyle from './map_dark.json';
+import { DarkTheme as PaperTheme } from 'react-native-paper';
+import { DarkTheme as NavTheme } from '@react-navigation/native';
+
 export default {
-  id: "black",
-  name: "Black",
-  dark: true,
-  error: {
-    bg: '#660000',
-    fg: '#ffffff'
+  ...PaperTheme,
+  mode: "adaptive",
+  colors: {
+    ...PaperTheme.colors,
+    primary: "#016930",
+    accent: "#005627",
+    text: "#ffffff",
+    surface: "#000000",
+    background: "#000000",
   },
-  navigation: {
-    // bg: "#232323",
-    bg: "#000000",
-    fg: "#ffffff"
-  },
-  navigation_selected: {
-    bg: "#121212",
-    fg: "#ffffff"
-  },
-  page: {
-    // bg: "#121212",
-    bg: "#000000",
-    fg: "#ffffff"
-  },
-  page_content: {
-    bg: "#000000",
-    fg: "#d3d3d3",
-    border: "#ffffff"
-  },
-  activity: {
-    capture: {
-      bg: "#004400",
-      fg: "#aaffaa"
-    },
-    deploy: {
-      bg: "#00403e",
-      fg: "#a5fffc"
-    },
-    capon: {
-      bg: "#401700",
-      fg: "#ffbcad"
+  nav: {
+    ...NavTheme,
+    colors: {
+      ...NavTheme.colors,
+      background: "#000000",
+      card: "#000000",
+      text: "#ffffff"
     }
   },
-  mapStyle: darkMapStyle
+  drawer: {
+    ...PaperTheme,
+    mode: "exact",
+    colors: {
+      ...PaperTheme.colors,
+      primary: "#000000",
+      accent: "#005627",
+      text: "#ffffff",
+      surface: "#000000",
+      background: "#000000",
+    }
+  }
 }

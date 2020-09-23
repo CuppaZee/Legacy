@@ -59,9 +59,9 @@ for (var page of pages) {
 // Navigation Sections
 import DrawerContent from './sections/Main/Drawer';
 
-import { Platform, View, Text, StatusBar, ActivityIndicator, ScrollView, Image, Linking } from 'react-native';
+import { Platform, View, StatusBar, ActivityIndicator, ScrollView, Image, Linking } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Provider as PaperProvider, Button, DefaultTheme, DarkTheme, useTheme } from 'react-native-paper';
+import { Provider as PaperProvider, Text, Button, DefaultTheme, DarkTheme, useTheme, Avatar, Subheading, Title, Paragraph, Headline } from 'react-native-paper';
 
 import { useDimensions } from '@react-native-community/hooks';
 import * as WebBrowser from 'expo-web-browser';
@@ -141,14 +141,12 @@ function StackNav() {
 }
 
 function DrawerNav() {
-  var [mini] = useSetting('mini_drawer',false);
   var { width } = useDimensions().window;
   var loggedIn = useSelector(i => i.loggedIn);
-  var [userDrawer, setUserDrawer] = React.useState(false);
   return <Drawer.Navigator
     drawerPosition="left"
-    drawerStyle={{ width: width > 1000 ? (mini ? (userDrawer ? 96 : 48) : 280) : Math.min(320, width) }}
-    drawerContent={props => <DrawerContent updateUserDrawer={(val)=>setUserDrawer(val)} mini={width > 1000 ? mini : false} side="left" {...props} />}
+    drawerStyle={{ width: null }}
+    drawerContent={props => <DrawerContent side="left" {...props} />}
     drawerType={(width > 1000 && loggedIn) ? "permanent" : "front"}
     edgeWidth={loggedIn ? 100 : 0}
   >
@@ -194,8 +192,7 @@ function App() {
   });
   var [isReady, setIsReady] = React.useState(false);
   var [initialState, setInitialState] = React.useState();
-  var theme = useSelector(i => i.themes[i.theme])
-  var paperTheme = useTheme();
+  var theme = useTheme();
 
   React.useEffect(() => {
     Promise.race([
@@ -220,45 +217,37 @@ function App() {
   function handleStateChange(a) {
     dispatch(setCurrentRoute(a?.routes?.[0]?.state?.routes?.slice?.()?.reverse?.()?.[0] ?? {}))
   }
-
-  if (!theme || !theme.page || !theme.page.bg) {
-    return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: 'white' }}>
-      <ActivityIndicator size="large" color="orange" />
-    </View>;
-  }
   if (!fontsLoaded) {
-    return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
-      <ActivityIndicator size="large" color={theme.page.fg} />
+    return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.colors.background }}>
+      <ActivityIndicator size="large" color={theme.colors.primary} />
     </View>;
   }
   if (loadingLogin) {
-    return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
-      <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>{t('common:logging_in')}</Text>
-      <ActivityIndicator size="large" color={theme.page.fg} />
+    return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.colors.background }}>
+      <Title style={{ marginBottom: 20 }}>{t('common:logging_in')}</Title>
+      <ActivityIndicator size="large" color={theme.colors.primary} />
     </View>;
   }
   if (version != Math.max(...Object.keys(changelogs).map(Number))) {
     var arr = Object.keys(changelogs).map(Number).filter(i => i > version).slice(-10).sort((a, b) => a - b);
     var logs = arr.map(i => [i, changelogs[i]])
-    return <SafeAreaView style={{ backgroundColor: theme.navigation.bg, height: "100%" }}>
+    return <SafeAreaView style={{ backgroundColor: theme.colors.background, height: "100%" }}>
       <ScrollView
         style={{ flex: 1 }}
         contentContainerStyle={{ padding: 8, justifyContent: "center", alignItems: "center", flexGrow: 1 }}>
         {logs.map(([build, log]) => <View style={{ maxWidth: "100%" }}>
           <View style={{ alignItems: "center" }}>
-            <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 32, ...font("bold") }}>{t('changelog:build_n', { n: build })}</Text>
+            <Headline>{t('changelog:build_n', { n: build })}</Headline>
           </View>
           {log?.map(i => <View style={{ flexDirection: "row", alignItems: "center", width: 400, maxWidth: "100%" }}>
             {i.image && <Image source={getIcon(i.image)} style={{ height: 48, width: 48 }} />}
-            {i.icon && <View style={{ height: 48, width: 48, backgroundColor: theme.page_content.bg, borderRadius: 24, justifyContent: "center", alignItems: "center" }}>
-              <MaterialCommunityIcons size={32} color={theme.page_content.fg} name={i.icon} />
-            </View>}
+            {i.icon && <Avatar.Icon icon={i.icon} size={48} />}
             <View style={{ padding: 8, flex: 1 }}>
-              <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 20, ...font("bold") }}>{i.title}</Text>
-              <Text allowFontScaling={false} style={{ color: theme.navigation.fg, fontSize: 16, ...font() }}>{i.description}</Text>
+              <Title>{i.title}</Title>
+              <Paragraph>{i.description}</Paragraph>
             </View>
-          </View>) ?? <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 20, color: theme.page.fg, marginBottom: 20 }}>{t('changelog:no_changelog')}</Text>}
-          {build == Math.max(...Object.keys(changelogs).map(Number)) && <Button mode="contained" style={{ borderWidth: theme.page_content.border ? 2 : 0, borderColor: theme.page_content.border }} color={theme.page_content.bg} onPress={() => {
+          </View>) ?? <Text allowFontScaling={false} style={{ fontWeight: "bold", fontSize: 20, marginBottom: 20 }}>{t('changelog:no_changelog')}</Text>}
+          {build == Math.max(...Object.keys(changelogs).map(Number)) && <Button mode="contained" onPress={() => {
             dispatch(cuppazeeVersion(Math.max(...Object.keys(changelogs).map(Number))))
           }}>{logs.some(i => i[1].some(x => x.privacy)) ? t('changelog:continue_and_agree') : t('changelog:continue')}</Button>}
         </View>)}
@@ -270,8 +259,8 @@ function App() {
   }
   var navWidth = 400;
   return (
-    <NavigationContainer theme={paperTheme.nav} independent={true} onStateChange={handleStateChange} initialState={initialState} ref={ref}>
-      {/* <StatusBar backgroundColor={paperTheme.nav.colors.background} barStyle="light-content" /> */}
+    <NavigationContainer theme={theme.nav} independent={true} onStateChange={handleStateChange} initialState={initialState} ref={ref}>
+      <StatusBar translucent={true} backgroundColor={theme.nav.colors.background + 'cc'} barStyle="light-content" />
       {/* <View style={{ flex: 1 }}> */}
         <DrawerNav />
         {/* <View style={{position:"absolute",bottom:-0.5*navWidth,right:-0.5*navWidth,width:navWidth,height:navWidth,borderRadius:navWidth/2,paddingBottom:navWidth/2,paddingRight:navWidth/2,backgroundColor:"white"}}><Text>Hello</Text></View> */}
@@ -281,7 +270,7 @@ function App() {
 }
 
 function ThemeWrapper() {
-  const paperTheme = useSelector(i => i.themes.purple);
+  const paperTheme = useSelector(i => i.themes.black);
   return <PaperProvider theme={paperTheme}>
     <App />
   </PaperProvider>
