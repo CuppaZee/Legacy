@@ -81,5 +81,27 @@
   "evo_animal_5": {
     "capture": 150,
     "capon": 50
+  },
+  "bouncer_pc_1": {
+    "capture": 200,
+    "deploy": 250,
+    "capon": 100
+  },
+  "bouncer_pc_2": {
+    "capture": 300,
+    "capon": 200
+  },
+    "bouncer_pc_3": {
+    "capture": 500,
+    "capon": 300
+  },
+  "gen_megu": {
+    "capture": 400,
+    "capon": 100
+  },
+  "funfinity": {
+    "deploy": 250,
+    "capture": 200,
+    "capon": 250
   }
 }
