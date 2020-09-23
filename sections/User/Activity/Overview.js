@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
-import { Menu, TouchableRipple, Button, Text, Title, Subheading } from 'react-native-paper';
+import { Menu, TouchableRipple, Button, Text, Title, Subheading, Caption, Paragraph } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
@@ -56,7 +56,7 @@ function OverviewItem({ i, total }) {
       <TouchableRipple onPress={() => setOpen(true)}>
         <View key={i.icon} style={{ padding: 2, alignItems: "center" }}>
           <Image style={{ height: small ? 24 : 32, width: small ? 24 : 32 }} source={getIcon(i[0])} />
-          <Text style={{ fontSize: 12 }}>{i[1].total}</Text>
+          <Paragraph>{i[1].total}</Paragraph>
           {hostIcon(i[0]) && <Image style={{ height: small ? 16 : 24, width: small ? 16 : 24, position: "absolute", right: small ? -3 : -5, bottom: small ? 18 : 15 }} source={hostIcon(i[0])} />}
         </View>
       </TouchableRipple>
@@ -67,8 +67,8 @@ function OverviewItem({ i, total }) {
         <Image style={{ height: 48, width: 48 }} source={getIcon(i[0])} />
         {hostIcon(i[0]) && <Image style={{ height: 36, width: 36, position: "absolute", right: -7.5, bottom: -7.5 }} source={hostIcon(i[0])} />}
       </View>
-      <Text style={{ fontSize: 16, fontWeight: "bold" }}>{i[1].total}x {(getType(i[0]) || { name: i[0].slice(49, -4) }).name}</Text>
-      <Text style={{ fontSize: 16, fontWeight: "bold" }}>{t('activity:point', { count: i[1].points })}</Text>
+      <Title>{i[1].total}x {(getType(i[0]) || { name: i[0].slice(49, -4) }).name}</Title>
+      <Subheading>{t('activity:point', { count: i[1].points })}</Subheading>
       <Button
         mode="contained"
         onPress={() => { setOpen(false); nav.push('DBType', { munzee: i[0].slice(49, -4) }) }}>

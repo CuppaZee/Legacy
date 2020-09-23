@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Text, View, Image } from 'react-native';
-import { TouchableRipple } from 'react-native-paper';
+import { View, Image } from 'react-native';
+import { Caption, Paragraph, Text, TouchableRipple } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -46,7 +46,7 @@ export default function ActivityListItem({ act: acti, userdata }) {
     <Card noPad>
       {[acti,...acti.subCaptures||[]].map((act,index,list)=><TouchableRipple key={act.key} onPress={() => { navigation.navigate('MunzeeDetails', { username: act.creator, code: act.code }) }}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <View style={{ width: 60, paddingVertical: 4, marginRight: 4, borderTopLeftRadius: index===0?8:0, borderBottomLeftRadius: index===list.length-1?8:0, backgroundColor: theme.dark ? null : theme.activity[act.type]?.bg, borderRightWidth: theme.dark ? 2 : 0, borderRightColor: theme.activity[act.type]?.fg, position: "relative", alignContent: 'center', alignItems: "center", flexGrow: 0 }}>
+          <View style={{ width: 60, paddingVertical: 4, marginRight: 4, backgroundColor: theme.dark ? null : theme.activity[act.type]?.bg, borderRightWidth: theme.dark ? 2 : 0, borderRightColor: theme.activity[act.type]?.fg, position: "relative", alignContent: 'center', alignItems: "center", flexGrow: 0 }}>
             <View style={{ justifyContent: 'center', flexDirection: "row", flexWrap: "wrap", flexGrow: 0 }}>
               <View style={{ paddingHorizontal: 8, borderRadius: 9.5 }}>
                 <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "center", color: theme.activity[act.type]?.fg, ...font("bold") }}>{(act.points) > 0 && '+'}{(Number(act.points)) || t('activity:none')}</Text>
@@ -58,7 +58,7 @@ export default function ActivityListItem({ act: acti, userdata }) {
             </View>
           </View>
           <View style={{ flex: 1 }}>
-            {index===0&&<Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ color: theme.page_content.fg, ...font() }}>
+            {index===0&&<Caption style={{ padding: 0, margin: 0 }} numberOfLines={1} ellipsizeMode="middle">
               {({
                 capon_reno: () => t('activity:user_renovated', { user: act.capper }),
                 capon: () => t('activity:user_captured', { user: act.capper }),
@@ -66,18 +66,18 @@ export default function ActivityListItem({ act: acti, userdata }) {
                 capture: () => t('activity:you_captured'),
                 deploy: () => t('activity:you_deployed')
               })[act.type + (isRenovation(act) ? "_reno" : "")]?.() || "What"}
-            </Text>}
-            {!isRenovation(act) && <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ color: theme.page_content.fg, ...font("bold") }}>{act.name}</Text>}
-            {!isRenovation(act) && <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="middle" style={{ color: theme.page_content.fg, opacity: 0.8, ...font() }}>
+            </Caption>}
+            {!isRenovation(act) && <Paragraph style={{ padding: 0, marginTop: 0, marginBottom: 0, }} numberOfLines={1} ellipsizeMode="middle">{act.name}</Paragraph>}
+            {!isRenovation(act) && <Caption style={{ padding: 0, margin: 0 }} numberOfLines={1} ellipsizeMode="middle">
               {({
                 capon: () => t('activity:by_you'),
                 capture: () => act.creator === userdata?.username ? t('activity:by_you') : t('activity:by_user', { user: act.creator }),
                 deploy: () => t('activity:by_you')
               })[act.type]?.() || "What"}
-            </Text>}
+            </Caption>}
           </View>
-          <View style={{ padding: 8, flexGrow: 0, paddingLeft: 16, alignContent: 'center', position: "relative", alignItems: "flex-end" }}>
-            <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "right", color: theme.page_content.fg, ...font("bold") }}>{moment(act.time).format('LT')}</Text>
+          <View style={{ padding: 8 }}>
+            <Paragraph allowFontScaling={false}>{moment(act.time).format('LT')}</Paragraph>
           </View>
         </View>
       </TouchableRipple>)}
