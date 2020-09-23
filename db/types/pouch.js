@@ -175,7 +175,8 @@ module.exports = [
     },
     "stage": 1,
     "lands_on": ["treehouse","munzee","earthmystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_1"
   },
   {
     "name": "Gleaming Muruchi",
@@ -189,7 +190,8 @@ module.exports = [
     },
     "stage": 2,
     "lands_on": ["munzee","earthmystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_2"
   },
   {
     "name": "Gleaming Murutain",
@@ -203,7 +205,8 @@ module.exports = [
     },
     "stage": 3,
     "lands_on": ["munzee","earthmystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_3"
   },
   {
     "name": "Gleaming Tuli",
@@ -217,7 +220,8 @@ module.exports = [
     },
     "stage": 1,
     "lands_on": ["treehouse","munzee","firemystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_1"
   },
   {
     "name": "Gleaming Tulimber",
@@ -231,7 +235,8 @@ module.exports = [
     },
     "stage": 2,
     "lands_on": ["munzee","firemystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_2"
   },
   {
     "name": "Gleaming Tuliferno",
@@ -245,7 +250,8 @@ module.exports = [
     },
     "stage": 3,
     "lands_on": ["munzee","firemystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_3"
   },
   {
     "name": "Gleaming Vesi",
@@ -259,7 +265,8 @@ module.exports = [
     },
     "stage": 1,
     "lands_on": ["treehouse","munzee","watermystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_1"
   },
   {
     "name": "Gleaming Vesial",
@@ -273,7 +280,8 @@ module.exports = [
     },
     "stage": 2,
     "lands_on": ["munzee","watermystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_2"
   },
   {
     "name": "Gleaming Vesisaur",
@@ -287,7 +295,8 @@ module.exports = [
     },
     "stage": 3,
     "lands_on": ["munzee","watermystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_3"
   },
   {
     "name": "Pimedus",
