@@ -131,6 +131,13 @@ module.exports = [
         "duration": 12,
         "lands_on": ["munzee"]
       },
+      {
+        "name": "Hunting Glasses",
+        "icon": "huntingglasses2020vision",
+        "id": 2299,
+        "duration": 12,
+        "lands_on": [":virtual"]
+      },
     ]
   },
   {
@@ -145,14 +152,21 @@ module.exports = [
         "icon": "oktoberfestbash-beerboot",
         "id": "null_oktoberfestbash-beerboot",
         "duration": 6,
-        "lands_on": [":virtual"]
+        "lands_on": [":virtual","airmystery","electricmystery"]
       },
       {
         "name": "Paint Pallette",
         "icon": "artwalkbash-paintpalette",
         "id": "null_artwalkbash-paintpalette",
         "duration": 6,
-        "lands_on": ["munzee"]
+        "lands_on": ["munzee","firemystery","mystery","icemystery","watermystery","earthmystery"]
+      },
+      {
+        "name": "Yellow Rose",
+        "icon": "lonestarbash-yellowrose",
+        "id": "null_lonestarbash-yellowrose",
+        "duration": 6,
+        "lands_on": [":virtual","airmystery","electricmystery"]
       },
     ]
   },

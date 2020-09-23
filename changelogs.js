@@ -1503,4 +1503,18 @@ export default {
       description: 'Added new Paint Palette to CuppaZee\'s Munzee Types Database'
     },
   ],
+  289: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Yellow Rose to CuppaZee\'s Munzee Types Database'
+    },
+  ],
+  290: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Hunting Glasses to CuppaZee\'s Munzee Types Database'
+    },
+  ],
 }
