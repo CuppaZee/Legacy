@@ -1524,4 +1524,11 @@ export default {
       description: 'Added new Playing Cards to CuppaZee\'s Munzee Types Database'
     },
   ],
+  292: [
+    {
+      icon: 'map-marker-multiple',
+      title: 'Added Zee Invasion Map',
+      description: 'Added a map to see where all of the Zee Invasion gardens are.'
+    },
+  ],
 }
