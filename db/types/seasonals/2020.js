@@ -168,6 +168,13 @@ module.exports = [
         "duration": 6,
         "lands_on": [":virtual","airmystery","electricmystery"]
       },
+      {
+        "name": "Playing Cards",
+        "icon": "all-inbash-playingcards",
+        "id": "null_all-inbash-playingcards",
+        "duration": 6,
+        "lands_on": ["munzee","firemystery","mystery","icemystery","watermystery","earthmystery"]
+      },
     ]
   },
   {

@@ -1517,4 +1517,11 @@ export default {
       description: 'Added new Hunting Glasses to CuppaZee\'s Munzee Types Database'
     },
   ],
+  291: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Playing Cards to CuppaZee\'s Munzee Types Database'
+    },
+  ],
 }
