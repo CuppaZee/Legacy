@@ -1552,4 +1552,11 @@ export default {
       description: 'Fixed some bugs, and tweaked a few systems.'
     },
   ],
+  296: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Ghost to CuppaZee\'s Munzee Types Database'
+    },
+  ],
 }

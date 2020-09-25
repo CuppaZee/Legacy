@@ -175,6 +175,13 @@ module.exports = [
         "duration": 6,
         "lands_on": ["munzee","firemystery","mystery","icemystery","watermystery","earthmystery"]
       },
+      {
+        "name": "Ghost",
+        "icon": "mh-boobash-ghost",
+        "id": "null_mh-boobash-ghost",
+        "duration": 6,
+        "lands_on": [":virtual","airmystery","electricmystery"]
+      },
     ]
   },
   {
