@@ -16,6 +16,15 @@
     "priority": 10
   },
   {
+    "name": "Universals",
+    "id": "universal",
+    "icon": "universal_bash",
+    "parents": [
+      "other"
+    ],
+    "priority": 10
+  },
+  {
     "name": "2020 Seasonal Specials",
     "id": "seasonal_2020",
     "icon": "oktoberfestbash-beerboot",
@@ -378,14 +387,6 @@
     "icon": "scattered",
     "parents": [
       "other"
-    ]
-  },
-  {
-    "name": "Universals",
-    "id": "universal",
-    "icon": "universal_bash",
-    "parents": [
-      "root"
     ]
   },
   {

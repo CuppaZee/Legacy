@@ -7,7 +7,8 @@ module.exports = [
     "base": "tuli",
     "stage": 1,
     "lands_on": ["treehouse","munzee","firemystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_pc_1"
   },
   {
     "name": "Tulimber",
@@ -17,7 +18,8 @@ module.exports = [
     "base": "tuli",
     "stage": 2,
     "lands_on": ["munzee","firemystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_pc_2"
   },
   {
     "name": "Tuliferno",
@@ -27,7 +29,8 @@ module.exports = [
     "base": "tuli",
     "stage": 3,
     "lands_on": ["munzee","firemystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_pc_3"
   },
   {
     "name": "Vesi",
@@ -37,7 +40,8 @@ module.exports = [
     "base": "vesi",
     "stage": 1,
     "lands_on": ["treehouse","munzee","watermystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_pc_1"
   },
   {
     "name": "Vesial",
@@ -47,7 +51,8 @@ module.exports = [
     "base": "vesi",
     "stage": 2,
     "lands_on": ["munzee","watermystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_pc_2"
   },
   {
     "name": "Vesisaur",
@@ -57,7 +62,8 @@ module.exports = [
     "base": "vesi",
     "stage": 3,
     "lands_on": ["munzee","watermystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_pc_3"
   },
   {
     "name": "Water Pouch Creature Host",
@@ -74,7 +80,8 @@ module.exports = [
     "base": "muru",
     "stage": 1,
     "lands_on": ["treehouse","munzee","earthmystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_pc_1"
   },
   {
     "name": "Muruchi",
@@ -84,7 +91,8 @@ module.exports = [
     "base": "muru",
     "stage": 2,
     "lands_on": ["munzee","earthmystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_pc_2"
   },
   {
     "name": "Murutain",
@@ -94,7 +102,8 @@ module.exports = [
     "base": "muru",
     "stage": 3,
     "lands_on": ["munzee","earthmystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_pc_3"
   },
   {
     "name": "Earth Pouch Creature Host",
@@ -110,7 +119,12 @@ module.exports = [
     "state": "bouncer",
     "base": "mitmegu",
     "lands_on": ["treehouse","munzee","shamrock","scatter","premium","rockpaperscissors","watermystery","earthmystery","firemystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": {
+      "capture": 200,
+      "deploy": 250,
+      "capon": 100
+    }
   },
   {
     "name": "Jootmegu",
@@ -119,7 +133,8 @@ module.exports = [
     "state": "bouncer",
     "base": "mitmegu",
     "lands_on": ["watermystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "gen_megu"
   },
   {
     "name": "Rohimegu",
@@ -128,7 +143,8 @@ module.exports = [
     "state": "bouncer",
     "base": "mitmegu",
     "lands_on": ["earthmystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "gen_megu"
   },
   {
     "name": "Lokemegu",
@@ -137,7 +153,8 @@ module.exports = [
     "state": "bouncer",
     "base": "mitmegu",
     "lands_on": ["firemystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "gen_megu"
   },
   {
     "name": "Mitmegu Pouch Creature Host",
@@ -158,7 +175,8 @@ module.exports = [
     },
     "stage": 1,
     "lands_on": ["treehouse","munzee","earthmystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_1"
   },
   {
     "name": "Gleaming Muruchi",
@@ -172,7 +190,8 @@ module.exports = [
     },
     "stage": 2,
     "lands_on": ["munzee","earthmystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_2"
   },
   {
     "name": "Gleaming Murutain",
@@ -186,7 +205,8 @@ module.exports = [
     },
     "stage": 3,
     "lands_on": ["munzee","earthmystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_3"
   },
   {
     "name": "Gleaming Tuli",
@@ -200,7 +220,8 @@ module.exports = [
     },
     "stage": 1,
     "lands_on": ["treehouse","munzee","firemystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_1"
   },
   {
     "name": "Gleaming Tulimber",
@@ -214,7 +235,8 @@ module.exports = [
     },
     "stage": 2,
     "lands_on": ["munzee","firemystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_2"
   },
   {
     "name": "Gleaming Tuliferno",
@@ -228,7 +250,8 @@ module.exports = [
     },
     "stage": 3,
     "lands_on": ["munzee","firemystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_3"
   },
   {
     "name": "Gleaming Vesi",
@@ -242,7 +265,8 @@ module.exports = [
     },
     "stage": 1,
     "lands_on": ["treehouse","munzee","watermystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_1"
   },
   {
     "name": "Gleaming Vesial",
@@ -256,7 +280,8 @@ module.exports = [
     },
     "stage": 2,
     "lands_on": ["munzee","watermystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_2"
   },
   {
     "name": "Gleaming Vesisaur",
@@ -270,7 +295,8 @@ module.exports = [
     },
     "stage": 3,
     "lands_on": ["munzee","watermystery"],
-    "set": "season_1"
+    "set": "season_1",
+    "points": "bouncer_gpc_3"
   },
   {
     "name": "Pimedus",
@@ -302,7 +328,8 @@ module.exports = [
     "base": "puffle",
     "stage": 1,
     "lands_on": ["skyland",":virtual","airmystery"],
-    "set": "season_2"
+    "set": "season_2",
+    "points": "bouncer_pc_1"
   },
   {
     "name": "Pufrain",
@@ -312,7 +339,8 @@ module.exports = [
     "base": "puffle",
     "stage": 2,
     "lands_on": [":virtual","airmystery"],
-    "set": "season_2"
+    "set": "season_2",
+    "points": "bouncer_pc_2"
   },
   {
     "name": "Puflawn",
@@ -322,7 +350,8 @@ module.exports = [
     "base": "puffle",
     "stage": 3,
     "lands_on": [":virtual","airmystery"],
-    "set": "season_2"
+    "set": "season_2",
+    "points": "bouncer_pc_3"
   },
   {
     "name": "Air Pouch Creature Host",
@@ -346,7 +375,8 @@ module.exports = [
     "state": "bouncer",
     "funfinity": true,
     "lands_on": ["treehouse","munzee","earthmystery","topaz","treehouse"],
-    "set": "funfinity"
+    "set": "funfinity",
+    "points": "funfinity"
   },
   {
     "name": "Ametust",
@@ -355,7 +385,8 @@ module.exports = [
     "state": "bouncer",
     "funfinity": true,
     "lands_on": ["skyland",":virtual","earthmystery","virtual_amethyst","treehouse"],
-    "set": "funfinity"
+    "set": "funfinity",
+    "points": "funfinity"
   },
   {
     "name": "Oniks",
@@ -364,7 +395,8 @@ module.exports = [
     "state": "bouncer",
     "funfinity": true,
     "lands_on": ["skyland",":virtual","earthmystery","virtual_onyx","treehouse"],
-    "set": "funfinity"
+    "set": "funfinity",
+    "points": "funfinity"
   },
   {
     "name": "Elekter",
@@ -374,7 +406,8 @@ module.exports = [
     "base": "elekter",
     "stage": 1,
     "lands_on": ["skyland",":virtual","electricmystery"],
-    "set": "season_2"
+    "set": "season_2",
+    "points": "ouncer_pc_1"
   },
   {
     "name": "Elekjoud",
@@ -384,7 +417,8 @@ module.exports = [
     "base": "elekter",
     "stage": 2,
     "lands_on": [":virtual","electricmystery"],
-    "set": "season_2"
+    "set": "season_2",
+    "points": "ouncer_pc_2"
   },
   {
     "name": "Elektrivool",
@@ -394,7 +428,8 @@ module.exports = [
     "base": "elekter",
     "stage": 3,
     "lands_on": [":virtual","electricmystery"],
-    "set": "season_2"
+    "set": "season_2",
+    "points": "ouncer_pc_3"
   },
   {
     "name": "Teemant",
@@ -403,7 +438,8 @@ module.exports = [
     "state": "bouncer",
     "funfinity": true,
     "lands_on": ["treehouse","munzee","earthmystery","diamond"],
-    "set": "funfinity"
+    "set": "funfinity",
+    "points": "funfinity"
   },
   {
     "name": "Smaragd",
@@ -412,7 +448,8 @@ module.exports = [
     "state": "bouncer",
     "funfinity": true,
     "lands_on": ["skyland",i=>(i.virtual_colors||[]).includes("green"),"airmystery","virtual_emerald"],
-    "set": "funfinity"
+    "set": "funfinity",
+    "points": "funfinity"
   },
   {
     "name": "Akvamariin",
@@ -421,7 +458,8 @@ module.exports = [
     "state": "bouncer",
     "funfinity": true,
     "lands_on": ["treehouse","munzee","earthmystery","aquamarine"],
-    "set": "funfinity"
+    "set": "funfinity",
+    "points": "funfinity"
   },
   {
     "name": "Rubiin",
@@ -430,7 +468,8 @@ module.exports = [
     "state": "bouncer",
     "funfinity": true,
     "lands_on": ["treehouse","munzee","firemystery","ruby"],
-    "set": "funfinity"
+    "set": "funfinity",
+    "points": "funfinity"
   },
   {
     "name": "Safiir",
@@ -439,6 +478,7 @@ module.exports = [
     "state": "bouncer",
     "funfinity": true,
     "lands_on": ["skyland",":virtual","airmystery","virtual_sapphire"],
-    "set": "funfinity"
+    "set": "funfinity",
+    "points": "funfinity"
   }
 ]

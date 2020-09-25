@@ -1,3 +1,4 @@
 module.exports = [
-  require('./blast')
+  require('./blast'),
+  require('./zee_invasion'),
 ]

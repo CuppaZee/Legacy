@@ -834,7 +834,8 @@ categories.push({
   name: "Universals",
   id: "universal",
   icon: "universal_bash",
-  parents: ["root"]
+  parents: ["other"],
+  priority: 10
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Seasonals${colors.Reset} from ${colors.fg.Green}./types/seasonals/*.js${colors.Reset}`)

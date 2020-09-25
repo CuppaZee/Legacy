@@ -1503,4 +1503,46 @@ export default {
       description: 'Added new Paint Palette to CuppaZee\'s Munzee Types Database'
     },
   ],
+  289: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Yellow Rose to CuppaZee\'s Munzee Types Database'
+    },
+  ],
+  290: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Hunting Glasses to CuppaZee\'s Munzee Types Database'
+    },
+  ],
+  291: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Playing Cards to CuppaZee\'s Munzee Types Database'
+    },
+  ],
+  292: [
+    {
+      icon: 'map-marker-multiple',
+      title: 'Added Zee Invasion Map',
+      description: 'Added a map to see where all of the Zee Invasion gardens are.'
+    },
+  ],
+  293: [
+    {
+      icon: 'map-marker-multiple',
+      title: 'Fixed Zee Invasion Map on iOS',
+      description: 'Fixed a bug with the Zee Invasion Map on iOS where the icons wouldn\'t render correctly.'
+    },
+  ],
+  294: [
+    {
+      icon: 'map',
+      title: 'Fixed Major Map Issue',
+      description: 'Properly fixed a bug on iOS and Android where icons would sometimes randomly not show with Google Maps.'
+    },
+  ],
 }

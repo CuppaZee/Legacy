@@ -117,6 +117,11 @@ export default [
     import: () => import('sections/Tools/BouncerMap'),
     path: "tools/bouncers/:type"
   },
+  {
+    name: "ZeeInvasion",
+    import: () => import('sections/Tools/ZeeInvasion'),
+    path: "tools/map/zeeinvasion"
+  },
 
   
   {
