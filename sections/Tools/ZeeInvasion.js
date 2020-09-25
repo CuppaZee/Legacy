@@ -13,13 +13,13 @@ export default function ZeeInvasionMapScreen() {
   var markers = data?data.map(i=>({
     lat: Number(i.latitude),
     lng: Number(i.longitude),
-    icon: i.pin_icon,
+    icon: "poi_virtual_garden",
     id: i.munzee_id,
   })):[]
-  if(markers.length===0) {
+  if(!data || markers.length===0) {
     return <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page_content.bg }}>
       <ActivityIndicator size="large" color={theme.page_content.fg} />
     </View>
   }
-  return <MapView markers={markers} />;
+  return <MapView markers={markers} tracksViewChanges={true} />;
 }

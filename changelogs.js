@@ -1531,4 +1531,11 @@ export default {
       description: 'Added a map to see where all of the Zee Invasion gardens are.'
     },
   ],
+  293: [
+    {
+      icon: 'map-marker-multiple',
+      title: 'Fixed Zee Invasion Map on iOS',
+      description: 'Fixed a bug with the Zee Invasion Map on iOS where the icons wouldn\'t render correctly.'
+    },
+  ],
 }
