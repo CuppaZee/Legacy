@@ -4689,6 +4689,12 @@
     ],
     "state": "virtual",
     "category": "misc",
+    "points": {
+      "deploy": 30,
+      "type": "split",
+      "split": 75,
+      "min": 25
+    },
     "x": 233,
     "i": "temporaryvirtual"
   },

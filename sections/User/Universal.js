@@ -10,6 +10,32 @@ import QRCode from 'react-native-qrcode-svg';
 import getIcon from 'utils/db/icon';
 import useMoment from 'utils/hooks/useMoment';
 
+function useWatch(munzee_id, user_id, token) {
+  const [i, setI] = React.useState({});
+  const [response, setResponse] = React.useState(false);
+  React.useEffect(()=>{
+    var interval = setInterval(async () => {
+      if(munzee_id && (!i[munzee_id] || i[munzee_id] < 10)) {
+        const reqformData = new FormData();
+        reqformData.append('data', JSON.stringify({ munzee_id, i, page: 0, access_token: token }))
+        reqformData.append('access_token', token)
+        const d = await fetch(`https://api.munzee.com/munzee/captures`, {
+          method: 'POST',
+          body: reqformData
+        })
+        const {data} = await d.json();
+        if((data||[]).find(i=>i.user_id.toString()===user_id.toString())) {
+          setResponse(munzee_id);
+          setI(10);
+        }
+      }
+      setI(a=>({...a,[munzee_id]:(a[munzee_id]||0)+1}));
+    }, 1500);
+    return () => clearInterval(interval)
+  })
+  return response;
+}
+
 function Report({qr}) {
   var [reportMenu, setReportMenu] = React.useState(false);
   var [reportOption, setReportOption] = React.useState("invalid_secret_code");
@@ -97,16 +123,9 @@ export default function UniversalCapScreen({ navigation, route }) {
       munzee_id: qr.munzee_id
     }
   } : null, true)
-  var watch = useAPIRequest(qr?.munzee_id ? {
-    endpoint: 'user/universal/watch/v1',
-    data: {
-      user_id,
-      munzee_id: Number(qr.munzee_id)
-    },
-    cuppazee: true
-  } : null)
+  var watch = useWatch(qr?.munzee_id, user_id, data?.token);
   React.useEffect(() => {
-    if (watch) setIndex(index + 1);
+    if (watch === qr?.munzee_id) setIndex(index + 1);
   }, [watch])
   React.useEffect(() => {
     setIndex(0)

@@ -1545,4 +1545,11 @@ export default {
       description: 'Properly fixed a bug on iOS and Android where icons would sometimes randomly not show with Google Maps.'
     },
   ],
+  295: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Fixed some bugs, and tweaked a few systems.'
+    },
+  ],
 }

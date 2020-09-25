@@ -1,4 +1,4 @@
-var {request} = require("../util");
+var {request,retrieve} = require("../util");
 const types = require('./universal_types.json');
 
 function shuffle(a) {
@@ -82,6 +82,7 @@ module.exports = {
         },
       },
       async function({ params: { username, access_token, filter }, db }) {
+        var token = await retrieve(db, { user_id: 455935, teaken: false }, 60, 'universal');
         var data = (await db.collection('data').doc('universal').get()).data().munzees.map(i=>i.split('/')).filter(i=>i[0]!==username);
         data = data.filter(i=>!(filter||"").split(',').includes(i[4]||"0"))
         var valid = new Set(Object.entries(await request('munzee/hascaptured', { munzee_ids: data.map(i=>i[3]).join(',') }, access_token)).filter(i=>!i[1]).map(i=>i[0]));
@@ -96,7 +97,8 @@ module.exports = {
             total: data.length,
             capped: data.filter(i=>!valid.has(i[3])).length,
             types,
-            cacheID: Math.floor(Math.random()*10000)
+            cacheID: Math.floor(Math.random()*10000),
+            token: token.access_token
           }
         }
       },

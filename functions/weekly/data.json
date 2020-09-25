@@ -457,5 +457,26 @@
     "start":    "2020-09-18T12:00:00-05:00",
     "end":      "2020-09-25T09:00:00-05:00",
     "finalend": "2020-09-25T09:45:00-05:00"
+  },
+  {
+    "id": "week_7",
+    "week": 7,
+    "description": "Trojan Unicorns",
+    "icon": "trojanunicorn",
+    "requirements": [
+      {
+        "type": "trojanunicorn",
+        "points": 2
+      },
+      {
+        "type": "flamingarrow",
+        "points": 1
+      }
+    ],
+    "reveal":   "2020-09-25T09:00:00-05:00",
+    "prestart": "2020-09-25T11:15:00-05:00",
+    "start":    "2020-09-25T12:00:00-05:00",
+    "end":      "2020-10-01T09:00:00-05:00",
+    "finalend": "2020-10-01T09:45:00-05:00"
   }
 ]
