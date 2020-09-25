@@ -41,7 +41,6 @@ export default function ClanScreen({ route }) {
                   lng: longitude
                 })
               }}
-              tracksViewChanges={true}
               markers={[{
                 ...storedLocation,
                 icon: "blastcapture"

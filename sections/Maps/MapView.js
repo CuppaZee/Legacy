@@ -7,6 +7,20 @@ import { FAB, Snackbar } from "react-native-paper";
 import getIcon from "utils/db/icon";
 import * as Location from "expo-location";
 
+const MapMarker = React.memo(function (props) {
+  const [tracksViewChanges, setTracksViewChanges] = React.useState(true);
+  return <Marker
+    tracksViewChanges={tracksViewChanges}
+    coordinate={{ latitude: props.lat, longitude: props.lng }}
+  >
+    <Image
+      onLoad={()=>setTracksViewChanges(false)}
+      fadeDuration={0}
+      source={getIcon(props.icon)}
+      style={{ width: 48, height: 48 }}/>
+  </Marker>
+})
+
 export default function Map(props) {
   const theme = useSelector(i => i.themes[i.theme]);
   const appleMaps = useSelector(i => i.settings.appleMaps);
@@ -61,15 +75,7 @@ export default function Map(props) {
         fillColor={i.fill}
         strokeColor={i.stroke}
       />)}
-      {props.markers?.map(i => <Marker
-        key={i.id}
-        tracksViewChanges={!!props.tracksViewChanges}
-        coordinate={{ latitude: i.lat, longitude: i.lng }}>
-          <Image
-            source={getIcon(i.icon)}
-            style={{ width: 48, height: 48 }}/>
-        </Marker>
-      )}
+      {props.markers?.map(i => <MapMarker key={i.id} {...i} />)}
     </MapView>
     <FAB
       style={{ position: "absolute", top: 8, left: 8, backgroundColor: theme.navigation.bg }}

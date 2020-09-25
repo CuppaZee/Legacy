@@ -1538,4 +1538,11 @@ export default {
       description: 'Fixed a bug with the Zee Invasion Map on iOS where the icons wouldn\'t render correctly.'
     },
   ],
+  294: [
+    {
+      icon: 'map',
+      title: 'Fixed Major Map Issue',
+      description: 'Properly fixed a bug on iOS and Android where icons would sometimes randomly not show with Google Maps.'
+    },
+  ],
 }

@@ -21,5 +21,5 @@ export default function ZeeInvasionMapScreen() {
       <ActivityIndicator size="large" color={theme.page_content.fg} />
     </View>
   }
-  return <MapView markers={markers} tracksViewChanges={true} />;
+  return <MapView markers={markers} />;
 }

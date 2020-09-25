@@ -38,7 +38,7 @@ export default function ClanScreen({ route }) {
         {!bouncers && <Text allowFontScaling={false} style={{ color: theme.page.fg, ...font() }}>Loading...</Text>}
         {bouncers && <View style={{ padding: 4, height: 400, width: "100%" }}>
           <Card noPad>
-            <MapView tracksViewChanges={true} markers={bouncers.filter(i => i.bouncer).map(i => ({
+            <MapView markers={bouncers.filter(i => i.bouncer).map(i => ({
               lat: Number(i.bouncer.latitude),
               lng: Number(i.bouncer.longitude),
               icon: i.pin_icon
