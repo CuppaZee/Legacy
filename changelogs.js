@@ -1545,4 +1545,25 @@ export default {
       description: 'Properly fixed a bug on iOS and Android where icons would sometimes randomly not show with Google Maps.'
     },
   ],
+  295: [
+    {
+      icon: 'bug',
+      title: 'Fixed Bugs',
+      description: 'Fixed some bugs, and tweaked a few systems.'
+    },
+  ],
+  296: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Ghost to CuppaZee\'s Munzee Types Database'
+    },
+  ],
+  297: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Unicorn Stick Horse to CuppaZee\'s Munzee Types Database'
+    },
+  ],
 }

@@ -164,6 +164,12 @@
       "alt_icons": [
         "tempvirt"
       ]
+    },
+    "points": {
+      "deploy": 30,
+      "type": "split",
+      "split": 75,
+      "min": 25
     }
   },
   {
