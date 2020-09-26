@@ -1559,4 +1559,11 @@ export default {
       description: 'Added new Ghost to CuppaZee\'s Munzee Types Database'
     },
   ],
+  297: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Unicorn Stick Horse to CuppaZee\'s Munzee Types Database'
+    },
+  ],
 }
