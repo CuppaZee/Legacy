@@ -261,10 +261,7 @@ function App() {
   return (
     <NavigationContainer theme={theme.nav} independent={true} onStateChange={handleStateChange} initialState={initialState} ref={ref}>
       <StatusBar translucent={true} backgroundColor={theme.nav.colors.background + 'cc'} barStyle="light-content" />
-      {/* <View style={{ flex: 1 }}> */}
-        <DrawerNav />
-        {/* <View style={{position:"absolute",bottom:-0.5*navWidth,right:-0.5*navWidth,width:navWidth,height:navWidth,borderRadius:navWidth/2,paddingBottom:navWidth/2,paddingRight:navWidth/2,backgroundColor:"white"}}><Text>Hello</Text></View> */}
-      {/* </View> */}
+      <DrawerNav />
     </NavigationContainer>
   );
 }

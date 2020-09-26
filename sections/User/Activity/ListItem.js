@@ -58,7 +58,7 @@ export default function ActivityListItem({ act: acti, userdata }) {
             </View>
           </View>
           <View style={{ flex: 1 }}>
-            {index===0&&<Caption style={{ padding: 0, margin: 0 }} numberOfLines={1} ellipsizeMode="middle">
+            {index===0&&<Text style={{ fontWeight: "100", fontSize: 12 }} numberOfLines={1} ellipsizeMode="middle">
               {({
                 capon_reno: () => t('activity:user_renovated', { user: act.capper }),
                 capon: () => t('activity:user_captured', { user: act.capper }),
@@ -66,15 +66,15 @@ export default function ActivityListItem({ act: acti, userdata }) {
                 capture: () => t('activity:you_captured'),
                 deploy: () => t('activity:you_deployed')
               })[act.type + (isRenovation(act) ? "_reno" : "")]?.() || "What"}
-            </Caption>}
-            {!isRenovation(act) && <Paragraph style={{ padding: 0, marginTop: 0, marginBottom: 0, }} numberOfLines={1} ellipsizeMode="middle">{act.name}</Paragraph>}
-            {!isRenovation(act) && <Caption style={{ padding: 0, margin: 0 }} numberOfLines={1} ellipsizeMode="middle">
+            </Text>}
+            {!isRenovation(act) && <Text style={{ fontSize: 14 }} numberOfLines={1} ellipsizeMode="middle">{act.name}</Text>}
+            {!isRenovation(act) && <Text style={{ fontWeight: "100", fontSize: 12 }} numberOfLines={1} ellipsizeMode="middle">
               {({
                 capon: () => t('activity:by_you'),
                 capture: () => act.creator === userdata?.username ? t('activity:by_you') : t('activity:by_user', { user: act.creator }),
                 deploy: () => t('activity:by_you')
               })[act.type]?.() || "What"}
-            </Caption>}
+            </Text>}
           </View>
           <View style={{ padding: 8 }}>
             <Paragraph allowFontScaling={false}>{moment(act.time).format('LT')}</Paragraph>

@@ -14,6 +14,7 @@ import Fuse from 'fuse.js'
 import types from 'utils/db/types.json';
 import categories from 'utils/db/categories.json';
 import useSetting from '../../utils/hooks/useSetting';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const options = {
   includeScore: true,
@@ -258,12 +259,15 @@ export default function CustomDrawerContent(props) {
           {!userMini && <View style={{ paddingVertical: 4, paddingHorizontal: 8 }}>
             <TextInput value={search} mode="outlined" dense={true} left={<TextInput.Icon icon="magnify" />} onChangeText={(val) => setSearch(val)} label="Search" returnKeyLabel="Search" returnKeyType="search" />
           </View>}
+          {!userMini && <Surface style={{ backgroundColor: "#aa0000", elevation: 4, margin: 4, padding: 4, flexDirection: "row", alignItems: "center" }}>
+            <MaterialCommunityIcons color="#ffffff" name="alert" size={24} style={{margin: 4}} />
+            <View>
+              <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", color: "#ffffff" }}>PRIVATE BETA BUILD</Text>
+              <Text allowFontScaling={false} style={{ fontSize: 12, fontWeight: "bold", color: "#ffffff" }}>Do NOT share screenshots</Text>
+            </View>
+          </Surface>}
           {query.length > 3 ? <SearchView query={query} {...props} /> : <View style={{ flexDirection: "row", flexGrow: 1 }}>
             {(!userDrawer || width >= 320) && <View style={userDrawer ? { width: 48 } : { flex: 1 }}>
-              {!mini && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 16 }}>
-                <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", opacity: 0.8 }}>Remember this is a Beta build</Text>
-                <Text allowFontScaling={false} style={{ fontSize: 12, fontWeight: "bold", opacity: 0.8 }}>Feedback is welcome in the CuppaZee Supporters group</Text>
-              </View>}
               {!mini && Platform.OS === "web" && globalThis?.navigator?.userAgent?.match?.(/Android/) && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 8 }}>
                 <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", opacity: 0.8 }}>The CuppaZee App is now on Google Play</Text>
                 <Text allowFontScaling={false} style={{ fontSize: 12, fontWeight: "bold", opacity: 0.8 }}>Download it now!</Text>

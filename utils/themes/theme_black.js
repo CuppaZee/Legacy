@@ -18,7 +18,8 @@ export default {
       ...NavTheme.colors,
       background: "#000000",
       card: "#000000",
-      text: "#ffffff"
+      text: "#ffffff",
+      border: "#016930"
     }
   },
   drawer: {

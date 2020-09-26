@@ -1,15 +1,12 @@
 import * as React from 'react';
-import { Text, View, FlatList, Platform } from 'react-native';
+import { View, FlatList, Platform } from 'react-native';
 import { DrawerLayout } from 'react-native-gesture-handler';
-import { ActivityIndicator, IconButton, Menu } from 'react-native-paper';
+import { ActivityIndicator, IconButton, Menu, Subheading } from 'react-native-paper';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 
-import font from 'sections/Shared/font';
 import Card from 'sections/Shared/Card';
 import DatePicker from 'sections/Shared/DatePicker';
-
-import getType from 'utils/db/types';
 
 import useAPIRequest from 'utils/hooks/useAPIRequest';
 import useMoment from 'utils/hooks/useMoment';
@@ -24,42 +21,40 @@ import { ActivityConverter } from './Data';
 function DateSwitcher({ dateString, toggleDrawer }) {
   var moment = useMoment();
   const nav = useNavigation();
-  const theme = useSelector(i => i.themes[i.theme]);
   const [datePickerOpen, setDatePickerOpen] = React.useState(false);
-  return <View style={{ ...(theme.page_content.border ? { borderBottomWidth: 1, borderBottomColor: theme.page_content.border } : {}), borderTopLeftRadius: 8, borderTopRightRadius: 8, backgroundColor: (theme.clanCardHeader || theme.navigation).bg }}>
-    <View style={{ flexDirection: "row", alignItems: "center" }}>
-      <Menu
-        visible={datePickerOpen}
-        onDismiss={() => setDatePickerOpen(false)}
-        anchor={
-          <IconButton icon="calendar" color={(theme.clanCardHeader || theme.navigation).fg} onPress={() => setDatePickerOpen(true)} />
-        }
-        contentStyle={{ padding: 0, backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border ? 1 : 0, borderColor: theme.page_content.border, width: 300 }}
-      >
-        <DatePicker noWrap value={moment({
-          year: Number(dateString.split('-')[0]),
-          month: Number(dateString.split('-')[1]) - 1,
-          date: Number(dateString.split('-')[2]),
-        })} onChange={(date) => {
-          nav.setParams({
-            date: `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
-          })
-        }} />
-      </Menu>
-
-      <Text allowFontScaling={false} style={{ flex: 1, ...font("bold"), fontSize: 16, color: (theme.clanCardHeader || theme.navigation).fg }}>{moment({
+  return <View style={{ flexDirection: "row", alignItems: "center" }}>
+    <Menu
+      visible={datePickerOpen}
+      onDismiss={() => setDatePickerOpen(false)}
+      anchor={
+        <IconButton icon="calendar" onPress={() => setDatePickerOpen(true)} />
+      }
+      contentStyle={{ padding: 0, width: 300 }}
+    >
+      <DatePicker noWrap value={moment({
         year: Number(dateString.split('-')[0]),
         month: Number(dateString.split('-')[1]) - 1,
         date: Number(dateString.split('-')[2]),
-      }).format('L')}</Text>
-      {toggleDrawer && <IconButton icon="filter" color={(theme.clanCardHeader || theme.navigation).fg} onPress={() => toggleDrawer()} />}
-    </View>
+      })} onChange={(date) => {
+        nav.setParams({
+          date: `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
+        })
+      }} />
+    </Menu>
+
+    <Subheading style={{ flex: 1 }}>
+      {moment({
+        year: Number(dateString.split('-')[0]),
+        month: Number(dateString.split('-')[1]) - 1,
+        date: Number(dateString.split('-')[2]),
+      }).format('L')}
+    </Subheading>
+    {toggleDrawer && <IconButton icon="filter" onPress={() => toggleDrawer()} />}
   </View>
-}
+  }
 
 function UserActivityPage({ toggleDrawer, filters }) {
   var moment = useMoment();
-  var theme = useSelector(i => i.themes[i.theme]);
   var date = moment().tz('America/Chicago');
   var dateString = `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
   var route = useRoute();
@@ -78,15 +73,15 @@ function UserActivityPage({ toggleDrawer, filters }) {
     cuppazee: true
   } : null)
   if (!dataraw) return (
-    <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page.bg }}>
-      <ActivityIndicator size="large" color={theme.page.fg} />
+    <View style={{ flex: 1, alignContent: "center", justifyContent: "center" }}>
+      <ActivityIndicator size="large" />
     </View>
   )
   var activityList = ActivityConverter(dataraw, filters, userdata);
   return <View style={{ flex: 1 }}>
     <FlatList
       contentContainerStyle={{ width: 500, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", paddingBottom: 88 }}
-      style={{ flex: 1, backgroundColor: theme.page.bg }}
+      style={{ flex: 1 }}
       extraData={[userdata?.username]}
       ListHeaderComponent={<View>
         <View style={{ padding: 4 }}>
