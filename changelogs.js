@@ -1573,4 +1573,11 @@ export default {
       description: 'Added new ZeeOps Transmission to CuppaZee\'s Munzee Types Database'
     },
   ],
+  299: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Self Destruct Card to CuppaZee\'s Munzee Types Database'
+    },
+  ],
 }
