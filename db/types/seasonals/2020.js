@@ -189,6 +189,13 @@ module.exports = [
         "duration": 6,
         "lands_on": ["munzee","firemystery","mystery","icemystery","watermystery","earthmystery"]
       },
+      {
+        "name": "ZeeOps Transmission",
+        "icon": "bashfromthepast-zeeopstransmission",
+        "id": "null_bashfromthepast-zeeopstransmission",
+        "duration": 6,
+        "lands_on": [":virtual","airmystery","electricmystery"]
+      },
     ]
   },
   {

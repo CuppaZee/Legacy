@@ -1566,4 +1566,11 @@ export default {
       description: 'Added new Unicorn Stick Horse to CuppaZee\'s Munzee Types Database'
     },
   ],
+  298: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new ZeeOps Transmission to CuppaZee\'s Munzee Types Database'
+    },
+  ],
 }
