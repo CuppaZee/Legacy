@@ -160,6 +160,17 @@ var tasks = {
     ],
     function: ({ cap, dep }) => [...cap, ...dep].filter(i => g(i).weapon === "clan").length
   },
+  27: {
+    task_id: 27,
+    top: "Zodiac",
+    bottom: "Activity",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/zodiac.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/zodiac.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/scorpio.png"
+    ],
+    function: ({ cap, dep }) => [...cap, ...dep].filter(i => g(i).zodiac).length
+  },
   28: {
     task_id: 28,
     top: "Flat",
@@ -170,6 +181,17 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/flatlou.png"
     ],
     function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i).flat && !g(i).unique).reduce(points, 0)
+  },
+  29: {
+    task_id: 29,
+    top: "Elemental",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/earthmystery.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/earthmystery.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/icemystery.png"
+    ],
+    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => (g(i).elemental && (!g(i).scatter || ['fire','waterdroplet','frozengreenie','charge'].includes(g(i).icon)))).reduce(points, 0)
   },
   31: {
     task_id: 32,
@@ -266,6 +288,7 @@ var all_tasks = {
   ],
   89: [1, 3, 10, 12, 13, 23, 24, 28, 35],
   90: [1,13,14,24,3,35,19,25,26,32,33],
+  91: [1,19,23,29,3,35,7,12,13,24,27,28,33]
 }
 var current_month = 90;
 

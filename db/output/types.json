@@ -4219,8 +4219,13 @@
         0
       ]
     },
+    "elemental": true,
     "state": "physical",
     "category": "scatter",
+    "can_host": [
+      1329,
+      2337
+    ],
     "x": 214,
     "i": "waterdroplet"
   },
@@ -19454,8 +19459,13 @@
         0
       ]
     },
+    "elemental": true,
     "state": "physical",
     "category": "scatter",
+    "can_host": [
+      1329,
+      2337
+    ],
     "x": 625,
     "i": "fire"
   },
@@ -19469,8 +19479,13 @@
         0
       ]
     },
+    "elemental": true,
     "state": "physical",
     "category": "scatter",
+    "can_host": [
+      1329,
+      2337
+    ],
     "x": 626,
     "i": "frozengreenie"
   },
@@ -19490,8 +19505,13 @@
       "max": 3,
       "radius": null
     },
+    "elemental": true,
     "state": "virtual",
     "category": "scatter",
+    "can_host": [
+      1329,
+      2337
+    ],
     "x": 627,
     "i": "feather"
   },
@@ -19503,8 +19523,13 @@
       "standalone": true,
       "duration": 2
     },
+    "elemental": true,
     "state": "virtual",
     "category": "scatter",
+    "can_host": [
+      1329,
+      2337
+    ],
     "x": 628,
     "i": "goldenfeather"
   },
@@ -19942,6 +19967,19 @@
         1020,
         1086,
         2391,
+        560,
+        697,
+        1021,
+        1087,
+        1088,
+        "null_tree",
+        2404,
+        2405,
+        2392,
+        "null_peach",
+        "null_pear",
+        "null_pecan",
+        "null_acorn",
         40,
         131,
         148,
@@ -20395,8 +20433,13 @@
         0
       ]
     },
+    "elemental": true,
     "state": "physical",
     "category": "scatter",
+    "can_host": [
+      1329,
+      2337
+    ],
     "x": 661,
     "i": "tree"
   },
@@ -20432,6 +20475,19 @@
         1020,
         1086,
         2391,
+        560,
+        697,
+        1021,
+        1087,
+        1088,
+        "null_tree",
+        2404,
+        2405,
+        2392,
+        "null_peach",
+        "null_pear",
+        "null_pecan",
+        "null_acorn",
         1468,
         1469,
         1470,
@@ -20526,8 +20582,13 @@
         "credit_virtual_colors"
       ]
     },
+    "elemental": true,
     "state": "virtual",
     "category": "scatter",
+    "can_host": [
+      1329,
+      2337
+    ],
     "x": 664,
     "i": "charge"
   },
@@ -20539,8 +20600,13 @@
       "duration": 1,
       "standalone": true
     },
+    "elemental": true,
     "state": "virtual",
     "category": "scatter",
+    "can_host": [
+      1329,
+      2337
+    ],
     "x": 665,
     "i": "redapple"
   },
@@ -20552,8 +20618,13 @@
       "duration": 1,
       "standalone": true
     },
+    "elemental": true,
     "state": "virtual",
     "category": "scatter",
+    "can_host": [
+      1329,
+      2337
+    ],
     "x": 666,
     "i": "cherryblossom"
   },
@@ -20691,8 +20762,13 @@
       "duration": 1,
       "standalone": true
     },
+    "elemental": true,
     "state": "virtual",
     "category": "scatter",
+    "can_host": [
+      1329,
+      2337
+    ],
     "x": 671,
     "i": "peach"
   },
@@ -20704,8 +20780,13 @@
       "duration": 1,
       "standalone": true
     },
+    "elemental": true,
     "state": "virtual",
     "category": "scatter",
+    "can_host": [
+      1329,
+      2337
+    ],
     "x": 672,
     "i": "pear"
   },
@@ -20743,8 +20824,13 @@
       "duration": 1,
       "standalone": true
     },
+    "elemental": true,
     "state": "virtual",
     "category": "scatter",
+    "can_host": [
+      1329,
+      2337
+    ],
     "x": 675,
     "i": "pecan"
   },
@@ -20756,8 +20842,13 @@
       "duration": 1,
       "standalone": true
     },
+    "elemental": true,
     "state": "virtual",
     "category": "scatter",
+    "can_host": [
+      1329,
+      2337
+    ],
     "x": 676,
     "i": "acorn"
   },
