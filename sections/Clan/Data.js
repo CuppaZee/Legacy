@@ -211,6 +211,20 @@ var Clan = {
       types: i => i.weapon == "clan"
     }
   },
+  27: {
+    task_id: 27,
+    top: "Zodiac",
+    bottom: "Activity",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/zodiac.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/zodiac.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/scorpio.png"
+    ],
+    meta: {
+      activity: ["capture", "deploy"],
+      types: i => i.zodiac
+    }
+  },
   28: {
     task_id: 28,
     top: "Flat",
@@ -224,6 +238,21 @@ var Clan = {
       activity: ["capture", "deploy", "capon"],
       points: true,
       types: i => i.category == "flat" && !i.unique
+    }
+  },
+  29: {
+    task_id: 29,
+    top: "Elemental",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/earthmystery.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/icemystery.png",
+      "https://munzee.global.ssl.fastly.net/images/pins/earthmystery.png"
+    ],
+    meta: {
+      activity: ["capture", "deploy", "capon"],
+      points: true,
+      types: i => (i.elemental && (!i.scatter || ['fire','waterdroplet','frozengreenie','charge'].includes(i.icon)))
     }
   },
   31: {

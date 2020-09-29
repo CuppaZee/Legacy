@@ -162,5 +162,10 @@
     "icon": "spring_card",
     "id": "null_springcard",
     "open": true
+  },
+  {
+    "name": "Self Destruct Card",
+    "icon": "selfdestructcard",
+    "id": "null_selfdestructcard"
   }
 ]

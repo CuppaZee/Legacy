@@ -1566,4 +1566,37 @@ export default {
       description: 'Added new Unicorn Stick Horse to CuppaZee\'s Munzee Types Database'
     },
   ],
+  298: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new ZeeOps Transmission to CuppaZee\'s Munzee Types Database'
+    },
+  ],
+  299: [
+    {
+      icon: 'database',
+      title: 'Updated Munzee Database',
+      description: 'Added new Self Destruct Card to CuppaZee\'s Munzee Types Database'
+    },
+  ],
+  300: [
+    {
+      icon: 'star',
+      title: 'October 2020 Clan Requirements',
+      description: 'Added Meta for October 2020 Clan Requirements. You can view them by pressing the Star in the sidebar.'
+    },
+    {
+      icon: 'calendar',
+      title: 'October 2020 QRewzdays',
+      description: 'Updated the CuppaZee Calendar for October 2020'
+    },
+  ],
+  301: [
+    {
+      icon: 'star',
+      title: 'October 2020 Clan Requirements',
+      description: 'Fixed Meta for Elemental Activity'
+    },
+  ]
 }
