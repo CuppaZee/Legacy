@@ -5,6 +5,7 @@ const db = admin.firestore();
 const cors = require("cors")({
   origin: true,
 });
+const notificationData = require('./util/notificationSettings')(db);
 var disabled = {
   needsLoad: true,
   paths: [],
@@ -27,6 +28,8 @@ function checkFrom(from,route) {
         if(Number(build)>=210) {
           return true;
         }
+      } else if(version==="1.3") {
+        return true;
       }
     }
   } else if(from.match(/^zeetreehouses_([0-9]{4})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})([0-9]{2})([αßΩ]?)$/)) {
@@ -165,7 +168,8 @@ var x = async (req, res) => {
         params: params,
         res,
         db,
-        cns
+        cns,
+        notificationData,
       });
       cns.log('Finished')
       if (response.norespond) return;
