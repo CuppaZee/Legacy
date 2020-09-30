@@ -1,26 +1,14 @@
 var { retrieve, request } = require("../util");
+var { get } = require('../util/db');
 var radix64 = require('radix-64')();
 var spherical = require('spherical');
 var config = require('../config.json');
 var fetch = require('node-fetch');
+var notification = require('../util/notification');
 
 function generateBouncerHash(id, timestamp) {
   return `${radix64.encodeInt(id,5)}${radix64.encodeInt(timestamp%172800,3)}`
 }
-
-var devices = [
-  {
-    bouncers: {
-      locations: [
-        {
-          name: "Home",
-          latitude: 0,
-          longitude: 0
-        }
-      ]
-    }
-  }
-];
 
 module.exports = {
   path: "minute/bouncers",
@@ -29,7 +17,8 @@ module.exports = {
     {
       version: 1,
       params: {},
-      async function({ db }) {
+      async function({ db, notificationData }) {
+        const devices = await notificationData();
         var token = await retrieve(db, { user_id: 125914, teaken: false }, 60);
         var sent = new Set((await db.collection('data').doc('bouncer_notifications').get()).data().list.match(/.{8}/g));
         var data = await Promise.all([
@@ -44,15 +33,23 @@ module.exports = {
         await db.collection('data').doc('bouncer_notifications').set({list:body.map(i=>i.hash).join('')});
         var bouncers = body.filter(i=>!sent.has(i.hash));
         let all = [];
-        for(var device of devices) {
+        for(var device of devices.filter(i=>(i.bouncers && i.bouncers.enabled))) {
           for(var bouncer of bouncers) {
             let found = [];
-            for(var location of device.bouncers.locations) {
+            const locations = device.bouncers.locations;
+            if(device.bouncers.dynamic) {
+              locations.push({
+                name: "Current Location",
+                latitude: device.location.latitude,
+                longitude: device.location.longitude
+              });
+            }
+            for(var location of locations) {
               let distance = spherical.distance([location.longitude,location.latitude],[Number(bouncer.longitude),Number(bouncer.latitude)])
               if(distance < 5000) found.push({location,distance});
             }
             if(found.length > 0) {
-              all.push({found,bouncer});
+              all.push({found,bouncer,device});
               await fetch(
                 config.discord.bouncer_test,
                 {
@@ -65,12 +62,30 @@ module.exports = {
             }
           }
         }
+        await notification(db, all.map(i=>{
+          let title = `New ${(i.bouncer.logo||"").slice(49,-4) || "Unknown Type"} Nearby`;
+          if(i.bouncer.mythological_munzee) {
+            title = `${i.bouncer.mythological_munzee.friendly_name} by ${i.bouncer.mythological_munzee.creator_username}`
+          } else {
+            var type = get("icon",i.bouncer.logo);
+            if(type) {
+              title = `New ${type.name} Nearby`;
+            }
+          }
+          return {
+            to: i.device.token,
+            sound: 'default',
+            title,
+            body: i.found.map(location=>`${location.distance < 700 ? `${Math.floor(location.distance)}m` : `${Math.floor(location.distance / 10) / 100}km`} from ${location.location.name}`).join('\n'),
+            data: {
+              type: 'bouncer',
+              bouncer: i.bouncer.full_url
+            },
+          }
+        }))
         return {
           status: "success",
-          data: {
-            list: all,
-            bouncers
-          }
+          data: true
         }
       },
     },
