@@ -125,7 +125,7 @@ export default function UserActivityScreen() {
       <View style={{ flex: 1 }}>
         <UserActivityPage filters={filters} />
       </View>
-      <View style={{ width: 250, backgroundColor: theme.page_content.bg }}>
+      <View style={{ width: 250 }}>
         <Sidebar filters={filters} onFiltersChange={setFilters} />
       </View>
     </View> : <DrawerLayout
@@ -133,11 +133,11 @@ export default function UserActivityScreen() {
       ref={drawerRef}
       drawerWidth={250}
       drawerPosition={DrawerLayout.positions.Right}
-      drawerType='front'
-      drawerBackgroundColor={theme.page_content.bg}
+      drawerType="front"
       onDrawerOpen={() => setOpen(true)}
       onDrawerClose={() => setOpen(false)}
-      renderNavigationView={() => <Sidebar filters={filters} onFiltersChange={setFilters} />}>
+      renderNavigationView={() => <Sidebar filters={filters} onFiltersChange={setFilters} />}
+    >
         <UserActivityPage filters={filters} toggleDrawer={toggleDrawer} />
       </DrawerLayout>}
   </View>

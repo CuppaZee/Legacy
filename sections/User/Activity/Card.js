@@ -6,7 +6,6 @@ import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import Card from 'sections/Shared/Card';
 import font from 'sections/Shared/font';
 
 import useAPIRequest from 'utils/hooks/useAPIRequest';

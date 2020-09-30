@@ -1,10 +1,7 @@
 import * as React from 'react';
-import { Text, View, ScrollView } from 'react-native';
-import { Checkbox, Button } from 'react-native-paper';
+import { View, ScrollView } from 'react-native';
+import { Text, Checkbox, Button, Subheading } from 'react-native-paper';
 import { useRoute } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
-
-import font from 'sections/Shared/font';
 
 import getType from 'utils/db/types';
 import categories from 'utils/db/categories.json';
@@ -22,15 +19,12 @@ const stateNames = {
 }
 
 function UserActivityFilterSection({ filter, onFilterChange, options, title }) {
-  var theme = useSelector(i => i.themes[i.theme]);
   return <View>
     <View style={{ paddingTop: 4, paddingLeft: 8 }}>
-      <Text allowFontScaling={false} style={{ flex: 1, ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{title}</Text>
+      <Subheading>{title}</Subheading>
     </View>
     {options.map(i => <View key={i.id} style={{ flexDirection: "row", paddingLeft: 8, alignItems: "center" }}>
       <Checkbox
-        color={theme.page_content.fg}
-        uncheckedColor={theme.page_content.fg}
         status={filter.has(i.id) ? 'checked' : 'unchecked'}
         onPress={() => {
           var x = new Set(filter);
@@ -42,7 +36,7 @@ function UserActivityFilterSection({ filter, onFilterChange, options, title }) {
           onFilterChange?.(x);
         }}
       />
-      <Text allowFontScaling={false} style={{ flex: 1, ...font(), fontSize: 16, color: theme.page_content.fg }}>{i.title}</Text>
+      <Text style={{ fontSize: 16 }}>{i.title}</Text>
     </View>)}
   </View>;
 }
@@ -53,7 +47,6 @@ export default function UserActivitySidebar({ filters: filterinput, onFiltersCha
     setFilters(filterinput)
   }, [filterinput]);
   var moment = useMoment();
-  var theme = useSelector(i => i.themes[i.theme]);
   const {t} = useTranslation();
   var date = moment().tz('America/Chicago');
   var dateString = `${date.year()}-${(date.month() + 1).toString().padStart(2, '0')}-${(date.date()).toString().padStart(2, '0')}`
@@ -98,7 +91,7 @@ export default function UserActivitySidebar({ filters: filterinput, onFiltersCha
   ]
   return <ScrollView style={{ flex: 1 }}>
     <View style={{ padding: 4 }}>
-      <Button icon="check" mode="contained" color={theme.navigation.bg} onPress={() => onFiltersChange?.(filters)}>{t('activity:filters.update')}</Button>
+      <Button icon="check" mode="contained" onPress={() => onFiltersChange?.(filters)}>{t('activity:filters.update')}</Button>
     </View>
     <UserActivityFilterSection
       filter={filters.activity}

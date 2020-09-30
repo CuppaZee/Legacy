@@ -267,7 +267,7 @@ function App() {
 }
 
 function ThemeWrapper() {
-  const paperTheme = useSelector(i => i.themes.blue);
+  const paperTheme = useSelector(i => i.themes.black);
   return <PaperProvider theme={paperTheme}>
     <App />
   </PaperProvider>

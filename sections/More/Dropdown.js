@@ -64,7 +64,6 @@ export function Dropdown({
         />
       }
       style={{
-        marginTop: size?.height,
         width: size?.width,
         maxHeight: 400,
       }}

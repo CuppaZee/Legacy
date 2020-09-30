@@ -1,12 +1,8 @@
 import * as React from 'react';
-import { View, Image } from 'react-native';
-import { Caption, Paragraph, Text, TouchableRipple } from 'react-native-paper';
+import { View, Image, StyleSheet } from 'react-native';
+import { Paragraph, Text, TouchableRipple, useTheme, Surface } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-
-import font from 'sections/Shared/font';
-import Card from 'sections/Shared/Card';
 
 import getIcon from 'utils/db/icon';
 
@@ -40,19 +36,29 @@ function isRenovation(act) {
 export default function ActivityListItem({ act: acti, userdata }) {
   var moment = useMoment();
   var { t } = useTranslation();
-  var theme = useSelector(i => i.themes[i.theme]);
+  var theme = useTheme();
   var navigation = useNavigation();
+  const colors = {
+    capture: {
+      fg: "#004400",
+      bg: "#aaffaa"
+    },
+    deploy: {
+      fg: "#00403e",
+      bg: "#a5fffc"
+    },
+    capon: {
+      fg: "#401700",
+      bg: "#ffbcad"
+    }
+  }
   return <View style={{ padding: 4 }}>
-    <Card noPad>
+    <Surface>
       {[acti,...acti.subCaptures||[]].map((act,index,list)=><TouchableRipple key={act.key} onPress={() => { navigation.navigate('MunzeeDetails', { username: act.creator, code: act.code }) }}>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <View style={{ width: 60, paddingVertical: 4, marginRight: 4, backgroundColor: theme.dark ? null : theme.activity[act.type]?.bg, borderRightWidth: theme.dark ? 2 : 0, borderRightColor: theme.activity[act.type]?.fg, position: "relative", alignContent: 'center', alignItems: "center", flexGrow: 0 }}>
-            <View style={{ justifyContent: 'center', flexDirection: "row", flexWrap: "wrap", flexGrow: 0 }}>
-              <View style={{ paddingHorizontal: 8, borderRadius: 9.5 }}>
-                <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "center", color: theme.activity[act.type]?.fg, ...font("bold") }}>{(act.points) > 0 && '+'}{(Number(act.points)) || t('activity:none')}</Text>
-              </View>
-            </View>
-            <View style={{ position: 'relative' }}>
+        <View style={styles.row}>
+          <View style={{ width: 60, paddingVertical: 4, marginRight: 4, backgroundColor: theme.dark ? null : colors[act.type]?.bg, borderRightWidth: theme.dark ? 2 : 0, borderRightColor: colors[act.type]?.bg, justifyContent: "center", alignItems: "center" }}>
+            <Text style={{ textAlign: "center", color: colors[act.type]?.[theme.dark?'bg':'fg'] }}>{(act.points) > 0 && '+'}{(Number(act.points)) || t('activity:none')}</Text>
+            <View style={{ position: "relative" }}>
               <Image style={{ height: 32, width: 32 }} source={getIcon(act.pin)} />
               {hostIcon(act.pin) && <Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: -4 }} source={hostIcon(act.pin)} />}
             </View>
@@ -81,6 +87,13 @@ export default function ActivityListItem({ act: acti, userdata }) {
           </View>
         </View>
       </TouchableRipple>)}
-    </Card>
+    </Surface>
   </View>
 }
+
+const styles = StyleSheet.create({
+  row: {
+    flexDirection: "row",
+    alignItems: "center"
+  }
+})

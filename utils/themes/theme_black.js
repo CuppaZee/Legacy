@@ -6,7 +6,7 @@ export default {
   mode: "adaptive",
   colors: {
     ...PaperTheme.colors,
-    primary: "#016930",
+    primary: "#121212",
     accent: "#005627",
     text: "#ffffff",
     surface: "#000000",
@@ -19,7 +19,7 @@ export default {
       background: "#000000",
       card: "#000000",
       text: "#ffffff",
-      border: "#016930"
+      border: "#d3d3d3"
     }
   },
   drawer: {
