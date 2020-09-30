@@ -1,4 +1,3 @@
-import darkMapStyle from './map_dark.json';
 export default {
   id: "legacy",
   name: "Legacy",
@@ -39,6 +38,5 @@ export default {
       bg: "#ff0000",
       fg: "#ff0000"
     }
-  },
-  mapStyle: darkMapStyle
+  }
 }

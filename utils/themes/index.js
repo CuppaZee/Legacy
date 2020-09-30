@@ -1,30 +1,48 @@
-import black from './theme_black';
-import grey from './theme_grey';
-import bluegrey from './theme_bluegrey';
-import darkbluegrey from './theme_darkbluegrey';
-import green from './theme_green';
-import darkgreen from './theme_darkgreen';
-import teal from './theme_teal';
-import darkteal from './theme_darkteal';
-import blue from './theme_blue';
-import darkblue from './theme_darkblue';
-import purple from './theme_purple';
-import white from './theme_white';
-import legacy from './theme_legacy';
+import black          from './black';
+import white          from './white';
+  
+import grey_light     from './grey_light';
+import grey_dark      from './grey_dark';
+
+import bluegrey_light from './bluegrey_light';
+import bluegrey_dark  from './bluegrey_dark';
+
+import green_light    from './green_light';
+import green_dark     from './green_dark';
+
+import teal_light     from './teal_light';
+import teal_dark      from './teal_dark';
+
+import blue_light     from './blue_light';
+import blue_dark      from './blue_dark';
+
+import purple_light   from './purple_light';
+import purple_dark    from './purple_dark';
+
+import legacy         from './legacy';
 
 export default {
-  _default: "green",
-  black: black,
-  grey: grey,
-  bluegrey: bluegrey,
-  darkbluegrey: darkbluegrey,
-  green: green,
-  darkgreen: darkgreen,
-  teal: teal,
-  darkteal: darkteal,
-  blue: blue,
-  darkblue: darkblue,
-  purple: purple,
-  white: white,
-  legacy: legacy
+  _default: "green_light",
+  black,
+  white,
+
+  grey_light,
+  grey_dark,
+
+  bluegrey_light,
+  bluegrey_dark,
+
+  green_light,
+  green_dark,
+
+  teal_light,
+  teal_dark,
+
+  blue_light,
+  blue_dark,
+
+  purple_light,
+  purple_dark,
+
+  legacy,
 }

@@ -1,26 +1,26 @@
-import { DefaultTheme as PaperTheme } from 'react-native-paper';
+import { DefaultTheme as PaperTheme, DarkTheme as PaperThemeDark } from 'react-native-paper';
 import { DefaultTheme as NavTheme } from '@react-navigation/native';
 
 export default {
   ...PaperTheme,
   mode: "adaptive",
-  id: "bluegrey",
+  id: "blue_light",
   colors: {
     ...PaperTheme.colors,
-    primary: "#263238",
-    accent: "#37474F",
+    primary: "#0f1358",
+    accent: "#050043",
     text: "#000000",
-    surface: "#ECEFF1",
-    background: "#B0BEC5",
+    surface: "#babdff",
+    background: "#888efc",
   },
   nav: {
     ...NavTheme,
     colors: {
       ...NavTheme.colors,
-      background: "#B0BEC5",
-      card: "#ECEFF1",
+      background: "#888efc",
+      card: "#babdff",
       text: "#000000",
-      border: "#263238"
+      border: "#0f1358"
     }
   }
 }

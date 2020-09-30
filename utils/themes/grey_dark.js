@@ -4,21 +4,21 @@ import { DarkTheme as NavTheme } from '@react-navigation/native';
 export default {
   ...PaperTheme,
   mode: "adaptive",
-  id: "darkteal",
+  id: "grey_dark",
   colors: {
     ...PaperTheme.colors,
-    primary: "#016269",
-    accent: "#078495",
+    primary: "#232323",
+    accent: "#005627",
     text: "#ffffff",
-    surface: "#016269",
-    background: "#016269",
+    surface: "#121212",
+    background: "#121212",
   },
   nav: {
     ...NavTheme,
     colors: {
       ...NavTheme.colors,
-      background: "#016269",
-      card: "#016269",
+      background: "#121212",
+      card: "#121212",
       text: "#ffffff",
       border: "#d3d3d3"
     }

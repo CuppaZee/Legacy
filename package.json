@@ -12,7 +12,7 @@
     "db-images": "node db/images",
     "db": "yarn db-build && yarn db-images",
     "deploy-web": "expo build:web && firebase deploy --only hosting:app",
-    "deploy-mobile": "expo publish --release-channel v1.2",
+    "deploy-mobile": "expo publish --release-channel v1.3",
     "deploy-server": "firebase deploy --only functions:api",
     "deploy-app": "yarn deploy-mobile & yarn deploy-web",
     "deploy": "yarn db && yarn deploy-mobile && expo build:web && firebase deploy --only hosting,functions:api"
