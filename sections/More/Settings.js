@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Text, View, Platform, Image, ScrollView } from 'react-native';
+import { View, Platform, Image, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import { Button, TextInput, Switch } from 'react-native-paper';
+import { Text, Button, TextInput, Switch, useTheme } from 'react-native-paper';
 import { Dropdown, DropdownItem } from './Dropdown';
 import { useDimensions } from '@react-native-community/hooks'
 import { useSelector, useDispatch } from "react-redux";
@@ -45,7 +45,7 @@ export default function SettingsScreen({ navigation }) {
   var { t, i18n } = useTranslation();
   var logins = useSelector(i => i.logins);
   var themes = useSelector(i => i.themes);
-  var theme = useSelector(i => i.themes[i.theme]);
+  var theme = useTheme();
   var dispatch = useDispatch();
   var { width } = useDimensions().window;
 
@@ -95,14 +95,14 @@ export default function SettingsScreen({ navigation }) {
 
 
   return (
-    <View style={{ flex: 1, backgroundColor: theme.page.bg, justifyContent: 'center', alignItems: 'center' }}>
+    <ScrollView style={{ flex: 1 }} contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
       <View style={{ flex: 1, width: width > 800 ? "50%" : "100%", padding: 4 }}>
         <Card noPad>
           <ScrollView contentContainerStyle={{ padding: 8 }}>
             {Object.entries(logins).map(user => <View key={user[0]} style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
               <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(user[0]).toString(36)}.png` }} style={{ borderRadius: 16, width: 32, height: 32 }} />
               <View style={{ paddingLeft: 8, flex: 1, alignSelf: "center" }}>
-                <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{user[1].username}</Text>
+                <Text style={{ fontWeight: "bold", fontSize: 16 }}>{user[1].username}</Text>
               </View>
               <Button compact={true} mode="contained" color="red" onPress={() => logout(user[0])}>{t('settings:logout')}</Button>
             </View>)}
@@ -110,44 +110,39 @@ export default function SettingsScreen({ navigation }) {
               <Button
                 mode="contained"
                 icon="account-plus"
-                backgroundColor={theme.navigation.fg}
-                style={theme.page_content.border ? { margin: 4, flex: 1, borderColor: "white", borderWidth: 1 } : { margin: 4, flex: 1 }}
-                color={theme.navigation.bg}
+                style={{ flex: 1, marginHorizontal: 4 }}
                 onPress={() => navigation.navigate('Auth')}>
                 {t('settings:add_user')}
               </Button>
               {Platform.OS === "web" && <Button
                 mode="contained"
                 icon="reload"
-                backgroundColor={theme.navigation.fg}
-                style={theme.page_content.border ? { margin: 4, flex: 1, borderColor: "white", borderWidth: 1 } : { margin: 4, flex: 1 }}
-                color={theme.navigation.bg}
+                style={{ flex: 1, marginHorizontal: 4 }}
                 onPress={() => forceReload()}>
                 {t('settings:update')}
               </Button>}
             </View>
+            
+            {Platform.OS === "ios" && <View style={{ flexDirection: "row", alignItems: "center", padding: 4 }}>
+              <Switch style={{ marginRight: 8 }} value={settings.appleMaps} onValueChange={(value) => setSetting("appleMaps", !settings.appleMaps)} />
+              <Text style={{ flex: 1, fontWeight: "bold" }}>Apple Maps</Text>
+            </View>}
 
             <View style={{ padding: 4 }}>
-              <Text allowFontScaling={false} style={{ fontSize: 14, lineHeight: 14, marginBottom: -4, ...font(), color: theme.page_content.fg }}>Theme</Text>
-              <Dropdown dense={true} mode="outlined" selectedValue={theme.id} onValueChange={i=>dispatch(setTheme(i))}>
+              <Dropdown dense={true} label="Theme" mode="outlined" selectedValue={theme.id} onValueChange={i=>dispatch(setTheme(i))}>
                 {themeslist.map(i=><DropdownItem label={i.label} value={i.value} />)}
               </Dropdown>
             </View>
 
             <View style={{ padding: 4 }}>
-              <Text allowFontScaling={false} style={{ fontSize: 14, lineHeight: 14, marginBottom: -4, ...font(), color: theme.page_content.fg }}>Language</Text>
-              <Dropdown dense={true} mode="outlined" selectedValue={i18n.language} onValueChange={setLang}>
+              <Dropdown dense={true} label="Language" mode="outlined" selectedValue={i18n.language} onValueChange={setLang}>
                 {languages.map(i=><DropdownItem label={i.label} value={i.value} />)}
               </Dropdown>
             </View>
             {/* <View style={{flexDirection:"row",alignItems:"center",padding:4}}>
               <Switch style={{marginRight: 8}} color={theme.page_content.fg} value={settings.activityV2Beta} onValueChange={(value)=>setSetting("activityV2Beta",!settings.activityV2Beta)} />
-              <Text allowFontScaling={false} style={{color:theme.page_content.fg, flex: 1,...font("bold")}}>User Activity Beta</Text>
+              <Text style={{color:theme.page_content.fg, flex: 1,...font("bold")}}>User Activity Beta</Text>
             </View> */}
-            {Platform.OS === "ios" && <View style={{ flexDirection: "row", alignItems: "center", padding: 4 }}>
-              <Switch style={{ marginRight: 8 }} color={theme.page_content.fg} value={settings.appleMaps} onValueChange={(value) => setSetting("appleMaps", !settings.appleMaps)} />
-              <Text allowFontScaling={false} style={{ color: theme.page_content.fg, flex: 1, ...font("bold") }}>Apple Maps</Text>
-            </View>}
             <View>
               {[
                 ["clan_level_ind", "Individual"],
@@ -160,38 +155,29 @@ export default function SettingsScreen({ navigation }) {
                 ["clan_level_4", "Level 4"],
                 ["clan_level_5", "Level 5"],
                 ["clan_level_null", "Empty"]
-              ].map(i => <View style={{ padding: 4 }}>
-                <Text allowFontScaling={false} style={{ fontSize: 14, lineHeight: 14, marginBottom: -4, ...font(), color: theme.page_content.fg }}>{i[1]}</Text>
+              ].map(i => <View style={{ padding: 4, flexDirection: "row", alignItems: "flex-end" }}>
                 <TextInput
+                  style={{ flex: 1 }}
                   dense={true}
                   mode="outlined"
-                  theme={{
-                    dark: theme.dark,
-                    colors: {
-                      primary: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? whiteOrBlack(settings[i[0]] || "") : theme.page_content.fg,
-                      background: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? settings[i[0]] : theme.page_content.bg,
-                      placeholder: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? whiteOrBlack(settings[i[0]] || "") : theme.page_content.fg,
-                      text: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? whiteOrBlack(settings[i[0]] || "") : theme.page_content.fg
-                    }
-                  }}
+                  label={i[1]}
                   placeholder={i[1]}
                   value={settings[i[0]]}
                   onChangeText={text => setSetting(i[0], text)}
                 />
+                <View style={{ width: 42, height: 42, marginLeft: 4, borderWidth: 1, borderColor: theme.colors.text, borderRadius: 4, backgroundColor: (settings[i[0]]?.length == 7 && settings[i[0]]?.startsWith('#')) ? settings[i[0]] : "#000000" }} />
               </View>)}
             </View>
             <Button
               mode="contained"
               icon="content-save"
-              backgroundColor={theme.navigation.fg}
-              style={theme.page_content.border ? { margin: 4, borderColor: "white", borderWidth: 1 } : { margin: 4 }}
-              color={theme.navigation.bg}
+              style={{ marginHorizontal: 4 }}
               onPress={saveSettings}>
               {t('settings:save')}
             </Button>
           </ScrollView>
         </Card>
       </View>
-    </View>
+    </ScrollView>
   );
 }

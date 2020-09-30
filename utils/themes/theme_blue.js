@@ -4,34 +4,23 @@ import { DefaultTheme as NavTheme } from '@react-navigation/native';
 export default {
   ...PaperTheme,
   mode: "adaptive",
+  id: "blue",
   colors: {
     ...PaperTheme.colors,
-    primary: "#016269",
-    accent: "#078495",
+    primary: "#0f1358",
+    accent: "#050043",
     text: "#000000",
-    surface: "#b3ebf6",
-    background: "#82dfef",
+    surface: "#babdff",
+    background: "#888efc",
   },
   nav: {
     ...NavTheme,
     colors: {
       ...NavTheme.colors,
-      background: "#82dfef",
-      card: "#b3ebf6",
+      background: "#888efc",
+      card: "#babdff",
       text: "#000000",
-      border: "#016269"
+      border: "#0f1358"
     }
-  },
-  drawer: {
-    ...PaperThemeDark,
-    mode: "adaptive",
-    colors: {
-      ...PaperThemeDark.colors,
-      primary: "#016269",
-      accent: "#078495",
-      text: "#ffffff",
-      surface: "#016269",
-      background: "#016269",
-    },
   }
 }

@@ -1,42 +1,26 @@
+import { DefaultTheme as PaperTheme } from 'react-native-paper';
+import { DefaultTheme as NavTheme } from '@react-navigation/native';
+
 export default {
+  ...PaperTheme,
+  mode: "adaptive",
   id: "white",
-  name: "White",
-  error: {
-    bg: '#ffaaaa',
-    fg: '#000000'
+  colors: {
+    ...PaperTheme.colors,
+    primary: "#d3d3d3",
+    accent: "#005627",
+    text: "#000000",
+    surface: "#ffffff",
+    background: "#f6f6f6",
   },
-  clanCardHeader: {
-    bg: "#232323",
-    fg: "#ffffff"
-  },
-  navigation: {
-    bg: "#ffffff",
-    fg: "#000000"
-  },
-  navigation_selected: {
-    bg: "#d3d3d3",
-    fg: "#000000"
-  },
-  page: {
-    bg: "#eeeeee",
-    fg: "#000000"
-  },
-  page_content: {
-    bg: "#ffffff",
-    fg: "#000000"
-  },
-  activity: {
-    capture: {
-      bg: "#aaffaa",
-      fg: "#004400"
-    },
-    deploy: {
-      bg: "#a5fffc",
-      fg: "#00403e"
-    },
-    capon: {
-      bg: "#ffbcad",
-      fg: "#401700"
+  nav: {
+    ...NavTheme,
+    colors: {
+      ...NavTheme.colors,
+      background: "#eeeeee",
+      card: "#ffffff",
+      text: "#000000",
+      border: "#016930"
     }
   }
-};
+}

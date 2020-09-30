@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import categories from 'utils/db/categories.json'
 import getType from 'utils/db/types'
 
-function MHQTime({theme}) {
+function MHQTime() {
   var moment = useMoment();
   var [now, setNow] = React.useState(moment().tz('America/Chicago'));
   var { width } = useDimensions().window;
@@ -22,8 +22,8 @@ function MHQTime({theme}) {
     return () => clearInterval(x);
   }, [])
   return <View style={{ alignSelf: "stretch", justifyContent: "center", alignItems: "center", paddingHorizontal: 8 }}>
-    <Text theme={theme} allowFontScaling={false} style={{ fontSize: 14, ...font("bold") }}>{now.format('DD/MM')}</Text>
-    <Text theme={theme} allowFontScaling={false} style={{ fontSize: 16, ...font("bold") }}>{now.format(width > 600 ? 'HH:mm:ss' : 'HH:mm')}</Text>
+    <Text style={{ fontSize: 14, fontWeight: "bold", color: "white" }}>{now.format('DD/MM')}</Text>
+    <Text style={{ fontSize: 16, fontWeight: "bold", color: "white" }}>{now.format(width > 600 ? 'HH:mm:ss' : 'HH:mm')}</Text>
   </View>
 }
 
@@ -97,24 +97,24 @@ export default function Header(props) {
     })
   }, [title,subtitle]);
   return <View>
-      <Appbar.Header theme={theme.drawer}>
-        {width <= 1000 && loggedIn && <Appbar.Action theme={theme.drawer} icon="menu" onPress={() => props.navigation.toggleDrawer()} />}
-        {!(props.route?.name == "Home" || props.navigation.dangerouslyGetState().index < 1) && <Appbar.BackAction theme={theme.drawer}
+      <Appbar.Header>
+        {width <= 1000 && loggedIn && <Appbar.Action icon="menu" onPress={() => props.navigation.toggleDrawer()} />}
+        {!(props.route?.name == "Home" || props.navigation.dangerouslyGetState().index < 1) && <Appbar.BackAction
           onPress={() => props.navigation.pop()}
         />}
-        <Appbar.Content theme={theme.drawer}
+        <Appbar.Content
           title={t(title, params)}
           subtitle={subtitle ? t(subtitle, params) : null}
         />
-        <LoadingButton theme={theme.drawer} />
-        <MHQTime theme={theme.drawer} />
+        <LoadingButton />
+        <MHQTime />
         {/* <TouchableRipple onPress={()=>nav.navigate('Calendar')} style={{width:width>600?80:60,height:"100%"}}>
       <Tile header={true} theme={theme} date={now.format(width>600?'HH:mm:ss':'HH:mm')} extraText={now.format('DD/MM')} data={CalData?.[now.year()]?.[now.month()]?.[now.date()-1]??''} />
     </TouchableRipple> */}
 
         {/* <Appbar.Action icon={()=><Image style={{height:36,width:36,marginTop:-6,marginLeft:-6}} source={{uri:'https://munzee.global.ssl.fastly.net/images/avatars/ua2p5m.png'}} />} onPress={()=>{}} /> */}
       </Appbar.Header>
-      <LoadingBar theme={theme.drawer} />
+      <LoadingBar />
   </View>
   {/* </PaperProvider> */}
 }

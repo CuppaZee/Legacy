@@ -40,7 +40,8 @@ const defaultState = {
 
   // Themes
   themes,
-  theme: themes._default,
+  theme: "legacy",
+  selectedTheme: themes._default,
   
   // Last Used Version
   version: -1,
@@ -211,7 +212,7 @@ var rootReducer = (state = defaultState, action) => {
     case 'SET_THEME':
       return {
         ...state,
-        theme: action.data
+        selectedTheme: action.data
       }
     case 'CUPPAZEE_VERSION':
       return {

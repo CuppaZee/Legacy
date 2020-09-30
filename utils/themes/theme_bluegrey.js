@@ -1,38 +1,26 @@
+import { DefaultTheme as PaperTheme } from 'react-native-paper';
+import { DefaultTheme as NavTheme } from '@react-navigation/native';
+
 export default {
+  ...PaperTheme,
+  mode: "adaptive",
   id: "bluegrey",
-  name: "Blue Grey",
-  error: {
-    bg: '#ffaaaa',
-    fg: '#000000'
+  colors: {
+    ...PaperTheme.colors,
+    primary: "#263238",
+    accent: "#37474F",
+    text: "#000000",
+    surface: "#ECEFF1",
+    background: "#B0BEC5",
   },
-  navigation: {
-    bg: "#263238",
-    fg: "#ffffff"
-  },
-  navigation_selected: {
-    bg: "#37474F",
-    fg: "#ffffff"
-  },
-  page: {
-    bg: "#B0BEC5",
-    fg: "#000000"
-  },
-  page_content: {
-    bg: "#ECEFF1",
-    fg: "#000000"
-  },
-  activity: {
-    capture: {
-      bg: "#aaffaa",
-      fg: "#004400"
-    },
-    deploy: {
-      bg: "#a5fffc",
-      fg: "#00403e"
-    },
-    capon: {
-      bg: "#ffbcad",
-      fg: "#401700"
+  nav: {
+    ...NavTheme,
+    colors: {
+      ...NavTheme.colors,
+      background: "#B0BEC5",
+      card: "#ECEFF1",
+      text: "#000000",
+      border: "#263238"
     }
   }
-};
+}

@@ -4,6 +4,7 @@ import { DefaultTheme as NavTheme } from '@react-navigation/native';
 export default {
   ...PaperTheme,
   mode: "adaptive",
+  id: "purple",
   colors: {
     ...PaperTheme.colors,
     primary: "#440169",
@@ -21,17 +22,5 @@ export default {
       text: "#000000",
       border: "#440169"
     }
-  },
-  drawer: {
-    ...PaperThemeDark,
-    mode: "adaptive",
-    colors: {
-      ...PaperThemeDark.colors,
-      primary: "#440169",
-      accent: "#600578",
-      text: "#ffffff",
-      surface: "#440169",
-      background: "#440169",
-    },
   }
 }
