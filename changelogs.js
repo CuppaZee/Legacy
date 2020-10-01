@@ -1598,5 +1598,12 @@ export default {
       title: 'October 2020 Clan Requirements',
       description: 'Fixed Meta for Elemental Activity'
     },
+  ],
+  302: [
+    {
+      icon: 'shield-half-full',
+      title: 'October 2020 Clan Wars',
+      description: 'CuppaZee is ready for October 2020 Clan Wars'
+    }
   ]
 }

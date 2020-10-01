@@ -11,6 +11,7 @@ import font from 'sections/Shared/font';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import getIcon from 'utils/db/icon';
 import UserFAB from '../FAB';
+import config from 'utils/config';
 // import ViewShot from 'react-native-view-shot';
 // import { Button } from 'react-native-paper';
 // import * as Sharing from 'expo-sharing';
@@ -29,7 +30,7 @@ export default function ClanScreen({ route }) {
   })
   var unformatted_requirements = useAPIRequest({
     endpoint: 'clan/v2/requirements',
-    data: { clan_id: 1349, game_id: 90 }
+    data: { clan_id: 1349, game_id: config.clan.game_id }
   })
   var data = useAPIRequest(user_id ? {
     endpoint: 'user/clanprogress',
@@ -99,7 +100,7 @@ export default function ClanScreen({ route }) {
         {/* </ViewShot> */}
         {/* <Button onPress={screenshot}>Screenshot</Button> */}
         <View style={{ padding: 4, flex: 1 }}>
-          <RequirementsCard game_id={90} />
+          <RequirementsCard game_id={config.clan.game_id} />
         </View>
       </ScrollView>
       <UserFAB username={username} user_id={user_id} />
