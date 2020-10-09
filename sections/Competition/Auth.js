@@ -65,7 +65,11 @@ export default function AuthScreen({route}) {
     if (response) {
       (async function () {
         if (!response.params || !response.params.teaken) return setStatus("invalid_response");
-        setStatus("success");
+        if(response.params.status) {
+          setStatus(`success_${response.params.status}`);
+        } else {
+          setStatus("success");
+        }
       })()
     }
   }, [response]);
@@ -74,10 +78,12 @@ export default function AuthScreen({route}) {
       <ActivityIndicator size="large" color={theme.page_content.fg} />
     </View>
   }
-  if (status === "success") {
+  if (status === "success" || status === "success_reopt" || status === "success_already") {
     return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page_content.bg }}>
-      <Image source={data?.team === "pine" ? require('assets/pine.png') : require('assets/pear.png')} style={{ height: 128, width: 128, borderRadius: 8, marginBottom: 16 }} />
-      <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", textAlign: "center", color: theme.page_content.fg }}>{response.params.username} has joined Team {data?.team.toUpperCase() || '???¿??'}</Text>
+      {status !== "success_already" && <>
+        <Image source={data?.team === "pine" ? require('assets/pine.png') : require('assets/pear.png')} style={{ height: 128, width: 128, borderRadius: 8, marginBottom: 16 }} />
+        <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", textAlign: "center", color: theme.page_content.fg }}>{response.params.username} {status === "success" ? "has joined" : "is in"} Team {data?.team.toUpperCase() || '???¿??'}</Text>
+      </>}
       <Button mode="contained" onPress={()=>navigation.replace('CompetitionHome')}>Return to Competition Dashboard</Button>
     </View>
   }

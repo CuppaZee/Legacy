@@ -1640,5 +1640,12 @@ export default {
       title: 'Improved Zeecret Agents Competition',
       description: 'Updated Opt In System, Improved Design.'
     }
+  ],
+  308: [
+    {
+      icon: 'briefcase',
+      title: 'Improved Zeecret Agents Competition',
+      description: 'Fixed some issues with the Opt In system'
+    }
   ]
 }

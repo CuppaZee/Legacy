@@ -87,7 +87,10 @@ module.exports = {
                 </head>
                 <body>
                   <h2>Thank you for opting-in again</h2>
-                  <p>${username} is in Team ${otherTeam.team_id.toUpperCase()}.</h1>
+                  <p>${username} is in Team ${otherTeam.team_id.toUpperCase()}.</h1><br/>
+                  <button onclick="window.location.href = '${state_data.redirect}?teaken=${encodeURIComponent(
+                    teaken
+                  )}&username=${username}&user_id=${user_id}&status=reopt&state=${encodeURIComponent(state)}'">Done</button>
                 </body>
                 </html>`
               );
@@ -121,7 +124,10 @@ module.exports = {
               </head>
               <body>
                 <h2>You're already in a team</h2>
-                <p>${username} is already in Team ${otherTeam.team_id.toUpperCase()}.</h1>
+                <p>${username} is already in Team ${otherTeam.team_id.toUpperCase()}.</h1><br/>
+                <button onclick="window.location.href = '${state_data.redirect}?teaken=${encodeURIComponent(
+                  teaken
+                )}&username=${username}&user_id=${user_id}&status=already&state=${encodeURIComponent(state)}'">Done</button>
               </body>
               </html>`
             );
