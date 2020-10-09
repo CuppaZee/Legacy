@@ -14,7 +14,8 @@ module.exports = [
       "inventory": true,
       "generic": true
     },
-    "hidden": true
+    "hidden": true,
+    "category": "evo"
   },
   {
     "name": "Morpho Butterfly",
@@ -28,7 +29,8 @@ module.exports = [
         "stage": 5,
         "base": "butterflyegg"
       }
-    }
+    },
+    "category": "evo"
   },
   {
     "name": "Monarch Butterfly",
@@ -42,7 +44,8 @@ module.exports = [
         "stage": 5,
         "base": "butterflyegg"
       }
-    }
+    },
+    "category": "evo"
   },
   {
     "name": "Lime Butterfly",
@@ -56,7 +59,8 @@ module.exports = [
         "stage": 5,
         "base": "butterflyegg"
       }
-    }
+    },
+    "category": "evo"
   },
   {
     "name": "Butterfly Host",
@@ -87,7 +91,8 @@ module.exports = [
       "inventory": true,
       "generic": true
     },
-    "hidden": true
+    "hidden": true,
+    "category": "evo"
   },
   {
     "name": "Tree Frog",
@@ -101,7 +106,8 @@ module.exports = [
         "stage": 5,
         "base": "frogegg"
       }
-    }
+    },
+    "category": "evo"
   },
   {
     "name": "Poison Dart Frog",
@@ -115,7 +121,8 @@ module.exports = [
         "stage": 5,
         "base": "frogegg"
       }
-    }
+    },
+    "category": "evo"
   },
   {
     "name": "Tomato Frog",
@@ -129,7 +136,8 @@ module.exports = [
         "stage": 5,
         "base": "frogegg"
       }
-    }
+    },
+    "category": "evo"
   },
   {
     "name": "Frog Host",
@@ -153,7 +161,8 @@ module.exports = [
     "lands_on": ["skyland","treehouse","earthmystery","icemystery","flatlou",i=>(i.category=="virtual"&&!['virtual','virtual_black','virtual_timberwolf','virtual_gray','virtual_silver'].includes(i.icon))],
     "extra": {
       "baby_animal": true
-    }
+    },
+    "category": "baby_animal"
   },
   {
     "name": "Polar Bear",
@@ -163,7 +172,8 @@ module.exports = [
     "lands_on": ["skyland","treehouse","earthmystery","icemystery","flatlou",i=>(i.category=="virtual"&&!['virtual','virtual_black','virtual_timberwolf','virtual_gray','virtual_silver'].includes(i.icon))],
     "extra": {
       "baby_animal": true
-    }
+    },
+    "category": "baby_animal"
   },
   {
     "name": "Owlet",
@@ -173,14 +183,16 @@ module.exports = [
     "lands_on": ["skyland","treehouse","virtual","airmystery","electricmystery","flathammock"],
     "extra": {
       "baby_animal": true
-    }
+    },
+    "category": "baby_animal"
   },
   {
     "name": "Trojan Unicorn",
     "icon": "trojanunicorn",
     "id": "null_trojanunicorn",
     "state": "bouncer",
-    "lands_on": ["mace","longsword","battleaxe","thehammer","crossbow","catapult"]
+    "lands_on": ["mace","longsword","battleaxe","thehammer","crossbow","catapult"],
+    "category": "other"
   },
   {
     "name": "Turtle",
@@ -197,7 +209,8 @@ module.exports = [
       "inventory": true,
       "generic": true
     },
-    "hidden": true
+    "hidden": true,
+    "category": "evo"
   },
   {
     "name": "Sea Turtle",
@@ -211,7 +224,8 @@ module.exports = [
         "stage": 5,
         "base": "turtleegg"
       }
-    }
+    },
+    "category": "evo"
   },
   {
     "name": "Snapping Turtle",
@@ -225,7 +239,8 @@ module.exports = [
         "stage": 5,
         "base": "turtleegg"
       }
-    }
+    },
+    "category": "evo"
   },
   {
     "name": "Taekwondo Tortoise",
@@ -239,7 +254,8 @@ module.exports = [
         "stage": 5,
         "base": "turtleegg"
       }
-    }
+    },
+    "category": "evo"
   },
   {
     "name": "Jellyfish",
@@ -255,7 +271,8 @@ module.exports = [
       },
       "generic": true
     },
-    "hidden": true
+    "hidden": true,
+    "category": "evo"
   },
   {
     "name": "Box Jellyfish",
@@ -269,7 +286,8 @@ module.exports = [
         "stage": 5,
         "base": "planulalarva"
       }
-    }
+    },
+    "category": "evo"
   },
   {
     "name": "Golden Jellyfish",
@@ -283,7 +301,8 @@ module.exports = [
         "stage": 5,
         "base": "planulalarva"
       }
-    }
+    },
+    "category": "evo"
   },
   {
     "name": "PB & Jellyfish",
@@ -297,7 +316,8 @@ module.exports = [
         "stage": 5,
         "base": "planulalarva"
       }
-    }
+    },
+    "category": "evo"
   },
   {
     "name": "Baby Fox",
@@ -310,7 +330,8 @@ module.exports = [
       "alt_icons": [
         "undefined"
       ]
-    }
+    },
+    "category": "camp_critter"
   },
   {
     "name": "Baby Moose",
@@ -320,7 +341,8 @@ module.exports = [
     "lands_on": ["treehouse","munzee","earthmystery","watermystery"],
     "extra": {
       "baby_animal": true
-    }
+    },
+    "category": "camp_critter"
   },
   {
     "name": "Baby Squirrel",
@@ -330,7 +352,8 @@ module.exports = [
     "lands_on": ["treehouse","munzee","earthmystery","watermystery","skyland",":virtual","airmystery","poicampground"],
     "extra": {
       "baby_animal": true
-    }
+    },
+    "category": "camp_critter"
   },
   {
     "name": "Bear Cub",
@@ -340,6 +363,15 @@ module.exports = [
     "lands_on": ["treehouse","munzee","earthmystery","watermystery","skyland",":virtual","airmystery","poicampground"],
     "extra": {
       "baby_animal": true
-    }
+    },
+    "category": "camp_critter"
+  },
+  {
+    "name": "Spyderbot",
+    "icon": "spyderbot",
+    "id": "null_spyderbot",
+    "state": "bouncer",
+    "lands_on": [],
+    "category": "other"
   }
 ]

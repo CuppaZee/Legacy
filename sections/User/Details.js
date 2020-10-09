@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next'
 import useMoment from 'utils/hooks/useMoment';
 import getIcon from 'utils/db/icon';
 import UserFAB from './FAB';
+import useZeecretTeam from 'sections/Competition/useZeecretTeam';
 
 const useComponentSize = () => {
   const [size, setSize] = React.useState(null);
@@ -40,6 +41,7 @@ export default function DetailsScreen({ route }) {
     endpoint: 'user',
     data: { username }
   }, true);
+  const {data:zeecretTeam} = useZeecretTeam(data?.username);
   let user_id = data?.user_id
   useAPIRequest(user_id ? {
     endpoint: 'user/activity',
@@ -48,7 +50,7 @@ export default function DetailsScreen({ route }) {
   } : [null])
   const [menu, setMenu] = React.useState(null);
   if (status || !size?.width) {
-    if(status === "loading") {
+    if(status === "loading" || !size?.width) {
       return <View onLayout={onLayout} style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
         <ActivityIndicator size="large" color={theme.page.fg} />
       </View>
@@ -70,6 +72,21 @@ export default function DetailsScreen({ route }) {
         contentContainerStyle={{ padding: 4, paddingBottom: 92 }}
         style={{ flex: 1, backgroundColor: theme.page.bg }}>
         <View style={{ alignItems: "stretch", alignSelf: "center", flexDirection: "row", flexWrap: "wrap", justifyContent: "center", width: "100%", maxWidth: 1200 }}>
+          {zeecretTeam && zeecretTeam.endsWith('_false') && <View style={{ padding: 4, width: size?.width > 750 ? 1000 : 500, maxWidth: "100%" }}>
+            <Card noPad>
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <MaterialCommunityIcons name="alert" color={theme.page_content.fg} size={24} style={{ margin: 4 }} />
+                <Text allowFontScaling={false} style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8, flex: 1, margin: 4 }}>Sorry! A small bug in the Zeecret Agents Competition opt-in system caused some people's API Tokens to be invalidated.</Text>
+              </View>
+              <TouchableRipple onPress={() => nav.navigate('CompetitionAuth', { username: username })}>
+                <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
+                  <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="check-bold" size={24} color={theme.page_content.fg} />
+                  <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>Log In Again</Text>
+                  <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
+                </View>
+              </TouchableRipple>
+            </Card>
+          </View>}
           <View style={{ padding: 4, width: size?.width > 750 ? 1000 : 500, maxWidth: "100%" }}>
             <ActivityCard username={username} user_id={user_id} />
           </View>
@@ -97,6 +114,10 @@ export default function DetailsScreen({ route }) {
                   {data?.titles?.length > 0 && <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <MaterialCommunityIcons color={theme.page_content.fg} name="format-list-bulleted" size={16} style={{marginRight: 4}} />
                     <Text allowFontScaling={false} style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8 }}>{data?.titles.join(', ')}</Text>
+                  </View>}
+                  {zeecretTeam && <View style={{ flexDirection: "row", alignItems: "center" }}>
+                    <MaterialCommunityIcons color={theme.page_content.fg} name="briefcase-outline" size={16} style={{marginRight: 4}} />
+                    <Text allowFontScaling={false} style={{ fontSize: 16, ...font(500), color: theme.page_content.fg, opacity: 0.8 }}>Team {zeecretTeam.slice(0,4).toUpperCase()}</Text>
                   </View>}
                 </View>
               </View>
@@ -135,10 +156,13 @@ export default function DetailsScreen({ route }) {
                   <MaterialCommunityIcons name={logins[user_id] ? 'chevron-right' : 'lock'} size={24} color={theme.page_content.fg} />
                 </View>
               </TouchableRipple>
-              <TouchableRipple onPress={() => nav.navigate('UserPOTMSept2020', { username: username })}>
+              <TouchableRipple onPress={() => nav.navigate('CompetitionHome')}>
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
-                  <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="trophy" size={24} color={theme.page_content.fg} />
-                  <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>Sept 2020 POTM</Text>
+                  <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="briefcase" size={24} color={theme.page_content.fg} />
+                  <View style={{ flex: 1 }}>
+                    <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{zeecretTeam ? `Team ${zeecretTeam?.slice(0,4).toUpperCase()}` : 'Not Joined Yet'}</Text>
+                    <Text allowFontScaling={false} style={{ paddingLeft: 4, fontSize: 12, color: theme.page_content.fg }}>Zeecret Agents Competition</Text>
+                  </View>
                   <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
                 </View>
               </TouchableRipple>

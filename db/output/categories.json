@@ -27,7 +27,7 @@
   {
     "name": "2020 Seasonal Specials",
     "id": "seasonal_2020",
-    "icon": "oktoberfestbash-beerboot",
+    "icon": "pineagent",
     "parents": [
       "seasonal",
       "root"
@@ -184,9 +184,55 @@
     "id": "temppob",
     "icon": "butterfly",
     "parents": [
-      "bouncer"
+      "root"
     ],
     "priority": 1
+  },
+  {
+    "name": "Other TempPOBs",
+    "id": "temppob_other",
+    "icon": "trojanunicorn",
+    "parents": [
+      "temppob"
+    ],
+    "priority": 1
+  },
+  {
+    "name": "Evolution TempPOBs",
+    "id": "temppob_evo",
+    "icon": "butterfly",
+    "parents": [
+      "temppob"
+    ],
+    "priority": 1
+  },
+  {
+    "name": "Baby Animals",
+    "id": "temppob_baby_animal",
+    "icon": "owlet",
+    "parents": [
+      "temppob"
+    ],
+    "priority": 1,
+    "seasonal": {
+      "year": 2020,
+      "starts": 1588309200000,
+      "ends": 1593579540000
+    }
+  },
+  {
+    "name": "Camp Critters",
+    "id": "temppob_camp_critter",
+    "icon": "babyfox",
+    "parents": [
+      "temppob"
+    ],
+    "priority": 1,
+    "seasonal": {
+      "year": 2020,
+      "starts": 1596258000000,
+      "ends": 1601528340000
+    }
   },
   {
     "name": "Others",
@@ -400,6 +446,19 @@
       "year": 2020,
       "starts": 1577998800000,
       "ends": 1609480740000
+    }
+  },
+  {
+    "name": "Zeecret Agents",
+    "id": "zeecret2020",
+    "icon": "pineagent",
+    "parents": [
+      "seasonal_2020"
+    ],
+    "seasonal": {
+      "year": 2020,
+      "starts": 1602176400000,
+      "ends": 1604897940000
     }
   },
   {

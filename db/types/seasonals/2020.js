@@ -141,6 +141,57 @@ module.exports = [
     ]
   },
   {
+    "name": "Zeecret Agents",
+    "category": "zeecret2020",
+    "year": 2020,
+    "starts": "2020-10-08T12:00:00-05:00",
+    "ends": "2020-11-08T23:59:00-05:00",
+    "specials": [
+      {
+        "name": "PINE Agent",
+        "icon": "pineagent",
+        "id": "null_pineagent",
+        "duration": 4,
+        "lands_on": ["munzee","mystery","earthmystery",":virtual","selfdestructcard","briefcase","nightvisiongoggles","treehouse","skyland"]
+      },
+      {
+        "name": "PEAR Agent",
+        "icon": "pearagent",
+        "id": "null_pearagent",
+        "duration": 4,
+        "lands_on": ["munzee","mystery","earthmystery",":virtual","selfdestructcard","briefcase","nightvisiongoggles","treehouse","skyland"]
+      },
+      {
+        "name": "Virtual Pineamite",
+        "icon": "virtualpineamite",
+        "id": "null_virtualpineamite",
+        "duration": 4,
+        "lands_on": [":virtual","selfdestructcard","nightvisiongoggles"]
+      },
+      {
+        "name": "Physical Pineamite",
+        "icon": "physicalpineamite",
+        "id": "null_physicalpineamite",
+        "duration": 4,
+        "lands_on": ["munzee","mystery","earthmystery","briefcase"]
+      },
+      {
+        "name": "Virtual Pear Bomb",
+        "icon": "virtualpearbomb",
+        "id": "null_virtualpearbomb",
+        "duration": 6,
+        "lands_on": [":virtual","selfdestructcard","nightvisiongoggles"]
+      },
+      {
+        "name": "Physical Pear Bomb",
+        "icon": "physicalpearbomb",
+        "id": "null_physicalpearbomb",
+        "duration": 4,
+        "lands_on": ["munzee","mystery","earthmystery","briefcase"]
+      },
+    ]
+  },
+  {
     "name": "Bash from the Past",
     "category": "bash2020",
     "year": 2020,

@@ -318,5 +318,31 @@ export default [
     name: "WeeklyWeeks",
     import: () => import("sections/Weekly/Weeks"),
     path: "weekly"
-  }
+  },
+
+  
+  {
+    name: "CompetitionOptIn",
+    import: () => import("/sections/Competition/Search"),
+    path: "zeecret/optin",
+    nologin: true
+  },
+  {
+    name: "CompetitionAuth",
+    import: () => import("/sections/Competition/Auth"),
+    path: "zeecret/optin/:username",
+    nologin: true
+  },
+  {
+    name: "CompetitionRoundStats",
+    import: () => import("/sections/Competition/Stats"),
+    path: "zeecret/stats/:round",
+    nologin: true
+  },
+  {
+    name: "CompetitionHome",
+    import: () => import("/sections/Competition/Home"),
+    path: "zeecret",
+    nologin: true
+  },
 ]

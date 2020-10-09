@@ -9,6 +9,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { TouchableRipple, IconButton, Menu, Divider, Button } from 'react-native-paper'
 import font from 'sections/Shared/font';
+import useZeecretTeam from 'sections/Competition/useZeecretTeam';
 
 function DrawerItem(props) {
   return <TouchableRipple onPress={props.onPress} style={{
@@ -26,6 +27,10 @@ function DrawerItem(props) {
         <View style={{ width: 4 }}></View>
         {typeof props.label == "string" ? <Text numberOfLines={1} ellipsizeMode="tail" allowFontScaling={false} style={{ color: props.focused ? props.activeTintColor : props.inactiveTintColor, fontSize: 14, ...font("500") }}>{props.label}</Text> : <props.label color={props.focused ? props.activeTintColor : props.inactiveTintColor} />}
       </>}
+      <View style={{flex:1}}></View>
+      {props.right && <View style={{height:32,width:32}}>
+        <props.right color={props.focused ? props.activeTintColor : props.inactiveTintColor} />
+      </View>}
     </View>
   </TouchableRipple>
 }
@@ -39,6 +44,7 @@ export default function CustomDrawerContent(props) {
   var theme = useSelector(i => i.themes[i.theme]);
   var clanBookmarks = useSelector(i => i.clanBookmarks);
   var userBookmarks = useSelector(i => i.userBookmarks);
+  const { data: zeecretTeams } = useZeecretTeam(null, true);
   var route = useSelector(i => i.route);
   var nav = props.navigation;
   var [showMoreClan, setShowMoreClan] = React.useState(false);
@@ -52,7 +58,7 @@ export default function CustomDrawerContent(props) {
   })
   var top = [
     // { title: "Camps Leaderboard", icon: "flag", page: "AllCampWeeks" },
-    { title: t(`common:weekly_challenge`), icon: "calendar", page: "WeeklyWeeks" },
+    { title: "Zeecret Agents Competition", icon: "briefcase", page: "CompetitionHome" },
   ].filter(i => !i.hide)
   var pages = [
     // { title: t(`common:maps`), icon: "map", page: "Map" },
@@ -62,6 +68,7 @@ export default function CustomDrawerContent(props) {
     { title: t(`common:evo_planner`), icon: "dna", page: "EvoPlanner" },
     { title: "Zee Invasion Gardens", icon: "map-marker-multiple", page: "ZeeInvasion" },
     // { title: t(`common:scanner`), icon: "qrcode", page: "Scanner", hide: Platform.OS === "web" },
+    { title: t(`common:weekly_challenge`), icon: "calendar", page: "WeeklyWeeks" },
     { title: "Bookmark Manager", icon:"bookmark", page:"Bookmarks" },
   ].filter(i => !i.hide)
   var more = [
@@ -180,6 +187,7 @@ export default function CustomDrawerContent(props) {
           ],
         })
         }
+        right={zeecretTeams?.[i.username] ? ({ focused, color, size }) => <MaterialCommunityIcons name={zeecretTeams[i.username].startsWith("pine") ? "pine-tree" : "bomb"} color={zeecretTeams[i.username].endsWith('_false') ? "#ff0000" : color} size={24} style={{ margin: 4 }} /> : null}
       />)}
       {userBookmarks.length > 6 && <DrawerItem
         {...itemProps}
