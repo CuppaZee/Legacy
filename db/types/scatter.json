@@ -399,5 +399,35 @@
     "extra": {
       "elemental": true
     }
+  },
+  {
+    "name": "Laser Trail 1",
+    "icon": "lasertrail1",
+    "id": 2608,
+    "state": "virtual",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    }
+  },
+  {
+    "name": "Laser Trail 2",
+    "icon": "lasertrail2",
+    "id": 2609,
+    "state": "virtual",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    }
+  },
+  {
+    "name": "Laser Trail 3",
+    "icon": "lasertrail3",
+    "id": 2610,
+    "state": "virtual",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    }
   }
 ]

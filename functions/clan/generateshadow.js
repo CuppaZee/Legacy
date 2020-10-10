@@ -17,6 +17,18 @@ const groupsdata = {
         { clan_id: 1870, clan_name: "horlicks" },
         { clan_id: -1, clan_name: "shadow", shadow_name: "CuppaClans Shadow Crew" },
       ]
+    },
+    91: {
+      name: "October 2020",
+      clans: [
+        { clan_id: 1349, clan_name: "coffee" },
+        { clan_id: 457, clan_name: "tea" },
+        { clan_id: 2042, clan_name: "mocha" },
+        { clan_id: 1441, clan_name: "cocoa" },
+        { clan_id: 1902, clan_name: "hot choc" },
+        { clan_id: 1870, clan_name: "horlicks" },
+        { clan_id: -1, clan_name: "shadow", shadow_name: "CuppaClans Shadow Crew" },
+      ]
     }
   },
   kcat: {
@@ -24,6 +36,13 @@ const groupsdata = {
     admins: ["16968","15078","125914"],
     90: {
       name: "September 2020",
+      clans: [
+        { clan_id: 1064, clan_name: "kcat" },
+        { clan_id: 2049, clan_name: "cream on first" },
+      ]
+    },
+    91: {
+      name: "October 2020",
       clans: [
         { clan_id: 1064, clan_name: "kcat" },
         { clan_id: 2049, clan_name: "cream on first" },

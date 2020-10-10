@@ -736,7 +736,7 @@ munzees = munzees.concat(require('./types/temppob').map(i => ({
       },
 
       state: "bouncer",
-      category: "temppob"
+      category: `temppob_${i.category}`
     }),
   ...(i.extra || {}),
   points: i.points,
@@ -749,8 +749,46 @@ categories.push({
   name: "TempPOBs",
   id: "temppob",
   icon: "butterfly",
-  parents: ["bouncer"],
+  parents: ["root"],
   priority: 1
+})
+categories.push({
+  name: "Other TempPOBs",
+  id: "temppob_other",
+  icon: "trojanunicorn",
+  parents: ["temppob"],
+  priority: 1
+})
+categories.push({
+  name: "Evolution TempPOBs",
+  id: "temppob_evo",
+  icon: "butterfly",
+  parents: ["temppob"],
+  priority: 1
+})
+categories.push({
+  name: "Baby Animals",
+  id: "temppob_baby_animal",
+  icon: "owlet",
+  parents: ["temppob"],
+  priority: 1,
+  seasonal: {
+    year: 2020,
+    starts: new Date("2020-05-01T00:00:00-05:00").valueOf(),
+    ends: new Date("2020-06-30T23:59:00-05:00").valueOf()
+  }
+})
+categories.push({
+  name: "Camp Critters",
+  id: "temppob_camp_critter",
+  icon: "babyfox",
+  parents: ["temppob"],
+  priority: 1,
+  seasonal: {
+    year: 2020,
+    starts: new Date("2020-08-01T00:00:00-05:00").valueOf(),
+    ends: new Date("2020-09-30T23:59:00-05:00").valueOf()
+  }
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}TOBs${colors.Reset} from ${colors.fg.Green}./types/tob.js${colors.Reset}`)

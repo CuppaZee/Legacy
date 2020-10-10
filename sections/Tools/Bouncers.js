@@ -53,7 +53,7 @@ export default function SearchScreen({ navigation }) {
           </View>
         </Card>
       </View>}
-      {[...categories.filter(i=>i.seasonal&&i.seasonal.starts<Date.now()&&i.seasonal.ends>Date.now()),...categories.filter(i => i.parents.includes('bouncer')),...categories.filter(i => i.id=="scatter")].filter(i => !hasChild(i)).filter(i=>!i.hidden&&i.id!="bouncerhost").map(cdata=><View style={{ padding: 4 }}>
+      {[...categories.filter(i=>i.seasonal&&i.seasonal.starts<Date.now()&&i.seasonal.ends>Date.now()),...categories.filter(i => i.parents.includes('bouncer')),...categories.filter(i => i.id=="temppob_other"),...categories.filter(i => i.id=="temppob_evo"),...categories.filter(i => i.id=="scatter")].filter(i => !hasChild(i)).filter(i=>!i.hidden&&i.id!="bouncerhost").map(cdata=><View style={{ padding: 4 }}>
         <Card noPad>
           <View>
             <View style={{flexDirection:"row",justifyContent:"center",alignItems:"center"}}>

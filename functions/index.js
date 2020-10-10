@@ -6,6 +6,7 @@ const cors = require("cors")({
   origin: true,
 });
 const notificationData = require('./util/notificationSettings')(db);
+const teamsData = require('./competition/teams')(db);
 var disabled = {
   needsLoad: true,
   paths: [],
@@ -34,10 +35,10 @@ function checkFrom(from,route) {
     }
   } else if(from.match(/^zeetreehouses_([0-9]{4})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})([0-9]{2})([αßΩ]?)$/)) {
     const [fullMatch,year,month,day,hour,minute,type] = from.match(/^zeetreehouses_([0-9]{4})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})([0-9]{2})([αßΩ]?)$/);
-    return true;
+    return false;
   } else if(from.match(/^zeetreehouses_([0-9]{4})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})([0-9]{2})([αßΩ]?)_rabe85_([0-9.]+)$/)) {
     const [fullMatch,year,month,day,hour,minute,type,rabeVersion] = from.match(/^zeetreehouses_([0-9]{4})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})([0-9]{2})([αßΩ]?)_rabe85_([0-9.]+)$/);
-    return true;
+    return false;
   } else if(from.match(/^destination_expiry_([0-9.]+)$/)) {
     const [fullMatch,version] = from.match(/^destination_expiry_([0-9.]+)$/);
     return true;
@@ -47,7 +48,7 @@ function checkFrom(from,route) {
   return false;
 }
 
-var routes = [...require("./user"), ...require("./auth"), ...require("./minute"), ...require("./clan"), ...require("./munzee"), ...require("./bouncers"), ...require("./notifications"), ...require("./map"), ...require("./weekly")];
+var routes = [...require("./user"), ...require("./auth"), ...require("./minute"), ...require("./clan"), ...require("./munzee"), ...require("./bouncers"), ...require("./notifications"), ...require("./map"), ...require("./weekly"), ...require("./competition")];
 
 var x = async (req, res) => {
   if (disabled.needsLoad) {
@@ -84,16 +85,18 @@ var x = async (req, res) => {
       cns.function = `E: ${routeDetails.route} V: ${routeDetails.version} R: ${routeDetails.raw}`;
       var use_route = routes.find((i) => i.path === route);
       if (!use_route) {
-        return res.send({
-          data: null,
-          status: {
-            text: "Route not Found",
-            id: "route_not_found",
-            code: 404,
-          },
-          route: routeDetails,
-          executed_in: executed_in(),
-        });
+        return res
+          .status(404)
+          .send({
+            data: null,
+            status: {
+              text: "Route not Found",
+              id: "route_not_found",
+              code: 404,
+            },
+            route: routeDetails,
+            executed_in: executed_in(),
+          });
       }
       if(disabled.paths.includes(use_route.path)) {
         return res
@@ -113,30 +116,34 @@ var x = async (req, res) => {
       routeDetails.version = use_version;
       cns.function = `E: ${routeDetails.route} V: ${routeDetails.version} R: ${routeDetails.raw}`;
       if (!use_route.versions.find((i) => i.version === use_version)) {
-        return res.send({
-          data: null,
-          status: {
-            text: "Version not Found",
-            id: "version_not_found",
-            code: 404,
-          },
-          route: routeDetails,
-          executed_in: executed_in(),
-        });
+        return res
+          .status(404)
+          .send({
+            data: null,
+            status: {
+              text: "Version not Found",
+              id: "version_not_found",
+              code: 404,
+            },
+            route: routeDetails,
+            executed_in: executed_in(),
+          });
       }
       var use = use_route.versions.find((i) => i.version === use_version);
       routeDetails.params = use.params;
       if (!use.function) {
-        return res.send({
-          data: null,
-          status: {
-            text: "Function not Found",
-            id: "function_not_found",
-            code: 500,
-          },
-          route: routeDetails,
-          executed_in: executed_in(),
-        });
+        return res
+          .status(500)
+          .send({
+            data: null,
+            status: {
+              text: "Function not Found",
+              id: "function_not_found",
+              code: 500,
+            },
+            route: routeDetails,
+            executed_in: executed_in(),
+          });
       }
       var body = {};
       try {
@@ -170,6 +177,7 @@ var x = async (req, res) => {
         db,
         cns,
         notificationData,
+        teamsData,
       });
       cns.log('Finished')
       if (response.norespond) return;

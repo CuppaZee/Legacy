@@ -4,14 +4,15 @@ import ClanRequirements from './Cards/Requirements';
 import ClanStats from './Cards/Stats';
 import { useDimensions } from '@react-native-community/hooks'
 import { useSelector } from 'react-redux';
+import config from 'utils/config';
 
 function Clan({ item }) {
   return ({
     clan_stats: <View style={{ padding: 4, flex: 1 }}>
-      <ClanStats clan_id={item.clan_id} game_id={90} />
+      <ClanStats clan_id={item.clan_id} game_id={config.clan.game_id} />
     </View>,
     clan_requirements: <View style={{ padding: 4, flex: 1 }}>
-      <ClanRequirements game_id={90} />
+      <ClanRequirements game_id={config.clan.game_id} />
     </View>,
     blankHack: <View style={{ flex: 1, padding: 4 }}></View>
   }[item.type]||null)

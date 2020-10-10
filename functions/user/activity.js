@@ -30,7 +30,7 @@ module.exports = {
         if (!data) {
           return {
             status: "error",
-            error_message: "munzee+api_5xx"
+            error_message: "munzee_api_5xx"
           }
         }
         return {

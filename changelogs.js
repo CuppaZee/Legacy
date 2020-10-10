@@ -1598,5 +1598,68 @@ export default {
       title: 'October 2020 Clan Requirements',
       description: 'Fixed Meta for Elemental Activity'
     },
+  ],
+  302: [
+    {
+      icon: 'shield-half-full',
+      title: 'October 2020 Clan Wars',
+      description: 'CuppaZee is ready for October 2020 Clan Wars'
+    }
+  ],
+  303: [
+    {
+      icon: 'briefcase',
+      title: 'Introducing the Zeecret Agents Competition',
+      description: 'Opt-in now to join in on the competition!'
+    }
+  ],
+  304: [
+    {
+      icon: 'briefcase',
+      title: 'Zeecret Agents Competition Preparations',
+      description: 'Opt-in now to join in on the competition!'
+    }
+  ],
+  305: [
+    {
+      icon: 'briefcase',
+      title: 'Added new Zeecret Specials',
+      description: 'Added new Zeecret Specials to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  306: [
+    {
+      icon: 'briefcase',
+      title: 'Improved Zeecret Agents Competition',
+      description: 'Added Updated Timestamp'
+    }
+  ],
+  307: [
+    {
+      icon: 'briefcase',
+      title: 'Improved Zeecret Agents Competition',
+      description: 'Updated Opt In System, Improved Design.'
+    }
+  ],
+  308: [
+    {
+      icon: 'briefcase',
+      title: 'Improved Zeecret Agents Competition',
+      description: 'Fixed some issues with the Opt In system'
+    }
+  ],
+  309: [
+    {
+      icon: 'briefcase',
+      title: 'Added ZeeOps Overview',
+      description: 'Keep track of your daily ZeeOps mission progress!'
+    }
+  ],
+  310: [
+    {
+      icon: 'briefcase',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Removed Laser Pen Deploy Requirement... You can\'t deploy them...'
+    }
   ]
 }

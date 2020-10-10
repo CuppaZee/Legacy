@@ -3,6 +3,7 @@ import { View, ScrollView } from 'react-native';
 import ClanRequirements from './Cards/Requirements';
 import ClanStats from './Cards/Stats';
 import { useSelector } from 'react-redux';
+import config from 'utils/config';
 
 export default function ClanScreen({route}) {
   var [scale,setScale] = React.useState(1);
@@ -11,10 +12,10 @@ export default function ClanScreen({route}) {
   return (
     <ScrollView style={{backgroundColor:theme.page.bg,flex: 1}} contentContainerStyle={{padding:4}}>
       <View style={{ padding: 4*scale }}>
-        <ClanStats clan_id={clan_id} game_id={90} />
+        <ClanStats clan_id={clan_id} game_id={config.clan.game_id} />
       </View>
       <View style={{ padding: 4*scale }}>
-        <ClanRequirements scale={scale} zoom={true} game_id={90} />
+        <ClanRequirements scale={scale} zoom={true} game_id={config.clan.game_id} />
       </View>
     </ScrollView>
   );
@@ -22,10 +23,10 @@ export default function ClanScreen({route}) {
     <ScrollView horizontal={true} style={{backgroundColor:theme.page.bg,flex:1}}>
       <ScrollView style={{backgroundColor:"green"??theme.page.bg,flex:1}} contentContainerStyle={{backgroundColor:"red",justifyContent:"flex-start",alignItems:"flex-start"}}>
         <View style={{ padding: 4*scale, flex: 1 }}>
-          <ClanStats clan_id={clan_id} game_id={90} />
+          <ClanStats clan_id={clan_id} game_id={config.clan.game_id} />
         </View>
         <View style={{ padding: 4*scale, flex: 1 }}>
-          <ClanRequirements scale={scale} zoom={true} game_id={90} />
+          <ClanRequirements scale={scale} zoom={true} game_id={config.clan.game_id} />
         </View>
       </ScrollView>
     </ScrollView>

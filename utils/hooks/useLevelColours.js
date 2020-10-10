@@ -29,10 +29,10 @@ import { useTheme } from 'react-native-paper';
 
 
 
-export default function useLevelColours() {
+export default function useLevelColours(dark) {
   var theme = useTheme();
   var settings = useSelector(i=>i.settings)||{};
-  var d = (settings.alt_clan_design ? !theme.dark : theme.dark)
+  var d = dark ?? (settings.alt_clan_design ? !theme.dark : theme.dark)
   var levelColours = {
     ind: a(settings.clan_level_ind,d),
     bot: a(settings.clan_level_bot,d),

@@ -288,9 +288,9 @@ var all_tasks = {
   ],
   89: [1, 3, 10, 12, 13, 23, 24, 28, 35],
   90: [1,13,14,24,3,35,19,25,26,32,33],
-  91: [1,19,23,29,3,35,7,12,13,24,27,28,33]
+  91: [1,19,23,29,3,35,7,12,13,24,27,28,31,33]
 }
-var current_month = 90;
+var current_month = 91;
 
 function calculate(data = [], no_reduce) {
   var current_tasks = all_tasks[current_month];

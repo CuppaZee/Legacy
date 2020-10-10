@@ -217,6 +217,16 @@ export default [
     }
   },
   {
+    name: "UserZeeOps",
+    import: () => import('sections/User/ZeeOps'),
+    path: {
+      path: "user/:username/zeeops",
+      parse: {
+        username: String,
+      }
+    }
+  },
+  {
     name: "UserBlast",
     import: () => import('sections/User/Blast/Blast'),
     path: {
@@ -318,5 +328,31 @@ export default [
     name: "WeeklyWeeks",
     import: () => import("sections/Weekly/Weeks"),
     path: "weekly"
-  }
+  },
+
+  
+  {
+    name: "CompetitionOptIn",
+    import: () => import("/sections/Competition/Search"),
+    path: "zeecret/optin",
+    nologin: true
+  },
+  {
+    name: "CompetitionAuth",
+    import: () => import("/sections/Competition/Auth"),
+    path: "zeecret/optin/:username",
+    nologin: true
+  },
+  {
+    name: "CompetitionRoundStats",
+    import: () => import("/sections/Competition/Stats"),
+    path: "zeecret/stats/:round",
+    nologin: true
+  },
+  {
+    name: "CompetitionHome",
+    import: () => import("/sections/Competition/Home"),
+    path: "zeecret",
+    nologin: true
+  },
 ]

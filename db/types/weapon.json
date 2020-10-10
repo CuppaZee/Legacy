@@ -67,5 +67,12 @@
     "extra": {
       "alt_icons": ["nvgoggles"]
     }
+  },
+  {
+    "name": "Laser Pen",
+    "icon": "laserpen",
+    "id": 2607,
+    "state": "virtual",
+    "weapon": "zeecret"
   }
 ]
