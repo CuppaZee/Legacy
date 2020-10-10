@@ -128,6 +128,16 @@ export default function DetailsScreen({ route }) {
                   <MaterialCommunityIcons name={logins[user_id] ? 'chevron-right' : 'lock'} size={24} color={theme.page_content.fg} />
                 </View>
               </TouchableRipple>
+              <TouchableRipple disabled={!logins[user_id]} onPress={() => nav.navigate('UserZeeOps', { username: username })}>
+                <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
+                  <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="briefcase" size={24} color={theme.page_content.fg} />
+                  <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>ZeeOps</Text>
+                  <View style={{ backgroundColor: theme.navigation.bg, padding: 4, borderRadius: 4 }}>
+                    <Text style={{ color: theme.navigation.fg, fontSize: 16, fontWeight: "500" }}>NEW</Text>
+                  </View>
+                  <MaterialCommunityIcons name={logins[user_id] ? 'chevron-right' : 'lock'} size={24} color={theme.page_content.fg} />
+                </View>
+              </TouchableRipple>
               <TouchableRipple onPress={() => nav.navigate('UserBouncers', { username: username })}>
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                   <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="star" size={24} color={theme.page_content.fg} />
@@ -162,6 +172,9 @@ export default function DetailsScreen({ route }) {
                   <View style={{ flex: 1 }}>
                     <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{zeecretTeam ? `Team ${zeecretTeam?.slice(0,4).toUpperCase()}` : 'Not Joined Yet'}</Text>
                     <Text allowFontScaling={false} style={{ paddingLeft: 4, fontSize: 12, color: theme.page_content.fg }}>Zeecret Agents Competition</Text>
+                  </View>
+                  <View style={{ backgroundColor: theme.navigation.bg, padding: 4, borderRadius: 4 }}>
+                    <Text style={{ color: theme.navigation.fg, fontSize: 16, fontWeight: "500" }}>NEW</Text>
                   </View>
                   <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
                 </View>

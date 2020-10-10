@@ -28,10 +28,10 @@ import stringify from 'fast-json-stable-stringify';
 
 
 
-export default function useLevelColours() {
+export default function useLevelColours(dark) {
   var theme = useSelector(i=>i.themes[i.theme]);
   var settings = useSelector(i=>i.settings)||{};
-  var d = (settings.alt_clan_design ? !theme.dark : theme.dark)?theme.page_content.bg:false
+  var d = (dark ?? (settings.alt_clan_design ? !theme.dark : theme.dark))?theme.page_content.bg:false
   var levelColours = {
     ind: a(settings.clan_level_ind,d),
     bot: a(settings.clan_level_bot,d),

@@ -217,6 +217,16 @@ export default [
     }
   },
   {
+    name: "UserZeeOps",
+    import: () => import('sections/User/ZeeOps'),
+    path: {
+      path: "user/:username/zeeops",
+      parse: {
+        username: String,
+      }
+    }
+  },
+  {
     name: "UserBlast",
     import: () => import('sections/User/Blast/Blast'),
     path: {

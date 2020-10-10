@@ -1647,5 +1647,12 @@ export default {
       title: 'Improved Zeecret Agents Competition',
       description: 'Fixed some issues with the Opt In system'
     }
+  ],
+  309: [
+    {
+      icon: 'briefcase',
+      title: 'Added ZeeOps Overview',
+      description: 'Keep track of your daily ZeeOps mission progress!'
+    }
   ]
 }
