@@ -1654,5 +1654,12 @@ export default {
       title: 'Added ZeeOps Overview',
       description: 'Keep track of your daily ZeeOps mission progress!'
     }
+  ],
+  310: [
+    {
+      icon: 'briefcase',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Removed Laser Pen Deploy Requirement... You can\'t deploy them...'
+    }
   ]
 }

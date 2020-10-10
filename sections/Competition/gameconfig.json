@@ -166,13 +166,6 @@
       "id": 1359,
       "damage": 1,
       "type": "deploy"
-    },
-    {
-      "name": "Laser Pen",
-      "icon": "laserpen",
-      "id": 2607,
-      "damage": 5,
-      "type": "deploy"
     }
   ]
 }
