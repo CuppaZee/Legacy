@@ -58,15 +58,15 @@ export default function () {
       </View>
     } else {
       return <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <MaterialCommunityIcons name="alert" color={theme.colors.text} size={48} />
-      <Subheading>{t('error:' + status)}</Subheading>
-    </View>
+        <MaterialCommunityIcons name="alert" color={theme.colors.text} size={48} />
+        <Subheading>{t('error:' + status)}</Subheading>
+      </View>
     }
   } else if (data === null) {
     return <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-    <MaterialCommunityIcons name="alert" color={theme.colors.text} size={48} />
-    <Subheading>{t('error:missing_data.locked')}</Subheading>
-  </View>
+      <MaterialCommunityIcons name="alert" color={theme.colors.text} size={48} />
+      <Subheading>{t('error:missing_data.locked')}</Subheading>
+    </View>
   }
   return <View style={{ flex: 1 }}>
     <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 4, paddingBottom: 92 }}>

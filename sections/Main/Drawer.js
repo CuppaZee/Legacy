@@ -19,9 +19,8 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const options = {
   includeScore: true,
-  keys: ['name', 'id', 'category']
+  keys: ['name', 'id', 'category', 'user_id', 'username']
 }
-const fuse = new Fuse([...types.filter(i => !i.hidden), ...categories.filter(i => !i.hidden)], options)
 
 function DrawerItem(props) {
   const SurfaceOrView = props.focused ? Surface : View;
@@ -45,46 +44,96 @@ function DrawerItem(props) {
             <Text numberOfLines={1} ellipsizeMode="tail" allowFontScaling={false} style={{ fontSize: 14, fontWeight: "500" }}>{props.label}</Text>
             {props.subtitle && <Text numberOfLines={1} ellipsizeMode="tail" allowFontScaling={false} style={{ fontSize: 12, fontWeight: "500", opacity: 0.8 }}>{props.subtitle}</Text>}
           </View> : <props.label color={theme.colors.text} />}
+          <View style={{ flex: 1}} />
+          {props.rightImage ? (props.noAvatar ? <Image style={{ height: 32, width: 32 }} source={props.rightImage} /> : <Avatar.Image size={32} source={props.rightImage} />) : (props.rightIcon && <Avatar.Icon size={32} icon={props.rightIcon} />)}
+          {props.right && <props.right />}
         </>}
-        {props.right && <props.right />}
       </SurfaceOrView>
     </TouchableRipple>
   </View>
 }
 
-function SearchView({ query, ...props }) {
+function SearchItem ({ i, userItemProps, ...props }) {
   var { t } = useTranslation();
   var route = useSelector(i => i.route);
   var nav = props.navigation;
+  if(i.user_id) {
+    // User
+    return <DrawerItem
+      key={i.username}
+      {...userItemProps}
+      style={{ marginVertical: 0 }}
+      focused={route.name?.startsWith('User') && route.params?.username?.toLowerCase() === i.username.toLowerCase()}
+      image={{uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i.user_id).toString(36)}.png`}}
+      label={i.username}
+      subtitle="User"
+      onPress={() => nav.reset({
+        index: 1,
+        routes: [
+          { name: '__primary', params: { screen: "UserActivity", params: { username: i.username } } },
+        ],
+      })
+      }
+    />
+  }
+  if(i.clan_id) {
+    // Clan
+    return <DrawerItem
+      key={i.name}
+      {...userItemProps}
+      style={{ marginVertical: 0 }}
+      focused={route.name === "ClanDetails" && route.params?.clanid === i.clan_id}
+      image={{uri: `https://munzee.global.ssl.fastly.net/images/clan_logos/${Number(i.clan_id).toString(36)}.png`}}
+      label={i.name}
+      subtitle="Clan"
+      onPress={() => nav.reset({
+        index: 1,
+        routes: [
+          { name: '__primary', params: { screen: "ClanDetails", params: { clanid: i.clan_id } } },
+        ],
+      })
+      }
+    />
+  }
+  return <DrawerItem
+    key={i.name??"Hello"}
+    {...userItemProps}
+    style={{ marginVertical: 0 }}
+    noAvatar={i.icon ? true : false}
+    focused={(route.name == "DBType" && route.params?.munzee === i.id) || (route.name == "DBCategory" && route.params?.category === i.id)}
+    image={i.user_id ? {uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i.user_id).toString(36)}.png`} : getIcon(i.icon)}
+    label={i.name??i.username??"Hello"}
+    subtitle={i.category ? "Munzee Type" : (i.icon ? "Category" : (i.user_id ? "User" : "Clan"))}
+    onPress={() => nav.reset({
+      index: 1,
+      routes: [
+        { name: '__primary', params: i.category ? { screen: "DBType", params: { munzee: i.icon } } : { screen: "DBCategory", params: { category: i.id } } },
+      ],
+    })
+    }
+  />
+}
+
+function SearchView({ query, ...props }) {
   var userMini = props.mini;
+  const { data: users } = useAPIRequestWithoutNav({
+    endpoint: 'user/find',
+    data: { text: query }
+  }, true);
+  const { data: clans } = useAPIRequestWithoutNav({
+    endpoint: 'clan/list',
+    data: { query, format: "list" },
+    cuppazee: true
+  }, true);
+  const fuse = new Fuse([...types.filter(i => !i.hidden), ...categories.filter(i => !i.hidden), ...(users?.users||[]), ...(clans||[])], options)
   const list = fuse.search(query);
-  // const { data, status } = useAPIRequestWithoutNav({
-  //   endpoint: 'user',
-  //   data: { username: userDrawer.username }
-  // }, true);
   var userItemProps = {
     side: props.side,
     mini: userMini
   }
   const theme = useTheme();
   return <View style={{ flex: 1, borderLeftWidth: 1, borderLeftColor: theme.colors.disabled }}>
-    {list.slice(0, 20).map?.(({item:i}) => <DrawerItem
-      key={i.name??"Hello"}
-      {...userItemProps}
-      style={{ marginVertical: 0 }}
-      noAvatar={i.icon ? true : false}
-      focused={(route.name == "DBType" && route.params?.munzee === i.id) || (route.name == "DBCategory" && route.params?.category === i.id)}
-      image={getIcon(i.icon)}
-      label={i.name??"Hello"}
-      subtitle={i.category ? "Munzee Type" : (i.icon ? "Category" : (i.user_id ? "User" : "Clan"))}
-      onPress={() => nav.reset({
-        index: 1,
-        routes: [
-          { name: '__primary', params: i.category ? { screen: "DBType", params: { munzee: i.icon } } : { screen: "DBCategory", params: { category: i.id } } },
-        ],
-      })
-      }
-    />)}
+    {list.slice(0, 20).filter(i=>i.score < 0.7).map?.(({item:i}) => <SearchItem i={i} userItemProps={userItemProps} navigation={props.navigation} />)}
   </View>;
 }
 
@@ -101,6 +150,7 @@ function UserDrawerContent({ userDrawer, setUserDrawer, ...props }) {
   var userPages = [
     { title: t(`user:activity`), icon: "calendar", page: "UserActivity" },
     { title: t(`user:inventory`), icon: "package", page: "UserInventory" },
+    { title: t(`user:zeeops`), icon: "briefcase", page: "UserZeeOps", new: true },
     { title: t(`user:your_bouncers`), icon: "star", page: "UserBouncers" },
     { title: t(`user:blast_checker`), icon: "bomb", page: "UserBlastMap" },
     { title: t(`user:qrew_checker`), icon: "hammer", page: "UserQRew" },
@@ -147,8 +197,8 @@ function UserDrawerContent({ userDrawer, setUserDrawer, ...props }) {
         routes: [
           { name: '__primary', params: { screen: p.page, params: { username: userDrawer.username } } },
         ],
-      })
-      }
+      })}
+      rightIcon={p.new ? "star" : null}
     />)}
     {data?.clan && <>
       <Divider style={{ marginVertical: 4 }} />
@@ -270,7 +320,7 @@ export default function CustomDrawerContent(props) {
               <Text allowFontScaling={false} style={{ fontSize: 12, fontWeight: "bold", color: "#ffffff" }}>Do NOT share screenshots</Text>
             </View>
           </Surface>}
-          {query.length > 3 ? <SearchView query={query} {...props} /> : <View style={{ flexDirection: "row", flexGrow: 1 }}>
+          {query.length > 1 ? <SearchView query={query} {...props} /> : <View style={{ flexDirection: "row", flexGrow: 1 }}>
             {(!userDrawer || width >= 320) && <View style={userDrawer ? { width: 48 } : { flex: 1 }}>
               {!mini && Platform.OS === "web" && globalThis?.navigator?.userAgent?.match?.(/Android/) && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 8 }}>
                 <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", opacity: 0.8 }}>The CuppaZee App is now on Google Play</Text>
@@ -315,6 +365,7 @@ export default function CustomDrawerContent(props) {
                   style={{ marginVertical: 0 }}
                   focused={route.name?.startsWith?.('User') && route.params?.username === i.username}
                   image={{ uri: i.logo ?? `https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i.user_id || 0).toString(36)}.png` }}
+                  rightIcon={zeecretTeams?.[i.username] && (zeecretTeams?.[i.username].startsWith("pear") ? "bomb" : "pine-tree")}
                   label={i.username}
                   onPress={() => {
                     if (!(route.name === 'UserDetails' && route.params?.username === i.username)) nav.reset({
