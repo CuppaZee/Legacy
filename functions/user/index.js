@@ -11,5 +11,6 @@ module.exports = [
   require('./universal_submit'),
   require('./universal_auth'),
   require('./universal_watch'),
-  require('./universal_report')
+  require('./universal_report'),
+  require('./find')
 ]

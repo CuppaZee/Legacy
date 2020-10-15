@@ -1661,5 +1661,26 @@ export default {
       title: 'Updated Zeecret Agents Competition',
       description: 'Removed Laser Pen Deploy Requirement... You can\'t deploy them...'
     }
+  ],
+  311: [
+    {
+      icon: 'briefcase',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Improved functionality of Zeecret Agents Competition. Prepared for Round 2.'
+    }
+  ],
+  312: [
+    {
+      image: 'roosa',
+      title: 'Added Roosa',
+      description: 'Added Roosa Funfinity Stone to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  313: [
+    {
+      icon: 'briefcase',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Fixed a bug where stats for Bowling - 2nd Roll Munzees weren\'t showing.'
+    }
   ]
 }
