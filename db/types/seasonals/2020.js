@@ -138,6 +138,13 @@ module.exports = [
         "duration": 12,
         "lands_on": [":virtual"]
       },
+      {
+        "name": "Cat-Eye Glasses",
+        "icon": "cat-eyeglasses2020vision",
+        "id": 2300,
+        "duration": 12,
+        "lands_on": ["munzee"]
+      },
     ]
   },
   {

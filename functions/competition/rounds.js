@@ -31,7 +31,8 @@ module.exports = {
               id: i.round_id,
               max: i.max,
               base: i.base,
-            })).sort((a,b) => a.id - b.id).filter(i=>i.start<=Date.now())
+              pause: i.pause,
+            })).sort((a,b) => a.id - b.id).filter(i=>i.start<=Date.now()).filter(i=>!i.pause)
           }
         };
       },

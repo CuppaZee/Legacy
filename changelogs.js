@@ -1682,5 +1682,26 @@ export default {
       title: 'Updated Zeecret Agents Competition',
       description: 'Fixed a bug where stats for Bowling - 2nd Roll Munzees weren\'t showing.'
     }
+  ],
+  314: [
+    {
+      image: 'cat-eyeglasses2020vision',
+      title: 'Added Cat-Eye Glasses',
+      description: 'Added Cat-Eye Glasses 2020 Vision Special to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  315: [
+    {
+      icon: 'briefcase',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Ready for Round 3! Check out the Round 3 requirements now!'
+    }
+  ],
+  316: [
+    {
+      icon: 'briefcase',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Round 4!'
+    }
   ]
 }

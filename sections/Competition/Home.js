@@ -12,6 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import useMoment from 'utils/hooks/useMoment';
 import gameConfig_1 from './gameconfig.json';
 import gameConfig_2 from './gameconfig_2.json';
+import gameConfig_3 from './gameconfig_3.json';
 import Countdown from './Countdown';
 import { Dropdown, DropdownItem } from '../More/Dropdown';
 
@@ -23,8 +24,13 @@ const gameConfigs = [
   },
   {
     gameConfig: gameConfig_2,
-    name: "Round 2+",
+    name: "Round 2",
     id: "r2"
+  },
+  {
+    gameConfig: gameConfig_3,
+    name: "Round 3+",
+    id: "r3"
   }
 ]
 
@@ -37,8 +43,15 @@ export default function ClanScreen() {
     endpoint: 'competition/rounds/v2',
     cuppazee: true
   }, true);
-  const [selectedConfig, setSelectedConfig] = React.useState('r2');
-  const gameConfig = data?.rounds.length > 1 ? (gameConfigs.find(i=>i.id===selectedConfig)?.gameConfig ?? gameConfig_2) : gameConfig_1;
+  const [selectedConfig, setSelectedConfig] = React.useState(null);
+  React.useEffect(()=>{
+    if(data?.rounds.length) setSelectedConfig({
+      1: "r1",
+      2: "r2",
+      3: "r3"
+    }[data?.rounds.length] || "r3");
+  },[data?.rounds.length])
+  const gameConfig = gameConfigs.find(i=>i.id===selectedConfig)?.gameConfig;
   if (status) {
     if(status === "loading") {
       return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
@@ -108,7 +121,7 @@ export default function ClanScreen() {
           </View>
         </View>}
         <View style={{ padding: 4 }}><Button mode="contained" onPress={()=>nav.navigate('CompetitionOptIn')}>Opt-in to Competition</Button></View>
-        {data.rounds.length > 0 && <>
+        {(data.rounds.length > 0 && !!gameConfig) && <>
           <View style={{ padding: 4 }}>
             <Card noPad>
               <View>
@@ -186,7 +199,7 @@ export default function ClanScreen() {
                 </Text>
                 <Text style={{ color: theme.page_content.fg, fontWeight: "bold", padding: 4, textAlign: "center", fontSize: 20 }}>Round Endings</Text>
                 <Text style={{ color: theme.page_content.fg, padding: 4, textAlign: "center", fontSize: 16 }}>
-                  A round will end as soon as one team's health reaches 0 HP or when the round times out after a specified number of days. If a round times out, the team with the highest remaining health will be given the win.
+                  A round will end as soon as one team's health reaches 0 HP or when the round times out after a specified period of time. If a round times out, the team with the highest remaining health will be given the win.
                 </Text>
                 <Text style={{ color: theme.page_content.fg, fontWeight: "bold", padding: 4, textAlign: "center", fontSize: 20 }}>Competition Ending</Text>
                 <Text style={{ color: theme.page_content.fg, padding: 4, textAlign: "center", fontSize: 16 }}>

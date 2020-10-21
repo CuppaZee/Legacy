@@ -3,6 +3,7 @@ var { retrieve, request } = require("../util");
 var { g } = require('../util/db');
 const gameConfig_1 = require('./gameconfig.json');
 const gameConfig_2 = require('./gameconfig_2.json');
+const gameConfig_3 = require('./gameconfig_3.json');
 const config = require('../config.json');
 
 module.exports = {
@@ -28,7 +29,17 @@ module.exports = {
           }
         }
         const round = roundDoc.data();
-        const gameConfig = round.round_id >= 2 ? gameConfig_2 : gameConfig_1;
+        const gameConfig = {
+          1: gameConfig_1,
+          2: gameConfig_2,
+          3: gameConfig_3,
+        }[round.round_id] || gameConfig_3;
+        if(round.pause) {
+          return {
+            status: "success",
+            data: true
+          }
+        }
         const capturesTypes = new Set([...gameConfig.healing.filter(i => i.type === "capture"), ...gameConfig.damaging.filter(i => i.type === "capture")].map(i => g(i.icon)));
         const deploysTypes = new Set([...gameConfig.healing.filter(i => i.type === "deploy"), ...gameConfig.damaging.filter(i => i.type === "deploy")].map(i => g(i.icon)));
         console.log(Array.from(capturesTypes), Array.from(deploysTypes), round.round_id);
@@ -163,24 +174,26 @@ module.exports = {
         if(end) {
           await db.collection('zeecret').doc((Number(roundDoc.id) + 1).toString()).set({
             max: 2500,
-            base: 1000,
+            base: 1500,
             next_id_pear: 0,
             next_id_pine: 0,
             round_id: Number(roundDoc.id) + 1,
             start: end,
-            max_length: 518400000
+            max_length: new Date('2020-10-21T11:58:00-05:00').valueOf() - end,
+            pause: true
           })
           roundUpdate.end = end;
           roundUpdate.result = points.pine === 0 ? "pear" : "pine";
         } else if((round.start + round.max_length) <= updateTime) {
           await db.collection('zeecret').doc((Number(roundDoc.id) + 1).toString()).set({
             max: 2500,
-            base: 1000,
+            base: 1500,
             next_id_pear: 0,
             next_id_pine: 0,
             round_id: Number(roundDoc.id) + 1,
             start: round.start + round.max_length,
-            max_length: 518400000
+            max_length: new Date('2020-10-21T11:58:00-05:00').valueOf() - end,
+            pause: true
           })
           roundUpdate.end = round.start + round.max_length;
           roundUpdate.result = (points.pine > points.pear) ? "pine" : "pear";

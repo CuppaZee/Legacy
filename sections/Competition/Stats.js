@@ -11,6 +11,7 @@ import getIcon, { g } from 'utils/db/icon';
 import useMoment from 'utils/hooks/useMoment';
 import gameConfig_1 from './gameconfig.json';
 import gameConfig_2 from './gameconfig_2.json';
+import gameConfig_3 from './gameconfig_3.json';
 import Countdown from './Countdown';
 
 export default function ClanScreen({ route }) {
@@ -30,7 +31,11 @@ export default function ClanScreen({ route }) {
       round: route.params.round
     }
   }, true);
-  const gameConfig = round?.round_id > 1 ? gameConfig_2 : gameConfig_1;
+  const gameConfig = {
+    1: gameConfig_1,
+    2: gameConfig_2,
+    3: gameConfig_3,
+  }[round?.round_id] || gameConfig_3;
   if (status) {
     if (status === "loading") {
       return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg }}>
@@ -104,7 +109,7 @@ export default function ClanScreen({ route }) {
                       <Text numberOfLines={1} style={{ fontSize: 16, textAlign: "left" }}>{moment(round.start).format('L LT')}</Text>
                       <Text numberOfLines={1} style={{ fontSize: 16, textAlign: "left" }}>{moment(round.updated_at).format('L LT')}</Text>
                       {round.end && <Text numberOfLines={1} style={{ fontSize: 16, textAlign: "left" }}>{moment(round.end).format('L LT')}</Text>}
-                      <Text numberOfLines={1} style={{ fontSize: 16, textAlign: "left" }}>{moment(round.start + round.max_length).format('L LT')} | {round.max_length / 86400000} Days</Text>
+                      <Text numberOfLines={1} style={{ fontSize: 16, textAlign: "left" }}>{moment(round.start + round.max_length).format('L LT')}</Text>
                       <Text numberOfLines={1} style={{ fontSize: 16, textAlign: "left" }}>{round.base} HP</Text>
                       <Text numberOfLines={1} style={{ fontSize: 16, textAlign: "left" }}>{round.max} HP</Text>
                     </View>
