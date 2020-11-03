@@ -27,7 +27,7 @@
   {
     "name": "2020 Seasonal Specials",
     "id": "seasonal_2020",
-    "icon": "pineagent",
+    "icon": "creepycauldron",
     "parents": [
       "seasonal",
       "root"
@@ -232,6 +232,20 @@
       "year": 2020,
       "starts": 1596258000000,
       "ends": 1601528340000
+    }
+  },
+  {
+    "name": "Christmas Critters",
+    "id": "temppob_christmas_critter",
+    "icon": "babyreindeer",
+    "parents": [
+      "temppob"
+    ],
+    "priority": 1,
+    "seasonal": {
+      "year": 2020,
+      "starts": 1604206800000,
+      "ends": 1609390740000
     }
   },
   {
@@ -446,6 +460,19 @@
       "year": 2020,
       "starts": 1577998800000,
       "ends": 1609480740000
+    }
+  },
+  {
+    "name": "Deathly DeeZert",
+    "id": "halloween2020",
+    "icon": "creepycauldron",
+    "parents": [
+      "seasonal_2020"
+    ],
+    "seasonal": {
+      "year": 2020,
+      "starts": 1603818000000,
+      "ends": 1605502740000
     }
   },
   {

@@ -4,6 +4,8 @@ var { g } = require('../util/db');
 const gameConfig_1 = require('./gameconfig.json');
 const gameConfig_2 = require('./gameconfig_2.json');
 const gameConfig_3 = require('./gameconfig_3.json');
+const gameConfig_7 = require('./gameconfig_7.json');
+const gameConfig_8 = require('./gameconfig_8.json');
 const config = require('../config.json');
 
 module.exports = {
@@ -33,7 +35,12 @@ module.exports = {
           1: gameConfig_1,
           2: gameConfig_2,
           3: gameConfig_3,
-        }[round.round_id] || gameConfig_3;
+          4: gameConfig_3,
+          5: gameConfig_3,
+          6: gameConfig_3,
+          7: gameConfig_7,
+          8: gameConfig_8,
+        }[round.round_id] || gameConfig_8;
         if(round.pause) {
           return {
             status: "success",
@@ -91,9 +98,15 @@ module.exports = {
             console.log('competition/minute', dateString, team, activity.captures.length, activity.deploys.length, JSON.stringify(activity.captures[0]), JSON.stringify(activity.deploys[0]))
             for (const capture of activity.captures) {
               const icon = g(capture.pin);
+              let type = icon;
+              if(icon === "pineagent" && (round.round_id.toString() === "7" ? ["#56"] : ["#28","#45","#32"]).some(i=>capture.friendly_name.includes(i))) {
+                type = "pineagentmystery";
+              } else if(icon === "pearagent" && (round.round_id.toString() === "7" ? ["#12"] : ["#42","#14","#15"]).some(i=>capture.friendly_name.includes(i))) {
+                type = "pearagentmystery";
+              }
               if (capturesTypes.has(icon)) {
-                if (!batch[dateString][`${icon}_capture`]) batch[dateString][`${icon}_capture`] = [];
-                batch[dateString][`${icon}_capture`].push(new Date(capture.captured_at).valueOf());
+                if (!batch[dateString][`${type}_capture`]) batch[dateString][`${type}_capture`] = [];
+                batch[dateString][`${type}_capture`].push(new Date(capture.captured_at).valueOf());
               }
             }
             for (const deploy of activity.deploys) {
@@ -169,31 +182,29 @@ module.exports = {
             }
           }
         }
-        1602608280000
-        1602594096000
+        // 1602608280000
+        // 1602594096000
         if(end) {
           await db.collection('zeecret').doc((Number(roundDoc.id) + 1).toString()).set({
-            max: 2500,
-            base: 1500,
+            max: 10000,
+            base: 2500,
             next_id_pear: 0,
             next_id_pine: 0,
             round_id: Number(roundDoc.id) + 1,
             start: end,
-            max_length: new Date('2020-10-21T11:58:00-05:00').valueOf() - end,
-            pause: true
+            max_length: new Date('2020-11-09T23:59:00-06:00').valueOf() - end
           })
           roundUpdate.end = end;
           roundUpdate.result = points.pine === 0 ? "pear" : "pine";
         } else if((round.start + round.max_length) <= updateTime) {
           await db.collection('zeecret').doc((Number(roundDoc.id) + 1).toString()).set({
-            max: 2500,
-            base: 1500,
+            max: 10000,
+            base: 2500,
             next_id_pear: 0,
             next_id_pine: 0,
             round_id: Number(roundDoc.id) + 1,
             start: round.start + round.max_length,
-            max_length: new Date('2020-10-21T11:58:00-05:00').valueOf() - end,
-            pause: true
+            max_length: new Date('2020-11-09T23:59:00-06:00').valueOf() - (round.start + round.max_length)
           })
           roundUpdate.end = round.start + round.max_length;
           roundUpdate.result = (points.pine > points.pear) ? "pine" : "pear";

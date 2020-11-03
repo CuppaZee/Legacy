@@ -77,5 +77,45 @@
     "state": "virtual",
     "host": true,
     "hosts": [1985,1986,1987]
+  },
+  {
+    "name": "InternationElles Flat Lou",
+    "icon": "internationellesflatlou",
+    "id": "null_iflatlou",
+    "color": "lou_pink",
+    "flat_type": "flatlou",
+    "lands_on": ["shamrock","flatrob","poiairport","poitransportation","treehouse","skyland"]
+  },
+  {
+    "name": "Team GB Flat Lou",
+    "icon": "teamgbflatlou",
+    "id": "null_gbflatlou",
+    "color": "lou_pink",
+    "flat_type": "flatlou",
+    "lands_on": ["firemystery","flatrob","poiairport","poitransportation","treehouse","skyland"]
+  },
+  {
+    "name": "Polka Dot Flat Lou",
+    "icon": "polkadotflatlou",
+    "id": "null_pflatlou",
+    "color": "lou_pink",
+    "flat_type": "flatlou",
+    "lands_on": ["pinkdiamond","flatrob","poiairport","poitransportation","treehouse","skyland"]
+  },
+  {
+    "name": "Fancy Flat Lou Host",
+    "icon": "fancyflatlouhost",
+    "id": "fflhost",
+    "state": "physical",
+    "host": true,
+    "hosts": ["null_iflatlou","null_gbflatlou","null_pflatlou"]
+  },
+  {
+    "name": "Fancy Flat Lou Virtual Host",
+    "icon": "fancy_flat_lou_virtual_host",
+    "id": "fflvhost",
+    "state": "virtual",
+    "host": true,
+    "hosts": ["null_iflatlou","null_gbflatlou","null_pflatlou"]
   }
 ]

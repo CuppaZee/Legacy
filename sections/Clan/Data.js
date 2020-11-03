@@ -255,6 +255,16 @@ var Clan = {
       types: i => (i.elemental && (!i.scatter || ['fire','waterdroplet','frozengreenie','charge'].includes(i.icon)))
     }
   },
+  30: {
+    task_id: 30,
+    top: "Reseller",
+    bottom: "Activity",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/reseller.png",
+    meta: {
+      activity: ["capture", "deploy"],
+      types: i => i.reseller
+    }
+  },
   31: {
     task_id: 31,
     top: "Gaming",
@@ -319,6 +329,17 @@ var Clan = {
     meta: {
       activity: ["capture"],
       types: i => i.icon == "qrewzee"
+    }
+  },
+  36: {
+    task_id: 36,
+    top: "Card",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/envelope.png",
+    meta: {
+      activity: ["capture", "deploy", "capon"],
+      points: true,
+      types: i => i.category == "card"
     }
   }
 }

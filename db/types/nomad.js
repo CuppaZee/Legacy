@@ -305,5 +305,19 @@ module.exports = [
     "extra": {
       "capture_only": true
     }
+  },
+  {
+    "name": "Virtual ZeeCret Agent Nomad",
+    "icon": "virtualzeecretagentnomad",
+    "id": "null_virtualzeecretagentnomad",
+    "state": "bouncer",
+    "lands_on": ["nightvisiongoggles"]
+  },
+  {
+    "name": "ZeeCret Agent Nomad",
+    "icon": "zeecretagentnomad",
+    "id": "null_zeecretagentnomad",
+    "state": "bouncer",
+    "lands_on": ["briefcase"]
   }
 ]

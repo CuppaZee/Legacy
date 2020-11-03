@@ -1703,5 +1703,80 @@ export default {
       title: 'Updated Zeecret Agents Competition',
       description: 'Round 4!'
     }
-  ]
+  ],
+  317: [
+    {
+      image: 'techissuescard',
+      title: 'Added Halloween and Tech Issues Cards',
+      description: 'Added New Greetings Cards to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  318: [
+    {
+      icon: 'briefcase',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Round 7!'
+    }
+  ],
+  319: [
+    {
+      image: 'pumpkinpail',
+      title: 'Added Deathly DeeZert Specials',
+      description: 'Added New Deathly DeeZert Specials to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  320: [
+    {
+      image: 'zeecretagentnomad',
+      title: 'Added Zeecret Agent Nomads',
+      description: 'Added New Zeecret Agent Nomads to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  321: [
+    {
+      icon: 'briefcase',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Round 8!'
+    }
+  ],
+  322: [
+    {
+      icon: 'star',
+      title: 'November 2020 Clan Requirements',
+      description: 'Added Meta for November 2020 Clan Requirements. You can view them by pressing the Star in the sidebar.'
+    }
+  ],
+  323: [
+    {
+      image: 'polkadotflatlou',
+      title: 'Added Fancy Flat Lous',
+      description: 'Added New Fancy Flat Lou Bouncers to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  324: [
+    {
+      image: 'disguiseglasses2020vision',
+      title: 'Added Disguise Glasses',
+      description: 'Added Disguise Glasses 2020 Vision Special to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  325: [
+    {
+      icon: 'star',
+      title: 'November 2020 Clan War',
+      description: 'Final Preparation for the November 2020 Clan War.'
+    },
+    {
+      icon: 'shield-half-full',
+      title: 'Past Clan Requirements',
+      description: 'You can now view Clan Requirements for all months back to October 2019! If you\'re interested in being able to view your Clan Stats for previous months, let me know and I will consider adding that functionality.'
+    }
+  ],
+  326: [
+    {
+      image: 'babyreindeer',
+      title: 'Added Christmas Critter Bouncers',
+      description: 'Added Christmas Critter Temporary Bouncers to CuppaZee\'s Munzee Types Database'
+    }
+  ],
 }

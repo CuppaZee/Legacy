@@ -167,5 +167,15 @@
     "name": "Self Destruct Card",
     "icon": "selfdestructcard",
     "id": "null_selfdestructcard"
+  },
+  {
+    "name": "Halloween Card",
+    "icon": "halloweencard",
+    "id": "null_halloweencard"
+  },
+  {
+    "name": "Tech Issues Card",
+    "icon": "techissuescard",
+    "id": "null_techissuescard"
   }
 ]

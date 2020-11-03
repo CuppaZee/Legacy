@@ -13,8 +13,11 @@ import useMoment from 'utils/hooks/useMoment';
 import gameConfig_1 from './gameconfig.json';
 import gameConfig_2 from './gameconfig_2.json';
 import gameConfig_3 from './gameconfig_3.json';
+import gameConfig_7 from './gameconfig_7.json';
+import gameConfig_8 from './gameconfig_8.json';
 import Countdown from './Countdown';
 import { Dropdown, DropdownItem } from '../More/Dropdown';
+import CompetitionImage from './Image';
 
 const gameConfigs = [
   {
@@ -29,8 +32,18 @@ const gameConfigs = [
   },
   {
     gameConfig: gameConfig_3,
-    name: "Round 3+",
+    name: "Round 3-6",
     id: "r3"
+  },
+  {
+    gameConfig: gameConfig_7,
+    name: "Round 7",
+    id: "r7"
+  },
+  {
+    gameConfig: gameConfig_8,
+    name: "Round 8+",
+    id: "r8"
   }
 ]
 
@@ -44,12 +57,19 @@ export default function ClanScreen() {
     cuppazee: true
   }, true);
   const [selectedConfig, setSelectedConfig] = React.useState(null);
+  const [viewMode, setViewMode] = React.useState("image");
   React.useEffect(()=>{
     if(data?.rounds.length) setSelectedConfig({
       1: "r1",
       2: "r2",
-      3: "r3"
-    }[data?.rounds.length] || "r3");
+      3: "r3",
+      4: "r3",
+      5: "r3",
+      6: "r3",
+      7: "r7",
+      8: "r8",
+      9: "r8"
+    }[data?.rounds.length] || "r8");
   },[data?.rounds.length])
   const gameConfig = gameConfigs.find(i=>i.id===selectedConfig)?.gameConfig;
   if (status) {
@@ -130,47 +150,41 @@ export default function ClanScreen() {
                     {gameConfigs.map(i=><DropdownItem label={i.name} value={i.id} />)}
                   </Dropdown>
                 </View>}
+                <View style={{ padding: 4 }}>
+                  <Dropdown dense={true} mode="outlined" selectedValue={viewMode} onValueChange={setViewMode}>
+                    <DropdownItem label="View: Images" value="image" />
+                    <DropdownItem label="View: List" value="list" />
+                  </Dropdown>
+                </View>
                 <Text style={{ color: theme.page_content.fg, fontWeight: "bold", padding: 4, textAlign: "center", fontSize: 20 }}>Dealing Damage</Text>
                 <Text style={{ color: theme.page_content.fg, padding: 4, textAlign: "center", fontSize: 16 }}>Capture / Deploy these types to deal damage to the opposing team!</Text>
                 <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-                  <View style={{ width: 250, flexGrow: 1, maxWidth: "100%" }}>
+                  <View style={{ width: viewMode === "list" ? "100%" : 250, flexGrow: 1, maxWidth: "100%" }}>
                     <Text style={{ color: theme.page_content.fg, fontWeight: "bold", textAlign: "center" }}>Captures</Text>
-                    <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-                      {gameConfig.damaging.filter(i => i.type === "capture").map(type => <View style={{ width: 40, alignItems: "center", paddingHorizontal: 4 }}>
-                        <Image source={getIcon(type.icon)} style={{ height: 32, width: 32 }} />
-                        <Text style={{ color: theme.page_content.fg }}>{-type.damage}</Text>
-                      </View>)}
+                    <View style={viewMode === "list" ? {alignItems: "center"} : { flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
+                      {gameConfig.damaging.filter(i => i.type === "capture").map(type => <CompetitionImage viewMode={viewMode} type={type} />)}
                     </View>
                   </View>
-                  <View style={{ width: 80, flexGrow: 1, maxWidth: "100%" }}>
+                  <View style={{ width: viewMode === "list" ? "100%" : 80, flexGrow: 1, maxWidth: "100%" }}>
                     <Text style={{ color: theme.page_content.fg, fontWeight: "bold", textAlign: "center" }}>Deploys</Text>
-                    <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-                      {gameConfig.damaging.filter(i => i.type === "deploy").map(type => <View style={{ width: 40, alignItems: "center", paddingHorizontal: 4 }}>
-                        <Image source={getIcon(type.icon)} style={{ height: 32, width: 32 }} />
-                        <Text style={{ color: theme.page_content.fg }}>{-type.damage}</Text>
-                      </View>)}
+                    <View style={viewMode === "list" ? {alignItems: "center"} : { flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
+                      {gameConfig.damaging.filter(i => i.type === "deploy").map(type => <CompetitionImage viewMode={viewMode} type={type} />)}
                     </View>
                   </View>
                 </View>
                 <Text style={{ color: theme.page_content.fg, fontWeight: "bold", flex: 1, padding: 4, textAlign: "center", fontSize: 20 }}>Regenerating Health</Text>
                 <Text style={{ color: theme.page_content.fg, padding: 4, textAlign: "center", fontSize: 16 }}>Capture / Deploy these types to regenerate your team's health!</Text>
                 <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-                  <View style={{ width: 250, flexGrow: 1, maxWidth: "100%" }}>
+                  <View style={{ width: viewMode === "list" ? "100%" : 250, flexGrow: 1, maxWidth: "100%" }}>
                     <Text style={{ color: theme.page_content.fg, fontWeight: "bold", textAlign: "center" }}>Captures</Text>
-                    <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-                      {gameConfig.healing.filter(i => i.type === "capture").map(type => <View style={{ width: 40, alignItems: "center", paddingHorizontal: 4 }}>
-                        <Image source={getIcon(type.icon)} style={{ height: 32, width: 32 }} />
-                        <Text style={{ color: theme.page_content.fg }}>{type.health}</Text>
-                      </View>)}
+                    <View style={viewMode === "list" ? {alignItems: "center"} : { flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
+                      {gameConfig.healing.filter(i => i.type === "capture").map(type => <CompetitionImage viewMode={viewMode} type={type} />)}
                     </View>
                   </View>
-                  <View style={{ width: 80, flexGrow: 1, maxWidth: "100%" }}>
+                  <View style={{ width: viewMode === "list" ? "100%" : 80, flexGrow: 1, maxWidth: "100%" }}>
                     <Text style={{ color: theme.page_content.fg, fontWeight: "bold", textAlign: "center" }}>Deploys</Text>
-                    <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-                      {gameConfig.healing.filter(i => i.type === "deploy").map(type => <View style={{ width: 40, alignItems: "center", paddingHorizontal: 4 }}>
-                        <Image source={getIcon(type.icon)} style={{ height: 32, width: 32 }} />
-                        <Text style={{ color: theme.page_content.fg }}>{type.health}</Text>
-                      </View>)}
+                    <View style={viewMode === "list" ? {alignItems: "center"} : { flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
+                      {gameConfig.healing.filter(i => i.type === "deploy").map(type => <CompetitionImage viewMode={viewMode} type={type} />)}
                     </View>
                   </View>
                 </View>

@@ -790,6 +790,18 @@ categories.push({
     ends: new Date("2020-09-30T23:59:00-05:00").valueOf()
   }
 })
+categories.push({
+  name: "Christmas Critters",
+  id: "temppob_christmas_critter",
+  icon: "babyreindeer",
+  parents: ["temppob"],
+  priority: 1,
+  seasonal: {
+    year: 2020,
+    starts: new Date("2020-11-01T00:00:00-05:00").valueOf(),
+    ends: new Date("2020-12-30T23:59:00-05:00").valueOf()
+  }
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}TOBs${colors.Reset} from ${colors.fg.Green}./types/tob.js${colors.Reset}`)
 munzees = munzees.concat(require('./types/tob').map(i => ({
@@ -956,6 +968,7 @@ munzees = munzees.concat(require('./types/credits.js').map(i => ({
 
   completion: "complete",
   hidden: true,
+  cuppazeeExtra: i.cuppazeeExtra,
   from_file: "./types/credits.js"
 })))
 categories.push({
