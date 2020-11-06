@@ -1793,4 +1793,11 @@ export default {
       description: 'Added all 4 New Nomads to CuppaZee\'s Munzee Types Database'
     }
   ],
+  329: [
+    {
+      icon: 'heart',
+      title: 'Updated Credits',
+      description: 'Added Cidinho, denali0407, OdinsFiRe and 10pmMeerkat to the credits page'
+    }
+  ],
 }

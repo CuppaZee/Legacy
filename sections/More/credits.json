@@ -621,5 +621,25 @@
     "username": "PeterandGloria",
     "type": "supporter",
     "user_id": 50530
+  },
+  {
+    "username": "Cidinho",
+    "user_id": 360189,
+    "type": "supporter"
+  },
+  {
+    "username": "denali0407",
+    "user_id": 104127,
+    "type": "supporter"
+  },
+  {
+    "username": "OdinsFiRe",
+    "user_id": 30981,
+    "type": "supporter"
+  },
+  {
+    "username": "10pmMeerkat",
+    "user_id": 221297,
+    "type": "supporter"
   }
 ]
