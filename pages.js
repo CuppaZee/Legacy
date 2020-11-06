@@ -37,9 +37,11 @@ export default [
     name: "Clan",
     import: () => import("/sections/Clan/Details"),
     path: {
-      path: "clan/:clanid",
+      path: "clan/:clanid/:year?/:month?",
       parse: {
-        clanid: Number
+        clanid: Number,
+        year: Number,
+        month: Number,
       }
     }
   },

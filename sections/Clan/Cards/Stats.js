@@ -122,8 +122,13 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
     } : null
   ])
   var data = ClanRequirementsConverter(unformatted_stats);
-  var clan_data = ClanStatsConverter(Number(clan_id) < 0 ? { shadow: true } : unformatted_clan, unformatted_stats, showGhost ? unformatted_shadow : {});
+  var clan_data = ClanStatsConverter(Number(clan_id) < 0 ? { shadow: true } : unformatted_clan, unformatted_stats, showGhost ? unformatted_shadow : {}, game_id);
   var clan = clan_data;
+
+  const users = useAPIRequest(clan?.members?.filter(i=>i.no).map(i=>({
+    endpoint: `user`,
+    data: { user_id: i.user_id }
+  })) || [], false, true);
 
   var members = clan?.members ?? [];
   var [ascending, setAscending] = React.useState(false);
@@ -340,10 +345,10 @@ export default function UserActivityDash({ game_id, clan_id, scale: s }) {
               />)}
             </Menu>
           </View>
-          {members?.map(i => <TouchableWithoutFeedback onPress={() => nav.navigate('UserDetails', { username: i.username })}>
+          {members?.map(i => <TouchableWithoutFeedback onPress={() => nav.navigate('UserDetails', { username: users.find(u=>u?.user_id.toString()===i.user_id.toString())?.username || i.username })}>
             <View style={{ backgroundColor: level_colors[calculateLevelT(i.user_id)].bg, padding: 4 * s, height: 24 * s, flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }} key={i.name}>
               {(i.leader || i.ghost) && <MaterialCommunityIcons name={i.ghost ? 'ghost' : 'hammer'} color={level_colors[calculateLevelT(i.user_id)].fg} size={12 * s} />}
-              <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{ fontSize: 12 * s, ...font(userBookmarks.includes(Number(i.user_id)) ? "bold" : 400), flexShrink: 1, color: level_colors[calculateLevelT(i.user_id)].fg }}>{i.username}</Text>
+              <Text allowFontScaling={false} numberOfLines={1} ellipsizeMode="tail" style={{ fontSize: 12 * s, ...font(userBookmarks.includes(Number(i.user_id)) ? "bold" : 400), flexShrink: 1, color: level_colors[calculateLevelT(i.user_id)].fg }}>{users.find(u=>u?.user_id.toString()===i.user_id.toString())?.username || i.username}</Text>
             </View>
           </TouchableWithoutFeedback>)}
           <View style={{ justifyContent: "center", borderTopWidth: 2 * s, borderTopColor: level_colors.border, backgroundColor: level_colors[calculateLevelT(false)].bg, padding: 4 * s, height: 24 * s }}>

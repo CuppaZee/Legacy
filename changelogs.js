@@ -1779,4 +1779,18 @@ export default {
       description: 'Added Christmas Critter Temporary Bouncers to CuppaZee\'s Munzee Types Database'
     }
   ],
+  327: [
+    {
+      icon: 'shield-half-full',
+      title: 'View Past Clan Stats',
+      description: 'Added the ability to view stats for past Clan Wars. 🎉 Please be aware that this functionality is in beta, and may not be entirely accurated.'
+    }
+  ],
+  328: [
+    {
+      image: 'virtualgamingnomad',
+      title: 'Added New Nomads',
+      description: 'Added all 4 New Nomads to CuppaZee\'s Munzee Types Database'
+    }
+  ],
 }

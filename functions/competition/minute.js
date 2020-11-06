@@ -192,7 +192,8 @@ module.exports = {
             next_id_pine: 0,
             round_id: Number(roundDoc.id) + 1,
             start: end,
-            max_length: new Date('2020-11-09T23:59:00-06:00').valueOf() - end
+            pause: true,
+            max_length: new Date('2020-12-01T23:59:00-06:00').valueOf() - end
           })
           roundUpdate.end = end;
           roundUpdate.result = points.pine === 0 ? "pear" : "pine";
@@ -204,7 +205,8 @@ module.exports = {
             next_id_pine: 0,
             round_id: Number(roundDoc.id) + 1,
             start: round.start + round.max_length,
-            max_length: new Date('2020-11-09T23:59:00-06:00').valueOf() - (round.start + round.max_length)
+            pause: true,
+            max_length: new Date('2020-12-01T23:59:00-06:00').valueOf() - (round.start + round.max_length)
           })
           roundUpdate.end = round.start + round.max_length;
           roundUpdate.result = (points.pine > points.pear) ? "pine" : "pear";
