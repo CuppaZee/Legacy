@@ -406,5 +406,13 @@ module.exports = [
       "baby_animal": true
     },
     "category": "christmas_critter"
+  },
+  {
+    "name": "Cyborg Santa",
+    "icon": "cyborgsanta",
+    "id": "null_cyborgsanta",
+    "state": "bouncer",
+    "lands_on": [],
+    "category": "christmas_2020"
   }
 ]

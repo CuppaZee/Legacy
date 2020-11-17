@@ -44,7 +44,7 @@ export default function CustomDrawerContent(props) {
   var theme = useSelector(i => i.themes[i.theme]);
   var clanBookmarks = useSelector(i => i.clanBookmarks);
   var userBookmarks = useSelector(i => i.userBookmarks);
-  const { data: zeecretTeams } = useZeecretTeam(null, true);
+  // const { data: zeecretTeams } = useZeecretTeam(null, true);
   var route = useSelector(i => i.route);
   var nav = props.navigation;
   var [showMoreClan, setShowMoreClan] = React.useState(false);
@@ -58,7 +58,6 @@ export default function CustomDrawerContent(props) {
   })
   var top = [
     // { title: "Camps Leaderboard", icon: "flag", page: "AllCampWeeks" },
-    { title: "Zeecret Agents Competition", icon: "briefcase", page: "CompetitionHome" },
   ].filter(i => !i.hide)
   var pages = [
     // { title: t(`common:maps`), icon: "map", page: "Map" },
@@ -68,6 +67,7 @@ export default function CustomDrawerContent(props) {
     { title: t(`common:evo_planner`), icon: "dna", page: "EvoPlanner" },
     // { title: t(`common:scanner`), icon: "qrcode", page: "Scanner", hide: Platform.OS === "web" },
     { title: t(`common:weekly_challenge`), icon: "calendar", page: "WeeklyWeeks" },
+    { title: "Zeecret Agents Competition", icon: "briefcase", page: "CompetitionHome" },
     { title: "Bookmark Manager", icon:"bookmark", page:"Bookmarks" },
   ].filter(i => !i.hide)
   var more = [
@@ -186,7 +186,7 @@ export default function CustomDrawerContent(props) {
           ],
         })
         }
-        right={zeecretTeams?.[i.username] ? ({ focused, color, size }) => <MaterialCommunityIcons name={zeecretTeams[i.username].startsWith("pine") ? "pine-tree" : "bomb"} color={zeecretTeams[i.username].endsWith('_false') ? "#ff0000" : color} size={24} style={{ margin: 4 }} /> : null}
+        // right={zeecretTeams?.[i.username] ? ({ focused, color, size }) => <MaterialCommunityIcons name={zeecretTeams[i.username].startsWith("pine") ? "pine-tree" : "bomb"} color={zeecretTeams[i.username].endsWith('_false') ? "#ff0000" : color} size={24} style={{ margin: 4 }} /> : null}
       />)}
       {userBookmarks.length > 6 && <DrawerItem
         {...itemProps}

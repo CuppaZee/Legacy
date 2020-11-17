@@ -72,7 +72,7 @@ export default function DetailsScreen({ route }) {
         contentContainerStyle={{ padding: 4, paddingBottom: 92 }}
         style={{ flex: 1, backgroundColor: theme.page.bg }}>
         <View style={{ alignItems: "stretch", alignSelf: "center", flexDirection: "row", flexWrap: "wrap", justifyContent: "center", width: "100%", maxWidth: 1200 }}>
-          {zeecretTeam && zeecretTeam.endsWith('_false') && <View style={{ padding: 4, width: size?.width > 750 ? 1000 : 500, maxWidth: "100%" }}>
+          {/* {zeecretTeam && zeecretTeam.endsWith('_false') && <View style={{ padding: 4, width: size?.width > 750 ? 1000 : 500, maxWidth: "100%" }}>
             <Card noPad>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <MaterialCommunityIcons name="alert" color={theme.page_content.fg} size={24} style={{ margin: 4 }} />
@@ -86,7 +86,7 @@ export default function DetailsScreen({ route }) {
                 </View>
               </TouchableRipple>
             </Card>
-          </View>}
+          </View>} */}
           <View style={{ padding: 4, width: size?.width > 750 ? 1000 : 500, maxWidth: "100%" }}>
             <ActivityCard username={username} user_id={user_id} />
           </View>
@@ -132,9 +132,6 @@ export default function DetailsScreen({ route }) {
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                   <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="briefcase" size={24} color={theme.page_content.fg} />
                   <Text allowFontScaling={false} style={{ paddingLeft: 4, ...font("bold"), fontSize: 16, flex: 1, color: theme.page_content.fg }}>ZeeOps</Text>
-                  <View style={{ backgroundColor: theme.navigation.bg, padding: 4, borderRadius: 4 }}>
-                    <Text style={{ color: theme.navigation.fg, fontSize: 16, fontWeight: "500" }}>NEW</Text>
-                  </View>
                   <MaterialCommunityIcons name={logins[user_id] ? 'chevron-right' : 'lock'} size={24} color={theme.page_content.fg} />
                 </View>
               </TouchableRipple>
@@ -166,7 +163,7 @@ export default function DetailsScreen({ route }) {
                   <MaterialCommunityIcons name={logins[user_id] ? 'chevron-right' : 'lock'} size={24} color={theme.page_content.fg} />
                 </View>
               </TouchableRipple>
-              <TouchableRipple onPress={() => nav.navigate('CompetitionHome')}>
+              {/* <TouchableRipple onPress={() => nav.navigate('CompetitionHome')}>
                 <View style={{ padding: 8, flexDirection: "row", alignItems: "center" }}>
                   <MaterialCommunityIcons style={{ marginHorizontal: 4 }} name="briefcase" size={24} color={theme.page_content.fg} />
                   <View style={{ flex: 1 }}>
@@ -178,7 +175,7 @@ export default function DetailsScreen({ route }) {
                   </View>
                   <MaterialCommunityIcons name="chevron-right" size={24} color={theme.page_content.fg} />
                 </View>
-              </TouchableRipple>
+              </TouchableRipple> */}
             </Card>
           </View>
           <View style={{ padding: 4, width: 500, maxWidth }}>

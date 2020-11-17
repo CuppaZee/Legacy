@@ -1800,4 +1800,60 @@ export default {
       description: 'Added Cidinho, denali0407, OdinsFiRe and 10pmMeerkat to the credits page'
     }
   ],
+  330: [
+    {
+      image: 'poidrinkdepot',
+      title: 'Added New POI and 2020 Vision',
+      description: 'Added Drink Depot POI and Microscope Glasses 2020 Vision to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  331: [
+    {
+      icon: 'heart',
+      title: 'Updated Credits',
+      description: 'Added Roedii and vmbiohazard to the credits page'
+    }
+  ],
+  332: [
+    {
+      image: 'pearagent',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Removed most components from the Zeecret Agents Competition. You can still view the results.'
+    },
+    {
+      icon: 'briefcase',
+      title: 'Updated ZeeOps Page',
+      description: 'Improved Design, Removed "NEW" Icon, Added Countdown timer to next day.'
+    },
+    {
+      icon: 'format-list-bulleted',
+      title: 'Updated User Activity',
+      description: 'Changed icon used on User Profile to be a list icon, instead of a calendar icon, to remove some confusion over what opens the date picker.'
+    },
+    {
+      image: 'memeglasses2020vision',
+      title: 'Added Meme Glasses',
+      description: 'Added the new Meme Glasses 2020 Vision special to CuppaZee\'s Munzee Types database.'
+    },
+    {
+      image: 'holidaymailbox',
+      title: 'Added Holiday Mailbox',
+      description: 'Added the new Holiday Mailbox munzee to CuppaZee\'s Munzee Types database.'
+    },
+    {
+      image: 'cyborgsanta',
+      title: 'Added Cyborg Santa',
+      description: 'Added the new Cyborg Santa tPOB to CuppaZee\'s Munzee Types database.'
+    },
+    {
+      image: 'killthemwithkindnesscard',
+      title: 'Added Kill them with Kindness Card',
+      description: 'Added the new Kill them with Kindness Card to CuppaZee\'s Munzee Types database.'
+    },
+    {
+      icon: 'information',
+      title: 'NOTICE ABOUT CUPPAZEE V1.3',
+      description: 'CuppaZee V1.3 is still in development, although it has slowed down significantly due to exams and such. Although I cannot confirm a release date yet, my aim is to be able to release a public beta build for V1.3 before the end of the year.'
+    }
+  ],
 }

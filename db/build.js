@@ -802,6 +802,18 @@ categories.push({
     ends: new Date("2020-12-30T23:59:00-05:00").valueOf()
   }
 })
+categories.push({
+  name: "Christmas 2020",
+  id: "temppob_christmas_2020",
+  icon: "cyborgsanta",
+  parents: ["temppob"],
+  priority: 1,
+  seasonal: {
+    year: 2020,
+    starts: new Date("2020-12-01T00:00:00-05:00").valueOf(),
+    ends: new Date("2020-12-30T23:59:00-05:00").valueOf()
+  }
+})
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}TOBs${colors.Reset} from ${colors.fg.Green}./types/tob.js${colors.Reset}`)
 munzees = munzees.concat(require('./types/tob').map(i => ({

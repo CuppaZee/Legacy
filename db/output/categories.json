@@ -249,6 +249,20 @@
     }
   },
   {
+    "name": "Christmas 2020",
+    "id": "temppob_christmas_2020",
+    "icon": "cyborgsanta",
+    "parents": [
+      "temppob"
+    ],
+    "priority": 1,
+    "seasonal": {
+      "year": 2020,
+      "starts": 1606798800000,
+      "ends": 1609390740000
+    }
+  },
+  {
     "name": "Others",
     "id": "other",
     "icon": "munzee",

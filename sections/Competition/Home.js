@@ -140,7 +140,7 @@ export default function ClanScreen() {
             </Card>
           </View>
         </View>}
-        <View style={{ padding: 4 }}><Button mode="contained" onPress={()=>nav.navigate('CompetitionOptIn')}>Opt-in to Competition</Button></View>
+        {/* <View style={{ padding: 4 }}><Button mode="contained" onPress={()=>nav.navigate('CompetitionOptIn')}>Opt-in to Competition</Button></View> */}
         {(data.rounds.length > 0 && !!gameConfig) && <>
           <View style={{ padding: 4 }}>
             <Card noPad>

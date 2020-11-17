@@ -152,6 +152,20 @@ module.exports = [
         "duration": 12,
         "lands_on": [":virtual"]
       },
+      {
+        "name": "Microscope Glasses",
+        "icon": "microscopeglasses2020vision",
+        "id": 2302,
+        "duration": 12,
+        "lands_on": ["munzee"]
+      },
+      {
+        "name": "Meme Glasses",
+        "icon": "memeglasses2020vision",
+        "id": 2303,
+        "duration": 12,
+        "lands_on": [":virtual"]
+      },
     ]
   },
   {
