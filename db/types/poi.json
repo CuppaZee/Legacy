@@ -159,5 +159,12 @@
     "id": 2448,
     "state": "virtual",
     "points": "poi_standard"
+  },
+  {
+    "name": "POI Drink Depot",
+    "icon": "poidrinkdepot",
+    "id": "null_poidrinkdepot",
+    "state": "virtual",
+    "points": "poi_standard"
   }
 ]

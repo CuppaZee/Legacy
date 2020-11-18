@@ -95,6 +95,17 @@ module.exports = [
   },
   {
     icon: "cuppazee__wafflephoto",
-    name: "cuppazee__wafflephoto"
+    name: "cuppazee__wafflephoto",
+    cuppazeeExtra: true
+  },
+  {
+    icon: "pearagentmystery",
+    name: "pearagentmystery",
+    cuppazeeExtra: true
+  },
+  {
+    icon: "pineagentmystery",
+    name: "pineagentmystery",
+    cuppazeeExtra: true
   }
 ]

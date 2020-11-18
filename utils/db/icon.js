@@ -2,7 +2,7 @@ import types from './types.json';
 import typekeys from './typekeys.json';
 import pins from 'assets/pins';
 
-function g(icon) {
+export function g(icon) {
   if (icon.startsWith('https://munzee.global')) icon = icon.slice(49, -4);
   var x = decodeURIComponent(icon.toLowerCase()).replace(/[^a-zA-Z0-9]/g, '');
   if (x !== "munzee" && x.endsWith('munzee')) return x.replace(/munzee$/, '')

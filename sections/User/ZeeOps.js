@@ -10,7 +10,8 @@ import { useTranslation } from 'react-i18next';
 import getIcon from 'utils/db/icon';
 import UserFAB from './FAB';
 import useLevelColours from 'utils/hooks/useLevelColours';
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Countdown from '../Competition/Countdown';
 
 export default function ZeeOpsScreen({ route }) {
   var { t } = useTranslation();
@@ -62,7 +63,7 @@ export default function ZeeOpsScreen({ route }) {
         </View>
         {data.missions.map?.((i, index) => <View style={{ padding: 4, width: 350, flexGrow: 1, maxWidth: "100%" }}>
           <Card noPad>
-            {(i.completedDate || (data.missions[index-1]?.completedDate && moment(data.missions[index-1]?.completedDate).date() !== moment().tz('America/Chicago').date())) ? <View style={{ flex: 1 }}>
+            {data.currentMission > i.id || (data.currentMission === i.id && moment.tz(data.start_time,'America/Chicago').valueOf() <= Date.now()) ? <View style={{ flex: 1 }}>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <View style={{ padding: 8 }}>
                   <Image source={getIcon(`https://munzee.global.ssl.fastly.net/images/pins/${i.rewards[0]?.imageUrl}`)} style={{ width: 48, height: 48 }} />
@@ -88,6 +89,7 @@ export default function ZeeOpsScreen({ route }) {
             </View> : <View style={{ flex: 1, justifyContent: "center", alignItems: "center", padding: 8 }}>
               <MaterialCommunityIcons name="lock-question" size={32} color={theme.page_content.fg} />
               <Text style={{ fontWeight: "bold", color: theme.page_content.fg, fontSize: 16 }}>Day {index + 1}</Text>
+              <Countdown days={false} time={moment.tz(data.start_time,'America/Chicago').format()} />
             </View>}
           </Card>
         </View>)}

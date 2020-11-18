@@ -1,4 +1,5 @@
 // import Clan from 'utils/db/clan';
+import config from 'utils/config';
 var Clan = {
   1: {
     task_id: 1,
@@ -255,6 +256,16 @@ var Clan = {
       types: i => (i.elemental && (!i.scatter || ['fire','waterdroplet','frozengreenie','charge'].includes(i.icon)))
     }
   },
+  30: {
+    task_id: 30,
+    top: "Reseller",
+    bottom: "Activity",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/reseller.png",
+    meta: {
+      activity: ["capture", "deploy"],
+      types: i => i.reseller
+    }
+  },
   31: {
     task_id: 31,
     top: "Gaming",
@@ -319,6 +330,17 @@ var Clan = {
     meta: {
       activity: ["capture"],
       types: i => i.icon == "qrewzee"
+    }
+  },
+  36: {
+    task_id: 36,
+    top: "Card",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/envelope.png",
+    meta: {
+      activity: ["capture", "deploy", "capon"],
+      points: true,
+      types: i => i.category == "card"
     }
   }
 }
@@ -390,7 +412,7 @@ export function ClanRequirementsConverter(req, rewards) {
   return output;
 }
 
-export function ClanStatsConverter(clan, stats, shadow) {
+export function ClanStatsConverter(clan, stats, shadow, game_id) {
   if (!stats || !clan || (clan.shadow && !shadow)) {
     return;
   }
@@ -407,7 +429,7 @@ export function ClanStatsConverter(clan, stats, shadow) {
       rank: clan?.result?.rank,
       shadow: shadow?.details
     },
-    members: [
+    members: game_id === config.clan.game_id ? [
       ...(shadow?.members || []).filter(i => !(clan?.users || []).find(x => x.user_id == i)).map(i => {
         return {
           username: shadow?.usernames?.[i],
@@ -424,10 +446,23 @@ export function ClanStatsConverter(clan, stats, shadow) {
           leader: i.is_admin == "1"
         }
       }),
-    ],
+    ] : [],
     requirements: {}
   }
   for (var requirement of [...stats?.data?.levels?.[5]?.individual, ...stats?.data?.levels?.[5]?.group]) {
+    if(game_id !== config.clan.game_id) {
+      for(let user of Object.keys(requirement.data)) {
+        if(!data.members.find(i=>i.user_id === Number(user))) {
+          data.members.push({
+            user_id: Number(user),
+            username: clan.users.find(i=>i.user_id.toString()===user)?.username || `#${user}`,
+            no: clan.users.find(i=>i.user_id.toString()===user) ? false : true,
+            ghost: false,
+            leader: false,
+          })
+        }
+      };
+    }
     data.requirements[requirement.task_id] = {
       users: {
         ...(shadow?.data?.[requirement.task_id] || {}),
@@ -436,7 +471,7 @@ export function ClanStatsConverter(clan, stats, shadow) {
       total: Object.values({
         ...(shadow?.data?.[requirement.task_id] || {}),
         ...(clan.shadow ? {} : requirement.data)
-      }).reduce(Clan[requirement.task_id].total == "min" ? (a, b) => Math.min(a, b) : (a, b) => a + b, Clan[requirement.task_id].total == "min" ? Infinity : 0),
+      }).reduce(Clan[requirement.task_id]?.total == "min" ? (a, b) => Math.min(a, b) : (a, b) => a + b, Clan[requirement.task_id]?.total == "min" ? Infinity : 0),
       task_id: requirement.task_id
     }
   }

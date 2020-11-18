@@ -263,7 +263,7 @@ export default function CustomDrawerContent(props) {
   var { t } = useTranslation();
   var clanBookmarks = useSelector(i => i.clanBookmarks);
   var userBookmarks = useSelector(i => i.userBookmarks);
-  const { data: zeecretTeams } = useZeecretTeam(null, true);
+  // const { data: zeecretTeams } = useZeecretTeam(null, true);
   var route = useSelector(i => i.route);
   var nav = props.navigation;
   var [showMoreClan, setShowMoreClan] = React.useState(false);
@@ -279,17 +279,16 @@ export default function CustomDrawerContent(props) {
 
   var top = [
     // { title: "Camps Leaderboard", icon: "flag", page: "AllCampWeeks" },
-    { title: "Zeecret Agents Competition", icon: "briefcase", page: "CompetitionHome" },
   ].filter(i => !i.hide)
   var pages = [
     { title: t(`common:bouncers`), icon: "map-marker", page: "Bouncers" },
     { title: t(`common:munzee_types`), icon: "database", page: "DBSearch" },
     { title: t(`common:calendar`), icon: "calendar", page: "Calendar" },
     { title: t(`common:evo_planner`), icon: "dna", page: "EvoPlanner" },
-    { title: "Zee Invasion Gardens", icon: "map-marker-multiple", page: "ZeeInvasion" },
-    { title: t(`common:test_scan`), icon: "qrcode", page: "Scanner" },
+    // { title: t(`common:test_scan`), icon: "qrcode", page: "Scanner", hide: Platform.OS === "web" },
     { title: t(`common:weekly_challenge`), icon: "calendar", page: "WeeklyWeeks" },
-    { title: "Bookmark Manager", icon: "bookmark", page: "Bookmarks" },
+    { title: "Zeecret Agents Competition", icon: "briefcase", page: "CompetitionHome" },
+    { title: "Bookmark Manager", icon:"bookmark", page:"Bookmarks" },
   ].filter(i => !i.hide)
   var more = [
     { title: t(`common:notifications`), icon: "bell", page: "Notifications", hide: Platform.OS === "web" },

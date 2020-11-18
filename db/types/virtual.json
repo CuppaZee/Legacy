@@ -258,63 +258,63 @@
     "icon": "virtual_pink",
     "id": 1449,
     "state": "virtual",
-    "virtual_colors": ["pink"]
+    "virtual_colors": ["pink","lou_pink"]
   },
   {
     "name": "Virtual Carnation Pink",
     "icon": "virtual_carnation_pink",
     "id": 1450,
     "state": "virtual",
-    "virtual_colors": ["pink"]
+    "virtual_colors": ["pink","lou_pink"]
   },
   {
     "name": "Virtual Mauvelous",
     "icon": "virtual_mauvelous",
     "id": 1451,
     "state": "virtual",
-    "virtual_colors": ["pink"]
+    "virtual_colors": ["pink","lou_pink"]
   },
   {
     "name": "Virtual Salmon",
     "icon": "virtual_salmon",
     "id": 1452,
     "state": "virtual",
-    "virtual_colors": ["pink"]
+    "virtual_colors": ["pink","lou_pink"]
   },
   {
     "name": "Virtual Tickle Me Pink",
     "icon": "virtual_tickle_me_pink",
     "id": 1453,
     "state": "virtual",
-    "virtual_colors": ["pink"]
+    "virtual_colors": ["pink","lou_pink"]
   },
   {
     "name": "Virtual Magenta",
     "icon": "virtual_magenta",
     "id": 1454,
     "state": "virtual",
-    "virtual_colors": ["pink"]
+    "virtual_colors": ["pink","lou_pink"]
   },
   {
     "name": "Virtual Wild Strawberry",
     "icon": "virtual_wild_strawberry",
     "id": 1455,
     "state": "virtual",
-    "virtual_colors": ["pink"]
+    "virtual_colors": ["pink","lou_pink"]
   },
   {
     "name": "Virtual Violet Red",
     "icon": "virtual_violet_red",
     "id": 1456,
     "state": "virtual",
-    "virtual_colors": ["pink"]
+    "virtual_colors": ["pink","lou_pink"]
   },
   {
     "name": "Virtual Red Violet",
     "icon": "virtual_red_violet",
     "id": 1457,
     "state": "virtual",
-    "virtual_colors": ["pink"]
+    "virtual_colors": ["pink","lou_pink"]
   },
   {
     "name": "Virtual Apricot",

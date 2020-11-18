@@ -3,6 +3,8 @@ var path = require('path');
 var axios = require('axios');
 var fs = require('fs-extra');
 
+const noReset = new Set([]);
+
 function g(icon) {
   var x = icon.replace(/[^a-zA-Z0-9]/g,'');
   if(x!=="munzee"&&x.endsWith('munzee')) return x.replace(/munzee$/,'')
@@ -12,7 +14,7 @@ function g(icon) {
 async function downloadIcon (icon,size) {
   const url = `https://munzee.global.ssl.fastly.net/images/pins/${encodeURIComponent(icon)}.png`
   const savePath = path.resolve(__dirname, '../public/pins/'+size, `${g(icon)}.png`)
-  if(fs.existsSync(savePath)) return new Promise((resolve, reject)=>{
+  if(fs.existsSync(savePath) && !noReset.has(g(icon))) return new Promise((resolve, reject)=>{
     resolve(true);
   });
   const writer = fs.createWriteStream(savePath)

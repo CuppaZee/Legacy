@@ -78,7 +78,7 @@ export default function InventoryConverter(credits = {}, boosters = [], history 
     }
   }
   if(includeZeros === "all" && (mode === "category" || mode === "state")) {
-    for(let type of types.filter(i=>i.inventory || (!i.icon.startsWith('cuppazee__')&&!i.evolution&&!i.event&&!(i.bouncer&&!i.generic)&&!i.scatter&&!i.host&&!i.unique&&!(i.hidden&&i.category!=="credit"&&!i.generic)&&i.destination?.type!=="room"&&!i.destination?.star_level&&i.category!=="virtual"&&i.category!=="tourism"&&i.category!=="reseller"&&!i.category.includes('zodiac')&&!["qrewzee","renovation","eventtrail","event","eventpin","eventindicator","personalmunzee","premiumpersonal","springseasonalmunzee","summerseasonalmunzee","fallseasonalmunzee","winterseasonalmunzee","social","rover","zeecred"].includes(i.icon)))) {
+    for(let type of types.filter(i=>i.inventory || (!i.cuppazeeExtra&&!i.evolution&&!i.event&&!(i.bouncer&&!i.generic)&&!i.scatter&&!i.host&&!i.unique&&!(i.hidden&&i.category!=="credit"&&!i.generic)&&i.destination?.type!=="room"&&!i.destination?.star_level&&i.category!=="virtual"&&i.category!=="tourism"&&i.category!=="reseller"&&!i.category.includes('zodiac')&&!["qrewzee","renovation","eventtrail","event","eventpin","eventindicator","personalmunzee","premiumpersonal","springseasonalmunzee","summerseasonalmunzee","fallseasonalmunzee","winterseasonalmunzee","social","rover","zeecred"].includes(i.icon)))) {
       if(mode === "state") {
         if(!type.state) type.state = "other";
         type.state = {

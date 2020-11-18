@@ -1661,5 +1661,199 @@ export default {
       title: 'Updated Zeecret Agents Competition',
       description: 'Removed Laser Pen Deploy Requirement... You can\'t deploy them...'
     }
-  ]
+  ],
+  311: [
+    {
+      icon: 'briefcase',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Improved functionality of Zeecret Agents Competition. Prepared for Round 2.'
+    }
+  ],
+  312: [
+    {
+      image: 'roosa',
+      title: 'Added Roosa',
+      description: 'Added Roosa Funfinity Stone to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  313: [
+    {
+      icon: 'briefcase',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Fixed a bug where stats for Bowling - 2nd Roll Munzees weren\'t showing.'
+    }
+  ],
+  314: [
+    {
+      image: 'cat-eyeglasses2020vision',
+      title: 'Added Cat-Eye Glasses',
+      description: 'Added Cat-Eye Glasses 2020 Vision Special to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  315: [
+    {
+      icon: 'briefcase',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Ready for Round 3! Check out the Round 3 requirements now!'
+    }
+  ],
+  316: [
+    {
+      icon: 'briefcase',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Round 4!'
+    }
+  ],
+  317: [
+    {
+      image: 'techissuescard',
+      title: 'Added Halloween and Tech Issues Cards',
+      description: 'Added New Greetings Cards to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  318: [
+    {
+      icon: 'briefcase',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Round 7!'
+    }
+  ],
+  319: [
+    {
+      image: 'pumpkinpail',
+      title: 'Added Deathly DeeZert Specials',
+      description: 'Added New Deathly DeeZert Specials to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  320: [
+    {
+      image: 'zeecretagentnomad',
+      title: 'Added Zeecret Agent Nomads',
+      description: 'Added New Zeecret Agent Nomads to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  321: [
+    {
+      icon: 'briefcase',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Round 8!'
+    }
+  ],
+  322: [
+    {
+      icon: 'star',
+      title: 'November 2020 Clan Requirements',
+      description: 'Added Meta for November 2020 Clan Requirements. You can view them by pressing the Star in the sidebar.'
+    }
+  ],
+  323: [
+    {
+      image: 'polkadotflatlou',
+      title: 'Added Fancy Flat Lous',
+      description: 'Added New Fancy Flat Lou Bouncers to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  324: [
+    {
+      image: 'disguiseglasses2020vision',
+      title: 'Added Disguise Glasses',
+      description: 'Added Disguise Glasses 2020 Vision Special to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  325: [
+    {
+      icon: 'star',
+      title: 'November 2020 Clan War',
+      description: 'Final Preparation for the November 2020 Clan War.'
+    },
+    {
+      icon: 'shield-half-full',
+      title: 'Past Clan Requirements',
+      description: 'You can now view Clan Requirements for all months back to October 2019! If you\'re interested in being able to view your Clan Stats for previous months, let me know and I will consider adding that functionality.'
+    }
+  ],
+  326: [
+    {
+      image: 'babyreindeer',
+      title: 'Added Christmas Critter Bouncers',
+      description: 'Added Christmas Critter Temporary Bouncers to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  327: [
+    {
+      icon: 'shield-half-full',
+      title: 'View Past Clan Stats',
+      description: 'Added the ability to view stats for past Clan Wars. 🎉 Please be aware that this functionality is in beta, and may not be entirely accurated.'
+    }
+  ],
+  328: [
+    {
+      image: 'virtualgamingnomad',
+      title: 'Added New Nomads',
+      description: 'Added all 4 New Nomads to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  329: [
+    {
+      icon: 'heart',
+      title: 'Updated Credits',
+      description: 'Added Cidinho, denali0407, OdinsFiRe and 10pmMeerkat to the credits page'
+    }
+  ],
+  330: [
+    {
+      image: 'poidrinkdepot',
+      title: 'Added New POI and 2020 Vision',
+      description: 'Added Drink Depot POI and Microscope Glasses 2020 Vision to CuppaZee\'s Munzee Types Database'
+    }
+  ],
+  331: [
+    {
+      icon: 'heart',
+      title: 'Updated Credits',
+      description: 'Added Roedii and vmbiohazard to the credits page'
+    }
+  ],
+  332: [
+    {
+      image: 'pearagent',
+      title: 'Updated Zeecret Agents Competition',
+      description: 'Removed most components from the Zeecret Agents Competition. You can still view the results.'
+    },
+    {
+      icon: 'briefcase',
+      title: 'Updated ZeeOps Page',
+      description: 'Improved Design, Removed "NEW" Icon, Added Countdown timer to next day.'
+    },
+    {
+      icon: 'format-list-bulleted',
+      title: 'Updated User Activity',
+      description: 'Changed icon used on User Profile to be a list icon, instead of a calendar icon, to remove some confusion over what opens the date picker.'
+    },
+    {
+      image: 'memeglasses2020vision',
+      title: 'Added Meme Glasses',
+      description: 'Added the new Meme Glasses 2020 Vision special to CuppaZee\'s Munzee Types database.'
+    },
+    {
+      image: 'holidaymailbox',
+      title: 'Added Holiday Mailbox',
+      description: 'Added the new Holiday Mailbox munzee to CuppaZee\'s Munzee Types database.'
+    },
+    {
+      image: 'cyborgsanta',
+      title: 'Added Cyborg Santa',
+      description: 'Added the new Cyborg Santa tPOB to CuppaZee\'s Munzee Types database.'
+    },
+    {
+      image: 'killthemwithkindnesscard',
+      title: 'Added Kill them with Kindness Card',
+      description: 'Added the new Kill them with Kindness Card to CuppaZee\'s Munzee Types database.'
+    },
+    {
+      icon: 'information',
+      title: 'NOTICE ABOUT CUPPAZEE V1.3',
+      description: 'CuppaZee V1.3 is still in development, although it has slowed down significantly due to exams and such. Although I cannot confirm a release date yet, my aim is to be able to release a public beta build for V1.3 before the end of the year.'
+    }
+  ],
 }

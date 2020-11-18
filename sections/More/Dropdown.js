@@ -1,6 +1,7 @@
 import * as React from "react";
 import { TextInput, Menu, Text } from "react-native-paper";
-import { TouchableWithoutFeedback, View, ScrollView } from "react-native";
+import { TouchableWithoutFeedback, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 
 const useComponentSize = () => {
   const [size, setSize] = React.useState(null);
@@ -65,10 +66,9 @@ export function Dropdown({
       }
       style={{
         width: size?.width,
-        maxHeight: 400,
       }}
     >
-      <ScrollView style={{maxHeight: 400}}>
+      <ScrollView style={{ maxHeight: 400 }}>
         {[].concat(children).map((item) => (
           <Menu.Item
             style={itemStyle}

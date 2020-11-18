@@ -305,5 +305,47 @@ module.exports = [
     "extra": {
       "capture_only": true
     }
+  },
+  {
+    "name": "Virtual ZeeCret Agent Nomad",
+    "icon": "virtualzeecretagentnomad",
+    "id": "null_virtualzeecretagentnomad",
+    "state": "bouncer",
+    "lands_on": ["nightvisiongoggles"]
+  },
+  {
+    "name": "ZeeCret Agent Nomad",
+    "icon": "zeecretagentnomad",
+    "id": "null_zeecretagentnomad",
+    "state": "bouncer",
+    "lands_on": ["briefcase"]
+  },
+  {
+    "name": "Virtual Gaming Nomad",
+    "icon": "virtualgamingnomad",
+    "id": "null_virtualgamingnomad",
+    "state": "bouncer",
+    "lands_on": [i=>(i.state==="virtual"&&i.gaming&&!i.scatter)]
+  },
+  {
+    "name": "Gaming Nomad",
+    "icon": "gamingnomad",
+    "id": "null_gamingnomad",
+    "state": "bouncer",
+    "lands_on": [i=>(i.state==="physical"&&i.gaming&&!i.scatter)]
+  },
+  {
+    "name": "Virtual Jewel Thief Nomad",
+    "icon": "virtualjewelthiefnomad",
+    "id": "null_virtualjewelthiefnomad",
+    "state": "bouncer",
+    "lands_on": [i=>(i.category=="jewel"&&i.state=="virtual"&&!i.scatter)]
+  },
+  {
+    "name": "Virtual Warrior Nomad",
+    "icon": "virtualwarriornomad",
+    "id": "null_virtualwarriornomad",
+    "state": "bouncer",
+    "lands_on": [i=>(i.category=="clan"&&i.state=="virtual"&&!i.scatter)]
   }
 ]

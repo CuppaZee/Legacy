@@ -138,6 +138,113 @@ module.exports = [
         "duration": 12,
         "lands_on": [":virtual"]
       },
+      {
+        "name": "Cat-Eye Glasses",
+        "icon": "cat-eyeglasses2020vision",
+        "id": 2300,
+        "duration": 12,
+        "lands_on": ["munzee"]
+      },
+      {
+        "name": "Disguise Glasses",
+        "icon": "disguiseglasses2020vision",
+        "id": 2301,
+        "duration": 12,
+        "lands_on": [":virtual"]
+      },
+      {
+        "name": "Microscope Glasses",
+        "icon": "microscopeglasses2020vision",
+        "id": 2302,
+        "duration": 12,
+        "lands_on": ["munzee"]
+      },
+      {
+        "name": "Meme Glasses",
+        "icon": "memeglasses2020vision",
+        "id": 2303,
+        "duration": 12,
+        "lands_on": [":virtual"]
+      },
+    ]
+  },
+  {
+    "name": "Deathly DeeZert",
+    "category": "halloween2020",
+    "year": 2020,
+    "starts": "2020-10-27T12:00:00-05:00",
+    "ends": "2020-11-15T23:59:00-05:00",
+    "specials": [
+      {
+        "name": "Creepy Cauldron",
+        "icon": "creepycauldron",
+        "id": "null_creepycauldron",
+        "duration": 4,
+        "lands_on": [":virtual","airmystery","electricmystery","flatrob","flatmatt","flatlou","flathammock"]
+      },
+      {
+        "name": "Pumpkin Pail",
+        "icon": "pumpkinpail",
+        "id": "null_pumpkinpail",
+        "duration": 4,
+        "lands_on": ["munzee","mystery","firemystery","earthmystery","watermystery","icemystery"]
+      },
+      {
+        "name": "Mummy Macaron",
+        "icon": "mummymacaron",
+        "id": "null_mummymacaron",
+        "duration": 4,
+        "lands_on": [":virtual","airmystery","electricmystery","flatrob","flatmatt","flatlou","flathammock"]
+      },
+      {
+        "name": "Pumpkin Pop",
+        "icon": "pumpkinpop",
+        "id": "null_pumpkinpop",
+        "duration": 4,
+        "lands_on": [":virtual","airmystery","electricmystery","flatrob","flatmatt","flatlou","flathammock"]
+      },
+      {
+        "name": "Blood Sucker",
+        "icon": "bloodsucker",
+        "id": "null_bloodsucker",
+        "duration": 4,
+        "lands_on": [":virtual","airmystery","electricmystery","flatrob","flatmatt","flatlou","flathammock"]
+      },
+      {
+        "name": "Rock",
+        "icon": "rock",
+        "id": "null_rock",
+        "duration": 4,
+        "lands_on": [":virtual","airmystery","electricmystery","flatrob","flatmatt","flatlou","flathammock"]
+      },
+      {
+        "name": "Bonbon Bat",
+        "icon": "bonbonbat",
+        "id": "null_bonbonbat",
+        "duration": 4,
+        "lands_on": ["munzee","mystery","firemystery","earthmystery","watermystery","icemystery"]
+      },
+      {
+        "name": "Frappenstein",
+        "icon": "frappenstein",
+        "id": "null_frappenstein",
+        "duration": 4,
+        "lands_on": ["munzee","mystery","firemystery","earthmystery","watermystery","icemystery"]
+      },
+      {
+        "name": "Boo Brownie",
+        "icon": "boobrownie",
+        "id": "null_boobrownie",
+        "duration": 4,
+        "lands_on": ["munzee","mystery","firemystery","earthmystery","watermystery","icemystery"]
+      },
+      {
+        "name": "Toothbrush",
+        "icon": "toothbrush",
+        "id": "null_toothbrush",
+        "duration": 4,
+        "lands_on": ["munzee","mystery","firemystery","earthmystery","watermystery","icemystery"]
+      },
     ]
   },
   {

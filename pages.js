@@ -37,9 +37,11 @@ export default [
     name: "Clan",
     import: () => import("/sections/Clan/Details"),
     path: {
-      path: "clan/:clanid",
+      path: "clan/:clanid/:year?/:month?",
       parse: {
-        clanid: Number
+        clanid: Number,
+        year: Number,
+        month: Number,
       }
     }
   },
@@ -116,11 +118,6 @@ export default [
     name: "BouncerMap",
     import: () => import('sections/Tools/BouncerMap'),
     path: "tools/bouncers/:type"
-  },
-  {
-    name: "ZeeInvasion",
-    import: () => import('sections/Tools/ZeeInvasion'),
-    path: "tools/map/zeeinvasion"
   },
 
   

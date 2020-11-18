@@ -193,6 +193,16 @@ var tasks = {
     ],
     function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => (g(i).elemental && (!g(i).scatter || ['fire','waterdroplet','frozengreenie','charge'].includes(g(i).icon)))).reduce(points, 0)
   },
+  30: {
+    task_id: 30,
+    top: "Reseller",
+    bottom: "Activity",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/reseller.png",
+    icons: [
+      "https://munzee.global.ssl.fastly.net/images/pins/reseller.png"
+    ],
+    function: ({ cap, dep }) => [...cap, ...dep].filter(i => g(i).reseller).length
+  },
   31: {
     task_id: 32,
     top: "Gaming",
@@ -241,6 +251,13 @@ var tasks = {
     bottom: "Captures",
     icon: "https://munzee.global.ssl.fastly.net/images/pins/qrewzee.png",
     function: ({ cap }) => cap.filter(i => g(i).icon === "qrewzee").length
+  },
+  36: {
+    task_id: 36,
+    top: "Card",
+    bottom: "Points",
+    icon: "https://munzee.global.ssl.fastly.net/images/pins/envelope.png",
+    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i).category === "card").reduce(points, 0)
   }
 }
 
@@ -288,9 +305,10 @@ var all_tasks = {
   ],
   89: [1, 3, 10, 12, 13, 23, 24, 28, 35],
   90: [1,13,14,24,3,35,19,25,26,32,33],
-  91: [1,19,23,29,3,35,7,12,13,24,27,28,31,33]
+  91: [1,19,23,29,3,35,7,12,13,24,27,28,31,33],
+  92: [1,3,13,24,28,35,12,23,30,36],
 }
-var current_month = 91;
+var current_month = 92;
 
 function calculate(data = [], no_reduce) {
   var current_tasks = all_tasks[current_month];

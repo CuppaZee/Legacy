@@ -373,5 +373,46 @@ module.exports = [
     "state": "bouncer",
     "lands_on": [],
     "category": "other"
+  },
+  {
+    "name": "Baby Hippo",
+    "icon": "babyhippo",
+    "id": "null_babyhippo",
+    "state": "bouncer",
+    "lands_on": ["treehouse","munzee","watermystery"],
+    "extra": {
+      "baby_animal": true
+    },
+    "category": "christmas_critter"
+  },
+  {
+    "name": "Baby Alpaca",
+    "icon": "babyalpaca",
+    "id": "null_babyalpaca",
+    "state": "bouncer",
+    "lands_on": ["skyland",":virtual","electricmystery"],
+    "extra": {
+      "baby_animal": true
+    },
+    "category": "christmas_critter"
+  },
+  {
+    "name": "Baby Reindeer",
+    "icon": "babyreindeer",
+    "id": "null_babyreindeer",
+    "state": "bouncer",
+    "lands_on": ["treehouse","munzee","icemystery","skyland",":virtual"],
+    "extra": {
+      "baby_animal": true
+    },
+    "category": "christmas_critter"
+  },
+  {
+    "name": "Cyborg Santa",
+    "icon": "cyborgsanta",
+    "id": "null_cyborgsanta",
+    "state": "bouncer",
+    "lands_on": [],
+    "category": "christmas_2020"
   }
 ]

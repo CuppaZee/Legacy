@@ -167,5 +167,25 @@
     "name": "Self Destruct Card",
     "icon": "selfdestructcard",
     "id": "null_selfdestructcard"
+  },
+  {
+    "name": "Halloween Card",
+    "icon": "halloweencard",
+    "id": "null_halloweencard"
+  },
+  {
+    "name": "Tech Issues Card",
+    "icon": "techissuescard",
+    "id": "null_techissuescard"
+  },
+  {
+    "name": "Kill Them with Kindness Card",
+    "icon": "killthemwithkindnesscard",
+    "id": "null_killthemwithkindnesscard"
+  },
+  {
+    "name": "Holiday Mailbox",
+    "icon": "holidaymailbox",
+    "id": "null_holidaymailbox"
   }
 ]

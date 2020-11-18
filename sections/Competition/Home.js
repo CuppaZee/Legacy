@@ -7,7 +7,42 @@ import { useTranslation } from 'react-i18next';
 import getIcon from 'utils/db/icon';
 import { useNavigation } from '@react-navigation/native';
 import useMoment from 'utils/hooks/useMoment';
-import gameConfig from './gameconfig.json';
+import gameConfig_1 from './gameconfig.json';
+import gameConfig_2 from './gameconfig_2.json';
+import gameConfig_3 from './gameconfig_3.json';
+import gameConfig_7 from './gameconfig_7.json';
+import gameConfig_8 from './gameconfig_8.json';
+import Countdown from './Countdown';
+import { Dropdown, DropdownItem } from '../More/Dropdown';
+import CompetitionImage from './Image';
+
+const gameConfigs = [
+  {
+    gameConfig: gameConfig_1,
+    name: "Round 1",
+    id: "r1"
+  },
+  {
+    gameConfig: gameConfig_2,
+    name: "Round 2",
+    id: "r2"
+  },
+  {
+    gameConfig: gameConfig_3,
+    name: "Round 3-6",
+    id: "r3"
+  },
+  {
+    gameConfig: gameConfig_7,
+    name: "Round 7",
+    id: "r7"
+  },
+  {
+    gameConfig: gameConfig_8,
+    name: "Round 8+",
+    id: "r8"
+  }
+]
 
 export default function ClanScreen() {
   var moment = useMoment();
@@ -18,6 +53,22 @@ export default function ClanScreen() {
     endpoint: 'competition/rounds/v2',
     cuppazee: true
   }, true);
+  const [selectedConfig, setSelectedConfig] = React.useState(null);
+  const [viewMode, setViewMode] = React.useState("image");
+  React.useEffect(()=>{
+    if(data?.rounds.length) setSelectedConfig({
+      1: "r1",
+      2: "r2",
+      3: "r3",
+      4: "r3",
+      5: "r3",
+      6: "r3",
+      7: "r7",
+      8: "r8",
+      9: "r8"
+    }[data?.rounds.length] || "r8");
+  },[data?.rounds.length])
+  const gameConfig = gameConfigs.find(i=>i.id===selectedConfig)?.gameConfig;
   if (status) {
     if (status === "loading") {
       return <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -90,62 +141,59 @@ export default function ClanScreen() {
                   </View>
                 </View>
               </Surface>
-            </View>
-          </View>}
-        <View style={{ padding: 4 }}><Button mode="contained" onPress={() => nav.navigate('CompetitionOptIn')}>Opt-in to Competition</Button></View>
-        {data.rounds.length > 0 && <>
+          </View>
+        </View>}
+        {/* <View style={{ padding: 4 }}><Button mode="contained" onPress={()=>nav.navigate('CompetitionOptIn')}>Opt-in to Competition</Button></View> */}
+        {(data.rounds.length > 0 && !!gameConfig) && <>
           <View style={{ padding: 4 }}>
-            <Surface>
-              <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-                <View style={{ width: 400, flexGrow: 1, maxWidth: "100%" }}>
-                  <Text style={{ fontWeight: "bold", padding: 4, textAlign: "center", fontSize: 20 }}>Dealing Damage</Text>
-                  <Text style={{ padding: 4, textAlign: "center", fontSize: 16 }}>Capture / Deploy these types to deal damage to the opposing team!</Text>
-                  <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-                    <View style={{ width: 250, flexGrow: 1, maxWidth: "100%" }}>
-                      <Text style={{ fontWeight: "bold", textAlign: "center" }}>Captures</Text>
-                      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-                        {gameConfig.damaging.filter(i => i.type === "capture").map(type => <View style={{ width: 40, alignItems: "center", paddingHorizontal: 4 }}>
-                          <Image source={getIcon(type.icon)} style={{ height: 32, width: 32 }} />
-                          <Text>{-type.damage}</Text>
-                        </View>)}
-                      </View>
-                    </View>
-                    <View style={{ width: 80, flexGrow: 1, maxWidth: "100%" }}>
-                      <Text style={{ fontWeight: "bold", textAlign: "center" }}>Deploys</Text>
-                      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-                        {gameConfig.damaging.filter(i => i.type === "deploy").map(type => <View style={{ width: 40, alignItems: "center", paddingHorizontal: 4 }}>
-                          <Image source={getIcon(type.icon)} style={{ height: 32, width: 32 }} />
-                          <Text>{-type.damage}</Text>
-                        </View>)}
-                      </View>
-                    </View>
-                  </View>
-                  <Text style={{ fontWeight: "bold", flex: 1, padding: 4, textAlign: "center", fontSize: 20 }}>Regenerating Health</Text>
-                  <Text style={{ padding: 4, textAlign: "center", fontSize: 16 }}>Capture / Deploy these types to regenerate your team's health!</Text>
-                  <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-                    <View style={{ width: 250, flexGrow: 1, maxWidth: "100%" }}>
-                      <Text style={{ fontWeight: "bold", textAlign: "center" }}>Captures</Text>
-                      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-                        {gameConfig.healing.filter(i => i.type === "capture").map(type => <View style={{ width: 40, alignItems: "center", paddingHorizontal: 4 }}>
-                          <Image source={getIcon(type.icon)} style={{ height: 32, width: 32 }} />
-                          <Text>{type.health}</Text>
-                        </View>)}
-                      </View>
-                    </View>
-                    <View style={{ width: 80, flexGrow: 1, maxWidth: "100%" }}>
-                      <Text style={{ fontWeight: "bold", textAlign: "center" }}>Deploys</Text>
-                      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-                        {gameConfig.healing.filter(i => i.type === "deploy").map(type => <View style={{ width: 40, alignItems: "center", paddingHorizontal: 4 }}>
-                          <Image source={getIcon(type.icon)} style={{ height: 32, width: 32 }} />
-                          <Text>{type.health}</Text>
-                        </View>)}
-                      </View>
-                    </View>
-                  </View>
-                  <Text style={{ padding: 4, textAlign: "center", fontStyle: "italic", fontSize: 16 }}>We may change these values between rounds in order to improve gameplay.</Text>
+            <Card noPad>
+              <View>
+                {data.rounds.length > 1 && <View style={{ padding: 4 }}>
+                  <Dropdown dense={true} mode="outlined" selectedValue={selectedConfig} onValueChange={setSelectedConfig}>
+                    {gameConfigs.map(i=><DropdownItem label={i.name} value={i.id} />)}
+                  </Dropdown>
+                </View>}
+                <View style={{ padding: 4 }}>
+                  <Dropdown dense={true} mode="outlined" selectedValue={viewMode} onValueChange={setViewMode}>
+                    <DropdownItem label="View: Images" value="image" />
+                    <DropdownItem label="View: List" value="list" />
+                  </Dropdown>
                 </View>
+                <Text style={{ color: theme.page_content.fg, fontWeight: "bold", padding: 4, textAlign: "center", fontSize: 20 }}>Dealing Damage</Text>
+                <Text style={{ color: theme.page_content.fg, padding: 4, textAlign: "center", fontSize: 16 }}>Capture / Deploy these types to deal damage to the opposing team!</Text>
+                <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+                  <View style={{ width: viewMode === "list" ? "100%" : 250, flexGrow: 1, maxWidth: "100%" }}>
+                    <Text style={{ color: theme.page_content.fg, fontWeight: "bold", textAlign: "center" }}>Captures</Text>
+                    <View style={viewMode === "list" ? {alignItems: "center"} : { flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
+                      {gameConfig.damaging.filter(i => i.type === "capture").map(type => <CompetitionImage viewMode={viewMode} type={type} />)}
+                    </View>
+                  </View>
+                  <View style={{ width: viewMode === "list" ? "100%" : 80, flexGrow: 1, maxWidth: "100%" }}>
+                    <Text style={{ color: theme.page_content.fg, fontWeight: "bold", textAlign: "center" }}>Deploys</Text>
+                    <View style={viewMode === "list" ? {alignItems: "center"} : { flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
+                      {gameConfig.damaging.filter(i => i.type === "deploy").map(type => <CompetitionImage viewMode={viewMode} type={type} />)}
+                    </View>
+                  </View>
+                </View>
+                <Text style={{ color: theme.page_content.fg, fontWeight: "bold", flex: 1, padding: 4, textAlign: "center", fontSize: 20 }}>Regenerating Health</Text>
+                <Text style={{ color: theme.page_content.fg, padding: 4, textAlign: "center", fontSize: 16 }}>Capture / Deploy these types to regenerate your team's health!</Text>
+                <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+                  <View style={{ width: viewMode === "list" ? "100%" : 250, flexGrow: 1, maxWidth: "100%" }}>
+                    <Text style={{ color: theme.page_content.fg, fontWeight: "bold", textAlign: "center" }}>Captures</Text>
+                    <View style={viewMode === "list" ? {alignItems: "center"} : { flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
+                      {gameConfig.healing.filter(i => i.type === "capture").map(type => <CompetitionImage viewMode={viewMode} type={type} />)}
+                    </View>
+                  </View>
+                  <View style={{ width: viewMode === "list" ? "100%" : 80, flexGrow: 1, maxWidth: "100%" }}>
+                    <Text style={{ color: theme.page_content.fg, fontWeight: "bold", textAlign: "center" }}>Deploys</Text>
+                    <View style={viewMode === "list" ? {alignItems: "center"} : { flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
+                      {gameConfig.healing.filter(i => i.type === "deploy").map(type => <CompetitionImage viewMode={viewMode} type={type} />)}
+                    </View>
+                  </View>
+                </View>
+                <Text style={{ color: theme.page_content.fg, padding: 4, textAlign: "center", fontStyle: "italic", fontSize: 16 }}>We may change these values between rounds in order to improve gameplay.</Text>
               </View>
-            </Surface>
+            </Card>
           </View>
           <View style={{ padding: 4 }}>
             <Surface>
@@ -166,16 +214,17 @@ export default function ClanScreen() {
                 <Text style={{ padding: 4, textAlign: "center", fontSize: 16 }}>
                   To regenerate your team's health, you can capture or deploy any of the types mentioned above under the "Regenerating Health" section.
                 </Text>
-                <Text style={{ fontWeight: "bold", padding: 4, textAlign: "center", fontSize: 20 }}>Round Endings</Text>
-                <Text style={{ padding: 4, textAlign: "center", fontSize: 16 }}>
-                  A round will end as soon as one team's health reaches 0 HP or after 5 days. If 5 days pass, the team with the highest remaining health will be given the win.
+                <Text style={{ color: theme.page_content.fg, fontWeight: "bold", padding: 4, textAlign: "center", fontSize: 20 }}>Round Endings</Text>
+                <Text style={{ color: theme.page_content.fg, padding: 4, textAlign: "center", fontSize: 16 }}>
+                  A round will end as soon as one team's health reaches 0 HP or when the round times out after a specified period of time. If a round times out, the team with the highest remaining health will be given the win.
                 </Text>
                 <Text style={{ fontWeight: "bold", padding: 4, textAlign: "center", fontSize: 20 }}>Competition Ending</Text>
                 <Text style={{ padding: 4, textAlign: "center", fontSize: 16 }}>
                   After the competition ending time ({moment('2020-11-08T23:59:59-06:00').format('L LT')}), the final round will continue until it ends, as normal. If the final round ends and both teams have won the same amount of rounds, there will be a final rapid decider round, with a low starting HP.
                 </Text>
-                <Text style={{ fontWeight: "bold", padding: 4, textAlign: "center", fontSize: 20 }}>Health</Text>
-                <Text style={{ padding: 4, textAlign: "center", fontSize: 16 }}>
+                <Countdown time="2020-11-08T23:59:59-06:00" />
+                <Text style={{ color: theme.page_content.fg, fontWeight: "bold", padding: 4, textAlign: "center", fontSize: 20 }}>Health</Text>
+                <Text style={{ color: theme.page_content.fg, padding: 4, textAlign: "center", fontSize: 16 }}>
                   The Starting Health and Maximum Health may change between rounds. For the first round, the Starting Health will be 1000 and the Maximum Health will be 2500, however future rounds may have different Starting and Maximum Health values.
                 </Text>
               </View>
