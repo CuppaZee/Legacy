@@ -8,7 +8,6 @@ import { Text, TouchableRipple, Avatar, Menu, Divider, Button, Surface, useTheme
 import useSearch from 'utils/hooks/useSearch';
 import { useDimensions } from '@react-native-community/hooks';
 import { useAPIRequestWithoutNav } from 'utils/hooks/useAPIRequest';
-import useZeecretTeam from 'sections/Competition/useZeecretTeam';
 
 
 import Fuse from 'fuse.js'
@@ -263,7 +262,6 @@ export default function CustomDrawerContent(props) {
   var { t } = useTranslation();
   var clanBookmarks = useSelector(i => i.clanBookmarks);
   var userBookmarks = useSelector(i => i.userBookmarks);
-  // const { data: zeecretTeams } = useZeecretTeam(null, true);
   var route = useSelector(i => i.route);
   var nav = props.navigation;
   var [showMoreClan, setShowMoreClan] = React.useState(false);
@@ -285,7 +283,7 @@ export default function CustomDrawerContent(props) {
     { title: t(`common:munzee_types`), icon: "database", page: "DBSearch" },
     { title: t(`common:calendar`), icon: "calendar", page: "Calendar" },
     { title: t(`common:evo_planner`), icon: "dna", page: "EvoPlanner" },
-    // { title: t(`common:test_scan`), icon: "qrcode", page: "Scanner", hide: Platform.OS === "web" },
+    { title: t(`common:test_scan`), icon: "qrcode", page: "Scanner" },
     { title: t(`common:weekly_challenge`), icon: "calendar", page: "WeeklyWeeks" },
     { title: "Zeecret Agents Competition", icon: "briefcase", page: "CompetitionHome" },
     { title: "Bookmark Manager", icon:"bookmark", page:"Bookmarks" },
@@ -364,7 +362,6 @@ export default function CustomDrawerContent(props) {
                   style={{ marginVertical: 0 }}
                   focused={route.name?.startsWith?.('User') && route.params?.username === i.username}
                   image={{ uri: i.logo ?? `https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i.user_id || 0).toString(36)}.png` }}
-                  rightIcon={zeecretTeams?.[i.username] && (zeecretTeams?.[i.username].startsWith("pear") ? "bomb" : "pine-tree")}
                   label={i.username}
                   onPress={() => {
                     if (!(route.name === 'UserDetails' && route.params?.username === i.username)) nav.reset({
