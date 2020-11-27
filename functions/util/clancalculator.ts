@@ -1,8 +1,10 @@
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'db'.
 var db = require("./db");
-function g(a) {
+function g(a: any) {
   return db.get("icon", a.pin || a.pin_icon || a.icon || "") || {};
 }
-function points(a, b) {
+// @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'points'.
+function points(a: any, b: any) {
   return a + Number(b.points_for_creator !== undefined ? b.points_for_creator : b.points);
 }
 
@@ -13,7 +15,11 @@ var tasks = {
     bottom: "Activity",
     icon: "https://i.ibb.co/K5ZmXqc/Total-1.png",
     total: "min",
-    function: ({ cap, dep }) => [...cap, ...dep].filter(i => !g(i).personal && g(i).category !== "universal").reduce((a, b) => {
+    function: ({
+      cap,
+      dep
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'personal' does not exist on type 'string... Remove this comment to see the full error message
+    }: any) => [...cap, ...dep].filter(i => !g(i).personal && g(i).category !== "universal").reduce((a, b) => {
       a[(b.captured_at || b.deployed_at).slice(8, 10)] = true;
       return a;
     }, {})
@@ -23,14 +29,23 @@ var tasks = {
     top: "Total",
     bottom: "Points",
     icon: "https://i.ibb.co/K5ZmXqc/Total-1.png",
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].reduce(points, 0)
+    function: ({
+      cap,
+      dep,
+      con
+    }: any) => [...cap, ...dep, ...con].reduce(points, 0)
   },
   6: {
     task_id: 6,
     top: "Total",
     bottom: "Deploys",
     icon: "https://munzee.global.ssl.fastly.net/images/pins/owned.png",
-    function: ({ dep, arc, no_reduce }) => {
+    function: ({
+      dep,
+      arc,
+      no_reduce
+    }: any) => {
+      // @ts-expect-error ts-migrate(2339) FIXME: Property 'personal' does not exist on type 'string... Remove this comment to see the full error message
       return [...dep, ...arc].filter(i => !g(i).personal).reduce((a, b) => {
         if (b.archived_at) {
           if (no_reduce) {
@@ -54,14 +69,22 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/1starmotel.png",
       "https://munzee.global.ssl.fastly.net/images/pins/virtualresort.png"
     ],
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i).destination).reduce(points, 0)
+    function: ({
+      cap,
+      dep,
+      con
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'destination' does not exist on type 'str... Remove this comment to see the full error message
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i).destination).reduce(points, 0)
   },
   10: {
     task_id: 10,
     top: "Deploy",
     bottom: "Points",
     icon: "https://munzee.global.ssl.fastly.net/images/pins/owned.png",
-    function: ({ dep }) => dep.filter(i => !g(i).personal).reduce(points, 0)
+    function: ({
+      dep
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'personal' does not exist on type 'string... Remove this comment to see the full error message
+    }: any) => dep.filter((i: any) => !g(i).personal).reduce(points, 0)
   },
   12: {
     task_id: 12,
@@ -72,14 +95,22 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/evolution.png",
       "https://munzee.global.ssl.fastly.net/images/pins/evolution_filter_physical.png"
     ],
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i).evolution).reduce(points, 0)
+    function: ({
+      cap,
+      dep,
+      con
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'evolution' does not exist on type 'strin... Remove this comment to see the full error message
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i).evolution).reduce(points, 0)
   },
   13: {
     task_id: 13,
     top: "Places",
     bottom: "Captures",
     icon: "https://munzee.global.ssl.fastly.net/images/pins/poi_filter.png",
-    function: ({ cap }) => cap.filter(i => g(i).poi).length
+    function: ({
+      cap
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'poi' does not exist on type 'string'.
+    }: any) => cap.filter((i: any) => g(i).poi).length
   },
   14: {
     task_id: 14,
@@ -90,7 +121,11 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/diamond.png",
       "https://munzee.global.ssl.fastly.net/images/pins/virtualonyx.png"
     ],
-    function: ({ cap, dep }) => [...dep, ...cap].filter(i => g(i).jewel).length
+    function: ({
+      cap,
+      dep
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'jewel' does not exist on type 'string'.
+    }: any) => [...dep, ...cap].filter(i => g(i).jewel).length
   },
   17: {
     task_id: 17,
@@ -101,7 +136,11 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/evolution.png",
       "https://munzee.global.ssl.fastly.net/images/pins/evolution_filter_physical.png"
     ],
-    function: ({ cap, dep }) => [...dep, ...cap].filter(i => g(i).evolution).length
+    function: ({
+      cap,
+      dep
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'evolution' does not exist on type 'strin... Remove this comment to see the full error message
+    }: any) => [...dep, ...cap].filter(i => g(i).evolution).length
   },
   19: {
     task_id: 19,
@@ -112,7 +151,12 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/aquamarine.png",
       "https://munzee.global.ssl.fastly.net/images/pins/virtual_citrine.png"
     ],
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i).category === "jewel").reduce(points, 0)
+    function: ({
+      cap,
+      dep,
+      con
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'category' does not exist on type 'string... Remove this comment to see the full error message
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i).category === "jewel").reduce(points, 0)
   },
   23: {
     task_id: 23,
@@ -123,7 +167,12 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
       "https://munzee.global.ssl.fastly.net/images/pins/catapult.png"
     ],
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i).weapon === "clan").reduce(points, 0)
+    function: ({
+      cap,
+      dep,
+      con
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'weapon' does not exist on type 'string'.
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i).weapon === "clan").reduce(points, 0)
   },
   24: {
     task_id: 24,
@@ -136,7 +185,10 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/nomad.png",
       "https://munzee.global.ssl.fastly.net/images/pins/muru.png"
     ],
-    function: ({ cap }) => cap.filter(i => g(i).bouncer).length
+    function: ({
+      cap
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'bouncer' does not exist on type 'string'... Remove this comment to see the full error message
+    }: any) => cap.filter((i: any) => g(i).bouncer).length
   },
   25: {
     task_id: 25,
@@ -147,7 +199,11 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/mystery.png",
       "https://munzee.global.ssl.fastly.net/images/pins/airmystery.png"
     ],
-    function: ({ cap, dep }) => [...cap, ...dep].filter(i => g(i).category === "mystery").length
+    function: ({
+      cap,
+      dep
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'category' does not exist on type 'string... Remove this comment to see the full error message
+    }: any) => [...cap, ...dep].filter(i => g(i).category === "mystery").length
   },
   26: {
     task_id: 26,
@@ -158,7 +214,11 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
       "https://munzee.global.ssl.fastly.net/images/pins/crossbow.png"
     ],
-    function: ({ cap, dep }) => [...cap, ...dep].filter(i => g(i).weapon === "clan").length
+    function: ({
+      cap,
+      dep
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'weapon' does not exist on type 'string'.
+    }: any) => [...cap, ...dep].filter(i => g(i).weapon === "clan").length
   },
   27: {
     task_id: 27,
@@ -169,7 +229,11 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/zodiac.png",
       "https://munzee.global.ssl.fastly.net/images/pins/scorpio.png"
     ],
-    function: ({ cap, dep }) => [...cap, ...dep].filter(i => g(i).zodiac).length
+    function: ({
+      cap,
+      dep
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'zodiac' does not exist on type 'string'.
+    }: any) => [...cap, ...dep].filter(i => g(i).zodiac).length
   },
   28: {
     task_id: 28,
@@ -180,7 +244,12 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/flatrob.png",
       "https://munzee.global.ssl.fastly.net/images/pins/flatlou.png"
     ],
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i).flat && !g(i).unique).reduce(points, 0)
+    function: ({
+      cap,
+      dep,
+      con
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'flat' does not exist on type 'string'.
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i).flat && !g(i).unique).reduce(points, 0)
   },
   29: {
     task_id: 29,
@@ -191,7 +260,12 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/earthmystery.png",
       "https://munzee.global.ssl.fastly.net/images/pins/icemystery.png"
     ],
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => (g(i).elemental && (!g(i).scatter || ['fire','waterdroplet','frozengreenie','charge'].includes(g(i).icon)))).reduce(points, 0)
+    function: ({
+      cap,
+      dep,
+      con
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'elemental' does not exist on type 'strin... Remove this comment to see the full error message
+    }: any) => [...cap, ...dep, ...con].filter(i => (g(i).elemental && (!g(i).scatter || ['fire','waterdroplet','frozengreenie','charge'].includes(g(i).icon)))).reduce(points, 0)
   },
   30: {
     task_id: 30,
@@ -201,7 +275,11 @@ var tasks = {
     icons: [
       "https://munzee.global.ssl.fastly.net/images/pins/reseller.png"
     ],
-    function: ({ cap, dep }) => [...cap, ...dep].filter(i => g(i).reseller).length
+    function: ({
+      cap,
+      dep
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'reseller' does not exist on type 'string... Remove this comment to see the full error message
+    }: any) => [...cap, ...dep].filter(i => g(i).reseller).length
   },
   31: {
     task_id: 32,
@@ -213,7 +291,12 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/prizewheel.png",
       "https://munzee.global.ssl.fastly.net/images/pins/urbanfit.png"
     ],
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i).gaming).reduce(points, 0)
+    function: ({
+      cap,
+      dep,
+      con
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'gaming' does not exist on type 'string'.
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i).gaming).reduce(points, 0)
   },
   32: {
     task_id: 32,
@@ -225,7 +308,11 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/prizewheel.png",
       "https://munzee.global.ssl.fastly.net/images/pins/urbanfit.png"
     ],
-    function: ({ cap, dep }) => [...cap, ...dep].filter(i => g(i).gaming).length
+    function: ({
+      cap,
+      dep
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'gaming' does not exist on type 'string'.
+    }: any) => [...cap, ...dep].filter(i => g(i).gaming).length
   },
   33: {
     task_id: 32,
@@ -236,28 +323,44 @@ var tasks = {
       "https://munzee.global.ssl.fastly.net/images/pins/destination.png",
       "https://munzee.global.ssl.fastly.net/images/pins/2starmotel.png"
     ],
-    function: ({ cap }) => cap.filter(i => g(i).icon === "renovation").length
+    function: ({
+      cap
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'icon' does not exist on type 'string'.
+    }: any) => cap.filter((i: any) => g(i).icon === "renovation").length
   },
   34: {
     task_id: 34,
     top: "Mystery",
     bottom: "Points",
     icon: "https://i.ibb.co/YdRQ3Sf/Split-Mystery.png",
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i).category === "mystery").reduce(points, 0)
+    function: ({
+      cap,
+      dep,
+      con
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'category' does not exist on type 'string... Remove this comment to see the full error message
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i).category === "mystery").reduce(points, 0)
   },
   35: {
     task_id: 35,
     top: "QRewZee",
     bottom: "Captures",
     icon: "https://munzee.global.ssl.fastly.net/images/pins/qrewzee.png",
-    function: ({ cap }) => cap.filter(i => g(i).icon === "qrewzee").length
+    function: ({
+      cap
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'icon' does not exist on type 'string'.
+    }: any) => cap.filter((i: any) => g(i).icon === "qrewzee").length
   },
   36: {
     task_id: 36,
     top: "Card",
     bottom: "Points",
     icon: "https://munzee.global.ssl.fastly.net/images/pins/envelope.png",
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i).category === "card").reduce(points, 0)
+    function: ({
+      cap,
+      dep,
+      con
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'category' does not exist on type 'string... Remove this comment to see the full error message
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i).category === "card").reduce(points, 0)
   }
 }
 
@@ -310,7 +413,9 @@ var all_tasks = {
 }
 var current_month = 92;
 
-function calculate(data = [], no_reduce) {
+// @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'calculate'.
+function calculate(data = [], no_reduce: any) {
+  // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   var current_tasks = all_tasks[current_month];
   var all = {
     cap: [],
@@ -321,13 +426,19 @@ function calculate(data = [], no_reduce) {
   }
   var output = {};
   for (var day of data) {
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'captures' does not exist on type 'never'... Remove this comment to see the full error message
     all.cap = all.cap.concat(day.captures)
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'captures_on' does not exist on type 'nev... Remove this comment to see the full error message
     all.con = all.con.concat(day.captures_on)
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'deploys' does not exist on type 'never'.
     all.dep = all.dep.concat(day.deploys)
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'archived' does not exist on type 'never'... Remove this comment to see the full error message
     all.arc = all.arc.concat(day.archived)
   }
   for (var task of current_tasks) {
+    // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
     output[task] = tasks[task].function(all)
+    // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
     if (!no_reduce && typeof output[task] === "object") output[task] = Object.keys(output[task]).length;
   }
   return output;

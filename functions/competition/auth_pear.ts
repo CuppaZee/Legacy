@@ -1,6 +1,10 @@
+// @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'fetch'.
 var fetch = require("node-fetch");
+// @ts-expect-error ts-migrate(2403) FIXME: Subsequent variable declarations must have the sam... Remove this comment to see the full error message
 var crypto = require("crypto");
+// @ts-expect-error ts-migrate(2403) FIXME: Subsequent variable declarations must have the sam... Remove this comment to see the full error message
 var { URLSearchParams } = require("url");
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'config'.
 var config = require('../config.json');
 var firebase = require("firebase-admin");
 
@@ -15,7 +19,12 @@ module.exports = {
           type: "userid",
         },
       },
-      async function({ params: { code, state }, teamsData, res, db }) {
+      async function({
+        params: { code, state },
+        teamsData,
+        res,
+        db
+      }: any) {
         try {
           res.send(
             `<!DOCTYPE html>
@@ -44,7 +53,9 @@ module.exports = {
             <body>
               <h2>These competition is now closed.</h2>
               <p>You are no longer able to enter.</p><br/>
-              <button onclick="window.location.href = '${state_data.redirect}'">Close</button>
+              <button onclick="window.location.href = '${              
+// @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'state_data'.
+state_data.redirect}'">Close</button>
             </body>
             </html>`
           );

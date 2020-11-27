@@ -1,3 +1,4 @@
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var { retrieve, request } = require("../util");
 var { get, g: getIcon } = require("../util/db");
 var moment = require("moment");
@@ -13,7 +14,10 @@ module.exports = {
           type: "accesstoken",
         },
       },
-      async function({ params: { username, user_id }, db }) {
+      async function({
+        params: { username, user_id },
+        db
+      }: any) {
         var token = await retrieve(db, { user_id, teaken: false }, 60);
         try {
           var [captures, deploys, capture_dates, deploy_dates] = await Promise.all([
@@ -28,7 +32,7 @@ module.exports = {
             error_message: "munzee_api_5xx"
           }
         }
-        var archived = [];
+        var archived: any = [];
         for (var page = 0; page < 20; page++) {
           let und = await request('user/archived', { page }, token.access_token);
           if (!und || !und.has_more) {
@@ -36,11 +40,12 @@ module.exports = {
           }
           archived = archived.concat(und ? und.munzees : []);
         }
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
         archived = archived.map(i => i.capture_type_id).reduce((obj, item) => {
           obj[item] = (obj[item] || 0) + 1;
           return obj;
         }, {});
-        var cap = captures.types.map(i => {
+        var cap = captures.types.map((i: any) => {
           var g = (get('id', Number(i.capture_type_id)) || {})
           return {
             type: Number(i.capture_type_id),
@@ -50,7 +55,7 @@ module.exports = {
             amount: Number(i.captures)
           }
         })
-        var dep = deploys.types.map(i => {
+        var dep = deploys.types.map((i: any) => {
           var g = (get('id', Number(i.capture_type_id)) || {})
           return {
             type: Number(i.capture_type_id),
@@ -60,7 +65,9 @@ module.exports = {
             amount: Number(i.munzees) - (archived[i.capture_type_id] || 0)
           }
         })
+        // @ts-expect-error ts-migrate(2362) FIXME: The left-hand side of an arithmetic operation must... Remove this comment to see the full error message
         var recent_cap = Object.entries(capture_dates).sort((a, b) => new Date(b[0]) - new Date(a[0]))[0][0];
+        // @ts-expect-error ts-migrate(2362) FIXME: The left-hand side of an arithmetic operation must... Remove this comment to see the full error message
         var recent_dep = Object.entries(deploy_dates).sort((a, b) => new Date(b[0]) - new Date(a[0]))[0][0];
         var this_month = moment().tz('America/Chicago').date() < 15;
         var next_check = moment().tz('America/Chicago').add(this_month ? 0 : 1, "month").date(this_month ? 15 : 1).hour(0).minute(0).second(0).millisecond(0);

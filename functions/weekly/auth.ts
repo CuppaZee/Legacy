@@ -1,5 +1,8 @@
+// @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'fetch'.
 var fetch = require("node-fetch");
+// @ts-expect-error ts-migrate(2403) FIXME: Subsequent variable declarations must have the sam... Remove this comment to see the full error message
 var crypto = require("crypto");
+// @ts-expect-error ts-migrate(2403) FIXME: Subsequent variable declarations must have the sam... Remove this comment to see the full error message
 var { URLSearchParams } = require("url");
 var config = require('../config.json');
 var firebase = require("firebase-admin");
@@ -15,7 +18,11 @@ module.exports = {
           type: "userid",
         },
       },
-      async function({ params: { code, state }, res, db }) {
+      async function({
+        params: { code, state },
+        res,
+        db
+      }: any) {
         try {
 
           var state_data = JSON.parse(state || "{}");
@@ -30,6 +37,7 @@ module.exports = {
             }),
           });
           var data = await d.json();
+          // @ts-expect-error ts-migrate(2339) FIXME: Property 'randomBytes' does not exist on type 'Cry... Remove this comment to see the full error message
           var teaken = crypto.randomBytes(20).toString("hex");
           var user_d = await fetch("https://api.munzee.com/user", {
             method: "POST",
@@ -62,6 +70,7 @@ module.exports = {
           );
 
 
+          // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           var platform = {
             android: "🤖",
             ios: "🍎",

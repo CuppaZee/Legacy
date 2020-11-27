@@ -1,11 +1,15 @@
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import * as React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { View, Image, StyleSheet } from 'react-native';
 import { Paragraph, Text, TouchableRipple, useTheme, Surface } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/icon' or its correspo... Remove this comment to see the full error message
 import getIcon from 'utils/db/icon';
 
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useMoment' or its ... Remove this comment to see the full error message
 import useMoment from 'utils/hooks/useMoment';
 
 var creatures = {
@@ -24,16 +28,20 @@ var creatures = {
   'funfinity': 'oniks'
 }
 
-var hostIcon = (icon) => {
+var hostIcon = (icon: any) => {
   var host = icon.match(/\/([^\/\.]+?)_?(?:virtual|physical)?_?host\./)?.[1];
   if (!host) return null;
+  // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   return getIcon(creatures[host] ?? host);
 }
-function isRenovation(act) {
+function isRenovation(act: any) {
   return !!(act.pin.includes('/renovation.') && act.captured_at);
 }
 
-export default function ActivityListItem({ act: acti, userdata }) {
+export default function ActivityListItem({
+  act: acti,
+  userdata
+}: any) {
   var moment = useMoment();
   var { t } = useTranslation();
   var theme = useTheme();
@@ -52,43 +60,62 @@ export default function ActivityListItem({ act: acti, userdata }) {
       bg: "#ffbcad"
     }
   }
-  return <View style={{ padding: 4 }}>
-    <Surface>
-      {[acti,...acti.subCaptures||[]].map((act,index,list)=><TouchableRipple key={act.key} onPress={() => { navigation.navigate('MunzeeDetails', { username: act.creator, code: act.code }) }}>
-        <View style={styles.row}>
-          <View style={{ width: 60, paddingVertical: 4, marginRight: 4, backgroundColor: theme.dark ? null : colors[act.type]?.bg, borderRightWidth: theme.dark ? 2 : 0, borderRightColor: colors[act.type]?.bg, justifyContent: "center", alignItems: "center" }}>
-            <Text style={{ textAlign: "center", color: colors[act.type]?.[theme.dark?'bg':'fg'] }}>{(act.points) > 0 && '+'}{(Number(act.points)) || t('activity:none')}</Text>
-            <View style={{ position: "relative" }}>
-              <Image style={{ height: 32, width: 32 }} source={getIcon(act.pin)} />
-              {hostIcon(act.pin) && <Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: -4 }} source={hostIcon(act.pin)} />}
+  return (
+    // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+    <View style={{ padding: 4 }}>
+      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+      <Surface>
+        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+        {[acti,...(acti.subCaptures || [])].map((act,index,list)=><TouchableRipple key={act.key} onPress={() => { navigation.navigate('MunzeeDetails', { username: act.creator, code: act.code }) }}>
+          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+          <View style={styles.row}>
+            {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+            <View style={{ width: 60, paddingVertical: 4, marginRight: 4, backgroundColor: theme.dark ? null : colors[act.type]?.bg, borderRightWidth: theme.dark ? 2 : 0, borderRightColor: colors[act.type]?.bg, justifyContent: "center", alignItems: "center" }}>
+              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+              <Text style={{ textAlign: "center", color: colors[act.type]?.[theme.dark?'bg':'fg'] }}>{(act.points) > 0 && '+'}{(Number(act.points)) || t('activity:none')}</Text>
+              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+              <View style={{ position: "relative" }}>
+                {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+                <Image style={{ height: 32, width: 32 }} source={getIcon(act.pin)} />
+                {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+                {hostIcon(act.pin) && <Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: -4 }} source={hostIcon(act.pin)} />}
+              </View>
+            </View>
+            {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+            <View style={{ flex: 1 }}>
+              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+              {index===0&&<Text style={{ fontWeight: "100", fontSize: 12 }} numberOfLines={1} ellipsizeMode="middle">
+                {/* @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message */}
+                {({
+                  capon_reno: () => t('activity:user_renovated', { user: act.capper }),
+                  capon: () => t('activity:user_captured', { user: act.capper }),
+                  capture_reno: () => t('activity:you_renovated'),
+                  capture: () => t('activity:you_captured'),
+                  deploy: () => t('activity:you_deployed')
+                })[act.type + (isRenovation(act) ? "_reno" : "")]?.() || "What"}
+              </Text>}
+              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+              {!isRenovation(act) && <Text style={{ fontSize: 14 }} numberOfLines={1} ellipsizeMode="middle">{act.name}</Text>}
+              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+              {!isRenovation(act) && <Text style={{ fontWeight: "100", fontSize: 12 }} numberOfLines={1} ellipsizeMode="middle">
+                {/* @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message */}
+                {({
+                  capon: () => t('activity:by_you'),
+                  capture: () => act.creator === userdata?.username ? t('activity:by_you') : t('activity:by_user', { user: act.creator }),
+                  deploy: () => t('activity:by_you')
+                })[act.type]?.() || "What"}
+              </Text>}
+            </View>
+            {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+            <View style={{ padding: 8 }}>
+              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+              <Paragraph allowFontScaling={false}>{moment(act.time).format('LT')}</Paragraph>
             </View>
           </View>
-          <View style={{ flex: 1 }}>
-            {index===0&&<Text style={{ fontWeight: "100", fontSize: 12 }} numberOfLines={1} ellipsizeMode="middle">
-              {({
-                capon_reno: () => t('activity:user_renovated', { user: act.capper }),
-                capon: () => t('activity:user_captured', { user: act.capper }),
-                capture_reno: () => t('activity:you_renovated'),
-                capture: () => t('activity:you_captured'),
-                deploy: () => t('activity:you_deployed')
-              })[act.type + (isRenovation(act) ? "_reno" : "")]?.() || "What"}
-            </Text>}
-            {!isRenovation(act) && <Text style={{ fontSize: 14 }} numberOfLines={1} ellipsizeMode="middle">{act.name}</Text>}
-            {!isRenovation(act) && <Text style={{ fontWeight: "100", fontSize: 12 }} numberOfLines={1} ellipsizeMode="middle">
-              {({
-                capon: () => t('activity:by_you'),
-                capture: () => act.creator === userdata?.username ? t('activity:by_you') : t('activity:by_user', { user: act.creator }),
-                deploy: () => t('activity:by_you')
-              })[act.type]?.() || "What"}
-            </Text>}
-          </View>
-          <View style={{ padding: 8 }}>
-            <Paragraph allowFontScaling={false}>{moment(act.time).format('LT')}</Paragraph>
-          </View>
-        </View>
-      </TouchableRipple>)}
-    </Surface>
-  </View>
+        </TouchableRipple>)}
+      </Surface>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

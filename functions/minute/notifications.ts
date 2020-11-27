@@ -1,6 +1,8 @@
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'Expo'.
 const { Expo } = require('expo-server-sdk');
 
 // Create a new Expo SDK client
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'expo'.
 let expo = new Expo();
 
 module.exports = {
@@ -10,7 +12,9 @@ module.exports = {
     {
       version: 1,
       params: {},
-      async function({ db }) {
+      async function({
+        db
+      }: any) {
         var notificationData = (await db.collection('notifications').where('sent_at', '<=', Date.now() - (1800000)).get()).docs;
         let receiptIds = [];
         for (let notificationBatch of notificationData) {
@@ -21,7 +25,7 @@ module.exports = {
           }
           notificationBatch.ref.delete();
         }
-        var allReceipts = [];
+        var allReceipts: any = [];
         let receiptIdChunks = expo.chunkPushNotificationReceiptIds(receiptIds);
         for (let chunk of receiptIdChunks) {
           try {

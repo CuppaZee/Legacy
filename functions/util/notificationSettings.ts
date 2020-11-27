@@ -1,14 +1,15 @@
-module.exports = function (db) {
-  let devices = [];
+module.exports = function (db: any) {
+  let devices: any = [];
 
   let hasData = false;
 
-  let waiting = [];
+  let waiting: any = [];
 
   db.collection('push')
-    .onSnapshot(querySnapshot => {
-      devices = querySnapshot.docs.map(i=>i.data());
+    .onSnapshot((querySnapshot: any) => {
+      devices = querySnapshot.docs.map((i: any) => i.data());
       hasData = true;
+      // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
       waiting.forEach(i=>i());
       waiting = [];
     });

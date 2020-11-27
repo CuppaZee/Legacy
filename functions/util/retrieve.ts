@@ -1,7 +1,12 @@
+// @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'fetch'.
 var fetch = require("node-fetch");
+// @ts-expect-error ts-migrate(2403) FIXME: Subsequent variable declarations must have the sam... Remove this comment to see the full error message
 var { URLSearchParams } = require("url");
 var _config = require('../config.json');
-module.exports = async function (db, {user_id,teaken}, time, application = "default") {
+module.exports = async function (db: any, {
+  user_id,
+  teaken
+}: any, time: any, application = "default") {
   try {
     var config;
     if(application==="default") {

@@ -5,7 +5,10 @@ module.exports = {
     {
       version: 1,
       params: {},
-      async function({ db, params: { week_id, user_id } }) {
+      async function({
+        db,
+        params: { week_id, user_id }
+      }: any) {
         const data = (await db.collection('weekly').doc(week_id).get()).data().players;
         return {
           status: "success",

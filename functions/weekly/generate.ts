@@ -5,7 +5,10 @@ module.exports = {
     {
       version: 1,
       params: {},
-      async function({ db, params: { week_id } }) {
+      async function({
+        db,
+        params: { week_id }
+      }: any) {
         const users = (await db.collection('data').doc('user_list').get()).data().list;
         const batches = [];
         for(var i = 0;i < users.length/90;i++) {
@@ -14,8 +17,8 @@ module.exports = {
         for(const batch of batches) {
           await db.collection('weekly').doc(week_id).collection('batches').add({
             _updated_at: Math.floor(Math.random()*1000),
-            players: batch.map(i=>({
-              n: i,
+            players: batch.map((i: any) => ({
+              n: i
             }))
           })
         }

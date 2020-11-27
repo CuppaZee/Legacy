@@ -1,25 +1,32 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import stringify from 'fast-json-stable-stringify';
 
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'from' or its corresponding typ... Remove this comment to see the full error message
 import FROM from 'from';
 
-var login_ = (data) => ({ type: "LOGIN", data: data })
-var login = (data, noUpdate) => async (dispatch, getState) => {
+var login_ = (data: any) => ({
+  type: "LOGIN",
+  data: data
+})
+var login = (data: any, noUpdate: any) => async (dispatch: any, getState: any) => {
   if (!noUpdate) await AsyncStorage.setItem('CUPPAZEE_TEAKENS', JSON.stringify({ ...getState().logins, ...data }));
   dispatch(login_(data));
 }
 
-var setRequestData = (page, data, originalpage) => ({ type: "SET_REQUEST_DATA", page, data, originalpage })
+var setRequestData = (page: any, data: any, originalpage: any) => ({ type: "SET_REQUEST_DATA", page, data, originalpage })
 
-var loading = (change) => ({ type: "LOADING", change: change })
+var loading = (change: any) => ({
+  type: "LOADING",
+  change: change
+})
 
 var pagination = {
   undeployed: {
-    hasMore: (data) => {
+    hasMore: (data: any) => {
       return !!data?.data?.has_more;
     },
-    addAll: (dataArr) => {
-      var arr = []
+    addAll: (dataArr: any) => {
+      var arr: any = []
       for (var data of dataArr) {
         arr = arr.concat(data?.data?.munzees || []);
       }
@@ -27,19 +34,20 @@ var pagination = {
     }
   }
 }
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/User/Clan/Data' or it... Remove this comment to see the full error message
 import ClanProgressConverter from 'sections/User/Clan/Data';
 var converter = {
   ClanProgress: ClanProgressConverter
 }
 
-async function makeRequest(getState, dispatch, pageInput, force) {
-  var page;
+async function makeRequest(getState: any, dispatch: any, pageInput: any, force: any) {
+  var page: any;
   if (typeof pageInput === "string") {
     page = JSON.parse(pageInput);
   } else {
     page = pageInput;
   }
-  if (!force && getState().requests.find(i => i.page == stringify(page))?.expires > Date.now()) return;
+  if (!force && getState().requests.find((i: any) => i.page == stringify(page))?.expires > Date.now()) return;
   dispatch(loading(1))
   try {
     let status = 500, responseStatus;
@@ -62,6 +70,7 @@ async function makeRequest(getState, dispatch, pageInput, force) {
         // Request Data
         if (page.pagination) {
           var dataArray = [];
+          // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           for (var i = 0; i < 15 && (!dataArray[0] || pagination[page.pagination].hasMore(dataArray[dataArray.length - 1])); i++) {
             var reqformData = new FormData();
             reqformData.append('data', stringify({ ...page.data, page: i, access_token: token }))
@@ -74,6 +83,7 @@ async function makeRequest(getState, dispatch, pageInput, force) {
             if(da?.data) loop = 10;
             dataArray.push(da);
           }
+          // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           data = pagination[page.pagination].addAll(dataArray);
         } else {
           var reqformData = new FormData();
@@ -88,6 +98,7 @@ async function makeRequest(getState, dispatch, pageInput, force) {
           if(data?.data) loop = 10;
         }
         if (page.converter) {
+          // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           data = { data: converter[page.converter](data?.data) };
         }
         data.id = Math.floor(Math.random()*10000)
@@ -132,13 +143,20 @@ async function makeRequest(getState, dispatch, pageInput, force) {
   dispatch(loading(-1))
 }
 
-var addRequest_ = (page) => ({ type: "ADD_REQUEST", page: page })
-var addRequest = (page) => async (dispatch, getState) => {
+var addRequest_ = (page: any) => ({
+  type: "ADD_REQUEST",
+  page: page
+})
+var addRequest = (page: any) => async (dispatch: any, getState: any) => {
+  // @ts-expect-error ts-migrate(2554) FIXME: Expected 4 arguments, but got 3.
   makeRequest(getState, dispatch, page);
   dispatch(addRequest_(page));
 }
 
-var removeRequest = (page) => ({ type: "REMOVE_REQUEST", page: page })
+var removeRequest = (page: any) => ({
+  type: "REMOVE_REQUEST",
+  page: page
+})
 
 export default {
   remove: removeRequest,

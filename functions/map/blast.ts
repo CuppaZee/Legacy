@@ -1,3 +1,4 @@
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var { retrieve, request } = require("../util");
 var { get } = require("../util/db");
 var spherical = require('spherical-geometry-js');
@@ -134,7 +135,10 @@ module.exports = {
           type: "userid",
         },
       },
-      async function({ params: { user_id, lat, lng, amount }, db }) {
+      async function({
+        params: { user_id, lat, lng, amount },
+        db
+      }: any) {
         var token = await retrieve(db, { user_id, teaken: false }, 60);
 
         var boundaries = [
@@ -163,10 +167,12 @@ module.exports = {
 
         if (data) {
           let munzees = data[0].munzees;
-          munzees = munzees.filter(i => !i.unicorn).filter(i => spherical.computeDistanceBetween({ lat: i.latitude, lng: i.longitude }, { lat, lng }) * 0.0006213712 <= 1).sort((a, b) => {
+          munzees = munzees.filter((i: any) => !i.unicorn).filter((i: any) => spherical.computeDistanceBetween({ lat: i.latitude, lng: i.longitude }, { lat, lng }) * 0.0006213712 <= 1).sort((a: any, b: any) => {
             return spherical.computeDistanceBetween({ lat: a.latitude, lng: a.longitude }, { lat, lng }) - spherical.computeDistanceBetween({ lat: b.latitude, lng: b.longitude }, { lat, lng })
-          }).map(i => {
+          }).map((i: any) => {
+            // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
             if (i.original_pin_image.match(/\/([^/]+)\.png/) && pointsForBlast[i.original_pin_image.match(/\/([^/]+)\.png/)[1]]) {
+              // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
               let p = pointsForBlast[i.original_pin_image.match(/\/([^/]+)\.png/)[1]];
               if (p.toString().includes('-')) {
                 let x = p.split('-').map(Number);
@@ -182,6 +188,7 @@ module.exports = {
           var output = [];
           for(var munzee of munzees) {
             var type = (get("icon",munzee.original_pin_image)||{}).points||{capture:0};
+            // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
             var typePoints = {
               split: {
                 min: type.min,
@@ -210,6 +217,7 @@ module.exports = {
               max: output[output.length-1].points.max + typePoints.max,
               avg: output[output.length-1].points.avg + typePoints.avg
             }
+            // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
             if(!output[output.length-1].types[munzee.original_pin_image.slice(49,-4)]) output[output.length-1].types[munzee.original_pin_image.slice(49,-4)] = {
               total: 0,
               points: {
@@ -218,11 +226,16 @@ module.exports = {
                 avg: 0
               }
             }
+            // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
             output[output.length-1].types[munzee.original_pin_image.slice(49,-4)] = {
+              // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
               total: output[output.length-1].types[munzee.original_pin_image.slice(49,-4)].total + 1,
               points: {
+                // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
                 min: output[output.length-1].types[munzee.original_pin_image.slice(49,-4)].points.min + typePoints.min,
+                // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
                 max: output[output.length-1].types[munzee.original_pin_image.slice(49,-4)].points.max + typePoints.max,
+                // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
                 avg: output[output.length-1].types[munzee.original_pin_image.slice(49,-4)].points.avg + typePoints.avg,
               }
             }

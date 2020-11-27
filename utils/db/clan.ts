@@ -1,20 +1,21 @@
+// @ts-expect-error ts-migrate(2732) FIXME: Cannot find module './types.json'. Consider using ... Remove this comment to see the full error message
 import MunzeeTypes from './types.json';
-var types = MunzeeTypes.map(i=>{
+var types = MunzeeTypes.map((i: any) => {
   return {
     ...i,
     icon: f(i.icon)
   };
 })
-function f(a) {
+function f(a: any) {
   return a.toString().replace(/_/g,'').replace(/munzee/g,'');
 }
-function g(a) {
-  return types.find(i=>i.icon==a.icon);
+function g(a: any) {
+  return types.find((i: any) => i.icon==a.icon);
 }
-function points(a,b) {
+function points(a: any,b: any) {
   return a + b.points;
 }
-function total(a,b) {
+function total(a: any,b: any) {
   return a + b.total;
 }
 export default {
@@ -24,22 +25,31 @@ export default {
     bottom: "Activity",
     icon: "https://i.ibb.co/K5ZmXqc/Total-1.png",
     total: "min",
-    function: ({ cap, dep }) => [...cap, ...dep].filter(i => !g(i)?.personal).reduce(total,0) > 0 ? 1 : 0
+    function: ({
+      cap,
+      dep
+    }: any) => [...cap, ...dep].filter(i => !g(i)?.personal).reduce(total,0) > 0 ? 1 : 0
   },
   3: {
     task_id: 3,
     top: "Total",
     bottom: "Points",
     icon: "https://i.ibb.co/K5ZmXqc/Total-1.png",
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].reduce(points,0)
+    function: ({
+      cap,
+      dep,
+      con
+    }: any) => [...cap, ...dep, ...con].reduce(points,0)
   },
   6: {
     task_id: 6,
     top: "Total",
     bottom: "Deploys",
     icon: "https://munzee.global.ssl.fastly.net/images/pins/owned.png",
-    function: ({ dep }) => {
-      return dep.filter(i => !g(i)?.personal).reduce(total,0);
+    function: ({
+      dep
+    }: any) => {
+      return dep.filter((i: any) => !g(i)?.personal).reduce(total,0);
     }
   },
   7: {
@@ -51,14 +61,20 @@ export default {
       "https://munzee.global.ssl.fastly.net/images/pins/1starmotel.png",
       "https://munzee.global.ssl.fastly.net/images/pins/virtualresort.png"
     ],
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i)?.destination).reduce(points,0)
+    function: ({
+      cap,
+      dep,
+      con
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i)?.destination).reduce(points,0)
   },
   10: {
     task_id: 10,
     top: "Deploy",
     bottom: "Points",
     icon: "https://munzee.global.ssl.fastly.net/images/pins/owned.png",
-    function: ({ dep }) => dep.filter(i => !g(i)?.personal).reduce(points,0)
+    function: ({
+      dep
+    }: any) => dep.filter((i: any) => !g(i)?.personal).reduce(points,0)
   },
   12: {
     task_id: 12,
@@ -69,14 +85,20 @@ export default {
       "https://munzee.global.ssl.fastly.net/images/pins/evolution.png",
       "https://munzee.global.ssl.fastly.net/images/pins/evolution_filter_physical.png"
     ],
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i)?.evolution).reduce(points,0)
+    function: ({
+      cap,
+      dep,
+      con
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i)?.evolution).reduce(points,0)
   },
   13: {
     task_id: 13,
     top: "Places",
     bottom: "Captures",
     icon: "https://munzee.global.ssl.fastly.net/images/pins/poi_filter.png",
-    function: ({ cap }) => cap.filter(i => g(i)?.poi).reduce(total,0)
+    function: ({
+      cap
+    }: any) => cap.filter((i: any) => g(i)?.poi).reduce(total,0)
   },
   14: {
     task_id: 14,
@@ -87,7 +109,10 @@ export default {
       "https://munzee.global.ssl.fastly.net/images/pins/diamond.png",
       "https://munzee.global.ssl.fastly.net/images/pins/virtualonyx.png"
     ],
-    function: ({ cap, dep }) => [...dep, ...cap].filter(i => g(i)?.jewel).reduce(total,0)
+    function: ({
+      cap,
+      dep
+    }: any) => [...dep, ...cap].filter(i => g(i)?.jewel).reduce(total,0)
   },
   17: {
     task_id: 17,
@@ -98,7 +123,10 @@ export default {
       "https://munzee.global.ssl.fastly.net/images/pins/evolution.png",
       "https://munzee.global.ssl.fastly.net/images/pins/evolution_filter_physical.png"
     ],
-    function: ({ cap, dep }) => [...dep, ...cap].filter(i => g(i)?.evolution).reduce(total,0)
+    function: ({
+      cap,
+      dep
+    }: any) => [...dep, ...cap].filter(i => g(i)?.evolution).reduce(total,0)
   },
   19: {
     task_id: 19,
@@ -109,7 +137,11 @@ export default {
       "https://munzee.global.ssl.fastly.net/images/pins/aquamarine.png",
       "https://munzee.global.ssl.fastly.net/images/pins/virtual_citrine.png"
     ],
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i)?.category=="jewel").reduce(points,0)
+    function: ({
+      cap,
+      dep,
+      con
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i)?.category=="jewel").reduce(points,0)
   },
   23: {
     task_id: 23,
@@ -120,7 +152,11 @@ export default {
       "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
       "https://munzee.global.ssl.fastly.net/images/pins/catapult.png"
     ],
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i)?.weapon=="clan").reduce(points,0)
+    function: ({
+      cap,
+      dep,
+      con
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i)?.weapon=="clan").reduce(points,0)
   },
   24: {
     task_id: 24,
@@ -133,7 +169,9 @@ export default {
       "https://munzee.global.ssl.fastly.net/images/pins/nomad.png",
       "https://munzee.global.ssl.fastly.net/images/pins/muru.png"
     ],
-    function: ({ cap }) => cap.filter(i => g(i)?.bouncer).reduce(total,0)
+    function: ({
+      cap
+    }: any) => cap.filter((i: any) => g(i)?.bouncer).reduce(total,0)
   },
   26: {
     task_id: 26,
@@ -144,7 +182,10 @@ export default {
       "https://munzee.global.ssl.fastly.net/images/pins/mace.png",
       "https://munzee.global.ssl.fastly.net/images/pins/crossbow.png"
     ],
-    function: ({ cap, dep }) => [...cap, ...dep].filter(i => g(i)?.weapon=="clan").reduce(total,0)
+    function: ({
+      cap,
+      dep
+    }: any) => [...cap, ...dep].filter(i => g(i)?.weapon=="clan").reduce(total,0)
   },
   28: {
     task_id: 28,
@@ -155,7 +196,11 @@ export default {
       "https://munzee.global.ssl.fastly.net/images/pins/flatrob.png",
       "https://munzee.global.ssl.fastly.net/images/pins/flatlou.png"
     ],
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i)?.flat&&!g(i)?.unique).reduce(points,0)
+    function: ({
+      cap,
+      dep,
+      con
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i)?.flat&&!g(i)?.unique).reduce(points,0)
   },
   31: {
     task_id: 32,
@@ -167,7 +212,11 @@ export default {
       "https://munzee.global.ssl.fastly.net/images/pins/prizewheel.png",
       "https://munzee.global.ssl.fastly.net/images/pins/urbanfit.png"
     ],
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i)?.gaming).reduce(points,0)
+    function: ({
+      cap,
+      dep,
+      con
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i)?.gaming).reduce(points,0)
   },
   32: {
     task_id: 32,
@@ -179,7 +228,10 @@ export default {
       "https://munzee.global.ssl.fastly.net/images/pins/prizewheel.png",
       "https://munzee.global.ssl.fastly.net/images/pins/urbanfit.png"
     ],
-    function: ({ cap, dep }) => [...cap, ...dep].filter(i => g(i)?.gaming).reduce(total,0)
+    function: ({
+      cap,
+      dep
+    }: any) => [...cap, ...dep].filter(i => g(i)?.gaming).reduce(total,0)
   },
   33: {
     task_id: 32,
@@ -190,20 +242,28 @@ export default {
       "https://munzee.global.ssl.fastly.net/images/pins/destination.png",
       "https://munzee.global.ssl.fastly.net/images/pins/2starmotel.png"
     ],
-    function: ({ cap }) => cap.filter(i => g(i)?.icon=="renovation").reduce(total,0)
+    function: ({
+      cap
+    }: any) => cap.filter((i: any) => g(i)?.icon=="renovation").reduce(total,0)
   },
   34: {
     task_id: 34,
     top: "Mystery",
     bottom: "Points",
     icon: "https://i.ibb.co/YdRQ3Sf/Split-Mystery.png",
-    function: ({ cap, dep, con }) => [...cap, ...dep, ...con].filter(i => g(i)?.category=="mystery").reduce(points,0)
+    function: ({
+      cap,
+      dep,
+      con
+    }: any) => [...cap, ...dep, ...con].filter(i => g(i)?.category=="mystery").reduce(points,0)
   },
   35: {
     task_id: 35,
     top: "QRewZee",
     bottom: "Captures",
     icon: "https://munzee.global.ssl.fastly.net/images/pins/qrewzee.png",
-    function: ({ cap }) => cap.filter(i => g(i)?.icon=="qrewzee").reduce(total,0)
+    function: ({
+      cap
+    }: any) => cap.filter((i: any) => g(i)?.icon=="qrewzee").reduce(total,0)
   }
 }

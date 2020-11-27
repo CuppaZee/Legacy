@@ -1,4 +1,6 @@
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'request'.
 var { request, retrieve } = require('../util');
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'config'.
 var config = require('../config.json');
 var Airtable = require('airtable');
 
@@ -112,21 +114,25 @@ module.exports = {
     {
       version: 2,
       params: {},
-      async function({ db, params: { game_id, group = "cuppaclans" } }) {
+      async function({
+        db,
+        params: { game_id, group = "cuppaclans" }
+      }: any) {
+        // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         const clansdata = groupsdata[group];
         var base = new Airtable({apiKey: config.airtable_key}).base(clansdata.base_id);
         var token = await retrieve(db, {user_id:455935,teaken:false},60);
         var all_users = (await base(clansdata[game_id].name).select({
           view: 'Table'
-        }).all()).map(i => ({
+        }).all()).map((i: any) => ({
           ...i.fields
         }));
         for(let {clan_id, clan_name, shadow_name} of clansdata[game_id].clans) {
           var d = (await db.collection(`shadow_${game_id}`).doc((clan_id).toString()).get()).data();
-          var users = all_users.filter(i=>(i.Clan||"").toLowerCase().includes(clan_name));
-          var user_list = await Promise.all(users.map(async user => {
-            if(d && d._members && d._members.find(i=>i.username.toLowerCase()===user.Username.toLowerCase())) {
-              return d._members.find(i=>i.username.toLowerCase()===user.Username.toLowerCase());
+          var users = all_users.filter((i: any) => (i.Clan||"").toLowerCase().includes(clan_name));
+          var user_list = await Promise.all(users.map(async (user: any) => {
+            if(d && d._members && d._members.find((i: any) => i.username.toLowerCase()===user.Username.toLowerCase())) {
+              return d._members.find((i: any) => i.username.toLowerCase()===user.Username.toLowerCase());
             }
             let user_data = (await request('user',{username:user.Username},token.access_token));
             return {
@@ -142,6 +148,7 @@ module.exports = {
               group_admins: clansdata.admins,
             }
           };
+          // @ts-expect-error ts-migrate(2339) FIXME: Property 'name' does not exist on type '{ group: a... Remove this comment to see the full error message
           if(shadow_name) final._details.name = shadow_name;
           if(d) {
             await db.collection(`shadow_${game_id}`).doc((clan_id).toString()).update(final)

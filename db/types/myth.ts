@@ -95,7 +95,7 @@ module.exports = [
     "id": 1100,
     "state": "bouncer",
     "type": "classical",
-    "lands_on": ["skyland",i=>i.category=="virtual","airmystery","electricmystery"]
+    "lands_on": ["skyland",(i: any) => i.category=="virtual","airmystery","electricmystery"]
   },
   {
     "name": "Pegasus Host",
@@ -110,7 +110,7 @@ module.exports = [
     "id": 1168,
     "state": "bouncer",
     "type": "classical",
-    "lands_on": ["skyland","treehouse",i=>(i.category=="jewel"&&i.id!=148)]
+    "lands_on": ["skyland","treehouse",(i: any) => i.category=="jewel"&&i.id!=148]
   },
   {
     "name": "Cyclops Host",
@@ -132,7 +132,7 @@ module.exports = [
     "id": 1378,
     "state": "bouncer",
     "type": "mirror",
-    "lands_on": ["treehouse","munzee","watermystery",i=>(i.category=="jewel"&&i.state=="physical")]
+    "lands_on": ["treehouse","munzee","watermystery",(i: any) => i.category=="jewel"&&i.state=="physical"]
   },
   {
     "name": "Mermaid Host",
@@ -201,7 +201,7 @@ module.exports = [
     "id": 1646,
     "state": "bouncer",
     "type": "original",
-    "lands_on": ["skyland","treehouse","munzee",i=>i.category=="clan"]
+    "lands_on": ["skyland","treehouse","munzee",(i: any) => i.category=="clan"]
   },
   {
     "name": "Goblin Leprechaun",
@@ -209,7 +209,7 @@ module.exports = [
     "id": 1647,
     "state": "bouncer",
     "type": "original",
-    "lands_on": ["skyland","treehouse","munzee",i=>(i.category=="jewel"&&i.id!=148)]
+    "lands_on": ["skyland","treehouse","munzee",(i: any) => i.category=="jewel"&&i.id!=148]
   },
   {
     "name": "Hot Spring Mermaid",
@@ -247,7 +247,7 @@ module.exports = [
     "id": 1827,
     "state": "bouncer",
     "type": "mirror",
-    "lands_on": ["skyland","treehouse","munzee","shamrock","airmystery",i=>(i.virtual_colors||[]).includes("black"),i=>(i.virtual_colors||[]).includes("green")]
+    "lands_on": ["skyland","treehouse","munzee","shamrock","airmystery",(i: any) => (i.virtual_colors||[]).includes("black"),(i: any) => (i.virtual_colors||[]).includes("green")]
   },
   {
     "name": "Banshee Host",
@@ -269,7 +269,7 @@ module.exports = [
     "id": 1874,
     "state": "bouncer",
     "type": "original",
-    "lands_on": ["skyland","treehouse","munzee","firemystery","airmystery",i=>i.zodiac=="chinese"]
+    "lands_on": ["skyland","treehouse","munzee","firemystery","airmystery",(i: any) => i.zodiac=="chinese"]
   },
   {
     "name": "Wyvern Dragon",
@@ -277,7 +277,7 @@ module.exports = [
     "id": 1875,
     "state": "bouncer",
     "type": "original",
-    "lands_on": ["skyland","treehouse","munzee","airmystery","virtual_amethyst",i=>(i.evolution&&i.evolution.base=="coin")]
+    "lands_on": ["skyland","treehouse","munzee","airmystery","virtual_amethyst",(i: any) => i.evolution&&i.evolution.base=="coin"]
   },
   {
     "name": "Lycanthrope Yeti",
@@ -285,7 +285,7 @@ module.exports = [
     "id": 1876,
     "state": "bouncer",
     "type": "original",
-    "lands_on": ["treehouse","munzee","earthmystery","firemystery",i=>i.zodiac=="western"]
+    "lands_on": ["treehouse","munzee","earthmystery","firemystery",(i: any) => i.zodiac=="western"]
   },
   {
     "name": "Reptoid Yeti",
@@ -308,7 +308,7 @@ module.exports = [
     "id": 1995,
     "state": "bouncer",
     "type": "classical",
-    "lands_on": ["skyland","treehouse","munzee",i=>i.category=="jewel","airmystery",i=>(i.evolution&&i.evolution.base=="lioncub")]
+    "lands_on": ["skyland","treehouse","munzee",(i: any) => i.category=="jewel","airmystery",(i: any) => i.evolution&&i.evolution.base=="lioncub"]
   },
   {
     "name": "Alicorn Pegasus",
@@ -316,7 +316,7 @@ module.exports = [
     "id": 1996,
     "state": "bouncer",
     "type": "classical",
-    "lands_on": ["skyland","treehouse",i=>i.category=="virtual","airmystery","shamrock"]
+    "lands_on": ["skyland","treehouse",(i: any) => i.category=="virtual","airmystery","shamrock"]
   },
   {
     "name": "Centaur Faun",
@@ -324,7 +324,7 @@ module.exports = [
     "id": 1997,
     "state": "bouncer",
     "type": "classical",
-    "lands_on": ["skyland","treehouse","munzee","earthmystery",i=>i.category=="clan"]
+    "lands_on": ["skyland","treehouse","munzee","earthmystery",(i: any) => i.category=="clan"]
   },
   {
     "name": "Krampus Faun",
@@ -332,7 +332,7 @@ module.exports = [
     "id": 1998,
     "state": "bouncer",
     "type": "classical",
-    "lands_on": ["skyland","treehouse","munzee","earthmystery","icemystery",i=>(i.evolution&&i.evolution.base=="farmer")]
+    "lands_on": ["skyland","treehouse","munzee","earthmystery","icemystery",(i: any) => i.evolution&&i.evolution.base=="farmer"]
   },
   {
     "name": "Pegasus Physical Host",
@@ -354,7 +354,7 @@ module.exports = [
     "id": 2118,
     "state": "bouncer",
     "type": "mirror",
-    "lands_on": ["skyland","treehouse","munzee","earthmystery",i=>(i.virtual_colors||[]).includes("brown"),i=>(i.virtual_colors||[]).includes("green")]
+    "lands_on": ["skyland","treehouse","munzee","earthmystery",(i: any) => (i.virtual_colors||[]).includes("brown"),(i: any) => (i.virtual_colors||[]).includes("green")]
   },
   {
     "name": "Nymph Host",
@@ -392,7 +392,7 @@ module.exports = [
     "id": 2254,
     "state": "bouncer",
     "type": "mirror",
-    "lands_on": ["skyland","treehouse","munzee","shamrock","airmystery",i=>i.category=="jewel"]
+    "lands_on": ["skyland","treehouse","munzee","shamrock","airmystery",(i: any) => i.category=="jewel"]
   },
   {
     "name": "Witch Banshee",
@@ -400,7 +400,7 @@ module.exports = [
     "id": 2255,
     "state": "bouncer",
     "type": "mirror",
-    "lands_on": ["skyland","treehouse","munzee","airmystery","firemystery",i=>(i.evolution&&["tomatoseed","cornseed","goldencarrotseed","carrotseed","peasseed","farmer","tulipseed","roseseed","lilyseed","carnationseed"].includes(i.evolution.base))]
+    "lands_on": ["skyland","treehouse","munzee","airmystery","firemystery",(i: any) => i.evolution&&["tomatoseed","cornseed","goldencarrotseed","carrotseed","peasseed","farmer","tulipseed","roseseed","lilyseed","carnationseed"].includes(i.evolution.base)]
   },
   {
     "name": "Minotaur Cyclops",
@@ -408,7 +408,7 @@ module.exports = [
     "id": 2477,
     "state": "bouncer",
     "type": "classical",
-    "lands_on": ["treehouse","munzee",i=>i.category=="jewel",i=>i.weapon=="clan","rockpaperscissors"]
+    "lands_on": ["treehouse","munzee",(i: any) => i.category=="jewel",(i: any) => i.weapon=="clan","rockpaperscissors"]
   },
   {
     "name": "Balor Cyclops",
@@ -424,7 +424,7 @@ module.exports = [
     "id": 2479,
     "state": "bouncer",
     "type": "mirror",
-    "lands_on": ["treehouse","skyland","munzee","earthmystery",i=>(i.virtual_colors||[]).includes("red"),i=>(i.virtual_colors||[]).includes("green"),"tomato",i=>(i.evolution&&i.evolution.base=="farmer")]
+    "lands_on": ["treehouse","skyland","munzee","earthmystery",(i: any) => (i.virtual_colors||[]).includes("red"),(i: any) => (i.virtual_colors||[]).includes("green"),"tomato",(i: any) => i.evolution&&i.evolution.base=="farmer"]
   },
   {
     "name": "Elf Nymph",
@@ -432,7 +432,7 @@ module.exports = [
     "id": 2480,
     "state": "bouncer",
     "type": "mirror",
-    "lands_on": ["treehouse","munzee","earthmystery",i=>i.weapon=="clan",i=>(i.virtual_colors||[]).includes("green"),"virtual"]
+    "lands_on": ["treehouse","munzee","earthmystery",(i: any) => i.weapon=="clan",(i: any) => (i.virtual_colors||[]).includes("green"),"virtual"]
   },
   {
     "name": "Poseidon",
@@ -440,7 +440,7 @@ module.exports = [
     "id": 2524,
     "state": "bouncer",
     "type": "modern",
-    "lands_on": ["skyland","treehouse","munzee","watermystery",i=>(i.virtual_colors||[]).includes("blue"),"aquamarine"],
+    "lands_on": ["skyland","treehouse","munzee","watermystery",(i: any) => (i.virtual_colors||[]).includes("blue"),"aquamarine"],
     "extra": {
       "scatters": {
         "radius": 1000,
@@ -456,7 +456,7 @@ module.exports = [
     "id": "null_aphrodite",
     "state": "bouncer",
     "type": "modern",
-    "lands_on": ["skyland","treehouse","munzee","airmystery",i=>(i.virtual_colors||[]).includes("pink"),"pinkdiamond"],
+    "lands_on": ["skyland","treehouse","munzee","airmystery",(i: any) => (i.virtual_colors||[]).includes("pink"),"pinkdiamond"],
     "extra": {
       "scatters": {
         "radius": 1000,

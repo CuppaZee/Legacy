@@ -1,3 +1,4 @@
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var { retrieve, request } = require("../util");
 
 module.exports = {
@@ -11,7 +12,10 @@ module.exports = {
           type: "userid",
         },
       },
-      async function({ params: { munzee_id, username, munzee }, db }) {
+      async function({
+        params: { munzee_id, username, munzee },
+        db
+      }: any) {
         var token = await retrieve(db, { user_id: 125914, teaken: false }, 60);
         var data = await request('munzee', munzee_id ? { munzee_id } : { url: `/m/${username}/${munzee}` }, token.access_token);
         if (!data) {

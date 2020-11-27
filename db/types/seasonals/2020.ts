@@ -180,14 +180,14 @@ module.exports = [
         "icon": "wallajoyegg",
         "id": "null_wallajoyegg",
         "duration": 4,
-        "lands_on": [":virtual","eggs",(i=>i.gaming && i.state==="virtual")]
+        "lands_on": [":virtual","eggs",((i: any) => i.gaming && i.state==="virtual")]
       },
       {
         "name": "Walla Surprise Egg",
         "icon": "wallasurpriseegg",
         "id": "null_wallasurpriseegg",
         "duration": 4,
-        "lands_on": ["munzee","egg",(i=>i.gaming && i.state==="physical")]
+        "lands_on": ["munzee","egg",((i: any) => i.gaming && i.state==="physical")]
       },
       {
         "name": "Chocolate Honeycombs",
@@ -674,14 +674,14 @@ module.exports = [
         "icon": "babynarwhal",
         "id": "null_babynarwhal",
         "duration": 6,
-        "lands_on": [i=>(i.virtual_colors||[]).includes("blue"),"seaweed","fish","shark","canoe","motorboat","submarine","planulalarva","polyp"]
+        "lands_on": [(i: any) => (i.virtual_colors||[]).includes("blue"),"seaweed","fish","shark","canoe","motorboat","submarine","planulalarva","polyp"]
       },
       {
         "name": "Baby Penguin",
         "icon": "babypenguin",
         "id": "null_babypenguin",
         "duration": 5,
-        "lands_on": [i=>(i.virtual_colors||[]).includes("blue"),"seaweed","fish","shark","canoe","motorboat","submarine","planulalarva","polyp"]
+        "lands_on": [(i: any) => (i.virtual_colors||[]).includes("blue"),"seaweed","fish","shark","canoe","motorboat","submarine","planulalarva","polyp"]
       },
       {
         "name": "Baby Crab",
@@ -695,14 +695,14 @@ module.exports = [
         "icon": "sealpup",
         "id": "null_sealpup",
         "duration": 3,
-        "lands_on": [i=>(i.virtual_colors||[]).includes("blue"),"seaweed","fish","shark","canoe","motorboat","submarine","planulalarva","polyp"]
+        "lands_on": [(i: any) => (i.virtual_colors||[]).includes("blue"),"seaweed","fish","shark","canoe","motorboat","submarine","planulalarva","polyp"]
       },
       {
         "name": "Baby Shark",
         "icon": "babyshark",
         "id": "null_babyshark",
         "duration": 2,
-        "lands_on": [i=>(i.virtual_colors||[]).includes("blue"),"seaweed","fish","shark","canoe","motorboat","submarine","planulalarva","polyp"]
+        "lands_on": [(i: any) => (i.virtual_colors||[]).includes("blue"),"seaweed","fish","shark","canoe","motorboat","submarine","planulalarva","polyp"]
       }
     ]
   },
@@ -725,35 +725,35 @@ module.exports = [
         "icon": "groceryhero",
         "id": 2485,
         "duration": 4,
-        "lands_on": [i=>i.category=="virtual"]
+        "lands_on": [(i: any) => i.category=="virtual"]
       },
       {
         "name": "First Responder Hero",
         "icon": "firstresponderhero",
         "id": 2487,
         "duration": 4,
-        "lands_on": [i=>i.category=="virtual"]
+        "lands_on": [(i: any) => i.category=="virtual"]
       },
       {
         "name": "Healthcare Hero",
         "icon": "healthcarehero",
         "id": 2486,
         "duration": 4,
-        "lands_on": [i=>i.category=="virtual"]
+        "lands_on": [(i: any) => i.category=="virtual"]
       },
       {
         "name": "Education Hero",
         "icon": "educationhero",
         "id": 2484,
         "duration": 4,
-        "lands_on": [i=>i.category=="virtual"]
+        "lands_on": [(i: any) => i.category=="virtual"]
       },
       {
         "name": "Delivery Hero",
         "icon": "deliveryhero",
         "id": 2483,
         "duration": 4,
-        "lands_on": [i=>i.category=="virtual"]
+        "lands_on": [(i: any) => i.category=="virtual"]
       },
       {
         "name": "Grocery Hero Mask",
@@ -883,35 +883,35 @@ module.exports = [
         "icon": "babyfawn",
         "id": 2417,
         "duration": 1,
-        "lands_on": [i=>i.category=="virtual","electricmystery","surprise","virtual_onyx","virtual_citrine"]
+        "lands_on": [(i: any) => i.category=="virtual","electricmystery","surprise","virtual_onyx","virtual_citrine"]
       },
       {
         "name": "Baby Tiger",
         "icon": "babytiger",
         "id": 2419,
         "duration": 1,
-        "lands_on": [i=>i.category=="virtual","electricmystery","surprise","virtual_onyx","virtual_citrine"]
+        "lands_on": [(i: any) => i.category=="virtual","electricmystery","surprise","virtual_onyx","virtual_citrine"]
       },
       {
         "name": "Baby Lamb",
         "icon": "babylamb",
         "id": 2418,
         "duration": 1,
-        "lands_on": [i=>i.category=="virtual","electricmystery","surprise","virtual_onyx","virtual_citrine"]
+        "lands_on": [(i: any) => i.category=="virtual","electricmystery","surprise","virtual_onyx","virtual_citrine"]
       },
       {
         "name": "Baby Chick",
         "icon": "babychick",
         "id": 2416,
         "duration": 1,
-        "lands_on": [i=>i.category=="virtual","electricmystery","surprise","virtual_onyx","virtual_citrine"]
+        "lands_on": [(i: any) => i.category=="virtual","electricmystery","surprise","virtual_onyx","virtual_citrine"]
       },
       {
         "name": "Baby Bunny",
         "icon": "babybunny",
         "id": 2415,
         "duration": 1,
-        "lands_on": [i=>i.category=="virtual","electricmystery","surprise","virtual_onyx","virtual_citrine"]
+        "lands_on": [(i: any) => i.category=="virtual","electricmystery","surprise","virtual_onyx","virtual_citrine"]
       }
     ]
   },

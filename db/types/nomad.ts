@@ -25,14 +25,14 @@ module.exports = [
     "icon": "jewelthiefnomad",
     "id": 822,
     "state": "bouncer",
-    "lands_on": [i=>(i.category=="jewel"&&i.state=="physical")]
+    "lands_on": [(i: any) => i.category=="jewel"&&i.state=="physical"]
   },
   {
     "name": "Bellhop Nomad",
     "icon": "bellhopnomad",
     "id": 823,
     "state": "bouncer",
-    "lands_on": [i=>(i.category=="destination"&&i.destination&&i.destination.type=="destination"&&i.state=="physical")]
+    "lands_on": [(i: any) => i.category=="destination"&&i.destination&&i.destination.type=="destination"&&i.state=="physical"]
   },
   {
     "name": "Pirate Nomad",
@@ -46,7 +46,7 @@ module.exports = [
     "icon": "warriornomad",
     "id": 999,
     "state": "bouncer",
-    "lands_on": [i=>(i.category=="clan"&&i.state=="physical")]
+    "lands_on": [(i: any) => i.category=="clan"&&i.state=="physical"]
   },
   {
     "name": "Traveler Nomad",
@@ -60,14 +60,14 @@ module.exports = [
     "icon": "seasonalnomad",
     "id": 1637,
     "state": "bouncer",
-    "lands_on": [i=>i.seasonal]
+    "lands_on": [(i: any) => i.seasonal]
   },
   {
     "name": "Virtual Flat Nomad",
     "icon": "virtualflatnomad",
     "id": 1691,
     "state": "bouncer",
-    "lands_on": [i=>i.category=="flat"&&!i.unique]
+    "lands_on": [(i: any) => i.category=="flat"&&!i.unique]
   },
   {
     "name": "Coupe Champion Nomad",
@@ -325,27 +325,27 @@ module.exports = [
     "icon": "virtualgamingnomad",
     "id": "null_virtualgamingnomad",
     "state": "bouncer",
-    "lands_on": [i=>(i.state==="virtual"&&i.gaming&&!i.scatter)]
+    "lands_on": [(i: any) => i.state==="virtual"&&i.gaming&&!i.scatter]
   },
   {
     "name": "Gaming Nomad",
     "icon": "gamingnomad",
     "id": "null_gamingnomad",
     "state": "bouncer",
-    "lands_on": [i=>(i.state==="physical"&&i.gaming&&!i.scatter)]
+    "lands_on": [(i: any) => i.state==="physical"&&i.gaming&&!i.scatter]
   },
   {
     "name": "Virtual Jewel Thief Nomad",
     "icon": "virtualjewelthiefnomad",
     "id": "null_virtualjewelthiefnomad",
     "state": "bouncer",
-    "lands_on": [i=>(i.category=="jewel"&&i.state=="virtual"&&!i.scatter)]
+    "lands_on": [(i: any) => i.category=="jewel"&&i.state=="virtual"&&!i.scatter]
   },
   {
     "name": "Virtual Warrior Nomad",
     "icon": "virtualwarriornomad",
     "id": "null_virtualwarriornomad",
     "state": "bouncer",
-    "lands_on": [i=>(i.category=="clan"&&i.state=="virtual"&&!i.scatter)]
+    "lands_on": [(i: any) => i.category=="clan"&&i.state=="virtual"&&!i.scatter]
   }
 ]

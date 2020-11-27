@@ -1,12 +1,17 @@
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module '@ung... Remove this comment to see the full error message
 import allSettled from '@ungap/promise-all-settled'
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import r from './request';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { AppState } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import stringify from 'fast-json-stable-stringify';
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/themes' or its correspon... Remove this comment to see the full error message
 import themes from 'utils/themes'
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'changelogs' or its correspondi... Remove this comment to see the full error message
 import changelogs from 'changelogs'
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'from' or its corresponding typ... Remove this comment to see the full error message
 import FROM from 'from';
 var {makeRequest} = r;
 const defaultState = {
@@ -67,34 +72,46 @@ const defaultState = {
 };
 
 
-function refreshRequests(store,force) {
-  for(var request of store.getState().requests.filter(i=>i.count>0&&(force||i.expires<Date.now()))) {
+function refreshRequests(store: any,force: any) {
+  for(var request of store.getState().requests.filter((i: any) => i.count>0&&(force||i.expires<Date.now()))) {
     makeRequest(store.getState,store.dispatch,request.page,true);
   }
 }
 
-var refresh = () => async (dispatch, getState) => {
+var refresh = () => async (dispatch: any, getState: any) => {
   refreshRequests({dispatch,getState},true);
 }
 
 // Current Navigation Route
-var setCurrentRoute = (data) => ({ type: "CURRENT_ROUTE", data: data })
+var setCurrentRoute = (data: any) => ({
+  type: "CURRENT_ROUTE",
+  data: data
+})
 
 // Last Used Version
-var cuppazeeVersion_ = (data) => ({ type: "CUPPAZEE_VERSION", data: data })
-var cuppazeeVersion = (data,noUpdate) => async (dispatch, getState) => {
+var cuppazeeVersion_ = (data: any) => ({
+  type: "CUPPAZEE_VERSION",
+  data: data
+})
+var cuppazeeVersion = (data: any,noUpdate: any) => async (dispatch: any, getState: any) => {
   if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_VERSION',stringify(data));
   dispatch(cuppazeeVersion_(data));
 }
 
 // Login Teakens
-var login_ = (data) => ({ type: "LOGIN", data: data })
-var replaceLogin_ = (data) => ({ type: "REPLACE_LOGIN", data: data })
-var login = (data,noUpdate) => async (dispatch, getState) => {
+var login_ = (data: any) => ({
+  type: "LOGIN",
+  data: data
+})
+var replaceLogin_ = (data: any) => ({
+  type: "REPLACE_LOGIN",
+  data: data
+})
+var login = (data: any,noUpdate: any) => async (dispatch: any, getState: any) => {
   if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_TEAKENS',stringify({...getState().logins,...data}));
   dispatch(login_(data));
 }
-var removeLogin = (user_id) => async (dispatch, getState) => {
+var removeLogin = (user_id: any) => async (dispatch: any, getState: any) => {
   var x = {...getState().logins};
   delete x[user_id]
   await AsyncStorage.setItem('CUPPAZEE_TEAKENS',stringify(x));
@@ -102,29 +119,41 @@ var removeLogin = (user_id) => async (dispatch, getState) => {
 }
 
 // Clan Bookmarks
-var clanBookmarks_ = (data) => ({ type: "CLAN_BOOKMARKS", data: data })
-var clanBookmarks = (data,noUpdate) => async (dispatch, getState) => {
+var clanBookmarks_ = (data: any) => ({
+  type: "CLAN_BOOKMARKS",
+  data: data
+})
+var clanBookmarks = (data: any,noUpdate: any) => async (dispatch: any, getState: any) => {
   if(!noUpdate) await AsyncStorage.setItem('CLAN_BOOKMARKS',stringify(data));
   dispatch(clanBookmarks_(data));
 }
 
 // User Bookmarks
-var userBookmarks_ = (data) => ({ type: "USER_BOOKMARKS", data: data })
-var userBookmarks = (data,noUpdate) => async (dispatch, getState) => {
+var userBookmarks_ = (data: any) => ({
+  type: "USER_BOOKMARKS",
+  data: data
+})
+var userBookmarks = (data: any,noUpdate: any) => async (dispatch: any, getState: any) => {
   if(!noUpdate) await AsyncStorage.setItem('USER_BOOKMARKS',stringify(data));
   dispatch(userBookmarks_(data));
 }
 
 // Beta Test Code
-var setCode_ = (data) => ({ type: "SET_CODE", data: data })
-var setCode = (data,noUpdate) => async (dispatch, getState) => {
+var setCode_ = (data: any) => ({
+  type: "SET_CODE",
+  data: data
+})
+var setCode = (data: any,noUpdate: any) => async (dispatch: any, getState: any) => {
   if(!noUpdate) await AsyncStorage.setItem('CODE',data);
   dispatch(setCode_(data));
 }
 
 // Theme Selection
-var setTheme_ = (data) => ({ type: "SET_THEME", data: data })
-var setTheme = (data,noUpdate) => async (dispatch, getState) => {
+var setTheme_ = (data: any) => ({
+  type: "SET_THEME",
+  data: data
+})
+var setTheme = (data: any,noUpdate: any) => async (dispatch: any, getState: any) => {
   if(getState().themes[data]) {
     if(!noUpdate) await AsyncStorage.setItem('THEME',data);
     dispatch(setTheme_(data));
@@ -132,28 +161,39 @@ var setTheme = (data,noUpdate) => async (dispatch, getState) => {
 }
 
 // Clan Level Selections
-var levelSelect_ = (data) => ({ type: "LEVEL_SELECT", data: data })
-var levelSelect = (data,noUpdate) => async (dispatch, getState) => {
+var levelSelect_ = (data: any) => ({
+  type: "LEVEL_SELECT",
+  data: data
+})
+var levelSelect = (data: any,noUpdate: any) => async (dispatch: any, getState: any) => {
   if(!noUpdate) await AsyncStorage.setItem('LEVEL_SELECT',stringify({...getState().clanLevelSelect,...data}));
   dispatch(levelSelect_(data));
 }
 
 // Settings
-var settings_ = (data) => ({ type: "SETTINGS", data: data })
-var settings = (data,noUpdate) => async (dispatch, getState) => {
+var settings_ = (data: any) => ({
+  type: "SETTINGS",
+  data: data
+})
+var settings = (data: any,noUpdate: any) => async (dispatch: any, getState: any) => {
   if(!noUpdate) await AsyncStorage.setItem('CUPPAZEE_SETTINGS',stringify({...getState().settings,...data}));
   dispatch(settings_(data));
 }
 
 // Mini Sidebar
-var mini = (data) => ({ type: "MINI", data: data })
+var mini = (data: any) => ({
+  type: "MINI",
+  data: data
+})
 
-var rootReducer = (state = defaultState, action) => {
+var rootReducer = (state = defaultState, action: any) => {
   switch (action.type) {
     case 'ADD_REQUEST':
+      // @ts-expect-error ts-migrate(2339) FIXME: Property 'page' does not exist on type 'never'.
       if(state.requests.find(i=>i.page==stringify(action.page))) {
         return {
           ...state,
+          // @ts-expect-error ts-migrate(2339) FIXME: Property 'page' does not exist on type 'never'.
           requests: state.requests.map(i=>i.page==stringify(action.page)?{...i,count:i.count+1}:i)
         }
       } else {
@@ -163,14 +203,17 @@ var rootReducer = (state = defaultState, action) => {
         }
       }
     case 'REMOVE_REQUEST':
+      // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
       if(state.requests.find(i=>i.page==stringify(action.page)).count>0) {
         return {
           ...state,
+          // @ts-expect-error ts-migrate(2339) FIXME: Property 'page' does not exist on type 'never'.
           requests: state.requests.map(i=>i.page==stringify(action.page)?{...i,count:i.count-1}:i)
         }
       } else {
         return {
           ...state,
+          // @ts-expect-error ts-migrate(2339) FIXME: Property 'page' does not exist on type 'never'.
           requests: state.requests.filter(i=>i.page!=stringify(action.page))
         }
       }
@@ -183,6 +226,7 @@ var rootReducer = (state = defaultState, action) => {
       return {
         ...state,
         loggedIn: Object.keys(action.data).length>0,
+        // @ts-expect-error ts-migrate(2698) FIXME: Spread types may only be created from object types... Remove this comment to see the full error message
         logins: {...state.logins,...action.data},
         loadingLogin: false,
       }
@@ -195,9 +239,11 @@ var rootReducer = (state = defaultState, action) => {
       }
     case 'SET_REQUEST_DATA':
       var data = {};
+      // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       data[action.page] = action.data;
       return {
         ...state,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'page' does not exist on type 'never'.
         requests: state.requests.map(i=>stringify(i.page)===action.page?{...i,expires:Date.now()+(20*60000)}:i),
         request_data: {
           ...state.request_data,
@@ -261,8 +307,9 @@ var rootReducer = (state = defaultState, action) => {
 }
 
 
+// @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
 const store = createStore(rootReducer, applyMiddleware(thunk));
-var intervalID = null;
+var intervalID: any = null;
 function startLoop() {
   if(intervalID!==null) clearInterval(intervalID);
   intervalID = setInterval(refreshRequests,60000,store);
@@ -271,8 +318,9 @@ function stopLoop() {
   if(intervalID!==null) clearInterval(intervalID);
 }
 startLoop();
-AppState.addEventListener('change',function(state) {
+AppState.addEventListener('change',function(state: any) {
   if(state==="active") {
+    // @ts-expect-error ts-migrate(2554) FIXME: Expected 2 arguments, but got 1.
     refreshRequests(store);
     startLoop();
   } else {
@@ -280,7 +328,7 @@ AppState.addEventListener('change',function(state) {
   };
 })
 
-async function getToken(user_id,data) {
+async function getToken(user_id: any,data: any) {
   try {
     var x = Object.assign({},data);
     var y = await fetch(`https://server.cuppazee.app/auth/get/v2?teaken=${encodeURIComponent(x.teaken)}&user_id=${encodeURIComponent(user_id)}&from=${encodeURIComponent(FROM)}`)
@@ -301,7 +349,7 @@ async function loadData() {
     AsyncStorage.getItem('CUPPAZEE_SETTINGS'),
     AsyncStorage.getItem('CUPPAZEE_VERSION'),
     AsyncStorage.getItem('CUPPAZEE_TEAKENS')
-  ])).map(i=>i?.value);
+  ])).map((i: any) => i?.value);
   if(clan_bookmarks) store.dispatch(clanBookmarks(JSON.parse(clan_bookmarks),true));
   if(user_bookmarks) {
     store.dispatch(userBookmarks(JSON.parse(user_bookmarks),true))
@@ -314,6 +362,7 @@ async function loadData() {
         username: teaken_data[user_id].username
       })
     }
+    // @ts-expect-error ts-migrate(2554) FIXME: Expected 2 arguments, but got 1.
     store.dispatch(userBookmarks(user_bookmark_list))
   };
   if(code) store.dispatch(setCode(code,true));
@@ -323,6 +372,7 @@ async function loadData() {
   if(version) {
     store.dispatch(cuppazeeVersion(Number(version),true));
   } else {
+    // @ts-expect-error ts-migrate(2554) FIXME: Expected 2 arguments, but got 1.
     store.dispatch(cuppazeeVersion(Math.max(...Object.keys(changelogs).map(Number))));
   }
   
@@ -330,6 +380,7 @@ async function loadData() {
     var teakens_data = JSON.parse(teakens)
     var token_data = await Promise.all(Object.keys(teakens_data).map(async user=>[user,await getToken(user,teakens_data[user])]))
     var final_data = {};
+    // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
     for(var token of token_data) final_data[token[0]] = token[1];
     store.dispatch(login(final_data,true));
   } else {

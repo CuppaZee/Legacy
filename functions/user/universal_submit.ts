@@ -1,5 +1,8 @@
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'request'.
 var {request} = require("../util");
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'admin'.
 const admin = require('firebase-admin');
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'types'.
 const types = require('./universal_types.json');
 
 module.exports = {
@@ -13,10 +16,13 @@ module.exports = {
           type: "user_id",
         },
       },
-      async function({ params: { code, access_token }, db }) {
+      async function({
+        params: { code, access_token },
+        db
+      }: any) {
         var codeData = code.match(/(?:https?:\/\/(?:www.)?)?(?:munzee.com)?\/?m\/([^/]{0,30})\/([0-9]+)\/([0-9a-zA-Z]{6})/);
         var munzee = await request('munzee', { url: `/m/${codeData[1]}/${codeData[2]}` }, access_token);
-        var type = types.find(i=>i.icon === munzee.pin_icon);
+        var type = types.find((i: any) => i.icon === munzee.pin_icon);
         if(!type) {
           return {
             status: "success",

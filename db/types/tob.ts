@@ -81,7 +81,7 @@ module.exports = [
     "icon": "chimera",
     "id": 1329,
     "state": "bouncer",
-    "lands_on": ["munzee",":virtual","shamrock",i=>i.elemental,":jewel",":clan"]
+    "lands_on": ["munzee",":virtual","shamrock",(i: any) => i.elemental,":jewel",":clan"]
   },
   {
     "name": "Chimera Virtual Host",
@@ -109,7 +109,7 @@ module.exports = [
     "icon": "hadavale",
     "id": 1745,
     "state": "bouncer",
-    "lands_on": ["icemystery","premium","shamrock","mystery",":reseller",i=>(i.evolution&&i.evolution.stage==1),"airmystery"]
+    "lands_on": ["icemystery","premium","shamrock","mystery",":reseller",(i: any) => i.evolution&&i.evolution.stage==1,"airmystery"]
   },
   {
     "name": "Hadavale Host",
@@ -130,13 +130,13 @@ module.exports = [
     "icon": "gorgon",
     "id": 1929,
     "state": "bouncer",
-    "lands_on": ["munzee","premium","shamrock",i=>i.zodiac=="western",":jewel","virtual_gold","virtual_yellow","virtual_goldenrod","virtual_dandelion"]
+    "lands_on": ["munzee","premium","shamrock",(i: any) => i.zodiac=="western",":jewel","virtual_gold","virtual_yellow","virtual_goldenrod","virtual_dandelion"]
   },
   {
     "name": "Mother Earth",
     "icon": "motherearth",
     "id": 2337,
     "state": "bouncer",
-    "lands_on": ["munzee","shamrock",i=>i.elemental,i=>(i.virtual_colors||[]).includes('brown'),i=>(i.virtual_colors||[]).includes('green')]
+    "lands_on": ["munzee","shamrock",(i: any) => i.elemental,(i: any) => (i.virtual_colors||[]).includes('brown'),(i: any) => (i.virtual_colors||[]).includes('green')]
   }
 ]

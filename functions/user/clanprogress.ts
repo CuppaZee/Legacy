@@ -1,4 +1,6 @@
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var {retrieve,request,mhq} = require("../util");
+// @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'calculate'.
 var calculate = require("../util/clancalculator");
 
 module.exports = {
@@ -12,7 +14,10 @@ module.exports = {
           type: "user_id",
         },
       },
-      async function({ params: { user_id }, db }) {
+      async function({
+        params: { user_id },
+        db
+      }: any) {
         var token = await retrieve(db, { user_id, teaken: false }, 60);
         var dates = [];
         var time = mhq();

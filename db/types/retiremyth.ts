@@ -46,21 +46,21 @@ module.exports = [
     "icon": "retiredmermaid",
     "id": 1541,
     "state": "bouncer",
-    "lands_on": ["munzee","watermystery",i=>(i.category=="jewel"&&i.state=="physical")]
+    "lands_on": ["munzee","watermystery",(i: any) => i.category=="jewel"&&i.state=="physical"]
   },
   {
     "name": "Retired Pegasus",
     "icon": "retiredpegasus",
     "id": 1542,
     "state": "bouncer",
-    "lands_on": [i=>i.category=="virtual","airmystery","electricmystery"]
+    "lands_on": [(i: any) => i.category=="virtual","airmystery","electricmystery"]
   },
   {
     "name": "Retired Cyclops",
     "icon": "retiredcyclops",
     "id": 1543,
     "state": "bouncer",
-    "lands_on": [i=>(i.category=="jewel"&&i.id!=148)]
+    "lands_on": [(i: any) => i.category=="jewel"&&i.id!=148]
   },
   {
     "name": "Retired Fairy",
@@ -74,7 +74,7 @@ module.exports = [
     "icon": "retiredbanshee",
     "id": 2052,
     "state": "bouncer",
-    "lands_on": ["munzee","shamrock","airmystery",i=>(i.virtual_colors||[]).includes("black"),i=>(i.virtual_colors||[]).includes("green")]
+    "lands_on": ["munzee","shamrock","airmystery",(i: any) => (i.virtual_colors||[]).includes("black"),(i: any) => (i.virtual_colors||[]).includes("green")]
   },
   {
     "name": "Zombie Tuli",

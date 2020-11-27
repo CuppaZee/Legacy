@@ -1,3 +1,4 @@
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'config'.
 var config = require('../config.json');
 var sendEmail = require('../util/nodemailer');
 
@@ -8,7 +9,9 @@ module.exports = {
     {
       version: 1,
       params: {},
-      async function({ params: {key} }) {
+      async function({
+        params: {key}
+      }: any) {
         if(key!==config.emails.clanreq.key) {
           return {
             status: "error",

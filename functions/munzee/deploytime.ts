@@ -1,3 +1,4 @@
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var { retrieve, request } = require("../util");
 
 module.exports = {
@@ -11,7 +12,11 @@ module.exports = {
           type: "userid",
         },
       },
-      async function({ params: { url }, db, res }) {
+      async function({
+        params: { url },
+        db,
+        res
+      }: any) {
         if (!url) {
           return res.send('Missing URL')
         }

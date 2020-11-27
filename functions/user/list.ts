@@ -5,7 +5,9 @@ module.exports = {
     {
       version: 1,
       params: {},
-      async function({ db }) {
+      async function({
+        db
+      }: any) {
         var data = (await db.collection('data').doc('user_list').get()).data();
         return {
           status: "success",

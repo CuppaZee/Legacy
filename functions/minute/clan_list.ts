@@ -1,4 +1,5 @@
 var clanlistjson = require('./clanlist.json');
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var { retrieve, request } = require('../util');
 module.exports = {
   path: "minute/clanlist",
@@ -7,7 +8,9 @@ module.exports = {
     {
       version: 1,
       params: {},
-      async function({ db }) {
+      async function({
+        db
+      }: any) {
         var token = await retrieve(db, { user_id: 455935, teaken: false }, 60)
         var clans = (await db.collection('data').doc('clans').get()).data();
         var array = [];

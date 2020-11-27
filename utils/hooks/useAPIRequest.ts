@@ -1,37 +1,40 @@
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { useCallback, useEffect, useState } from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { useSelector, useDispatch } from 'react-redux';
 import { useFocusEffect } from '@react-navigation/native'
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/store/request' or its co... Remove this comment to see the full error message
 import request from 'utils/store/request';
 import stringify from 'fast-json-stable-stringify';
 
-export default function useAPIRequest (reqData, includeStatus, waitForAll) {
+export default function useAPIRequest (reqData: any, includeStatus: any, waitForAll: any) {
   // Convert to Array if not already
   const isArray = Array.isArray(reqData);
   if(!isArray) reqData = [reqData];
 
   // Stringify RequestData
-  const stringifiedData = reqData.map(i=>i?stringify({...i,extraData:undefined}):i);
+  const stringifiedData = reqData.map((i: any) => i?stringify({...i,extraData:undefined}):i);
 
   // Add Requests
   const dispatch = useDispatch();
   useFocusEffect(
     useCallback(() => {
-      for(let req of reqData.filter(i=>i)) dispatch(request.add({...req,extraData:undefined}));
+      for(let req of reqData.filter((i: any) => i)) dispatch(request.add({...req,extraData:undefined}));
       return () => {
-        for(let req of reqData.filter(i=>i)) dispatch(request.remove({...req,extraData:undefined}));
+        for(let req of reqData.filter((i: any) => i)) dispatch(request.remove({...req,extraData:undefined}));
       };
     },[stringify(reqData)])
   )
   
   // Get Request Responses
-  const raw_data = useSelector(i => stringifiedData.map(req=>req?i.request_data[req]:undefined));
+  const raw_data = useSelector((i: any) => stringifiedData.map((req: any) => req?i.request_data[req]:undefined));
   const [data,setData] = useState([]);
 
   useEffect(()=>{
     var d = [];
     var i = 0;
     for(let dat of raw_data) {
-      if(waitForAll && raw_data.some(i=>!i)) {
+      if(waitForAll && raw_data.some((i: any) => !i)) {
         d.push(null);
       } else if(dat&&data[i]&&dat.id===data[i].id) {
         d.push(data[i]);
@@ -45,7 +48,7 @@ export default function useAPIRequest (reqData, includeStatus, waitForAll) {
       i++;
     }
     setData(d);
-  },[stringify([...raw_data.map(i=>i?.id),...reqData.map(i=>stringify(i?.extraData))])])
+  },[stringify([...raw_data.map((i: any) => i?.id),...reqData.map((i: any) => stringify(i?.extraData))])])
 
   if(includeStatus) {
     // If Input is not array, return first element of Array
@@ -58,7 +61,7 @@ export default function useAPIRequest (reqData, includeStatus, waitForAll) {
     };
   
     // Return Array
-    return data.map(i=>i?({
+    return data.map((i: any) => i?({
       data: i?.data,
       status: i?.status
     }):({
@@ -71,28 +74,28 @@ export default function useAPIRequest (reqData, includeStatus, waitForAll) {
   if(!isArray) return data[0]?.data;
 
   // Return Array
-  return data.map(i=>i?.data);
+  return data.map((i: any) => i?.data);
 }
 
-export function useAPIRequestWithoutNav (reqData, includeStatus) {
+export function useAPIRequestWithoutNav (reqData: any, includeStatus: any) {
   // Convert to Array if not already
   const isArray = Array.isArray(reqData);
   if(!isArray) reqData = [reqData];
 
   // Stringify RequestData
-  const stringifiedData = reqData.map(i=>i?stringify({...i,extraData:undefined}):i);
+  const stringifiedData = reqData.map((i: any) => i?stringify({...i,extraData:undefined}):i);
 
   // Add Requests
   const dispatch = useDispatch();
   useEffect(() => {
-    for(let req of reqData.filter(i=>i)) dispatch(request.add({...req,extraData:undefined}));
+    for(let req of reqData.filter((i: any) => i)) dispatch(request.add({...req,extraData:undefined}));
     return () => {
-      for(let req of reqData.filter(i=>i)) dispatch(request.remove({...req,extraData:undefined}));
+      for(let req of reqData.filter((i: any) => i)) dispatch(request.remove({...req,extraData:undefined}));
     };
   },[stringify(reqData)])
   
   // Get Request Responses
-  const raw_data = useSelector(i => stringifiedData.map(req=>req?i.request_data[req]:undefined));
+  const raw_data = useSelector((i: any) => stringifiedData.map((req: any) => req?i.request_data[req]:undefined));
   const [data,setData] = useState([]);
 
   useEffect(()=>{
@@ -111,7 +114,7 @@ export function useAPIRequestWithoutNav (reqData, includeStatus) {
       i++;
     }
     setData(d);
-  },[[...raw_data.map(i=>i?.id),...reqData.map(i=>stringify(i?.extraData))].join(',')])
+  },[[...raw_data.map((i: any) => i?.id),...reqData.map((i: any) => stringify(i?.extraData))].join(',')])
 
   if(includeStatus) {
     // If Input is not array, return first element of Array
@@ -124,7 +127,7 @@ export function useAPIRequestWithoutNav (reqData, includeStatus) {
     };
   
     // Return Array
-    return data.map(i=>i?({
+    return data.map((i: any) => i?({
       data: i?.data,
       status: i?.status
     }):({
@@ -137,5 +140,5 @@ export function useAPIRequestWithoutNav (reqData, includeStatus) {
   if(!isArray) return data[0]?.data;
 
   // Return Array
-  return data.map(i=>i?.data);
+  return data.map((i: any) => i?.data);
 }

@@ -6,12 +6,18 @@ module.exports = {
     {
       version: 1,
       params: {},
-      async function({ db, params: { query, limit, format } }) {
+      async function({
+        db,
+        params: { query, limit, format }
+      }: any) {
         var { clans: data } = (await db.collection('data').doc('clans').get()).data();
         var list = Object.entries(data).map(i => ({
           clan_id: Number(i[0]),
+          // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
           name: i[1].name,
+          // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
           tagline: i[1].tagline,
+          // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
           logo: i[1].logo,
         }));
         if (query) {
@@ -32,7 +38,7 @@ module.exports = {
             ]
           })
 
-          list = fuse.search(query).map(i => i.item)
+          list = fuse.search(query).map((i: any) => i.item)
         }
         list = list.slice(0, Number(limit || (query ? "50" : "1000000")));
         if (format === "list") {
@@ -44,6 +50,7 @@ module.exports = {
           return {
             status: "success",
             data: list.reduce((a, b, c) => {
+              // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
               a[b.clan_id] = {
                 name: b.name,
                 tagline: b.tagline,

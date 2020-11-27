@@ -1,4 +1,5 @@
 const weeks = require('./data.json');
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 const { retrieve, request } = require('../util');
 
 module.exports = {
@@ -8,10 +9,12 @@ module.exports = {
     {
       version: 1,
       params: {},
-      async function({ db }) {
+      async function({
+        db
+      }: any) {
         try {
 
-          const week = weeks.find(i => Date.now() > new Date(i.prestart).valueOf() && Date.now() < new Date(i.finalend).valueOf())
+          const week = weeks.find((i: any) => Date.now() > new Date(i.prestart).valueOf() && Date.now() < new Date(i.finalend).valueOf())
           if (!week) {
             return {
               status: "success",
@@ -26,7 +29,7 @@ module.exports = {
   
           var token = await retrieve(db, { user_id: 455935, teaken: false }, 180, "team");
   
-          batch.players = await Promise.all(batch.players.map(async player => {
+          batch.players = await Promise.all(batch.players.map(async (player: any) => {
             try {
               if (!player.i) {
                 const player_data = await request('user', { username: player.n }, token.access_token)
@@ -40,7 +43,7 @@ module.exports = {
           }))
   
           if (Date.now() < new Date(week.start).valueOf()) {
-            batch.players = await Promise.all(batch.players.map(async player => {
+            batch.players = await Promise.all(batch.players.map(async (player: any) => {
               try {
                 if (!player.pre) {
                   const player_specials = await request('user/specials', { user_id: player.i }, token.access_token)
@@ -49,7 +52,7 @@ module.exports = {
                     if(req.custom_value) {
                       player.pre.push(0)
                     } else {
-                      let count = (player_specials.find(i => i.logo === req.type) || {}).count || 0;
+                      let count = (player_specials.find((i: any) => i.logo === req.type) || {}).count || 0;
                       player.pre.push(count);
                     }
                   }
@@ -66,7 +69,7 @@ module.exports = {
               return player;
             }))
           } else if (Date.now() < new Date(week.end).valueOf()) {
-            batch.players = await Promise.all(batch.players.map(async player => {
+            batch.players = await Promise.all(batch.players.map(async (player: any) => {
               if(!player.i) return player;
               try {
                 let player_specials = await request('user/specials', { user_id: player.i }, token.access_token)
@@ -81,7 +84,7 @@ module.exports = {
                     if(req.custom_value) {
                       player.fpre.push(0)
                     } else {
-                      let count = Number((player_specials.find(i => i.logo === req.type) || {}).count || 0);
+                      let count = Number((player_specials.find((i: any) => i.logo === req.type) || {}).count || 0);
                       if((player.pre||[])[player.fpre.length] !== count) {
                         for(let page = 0;page < 10;page++) {
                           const player_type_captures = await request('user/captures/special',{
@@ -112,7 +115,7 @@ module.exports = {
                     player.d.push(count);
                     player.p += count * req.points;
                   } else {
-                    let count = Number((player_specials.find(i => i.logo === req.type) || {}).count || 0);
+                    let count = Number((player_specials.find((i: any) => i.logo === req.type) || {}).count || 0);
                     count = (count || 0) - (fpre[player.d.length] || 0);
                     player.d.push(count);
                     player.p += count * req.points;
@@ -132,7 +135,7 @@ module.exports = {
               return player;
             }))
           } else if (Date.now() < new Date(week.finalend).valueOf()) {
-            batch.players = await Promise.all(batch.players.map(async player => {
+            batch.players = await Promise.all(batch.players.map(async (player: any) => {
               try {
                 if (!player.fd) {
                   const player_specials = await request('user/specials', { user_id: player.i }, token.access_token)
@@ -145,7 +148,7 @@ module.exports = {
                       player.fd.push(count);
                       player.fp += count * req.points;
                     } else {
-                      let count = Number((player_specials.find(i => i.logo === req.type) || {}).count || 0);
+                      let count = Number((player_specials.find((i: any) => i.logo === req.type) || {}).count || 0);
                       count -= fpre[player.fd.length];
                       if(player.d[player.fd.length] !== count) {
                         const player_type_captures = await request('user/captures/special',{

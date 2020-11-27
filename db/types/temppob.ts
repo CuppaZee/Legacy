@@ -4,7 +4,7 @@ module.exports = [
     "icon": "butterfly",
     "id": 1830,
     "state": "bouncer",
-    "lands_on": ["skyland","farmer","farmerandwife","family","pottedplant","garden","field","peasplant","carrotplant","goldencarrotplant","tomatoplant","cornstalk",i=>(i.evolution&&["tulipseed","roseseed","carnationseed","lilyseed"].includes(i.evolution.base)&&i.evolution.stage>=3),i=>i.seasonal,"trail","munzee","virtual_rainbow"],
+    "lands_on": ["skyland","farmer","farmerandwife","family","pottedplant","garden","field","peasplant","carrotplant","goldencarrotplant","tomatoplant","cornstalk",(i: any) => i.evolution&&["tulipseed","roseseed","carnationseed","lilyseed"].includes(i.evolution.base)&&i.evolution.stage>=3,(i: any) => i.seasonal,"trail","munzee","virtual_rainbow"],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -22,7 +22,7 @@ module.exports = [
     "icon": "morphobutterfly",
     "id": 1840,
     "state": "bouncer",
-    "lands_on": ["skyland","farmer","farmerandwife","family","pottedplant","garden","field","peasplant","carrotplant","goldencarrotplant","tomatoplant","cornstalk",i=>(i.evolution&&["tulipseed","roseseed","carnationseed","lilyseed"].includes(i.evolution.base)&&i.evolution.stage>=3),i=>i.seasonal,"trail","munzee","virtual_rainbow"],
+    "lands_on": ["skyland","farmer","farmerandwife","family","pottedplant","garden","field","peasplant","carrotplant","goldencarrotplant","tomatoplant","cornstalk",(i: any) => i.evolution&&["tulipseed","roseseed","carnationseed","lilyseed"].includes(i.evolution.base)&&i.evolution.stage>=3,(i: any) => i.seasonal,"trail","munzee","virtual_rainbow"],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -37,7 +37,7 @@ module.exports = [
     "icon": "monarchbutterfly",
     "id": 1841,
     "state": "bouncer",
-    "lands_on": ["skyland","farmer","farmerandwife","family","pottedplant","garden","field","peasplant","carrotplant","goldencarrotplant","tomatoplant","cornstalk",i=>(i.evolution&&["tulipseed","roseseed","carnationseed","lilyseed"].includes(i.evolution.base)&&i.evolution.stage>=3),i=>i.seasonal,"trail","munzee","virtual_rainbow"],
+    "lands_on": ["skyland","farmer","farmerandwife","family","pottedplant","garden","field","peasplant","carrotplant","goldencarrotplant","tomatoplant","cornstalk",(i: any) => i.evolution&&["tulipseed","roseseed","carnationseed","lilyseed"].includes(i.evolution.base)&&i.evolution.stage>=3,(i: any) => i.seasonal,"trail","munzee","virtual_rainbow"],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -52,7 +52,7 @@ module.exports = [
     "icon": "limebutterfly",
     "id": 1842,
     "state": "bouncer",
-    "lands_on": ["skyland","farmer","farmerandwife","family","pottedplant","garden","field","peasplant","carrotplant","goldencarrotplant","tomatoplant","cornstalk",i=>(i.evolution&&["tulipseed","roseseed","carnationseed","lilyseed"].includes(i.evolution.base)&&i.evolution.stage>=3),i=>i.seasonal,"trail","munzee","virtual_rainbow"],
+    "lands_on": ["skyland","farmer","farmerandwife","family","pottedplant","garden","field","peasplant","carrotplant","goldencarrotplant","tomatoplant","cornstalk",(i: any) => i.evolution&&["tulipseed","roseseed","carnationseed","lilyseed"].includes(i.evolution.base)&&i.evolution.stage>=3,(i: any) => i.seasonal,"trail","munzee","virtual_rainbow"],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -81,7 +81,7 @@ module.exports = [
     "icon": "frog",
     "id": 2067,
     "state": "bouncer",
-    "lands_on": ["musclecar",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)&&i.evolution.stage>=3),"earthmystery","watermystery","trail","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "lands_on": ["musclecar",(i: any) => i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)&&i.evolution.stage>=3,"earthmystery","watermystery","trail","munzee",(i: any) => (i.virtual_colors||[]).includes("green")],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -99,7 +99,7 @@ module.exports = [
     "icon": "treefrog",
     "id": 2110,
     "state": "bouncer",
-    "lands_on": ["skyland","musclecar",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)&&i.evolution.stage>=3),"earthmystery","watermystery","trail","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "lands_on": ["skyland","musclecar",(i: any) => i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)&&i.evolution.stage>=3,"earthmystery","watermystery","trail","munzee",(i: any) => (i.virtual_colors||[]).includes("green")],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -114,7 +114,7 @@ module.exports = [
     "icon": "poisondartfrog",
     "id": 2111,
     "state": "bouncer",
-    "lands_on": ["skyland","musclecar",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)&&i.evolution.stage>=3),"earthmystery","watermystery","trail","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "lands_on": ["skyland","musclecar",(i: any) => i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)&&i.evolution.stage>=3,"earthmystery","watermystery","trail","munzee",(i: any) => (i.virtual_colors||[]).includes("green")],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -129,7 +129,7 @@ module.exports = [
     "icon": "tomatofrog",
     "id": 2112,
     "state": "bouncer",
-    "lands_on": ["skyland","musclecar",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)&&i.evolution.stage>=3),"earthmystery","watermystery","trail","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "lands_on": ["skyland","musclecar",(i: any) => i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)&&i.evolution.stage>=3,"earthmystery","watermystery","trail","munzee",(i: any) => (i.virtual_colors||[]).includes("green")],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -158,7 +158,7 @@ module.exports = [
     "icon": "hedgehog",
     "id": 2427,
     "state": "bouncer",
-    "lands_on": ["skyland","treehouse","earthmystery","icemystery","flatlou",i=>(i.category=="virtual"&&!['virtual','virtual_black','virtual_timberwolf','virtual_gray','virtual_silver'].includes(i.icon))],
+    "lands_on": ["skyland","treehouse","earthmystery","icemystery","flatlou",(i: any) => i.category=="virtual"&&!['virtual','virtual_black','virtual_timberwolf','virtual_gray','virtual_silver'].includes(i.icon)],
     "extra": {
       "baby_animal": true
     },
@@ -169,7 +169,7 @@ module.exports = [
     "icon": "polarbear",
     "id": 2428,
     "state": "bouncer",
-    "lands_on": ["skyland","treehouse","earthmystery","icemystery","flatlou",i=>(i.category=="virtual"&&!['virtual','virtual_black','virtual_timberwolf','virtual_gray','virtual_silver'].includes(i.icon))],
+    "lands_on": ["skyland","treehouse","earthmystery","icemystery","flatlou",(i: any) => i.category=="virtual"&&!['virtual','virtual_black','virtual_timberwolf','virtual_gray','virtual_silver'].includes(i.icon)],
     "extra": {
       "baby_animal": true
     },
@@ -199,7 +199,7 @@ module.exports = [
     "icon": "turtle",
     "id": "null_turtle",
     "state": "bouncer",
-    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "lands_on": ["treehouse","skyland",(i: any) => i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base),"earthmystery","watermystery","munzee",(i: any) => (i.virtual_colors||[]).includes("green")],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -217,7 +217,7 @@ module.exports = [
     "icon": "seaturtle",
     "id": "null_seaturtle",
     "state": "bouncer",
-    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "lands_on": ["treehouse","skyland",(i: any) => i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base),"earthmystery","watermystery","munzee",(i: any) => (i.virtual_colors||[]).includes("green")],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -232,7 +232,7 @@ module.exports = [
     "icon": "snappingturtle",
     "id": "null_snappingturtle",
     "state": "bouncer",
-    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "lands_on": ["treehouse","skyland",(i: any) => i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base),"earthmystery","watermystery","munzee",(i: any) => (i.virtual_colors||[]).includes("green")],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -247,7 +247,7 @@ module.exports = [
     "icon": "taekwondotortoise",
     "id": "null_taekwondotortoise",
     "state": "bouncer",
-    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "lands_on": ["treehouse","skyland",(i: any) => i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base),"earthmystery","watermystery","munzee",(i: any) => (i.virtual_colors||[]).includes("green")],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -262,7 +262,7 @@ module.exports = [
     "icon": "jellyfish",
     "id": "null_jellyfish",
     "state": "bouncer",
-    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "lands_on": ["treehouse","skyland",(i: any) => i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base),"earthmystery","watermystery","munzee",(i: any) => (i.virtual_colors||[]).includes("green")],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -279,7 +279,7 @@ module.exports = [
     "icon": "boxjellyfish",
     "id": "null_boxjellyfish",
     "state": "bouncer",
-    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "lands_on": ["treehouse","skyland",(i: any) => i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base),"earthmystery","watermystery","munzee",(i: any) => (i.virtual_colors||[]).includes("green")],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -294,7 +294,7 @@ module.exports = [
     "icon": "goldenjellyfish",
     "id": "null_goldenjellyfish",
     "state": "bouncer",
-    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "lands_on": ["treehouse","skyland",(i: any) => i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base),"earthmystery","watermystery","munzee",(i: any) => (i.virtual_colors||[]).includes("green")],
     "extra": {
       "evolution": {
         "set": "nature",
@@ -309,7 +309,7 @@ module.exports = [
     "icon": "pb&jellyfish",
     "id": "null_pb&jellyfish",
     "state": "bouncer",
-    "lands_on": ["treehouse","skyland",i=>(i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base)),"earthmystery","watermystery","munzee",i=>(i.virtual_colors||[]).includes("green")],
+    "lands_on": ["treehouse","skyland",(i: any) => i.evolution&&["seaweed","canoe","safaritruck"].includes(i.evolution.base),"earthmystery","watermystery","munzee",(i: any) => (i.virtual_colors||[]).includes("green")],
     "extra": {
       "evolution": {
         "set": "nature",

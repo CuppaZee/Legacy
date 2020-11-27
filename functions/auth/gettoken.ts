@@ -1,4 +1,6 @@
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var {retrieve} = require("../util");
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'config'.
 var config = require('../config.json');
 
 module.exports = {
@@ -12,7 +14,10 @@ module.exports = {
           type: "userid",
         },
       },
-      async function({ params: { teaken, user_id, time }, db }) {
+      async function({
+        params: { teaken, user_id, time },
+        db
+      }: any) {
         if(Date.now() > 1593227045659) return {
           status: "error",
           data: null
@@ -40,7 +45,10 @@ module.exports = {
           type: "userid",
         },
       },
-      async function({ params: { teaken, user_id, time }, db }) {
+      async function({
+        params: { teaken, user_id, time },
+        db
+      }: any) {
         if(config.bypass_teakens.includes(teaken)) {
           teaken = false;
         }

@@ -1,5 +1,6 @@
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var { retrieve, request } = require("../util");
-var rndKey = (length) => {
+var rndKey = (length: any) => {
   var x = '';
   for (var i = 0; i < length; i++) {
     x += Math.floor(Math.random() * 10000).toString(36);
@@ -18,7 +19,10 @@ module.exports = {
           type: "userid",
         },
       },
-      async function({ params: { user_id, day }, db }) {
+      async function({
+        params: { user_id, day },
+        db
+      }: any) {
         var token = await retrieve(db, { user_id, teaken: false }, 60);
         if (!token) {
           return {
@@ -36,20 +40,20 @@ module.exports = {
         return {
           status: "success",
           data: Object.assign({}, data, {
-            captures: data.captures.map(i => ({
+            captures: data.captures.map((i: any) => ({
               ...i,
               key: rndKey(3)
             })),
-            deploys: data.deploys.map(i => ({
+            deploys: data.deploys.map((i: any) => ({
               ...i,
               key: rndKey(3)
             })),
-            captures_on: data.captures_on.map(i => ({
+            captures_on: data.captures_on.map((i: any) => ({
               ...i,
               key: rndKey(3)
             }))
           })
-        }
+        };
       },
     },
   ],

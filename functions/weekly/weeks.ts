@@ -10,8 +10,8 @@ module.exports = {
       async function() {
         return {
           status: "success",
-          data: data.filter(i=>new Date(i.reveal).valueOf()<Date.now()).reverse(),
-        }
+          data: data.filter((i: any) => new Date(i.reveal).valueOf()<Date.now()).reverse(),
+        };
       }
     }
   ]

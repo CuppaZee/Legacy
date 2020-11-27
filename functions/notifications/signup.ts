@@ -1,3 +1,4 @@
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'Expo'.
 var { Expo } = require('expo-server-sdk');
 
 module.exports = {
@@ -7,7 +8,10 @@ module.exports = {
     {
       version: 1,
       params: {},
-      async function({ params: { data }, db }) {
+      async function({
+        params: { data },
+        db
+      }: any) {
         var d = JSON.parse(data);
         if (!Expo.isExpoPushToken(d.token)) {
           console.error(`Push token ${d.token} is not a valid Expo push token`);

@@ -1,5 +1,6 @@
 var fs = require('fs');
 var path = require('path');
+// @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'points'.
 var points = require('./points');
 
 const colors = {
@@ -34,7 +35,7 @@ const colors = {
   }
 };
 
-var munzees = [];
+var munzees: any = [];
 var categories = [];
 
 console.log(`${colors.bg.Green}${colors.fg.Black} Generating Types... ${colors.Reset}`)
@@ -69,7 +70,7 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Destinations${colors.Reset} from ${colors.fg.Green}./types/destination.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/destination.json').map(i => ({
+munzees = munzees.concat(require('./types/destination.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   alt_icons: i.type == "bouncer" ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(x => `${i.icon}${x}`) : undefined,
@@ -84,12 +85,9 @@ munzees = munzees.concat(require('./types/destination.json').map(i => ({
   },
 
   can_swap: i.state == "physical" || undefined,
-
   capture_radius: (i.state == "virtual" && i.type != "room") ? 500 : undefined,
-
   state: i.state,
   category: "destination",
-
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
@@ -103,16 +101,13 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Custom Events${colors.Reset} from ${colors.fg.Green}./types/event.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/event.json').map(i => ({
+munzees = munzees.concat(require('./types/event.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
   event: "custom",
-
   state: "physical",
   category: "event",
-
   points: i.points,
   missingicon: i.missingicon,
   completion: "complete",
@@ -129,7 +124,7 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Evolutions${colors.Reset} from ${colors.fg.Green}./types/evolution.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/evolution.json').map(i => ({
+munzees = munzees.concat(require('./types/evolution.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
@@ -139,18 +134,20 @@ munzees = munzees.concat(require('./types/evolution.json').map(i => ({
     set: i.set,
     base: i.base,
   },
+
   inventory: i.inventory,
   ...(i.extra || {}),
 
+  // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   points: i.points || `evo_${{
     farm: "original",
     education: "original",
     reseller: "original",
     nature: i.base.includes('seed') ? "flower" : "animal"
   }[i.set]}_${i.stage}`,
+
   state: i.state,
   category: "evolution_" + i.set,
-
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/evolution.json"
@@ -192,7 +189,7 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Fancy Flats${colors.Reset} from ${colors.fg.Green}./types/fancyflat.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/fancyflat.json').map(i => ({
+munzees = munzees.concat(require('./types/fancyflat.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
@@ -211,7 +208,7 @@ munzees = munzees.concat(require('./types/fancyflat.json').map(i => ({
         duration: 12,
         lands_on: [
           i.flat_type,
-          x => (x.virtual_colors || []).includes(i.color),
+          (x: any) => (x.virtual_colors || []).includes(i.color),
           ...(i.lands_on || [])
         ]
       },
@@ -233,17 +230,14 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Flats${colors.Reset} from ${colors.fg.Green}./types/flat.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/flat.json').map(i => ({
+munzees = munzees.concat(require('./types/flat.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
   flat: true,
   unique: i.unique,
-
   state: "virtual",
   category: "flat",
-
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
@@ -258,16 +252,13 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Gaming${colors.Reset} from ${colors.fg.Green}./types/gaming.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/gaming.json').map(i => ({
+munzees = munzees.concat(require('./types/gaming.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
   gaming: true,
-
   state: i.state,
   category: "gaming",
-
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
@@ -281,18 +272,14 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Jewels${colors.Reset} from ${colors.fg.Green}./types/jewel.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/jewel.json').map(i => ({
+munzees = munzees.concat(require('./types/jewel.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
   jewel: true,
-
   state: i.state,
   category: "jewel",
-
   ...(i.extra || {}),
-
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
@@ -306,16 +293,14 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Virtuals${colors.Reset} from ${colors.fg.Green}./types/virtual.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/virtual.json').map(i => ({
+munzees = munzees.concat(require('./types/virtual.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
   virtual_colors: i.virtual_colors,
   ...(i.extra || {}),
   state: i.state,
   category: "virtual",
-
   points: "virtual",
   completion: "complete",
   hidden: i.hidden,
@@ -330,15 +315,13 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Misc${colors.Reset} from ${colors.fg.Green}./types/misc.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/misc.json').map(i => ({
+munzees = munzees.concat(require('./types/misc.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
   ...(i.extra || {}),
   state: i.state,
   category: "misc",
-
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
@@ -352,16 +335,13 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Mysteries${colors.Reset} from ${colors.fg.Green}./types/mystery.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/mystery.json').map(i => ({
+munzees = munzees.concat(require('./types/mystery.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
   elemental: i.elemental,
-
   state: i.state,
   category: "mystery",
-
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
@@ -375,7 +355,7 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Mythologicals${colors.Reset} from ${colors.fg.Green}./types/myth.js${colors.Reset}`)
-munzees = munzees.concat(require('./types/myth').map(i => ({
+munzees = munzees.concat(require('./types/myth').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
@@ -400,6 +380,7 @@ munzees = munzees.concat(require('./types/myth').map(i => ({
       state: "bouncer",
       category: "myth_" + i.type
     }),
+
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
@@ -431,18 +412,14 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}POIs${colors.Reset} from ${colors.fg.Green}./types/poi.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/poi.json').map(i => ({
+munzees = munzees.concat(require('./types/poi.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
   poi: true,
-
   state: "virtual",
   category: "poi",
-
   ...(i.extra || {}),
-
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
@@ -457,16 +434,13 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Resellers${colors.Reset} from ${colors.fg.Green}./types/reseller.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/reseller.json').map(i => ({
+munzees = munzees.concat(require('./types/reseller.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
   reseller: true,
-
   state: "physical",
   category: "reseller",
-
   points: "reseller",
   completion: "complete",
   hidden: i.hidden,
@@ -480,18 +454,14 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Weapons${colors.Reset} from ${colors.fg.Green}./types/weapon.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/weapon.json').map(i => ({
+munzees = munzees.concat(require('./types/weapon.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
   weapon: i.weapon,
-
   state: i.state,
   category: i.weapon,
-
   ...(i.extra || {}),
-
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
@@ -512,16 +482,13 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Zodiacs${colors.Reset} from ${colors.fg.Green}./types/zodiac.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/zodiac.json').map(i => ({
+munzees = munzees.concat(require('./types/zodiac.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
   zodiac: i.zodiac,
-
   state: "physical",
   category: `${i.zodiac}_zodiac`,
-
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
@@ -547,16 +514,13 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Tourisms${colors.Reset} from ${colors.fg.Green}./types/tourism.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/tourism.json').map(i => ({
+munzees = munzees.concat(require('./types/tourism.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
   tourism: true,
-
   state: "virtual",
   category: "tourism",
-
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
@@ -570,19 +534,15 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Cards${colors.Reset} from ${colors.fg.Green}./types/cards.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/cards.json').map(i => ({
+munzees = munzees.concat(require('./types/cards.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
   card: i.open ? "open" : "limited",
   temporary: 7,
-
   ...(i.extra || {}),
-
   state: "virtual",
   category: "card",
-
   points: i.open ? "card_open" : "card_limited",
   completion: "complete",
   hidden: i.hidden,
@@ -597,7 +557,7 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Nomads${colors.Reset} from ${colors.fg.Green}./types/nomad.js${colors.Reset}`)
-munzees = munzees.concat(require('./types/nomad').map(i => ({
+munzees = munzees.concat(require('./types/nomad').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
@@ -609,10 +569,8 @@ munzees = munzees.concat(require('./types/nomad').map(i => ({
   },
 
   ...(i.extra || {}),
-
   state: "bouncer",
   category: "nomad",
-
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
@@ -626,7 +584,7 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Pouch Creatures${colors.Reset} from ${colors.fg.Green}./types/pouch.js${colors.Reset}`)
-munzees = munzees.concat(require('./types/pouch').map(i => ({
+munzees = munzees.concat(require('./types/pouch').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
@@ -653,8 +611,8 @@ munzees = munzees.concat(require('./types/pouch').map(i => ({
       state: "bouncer",
       category: "pouch_" + i.set
     }),
-  ...(i.extra || {}),
 
+  ...(i.extra || {}),
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
@@ -680,7 +638,7 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}RetireMyths${colors.Reset} from ${colors.fg.Green}./types/retiremyth.js${colors.Reset}`)
-munzees = munzees.concat(require('./types/retiremyth').map(i => ({
+munzees = munzees.concat(require('./types/retiremyth').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
@@ -694,7 +652,6 @@ munzees = munzees.concat(require('./types/retiremyth').map(i => ({
 
   state: "bouncer",
   category: i.pouch ? "zombiepouch" : "retiremyth",
-
   points: i.points,
   completion: "complete",
   hidden: i.hidden,
@@ -714,7 +671,7 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Temp POBs${colors.Reset} from ${colors.fg.Green}./types/temppob.js${colors.Reset}`)
-munzees = munzees.concat(require('./types/temppob').map(i => ({
+munzees = munzees.concat(require('./types/temppob').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
@@ -738,9 +695,9 @@ munzees = munzees.concat(require('./types/temppob').map(i => ({
       state: "bouncer",
       category: `temppob_${i.category}`
     }),
+
   ...(i.extra || {}),
   points: i.points,
-
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/temppob.js"
@@ -816,7 +773,7 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}TOBs${colors.Reset} from ${colors.fg.Green}./types/tob.js${colors.Reset}`)
-munzees = munzees.concat(require('./types/tob').map(i => ({
+munzees = munzees.concat(require('./types/tob').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
@@ -854,18 +811,15 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Scatters${colors.Reset} from ${colors.fg.Green}./types/scatter.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/scatter.json').map(i => ({
+munzees = munzees.concat(require('./types/scatter.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
-
   scatter: i.scatter,
   ...(i.extra || {}),
-
   state: i.state,
   category: i.category || "scatter",
   points: i.points,
-
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/scatter.json"
@@ -878,16 +832,14 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Universals${colors.Reset} from ${colors.fg.Green}./types/universal.json${colors.Reset}`)
-munzees = munzees.concat(require('./types/universal.json').map(i => ({
+munzees = munzees.concat(require('./types/universal.json').map((i: any) => ({
   name: i.name,
   icon: i.icon,
   id: i.id,
   ...(i.extra || {}),
-
   state: "universal",
   category: "universal",
   points: i.points,
-
   completion: "complete",
   hidden: i.hidden,
   from_file: "./types/universal.json"
@@ -901,25 +853,22 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Seasonals${colors.Reset} from ${colors.fg.Green}./types/seasonals/*.js${colors.Reset}`)
-categories = categories.concat(require('./types/seasonals').map(c => {
-  munzees = munzees.concat((c.scatters || []).map(i => ({
+categories = categories.concat(require('./types/seasonals').map((c: any) => {
+  munzees = munzees.concat((c.scatters || []).map((i: any) => ({
     name: i.name,
     icon: i.icon,
     id: i.id,
-
     scatter: i.scatter,
     capture_types: i.capture_types,
     capture_type_from: i.capture_type_from,
     ...(i.extra || {}),
-
     state: i.state,
     category: c.category,
     points: i.points,
-
     completion: "complete",
     from_file: "./types/seasonals/*.js"
   })))
-  munzees = munzees.concat((c.specials || []).map(i => ({
+  munzees = munzees.concat((c.specials || []).map((i: any) => ({
     name: i.name,
     icon: i.icon,
     id: i.id,
@@ -929,14 +878,13 @@ categories = categories.concat(require('./types/seasonals').map(c => {
       duration: i.duration,
       lands_on: i.lands_on
     },
+
     capture_types: i.capture_types,
     capture_type_from: i.capture_type_from,
     ...(i.extra || {}),
-
     state: "bouncer",
     category: c.category,
     points: i.points,
-
     completion: "complete",
     from_file: "./types/seasonals/*.js"
   })))
@@ -957,6 +905,7 @@ for (var year of [2020, 2019, 2018, 2017, 2016, 2015]) {
   categories.push({
     name: year + " Seasonal Specials",
     id: "seasonal_" + year,
+    // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
     icon: categories.slice().sort((a, b) => (b.seasonal || {}).starts - (a.seasonal || {}).starts).find(i => i.parents.includes("seasonal_" + year)).icon,
     parents: priority == 10 ? ["seasonal", "root"] : ["seasonal"],
     priority: priority
@@ -972,17 +921,17 @@ categories.push({
 })
 
 console.log(`${colors.bg.Cyan}  ${colors.Reset} Generating ${colors.fg.Cyan}Credits${colors.Reset} from ${colors.fg.Green}./types/credits.js${colors.Reset}`)
-munzees = munzees.concat(require('./types/credits.js').map(i => ({
+munzees = munzees.concat(require('./types/credits.js').map((i: any) => ({
   ...i,
   id: "credit_" + i.icon,
   category: i.category || "credit",
   credit: true,
-
   completion: "complete",
   hidden: true,
   cuppazeeExtra: i.cuppazeeExtra,
   from_file: "./types/credits.js"
 })))
+// @ts-expect-error ts-migrate(2345) FIXME: Argument of type '{ name: string; id: string; icon... Remove this comment to see the full error message
 categories.push({
   name: "Credits",
   id: "credit",
@@ -995,22 +944,27 @@ console.log(`${colors.bg.Green}${colors.fg.Black} Types Generated - Checking... 
 
 for (var munzee of munzees) {
   if (munzee.bouncer && munzee.bouncer.lands_on) {
-    let lands_on = [];
+    let lands_on: any = [];
     let index = 0;
     for (let host of munzee.bouncer.lands_on) {
       if (typeof host === "string") {
         if (host.startsWith(':')) {
+          // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'x' implicitly has an 'any' type.
           lands_on = lands_on.concat((munzees.filter(x => x.category == host.slice(1)) || []).map(i => i.id));
+          // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'x' implicitly has an 'any' type.
           if (munzees.filter(x => x.category == host.slice(1)).length === 0) {
             console.log(`${colors.bg.Red}  ${colors.Reset} No Munzees for ${colors.fg.Yellow}lands_on${colors.Reset}[${colors.fg.Yellow}${index}${colors.Reset}] for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
           }
         } else {
+          // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
           lands_on.push((munzees.find(i => i.icon === host && i.redirect === undefined) || {}).id)
+          // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
           if (!munzees.find(i => i.icon === host && i.redirect === undefined)) {
             console.log(`${colors.bg.Red}  ${colors.Reset} No Munzee for ${colors.fg.Yellow}bouncer${colors.Reset}.${colors.fg.Yellow}lands_on${colors.Reset}[${colors.fg.Yellow}${index}${colors.Reset}] for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
           }
         }
       } else if (typeof host === "function") {
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
         lands_on = lands_on.concat((munzees.filter(host) || []).map(i => i.id));
         if (munzees.filter(host).length === 0) {
           console.log(`${colors.bg.Red}  ${colors.Reset} No Munzees for ${colors.fg.Yellow}bouncer${colors.Reset}.${colors.fg.Yellow}lands_on${colors.Reset}[${colors.fg.Yellow}${index}${colors.Reset}] for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
@@ -1018,25 +972,31 @@ for (var munzee of munzees) {
       }
       index++;
     }
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
     munzee.bouncer.lands_on = lands_on.filter(i => i !== undefined && i !== null);
   }
   if (munzee.scatter && munzee.scatter.lands_on) {
-    let lands_on = [];
+    let lands_on: any = [];
     let index = 0;
     for (let host of munzee.scatter.lands_on) {
       if (typeof host === "string") {
         if (host.startsWith(':')) {
+          // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'x' implicitly has an 'any' type.
           lands_on = lands_on.concat((munzees.filter(x => x.category == host.slice(1)) || []).map(i => i.id));
+          // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'x' implicitly has an 'any' type.
           if (munzees.filter(x => x.category == host.slice(1)).length === 0) {
             console.log(`${colors.bg.Red}  ${colors.Reset} No Munzees for ${colors.fg.Yellow}lands_on${colors.Reset}[${colors.fg.Yellow}${index}${colors.Reset}] for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
           }
         } else {
+          // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
           lands_on.push((munzees.find(i => i.icon === host && i.redirect === undefined) || {}).id)
+          // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
           if (!munzees.find(i => i.icon === host && i.redirect === undefined)) {
             console.log(`${colors.bg.Red}  ${colors.Reset} No Munzee for ${colors.fg.Yellow}bouncer${colors.Reset}.${colors.fg.Yellow}lands_on${colors.Reset}[${colors.fg.Yellow}${index}${colors.Reset}] for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
           }
         }
       } else if (typeof host === "function") {
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
         lands_on = lands_on.concat((munzees.filter(host) || []).map(i => i.id));
         if (munzees.filter(host).length === 0) {
           console.log(`${colors.bg.Red}  ${colors.Reset} No Munzees for ${colors.fg.Yellow}bouncer${colors.Reset}.${colors.fg.Yellow}lands_on${colors.Reset}[${colors.fg.Yellow}${index}${colors.Reset}] for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
@@ -1044,6 +1004,7 @@ for (var munzee of munzees) {
       }
       index++;
     }
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
     munzee.scatter.lands_on = lands_on.filter(i => i !== undefined && i !== null);
   }
 
@@ -1096,11 +1057,13 @@ for (var munzee of munzees) {
   delete munzee.completion;
 }
 for (var munzee of munzees) {
+  // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
   munzee.can_host = munzees.filter(i => i.bouncer && (i.bouncer.lands_on || []).includes(munzee.id)).map(i => i.id);
   if (munzee.can_host.length == 0) munzee.can_host = undefined;
   // munzee.cid = munzee.icon.replace(/[^a-zA-Z0-9]/g, '').replace(/munzee$/, '');
 }
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'a' implicitly has an 'any' type.
 munzees.sort((a, b) => (a.id || 0) - (b.id || 0));
 
 categories.sort((a, b) => (b.priority || 0) - (a.priority || 0));
@@ -1108,10 +1071,11 @@ categories.sort((a, b) => (b.priority || 0) - (a.priority || 0));
 var typekeys = {};
 var idkeys = {};
 
-function g(icon) {
+// @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'g'.
+function g(icon: any) {
   if (icon.startsWith('https://munzee.global')) icon = icon.slice(49, -4);
   var x = decodeURIComponent(icon).replace(/[^a-zA-Z0-9]/g, '');
-  if (x !== "munzee" && x.endsWith('munzee')) return x.replace(/munzee$/, '')
+  if (x !== "munzee" && x.endsWith('munzee')) return x.replace(/munzee$/, '');
   return x;
 }
 
@@ -1119,8 +1083,10 @@ for (var munzee_index in munzees) {
   var munzee = munzees[munzee_index];
   munzees[munzee_index].x = Number(munzee_index);
   munzees[munzee_index].i = g(munzee.icon);
+  // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   idkeys[munzee.id] = Number(munzee_index);
-  for (var icon of [munzee.icon, ...munzee.alt_icons || []]) {
+  for (var icon of [munzee.icon, ...(munzee.alt_icons || [])]) {
+    // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
     typekeys[g(icon)] = Number(munzee_index);
   }
 }
@@ -1129,6 +1095,7 @@ console.log(`${colors.bg.Green}${colors.fg.Black} Types Checked - Writing Types 
 
 fs.writeFileSync(path.resolve(__dirname,'output/types.json'), JSON.stringify(munzees, null, 2))
 fs.writeFileSync(path.resolve(__dirname,'output/types.min.json'), JSON.stringify(munzees))
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
 fs.writeFileSync(path.resolve(__dirname,'output/types.supermin.json'), JSON.stringify(munzees.map(i => (i.event === "custom" ? [i.name,i.icon,i.id,i.x,i.i] : i))))
 // {
 //   name: i.name,

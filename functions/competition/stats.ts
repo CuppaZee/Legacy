@@ -5,7 +5,10 @@ module.exports = {
     {
       version: 1,
       params: {},
-      async function({ params: { round }, db }) {
+      async function({
+        params: { round },
+        db
+      }: any) {
         const document = await db.collection('zeecret').doc(round.toString()).get();
         return {
           status: "success",

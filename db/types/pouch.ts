@@ -303,7 +303,7 @@ module.exports = [
     "icon": "pimedus",
     "id": 1919,
     "state": "bouncer",
-    "lands_on": ["skyland","treehouse","munzee",":reseller",i=>i.zodiac=="chinese","virtual_sapphire","briefcase","thehammer","crossbow","catapult"],
+    "lands_on": ["skyland","treehouse","munzee",":reseller",(i: any) => i.zodiac=="chinese","virtual_sapphire","briefcase","thehammer","crossbow","catapult"],
     "set": "season_1"
   },
   {
@@ -365,7 +365,7 @@ module.exports = [
     "icon": "magnetus",
     "id": 2306,
     "state": "bouncer",
-    "lands_on": ["skyland","treehouse","munzee","airmystery",i=>(i.virtual_colors||[]).includes("blue"),i=>(i.virtual_colors||[]).includes("red"),"watermystery","joystickvirtual","joystick","virtual_yellow","virtual_goldenrod","virtual_dandelion"],
+    "lands_on": ["skyland","treehouse","munzee","airmystery",(i: any) => (i.virtual_colors||[]).includes("blue"),(i: any) => (i.virtual_colors||[]).includes("red"),"watermystery","joystickvirtual","joystick","virtual_yellow","virtual_goldenrod","virtual_dandelion"],
     "set": "season_2"
   },
   {
@@ -447,7 +447,7 @@ module.exports = [
     "id": 2370,
     "state": "bouncer",
     "funfinity": true,
-    "lands_on": ["skyland",i=>(i.virtual_colors||[]).includes("green"),"airmystery","virtual_emerald"],
+    "lands_on": ["skyland",(i: any) => (i.virtual_colors||[]).includes("green"),"airmystery","virtual_emerald"],
     "set": "funfinity",
     "points": "funfinity"
   },

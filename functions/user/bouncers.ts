@@ -1,3 +1,4 @@
+// @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var {retrieve,request} = require("../util");
 var path = require("path");
 var geocoder = require('offline-geocoder')({ database: path.join(__dirname,'../util/geolocate/db.sqlite') })
@@ -14,7 +15,10 @@ module.exports = {
           type: "userid",
         },
       },
-      async function({ params: { user_id }, db }) {
+      async function({
+        params: { user_id },
+        db
+      }: any) {
         var token = await retrieve(db, {user_id:125914,teaken:false}, 60);
         var data = await Promise.all([
           request('user/deploys',{user_id,type_id:505508},token.access_token),
@@ -29,7 +33,8 @@ module.exports = {
           data[0].munzees = data[0].munzees.concat(x.munzees)
         }
         var body = [].concat(...data.slice(1));
-        var deps = await Promise.all(data[0].munzees.slice().reverse().map(async (i,index)=>{
+        var deps = await Promise.all(data[0].munzees.slice().reverse().map(async (i: any,index: any)=>{
+          // @ts-expect-error ts-migrate(2339) FIXME: Property 'mythological_munzee' does not exist on t... Remove this comment to see the full error message
           i.bouncer = body.find(b=>((b||{}).mythological_munzee||{}).munzee_id.toString()===i.munzee_id.toString());
           if(i.bouncer) {
             i.location = await geocoder.reverse(i.bouncer.latitude, i.bouncer.longitude);

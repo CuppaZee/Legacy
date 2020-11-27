@@ -1,4 +1,4 @@
-function whiteOrBlack(bgColor) {
+function whiteOrBlack(bgColor: any) {
   var color = (bgColor.charAt(0) === '#') ? bgColor.substring(1, 7) : bgColor;
   var r = parseInt(color.substring(0, 2), 16); // hexToR
   var g = parseInt(color.substring(2, 4), 16); // hexToG
@@ -13,7 +13,7 @@ function whiteOrBlack(bgColor) {
   var L = (0.2126 * c[0]) + (0.7152 * c[1]) + (0.0722 * c[2]);
   return (L > 0.179) ? '#000000' : '#ffffff';
 }
-function a(x,d) {
+function a(x: any,d: any) {
   if(d) return {
     bg: null,
     fg: x
@@ -23,15 +23,16 @@ function a(x,d) {
     bg: x
   }
 }
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { useSelector } from 'react-redux';
 import stringify from 'fast-json-stable-stringify';
 import { useTheme } from 'react-native-paper';
 
 
 
-export default function useLevelColours(dark) {
+export default function useLevelColours(dark: any) {
   var theme = useTheme();
-  var settings = useSelector(i=>i.settings)||{};
+  var settings = useSelector((i: any) => i.settings)||{};
   var d = dark ?? (settings.alt_clan_design ? !theme.dark : theme.dark)
   var levelColours = {
     ind: a(settings.clan_level_ind,d),

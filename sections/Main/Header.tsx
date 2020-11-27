@@ -1,14 +1,23 @@
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import * as React from 'react';
 import { Appbar, Text, useTheme, Provider as PaperProvider } from 'react-native-paper';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { View } from 'react-native';
+// @ts-expect-error ts-migrate(6142) FIXME: Module './LoadingButton' was resolved to 'C:/Users... Remove this comment to see the full error message
 import LoadingButton, { LoadingBar } from './LoadingButton';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { useSelector } from 'react-redux';
 import { useDimensions } from '@react-native-community/hooks';
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Shared/font' or its c... Remove this comment to see the full error message
 import font from 'sections/Shared/font'
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useMoment' or its ... Remove this comment to see the full error message
 import useMoment from 'utils/hooks/useMoment';
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useAPIRequest' or ... Remove this comment to see the full error message
 import useAPIRequest from 'utils/hooks/useAPIRequest';
 import { useTranslation } from 'react-i18next';
+// @ts-expect-error ts-migrate(2732) FIXME: Cannot find module 'utils/db/categories.json'. Con... Remove this comment to see the full error message
 import categories from 'utils/db/categories.json'
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/types' or its corresp... Remove this comment to see the full error message
 import getType from 'utils/db/types'
 
 function MHQTime() {
@@ -21,8 +30,11 @@ function MHQTime() {
     }, 100)
     return () => clearInterval(x);
   }, [])
+  // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
   return <View style={{ alignSelf: "stretch", justifyContent: "center", alignItems: "center", paddingHorizontal: 8 }}>
+    {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
     <Text style={{ fontSize: 14, fontWeight: "bold", color: "white" }}>{now.format('DD/MM')}</Text>
+    {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
     <Text style={{ fontSize: 16, fontWeight: "bold", color: "white" }}>{now.format(width > 600 ? 'HH:mm:ss' : 'HH:mm')}</Text>
   </View>
 }
@@ -41,35 +53,37 @@ const weekNames = {
   week4: "Week 4",
 }
 
-export default function Header(props) {
+export default function Header(props: any) {
   var { t } = useTranslation();
   var moment = useMoment();
   var theme = useTheme();
-  var loggedIn = useSelector(i => i.loggedIn);
+  var loggedIn = useSelector((i: any) => i.loggedIn);
   var { width } = useDimensions().window;
   let params = props.scene?.route?.params || {};
   let name = props.scene?.route?.name;
-  let title;
-  let subtitle;
+  let title: any;
+  let subtitle: any;
   let clanData;
   if (name === 'AllCampWeeks') {
     title = "Camps Leaderboard";
   } else if (name === 'AllCampLeaderboard') {
+    // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
     title = weekNames[params.week] + " Leaderboard";
   } else if (name === 'CampLeaderboard') {
+    // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
     title = teamNames[params.team];
   } else if (name === 'DBType') {
     title = getType(params.munzee)?.name ?? params.munzee;
     subtitle = 'screens:' + name;
   } else if (name === 'DBCategory') {
-    title = categories.find(i => i.id == params.category)?.name;
+    title = categories.find((i: any) => i.id == params.category)?.name;
     subtitle = 'screens:' + name;
   } else if (name.includes('Search')) {
     title = 'screens:' + name;
   } else if (name.startsWith('UserCapturesCategory')) {
     title = params.username;
     subtitle = 'screens:' + name;
-    params.category_name = categories.find(i => i.id == params.category)?.name
+    params.category_name = categories.find((i: any) => i.id == params.category)?.name
   } else if (name.startsWith('User')) {
     title = params.username;
     subtitle = 'screens:' + name;
@@ -87,8 +101,9 @@ export default function Header(props) {
     clan: {
       endpoint: 'clan/v2',
       data: { clan_id: Number(title) },
-      function: i => i?.details?.name
+      function: (i: any) => i?.details?.name
     }
+  // @ts-expect-error ts-migrate(2538) FIXME: Type 'undefined' cannot be used as an index type.
   }[clanData] || null);
   if (clanName) title = clanName;
   React.useEffect(()=>{
@@ -96,17 +111,24 @@ export default function Header(props) {
       title: subtitle ? `${t(title, params)} - ${t(subtitle, params)} - CuppaZee` : `${t(title, params)} - CuppaZee`
     })
   }, [title,subtitle]);
+  // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
   return <View>
+      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
       <Appbar.Header>
+        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         {width <= 1000 && loggedIn && <Appbar.Action icon="menu" onPress={() => props.navigation.toggleDrawer()} />}
+        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         {!(props.route?.name == "Home" || props.navigation.dangerouslyGetState().index < 1) && <Appbar.BackAction
           onPress={() => props.navigation.pop()}
         />}
+        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         <Appbar.Content
           title={t(title, params)}
           subtitle={subtitle ? t(subtitle, params) : null}
         />
+        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         <LoadingButton />
+        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         <MHQTime />
         {/* <TouchableRipple onPress={()=>nav.navigate('Calendar')} style={{width:width>600?80:60,height:"100%"}}>
       <Tile header={true} theme={theme} date={now.format(width>600?'HH:mm:ss':'HH:mm')} extraText={now.format('DD/MM')} data={CalData?.[now.year()]?.[now.month()]?.[now.date()-1]??''} />
@@ -114,6 +136,7 @@ export default function Header(props) {
 
         {/* <Appbar.Action icon={()=><Image style={{height:36,width:36,marginTop:-6,marginLeft:-6}} source={{uri:'https://munzee.global.ssl.fastly.net/images/avatars/ua2p5m.png'}} />} onPress={()=>{}} /> */}
       </Appbar.Header>
+      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
       <LoadingBar />
   </View>
   {/* </PaperProvider> */}

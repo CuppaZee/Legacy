@@ -1,4 +1,5 @@
 // import Clan from 'utils/db/clan';
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/config' or its correspon... Remove this comment to see the full error message
 import config from 'utils/config';
 var Clan = {
   1: {
@@ -10,7 +11,7 @@ var Clan = {
     meta: {
       activity: ["capture", "deploy"],
       days: true,
-      exclude: i => (["personalmunzee", "premiumpersonal", "social"].includes(i.icon) || i.category === "universal"),
+      exclude: (i: any) => ["personalmunzee", "premiumpersonal", "social"].includes(i.icon) || i.category === "universal",
     }
   },
   2: {
@@ -41,7 +42,7 @@ var Clan = {
     meta: {
       activity: ["deploy"],
       points: true,
-      exclude: i => ["personalmunzee", "premiumpersonal"].includes(i.icon),
+      exclude: (i: any) => ["personalmunzee", "premiumpersonal"].includes(i.icon),
     }
   },
   7: {
@@ -56,8 +57,8 @@ var Clan = {
     meta: {
       activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i => i.destination,
-      exclude: i => i.icon === "skyland",
+      types: (i: any) => i.destination,
+      exclude: (i: any) => i.icon === "skyland",
     }
   },
   10: {
@@ -68,7 +69,7 @@ var Clan = {
     meta: {
       activity: ["deploy"],
       points: true,
-      exclude: i => ["personalmunzee", "premiumpersonal"].includes(i.icon),
+      exclude: (i: any) => ["personalmunzee", "premiumpersonal"].includes(i.icon),
     }
   },
   12: {
@@ -83,7 +84,7 @@ var Clan = {
     meta: {
       activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i => i.evolution
+      types: (i: any) => i.evolution
     }
   },
   13: {
@@ -93,7 +94,7 @@ var Clan = {
     icon: "https://munzee.global.ssl.fastly.net/images/pins/poi_filter.png",
     meta: {
       activity: ["capture"],
-      types: i => i.category == "poi"
+      types: (i: any) => i.category == "poi"
     }
   },
   14: {
@@ -107,7 +108,7 @@ var Clan = {
     ],
     meta: {
       activity: ["capture", "deploy"],
-      types: i => i.category == "jewel"
+      types: (i: any) => i.category == "jewel"
     }
   },
   17: {
@@ -121,7 +122,7 @@ var Clan = {
     ],
     meta: {
       activity: ["capture", "deploy"],
-      types: i => i.evolution
+      types: (i: any) => i.evolution
     }
   },
   19: {
@@ -136,7 +137,7 @@ var Clan = {
     meta: {
       activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i => i.category == "jewel"
+      types: (i: any) => i.category == "jewel"
     }
   },
   20: {
@@ -150,7 +151,7 @@ var Clan = {
     ],
     meta: {
       activity: ["deploy"],
-      types: i => i.weapon == "clan"
+      types: (i: any) => i.weapon == "clan"
     }
   },
   23: {
@@ -165,7 +166,7 @@ var Clan = {
     meta: {
       activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i => i.weapon == "clan"
+      types: (i: any) => i.weapon == "clan"
     }
   },
   24: {
@@ -181,7 +182,7 @@ var Clan = {
     ],
     meta: {
       activity: ["capture"],
-      types: i => i.bouncer
+      types: (i: any) => i.bouncer
     }
   },
   25: {
@@ -195,7 +196,7 @@ var Clan = {
     ],
     meta: {
       activity: ["capture", "deploy"],
-      types: i => i.category === "mystery"
+      types: (i: any) => i.category === "mystery"
     }
   },
   26: {
@@ -209,7 +210,7 @@ var Clan = {
     ],
     meta: {
       activity: ["capture", "deploy"],
-      types: i => i.weapon == "clan"
+      types: (i: any) => i.weapon == "clan"
     }
   },
   27: {
@@ -223,7 +224,7 @@ var Clan = {
     ],
     meta: {
       activity: ["capture", "deploy"],
-      types: i => i.zodiac
+      types: (i: any) => i.zodiac
     }
   },
   28: {
@@ -238,7 +239,7 @@ var Clan = {
     meta: {
       activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i => i.category == "flat" && !i.unique
+      types: (i: any) => i.category == "flat" && !i.unique
     }
   },
   29: {
@@ -253,7 +254,7 @@ var Clan = {
     meta: {
       activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i => (i.elemental && (!i.scatter || ['fire','waterdroplet','frozengreenie','charge'].includes(i.icon)))
+      types: (i: any) => i.elemental && (!i.scatter || ['fire','waterdroplet','frozengreenie','charge'].includes(i.icon))
     }
   },
   30: {
@@ -263,7 +264,7 @@ var Clan = {
     icon: "https://munzee.global.ssl.fastly.net/images/pins/reseller.png",
     meta: {
       activity: ["capture", "deploy"],
-      types: i => i.reseller
+      types: (i: any) => i.reseller
     }
   },
   31: {
@@ -279,7 +280,7 @@ var Clan = {
     meta: {
       activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i => i.gaming
+      types: (i: any) => i.gaming
     }
   },
   32: {
@@ -294,7 +295,7 @@ var Clan = {
     ],
     meta: {
       activity: ["capture", "deploy"],
-      types: i => i.gaming
+      types: (i: any) => i.gaming
     }
   },
   33: {
@@ -308,7 +309,7 @@ var Clan = {
     ],
     meta: {
       activity: ["capture"],
-      types: i => i.icon == "renovation"
+      types: (i: any) => i.icon == "renovation"
     }
   },
   34: {
@@ -319,7 +320,7 @@ var Clan = {
     meta: {
       activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i => i.category == "mystery"
+      types: (i: any) => i.category == "mystery"
     }
   },
   35: {
@@ -329,7 +330,7 @@ var Clan = {
     icon: "https://munzee.global.ssl.fastly.net/images/pins/qrewzee.png",
     meta: {
       activity: ["capture"],
-      types: i => i.icon == "qrewzee"
+      types: (i: any) => i.icon == "qrewzee"
     }
   },
   36: {
@@ -340,14 +341,15 @@ var Clan = {
     meta: {
       activity: ["capture", "deploy", "capon"],
       points: true,
-      types: i => i.category == "card"
+      types: (i: any) => i.category == "card"
     }
   }
 }
-export function ClanRequirementsConverter(req, rewards) {
+export function ClanRequirementsConverter(req: any, rewards: any) {
   var output = {};
   var individual = {};
   var group = {};
+  // @ts-expect-error ts-migrate(2339) FIXME: Property 'battle' does not exist on type '{}'.
   output.battle = {
     game_id: Number(req?.battle?.game_id),
     start: new Date(req?.battle?.start * 1000),
@@ -356,7 +358,9 @@ export function ClanRequirementsConverter(req, rewards) {
     lb_total_task_id: Number(req?.battle?.lb_total_task_id),
     title: rewards?.battle?.title || "Some Month"
   }
+  // @ts-expect-error ts-migrate(2339) FIXME: Property 'levels' does not exist on type '{}'.
   output.levels = [];
+  // @ts-expect-error ts-migrate(2339) FIXME: Property 'requirements' does not exist on type '{}... Remove this comment to see the full error message
   output.requirements = {};
   for (let level of Object.keys(req?.data?.levels ?? {}).slice(0, 5)) {
     let level_d = req?.data?.levels?.[level];
@@ -368,9 +372,12 @@ export function ClanRequirementsConverter(req, rewards) {
       level: level,
       id: Number(level)
     }
-    for (let requirement of [...level_d.individual.map(i => { i.individual = true; return i; }), ...level_d.group]) {
+    for (let requirement of [...level_d.individual.map((i: any) => { i.individual = true; return i; }), ...level_d.group]) {
+      // @ts-expect-error ts-migrate(2339) FIXME: Property 'requirements' does not exist on type '{}... Remove this comment to see the full error message
       if (!output.requirements[requirement.task_id]) {
+        // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         var rd = Clan[requirement.task_id] || {};
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'requirements' does not exist on type '{}... Remove this comment to see the full error message
         output.requirements[requirement.task_id] = {
           task_id: rd.task_id ?? requirement.task_id,
           top: rd.top ?? requirement.name.split(' ')[0],
@@ -380,39 +387,56 @@ export function ClanRequirementsConverter(req, rewards) {
           meta: rd.meta
         }
       }
+      // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       if (requirement.individual && !Clan[requirement.task_id]?.hidden?.includes(`u${req?.battle?.game_id}`)) {
+        // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         individual[requirement.task_id] = 1;
+        // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         level_data["individual"][requirement.task_id] = requirement.amount;
+      // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       } else if (!requirement.individual && !Clan[requirement.task_id]?.hidden?.includes(`g${req?.battle?.game_id}`)) {
+        // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         group[requirement.task_id] = 1;
+        // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         level_data["group"][requirement.task_id] = requirement.amount;
       }
     }
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'levels' does not exist on type '{}'.
     output.levels.push(level_data);
   }
+  // @ts-expect-error ts-migrate(2339) FIXME: Property 'requirements' does not exist on type '{}... Remove this comment to see the full error message
   var reqls = Object.keys(output.requirements).map(Number);
   reqls.sort((a, b) => a - b);
+  // @ts-expect-error ts-migrate(2339) FIXME: Property 'order' does not exist on type '{}'.
   output.order = {
     individual: [
+      // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       ...reqls.filter(i => individual[i] && !group[i]),
+      // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       ...reqls.filter(i => individual[i] && group[i]),
     ],
     group: [
+      // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       ...reqls.filter(i => group[i] && !individual[i]),
+      // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       ...reqls.filter(i => group[i] && individual[i]),
     ],
     requirements: [
+      // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       ...reqls.filter(i => individual[i] && !group[i]),
+      // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       ...reqls.filter(i => individual[i] && group[i]),
+      // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       ...reqls.filter(i => group[i] && !individual[i])
     ],
     rewards: rewards?.order
   }
+  // @ts-expect-error ts-migrate(2339) FIXME: Property 'rewards' does not exist on type '{}'.
   output.rewards = rewards?.rewards ?? {};
   return output;
 }
 
-export function ClanStatsConverter(clan, stats, shadow, game_id) {
+export function ClanStatsConverter(clan: any, stats: any, shadow: any, game_id: any) {
   if (!stats || !clan || (clan.shadow && !shadow)) {
     return;
   }
@@ -430,7 +454,7 @@ export function ClanStatsConverter(clan, stats, shadow, game_id) {
       shadow: shadow?.details
     },
     members: game_id === config.clan.game_id ? [
-      ...(shadow?.members || []).filter(i => !(clan?.users || []).find(x => x.user_id == i)).map(i => {
+      ...(shadow?.members || []).filter((i: any) => !(clan?.users || []).find((x: any) => x.user_id == i)).map((i: any) => {
         return {
           username: shadow?.usernames?.[i],
           user_id: Number(i),
@@ -438,7 +462,7 @@ export function ClanStatsConverter(clan, stats, shadow, game_id) {
           leader: false
         }
       }),
-      ...(clan?.users || []).map(i => {
+      ...(clan?.users || []).map((i: any) => {
         return {
           username: i.username,
           user_id: Number(i.user_id),
@@ -455,14 +479,15 @@ export function ClanStatsConverter(clan, stats, shadow, game_id) {
         if(!data.members.find(i=>i.user_id === Number(user))) {
           data.members.push({
             user_id: Number(user),
-            username: clan.users.find(i=>i.user_id.toString()===user)?.username || `#${user}`,
-            no: clan.users.find(i=>i.user_id.toString()===user) ? false : true,
+            username: clan.users.find((i: any) => i.user_id.toString()===user)?.username || `#${user}`,
+            no: clan.users.find((i: any) => i.user_id.toString()===user) ? false : true,
             ghost: false,
             leader: false,
           })
         }
       };
     }
+    // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
     data.requirements[requirement.task_id] = {
       users: {
         ...(shadow?.data?.[requirement.task_id] || {}),
@@ -471,13 +496,14 @@ export function ClanStatsConverter(clan, stats, shadow, game_id) {
       total: Object.values({
         ...(shadow?.data?.[requirement.task_id] || {}),
         ...(clan.shadow ? {} : requirement.data)
+      // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       }).reduce(Clan[requirement.task_id]?.total == "min" ? (a, b) => Math.min(a, b) : (a, b) => a + b, Clan[requirement.task_id]?.total == "min" ? Infinity : 0),
       task_id: requirement.task_id
     }
   }
   return data;
 }
-export function dateFromGameID(game_id) {
+export function dateFromGameID(game_id: any) {
   var gid = game_id + 24158;
   var year = Math.floor(gid / 12);
   var month = gid % 12;

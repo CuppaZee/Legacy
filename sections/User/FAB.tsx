@@ -1,28 +1,41 @@
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import * as React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { Image } from 'react-native';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { useSelector } from 'react-redux';
 import { FAB } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 
-function UserIcon ({ user_id, size }) {
+function UserIcon ({
+  user_id,
+  size
+}: any) {
+  // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
   return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size - 24) / 2, marginTop: -(size - 24) / 2, height: size, width: size }} />
 }
 
-export default function UserFAB({ username, user_id }) {
-  var theme = useSelector(i=>i.themes[i.theme]);
+export default function UserFAB({
+  username,
+  user_id
+}: any) {
+  var theme = useSelector((i: any) => i.themes[i.theme]);
   var [FABOpen, setFABOpen] = React.useState(false);
   var nav = useNavigation();
-  var bookmarks = useSelector(i => i.userBookmarks);
-  var list = bookmarks.filter(i => i.username != username).slice(0, 5);
-  var actions = React.useMemo(() => list.map(i => ({
+  var bookmarks = useSelector((i: any) => i.userBookmarks);
+  var list = bookmarks.filter((i: any) => i.username != username).slice(0, 5);
+  var actions = React.useMemo(() => list.map((i: any) => ({
+    // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     icon: () => <UserIcon theme={theme} size={40} user_id={Number(i.user_id)} />,
     style: {backgroundColor:theme.page_content.bg},
     label: i.username,
+
     onPress: () => {
       var prevState = nav.dangerouslyGetState();
       nav.reset({
         index: prevState.index,
         routes: prevState.routes.map(x=>{
+          // @ts-expect-error ts-migrate(2339) FIXME: Property 'username' does not exist on type 'object... Remove this comment to see the full error message
           if(x.params?.username) {
             return {
               ...x,
@@ -36,16 +49,22 @@ export default function UserFAB({ username, user_id }) {
         })
       })
     }
-  })), [list.map(i=>i.user_id).join(',')]);
+  })), [list.map((i: any) => i.user_id).join(',')]);
+  // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
   const userAvatar = React.useMemo(() => () => <UserIcon size={56} user_id={Number(user_id)} />, [user_id]);
   if(list.length === 0) return null;
-  return <FAB.Group
-    animated={false}
-    theme={{dark:theme.dark}}
-    open={FABOpen}
-    fabStyle={{backgroundColor:theme.page_content.bg}}
-    icon={FABOpen ? 'close' : userAvatar}
-    actions={actions}
-    onStateChange={({ open }) => setFABOpen(open)}
-  />;
+  return (
+    // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+    <FAB.Group
+      animated={false}
+      theme={{dark:theme.dark}}
+      open={FABOpen}
+      fabStyle={{backgroundColor:theme.page_content.bg}}
+      icon={FABOpen ? 'close' : userAvatar}
+      actions={actions}
+      onStateChange={({
+        open
+      }: any) => setFABOpen(open)}
+    />
+  );
 }

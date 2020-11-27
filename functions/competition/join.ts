@@ -5,11 +5,14 @@ module.exports = {
     {
       version: 1,
       params: {},
-      async function({ params: { username }, teamsData }) {
+      async function({
+        params: { username },
+        teamsData
+      }: any) {
         const teams = await teamsData();
-        let team = teams.sort((a, b) => a.list.length - b.list.length)[0].team_id
+        let team = teams.sort((a: any, b: any) => a.list.length - b.list.length)[0].team_id
         if (username) {
-          const userTeam = teams.find(i => (i.list && i.list.some(i => i.n.toLowerCase() === username.toLowerCase())));
+          const userTeam = teams.find((i: any) => i.list && i.list.some((i: any) => i.n.toLowerCase() === username.toLowerCase()));
           if (userTeam) {
             team = userTeam.team_id;
           }

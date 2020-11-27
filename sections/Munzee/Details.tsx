@@ -1,25 +1,35 @@
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import * as React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { Text, View, Image, ScrollView } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { IconButton } from 'react-native-paper'
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Shared/Card' or its c... Remove this comment to see the full error message
 import Card from 'sections/Shared/Card';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useAPIRequest' or ... Remove this comment to see the full error message
 import useAPIRequest from 'utils/hooks/useAPIRequest';
 import { useDimensions } from '@react-native-community/hooks';
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Shared/font' or its c... Remove this comment to see the full error message
 import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next'
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useMoment' or its ... Remove this comment to see the full error message
 import useMoment from 'utils/hooks/useMoment';
 import * as WebBrowser from 'expo-web-browser';
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/icon' or its correspo... Remove this comment to see the full error message
 import getIcon from 'utils/db/icon';
 
-export default function DetailsScreen({ route }) {
+export default function DetailsScreen({
+  route
+}: any) {
   var moment = useMoment();
   var {width} = useDimensions().window;
   var [FABOpen,setFABOpen] = React.useState(false);
   var nav = useNavigation();
-  var theme = useSelector(i => i.themes[i.theme]);
-  var logins = useSelector(i => i.logins);
+  var theme = useSelector((i: any) => i.themes[i.theme]);
+  var logins = useSelector((i: any) => i.logins);
   var munzee_id = Number(route.params.munzeeid)
   var username = route.params.username
   var code = Number(route.params.code)
@@ -29,20 +39,31 @@ export default function DetailsScreen({ route }) {
     data: munzee_id?{munzee_id}:{url: `/m/${username}/${code}`}
   })
   return (
+    // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <View style={{ flex: 1 }}>
 
+      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
       <ScrollView
         contentContainerStyle={{ width: 600, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4, paddingBottom: 92 }}
         style={{ flex: 1, backgroundColor: theme.page.bg }}>
+        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         <View style={{ padding: 4 }}>
+          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
           <Card>
+            {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
             <View style={{flexDirection:"row",alignItems:"center"}}>
+              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
               <Image style={{height:42,width:42,marginRight:8}} source={getIcon(data?.pin_icon)}/>
+              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
               <View style={{flexDirection:"column",flex:1}}>
+                {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
                 <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{data?.friendly_name}</Text>
+                {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
                 <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>By {data?.creator_username}</Text>
+                {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
                 <Text allowFontScaling={false} style={{ fontSize: 12, ...font(), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>Deployed: {moment(data?.deployed_at).format('L LT')}</Text>
               </View>
+              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
               <IconButton icon="open-in-new" onPress={()=>WebBrowser.openBrowserAsync(`https://www.munzee.com`+data?.url)} />
             </View>
             {/* <View style={{ flexDirection: "row", alignItems: "center" }}>

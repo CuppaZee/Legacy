@@ -5,7 +5,9 @@ module.exports = {
     {
       version: 1,
       params: {},
-      async function({ db }) {
+      async function({
+        db
+      }: any) {
         return {
           status: "success",
           data: {
@@ -17,12 +19,14 @@ module.exports = {
     {
       version: 2,
       params: {},
-      async function({ db }) {
+      async function({
+        db
+      }: any) {
         const collection = await db.collection('zeecret').get();
         return {
           status: "success",
           data: {
-            rounds: collection.docs.map(i=>i.data()).map(i=>({
+            rounds: collection.docs.map((i: any) => i.data()).map((i: any) => ({
               result: i.result,
               pine: i.points ? i.points.pine : (i.base || i.max),
               pear: i.points ? i.points.pear : (i.base || i.max),
@@ -31,8 +35,8 @@ module.exports = {
               id: i.round_id,
               max: i.max,
               base: i.base,
-              pause: i.pause,
-            })).sort((a,b) => a.id - b.id).filter(i=>i.start<=Date.now()).filter(i=>!i.pause)
+              pause: i.pause
+            })).sort((a: any,b: any) => a.id - b.id).filter((i: any) => i.start<=Date.now()).filter((i: any) => !i.pause)
           }
         };
       },
