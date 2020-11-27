@@ -1856,4 +1856,11 @@ export default {
       description: 'CuppaZee V1.3 is still in development, although it has slowed down significantly due to exams and such. Although I cannot confirm a release date yet, my aim is to be able to release a public beta build for V1.3 before the end of the year.'
     }
   ],
+  333: [
+    {
+      image: 'wallajoyegg',
+      title: 'Added Walla EggZ Specials',
+      description: 'Added Walla EggZ Seasonal Special Bouncers to CuppaZee\'s Munzee Types Database. (Sorry, I know this is really late)'
+    }
+  ],
 }
