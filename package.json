@@ -80,6 +80,7 @@
     "babel-preset-expo": "^8.3.0",
     "concurrently": "^5.2.0",
     "moment-locales-webpack-plugin": "^1.2.0",
+    "ts-migrate": "^0.1.10",
     "webpack-bundle-analyzer": "^3.8.0"
   },
   "private": true

@@ -228,10 +228,10 @@ var x = async (req, res) => {
   });
 };
 
-exports.api = functions.runWith({
+exports.DEVapi = functions.runWith({
   timeoutSeconds: 540
 }).https.onRequest(x);
 
-exports.api2gb = functions.runWith({
+exports.DEVapi2gb = functions.runWith({
   memory: '2GB',
 }).https.onRequest(x);
