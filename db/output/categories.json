@@ -27,7 +27,7 @@
   {
     "name": "2020 Seasonal Specials",
     "id": "seasonal_2020",
-    "icon": "creepycauldron",
+    "icon": "wallajoyegg",
     "parents": [
       "seasonal",
       "root"
@@ -474,6 +474,19 @@
       "year": 2020,
       "starts": 1577998800000,
       "ends": 1609480740000
+    }
+  },
+  {
+    "name": "Walla EggZ",
+    "id": "wallaeggz2020",
+    "icon": "wallajoyegg",
+    "parents": [
+      "seasonal_2020"
+    ],
+    "seasonal": {
+      "year": 2020,
+      "starts": 1606237200000,
+      "ends": 1608094740000
     }
   },
   {

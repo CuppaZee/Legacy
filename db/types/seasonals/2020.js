@@ -169,6 +169,85 @@ module.exports = [
     ]
   },
   {
+    "name": "Walla EggZ",
+    "category": "wallaeggz2020",
+    "year": 2020,
+    "starts": "2020-11-24T12:00:00-05:00",
+    "ends": "2020-12-15T23:59:00-05:00",
+    "specials": [
+      {
+        "name": "Walla Joy Egg",
+        "icon": "wallajoyegg",
+        "id": "null_wallajoyegg",
+        "duration": 4,
+        "lands_on": [":virtual","eggs",(i=>i.gaming && i.state==="virtual")]
+      },
+      {
+        "name": "Walla Surprise Egg",
+        "icon": "wallasurpriseegg",
+        "id": "null_wallasurpriseegg",
+        "duration": 4,
+        "lands_on": ["munzee","egg",(i=>i.gaming && i.state==="physical")]
+      },
+      {
+        "name": "Chocolate Honeycombs",
+        "icon": "chocolatehoneycombs",
+        "id": "null_chocolatehoneycombs",
+        "duration": 4,
+        "lands_on": []
+      },
+      {
+        "name": "Green Unicorn Toy Rocker",
+        "icon": "greenunicorntoyrocker",
+        "id": "null_greenunicorntoyrocker",
+        "duration": 4,
+        "lands_on": []
+      },
+      {
+        "name": "Mixed Candy",
+        "icon": "mixedcandy",
+        "id": "null_mixedcandy",
+        "duration": 4,
+        "lands_on": []
+      },
+      {
+        "name": "Mini Bubbles",
+        "icon": "minibubbles",
+        "id": "null_minibubbles",
+        "duration": 4,
+        "lands_on": []
+      },
+      {
+        "name": "Popper Toy",
+        "icon": "poppertoy",
+        "id": "null_poppertoy",
+        "duration": 4,
+        "lands_on": []
+      },
+      {
+        "name": "Gummy WallaBees",
+        "icon": "gummywallabees",
+        "id": "null_gummywallabees",
+        "duration": 4,
+        "lands_on": []
+      },
+      {
+        "name": "Plastic Dinosaur",
+        "icon": "plasticdinosaur",
+        "id": "null_plasticdinosaur",
+        "duration": 4,
+        "lands_on": []
+      },
+      {
+        "name": "Pink Unicorn Toy Rocker",
+        "icon": "pinkunicorntoyrocker",
+        "id": "null_pinkunicorntoyrocker",
+        "duration": 4,
+        "lands_on": []
+      },
+    ]
+  },
+  {
     "name": "Deathly DeeZert",
     "category": "halloween2020",
     "year": 2020,
