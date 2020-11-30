@@ -1,11 +1,6 @@
 
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'config'.
 var config = require('../config.json');
-
-
-
 // @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'fetch'.
 var fetch = require('node-fetch');
 

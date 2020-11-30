@@ -1,11 +1,6 @@
 
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var {retrieve} = require("../util");
-
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'config'.
 var config = require('../config.json');
 

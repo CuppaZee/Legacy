@@ -7,14 +7,8 @@ import { useSelector } from 'react-redux';
 export default function (props: any) {
   var theme = useSelector((i: any) => i.themes[i.theme]);
   return (
-
-
-
     // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
     <TouchableRipple rippleColor="rgba(0, 0, 0, .32)" style={{ flex: props.noFlex===undefined?1:null, borderRadius: 8 }} onPress={props.onPress}>
-
-
-
       <Surface style={{ elevation: 4 }}>
         {/* style={{ ...(theme.page_content.border?{borderWidth:1,borderColor:theme.page_content.border}:{}), flex: props.noFlex===undefined?1:null, elevation: theme.page_content.border?0:4, padding: props.noPad === undefined ? 8 : 0, borderRadius: 8, backgroundColor: theme.page_content.bg, ...(props.cardStyle||{}) }}> */}
         {props.children}

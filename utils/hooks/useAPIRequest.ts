@@ -3,9 +3,6 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useFocusEffect } from '@react-navigation/native'
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/store/request' or its co... Remove this comment to see the full error message
 import request from 'utils/store/request';
 import stringify from 'fast-json-stable-stringify';

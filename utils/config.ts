@@ -17,9 +17,6 @@ function reverseGameID(gameID: any) {
 
 export default {
   clan: {
-
-
-
     // @ts-expect-error ts-migrate(2554) FIXME: Expected 2 arguments, but got 0.
     game_id: gameID(),
     game_id_function: gameID,

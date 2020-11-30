@@ -27,9 +27,6 @@ function a(x: any,d: any) {
 import { useSelector } from 'react-redux';
 import stringify from 'fast-json-stable-stringify';
 import { useTheme } from 'react-native-paper';
-
-
-
 export default function useLevelColours(dark: any) {
   var theme = useTheme();
   var settings = useSelector((i: any) => i.settings)||{};

@@ -1,20 +1,11 @@
 
 import * as React from 'react';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Maps/MapView' or its ... Remove this comment to see the full error message
 import MapView from 'sections/Maps/MapView'
 
 import { useSelector } from 'react-redux';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useAPIRequest' or ... Remove this comment to see the full error message
 import useAPIRequest from 'utils/hooks/useAPIRequest'
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/types.json' or its co... Remove this comment to see the full error message
 import types from 'utils/db/types.json';
 
@@ -39,18 +30,9 @@ export default function MapScreen({
     id: i[3]
   })):[]
   if(markers.length===0) {
-
-
-
     return <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: theme.page_content.bg }}>
-
-
-
       <ActivityIndicator size="large" color={theme.page_content.fg} />
     </View>
   }
-
-
-
   return <MapView markers={markers} />;
 }

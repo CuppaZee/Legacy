@@ -4,35 +4,20 @@ import * as React from 'react';
 import { Text, View, Image, ScrollView } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { IconButton } from 'react-native-paper'
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Shared/Card' or its c... Remove this comment to see the full error message
 import Card from 'sections/Shared/Card';
 
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useAPIRequest' or ... Remove this comment to see the full error message
 import useAPIRequest from 'utils/hooks/useAPIRequest';
 import { useDimensions } from '@react-native-community/hooks';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Shared/font' or its c... Remove this comment to see the full error message
 import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next'
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useMoment' or its ... Remove this comment to see the full error message
 import useMoment from 'utils/hooks/useMoment';
 import * as WebBrowser from 'expo-web-browser';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/icon' or its correspo... Remove this comment to see the full error message
 import getIcon from 'utils/db/icon';
 
@@ -54,53 +39,20 @@ export default function DetailsScreen({
     data: munzee_id?{munzee_id}:{url: `/m/${username}/${code}`}
   })
   return (
-
-
-
     <View style={{ flex: 1 }}>
-
-
-
 
       <ScrollView
         contentContainerStyle={{ width: 600, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4, paddingBottom: 92 }}
         style={{ flex: 1, backgroundColor: theme.page.bg }}>
-
-
-
         <View style={{ padding: 4 }}>
-
-
-
           <Card>
-
-
-
             <View style={{flexDirection:"row",alignItems:"center"}}>
-
-
-
               <Image style={{height:42,width:42,marginRight:8}} source={getIcon(data?.pin_icon)}/>
-
-
-
               <View style={{flexDirection:"column",flex:1}}>
-
-
-
                 <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{data?.friendly_name}</Text>
-
-
-
                 <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>By {data?.creator_username}</Text>
-
-
-
                 <Text allowFontScaling={false} style={{ fontSize: 12, ...font(), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>Deployed: {moment(data?.deployed_at).format('L LT')}</Text>
               </View>
-
-
-
               <IconButton icon="open-in-new" onPress={()=>WebBrowser.openBrowserAsync(`https://www.munzee.com`+data?.url)} />
             </View>
             {/* <View style={{ flexDirection: "row", alignItems: "center" }}>

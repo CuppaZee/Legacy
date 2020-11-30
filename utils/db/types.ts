@@ -1,10 +1,5 @@
 
-
-
 import types from './types.json';
-
-
-
 import typekeys from './typekeys.json';
 
 function g(icon: any) {

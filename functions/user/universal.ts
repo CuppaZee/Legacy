@@ -1,11 +1,6 @@
 
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'request'.
 var {request,retrieve} = require("../util");
-
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'types'.
 const types = require('./universal_types.json');
 

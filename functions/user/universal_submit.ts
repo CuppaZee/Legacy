@@ -1,16 +1,8 @@
 
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'request'.
 var {request} = require("../util");
-
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'admin'.
 const admin = require('firebase-admin');
-
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'types'.
 const types = require('./universal_types.json');
 

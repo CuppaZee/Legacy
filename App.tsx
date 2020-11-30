@@ -33,9 +33,6 @@ import {
 } from '@expo-google-fonts/roboto';
 import { Coiny_400Regular } from '@expo-google-fonts/coiny';
 
-
-
-
 import LoadingPage from './sections/Shared/LoadingPage';
 
 import * as Sentry from './sentry';
@@ -58,9 +55,6 @@ var screens = pages.map(page => ({
     try {
       return await page.import();
     } catch (e) {
-
-
-
       // @ts-expect-error ts-migrate(2339) FIXME: Property 'background' does not exist on type '{ na... Remove this comment to see the full error message
       return () => <LoadingPage error={true} x={page.background} />
     }
@@ -68,17 +62,11 @@ var screens = pages.map(page => ({
   }, { fallback: <LoadingPage x={page.background} /> })
 }));
 for (var page of pages) {
-
-
-
   // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   pageScreens[page.name] = page.path;
 }
 
 // Navigation Sections
-
-
-
 import DrawerContent from './sections/Main/Drawer';
 
 
@@ -89,9 +77,6 @@ import { Provider as PaperProvider, Text, Button, DefaultTheme, DarkTheme, useTh
 import { useDimensions } from '@react-native-community/hooks';
 import * as WebBrowser from 'expo-web-browser';
 import * as Notifications from 'expo-notifications';
-
-
-
 import Header from './sections/Main/Header';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
@@ -119,29 +104,17 @@ function RedirectScreen() {
   var nav = useNavigation();
   var users = useSelector((i: any) => i.userBookmarks);
   if (users && users[0]) {
-
-
-
     // @ts-expect-error ts-migrate(2339) FIXME: Property 'replace' does not exist on type 'Navigat... Remove this comment to see the full error message
     nav.replace('UserDetails', { username: users[0].username });
   }
-
-
-
   return <Text>_redirect</Text>;
 }
-
-
-
 
 const AuthScreen = loadable(() => import('./sections/Main/Auth'), { fallback: <LoadingPage /> })
 
 function StackNav() {
   const loggedIn = useSelector((i: any) => i.loggedIn);
   return (
-
-
-
     <Stack.Navigator
       screenOptions={({
         navigation,
@@ -150,9 +123,6 @@ function StackNav() {
         // gestureEnabled: Platform.OS == 'ios',
         // animationEnabled: false,
         // headerShown: true,
-
-
-
         header: (props: any) => <Header {...(props || {})} />,
         // headerStyle: {
         //   height: 80, // Specify the height of your custom header
@@ -160,20 +130,11 @@ function StackNav() {
 
       })}
     >
-
-
-
       {loggedIn && <>
-
-
-
         <Stack.Screen
           name="_redirect"
           component={RedirectScreen}
         />
-
-
-
         {screens.filter(i => !i.nologin).map(screen => <Stack.Screen
 
           key={screen.name}
@@ -181,9 +142,6 @@ function StackNav() {
           component={screen.screen}
         />)}
       </>}
-
-
-
       <Stack.Screen
         name="Auth"
         options={{
@@ -191,9 +149,6 @@ function StackNav() {
         }}
         component={AuthScreen}
       />
-
-
-
       {screens.filter(i => i.nologin).map(screen => <Stack.Screen
 
         key={screen.name}
@@ -208,30 +163,18 @@ function DrawerNav() {
   var { width } = useDimensions().window;
   var loggedIn = useSelector((i: any) => i.loggedIn);
   return (
-
-
-
     <Drawer.Navigator
       drawerPosition="left"
 
 
       // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
       drawerStyle={{ width: null }}
-
-
-
       drawerContent={(props: any) => <DrawerContent side="left" {...props} />}
       drawerType={(width > 1000 && loggedIn) ? "permanent" : "front"}
       edgeWidth={loggedIn ? 100 : 0}
     >
-
-
-
       <Drawer.Screen
         name="__primary"
-
-
-
         // @ts-expect-error ts-migrate(2322) FIXME: Type '{ name: "__primary"; label: string; options:... Remove this comment to see the full error message
         label="__primary"
         options={{
@@ -260,9 +203,6 @@ function App() {
   const ref = React.useRef();
   const dispatch = useDispatch();
   const { t } = useTranslation();
-
-
-
   // @ts-expect-error ts-migrate(2345) FIXME: Argument of type 'MutableRefObject<undefined>' is ... Remove this comment to see the full error message
   const { getInitialState } = useLinking(ref, {
     prefixes: ['https://cuppazee.app', 'cuppazee://'],
@@ -292,9 +232,6 @@ function App() {
       })
       .then(state => {
         if (state !== undefined) {
-
-
-
           // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
           setTimeout(() => dispatch(setCurrentRoute(state?.routes?.[0]?.state?.routes?.slice?.()?.reverse?.()?.[0] ?? {})), 100);
 
@@ -311,94 +248,37 @@ function App() {
     dispatch(setCurrentRoute(a?.routes?.[0]?.state?.routes?.slice?.()?.reverse?.()?.[0] ?? {}))
   }
   if (!fontsLoaded) {
-
-
-
     return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.colors.background }}>
-
-
-
       <ActivityIndicator size="large" color={theme.colors.primary} />
     </View>;
   }
   if (loadingLogin) {
-
-
-
     return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.colors.background }}>
-
-
-
       <Title style={{ marginBottom: 20 }}>{t('common:logging_in')}</Title>
-
-
-
       <ActivityIndicator size="large" color={theme.colors.primary} />
     </View>;
   }
   if (version != Math.max(...Object.keys(changelogs).map(Number))) {
     var arr = Object.keys(changelogs).map(Number).filter(i => i > version).slice(-10).sort((a, b) => a - b);
-
-
-
     // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
     var logs = arr.map(i => [i, changelogs[i]])
     return (
-
-
-
       <SafeAreaView style={{ backgroundColor: theme.colors.background, height: "100%" }}>
-
-
-
         <ScrollView
           style={{ flex: 1 }}
           contentContainerStyle={{ padding: 8, justifyContent: "center", alignItems: "center", flexGrow: 1 }}>
-
-
-
           {logs.map(([build, log]) => <View style={{ maxWidth: "100%" }}>
-
-
-
             <View style={{ alignItems: "center" }}>
-
-
-
               <Headline>{t('changelog:build_n', { n: build })}</Headline>
             </View>
-
-
-
             {log?.map((i: any) => <View style={{ flexDirection: "row", alignItems: "center", width: 400, maxWidth: "100%" }}>
-
-
-
               {i.image && <Image source={getIcon(i.image)} style={{ height: 48, width: 48 }} />}
-
-
-
               {i.icon && <Avatar.Icon icon={i.icon} size={48} />}
-
-
-
               <View style={{ padding: 8, flex: 1 }}>
-
-
-
                 <Title>{i.title}</Title>
-
-
-
                 <Paragraph>{i.description}</Paragraph>
               </View>
-
-
-
             </View>) ?? <Text allowFontScaling={false} style={{ fontWeight: "bold", fontSize: 20, marginBottom: 20 }}>{t('changelog:no_changelog')}</Text>}
-
-
-
             {build == Math.max(...Object.keys(changelogs).map(Number)) && <Button mode="contained" onPress={() => {
               dispatch(cuppazeeVersion(Math.max(...Object.keys(changelogs).map(Number))))
             }}>{logs.some(i => i[1].some((x: any) => x.privacy)) ? t('changelog:continue_and_agree') : t('changelog:continue')}</Button>}
@@ -412,19 +292,10 @@ function App() {
   }
   var navWidth = 400;
   return (
-
-
-
     // @ts-expect-error ts-migrate(2339) FIXME: Property 'nav' does not exist on type 'Theme'.
     <NavigationContainer theme={theme.nav} independent={true} onStateChange={handleStateChange} initialState={initialState} ref={ref}>
-
-
-
       {/* @ts-expect-error ts-migrate(2339) FIXME: Property 'nav' does not exist on type 'Theme'. */}
       <StatusBar translucent={true} backgroundColor={theme.nav.colors.background + 'cc'} barStyle="light-content" />
-
-
-
       <DrawerNav />
     </NavigationContainer>
   );
@@ -432,13 +303,7 @@ function App() {
 
 function ThemeWrapper() {
   const paperTheme = useSelector((i: any) => i.themes[i.selectedTheme]);
-
-
-
   return <PaperProvider theme={paperTheme}>
-
-
-
     <App />
   </PaperProvider>
 }
@@ -446,26 +311,14 @@ function ThemeWrapper() {
 export default function () { // Setup Providers
   React.useEffect(() => {
     const subscription = Notifications.addNotificationResponseReceivedListener(response => {
-
-
-
       // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
       const link = response.notification.request.content.data?.body?.link;
       if (link) Linking.openURL(link);
     });
     return () => subscription.remove();
   }, []);
-
-
-
   return <SafeAreaProvider>
-
-
-
     <ReduxProvider store={store}>
-
-
-
       <ThemeWrapper />
     </ReduxProvider>
   </SafeAreaProvider>

@@ -1,6 +1,4 @@
 
-
-
 // @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module '@ung... Remove this comment to see the full error message
 import allSettled from '@ungap/promise-all-settled'
 import { createStore, applyMiddleware } from 'redux';
@@ -195,16 +193,10 @@ var mini = (data: any) => ({
 var rootReducer = (state = defaultState, action: any) => {
   switch (action.type) {
     case 'ADD_REQUEST':
-
-
-
       // @ts-expect-error ts-migrate(2339) FIXME: Property 'page' does not exist on type 'never'.
       if (state.requests.find(i => i.page == stringify(action.page))) {
         return {
           ...state,
-
-
-
           // @ts-expect-error ts-migrate(2339) FIXME: Property 'page' does not exist on type 'never'.
           requests: state.requests.map(i => i.page == stringify(action.page) ? { ...i, count: i.count + 1 } : i)
         }
@@ -215,25 +207,16 @@ var rootReducer = (state = defaultState, action: any) => {
         }
       }
     case 'REMOVE_REQUEST':
-
-
-
       // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
       if (state.requests.find(i => i.page == stringify(action.page)).count > 0) {
         return {
           ...state,
-
-
-
           // @ts-expect-error ts-migrate(2339) FIXME: Property 'page' does not exist on type 'never'.
           requests: state.requests.map(i => i.page == stringify(action.page) ? { ...i, count: i.count - 1 } : i)
         }
       } else {
         return {
           ...state,
-
-
-
           // @ts-expect-error ts-migrate(2339) FIXME: Property 'page' does not exist on type 'never'.
           requests: state.requests.filter(i => i.page != stringify(action.page))
         }
@@ -247,9 +230,6 @@ var rootReducer = (state = defaultState, action: any) => {
       return {
         ...state,
         loggedIn: Object.keys(action.data).length > 0,
-
-
-
         // @ts-expect-error ts-migrate(2698) FIXME: Spread types may only be created from object types... Remove this comment to see the full error message
         logins: { ...state.logins, ...action.data },
         loadingLogin: false,
@@ -263,16 +243,10 @@ var rootReducer = (state = defaultState, action: any) => {
       }
     case 'SET_REQUEST_DATA':
       var data = {};
-
-
-
       // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       data[action.page] = action.data;
       return {
         ...state,
-
-
-
         // @ts-expect-error ts-migrate(2339) FIXME: Property 'page' does not exist on type 'never'.
         requests: state.requests.map(i => stringify(i.page) === action.page ? { ...i, expires: Date.now() + (20 * 60000) } : i),
         request_data: {
@@ -337,9 +311,6 @@ var rootReducer = (state = defaultState, action: any) => {
 }
 
 
-
-
-
 // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
 const store = createStore(rootReducer, applyMiddleware(thunk));
 var intervalID: any = null;
@@ -353,9 +324,6 @@ function stopLoop() {
 startLoop();
 AppState.addEventListener('change', function (state: any) {
   if (state === "active") {
-
-
-
     // @ts-expect-error ts-migrate(2554) FIXME: Expected 2 arguments, but got 1.
     refreshRequests(store);
     startLoop();
@@ -398,9 +366,6 @@ async function loadData() {
         username: teaken_data[user_id].username
       })
     }
-
-
-
     // @ts-expect-error ts-migrate(2554) FIXME: Expected 2 arguments, but got 1.
     store.dispatch(userBookmarks(user_bookmark_list))
   };
@@ -411,9 +376,6 @@ async function loadData() {
   if (version) {
     store.dispatch(cuppazeeVersion(Number(version), true));
   } else {
-
-
-
     store.dispatch(cuppazeeVersion(Math.max(...Object.keys(changelogs).map(Number))));
   }
 
@@ -421,9 +383,6 @@ async function loadData() {
     var teakens_data = JSON.parse(teakens)
     var token_data = await Promise.all(Object.keys(teakens_data).map(async user => [user, await getToken(user, teakens_data[user])]))
     var final_data = {};
-
-
-
     // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
     for (var token of token_data) final_data[token[0]] = token[1];
     store.dispatch(login(final_data, true));

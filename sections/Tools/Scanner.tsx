@@ -8,21 +8,12 @@ import * as Permissions from 'expo-permissions';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { IconButton } from 'react-native-paper';
 import Slider from './Slider';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Shared/font' or its c... Remove this comment to see the full error message
 import font from 'sections/Shared/font';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useAPIRequest' or ... Remove this comment to see the full error message
 import useAPIRequest from 'utils/hooks/useAPIRequest';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/icon' or its correspo... Remove this comment to see the full error message
 import getIcon from 'utils/db/icon';
 
@@ -51,37 +42,16 @@ export default function App() {
     data: {barcode: i}
   })));
   if (hasPermission === null) {
-
-
-
     return <Text>waiting</Text>;
   }
   if (hasPermission === false) {
-
-
-
     return <Text>No access to camera</Text>;
   }
   return (
-
-
-
     <View style={{ flex: 1 }}>
-
-
-
       {scanned&&<View>
-
-
-
         <Button title={t('scanner:scan_new')} onPress={()=>setScanned(false)} />
-
-
-
         <Text>{JSON.stringify(data)}</Text>
-
-
-
         {list.slice().reverse().map((i: any,index: any)=>data[index]?.valid?<TouchableOpacity style={{borderBottomWidth: 1}} onPress={()=>{
             if(data[index].munzee) {
               WebBrowser.openBrowserAsync(i)
@@ -89,49 +59,25 @@ export default function App() {
               nav.navigate('DBType',{munzee:data[index].munzee_logo.slice(49,-4)})
             }
           }}>
-
-
-
           <View style={{flexDirection:"row",alignItems:"center",padding:8}}>
-
-
-
             <Image style={{height:48,width:48}} source={getIcon(data[index].munzee_logo)} />
-
-
-
             <View>
-
-
-
               {data[index].munzee&&<Text allowFontScaling={false} style={{color:'blue',fontSize:16,...font("bold")}}>
                 {t('scanner:munzee',{name:data[index].munzee.friendly_name,username:data[index].munzee.creator_username})}
               </Text>}
-
-
-
               <Text allowFontScaling={false} style={{color:'blue',fontSize:data[index].munzee?12:16,...font(data[index].munzee?400:"bold")}}>
                 {t('scanner:type',{type:data[index].munzee_type})}
               </Text>
             </View>
           </View>
-
-
-
         </TouchableOpacity>:<TouchableOpacity style={{borderBottomWidth: 1}} onPress={()=>{
             if(i?.startsWith?.('http')) {
               WebBrowser.openBrowserAsync(i)
             }
           }}>
-
-
-
           <Text allowFontScaling={false} style={{color:i?.startsWith?.('http')?'blue':'black',textAlign:"center",fontSize:16,...font("bold"),padding:4,paddingVertical:16}}>{i}</Text>
         </TouchableOpacity>)}
       </View>}
-
-
-
       {!scanned&&<Camera
         style={{ flex: 1 }}
         zoom={zoom}
@@ -151,26 +97,14 @@ export default function App() {
           }
         }}
       >
-
-
-
         <View
           style={{
             backgroundColor: 'transparent',
             flexDirection: 'row',
             flex: 1
           }}>
-
-
-
           <View style={{position:"absolute",bottom:16,left:16,right:16,zIndex:1000}}>
-
-
-
             <View style={{flexDirection:"row",alignItems:"center"}}>
-
-
-
               <IconButton
                 style={{backgroundColor:"white"}}
                 icon={`camera-${type === Camera.Constants.Type.back?'rear':'front'}`}
@@ -182,17 +116,11 @@ export default function App() {
                     : Camera.Constants.Type.back
                 )}
               />
-
-
-
               {Platform.OS !== "web" && <Slider
                 style={{flex:1,marginHorizontal:8}}
                 color="#016930"
                 value={zoom}
                 onValueChange={(value: any) => setZoom(value)} />}
-
-
-
               <IconButton
                 disabled={type === Camera.Constants.Type.front}
                 style={{backgroundColor:"white"}}

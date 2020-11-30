@@ -11,9 +11,6 @@ function UserIcon ({
   user_id,
   size
 }: any) {
-
-
-
   return <Image source={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${(user_id).toString(36)}.png` }} style={{ marginLeft: -(size - 24) / 2, marginTop: -(size - 24) / 2, height: size, width: size }} />
 }
 
@@ -27,9 +24,6 @@ export default function UserFAB({
   var bookmarks = useSelector((i: any) => i.userBookmarks);
   var list = bookmarks.filter((i: any) => i.username != username).slice(0, 5);
   var actions = React.useMemo(() => list.map((i: any) => ({
-
-
-
     icon: () => <UserIcon theme={theme} size={40} user_id={Number(i.user_id)} />,
     style: {backgroundColor:theme.page_content.bg},
     label: i.username,
@@ -39,9 +33,6 @@ export default function UserFAB({
       nav.reset({
         index: prevState.index,
         routes: prevState.routes.map(x=>{
-
-
-
           // @ts-expect-error ts-migrate(2339) FIXME: Property 'username' does not exist on type 'object... Remove this comment to see the full error message
           if(x.params?.username) {
             return {
@@ -57,15 +48,9 @@ export default function UserFAB({
       })
     }
   })), [list.map((i: any) => i.user_id).join(',')]);
-
-
-
   const userAvatar = React.useMemo(() => () => <UserIcon size={56} user_id={Number(user_id)} />, [user_id]);
   if(list.length === 0) return null;
   return (
-
-
-
     <FAB.Group
 
 

@@ -2,9 +2,6 @@
 import * as React from 'react';
 
 import { View, FlatList } from 'react-native';
-
-
-
 import ActivityCard from './Activity/Card';
 import { useDimensions } from '@react-native-community/hooks'
 
@@ -13,23 +10,11 @@ import { useSelector } from 'react-redux';
 function User({
   item
 }: any) {
-
-
-
   // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   return ({
-
-
-
     user_activity: <View style={{ padding: 4, flex: 1 }}>
-
-
-
       <ActivityCard user_id={item.user_id} username={item.username} displayUsername={true} />
     </View>,
-
-
-
     blankHack: <View style={{ flex: 1, padding: 4 }}></View>
   }[item.type]||null)
 }
@@ -39,9 +24,6 @@ export default function AllUsersScreen() {
   var { width } = useDimensions().window;
   var dash = useSelector((i: any) => i.userBookmarks);
   return (
-
-
-
     <FlatList
       key={width}
       style={{ backgroundColor: theme.page.bg }}

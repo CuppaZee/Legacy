@@ -1,6 +1,4 @@
 
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var {retrieve,request} = require("../util");
 
@@ -25,9 +23,6 @@ module.exports = {
         ]);
         var body = [].concat(...data);
         var overview = body.reduce((a,b)=>{
-
-
-
           // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           a[(b.mythological_munzee ? b.mythological_munzee.munzee_logo : b.logo)||"https://munzee.global.ssl.fastly.net/images/pins/undefined.png"] = (a[(b.mythological_munzee ? b.mythological_munzee.munzee_logo : b.logo)||"https://munzee.global.ssl.fastly.net/images/pins/undefined.png"]||0) + 1;
           return a;

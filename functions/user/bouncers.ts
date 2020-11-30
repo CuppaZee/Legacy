@@ -1,6 +1,4 @@
 
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var {retrieve,request} = require("../util");
 var path = require("path");
@@ -37,9 +35,6 @@ module.exports = {
         }
         var body = [].concat(...data.slice(1));
         var deps = await Promise.all(data[0].munzees.slice().reverse().map(async (i: any,index: any)=>{
-
-
-
           // @ts-expect-error ts-migrate(2339) FIXME: Property 'mythological_munzee' does not exist on t... Remove this comment to see the full error message
           i.bouncer = body.find(b=>((b||{}).mythological_munzee||{}).munzee_id.toString()===i.munzee_id.toString());
           if(i.bouncer) {

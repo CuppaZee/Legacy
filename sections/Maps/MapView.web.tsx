@@ -5,9 +5,6 @@ import { GoogleMap, LoadScript, Marker, MarkerClusterer, StandaloneSearchBox, Ci
 import { useSelector } from 'react-redux';
 import { FAB, Snackbar } from 'react-native-paper';
 import * as Location from 'expo-location';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/icon' or its correspo... Remove this comment to see the full error message
 import getIcon from 'utils/db/icon';
 
@@ -17,23 +14,14 @@ const libraries = ["places"];
 
 function MarkerRenderer(props: any) {
   if(props.markers?.length>60) return (
-
-
-
     <MarkerClusterer
       averageCenter
       enableRetinaIcons
       gridSize={60}
       >
-
-
-
       {(clusterer: any) => props.markers.map((i: any, index: any) => <Marker clusterer={clusterer} key={index} icon={{ url: getIcon(i.icon)?.uri||getIcon(i.icon), scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />)}
     </MarkerClusterer>
   );
-
-
-
   return props.markers.map((i: any, index: any) => <Marker key={index} icon={{ url: getIcon(i.icon)?.uri||getIcon(i.icon), scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />);
 }
 
@@ -61,17 +49,11 @@ function WebMap(props: any) {
     }
   }
   return (
-
-
-
     <LoadScript
       googleMapsApiKey={key}
       version={version}
       libraries={libraries}
     >
-
-
-
       <GoogleMap
         zoom={1}
         center={props.center||center}
@@ -120,9 +102,6 @@ function WebMap(props: any) {
           }
         }}
       >
-
-
-
         <FAB
           style={{position: "absolute", top: 8, left: 8, backgroundColor: theme.navigation.bg}}
           color={theme.navigation.fg}
@@ -130,9 +109,6 @@ function WebMap(props: any) {
           icon={true?"crosshairs-gps":"crosshairs"}
           onPress={getLocation}
         />
-
-
-
         <FAB
           style={{position: "absolute", bottom: 22, right: 8, backgroundColor: theme.navigation.bg}}
           color={theme.navigation.fg}
@@ -143,9 +119,6 @@ function WebMap(props: any) {
           // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
           onPress={()=>map.setZoom(map.getZoom()-1)}
         />
-
-
-
         <FAB
           style={{position: "absolute", bottom: 70, right: 8, backgroundColor: theme.navigation.bg}}
           color={theme.navigation.fg}
@@ -156,9 +129,6 @@ function WebMap(props: any) {
           // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
           onPress={()=>map.setZoom(map.getZoom()+1)}
         />
-
-
-
         <Snackbar
           visible={locError}
           onDismiss={()=>setLocError(false)}
@@ -166,13 +136,7 @@ function WebMap(props: any) {
         >
           Couldn't retrieve location
         </Snackbar>
-
-
-
         <MarkerRenderer {...props} />
-
-
-
         {props.circles?.map((i: any) => <Circle
           radius={i.radius}
           center={{ lat: i.lat, lng: i.lng }}

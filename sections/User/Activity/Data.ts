@@ -1,6 +1,4 @@
 
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/types' or its corresp... Remove this comment to see the full error message
 import getType from 'utils/db/types';
 
@@ -57,49 +55,22 @@ export function ActivityConverter(dataraw: any, filters: any, userdata: any) {
     const bouncerHost = activityList.findIndex(i => i.bouncerHost && i.time == capture.captured_at);
     if (bouncerHost !== -1) {
       activityList[bouncerHost].subCaptures.push({
-
-
-
         // @ts-expect-error ts-migrate(2322) FIXME: Type 'string' is not assignable to type 'never'.
         type: "capture",
-
-
-
         // @ts-expect-error ts-migrate(2322) FIXME: Type 'any' is not assignable to type 'never'.
         creator: capture.username,
-
-
-
         // @ts-expect-error ts-migrate(2322) FIXME: Type 'any' is not assignable to type 'never'.
         capper: userdata?.username,
-
-
-
         // @ts-expect-error ts-migrate(2322) FIXME: Type 'any' is not assignable to type 'never'.
         code: capture.code,
-
-
-
         // @ts-expect-error ts-migrate(2322) FIXME: Type 'any' is not assignable to type 'never'.
         name: capture.friendly_name,
-
-
-
         // @ts-expect-error ts-migrate(2322) FIXME: Type 'any' is not assignable to type 'never'.
         pin: capture.pin,
-
-
-
         // @ts-expect-error ts-migrate(2322) FIXME: Type 'number' is not assignable to type 'never'.
         points: Number(capture.points),
-
-
-
         // @ts-expect-error ts-migrate(2322) FIXME: Type 'any' is not assignable to type 'never'.
         time: capture.captured_at,
-
-
-
         // @ts-expect-error ts-migrate(2322) FIXME: Type 'any' is not assignable to type 'never'.
         key: capture.key,
       })
@@ -152,9 +123,6 @@ export function ActivityConverter(dataraw: any, filters: any, userdata: any) {
       key: deploy.key,
     })
   }
-
-
-
   // @ts-expect-error ts-migrate(2362) FIXME: The left-hand side of an arithmetic operation must... Remove this comment to see the full error message
   activityList.sort((a,b)=>new Date(b.time) - new Date(a.time))
   var heightTotal = 0;
@@ -162,9 +130,6 @@ export function ActivityConverter(dataraw: any, filters: any, userdata: any) {
     const h = 8 + (59 * ((activityList[index].subCaptures?.length||0)+1));
     activityList[index] = {
       ...activityList[index],
-
-
-
       // @ts-expect-error ts-migrate(2322) FIXME: Type '{ height: number; offset: number; type: stri... Remove this comment to see the full error message
       height: h,
       offset: heightTotal

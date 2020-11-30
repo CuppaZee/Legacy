@@ -7,45 +7,21 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/types' or its corresp... Remove this comment to see the full error message
 import getType from 'utils/db/types';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useAPIRequest' or ... Remove this comment to see the full error message
 import useAPIRequest from 'utils/hooks/useAPIRequest';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Shared/font' or its c... Remove this comment to see the full error message
 import font from 'sections/Shared/font';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Shared/Card' or its c... Remove this comment to see the full error message
 import Card from 'sections/Shared/Card';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Shared/DatePicker' or... Remove this comment to see the full error message
 import DatePicker from 'sections/Shared/DatePicker';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useMoment' or its ... Remove this comment to see the full error message
 import useMoment from 'utils/hooks/useMoment';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/icon' or its correspo... Remove this comment to see the full error message
 import getIcon from 'utils/db/icon';
-
-
-
 import UserFAB from '../FAB';
 
 function g(a: any) {
@@ -59,49 +35,22 @@ function SHCItem({
   var {t} = useTranslation();
   var theme = useSelector((i: any) => i.themes[i.theme]);
   var [open, setOpen] = React.useState(false);
-
-
-
   return <Menu
     visible={open}
     onDismiss={() => setOpen(false)}
     anchor={
-
-
-
       <TouchableRipple onPress={() => setOpen(true)}>
-
-
-
         <View key={i.icon} style={{ padding: 2, alignItems: "center", position: "relative" }}>
-
-
-
           <Image style={{ height: 32, width: 32 }} source={getIcon(i.pin)} />
-
-
-
           {m && <Image style={{ height: 20, width: 20, position: "absolute", bottom: 0, right: -4 }} source={getIcon(m.pin)} />}
         </View>
       </TouchableRipple>
     }
     style={{ marginTop: 61 }}
   >
-
-
-
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
-
-
-
       <Image style={{ height: 48, width: 48 }} source={getIcon(i.pin)} />
-
-
-
       <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold") }}>{i.friendly_name}</Text>
-
-
-
       <Text allowFontScaling={false} style={{ fontSize: 12, ...font("bold") }}>{t('activity:by_user',{user:i.username})}</Text>
     </View>
   </Menu>;
@@ -115,35 +64,17 @@ function DateSwitcher({
   const theme = useSelector((i: any) => i.themes[i.theme]);
   const [datePickerOpen,setDatePickerOpen] = React.useState(false);
   return (
-
-
-
     <View style={{ padding: 4, width: 400, maxWidth: "100%", alignSelf: "center" }}>
-
-
-
       <Card cardStyle={{ backgroundColor: (theme.clanCardHeader || theme.navigation).bg }} noPad>
-
-
-
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-
-
-
           <Menu
             visible={datePickerOpen}
             onDismiss={() => setDatePickerOpen(false)}
             anchor={
-
-
-
               <IconButton icon="calendar" color={(theme.clanCardHeader || theme.navigation).fg} onPress={() => setDatePickerOpen(true)} />
             }
             contentStyle={{ padding: 0, backgroundColor: theme.page_content.bg, borderWidth: theme.page_content.border ? 1 : 0, borderColor: theme.page_content.border, width: 300 }}
           >
-
-
-
             <DatePicker noWrap value={moment({
               year: Number(dateString.split('-')[0]),
               month: Number(dateString.split('-')[1]) - 1,
@@ -154,9 +85,6 @@ function DateSwitcher({
               })
             }} />
           </Menu>
-
-
-
 
           <Text allowFontScaling={false} style={{ flex: 1, ...font("bold"), fontSize: 16, color: (theme.clanCardHeader || theme.navigation).fg }}>{moment({
             year: Number(dateString.split('-')[0]),
@@ -195,20 +123,11 @@ export default function UserSHCScreen() {
     level_colors.border = "#fffa"
   }
   var route = useRoute();
-
-
-
   // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
   if (route.params.date) {
-
-
-
     // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
     dateString = route.params.date;
   }
-
-
-
   // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
   var username = route.params.username;
   const user_id = useAPIRequest({
@@ -237,9 +156,6 @@ export default function UserSHCScreen() {
       var destinations = data.captures.filter((z: any) => g(z)?.destination?.type == "bouncer")
       var category_data = {};
       for (let category of categories) {
-
-
-
         // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         category_data[category.name] = [];
       }
@@ -248,9 +164,6 @@ export default function UserSHCScreen() {
         if(!y?.bouncer && !y?.scatter) continue;
         for (let category of categories) {
           if(category.function(y)) {
-
-
-
             // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
             category_data[category.name].push({
               i: x,
@@ -265,90 +178,33 @@ export default function UserSHCScreen() {
   }:null)
   if (!category_data) {
     if(category_data===undefined) {
-
-
-
       return <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page.bg}}>
-
-
-
         <ActivityIndicator size="large" color={theme.page_content.fg} />
       </View>
     } else {
-
-
-
       return <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor:'#ffaaaa'}}>
-
-
-
         <MaterialCommunityIcons name="alert" size={48} color="#d00" />
       </View>;
     }
   }
   return (
-
-
-
     <View style={{ flex: 1, backgroundColor: theme.page.bg }}>
-
-
-
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 8 }}>
-
-
-
         <DateSwitcher dateString={dateString} />
-
-
-
         <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-
-
-
           {categories.map(i => <View style={{ padding: 4, width: 400, flexGrow: 1, maxWidth: "100%" }}>
-
-
-
             <Card noPad>
-
-
-
               <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
-
-
-
                 <View style={{ padding: 8 }}>
-
-
-
                   <Image source={getIcon(i?.icon,128)} style={{ width: 36, height: 36 }} />
                 </View>
-
-
-
                 <View style={{ paddingRight: 8, paddingLeft: 0, flex: 1, justifyContent: "center" }}>
-
-
-
                   <Text allowFontScaling={false} style={{ fontSize: 16, ...font("bold"), color: theme.page_content.fg }} numberOfLines={1} ellipsizeMode={"tail"}>{category_data[i.name].length}x {i?.name}</Text>
-
-
-
                   <View style={{ flexDirection: "row", alignItems: "center", flexWrap: "wrap" }}>
-
-
-
                     {category_data[i.name].map((x: any) => <SHCItem i={x.i} m={x.m} />)}
                   </View>
                 </View>
-
-
-
                 <View style={{ alignSelf: "stretch", borderTopRightRadius: 8, borderBottomRightRadius: 8, borderLeftWidth: dark ? 2 : 0, borderLeftColor: dark ? level_colors[category_data[i.name].length > 0 ? 5 : 0] : undefined, backgroundColor: dark ? undefined : level_colors[category_data[i.name].length > 0 ? 5 : 0], width: 50, alignItems: "center", justifyContent: "center" }}>
-
-
-
                   <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 24, ...font("bold") }}>{category_data[i.name].length > 0 ? '✔' : ''}</Text>
                 </View>
               </View>
@@ -356,9 +212,6 @@ export default function UserSHCScreen() {
           </View>)}
         </View>
       </ScrollView>
-
-
-
 
       <UserFAB username={username} user_id={user_id} />
     </View>

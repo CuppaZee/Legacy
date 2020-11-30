@@ -54,9 +54,6 @@ export default function Calendar({
         <Text allowFontScaling={false} style={{fontSize:12,color:"white"}}>{i.label}</Text>
       </View>)}
     </View>}
-
-
-
     <View style={{flexDirection:"row"}}>
       {[
         t("calendar:days.monday"),

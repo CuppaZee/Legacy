@@ -2,9 +2,6 @@
 import * as React from 'react';
 
 import { View, ImageBackground, ActivityIndicator } from 'react-native';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Shared/font' or its c... Remove this comment to see the full error message
 import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
@@ -31,53 +28,26 @@ export function NewTile({
   // ]
   // {label:"QRewZee",type:"qrewzee",color:"rgb(235, 105, 42)"},
   if(type=="alt") {
-
-
-
     return <View style={{flex:1,backgroundColor:theme.colors.surface,borderWidth:1,borderColor:'#d3d3d3',height:60,justifyContent:"center",alignItems:"center",paddingBottom:2}}>
-
-
-
       <View style={{flexDirection:"row"}}>
-
-
-
         <Text allowFontScaling={false} style={{...font("bold"),fontSize:12,textAlignVertical:"center"}}>{(date||1).toString()}</Text>
       </View>
       {/* <View style={{flexDirection:"row"}}>
         {types.map(i=>data.includes(i.label)?<Text allowFontScaling={false} style={{color:i.color,...font("bold"),fontSize:12,textAlignVertical:"center",letterSpacing:1}}>{i.label}</Text>:null)}
       </View> */}
-
-
-
       <View style={{flexDirection:"row"}}>
-
-
-
         <Text allowFontScaling={false} style={{color:data.includes('Z')?"rgb(235, 105, 42)":"rgb(150, 150, 150)",...font("bold"),fontSize:10,textAlignVertical:"center"}}>{data.includes('Z')?"QRewZee":t('calendar:off')}</Text>
       </View>
     </View>
   }
-
-
-
   return <View style={{flex:1,backgroundColor:data.includes('Z')?"rgb(235, 105, 42)":"black",borderWidth:1,borderColor:'#d3d3d3',height:header?56:40}}>
     {/* <ImageBackground source={u(data.includes('R')?'R':null)} style={{flex:1}}>
       <ImageBackground source={u(data.includes('M')?'M':null)} style={{flex:1}}>
         <ImageBackground source={u(data.includes('L')?'L':null)} style={{flex:1}}>
           <ImageBackground source={u(data.includes('H')?'H':null)} style={{flex:1}}>
             <ImageBackground source={u(data.includes('Z')?'QRewZeeOn':'QRewZeeOff')} style={{flex:1}}> */}
-
-
-
               <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
-
-
-
                 {extraText&&<Text allowFontScaling={false} style={{color:"white",...font("bold"),fontSize:16,textAlignVertical:"center"}}>{extraText}</Text>}
-
-
-
                 <Text allowFontScaling={false} style={{color:"white",...font("bold"),fontSize:16,textAlignVertical:"center"}}>{(date||"1").toString()}</Text>
               </View>
             {/* </ImageBackground>
@@ -105,74 +75,26 @@ export default function Tile({
   ]
   // {label:"QRewZee",type:"qrewzee",color:"rgb(235, 105, 42)"},
   if(type=="alt") {
-
-
-
     return <View style={{flex:1,backgroundColor:theme.page_content.bg,borderWidth:1,borderColor:'#d3d3d3',height:60,justifyContent:"center",alignItems:"center",paddingBottom:2}}>
-
-
-
       <View style={{flexDirection:"row"}}>
-
-
-
         <Text allowFontScaling={false} style={{color:theme.page_content.fg,...font("bold"),fontSize:12,textAlignVertical:"center"}}>{(date||1).toString()}</Text>
       </View>
-
-
-
       <View style={{flexDirection:"row"}}>
-
-
-
         {types.map(i=>data.includes(i.label)?<Text allowFontScaling={false} style={{color:i.color,...font("bold"),fontSize:12,textAlignVertical:"center",letterSpacing:1}}>{i.label}</Text>:null)}
       </View>
-
-
-
       <View style={{flexDirection:"row"}}>
-
-
-
         <Text allowFontScaling={false} style={{color:data.includes('Z')?"rgb(235, 105, 42)":"rgb(150, 150, 150)",...font("bold"),fontSize:10,textAlignVertical:"center"}}>{data.includes('Z')?"QRewZee":t('calendar:off')}</Text>
       </View>
     </View>
   }
-
-
-
   return <View style={{flex:1,backgroundColor:"black",borderWidth:1,borderColor:'#d3d3d3',height:header?56:40}}>
-
-
-
     <ImageBackground source={u(data.includes('R')?'R':null)} style={{flex:1}}>
-
-
-
       <ImageBackground source={u(data.includes('M')?'M':null)} style={{flex:1}}>
-
-
-
         <ImageBackground source={u(data.includes('L')?'L':null)} style={{flex:1}}>
-
-
-
           <ImageBackground source={u(data.includes('H')?'H':null)} style={{flex:1}}>
-
-
-
             <ImageBackground source={u(data.includes('Z')?'QRewZeeOn':'QRewZeeOff')} style={{flex:1}}>
-
-
-
               <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
-
-
-
                 {extraText&&<Text allowFontScaling={false} style={{color:"white",...font("bold"),fontSize:16,textAlignVertical:"center"}}>{extraText}</Text>}
-
-
-
                 <Text allowFontScaling={false} style={{color:"white",...font("bold"),fontSize:16,textAlignVertical:"center"}}>{(date||"1").toString()}</Text>
               </View>
             </ImageBackground>

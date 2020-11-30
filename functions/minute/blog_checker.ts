@@ -1,19 +1,10 @@
 var rss = require('rss-parser');
 var parser = new rss();
-
-
-
 // @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'fetch'.
 var fetch = require("node-fetch");
-
-
-
 // @ts-expect-error ts-migrate(2403) FIXME: Subsequent variable declarations must have the sam... Remove this comment to see the full error message
 var { URLSearchParams } = require("url");
 var cheerio = require('cheerio');
-
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'config'.
 var config = require('../config.json');
 var notification = require('../util/notification');
@@ -55,9 +46,6 @@ module.exports = {
           var feed = await parser.parseURL('https://www.munzeeblog.com/feed/')
           if (feed.items[0].guid !== data.munzee_blog) {
             data.munzee_blog = feed.items[0].guid;
-
-
-
             // @ts-expect-error ts-migrate(2339) FIXME: Property 'munzee_blog' does not exist on type '{}'... Remove this comment to see the full error message
             update.munzee_blog = feed.items[0].guid;
 
@@ -99,17 +87,11 @@ module.exports = {
             await db.collection('data').doc('blog').update(update);
           }
         }
-
-
-
         // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
         check();
         await Promise.all([
           new Promise((resolve, reject) => {
             setTimeout(async function () {
-
-
-
               // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
               await check();
               resolve("Success!")
@@ -117,9 +99,6 @@ module.exports = {
           }),
           new Promise((resolve, reject) => {
             setTimeout(async function () {
-
-
-
               // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
               await check();
               resolve("Success!")

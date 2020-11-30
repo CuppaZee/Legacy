@@ -1,6 +1,4 @@
 
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'config'.
 const config = require('../config.json');
 const nodemailer = require('nodemailer');

@@ -3,23 +3,14 @@ import * as React from 'react';
 
 import { Text, View, TextInput, Image, ScrollView, ActivityIndicator } from 'react-native';
 import { TouchableRipple } from 'react-native-paper';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Shared/Card' or its c... Remove this comment to see the full error message
 import Card from 'sections/Shared/Card';
 import { useFocusEffect } from '@react-navigation/native';
 
 import { useSelector, useDispatch } from 'react-redux';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/store/request' or its co... Remove this comment to see the full error message
 import request from 'utils/store/request';
 import stringify from 'fast-json-stable-stringify';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Shared/font' or its c... Remove this comment to see the full error message
 import font from 'sections/Shared/font';
 import { useTranslation } from 'react-i18next';
@@ -64,23 +55,11 @@ export default function SearchScreen({
     }, [search])
   );
   return (
-
-
-
     <ScrollView
       contentContainerStyle={{ width: 600, maxWidth: "100%", alignItems: "stretch", flexDirection: "column", alignSelf: "center", padding: 4 }}
       style={{ flex: 1, backgroundColor: theme.page.bg }}>
-
-
-
       <View style={{ padding: 4, width: "100%" }}>
-
-
-
         <Card noPad cardStyle={{ flexDirection: "row", backgroundColor: "#fff", alignItems: "stretch" }}>
-
-
-
           <TextInput
             onSubmitEditing={() => setSearch(value)}
 
@@ -94,63 +73,21 @@ export default function SearchScreen({
           />
         </Card>
       </View>
-
-
-
       <View style={{ padding: 4 }}>
-
-
-
         <Card noPad>
-
-
-
           <View>
-
-
-
             {search.length < 3 && <Text allowFontScaling={false} style={{ textAlign: "center", ...font("bold"), fontSize: 16, color: theme.page_content.fg, marginVertical: 4 }}>Type in your Username</Text>}
-
-
-
             {search.length >= 3 && !users?.data?.users && <View style={{ height: 100, justifyContent: "center", alignItems: "center" }}>
-
-
-
               <ActivityIndicator size={32} color={theme.page_content.fg} />
             </View>}
-
-
-
             {users?.data?.users?.length === 0 && <Text allowFontScaling={false} style={{ textAlign: "center", ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{t('search:empty')}</Text>}
-
-
-
             {users?.data?.users?.slice?.(0, 20)?.map?.((i: any) => <TouchableRipple onPress={() => navigation.navigate('CompetitionAuth', { username: i.username })}>
-
-
-
               <View key={i.clan_id} style={{ padding: 4, flexDirection: "row", alignItems: "center" }}>
-
-
-
                 <Image style={{ height: 24, width: 24, marginRight: 8, marginLeft: 4, borderRadius: 12 }} source={{ uri: i.avatar ?? `https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(i.user_id).toString(36)}.png` }} />
-
-
-
                 <View style={{ flex: 1 }}>
-
-
-
                   <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 16, color: theme.page_content.fg }}>{i.username}</Text>
-
-
-
                   <Text allowFontScaling={false} style={{ ...font("bold"), fontSize: 12, color: theme.page_content.fg }}>#{i.user_id}</Text>
                 </View>
-
-
-
                 <MaterialCommunityIcons size={24} name="chevron-right" color={theme.page_content.fg} />
               </View>
             </TouchableRipple>)}

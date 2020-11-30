@@ -1,11 +1,6 @@
 
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var { retrieve, request } = require("../util");
-
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'db'.
 var db = require("../util/db");
 function g(a: any) {
@@ -122,20 +117,11 @@ module.exports = {
         params: { user_id, game_id = 1 },
         db
       }: any) {
-
-
-
         // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         var month = games[game_id].month;
-
-
-
         // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         var year = games[game_id].year;
         var token = await retrieve(db, { user_id: 125914, teaken: false }, 60);
-
-
-
         // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         var tasks = games[game_id].tasks
 
@@ -176,14 +162,8 @@ module.exports = {
             break;
           }
         }
-
-
-
         // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
         captures = captures.filter(i => i.captured_at.startsWith(year + '-' + month))
-
-
-
         // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
         deploys = deploys.filter(i => i.deployed_at.startsWith(year + '-' + month))
         for (var capture of captures) {
@@ -192,21 +172,12 @@ module.exports = {
         for (var deploy of deploys) {
           deploy.location = await geocoder.reverse(deploy.latitude, deploy.longitude);
         }
-
-
-
         // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
         captures = captures.filter(i => (Number(i.latitude) === 0 && Number(i.longitude) === 0) || (i.location && i.location.admin1 && i.location.admin1.name === "Quebec"))
-
-
-
         // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
         deploys = deploys.filter(i => (Number(i.latitude) === 0 && Number(i.longitude) === 0) || (i.location && i.location.admin1 && i.location.admin1.name === "Quebec"))
 
         for (let task of tasks) {
-
-
-
           // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           output[task.id] = (output[task.id] || 0) + task.function({ cap: captures, dep: deploys });
         }

@@ -1,9 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import stringify from 'fast-json-stable-stringify';
 
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'from' or its corresponding typ... Remove this comment to see the full error message
 import FROM from 'from';
 
@@ -37,9 +34,6 @@ var pagination = {
     }
   }
 }
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/User/Clan/Data' or it... Remove this comment to see the full error message
 import ClanProgressConverter from 'sections/User/Clan/Data';
 var converter = {
@@ -76,9 +70,6 @@ async function makeRequest(getState: any, dispatch: any, pageInput: any, force: 
         // Request Data
         if (page.pagination) {
           var dataArray = [];
-
-
-
           // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           for (var i = 0; i < 15 && (!dataArray[0] || pagination[page.pagination].hasMore(dataArray[dataArray.length - 1])); i++) {
             var reqformData = new FormData();
@@ -92,9 +83,6 @@ async function makeRequest(getState: any, dispatch: any, pageInput: any, force: 
             if(da?.data) loop = 10;
             dataArray.push(da);
           }
-
-
-
           // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           data = pagination[page.pagination].addAll(dataArray);
         } else {
@@ -110,9 +98,6 @@ async function makeRequest(getState: any, dispatch: any, pageInput: any, force: 
           if(data?.data) loop = 10;
         }
         if (page.converter) {
-
-
-
           // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           data = { data: converter[page.converter](data?.data) };
         }
@@ -163,9 +148,6 @@ var addRequest_ = (page: any) => ({
   page: page
 })
 var addRequest = (page: any) => async (dispatch: any, getState: any) => {
-
-
-
   // @ts-expect-error ts-migrate(2554) FIXME: Expected 4 arguments, but got 3.
   makeRequest(getState, dispatch, page);
   dispatch(addRequest_(page));

@@ -1,13 +1,8 @@
 
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'Expo'.
 const { Expo } = require('expo-server-sdk');
 
 // Create a new Expo SDK client
-
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'expo'.
 let expo = new Expo();
 

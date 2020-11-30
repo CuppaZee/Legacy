@@ -37,34 +37,19 @@ export function Dropdown({
   const [open, setOpen] = React.useState(false);
   const [size, onLayout] = useComponentSize();
   return (
-
-
-
     <Menu
       visible={open}
       onDismiss={() => setOpen(false)}
       anchor={
-
-
-
         <TextInput
           style={style}
           right={
-
-
-
             <TextInput.Icon onPress={() => setOpen(true)} name="chevron-down" />
           }
           mode={mode}
           value={
-
-
-
             // @ts-expect-error ts-migrate(2339) FIXME: Property 'props' does not exist on type 'never'.
             [].concat(children).find((i) => i.props.value === selectedValue)
-
-
-
               // @ts-expect-error ts-migrate(2339) FIXME: Property 'props' does not exist on type 'never'.
               ?.props.label ?? selectedValue
           }
@@ -76,22 +61,13 @@ export function Dropdown({
             value,
             onLayout
           }: any) => (
-
-
-
             <TouchableWithoutFeedback
               onPress={enabled === false ? undefined : () => setOpen(true)}
             >
-
-
-
               <View
                 style={{ paddingLeft: 14, display: "flex", flexDirection: "row", alignSelf: "stretch", flex: 1, alignItems: "center" }}
                 onLayout={onLayout}
               >
-
-
-
                 <Text style={{fontSize:16}}>{value}</Text>
               </View>
             </TouchableWithoutFeedback>
@@ -106,32 +82,17 @@ export function Dropdown({
         width: size?.width,
       }}
     >
-
-
-
       <ScrollView style={{ maxHeight: 400 }}>
         {[].concat(children).map((item) => (
-
-
-
           <Menu.Item
             style={itemStyle}
-
-
-
             // @ts-expect-error ts-migrate(2339) FIXME: Property 'props' does not exist on type 'never'.
             disabled={item.props.value === selectedValue}
             onPress={() => {
-
-
-
               // @ts-expect-error ts-migrate(2339) FIXME: Property 'props' does not exist on type 'never'.
               onValueChange(item.props.value);
               setOpen(false);
             }}
-
-
-
             // @ts-expect-error ts-migrate(2339) FIXME: Property 'props' does not exist on type 'never'.
             title={item.props.label}
           />

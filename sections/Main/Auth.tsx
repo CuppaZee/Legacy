@@ -7,20 +7,11 @@ import { IconButton, Button } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
 import * as AuthSession from 'expo-auth-session';
 import { useNavigation } from '@react-navigation/native';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/store' or its correspond... Remove this comment to see the full error message
 import s from 'utils/store';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Shared/Config' or its... Remove this comment to see the full error message
 import Oconfig from 'sections/Shared/Config';
 import { useTranslation } from "react-i18next";
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'from' or its corresponding typ... Remove this comment to see the full error message
 import FROM from 'from';
 var config_main = {
@@ -78,97 +69,46 @@ export default function AuthScreen () {
   React.useEffect(() => {
     if (response) {
       (async function() {
-
-
-
         // @ts-expect-error ts-migrate(2339) FIXME: Property 'params' does not exist on type 'AuthSess... Remove this comment to see the full error message
         if(!response.params || !response.params.teaken) return setLoading(false);
         var x = {};
-
-
-
         // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         x[response.params.user_id] = {
-
-
-
           // @ts-expect-error ts-migrate(2339) FIXME: Property 'params' does not exist on type 'AuthSess... Remove this comment to see the full error message
           username: response.params.username,
-
-
-
           // @ts-expect-error ts-migrate(2339) FIXME: Property 'params' does not exist on type 'AuthSess... Remove this comment to see the full error message
           teaken: response.params.teaken
         }
-
-
-
         // @ts-expect-error ts-migrate(2339) FIXME: Property 'params' does not exist on type 'AuthSess... Remove this comment to see the full error message
         var y = await fetch(`https://server.cuppazee.app/auth/get/v2?teaken=${encodeURIComponent(response.params.teaken)}&user_id=${encodeURIComponent(response.params.user_id)}&from=${encodeURIComponent(FROM)}`)
-
-
-
         // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         x[response.params.user_id].token = (await y.json()).data;
         dispatch(login(x));
         addUser({
-
-
-
           // @ts-expect-error ts-migrate(2339) FIXME: Property 'params' does not exist on type 'AuthSess... Remove this comment to see the full error message
           user_id: response.params.user_id,
-
-
-
           // @ts-expect-error ts-migrate(2339) FIXME: Property 'params' does not exist on type 'AuthSess... Remove this comment to see the full error message
           username: response.params.username
         });
         setLoading(false);
-
-
-
         // @ts-expect-error ts-migrate(2339) FIXME: Property 'params' does not exist on type 'AuthSess... Remove this comment to see the full error message
         setRedirect(response.params.username);
       })()
     }
   }, [response]);
-
-
-
   // @ts-expect-error ts-migrate(2339) FIXME: Property 'replace' does not exist on type 'Navigat... Remove this comment to see the full error message
   if(redirect) setTimeout(()=>navigation.replace('UserDetails',{username:redirect}),500)
-
-
-
   return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page_content.bg}}>{
-
-
-
     loading ? <View style={{flex:1,justifyContent:"center",alignItems:"center"}}><ActivityIndicator size="large" color={theme.page_content.fg} /></View> : <>
-
-
-
       <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
-
-
-
       <Text allowFontScaling={false} style={{color:theme.page_content.fg,fontSize:24}}>{hasLogin?t('auth:add'):t('auth:welcome')}</Text>
-
-
-
         <Text allowFontScaling={false} style={{color:theme.page_content.fg,fontSize:16}}>{t('auth:tap')}</Text>
-
-
-
         <IconButton
           size={32}
           onPress={() => {
             setLoading(true);
             promptAsync({
               useProxy: Oconfig.useProxy,
-
-
-
               // @ts-expect-error ts-migrate(2345) FIXME: Argument of type '{ useProxy: any; redirectUri: st... Remove this comment to see the full error message
               redirectUri: config.redirect_uri
             });

@@ -7,25 +7,16 @@ import { useSelector } from "react-redux";
 
 import { View, Image } from "react-native";
 import { FAB, Snackbar } from "react-native-paper";
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/icon' or its correspo... Remove this comment to see the full error message
 import getIcon from "utils/db/icon";
 import * as Location from "expo-location";
 
 const MapMarker = React.memo(function (props: any) {
   const [tracksViewChanges, setTracksViewChanges] = React.useState(true);
-
-
-
   return <Marker
     tracksViewChanges={tracksViewChanges}
     coordinate={{ latitude: props.lat, longitude: props.lng }}
   >
-
-
-
     <Image
       onLoad={()=>setTracksViewChanges(false)}
       fadeDuration={0}
@@ -67,13 +58,7 @@ export default function Map(props: any) {
     }
   }
   return (
-
-
-
     <View style={{ flex: 1 }}>
-
-
-
       <MapView
         ref={mapRef}
         initialRegion={center}
@@ -91,9 +76,6 @@ export default function Map(props: any) {
           })
         }}
       >
-
-
-
         {(props.circles||[]).map((i: any) => <Circle
           key={i.id}
           center={{ latitude: i.lat, longitude: i.lng }}
@@ -101,14 +83,8 @@ export default function Map(props: any) {
           fillColor={i.fill}
           strokeColor={i.stroke}
         />)}
-
-
-
         {props.markers?.map((i: any) => <MapMarker key={i.id} {...i} />)}
       </MapView>
-
-
-
       <FAB
         style={{ position: "absolute", top: 8, left: 8, backgroundColor: theme.navigation.bg }}
         color={theme.navigation.fg}
@@ -116,9 +92,6 @@ export default function Map(props: any) {
         icon={true ? "crosshairs-gps" : "crosshairs"}
         onPress={getLocation}
       />
-
-
-
       <Snackbar
         visible={locError}
         onDismiss={() => setLocError(false)}

@@ -16,20 +16,11 @@ module.exports = {
         var usernames = {};
         var data = {};
         for(let member of d._members) {
-
-
-
           // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           usernames[member.user_id] = member.username;
           for(let task in d.total[member.user_id]||[]) {
-
-
-
             // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
             if(!data[task]) data[task] = {};
-
-
-
             // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
             data[task][member.user_id] = d.total[member.user_id][task];
           }

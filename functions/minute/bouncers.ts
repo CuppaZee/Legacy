@@ -1,19 +1,11 @@
 
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var { retrieve, request } = require("../util");
 var { get } = require('../util/db');
 var radix64 = require('radix-64')();
 var spherical = require('spherical');
-
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'config'.
 var config = require('../config.json');
-
-
-
 // @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'fetch'.
 var fetch = require('node-fetch');
 var notification = require('../util/notification');
@@ -44,9 +36,6 @@ module.exports = {
           request('munzee/specials/bouncers',       {}, token.access_token),
           request('munzee/specials/retired',        {}, token.access_token),
         ]);
-
-
-
         // @ts-expect-error ts-migrate(2698) FIXME: Spread types may only be created from object types... Remove this comment to see the full error message
         var body = [].concat(...data).map(i=>({...i,hash:generateBouncerHash(Number(i.mythological_munzee?i.mythological_munzee.munzee_id:i.munzee_id), i.special_good_until)}));
         await db.collection('data').doc('bouncer_notifications').set({list:body.map(i=>i.hash).join('')});

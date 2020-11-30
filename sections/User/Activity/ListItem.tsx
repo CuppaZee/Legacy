@@ -6,14 +6,8 @@ import { Paragraph, Text, TouchableRipple, useTheme, Surface } from 'react-nativ
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/icon' or its correspo... Remove this comment to see the full error message
 import getIcon from 'utils/db/icon';
-
-
-
 
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useMoment' or its ... Remove this comment to see the full error message
 import useMoment from 'utils/hooks/useMoment';
@@ -37,9 +31,6 @@ var creatures = {
 var hostIcon = (icon: any) => {
   var host = icon.match(/\/([^\/\.]+?)_?(?:virtual|physical)?_?host\./)?.[1];
   if (!host) return null;
-
-
-
   // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   return getIcon(creatures[host] ?? host);
 }
@@ -70,57 +61,21 @@ export default function ActivityListItem({
     }
   }
   return (
-
-
-
     <View style={{ padding: 4 }}>
-
-
-
       <Surface>
-
-
-
         {[acti,...(acti.subCaptures || [])].map((act,index,list)=><TouchableRipple key={act.key} onPress={() => { navigation.navigate('MunzeeDetails', { username: act.creator, code: act.code }) }}>
-
-
-
           <View style={styles.row}>
-
-
-
             {/* @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message */}
             <View style={{ width: 60, paddingVertical: 4, marginRight: 4, backgroundColor: theme.dark ? null : colors[act.type]?.bg, borderRightWidth: theme.dark ? 2 : 0, borderRightColor: colors[act.type]?.bg, justifyContent: "center", alignItems: "center" }}>
-
-
-
               {/* @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message */}
               <Text style={{ textAlign: "center", color: colors[act.type]?.[theme.dark?'bg':'fg'] }}>{(act.points) > 0 && '+'}{(Number(act.points)) || t('activity:none')}</Text>
-
-
-
               <View style={{ position: "relative" }}>
-
-
-
                 <Image style={{ height: 32, width: 32 }} source={getIcon(act.pin)} />
-
-
-
                 {hostIcon(act.pin) && <Image style={{ height: 24, width: 24, position: "absolute", right: -5, bottom: -4 }} source={hostIcon(act.pin)} />}
               </View>
             </View>
-
-
-
             <View style={{ flex: 1 }}>
-
-
-
               {index===0&&<Text style={{ fontWeight: "100", fontSize: 12 }} numberOfLines={1} ellipsizeMode="middle">
-
-
-
                 {/* @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message */}
                 {({
                   capon_reno: () => t('activity:user_renovated', { user: act.capper }),
@@ -130,17 +85,8 @@ export default function ActivityListItem({
                   deploy: () => t('activity:you_deployed')
                 })[act.type + (isRenovation(act) ? "_reno" : "")]?.() || "What"}
               </Text>}
-
-
-
               {!isRenovation(act) && <Text style={{ fontSize: 14 }} numberOfLines={1} ellipsizeMode="middle">{act.name}</Text>}
-
-
-
               {!isRenovation(act) && <Text style={{ fontWeight: "100", fontSize: 12 }} numberOfLines={1} ellipsizeMode="middle">
-
-
-
                 {/* @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message */}
                 {({
                   capon: () => t('activity:by_you'),
@@ -149,13 +95,7 @@ export default function ActivityListItem({
                 })[act.type]?.() || "What"}
               </Text>}
             </View>
-
-
-
             <View style={{ padding: 8 }}>
-
-
-
               <Paragraph allowFontScaling={false}>{moment(act.time).format('LT')}</Paragraph>
             </View>
           </View>

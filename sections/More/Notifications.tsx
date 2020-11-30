@@ -7,27 +7,15 @@ import { Button, IconButton, Switch } from 'react-native-paper';
 import { useDimensions } from '@react-native-community/hooks'
 
 import { useSelector, useDispatch } from "react-redux";
-
-
-
 import Card from '../Shared/Card';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/store' or its correspond... Remove this comment to see the full error message
 import s from "utils/store";
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'sections/Shared/font' or its c... Remove this comment to see the full error message
 import font from 'sections/Shared/font';
 import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
 import { useTranslation } from 'react-i18next';
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'from' or its corresponding typ... Remove this comment to see the full error message
 import FROM from 'from';
 
@@ -56,14 +44,8 @@ export default function SettingsScreen({
           alert('Failed to get push token for push notification!');
           return;
         }
-
-
-
         // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'token'.
         token = await Notifications.getExpoPushTokenAsync();
-
-
-
         // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'token'.
         setPush(token);
       } else {
@@ -94,9 +76,6 @@ export default function SettingsScreen({
       body: JSON.stringify({
         token: push,
         from: FROM,
-
-
-
         // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'token'.
         access_token: token
       })
@@ -115,9 +94,6 @@ export default function SettingsScreen({
       body: JSON.stringify({
         data: JSON.stringify(data),
         from: FROM,
-
-
-
         // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'token'.
         access_token: token
       })
@@ -135,64 +111,25 @@ export default function SettingsScreen({
     }
   },[push]);
 
-
-
-
   if(Platform.OS==="web") return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
-
-
-
     <Text>{t('notifications:unavailable_web')}</Text>
   </View>
 
-
-
-
   if(push===false||data===null) return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
-
-
-
     <Text>{t('notifications:unavailable_generic')}</Text>
   </View>
 
-
-
-
   if(push===null||data===false) return <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:theme.page.bg}}>
-
-
-
     <ActivityIndicator size="large" color={theme.page.fg} />
   </View>
   return (
-
-
-
     <View style={{ flex: 1, backgroundColor: theme.page.bg, justifyContent: 'center', alignItems: 'center' }}>
-
-
-
       <View style={{flex: 1, width:width>800?"50%":"100%",padding:4}}>
-
-
-
         <Card noPad>
-
-
-
           <ScrollView contentContainerStyle={{padding:8}}>
             {/* <Text allowFontScaling={false} style={{color:theme.page_content.fg,...font()}}>Push: {push||'Disabled'}</Text> */}
-
-
-
             <View style={{flexDirection:"row",alignItems:"center"}}>
-
-
-
               <Text allowFontScaling={false} style={{color:theme.page_content.fg,...font("bold")}}>{t('notifications:munzee_blog')}</Text>
-
-
-
               {/* @ts-expect-error ts-migrate(2339) FIXME: Property 'munzee_blog' does not exist on type 'tru... Remove this comment to see the full error message */}
               <Switch color={theme.page_content.fg} value={data.munzee_blog} onValueChange={(value: any) => setData({
 
@@ -202,9 +139,6 @@ export default function SettingsScreen({
                 munzee_blog: value
               })} />
             </View>
-
-
-
             <Button mode="contained" color="green" onPress={saveCurrentOptions}>{t('notifications:save')}</Button>
           </ScrollView>
         </Card>

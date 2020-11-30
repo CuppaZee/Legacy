@@ -10,9 +10,6 @@ import { useNavigation } from '@react-navigation/native';
 import Oconfig from './Config';
 import { useTranslation } from "react-i18next";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
-
-
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useAPIRequest' or ... Remove this comment to see the full error message
 import useAPIRequest from 'utils/hooks/useAPIRequest';
 var config_pear = {
@@ -73,19 +70,10 @@ export default function AuthScreen({
   React.useEffect(() => {
     if (response) {
       (async function () {
-
-
-
         // @ts-expect-error ts-migrate(2339) FIXME: Property 'params' does not exist on type 'AuthSess... Remove this comment to see the full error message
         if (!response.params || !response.params.teaken) return setStatus("invalid_response");
-
-
-
         // @ts-expect-error ts-migrate(2339) FIXME: Property 'params' does not exist on type 'AuthSess... Remove this comment to see the full error message
         if(response.params.status) {
-
-
-
           // @ts-expect-error ts-migrate(2345) FIXME: Argument of type 'string' is not assignable to par... Remove this comment to see the full error message
           setStatus(`success_${response.params.status}`);
         } else {
@@ -101,13 +89,7 @@ export default function AuthScreen({
 
   // @ts-expect-error ts-migrate(2367) FIXME: This condition will always return 'false' since th... Remove this comment to see the full error message
   if (status === "loading") {
-
-
-
     return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page_content.bg }}>
-
-
-
       <ActivityIndicator size="large" color={theme.page_content.fg} />
     </View>
   }
@@ -115,61 +97,25 @@ export default function AuthScreen({
 
   // @ts-expect-error ts-migrate(2367) FIXME: This condition will always return 'false' since th... Remove this comment to see the full error message
   if (status === "success" || status === "success_reopt" || status === "success_already") {
-
-
-
     return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page_content.bg }}>
-
-
-
       {status !== "success_already" && <>
-
-
-
         <Image source={data?.team === "pine" ? require('assets/pine.png') : require('assets/pear.png')} style={{ height: 128, width: 128, borderRadius: 8, marginBottom: 16 }} />
-
-
-
         {/* @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'. */}
         <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", textAlign: "center", color: theme.page_content.fg }}>{response.params.username} {status === "success" ? "has joined" : "is in"} Team {data?.team.toUpperCase() || '???¿??'}</Text>
       </>}
-
-
-
       {/* @ts-expect-error ts-migrate(2339) FIXME: Property 'replace' does not exist on type 'Navigat... Remove this comment to see the full error message */}
       <Button mode="contained" onPress={()=>navigation.replace('CompetitionHome')}>Return to Competition Dashboard</Button>
     </View>
   }
-
-
-
   return <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.page_content.bg }}>
-
-
-
     {!!status && <>
-
-
-
       {/* @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message */}
       {statusIcons[status]==="loading"?<ActivityIndicator size="large" color={theme.page_content.fg} />:<MaterialCommunityIcons name={statusIcons[status]} color={theme.page.fg} size={48} />}
-
-
-
       {/* @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message */}
       <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", textAlign: "center", color: theme.page_content.fg }}>{statusMessages[status]}</Text>
     </>}
-
-
-
     <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 24 }}>Opt-in to Competition</Text>
-
-
-
     <Text allowFontScaling={false} style={{ color: theme.page_content.fg, fontSize: 16 }}>{t('auth:tap')}</Text>
-
-
-
     <IconButton
 
 
@@ -183,9 +129,6 @@ export default function AuthScreen({
         setStatus("waiting_for_login");
         promptAsync({
           useProxy: Oconfig.useProxy,
-
-
-
           // @ts-expect-error ts-migrate(2345) FIXME: Argument of type '{ useProxy: boolean; redirectUri... Remove this comment to see the full error message
           redirectUri: config.redirect_uri
         });

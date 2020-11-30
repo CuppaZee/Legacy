@@ -1,6 +1,4 @@
 
-
-
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var {retrieve,request} = require("../util");
 
@@ -32,9 +30,6 @@ module.exports = {
             }
             undeployed = undeployed.concat(und?und.munzees:[]);
         }
-
-
-
         // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
         undeployed = Object.entries(undeployed.map(i => i.pin_icon.match(/\/([^./]+).png/)[1]).reduce((obj, item) => {
             obj[item] = (obj[item] || 0) + 1;

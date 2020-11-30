@@ -9,9 +9,6 @@ module.exports = function (db: any) {
     .onSnapshot((querySnapshot: any) => {
       teams = querySnapshot.docs.map((i: any) => i.data());
       hasData = true;
-
-
-
       // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
       waiting.forEach(i=>i());
       waiting = [];
