@@ -38,7 +38,7 @@ import LoadingPage from './sections/Shared/LoadingPage';
 import * as Sentry from './sentry';
 
 
-import privateConfig from './private.config';
+import privateConfig from './sentry.config';
 
 if (!__DEV__) Sentry.init({
   dsn: privateConfig.sentry_dsn,

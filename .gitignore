@@ -15,7 +15,7 @@ web-report/
 
 *.backup.js
 
-/private.config.ts
+sentry.config.ts
 /*.ps1
 yarn-error.log
 
