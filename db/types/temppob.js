@@ -414,5 +414,13 @@ module.exports = [
     "state": "bouncer",
     "lands_on": [],
     "category": "christmas_2020"
+  },
+  {
+    "name": "Cybersaurus Rex",
+    "icon": "cybersaurusrex",
+    "id": "null_cybersaurusrex",
+    "state": "bouncer",
+    "lands_on": [],
+    "category": "christmas_2020"
   }
 ]

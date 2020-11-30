@@ -1863,4 +1863,11 @@ export default {
       description: 'Added Walla EggZ Seasonal Special Bouncers to CuppaZee\'s Munzee Types Database. (Sorry, I know this is really late)'
     }
   ],
+  334: [
+    {
+      image: 'cybersaurusrex',
+      title: 'Added Cybersaurus Rex Bouncer',
+      description: 'Added Cybersaurus Rex Temporary Bouncer to CuppaZee\'s Munzee Types Database.'
+    }
+  ],
 }
