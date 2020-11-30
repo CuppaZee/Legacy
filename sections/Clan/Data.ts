@@ -1,4 +1,7 @@
 // import Clan from 'utils/db/clan';
+
+
+
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/config' or its correspon... Remove this comment to see the full error message
 import config from 'utils/config';
 var Clan = {
@@ -349,6 +352,9 @@ export function ClanRequirementsConverter(req: any, rewards: any) {
   var output = {};
   var individual = {};
   var group = {};
+
+
+
   // @ts-expect-error ts-migrate(2339) FIXME: Property 'battle' does not exist on type '{}'.
   output.battle = {
     game_id: Number(req?.battle?.game_id),
@@ -358,8 +364,14 @@ export function ClanRequirementsConverter(req: any, rewards: any) {
     lb_total_task_id: Number(req?.battle?.lb_total_task_id),
     title: rewards?.battle?.title || "Some Month"
   }
+
+
+
   // @ts-expect-error ts-migrate(2339) FIXME: Property 'levels' does not exist on type '{}'.
   output.levels = [];
+
+
+
   // @ts-expect-error ts-migrate(2339) FIXME: Property 'requirements' does not exist on type '{}... Remove this comment to see the full error message
   output.requirements = {};
   for (let level of Object.keys(req?.data?.levels ?? {}).slice(0, 5)) {
@@ -373,10 +385,19 @@ export function ClanRequirementsConverter(req: any, rewards: any) {
       id: Number(level)
     }
     for (let requirement of [...level_d.individual.map((i: any) => { i.individual = true; return i; }), ...level_d.group]) {
+
+
+
       // @ts-expect-error ts-migrate(2339) FIXME: Property 'requirements' does not exist on type '{}... Remove this comment to see the full error message
       if (!output.requirements[requirement.task_id]) {
+
+
+
         // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         var rd = Clan[requirement.task_id] || {};
+
+
+
         // @ts-expect-error ts-migrate(2339) FIXME: Property 'requirements' does not exist on type '{}... Remove this comment to see the full error message
         output.requirements[requirement.task_id] = {
           task_id: rd.task_id ?? requirement.task_id,
@@ -387,50 +408,98 @@ export function ClanRequirementsConverter(req: any, rewards: any) {
           meta: rd.meta
         }
       }
+
+
+
       // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       if (requirement.individual && !Clan[requirement.task_id]?.hidden?.includes(`u${req?.battle?.game_id}`)) {
+
+
+
         // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         individual[requirement.task_id] = 1;
+
+
+
         // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         level_data["individual"][requirement.task_id] = requirement.amount;
       // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       } else if (!requirement.individual && !Clan[requirement.task_id]?.hidden?.includes(`g${req?.battle?.game_id}`)) {
+
+
+
         // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         group[requirement.task_id] = 1;
+
+
+
         // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         level_data["group"][requirement.task_id] = requirement.amount;
       }
     }
+
+
+
     // @ts-expect-error ts-migrate(2339) FIXME: Property 'levels' does not exist on type '{}'.
     output.levels.push(level_data);
   }
+
+
+
   // @ts-expect-error ts-migrate(2339) FIXME: Property 'requirements' does not exist on type '{}... Remove this comment to see the full error message
   var reqls = Object.keys(output.requirements).map(Number);
   reqls.sort((a, b) => a - b);
+
+
+
   // @ts-expect-error ts-migrate(2339) FIXME: Property 'order' does not exist on type '{}'.
   output.order = {
     individual: [
+
+
+
       // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       ...reqls.filter(i => individual[i] && !group[i]),
+
+
+
       // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       ...reqls.filter(i => individual[i] && group[i]),
     ],
     group: [
+
+
+
       // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       ...reqls.filter(i => group[i] && !individual[i]),
+
+
+
       // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       ...reqls.filter(i => group[i] && individual[i]),
     ],
     requirements: [
+
+
+
       // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       ...reqls.filter(i => individual[i] && !group[i]),
+
+
+
       // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       ...reqls.filter(i => individual[i] && group[i]),
+
+
+
       // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       ...reqls.filter(i => group[i] && !individual[i])
     ],
     rewards: rewards?.order
   }
+
+
+
   // @ts-expect-error ts-migrate(2339) FIXME: Property 'rewards' does not exist on type '{}'.
   output.rewards = rewards?.rewards ?? {};
   return output;
@@ -487,6 +556,9 @@ export function ClanStatsConverter(clan: any, stats: any, shadow: any, game_id: 
         }
       };
     }
+
+
+
     // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
     data.requirements[requirement.task_id] = {
       users: {

@@ -1,3 +1,6 @@
+
+
+
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var { retrieve, request } = require("../util");
 var { get, g: getIcon } = require("../util/db");
@@ -40,6 +43,9 @@ module.exports = {
           }
           archived = archived.concat(und ? und.munzees : []);
         }
+
+
+
         // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
         archived = archived.map(i => i.capture_type_id).reduce((obj, item) => {
           obj[item] = (obj[item] || 0) + 1;
@@ -65,8 +71,14 @@ module.exports = {
             amount: Number(i.munzees) - (archived[i.capture_type_id] || 0)
           }
         })
+
+
+
         // @ts-expect-error ts-migrate(2362) FIXME: The left-hand side of an arithmetic operation must... Remove this comment to see the full error message
         var recent_cap = Object.entries(capture_dates).sort((a, b) => new Date(b[0]) - new Date(a[0]))[0][0];
+
+
+
         // @ts-expect-error ts-migrate(2362) FIXME: The left-hand side of an arithmetic operation must... Remove this comment to see the full error message
         var recent_dep = Object.entries(deploy_dates).sort((a, b) => new Date(b[0]) - new Date(a[0]))[0][0];
         var this_month = moment().tz('America/Chicago').date() < 15;

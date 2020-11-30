@@ -1,5 +1,8 @@
 var fs = require('fs');
 var path = require('path');
+
+
+
 // @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'points'.
 var points = require('./points');
 
@@ -137,6 +140,9 @@ munzees = munzees.concat(require('./types/evolution.json').map((i: any) => ({
 
   inventory: i.inventory,
   ...(i.extra || {}),
+
+
+
 
   // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   points: i.points || `evo_${{
@@ -905,6 +911,9 @@ for (var year of [2020, 2019, 2018, 2017, 2016, 2015]) {
   categories.push({
     name: year + " Seasonal Specials",
     id: "seasonal_" + year,
+
+
+
     // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
     icon: categories.slice().sort((a, b) => (b.seasonal || {}).starts - (a.seasonal || {}).starts).find(i => i.parents.includes("seasonal_" + year)).icon,
     parents: priority == 10 ? ["seasonal", "root"] : ["seasonal"],
@@ -931,6 +940,9 @@ munzees = munzees.concat(require('./types/credits.js').map((i: any) => ({
   cuppazeeExtra: i.cuppazeeExtra,
   from_file: "./types/credits.js"
 })))
+
+
+
 // @ts-expect-error ts-migrate(2345) FIXME: Argument of type '{ name: string; id: string; icon... Remove this comment to see the full error message
 categories.push({
   name: "Credits",
@@ -949,21 +961,36 @@ for (var munzee of munzees) {
     for (let host of munzee.bouncer.lands_on) {
       if (typeof host === "string") {
         if (host.startsWith(':')) {
+
+
+
           // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'x' implicitly has an 'any' type.
           lands_on = lands_on.concat((munzees.filter(x => x.category == host.slice(1)) || []).map(i => i.id));
+
+
+
           // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'x' implicitly has an 'any' type.
           if (munzees.filter(x => x.category == host.slice(1)).length === 0) {
             console.log(`${colors.bg.Red}  ${colors.Reset} No Munzees for ${colors.fg.Yellow}lands_on${colors.Reset}[${colors.fg.Yellow}${index}${colors.Reset}] for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
           }
         } else {
+
+
+
           // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
           lands_on.push((munzees.find(i => i.icon === host && i.redirect === undefined) || {}).id)
+
+
+
           // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
           if (!munzees.find(i => i.icon === host && i.redirect === undefined)) {
             console.log(`${colors.bg.Red}  ${colors.Reset} No Munzee for ${colors.fg.Yellow}bouncer${colors.Reset}.${colors.fg.Yellow}lands_on${colors.Reset}[${colors.fg.Yellow}${index}${colors.Reset}] for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
           }
         }
       } else if (typeof host === "function") {
+
+
+
         // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
         lands_on = lands_on.concat((munzees.filter(host) || []).map(i => i.id));
         if (munzees.filter(host).length === 0) {
@@ -972,6 +999,9 @@ for (var munzee of munzees) {
       }
       index++;
     }
+
+
+
     // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
     munzee.bouncer.lands_on = lands_on.filter(i => i !== undefined && i !== null);
   }
@@ -981,21 +1011,36 @@ for (var munzee of munzees) {
     for (let host of munzee.scatter.lands_on) {
       if (typeof host === "string") {
         if (host.startsWith(':')) {
+
+
+
           // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'x' implicitly has an 'any' type.
           lands_on = lands_on.concat((munzees.filter(x => x.category == host.slice(1)) || []).map(i => i.id));
+
+
+
           // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'x' implicitly has an 'any' type.
           if (munzees.filter(x => x.category == host.slice(1)).length === 0) {
             console.log(`${colors.bg.Red}  ${colors.Reset} No Munzees for ${colors.fg.Yellow}lands_on${colors.Reset}[${colors.fg.Yellow}${index}${colors.Reset}] for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
           }
         } else {
+
+
+
           // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
           lands_on.push((munzees.find(i => i.icon === host && i.redirect === undefined) || {}).id)
+
+
+
           // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
           if (!munzees.find(i => i.icon === host && i.redirect === undefined)) {
             console.log(`${colors.bg.Red}  ${colors.Reset} No Munzee for ${colors.fg.Yellow}bouncer${colors.Reset}.${colors.fg.Yellow}lands_on${colors.Reset}[${colors.fg.Yellow}${index}${colors.Reset}] for ${colors.fg.Cyan}${munzee.name}${colors.Reset} from ${colors.fg.Green}${munzee.from_file}${colors.Reset}`)
           }
         }
       } else if (typeof host === "function") {
+
+
+
         // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
         lands_on = lands_on.concat((munzees.filter(host) || []).map(i => i.id));
         if (munzees.filter(host).length === 0) {
@@ -1004,6 +1049,9 @@ for (var munzee of munzees) {
       }
       index++;
     }
+
+
+
     // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
     munzee.scatter.lands_on = lands_on.filter(i => i !== undefined && i !== null);
   }
@@ -1057,11 +1105,17 @@ for (var munzee of munzees) {
   delete munzee.completion;
 }
 for (var munzee of munzees) {
+
+
+
   // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
   munzee.can_host = munzees.filter(i => i.bouncer && (i.bouncer.lands_on || []).includes(munzee.id)).map(i => i.id);
   if (munzee.can_host.length == 0) munzee.can_host = undefined;
   // munzee.cid = munzee.icon.replace(/[^a-zA-Z0-9]/g, '').replace(/munzee$/, '');
 }
+
+
+
 
 // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'a' implicitly has an 'any' type.
 munzees.sort((a, b) => (a.id || 0) - (b.id || 0));
@@ -1070,6 +1124,9 @@ categories.sort((a, b) => (b.priority || 0) - (a.priority || 0));
 
 var typekeys = {};
 var idkeys = {};
+
+
+
 
 // @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'g'.
 function g(icon: any) {
@@ -1083,9 +1140,15 @@ for (var munzee_index in munzees) {
   var munzee = munzees[munzee_index];
   munzees[munzee_index].x = Number(munzee_index);
   munzees[munzee_index].i = g(munzee.icon);
+
+
+
   // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   idkeys[munzee.id] = Number(munzee_index);
   for (var icon of [munzee.icon, ...(munzee.alt_icons || [])]) {
+
+
+
     // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
     typekeys[g(icon)] = Number(munzee_index);
   }
@@ -1095,6 +1158,9 @@ console.log(`${colors.bg.Green}${colors.fg.Black} Types Checked - Writing Types 
 
 fs.writeFileSync(path.resolve(__dirname,'output/types.json'), JSON.stringify(munzees, null, 2))
 fs.writeFileSync(path.resolve(__dirname,'output/types.min.json'), JSON.stringify(munzees))
+
+
+
 // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
 fs.writeFileSync(path.resolve(__dirname,'output/types.supermin.json'), JSON.stringify(munzees.map(i => (i.event === "custom" ? [i.name,i.icon,i.id,i.x,i.i] : i))))
 // {

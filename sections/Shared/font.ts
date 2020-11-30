@@ -1,4 +1,4 @@
-// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
+
 import {Platform} from 'react-native';
 export default function font(weight: any) {
   var f = 'Roboto'
@@ -6,6 +6,9 @@ export default function font(weight: any) {
     fontWeight: (weight||400).toString()
   }
   return {
+
+
+
     // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
     fontFamily: {
       100: `${f}_100Thin`,

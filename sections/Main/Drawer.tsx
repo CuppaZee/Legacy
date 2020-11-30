@@ -1,25 +1,40 @@
-// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
+
 import * as React from 'react'
-// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
+
 import { View, Platform, Linking, Image } from 'react-native';
 import { DrawerContentScrollView } from '@react-navigation/drawer';
+
+
+
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/icon' or its correspo... Remove this comment to see the full error message
 import getIcon from 'utils/db/icon';
-// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
+
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Text, TouchableRipple, Avatar, Menu, Divider, Button, Surface, useTheme, Provider as PaperProvider, TextInput } from 'react-native-paper'
+
+
+
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useSearch' or its ... Remove this comment to see the full error message
 import useSearch from 'utils/hooks/useSearch';
 import { useDimensions } from '@react-native-community/hooks';
+
+
+
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useAPIRequest' or ... Remove this comment to see the full error message
 import { useAPIRequestWithoutNav } from 'utils/hooks/useAPIRequest';
 
 
 import Fuse from 'fuse.js'
-// @ts-expect-error ts-migrate(2732) FIXME: Cannot find module 'utils/db/types.json'. Consider... Remove this comment to see the full error message
+
+
+
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/types.json' or its co... Remove this comment to see the full error message
 import types from 'utils/db/types.json';
-// @ts-expect-error ts-migrate(2732) FIXME: Cannot find module 'utils/db/categories.json'. Con... Remove this comment to see the full error message
+
+
+
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/categories.json' or i... Remove this comment to see the full error message
 import categories from 'utils/db/categories.json';
 import useSetting from '../../utils/hooks/useSetting';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -33,39 +48,68 @@ function DrawerItem(props: any) {
   const SurfaceOrView = props.focused ? Surface : View;
   const theme = useTheme();
   const [isHovered, setIsHovered] = React.useState(false);
-  // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
   return <View
     onMouseEnter={() => setIsHovered(true)}
     onMouseLeave={() => setIsHovered(false)}
+
+
+    // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
     style={props.onPress ? { transitionDuration: '150ms', opacity: isHovered ? 0.5 : 1, cursor: "pointer" } : {}}>
-    {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
     <TouchableRipple onPress={props.onPress} style={{
       marginRight: props.mini ? 4 : 8, borderRadius: props.mini ? 48 : 4, opacity: 1 ?? props.style?.opacity ?? (props.focused ? 1 : 1),
       marginLeft: (props.mini ? 4 : 8) + ((props.indent || 0) * 4)
     }}>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <SurfaceOrView style={{
         padding: 4, borderRadius: props.mini ? 48 : 4, elevation: props.focused ? 8 : 0, flexDirection: "row", alignItems: "center", justifyContent: props.mini ? "center" : "flex-start"
       }}>
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         {props.image ? (props.noAvatar ? <Image style={{ height: 32, width: 32 }} source={props.image} /> : <Avatar.Image size={32} source={props.image} />) : <Avatar.Icon size={32} icon={props.icon} />}
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         {!props.mini && <>
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
           <View style={{ width: 4 }}></View>
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
           {typeof props.label == "string" ? <View>
-            {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
             <Text numberOfLines={1} ellipsizeMode="tail" allowFontScaling={false} style={{ fontSize: 14, fontWeight: "500" }}>{props.label}</Text>
-            {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
             {props.subtitle && <Text numberOfLines={1} ellipsizeMode="tail" allowFontScaling={false} style={{ fontSize: 12, fontWeight: "500", opacity: 0.8 }}>{props.subtitle}</Text>}
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
           </View> : <props.label color={theme.colors.text} />}
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
           <View style={{ flex: 1}} />
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
           {props.rightImage ? (props.noAvatar ? <Image style={{ height: 32, width: 32 }} source={props.rightImage} /> : <Avatar.Image size={32} source={props.rightImage} />) : (props.rightIcon && <Avatar.Icon size={32} icon={props.rightIcon} />)}
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
           {props.right && <props.right />}
         </>}
       </SurfaceOrView>
@@ -83,7 +127,9 @@ function SearchItem ({
   var nav = props.navigation;
   if(i.user_id) {
     // User
-    // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
     return <DrawerItem
       key={i.username}
       {...userItemProps}
@@ -103,7 +149,9 @@ function SearchItem ({
   }
   if(i.clan_id) {
     // Clan
-    // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
     return <DrawerItem
       key={i.name}
       {...userItemProps}
@@ -121,7 +169,9 @@ function SearchItem ({
       }
     />
   }
-  // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
   return <DrawerItem
     key={i.name??"Hello"}
     {...userItemProps}
@@ -162,8 +212,13 @@ function SearchView({
     mini: userMini
   }
   const theme = useTheme();
-  // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
   return <View style={{ flex: 1, borderLeftWidth: 1, borderLeftColor: theme.colors.disabled }}>
+
+
+
     {/* @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'. */}
     {list.slice(0, 20).filter(i=>i.score < 0.7).map?.(({item:i}) => <SearchItem i={i} userItemProps={userItemProps} navigation={props.navigation} />)}
   </View>;
@@ -207,9 +262,13 @@ function UserDrawerContent({
   }
   const theme = useTheme();
   return (
-    // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
     <View style={{ flex: 1, borderLeftWidth: 1, borderLeftColor: theme.colors.disabled }}>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <DrawerItem
         {...userItemProps}
         style={{ marginVertical: 0, opacity: 1 }}
@@ -219,14 +278,18 @@ function UserDrawerContent({
           setUserDrawer(false)
         }}
       />
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <DrawerItem
         {...userItemProps}
         style={{ marginVertical: 0, opacity: 1 }}
         image={{ uri: `https://munzee.global.ssl.fastly.net/images/avatars/ua${Number(user_id).toString(36)}.png` }}
         label={userDrawer.username}
       />
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       {userPages.map?.(p => <DrawerItem
         key={p.title}
         {...userItemProps}
@@ -242,11 +305,17 @@ function UserDrawerContent({
         })}
         rightIcon={p.new ? "star" : null}
       />)}
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       {data?.clan && <>
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         <Divider style={{ marginVertical: 4 }} />
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         <DrawerItem
           {...userItemProps}
           style={{ marginVertical: 0 }}
@@ -262,9 +331,13 @@ function UserDrawerContent({
           }
         />
       </>}
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <Divider style={{ marginVertical: 4 }} />
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       {categories.filter((i: any) => i.parents.includes('root') && !i.hidden).map?.((p: any) => <DrawerItem
         key={p.name}
         {...userItemProps}
@@ -281,9 +354,13 @@ function UserDrawerContent({
         })
         }
       />)}
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <Divider style={{ marginVertical: 4 }} />
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       {userChallenges.map?.(p => <DrawerItem
         key={p.title}
         {...userItemProps}
@@ -356,73 +433,137 @@ export default function CustomDrawerContent(props: any) {
   }
   const theme = useTheme();
   return (
-    // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
     <PaperProvider theme={theme}>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <Surface style={{ backgroundColor: theme.colors.background, flex: 1, elevation: 0, width: w }}>
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         <DrawerContentScrollView showsVerticalScrollIndicator={!mini} {...props}>
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
           {!userMini && <View style={{ paddingVertical: 4, paddingHorizontal: 8 }}>
-            {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
+            {/* @ts-expect-error ts-migrate(2322) FIXME: Type '{ icon: string; }' is not assignable to type... Remove this comment to see the full error message */}
             <TextInput value={search} mode="outlined" dense={true} left={<TextInput.Icon icon="magnify" />} onChangeText={(val: any) => setSearch(val)} label="Search" returnKeyLabel="Search" returnKeyType="search" />
           </View>}
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
           {!userMini && <Surface style={{ backgroundColor: "#aa0000", elevation: 4, margin: 4, padding: 4, flexDirection: "row", alignItems: "center" }}>
-            {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
             <MaterialCommunityIcons color="#ffffff" name="alert" size={24} style={{margin: 4}} />
-            {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
             <View>
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", color: "#ffffff" }}>PRIVATE BETA BUILD</Text>
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               <Text allowFontScaling={false} style={{ fontSize: 12, fontWeight: "bold", color: "#ffffff" }}>Do NOT share screenshots</Text>
             </View>
           </Surface>}
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
           {query.length > 1 ? <SearchView query={query} {...props} /> : <View style={{ flexDirection: "row", flexGrow: 1 }}>
-            {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
             {(!userDrawer || width >= 320) && <View style={userDrawer ? { width: 48 } : { flex: 1 }}>
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               {!mini && Platform.OS === "web" && globalThis?.navigator?.userAgent?.match?.(/Android/) && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 8 }}>
-                {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                 <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", opacity: 0.8 }}>The CuppaZee App is now on Google Play</Text>
-                {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                 <Text allowFontScaling={false} style={{ fontSize: 12, fontWeight: "bold", opacity: 0.8 }}>Download it now!</Text>
               </View>}
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               {!mini && Platform.OS === "web" && globalThis?.navigator?.userAgent?.match?.(/iPhone|iPad|iPod/) && <View style={{ paddingTop: 8, paddingBottom: 4, paddingLeft: 8 }}>
-                {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                 <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold", opacity: 0.8 }}>The CuppaZee App is now on the App Store</Text>
-                {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                 <Text allowFontScaling={false} style={{ fontSize: 12, fontWeight: "bold", opacity: 0.8 }}>Download it now!</Text>
               </View>}
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               {top.map?.(i => <DrawerItem
+
+
+
                 // @ts-expect-error ts-migrate(2339) FIXME: Property 'title' does not exist on type 'never'.
                 key={i.title}
                 {...itemProps}
+
+
+
                 // @ts-expect-error ts-migrate(2339) FIXME: Property 'disabled' does not exist on type 'never'... Remove this comment to see the full error message
                 style={{ marginVertical: 0, opacity: i.disabled ? 0.6 : 1 }}
+
+
+
                 // @ts-expect-error ts-migrate(2339) FIXME: Property 'page' does not exist on type 'never'.
                 focused={route.name == i.page}
+
+
+
                 // @ts-expect-error ts-migrate(2339) FIXME: Property 'icon' does not exist on type 'never'.
                 icon={i.icon}
+
+
+
                 // @ts-expect-error ts-migrate(2339) FIXME: Property 'title' does not exist on type 'never'.
                 label={i.title}
+
+
+
                 // @ts-expect-error ts-migrate(2339) FIXME: Property 'disabled' does not exist on type 'never'... Remove this comment to see the full error message
                 onPress={i.disabled ? null : (i.link ? () => Linking.openURL(i.page) : () => nav.reset({
                   index: 1,
                   routes: [
+
+
+
                     // @ts-expect-error ts-migrate(2339) FIXME: Property 'page' does not exist on type 'never'.
                     { name: '__primary', params: { screen: i.page } },
                   ],
                 }))
                 }
               />)}
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               <Divider style={{ marginVertical: 4 }} />
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               <DrawerItem
                 {...itemProps}
                 icon="format-list-bulleted"
@@ -435,9 +576,13 @@ export default function CustomDrawerContent(props: any) {
                   ],
                 })}
               />
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               {userBookmarks?.slice?.(0, showMoreUser ? Infinity : userBookmarks.length > 6 ? 5 : 6)?.filter?.((i: any) => i)?.map?.((i: any, index: any) => <>
-                {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                 <DrawerItem
                   key={`user_${i.user_id}`}
                   {...itemProps}
@@ -457,7 +602,9 @@ export default function CustomDrawerContent(props: any) {
                   }}
                 />
               </>)}
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               {userBookmarks.length > 6 && <DrawerItem
                 {...itemProps}
                 style={{ marginVertical: 0 }}
@@ -466,9 +613,13 @@ export default function CustomDrawerContent(props: any) {
                 label={showMoreUser ? t(`common:show_less`) : t(`common:show_more`)}
                 onPress={() => setShowMoreUser(!showMoreUser)}
               />}
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               <Divider style={{ marginVertical: 4 }} />
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               <DrawerItem
                 {...itemProps}
                 icon="format-list-bulleted"
@@ -481,7 +632,9 @@ export default function CustomDrawerContent(props: any) {
                   ],
                 })}
               />
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               <DrawerItem
                 {...itemProps}
                 icon="playlist-check"
@@ -494,7 +647,9 @@ export default function CustomDrawerContent(props: any) {
                   ],
                 })}
               />
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               {clanBookmarks?.slice?.(0, showMoreClan ? Infinity : clanBookmarks.length > 6 ? 5 : 6)?.filter?.((i: any) => i)?.map?.((i: any) => <DrawerItem
                 key={`clan_${i.clan_id}`}
                 {...itemProps}
@@ -510,7 +665,9 @@ export default function CustomDrawerContent(props: any) {
                 })
                 }
               />)}
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               {clanBookmarks.length > 6 && <DrawerItem
                 {...itemProps}
                 style={{ marginVertical: 0 }}
@@ -519,9 +676,13 @@ export default function CustomDrawerContent(props: any) {
                 label={showMoreClan ? t(`common:show_less`) : t(`common:show_more`)}
                 onPress={() => setShowMoreClan(!showMoreClan)}
               />}
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               <Divider style={{ marginVertical: 4 }} />
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               {pages.map?.(i => <DrawerItem
                 key={i.title}
                 {...itemProps}
@@ -537,17 +698,27 @@ export default function CustomDrawerContent(props: any) {
                 })
                 }
               />)}
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               <Divider style={{ marginVertical: 4 }} />
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               {more.map?.(i => <DrawerItem
                 key={i.title}
                 {...itemProps}
+
+
+
                 // @ts-expect-error ts-migrate(2339) FIXME: Property 'disabled' does not exist on type '{ titl... Remove this comment to see the full error message
                 style={{ marginVertical: 0, opacity: i.disabled ? 0.6 : 1 }}
                 focused={route.name == i.page}
                 icon={i.icon}
                 label={i.title}
+
+
+
                 // @ts-expect-error ts-migrate(2339) FIXME: Property 'disabled' does not exist on type '{ titl... Remove this comment to see the full error message
                 onPress={i.disabled ? null : (i.link ? () => Linking.openURL(i.page) : () => nav.reset({
                   index: 1,
@@ -557,12 +728,16 @@ export default function CustomDrawerContent(props: any) {
                 }))
                 }
               />)}
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               <Menu
                 visible={donateOpen}
                 onDismiss={() => setDonateOpen(false)}
                 anchor={
-                  // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
                   <DrawerItem
                     {...itemProps}
                     style={{ marginVertical: 0 }}
@@ -572,35 +747,53 @@ export default function CustomDrawerContent(props: any) {
                   />
                 }
               >
-                {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                 <View style={{ paddingHorizontal: 4, alignItems: "stretch" }}>
-                  {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                   <Button style={{ marginHorizontal: 4 }} color="#F96854" mode="contained" onPress={() => Linking.openURL('https://patreon.com/CuppaZee')} icon="patreon">{t('app_info:patreon_donate')}</Button>
-                  {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                   <Button style={{ marginHorizontal: 4, marginTop: 4 }} color="#29abe0" mode="contained" onPress={() => Linking.openURL('https://ko-fi.com/sohcah')} icon="coffee">{t('app_info:kofi_donate')}</Button>
-                  {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                   <Menu
                     visible={paypalOpen}
                     onDismiss={() => setPaypalOpen(false)}
                     anchor={
-                      // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
                       <Button style={{ marginHorizontal: 4, marginTop: 4 }} color="#009CDE" mode="contained" onPress={() => setPaypalOpen(true)} icon="paypal">{t('app_info:paypal_donate')}</Button>
                     }
                   >
-                    {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                     <View style={{ paddingHorizontal: 8 }}>
-                      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                       <Text>{t('app_info:paypal_donate_desc')}</Text>
                     </View>
                   </Menu>
                 </View>
               </Menu>
-              {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
               <Menu
                 visible={helpOpen}
                 onDismiss={() => setHelpOpen(false)}
                 anchor={
-                  // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
                   <DrawerItem
                     {...itemProps}
                     style={{ marginVertical: 0 }}
@@ -610,29 +803,47 @@ export default function CustomDrawerContent(props: any) {
                   />
                 }
               >
-                {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                 <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
-                  {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                   <View style={{ flexDirection: "row" }}>
-                    {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                     <Text allowFontScaling={false} style={{ fontSize: 16, fontWeight: "bold" }}>{t('common:contact.facebook')} </Text>
-                    {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                     <TouchableRipple onPress={() => Linking.openURL('https://m.me/CuppaZee')}><Text allowFontScaling={false} style={{ color: theme.colors.text == "#000000" ? 'blue' : 'lightblue', fontSize: 16, fontWeight: "bold" }}>@CuppaZee</Text></TouchableRipple>
                   </View>
-                  {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
                   <Text allowFontScaling={false} style={{ fontSize: 16 }}>{t('common:contact.email')}</Text>
                 </View>
               </Menu>
             </View>}
-            {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
             {userDrawer && <UserDrawerContent userDrawer={userDrawer} setUserDrawer={setUserDrawer} mini={miniProp} {...props} />}
           </View>}
         </DrawerContentScrollView>
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         {width > 1000 && <>
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
           <Divider />
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
           <DrawerItem
             {...userItemProps}
             style={{ marginVertical: 0, opacity: 1 }}

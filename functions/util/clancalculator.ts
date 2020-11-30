@@ -1,8 +1,14 @@
+
+
+
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'db'.
 var db = require("./db");
 function g(a: any) {
   return db.get("icon", a.pin || a.pin_icon || a.icon || "") || {};
 }
+
+
+
 // @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'points'.
 function points(a: any, b: any) {
   return a + Number(b.points_for_creator !== undefined ? b.points_for_creator : b.points);
@@ -45,6 +51,9 @@ var tasks = {
       arc,
       no_reduce
     }: any) => {
+
+
+
       // @ts-expect-error ts-migrate(2339) FIXME: Property 'personal' does not exist on type 'string... Remove this comment to see the full error message
       return [...dep, ...arc].filter(i => !g(i).personal).reduce((a, b) => {
         if (b.archived_at) {
@@ -413,8 +422,14 @@ var all_tasks = {
 }
 var current_month = 92;
 
+
+
+
 // @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'calculate'.
 function calculate(data = [], no_reduce: any) {
+
+
+
   // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   var current_tasks = all_tasks[current_month];
   var all = {
@@ -426,18 +441,36 @@ function calculate(data = [], no_reduce: any) {
   }
   var output = {};
   for (var day of data) {
+
+
+
     // @ts-expect-error ts-migrate(2339) FIXME: Property 'captures' does not exist on type 'never'... Remove this comment to see the full error message
     all.cap = all.cap.concat(day.captures)
+
+
+
     // @ts-expect-error ts-migrate(2339) FIXME: Property 'captures_on' does not exist on type 'nev... Remove this comment to see the full error message
     all.con = all.con.concat(day.captures_on)
+
+
+
     // @ts-expect-error ts-migrate(2339) FIXME: Property 'deploys' does not exist on type 'never'.
     all.dep = all.dep.concat(day.deploys)
+
+
+
     // @ts-expect-error ts-migrate(2339) FIXME: Property 'archived' does not exist on type 'never'... Remove this comment to see the full error message
     all.arc = all.arc.concat(day.archived)
   }
   for (var task of current_tasks) {
+
+
+
     // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
     output[task] = tasks[task].function(all)
+
+
+
     // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
     if (!no_reduce && typeof output[task] === "object") output[task] = Object.keys(output[task]).length;
   }

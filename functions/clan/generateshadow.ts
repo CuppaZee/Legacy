@@ -1,5 +1,11 @@
+
+
+
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'request'.
 var { request, retrieve } = require('../util');
+
+
+
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'config'.
 var config = require('../config.json');
 var Airtable = require('airtable');
@@ -118,6 +124,9 @@ module.exports = {
         db,
         params: { game_id, group = "cuppaclans" }
       }: any) {
+
+
+
         // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         const clansdata = groupsdata[group];
         var base = new Airtable({apiKey: config.airtable_key}).base(clansdata.base_id);
@@ -148,6 +157,9 @@ module.exports = {
               group_admins: clansdata.admins,
             }
           };
+
+
+
           // @ts-expect-error ts-migrate(2339) FIXME: Property 'name' does not exist on type '{ group: a... Remove this comment to see the full error message
           if(shadow_name) final._details.name = shadow_name;
           if(d) {

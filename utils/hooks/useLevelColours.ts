@@ -23,7 +23,7 @@ function a(x: any,d: any) {
     bg: x
   }
 }
-// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
+
 import { useSelector } from 'react-redux';
 import stringify from 'fast-json-stable-stringify';
 import { useTheme } from 'react-native-paper';

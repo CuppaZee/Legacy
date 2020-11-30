@@ -1,10 +1,13 @@
-// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
+
 import React from 'react'
 import { GoogleMap, LoadScript, Marker, MarkerClusterer, StandaloneSearchBox, Circle } from '@react-google-maps/api';
-// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
+
 import { useSelector } from 'react-redux';
 import { FAB, Snackbar } from 'react-native-paper';
 import * as Location from 'expo-location';
+
+
+
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/icon' or its correspo... Remove this comment to see the full error message
 import getIcon from 'utils/db/icon';
 
@@ -14,17 +17,23 @@ const libraries = ["places"];
 
 function MarkerRenderer(props: any) {
   if(props.markers?.length>60) return (
-    // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
     <MarkerClusterer
       averageCenter
       enableRetinaIcons
       gridSize={60}
       >
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       {(clusterer: any) => props.markers.map((i: any, index: any) => <Marker clusterer={clusterer} key={index} icon={{ url: getIcon(i.icon)?.uri||getIcon(i.icon), scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />)}
     </MarkerClusterer>
   );
-  // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
   return props.markers.map((i: any, index: any) => <Marker key={index} icon={{ url: getIcon(i.icon)?.uri||getIcon(i.icon), scaledSize: { height: 48, width: 48 } }} position={{ lat: i.lat, lng: i.lng }} />);
 }
 
@@ -36,23 +45,33 @@ function WebMap(props: any) {
   async function getLocation() {
     try {
       var loc = await Location.getCurrentPositionAsync({})
+
+
+      // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
       map.panTo({
         lat: loc.coords.latitude,
         lng: loc.coords.longitude
       });
+
+
+      // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
       map.setZoom(10);
     } catch(e) {
       setLocError(true);
     }
   }
   return (
-    // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
     <LoadScript
       googleMapsApiKey={key}
       version={version}
       libraries={libraries}
     >
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <GoogleMap
         zoom={1}
         center={props.center||center}
@@ -75,18 +94,35 @@ function WebMap(props: any) {
         onLoad={(m: any) => setMap(m)}
         onCenterChanged={()=>{
           if(map) {
+
+
+            // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
             if(center.lat!==map.center.lat()||center.lng!==map.center.lng()) setCenter({
+
+
+              // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
               lat: map.center.lat(),
+
+
+              // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
               lng: map.center.lng()
             })
             props.onRegionChange?.({
+
+
+              // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
               latitude: map.center.lat(),
+
+
+              // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
               longitude: map.center.lng()
             })
           }
         }}
       >
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         <FAB
           style={{position: "absolute", top: 8, left: 8, backgroundColor: theme.navigation.bg}}
           color={theme.navigation.fg}
@@ -94,23 +130,35 @@ function WebMap(props: any) {
           icon={true?"crosshairs-gps":"crosshairs"}
           onPress={getLocation}
         />
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         <FAB
           style={{position: "absolute", bottom: 22, right: 8, backgroundColor: theme.navigation.bg}}
           color={theme.navigation.fg}
           small
           icon={"minus"}
+
+
+          // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
           onPress={()=>map.setZoom(map.getZoom()-1)}
         />
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         <FAB
           style={{position: "absolute", bottom: 70, right: 8, backgroundColor: theme.navigation.bg}}
           color={theme.navigation.fg}
           small
           icon={"plus"}
+
+
+          // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
           onPress={()=>map.setZoom(map.getZoom()+1)}
         />
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         <Snackbar
           visible={locError}
           onDismiss={()=>setLocError(false)}
@@ -118,9 +166,13 @@ function WebMap(props: any) {
         >
           Couldn't retrieve location
         </Snackbar>
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         <MarkerRenderer {...props} />
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         {props.circles?.map((i: any) => <Circle
           radius={i.radius}
           center={{ lat: i.lat, lng: i.lng }}

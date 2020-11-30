@@ -1,9 +1,21 @@
+
+
+
 // @ts-expect-error ts-migrate(2300) FIXME: Duplicate identifier 'fetch'.
 var fetch = require("node-fetch");
+
+
+
 // @ts-expect-error ts-migrate(2403) FIXME: Subsequent variable declarations must have the sam... Remove this comment to see the full error message
 var crypto = require("crypto");
+
+
+
 // @ts-expect-error ts-migrate(2403) FIXME: Subsequent variable declarations must have the sam... Remove this comment to see the full error message
 var { URLSearchParams } = require("url");
+
+
+
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'config'.
 var config = require('../config.json');
 var firebase = require("firebase-admin");
@@ -38,6 +50,9 @@ module.exports = {
             }),
           });
           var data = await d.json();
+
+
+
           // @ts-expect-error ts-migrate(2339) FIXME: Property 'randomBytes' does not exist on type 'Cry... Remove this comment to see the full error message
           var teaken = crypto.randomBytes(20).toString("hex");
           var user_d = await fetch("https://api.munzee.com/user", {
@@ -71,6 +86,9 @@ module.exports = {
           );
   
   
+
+
+
           // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           var platform = {
             android: "🤖",
@@ -79,9 +97,15 @@ module.exports = {
           }[state_data.platform]||`[${state_data.platform}] `;
           var {list} = (await db.collection('data').doc('user_list').get()).data();
           if(list.includes(username)){
+
+
+
               // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'discordmessage'.
               discordmessage = `${platform}🔁 ${username} | ${list.length} Users [#${list.indexOf(username)+1}]`
           } else {
+
+
+
               // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'discordmessage'.
               discordmessage = `${platform}🆕 ${username} | User #${list.length+1}`;
               db.collection('data').doc('user_list').update({
@@ -93,6 +117,9 @@ module.exports = {
             {
               method: "POST",
               body: new URLSearchParams({
+
+
+
                 // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'discordmessage'.
                 content: discordmessage
               })

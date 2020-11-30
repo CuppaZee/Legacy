@@ -1,5 +1,11 @@
+
+
+
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'retrieve'.
 var {retrieve,request,mhq} = require("../util");
+
+
+
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'db'.
 var db = require("../util/db");
 function g(a: any) {
@@ -34,6 +40,9 @@ module.exports = {
         }
         return {
           status: "success",
+
+
+
           // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
           data: all.filter(i=>g(i).scatter)
         }

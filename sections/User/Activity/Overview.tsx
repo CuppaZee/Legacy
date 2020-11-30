@@ -1,18 +1,30 @@
-// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
+
 import * as React from 'react';
-// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
+
 import { View, Image, StyleSheet } from 'react-native';
 import { Menu, TouchableRipple, Button, Text, Title, Subheading, Caption, Paragraph } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
+
+
+
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/types' or its corresp... Remove this comment to see the full error message
 import getType from 'utils/db/types';
+
+
+
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/db/icon' or its correspo... Remove this comment to see the full error message
 import getIcon from 'utils/db/icon';
 
+
+
+
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useMoment' or its ... Remove this comment to see the full error message
 import useMoment from 'utils/hooks/useMoment';
+
+
+
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'utils/hooks/useAPIRequest' or ... Remove this comment to see the full error message
 import useAPIRequest from 'utils/hooks/useAPIRequest';
 
@@ -47,6 +59,9 @@ var creatures = {
 var hostIcon = (icon: any) => {
   var host = icon.match(/\/([^\/\.]+?)_?(?:virtual|physical)?_?host\./)?.[1];
   if (!host) return null;
+
+
+
   // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   return getIcon(creatures[host] ?? host);
 }
@@ -59,41 +74,70 @@ function OverviewItem({
   var [open, setOpen] = React.useState(false);
   var nav = useNavigation();
   var { t } = useTranslation();
-  // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
   return <Menu
     visible={open}
     onDismiss={() => setOpen(false)}
     anchor={
-      // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
       <TouchableRipple onPress={() => setOpen(true)}>
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         <View key={i.icon} style={{ padding: 2, alignItems: "center" }}>
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
           <Image style={{ height: small ? 24 : 32, width: small ? 24 : 32 }} source={getIcon(i[0])} />
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
           <Paragraph>{i[1].total}</Paragraph>
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
           {hostIcon(i[0]) && <Image style={{ height: small ? 16 : 24, width: small ? 16 : 24, position: "absolute", right: small ? -3 : -5, bottom: small ? 18 : 15 }} source={hostIcon(i[0])} />}
         </View>
       </TouchableRipple>
     }
   >
-    {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
     <View style={{ paddingHorizontal: 4, alignItems: "center" }}>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <View>
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         <Image style={{ height: 48, width: 48 }} source={getIcon(i[0])} />
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         {hostIcon(i[0]) && <Image style={{ height: 36, width: 36, position: "absolute", right: -7.5, bottom: -7.5 }} source={hostIcon(i[0])} />}
       </View>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <Title>{i[1].total}x {(getType(i[0]) || { name: i[0].slice(49, -4) }).name}</Title>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <Subheading>{t('activity:point', { count: i[1].points })}</Subheading>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <Button
         mode="contained"
+
+
+
         // @ts-expect-error ts-migrate(2339) FIXME: Property 'push' does not exist on type 'Navigation... Remove this comment to see the full error message
         onPress={() => { setOpen(false); nav.push('DBType', { munzee: i[0].slice(49, -4) }) }}>
         {t('db:type_info')}
@@ -136,44 +180,70 @@ export default function ({
   }
   if (!data || !data.captures) return null;
   return (
-    // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+
+
+
     <View>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <Title style={styles.center}>
         {t('activity:point', { count: [...data.captures, ...data.deploys, ...data.captures_on].reduce(sumPoints, 0) })}
       </Title>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <Subheading style={styles.center}>
         {t('activity:capture', { count: data.captures.filter((i: any) => !isRenovation(i)).length })} - {t('activity:point', { count: data.captures.filter((i: any) => !isRenovation(i)).reduce(sumPoints, 0) })}
       </Subheading>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <View style={styles.row}>
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         {count(data.captures.filter((i: any) => !isRenovation(i)), "pin").map(i => <OverviewItem key={i[0]} total={count(data.captures.filter((i: any) => !isRenovation(i)), "pin").length} i={i} />)}
       </View>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <Subheading style={styles.center}>
         {t('activity:deploy', { count: data.deploys.length })} - {t('activity:point', { count: data.deploys.reduce(sumPoints, 0) })}
       </Subheading>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <View style={styles.row}>
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         {count(data.deploys, "pin").map(i => <OverviewItem key={i[0]} total={count(data.deploys, "pin").length} i={i} />)}
       </View>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <Subheading style={styles.center}>
         {t('activity:capon', { count: data.captures_on.filter((i: any) => !isRenovation(i)).length })} - {t('activity:point', { count: data.captures_on.filter((i: any) => !isRenovation(i)).reduce(sumPoints, 0) })}
       </Subheading>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       <View style={styles.row}>
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
         {count(data.captures_on.filter((i: any) => !isRenovation(i)), "pin").map(i => <OverviewItem key={i[0]} total={count(data.captures_on.filter((i: any) => !isRenovation(i)), "pin").length} i={i} />)}
       </View>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       {data.captures.filter((i: any) => isRenovation(i)).length > 0 && <Subheading style={styles.center}>
         {t('activity:renovation', { count: data.captures.filter((i: any) => isRenovation(i)).length })} - {t('activity:point', { count: data.captures.filter((i: any) => isRenovation(i)).reduce(sumPoints, 0) })}
       </Subheading>}
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
+
+
       {data.captures_on.filter((i: any) => isRenovation(i)).length > 0 && <Subheading style={styles.center}>
         {t('activity:renovon', { count: data.captures_on.filter((i: any) => isRenovation(i)).length })} - {t('activity:point', { count: data.captures_on.filter((i: any) => isRenovation(i)).reduce(sumPoints, 0) })}
       </Subheading>}

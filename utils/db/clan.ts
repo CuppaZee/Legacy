@@ -1,4 +1,3 @@
-// @ts-expect-error ts-migrate(2732) FIXME: Cannot find module './types.json'. Consider using ... Remove this comment to see the full error message
 import MunzeeTypes from './types.json';
 var types = MunzeeTypes.map((i: any) => {
   return {

@@ -1,7 +1,13 @@
 const functions = require("firebase-functions");
+
+
+
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'admin'.
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
+
+
+
 // @ts-expect-error ts-migrate(2451) FIXME: Cannot redeclare block-scoped variable 'db'.
 const db = admin.firestore();
 const cors = require("cors")({
@@ -52,6 +58,9 @@ function checkFrom(from: any,route: any) {
 
 var routes = [...require("./user"), ...require("./auth"), ...require("./minute"), ...require("./clan"), ...require("./munzee"), ...require("./bouncers"), ...require("./notifications"), ...require("./map"), ...require("./weekly"), ...require("./competition")];
 
+
+
+
 // @ts-expect-error ts-migrate(2403) FIXME: Subsequent variable declarations must have the sam... Remove this comment to see the full error message
 var x = async (req: any, res: any) => {
   if (disabled.needsLoad) {
@@ -59,10 +68,19 @@ var x = async (req: any, res: any) => {
   }
   const cns = {
     function: '?',
+
+
+
     // @ts-expect-error ts-migrate(2569) FIXME: Type 'IArguments' is not an array type or a string... Remove this comment to see the full error message
     log(){console.log(this.function,...arguments)},
+
+
+
     // @ts-expect-error ts-migrate(2569) FIXME: Type 'IArguments' is not an array type or a string... Remove this comment to see the full error message
     error(){console.error(this.function,...arguments)},
+
+
+
     // @ts-expect-error ts-migrate(2569) FIXME: Type 'IArguments' is not an array type or a string... Remove this comment to see the full error message
     warn(){console.warn(this.function,...arguments)},
   }
@@ -104,6 +122,9 @@ var x = async (req: any, res: any) => {
             executed_in: executed_in(),
           });
       }
+
+
+
       // @ts-expect-error ts-migrate(2345) FIXME: Argument of type 'any' is not assignable to parame... Remove this comment to see the full error message
       if(disabled.paths.includes(use_route.path)) {
         return res
@@ -160,6 +181,9 @@ var x = async (req: any, res: any) => {
           body = req.body;
         }
       } catch (e) {
+
+
+
         // @ts-expect-error ts-migrate(2554) FIXME: Expected 0 arguments, but got 1.
         cns.error(e);
       }
@@ -178,6 +202,9 @@ var x = async (req: any, res: any) => {
             executed_in: executed_in(),
           });
       }
+
+
+
       // @ts-expect-error ts-migrate(2554) FIXME: Expected 0 arguments, but got 1.
       cns.log('Running')
       var response = await use.function({
@@ -188,11 +215,17 @@ var x = async (req: any, res: any) => {
         notificationData,
         teamsData,
       });
+
+
+
       // @ts-expect-error ts-migrate(2554) FIXME: Expected 0 arguments, but got 1.
       cns.log('Finished')
       if (response.norespond) return;
       return res
         .status(
+
+
+
           // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           { success: 200, error: 500 }[response.status] ||
           (response.status ? response.status.code : 500) ||
@@ -201,6 +234,9 @@ var x = async (req: any, res: any) => {
         .send({
           data: response.data,
           error_message: response.error_message,
+
+
+
           // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           status: {
             success: {
@@ -223,6 +259,9 @@ var x = async (req: any, res: any) => {
           executed_in: executed_in(),
         });
     } catch (e) {
+
+
+
       // @ts-expect-error ts-migrate(2554) FIXME: Expected 0 arguments, but got 1.
       cns.error(e);
       return res
