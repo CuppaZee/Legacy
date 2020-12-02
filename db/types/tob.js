@@ -138,5 +138,12 @@ module.exports = [
     "id": 2337,
     "state": "bouncer",
     "lands_on": ["munzee","shamrock",i=>i.elemental,i=>(i.virtual_colors||[]).includes('brown'),i=>(i.virtual_colors||[]).includes('green')]
+  },
+  {
+    "name": "Vikerkaar",
+    "icon": "vikerkaar",
+    "id": "null_vikerkaar",
+    "state": "bouncer",
+    "lands_on": ["earthmystery","firemystery","airmystery","diamond","ruby","aquamarine","topaz","pinkdiamond","virtual_sapphire","virtual_citrine","virtual_onyx","virtual_amethyst","virtual_emerald"]
   }
 ]

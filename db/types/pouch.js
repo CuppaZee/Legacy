@@ -490,5 +490,15 @@ module.exports = [
     "lands_on": ["treehouse","munzee","firemystery","pinkdiamond"],
     "set": "funfinity",
     "points": "funfinity"
+  },
+  {
+    "name": "Tsitriin",
+    "icon": "tsitriin",
+    "id": "null_tsitriin",
+    "state": "bouncer",
+    "funfinity": true,
+    "lands_on": [":virtual","airmystery","virtual_citrine","skyland"],
+    "set": "funfinity",
+    "points": "funfinity"
   }
 ]

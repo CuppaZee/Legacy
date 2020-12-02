@@ -187,5 +187,15 @@
     "name": "Holiday Mailbox",
     "icon": "holidaymailbox",
     "id": "null_holidaymailbox"
+  },
+  {
+    "name": "Santa Letter Holiday Card",
+    "icon": "santaletterholidaycard",
+    "id": "null_santaletterholidaycard"
+  },
+  {
+    "name": "Stamp Holiday Card",
+    "icon": "stampholidaycard",
+    "id": "null_stampholidaycard"
   }
 ]

@@ -1870,4 +1870,35 @@ export default {
       description: 'Added Cybersaurus Rex Temporary Bouncer to CuppaZee\'s Munzee Types Database.'
     }
   ],
+  335: [
+    {
+      image: 'vikerkaar',
+      title: 'Added Vikerkaar and Tsitriin Bouncer',
+      description: 'Added Vikerkaar and Tsitriin Bouncers to CuppaZee\'s Munzee Types Database.'
+    }
+  ],
+  336: [
+    {
+      image: 'santaletterholidaycard',
+      title: 'Holiday Mailbox Day 1',
+      description: 'Added Santa Letter Holiday Card to CuppaZee\'s Munzee Types Database.'
+    }
+  ],
+  337: [
+    {
+      image: 'stampholidaycard',
+      title: 'Holiday Mailbox Day 2',
+      description: 'Added Stamp Holiday Card to CuppaZee\'s Munzee Types Database.'
+    },
+    {
+      image: 'glowinthedarkglasses2020vision',
+      title: 'Added Glow in the Dark Glasses',
+      description: 'Added the new Glow in the Dark Glasses 2020 Vision special to CuppaZee\'s Munzee Types database.'
+    },
+    {
+      image: 'reseller',
+      title: 'Fixed RUM Credits in Inventory',
+      description: 'RUM Credits in the Inventory should now show icons correctly and don\'t say "Unknown Name"'
+    },
+  ],
 }

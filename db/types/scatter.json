@@ -429,5 +429,16 @@
       "duration": 2,
       "standalone": true
     }
+  },
+  {
+    "name": "Pixel Present",
+    "icon": "pixelpresent",
+    "id": "null_pixelpresent",
+    "state": "virtual",
+    "category": "temppob_christmas_2020",
+    "scatter": {
+      "duration": 2,
+      "standalone": true
+    }
   }
 ]

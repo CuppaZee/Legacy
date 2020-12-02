@@ -3,37 +3,55 @@
     "name": "Munzee Madness Reseller",
     "icon": "munzeemadnessreseller",
     "id": 510,
-    "state": "physical"
+    "state": "physical",
+    "extra": {
+      "alt_icons": ["munzeemadness"]
+    }
   },
   {
     "name": "GeoStuff Reseller",
     "icon": "geostuffreseller",
     "id": 511,
-    "state": "physical"
+    "state": "physical",
+    "extra": {
+      "alt_icons": ["geostuff"]
+    }
   },
   {
     "name": "GeoHobbies Reseller",
     "icon": "geohobbiesreseller",
     "id": 512,
-    "state": "physical"
+    "state": "physical",
+    "extra": {
+      "alt_icons": ["geohobbies"]
+    }
   },
   {
     "name": "DDCards Reseller",
     "icon": "ddcardsreseller",
     "id": 513,
-    "state": "physical"
+    "state": "physical",
+    "extra": {
+      "alt_icons": ["ddcards"]
+    }
   },
   {
     "name": "NEGS Reseller",
     "icon": "negsreseller",
     "id": 514,
-    "state": "physical"
+    "state": "physical",
+    "extra": {
+      "alt_icons": ["negs"]
+    }
   },
   {
     "name": "GeoLoggers Reseller",
     "icon": "geologgersreseller",
     "id": 515,
-    "state": "physical"
+    "state": "physical",
+    "extra": {
+      "alt_icons": ["geologgers"]
+    }
   },
   {
     "name": "MM Cocoa Beach Reseller",

@@ -166,6 +166,13 @@ module.exports = [
         "duration": 12,
         "lands_on": [":virtual"]
       },
+      {
+        "name": "Glow in the Dark Glasses",
+        "icon": "glowinthedarkglasses2020vision",
+        "id": 2304,
+        "duration": 12,
+        "lands_on": ["munzee"]
+      },
     ]
   },
   {

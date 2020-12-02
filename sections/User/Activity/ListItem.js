@@ -77,7 +77,9 @@ export default function ActivityListItem({ act: acti, userdata }) {
             </Text>}
           </View>
           <View style={{ padding: 8, flexGrow: 0, paddingLeft: 16, alignContent: 'center', position: "relative", alignItems: "flex-end" }}>
+            {(moment(act.time).tz('America/Chicago').format('DD/MM') !== moment(act.time).format('DD/MM')) && <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "right", fontSize: 10, color: theme.page_content.fg, ...font("bold") }}>{moment(act.time).format('DD/MM')}</Text>}
             <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "right", color: theme.page_content.fg, ...font("bold") }}>{moment(act.time).format('LT')}</Text>
+            <Text allowFontScaling={false} style={{ alignSelf: "stretch", textAlign: "right", fontSize: 10, color: theme.page_content.fg, ...font("bold") }}>Local</Text>
           </View>
         </View>
       </TouchableRipple>)}
