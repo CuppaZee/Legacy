@@ -1,5 +1,5 @@
 # CuppaZee
-![GitHub contributors](https://img.shields.io/github/contributors/CuppaZee/CuppaZee)
+![GitHub contributors](https://img.shields.io/github/contributors/CuppaZee/Legacy)
 
 ### This repo contains 3 Projects
 
