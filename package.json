@@ -45,7 +45,7 @@
     "fast-json-stable-stringify": "^2.1.0",
     "fuse.js": "^6.0.0",
     "i18next": "^19.4.3",
-    "moment": "^2.25.3",
+    "moment": "^2.29.2",
     "moment-timezone": "^0.5.31",
     "react": "16.11.0",
     "react-dom": "16.11.0",
