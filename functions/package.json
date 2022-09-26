@@ -34,7 +34,7 @@
     "offline-geocoder": "^1.0.0",
     "radix-64": "^1.0.4",
     "rss-parser": "^3.9.0",
-    "snyk": "^1.339.2",
+    "snyk": "^1.1012.0",
     "spherical": "^0.2.0",
     "spherical-geometry-js": "^2.0.0"
   },
